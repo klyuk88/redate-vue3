@@ -1,7 +1,10 @@
 <template>
-   <component :is="layout">
+<div class="container">
+     <component :is="layout">
           <router-view/>
   </component>
+</div>
+
 </template>
 
 <script setup>
@@ -18,5 +21,11 @@ const layout = computed(() => {
 
 </script>
 
-<style lang="scss">
+<style lang="sass">
+  .container
+    max-width: 100%
+    padding: 0 40px
+    margin: 0 auto
+
+
 </style>
