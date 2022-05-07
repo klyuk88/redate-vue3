@@ -29,7 +29,7 @@
     padding-bottom: 12px
     border: 1px solid rgba(255, 255, 255, 0.14)
     border-radius: 20px
-    width: 239px
+    // width: 239px
     .image-wrap
         position: relative
         border-radius: 20px

@@ -37,7 +37,6 @@
     border: 1px solid rgba(255, 255, 255, 0.14)
     border-radius: 26px
     position: relative
-    max-width: 456px
     .avatar
         width: 48px
         height: 48px

@@ -66,8 +66,11 @@
     flex-direction: column
     padding-top: 100px
     padding-bottom: 50px
-    position: -webkit-sticky
-    position: sticky
+    position: fixed
+    left: 40px
+    z-index: 20
+    // position: -webkit-sticky
+    // position: sticky
     top: 0
     height: 100vh
 .menu-item
