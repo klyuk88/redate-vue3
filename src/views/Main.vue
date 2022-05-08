@@ -14,7 +14,7 @@
           <div class="title-wrap">
             <h2 class="page-subtitle">Рекомендованные рассылки</h2>
             <a href="#" class="link">Открыть все</a>
-            <a href="#"><img src="@/assets/images/main/recomend-plus.svg" alt="" class="mob-link"></a>
+            <a href="#" class="mob-link"><img src="@/assets/images/main/recomend-plus.svg" alt=""></a>
           </div>
           <div class="slider">
             <Swiper
