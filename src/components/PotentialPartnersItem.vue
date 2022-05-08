@@ -36,6 +36,7 @@
         border: 1px solid rgba(255, 255, 255, 0.14)
         width: 100%
         height: 230px
+        overflow: hidden
         img
             position: absolute
             left: 0

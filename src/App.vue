@@ -26,6 +26,9 @@ const layout = computed(() => {
     max-width: 100%
     padding: 0 40px
     margin: 0 auto
+    @media (max-width: 1200px)
+      max-width: 335px
+      padding: 0
 
 
 </style>

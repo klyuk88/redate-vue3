@@ -69,10 +69,11 @@
     position: fixed
     left: 40px
     z-index: 20
-    // position: -webkit-sticky
-    // position: sticky
-    top: 0
     height: 100vh
+    @media (max-width: 1200px)
+      display: none
+
+
 .menu-item
     width: 56px
     height: 56px

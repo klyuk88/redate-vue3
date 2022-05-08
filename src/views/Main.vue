@@ -2,10 +2,19 @@
   <div class="page-grid">
     <div class="center-col">
       <div class="content">
+
+        <MobileHeader/>
+
+        <div class="mob-warning">
+          <img src="@/assets/images/main/warning-check.svg" alt="" class="icon">
+          <p class="text">Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.</p>
+        </div>
+
         <div class="recommended-mailings">
           <div class="title-wrap">
             <h2 class="page-subtitle">Рекомендованные рассылки</h2>
             <a href="#" class="link">Открыть все</a>
+            <a href="#"><img src="@/assets/images/main/recomend-plus.svg" alt="" class="mob-link"></a>
           </div>
           <div class="slider">
             <Swiper
@@ -19,6 +28,14 @@
               :pagination="{
                 el: '.slider-pagination',
                 type: 'bullets',
+              }"
+              :breakpoints="{
+                320: {
+                  slidesPerView: 1
+                },
+                960: {
+                  slidesPerView: 'auto',
+                }
               }"
             >
               <SwiperSlide>
@@ -49,6 +66,7 @@
         <div class="potential-partners">
           <div class="title-wrap">
             <h2 class="page-subtitle">Потенциальные партнеры</h2>
+            <a href="#" class="btn">Смотреть</a>
             <div class="warning">
               <img
                 src="@/assets/images/main/warning-check.svg"
@@ -171,11 +189,22 @@
               <a class="big-btn" href="#">Начать поиск</a>
             </div>
           </div>
+
+          <!-- Mobile items  -->
+          <div class="mobile-items">
+            <PotrncialPartnerMobile/>
+            <PotrncialPartnerMobile/>
+            <PotrncialPartnerMobile/>
+            <PotrncialPartnerMobile/>
+            <PotrncialPartnerMobile/>
+            <PotrncialPartnerMobile/>
+          </div>
+          <!-- Mobile items end -->
         </div>
       </div>
     </div>
 
-    <div class="rigth-col">
+    <div class="right-col">
       <div class="content">
         <div class="new-send">
           <h3 class="page-subtitle mb-16">Создать новую рассылку</h3>
@@ -312,6 +341,8 @@ import { ref, reactive } from "vue";
 import vSelect from "vue-select";
 import MailingItem from "@/components/MailingItem.vue";
 import PotentialPartnersItem from "@/components/PotentialPartnersItem.vue";
+import PotrncialPartnerMobile from "@/components/PotrncialPartnerMobile.vue";
+import MobileHeader from '@/components/MobileHeader.vue'
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 
@@ -352,16 +383,28 @@ const openSelect = () => {
   display: grid
   grid-template-columns: 1fr 370px
   column-gap: 30px
+  @media screen and (max-width: 1200px)
+    display: block
   .center-col
     overflow: hidden
-    .content
-      max-width: 1300px
+    height: 100vh
+    @media screen and (max-width: 1200px)
+      overflow: visible
+      height: auto
+    > .content
+      max-width: 1380px
       margin: 0 auto
-
+      padding-right: 80px
+      padding: 0
+  .right-col
+    @media screen and (max-width: 1200px)
+      display: none
 .page-subtitle
   font-size: 18px
   color: #fff
   font-weight: 600
+  @media (max-width: 1200px)
+    font-size: 17px
 
 .form-selecet
   margin-bottom: 20px
@@ -421,6 +464,13 @@ const openSelect = () => {
     color: #fff
     opacity: 0.3
     text-direction: underline
+    @media (max-width: 1200px)
+      display: none
+  .mod-link
+    display: none
+    @media (max-width: 1200px)
+      display: block
+
 
 .potential-partners > .title-wrap
   display: flex
@@ -436,8 +486,11 @@ const openSelect = () => {
     padding: 8px 12px
     border-radius: 12px
     border: 1px solid #2B66FB
+    z-index: 1
     @media screen and (max-width: 1500px)
       margin-top: 10px
+    @media screen and (max-width: 1200px)
+      display: none
     .image
       margin-right: 8px
     .text
@@ -452,6 +505,8 @@ const openSelect = () => {
     display: grid
     grid-template-columns: repeat(3, 1fr)
     column-gap: 12px
+    @media (max-width: 1200px)
+      display: none
     .vue-slider-dot-tooltip-inner-top::after
       display: none
     .range
@@ -480,7 +535,7 @@ const openSelect = () => {
   margin-top: 77px
   position: relative
   z-index: 0
-  .shape
+  > .shape
     width: 200px
     height: 200px
     top: 0
@@ -489,7 +544,10 @@ const openSelect = () => {
     background: #2E66F5
     transform: translateX(-80%) translateY(-50%)
     filter: blur(100px)
+    -webkit-filter: blur(100px)
     z-index: -1
+    @media (max-width: 1200px)
+      display: none
   .online-info
     font-size: 14px
     font-weight: 500
@@ -557,6 +615,8 @@ const openSelect = () => {
 
 .potential-partners .slider
   position: relative
+  @media (max-width: 1200px)
+    display: none
   .swiper .swiper-slide
     width: 240px
 
@@ -577,4 +637,56 @@ const openSelect = () => {
       width: 88px
       height: 2px
       background: #fff
+
+.potential-partners > .mobile-items
+  display: none
+  @media (max-width: 1200px)
+    display: block
+
+.mob-warning
+  display: flex
+  align-items: center
+  border: 1px solid #2B66FB
+  padding: 10px 15px
+  display: none
+  margin-bottom: 20px
+  border-radius: 12px
+  gap: 8px
+  z-index: 2
+  position: relative
+  @media (max-width: 1200px)
+    display: flex
+
+.mob-warning > .text
+  font-size: 12px
+  font-weight: 600
+
+.potential-partners .title-wrap
+  position: relative
+
+.potential-partners .title-wrap > .btn
+  width: 90px
+  height: 32px
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 12px
+  color: #2B66FB
+  border: 1px solid #2B66FB
+  border-radius: 12px
+  position: absolute
+  right: 0
+  top: 0
+  text-decoration: none
+  transform: translateY(-20%)
+  display: none
+  @media (max-width: 1200px)
+    display: flex
+
+.recommended-mailings .title-wrap .mob-link
+  display: none
+  @media (max-width: 1200px)
+    display: block
+
+
 </style>

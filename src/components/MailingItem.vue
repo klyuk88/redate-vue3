@@ -37,6 +37,11 @@
     border: 1px solid rgba(255, 255, 255, 0.14)
     border-radius: 26px
     position: relative
+    @media (max-width: 1200px)
+      border: none
+      border-radius: 0
+      width: 100%
+      background: rgba(255, 255, 255, 0.05)
     .avatar
         width: 48px
         height: 48px
@@ -57,19 +62,29 @@
     .titles
         display: flex
         align-items: center
+        @media (max-width: 1200px)
+          flex-direction: column
+          align-items: flex-start
         .title
             margin-right: 8px
             color: #fff
             font-size: 16px
             font-weight: 600
+            @media (max-width: 1200px)
+              font-size: 15px
         .title.city
             opacity: 0.3
+            @media (max-width: 1200px)
+              font-size: 12px
+
         .line
             margin-right: 8px
             background: #fff
             opacity: 0.3
             width: 1px
             height: 18px
+            @media (max-width: 1200px)
+              display: none
 
 .mailing-item .format
     display: flex
@@ -88,5 +103,7 @@
     .time
         font-size: 14px
         color: #fff
+        @media (max-width: 1200px)
+          display: none
 
 </style>
