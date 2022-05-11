@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import SideBar from "@/components/SideBar.vue";
-import MobileSideBar from "@/components/MobileSideBar.vue";
+import SideBar from "@/components/SideBars/SideBar.vue";
+import MobileSideBar from "@/components/SideBars/MobileSideBar.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 
@@ -28,22 +28,28 @@ const mobMenu = computed(() => store.state.mobileMenu);
         padding-left: 130px
         padding-top: 75px
         padding-bottom: 75px
-        width: 100%
+        max-width: 1465px
+        margin: 0 auto
+        box-sizing: content-box
         @media (max-width: 1200px)
             padding-left: 0
             padding-top: 50px
             padding-bottom: 0
             min-height: auto
+            max-width: 335px
+            margin: 0 auto
 
-    > .shape
-        position: absolute
-        bottom: -100px
-        left: -100px
-        width: 300px
-        height: 300px
-        background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%)
-        filter: blur(150px)
-        -webkit-filter: blur(150px)
-        @media (max-width: 1200px)
-            display: none
+.page-content > .shape
+    position: absolute
+    background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%)
+    mask-image: radial-gradient(ellipse 100% 100% at 50% 50%,black 10%,transparent 50%)
+    -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 50%,black 10%,transparent 50%)
+    opacity: 0.3
+    pointer-events: none
+    bottom: -300px
+    left: -300px
+    width: 800px
+    height: 800px
+    @media (max-width: 1200px)
+      display: none
 </style>

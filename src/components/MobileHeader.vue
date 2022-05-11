@@ -42,13 +42,15 @@ const openMobMenu = () => {
 
 .mob-header > .decor-shape
   position: absolute
-  width: 100px
-  height: 100px
-  background: #2965FF
+  width: 200px
+  height: 200px
   left: 50%
   top: 0
-  transform: translateX(-50%)
   z-index: -1
-  filter: blur(70px)
-  -webkit-filter: blur(70px)
+  transform: translate(-50%, -50%)
+  background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%)
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%,black 10%,transparent 50%)
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 50%,black 10%,transparent 50%)
+  opacity: 0.3
+  pointer-events: none
 </style>
