@@ -8,13 +8,13 @@
           <img src="@/assets/images/main/warning-check.svg" alt="" class="icon">
           <p class="text">Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.</p>
         </div>
-        <RecomendedMailings/>
+        <RecomendedMailings v-if="!showCities"/>
         <PotencialPartners/>
       </div>
     </div>
     <div class="right-col">
       <div class="content">
-        <NewSend/>
+        <NewSend v-if="!showCities"/>
         <SpecialProposal/>
       </div>
     </div>
@@ -22,14 +22,22 @@
 </template>
 
 <script setup>
-
-
 import PotencialPartners from '@/components/PotencialPartners/PotencialPartners.vue'
 import RecomendedMailings from '@/components/RecomendedMailings.vue'
 import SpecialProposal from '@/components/SpecialProposal.vue'
 import MobileHeader from '@/components/MobileHeader.vue'
 import NewSend from "@/components/NewSend.vue";
 import Cities from '@/components/Cities/Cities.vue'
+
+import {useStore} from 'vuex'
+import {computed} from 'vue'
+
+
+const store = useStore()
+
+const showCities = computed(() => {
+  return store.state.showCities
+})
 
 
 </script>
@@ -45,12 +53,12 @@ import Cities from '@/components/Cities/Cities.vue'
     display: block
   .center-col
     overflow: hidden
-    height: 100vh
+    // height: 100vh
     @media screen and (max-width: 1200px)
       overflow: visible
       height: auto
     > .content
-      max-width: 1400px
+      // max-width: 1400px
       margin: 0 auto
       padding-right: 45px
       @media (max-width: 1200px)

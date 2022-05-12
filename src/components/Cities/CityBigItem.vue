@@ -25,7 +25,7 @@ const props = defineProps(["title"]);
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  height: 100%;
+  height: 220px;
   flex-grow: 1;
   z-index: 0;
 }

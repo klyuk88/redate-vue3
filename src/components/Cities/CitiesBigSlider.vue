@@ -38,13 +38,10 @@ import "swiper/modules/scrollbar/scrollbar.min.css";
 
 const slider = ref(null);
 
-const onSwiper = (swiper) => {
-  slider.value = swiper;
-};
+// const onSwiper = (swiper) => {
+//   swiper.disable()
+// };
 
-const test = () => {
-  slider.value.disable();
-};
 
 const sliceData = ref([]);
 const data = ref([

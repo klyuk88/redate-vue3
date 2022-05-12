@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    mobileMenu: false
+    mobileMenu: false,
+    showCities: false,
   },
   getters: {
 
@@ -14,6 +15,9 @@ export default createStore({
     closeMobileMenu(state) {
       state.mobileMenu = false
     },
+    openCities(state) {
+      state.showCities = !state.showCities
+    }
   },
   actions: {
   },
