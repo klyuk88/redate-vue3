@@ -76,4 +76,18 @@ const props = defineProps(["title"]);
     margin: 0 auto;
     margin-top: 5px;
 }
+@media (max-width: 1200px) {
+  .city-slide {
+    height: 100%;
+  }
+  .city-slide .city {
+    font-size: 15px;
+    padding: 10px 0;
+    margin-bottom: 8px;
+  }
+  .city-slide .data > .item .numbers {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
 </style>

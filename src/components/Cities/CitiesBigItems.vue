@@ -12,7 +12,14 @@ import CityBigItem from '@/components/Cities/CityBigItem.vue'
 .city-big-items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 16px
+    column-gap: 16px;
 }
+
+@media screen and (max-width: 1200px) {
+    .city-big-items {
+        display: none;
+    }
+}
+
     
 </style>

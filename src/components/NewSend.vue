@@ -13,6 +13,7 @@
       :options="formats"
       :placeholder="'Выберите формат'"
       v-model="format"
+      :zIndex="1"
       />
       <BigButton
       :title="'Создать рассылку'"

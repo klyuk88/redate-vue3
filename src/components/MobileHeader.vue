@@ -24,7 +24,7 @@ const openMobMenu = () => {
   text-align: center
   position: relative
   width: 100%
-  margin-bottom: 20px
+  margin-bottom: 40px
   z-index: 1
   display: none
   @media (max-width: 1200px)

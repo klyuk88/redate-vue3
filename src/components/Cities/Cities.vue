@@ -2,8 +2,11 @@
   <div class="cities-block">
     <Statistics />
     <div class="decor-line"></div>
+    <!-- На мобильном  -->
+    <CitiesBigSlider />
+    <CitiesSearchMobInput/>
+    <!-- На десктопе -->
     <CitiesBigItems/>
-    <!-- <CitiesBigSlider /> -->
     <div class="hidden-part"
     :class="{'show': showCities}"
     >
@@ -28,6 +31,8 @@ import Statistics from "@/components/Cities/Statistics.vue";
 import CitiesSmallSlider from "@/components/Cities/CitiesSmallSlider.vue";
 import SearchCities from  '@/components/Cities/SearchCities.vue'
 import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue'
+import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue'
+import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue'
 
 const store = useStore()
 
@@ -104,5 +109,20 @@ const openCities = () => {
 .hidden-part .slider {
   overflow: hidden;
   padding-right: 50px;
+}
+
+@media (max-width :1200px) {
+  .cities-block {
+    padding: 0;
+    border: none;
+  }
+  .cities-block .all-cities {
+    display: none;
+  }
+  .cities-block .hidden-part {
+    display: none;
+  }
+
+  
 }
 </style>

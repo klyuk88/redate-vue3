@@ -28,6 +28,12 @@ import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/modules/pagination/pagination.min.css";
+
+// const size = 3;
+// for (let i = 0; i < Math.ceil(data.value.length / size); i++) {
+//   sliceData.value[i] = data.value.slice(i * size, i * size + size);
+// }
+
 </script>
 <style>
 .small-slider-wrap {
@@ -51,3 +57,4 @@ import "swiper/modules/pagination/pagination.min.css";
 }
 
 </style>
+

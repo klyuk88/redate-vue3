@@ -19,8 +19,9 @@
 <style>
 .statistics {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  /* gap: 16px; */
 }
 
 .statistics .item {
@@ -34,6 +35,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 16px;
+}
+.statistics .item:last-child {
+  margin-right: 0;
 }
 
 .statistics .item.big {
@@ -68,5 +73,28 @@
 .statistics .item .text {
   font-size: 12px;
   line-height: 130%;
+}
+
+@media (max-width: 1200px) {
+  .statistics .item {
+    width: 25%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .statistics .item.big {
+    width: 100%;
+    margin-right: 0;
+  }
+  .statistics .item .title {
+    font-size: 32px;
+    margin: 0;
+  }
+  .statistics .item.big .text {
+    font-size: 14px;
+    margin-left: 14px;
+    margin: 0;
+  }
 }
 </style>

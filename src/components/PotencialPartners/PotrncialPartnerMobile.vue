@@ -89,6 +89,7 @@
     height: 328px;
     overflow-y: scroll;
     padding-right: 10px;
+    margin-left: auto;
 }
 .potencial-item-mobile > .title-block {
     margin-top: 12px;

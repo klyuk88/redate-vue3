@@ -1,6 +1,7 @@
 <template>
   <v-select
     class="form-selecet"
+    :style="{'z-index': zIndex}"
     :options="options"
     :placeholder="placeholder"
     :value="value"
@@ -31,7 +32,8 @@ import vSelect from "vue-select";
 const props = defineProps({
     options: Array,
     placeholder: String,
-    value: String
+    value: String,
+    zIndex: Number || 0
 })
 </script>
 <style lang="sass">

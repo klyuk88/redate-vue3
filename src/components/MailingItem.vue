@@ -32,7 +32,6 @@
 .mailing-item
     display: flex
     align-items: flex-start
-    gap: 16px
     padding: 24px
     border: 1px solid rgba(255, 255, 255, 0.14)
     border-radius: 26px
@@ -47,6 +46,7 @@
         height: 48px
         border-radius: 20px
         border: 1px solid rgba(255, 255, 255, 0.14)
+        margin-right: 16px
     .close
         position: absolute
         top: 25px

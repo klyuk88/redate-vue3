@@ -36,7 +36,7 @@ const mobMenu = computed(() => store.state.mobileMenu);
             padding-top: 50px
             padding-bottom: 0
             min-height: auto
-            max-width: 335px
+            max-width: 100%
             margin: 0 auto
 
 .page-content > .shape

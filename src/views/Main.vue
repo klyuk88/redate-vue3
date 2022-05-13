@@ -1,45 +1,49 @@
 <template>
-  <Cities/>
+  <MobileHeader />
+  <Cities />
   <div class="page-grid">
     <div class="center-col">
       <div class="content">
-        <MobileHeader/>
         <div class="mob-warning">
-          <img src="@/assets/images/main/warning-check.svg" alt="" class="icon">
-          <p class="text">Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.</p>
+          <img
+            src="@/assets/images/main/warning-check.svg"
+            alt=""
+            class="icon"
+          />
+          <p class="text">
+            Ваша анкета в поиске будет видна исключено мужчинам оплатившим
+            «премиум» подписку.
+          </p>
         </div>
-        <RecomendedMailings v-if="!showCities"/>
-        <PotencialPartners/>
+        <RecomendedMailings v-if="!showCities" />
+        <PotencialPartners />
       </div>
     </div>
     <div class="right-col">
       <div class="content">
-        <NewSend v-if="!showCities"/>
-        <SpecialProposal/>
+        <NewSend v-if="!showCities" />
+        <SpecialProposal />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import PotencialPartners from '@/components/PotencialPartners/PotencialPartners.vue'
-import RecomendedMailings from '@/components/RecomendedMailings.vue'
-import SpecialProposal from '@/components/SpecialProposal.vue'
-import MobileHeader from '@/components/MobileHeader.vue'
+import PotencialPartners from "@/components/PotencialPartners/PotencialPartners.vue";
+import RecomendedMailings from "@/components/RecomendedMailings.vue";
+import SpecialProposal from "@/components/SpecialProposal.vue";
+import MobileHeader from "@/components/MobileHeader.vue";
 import NewSend from "@/components/NewSend.vue";
-import Cities from '@/components/Cities/Cities.vue'
+import Cities from "@/components/Cities/Cities.vue";
 
-import {useStore} from 'vuex'
-import {computed} from 'vue'
+import { useStore } from "vuex";
+import { computed } from "vue";
 
-
-const store = useStore()
+const store = useStore();
 
 const showCities = computed(() => {
-  return store.state.showCities
-})
-
-
+  return store.state.showCities;
+});
 </script>
 
 <style lang="sass">
@@ -53,7 +57,7 @@ const showCities = computed(() => {
     display: block
   .center-col
     overflow: hidden
-    // height: 100vh
+    height: 100vh
     @media screen and (max-width: 1200px)
       overflow: visible
       height: auto
@@ -79,9 +83,8 @@ const showCities = computed(() => {
   border: 1px solid #2B66FB
   padding: 10px 15px
   display: none
-  margin-bottom: 20px
+  margin: 40px 0  
   border-radius: 12px
-  gap: 8px
   z-index: 2
   position: relative
   @media (max-width: 1200px)
@@ -90,5 +93,5 @@ const showCities = computed(() => {
 .mob-warning > .text
   font-size: 12px
   font-weight: 600
-
+  margin-left: 8px
 </style>
