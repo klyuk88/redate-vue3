@@ -1,7 +1,7 @@
 <template>
   <v-select
     class="form-selecet"
-    :style="{'z-index': zIndex}"
+    :style="{ 'z-index': zIndex }"
     :options="options"
     :placeholder="placeholder"
     :value="value"
@@ -30,47 +30,73 @@
 <script setup>
 import vSelect from "vue-select";
 const props = defineProps({
-    options: Array,
-    placeholder: String,
-    value: String,
-    zIndex: Number || 0
-})
+  options: Array,
+  placeholder: String,
+  value: String,
+  zIndex: Number || 0,
+});
 </script>
-<style lang="sass">
-.form-selecet
-    margin-bottom: 20px
-.vs__dropdown-toggle
-    color: #fff
-    border: 1px solid rgba(255,255,255,0.3)
-    border-radius: 11px
-    background: transparent
-    max-width: 100%
-    width: 100%
-    height: 60px
-    padding: 0 12px
-    position: relative
-    z-index: 10000000
+<style>
+.form-selecet {
+  margin-bottom: 20px;
+}
+.vs__dropdown-toggle {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 11px;
+  background: transparent;
+  max-width: 100%;
+  width: 100%;
+  height: 60px;
+  padding: 0 12px;
+  position: relative;
+  z-index: 10000000;
+}
+.vs__selected {
+  color: #fff;
+  font-size: 16px;
+  position: static !important;
+}
 
-.vs__selected
-    color: #fff
-    font-size: 16px
-    position: static!important
-.vs__search::placeholder
-    color: rgba(255,255,255,0.3)
-    font-size: 16px
-    font-family: 'Mulish'
-.vs__clear
-    display: none
-.vs__dropdown-menu
-    background: #242529
-    padding: 0
-    margin: 0
-    border: 1px solid #fff
-    border-radius: 11px
-    top: 0px
-    padding-top: 60px
-.vs__dropdown-option
-    color: #fff
-    padding: 20px 15px
-    border-bottom: 1px solid rgba(255,255,255,0.14)
+.vs__search::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+  font-family: "Mulish";
+}
+
+.vs__clear {
+  display: none;
+}
+
+.vs__dropdown-menu {
+  background: #242529;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #fff;
+  border-radius: 11px;
+  top: 0px;
+  padding-top: 60px;
+}
+
+.vs__dropdown-menu::-webkit-scrollbar {
+  width: 5px;
+}
+.vs__dropdown-menu::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+
+}
+.vs__dropdown-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.33);
+}
+
+.vs__dropdown-option {
+  color: #fff;
+  padding: 20px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+:root {
+  --vs-dropdown-max-height: 250px;
+}
 </style>

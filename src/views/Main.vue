@@ -57,7 +57,8 @@ const showCities = computed(() => {
     display: block
   .center-col
     overflow: hidden
-    height: 100vh
+    min-height: 1080px
+    max-height: 2000px
     @media screen and (max-width: 1200px)
       overflow: visible
       height: auto
