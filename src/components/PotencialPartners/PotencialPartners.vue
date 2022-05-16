@@ -148,42 +148,6 @@ const range = ref([18, 45]);
 const showLabel = ref(false);
 </script>
 <style lang="sass">
-// .form-selecet
-//   margin-bottom: 20px
-//   .vs__dropdown-toggle
-//     color: #fff
-//     border: 1px solid rgba(255,255,255,0.3)
-//     border-radius: 11px
-//     background: grey
-//     max-width: 100%
-//     width: 100%
-//     height: 60px
-//     padding: 0 12px
-//     position: relative
-//     z-index: 10000000
-
-//   .vs__selected
-//     color: #fff
-//     font-size: 16px
-//     position: static!important
-//   .vs__search::placeholder
-//     color: rgba(255,255,255,0.3)
-//     font-size: 16px
-//     font-family: 'Mulish'
-//   .vs__clear
-//     display: none
-//   .vs__dropdown-menu
-//     background: #242529
-//     padding: 0
-//     margin: 0
-//     border: 1px solid #fff
-//     border-radius: 11px
-//     top: 0px
-//     padding-top: 60px
-//   .vs__dropdown-option
-//     color: #fff
-//     padding: 20px 15px
-//     border-bottom: 1px solid rgba(255,255,255,0.14)
 
 .potential-partners > .title-wrap
   display: flex

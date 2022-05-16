@@ -2,10 +2,8 @@
   <div class="page-content">
     <SideBar />
     <MobileSideBar/>
-    <div class="content">
-      <slot />
-    </div>
-    <div class="shape"></div>
+    <slot />
+    <!-- <div class="shape"></div> -->
   </div>
 </template>
 
@@ -24,20 +22,6 @@ const mobMenu = computed(() => store.state.mobileMenu);
     display: flex
     align-items: flex-start
     position: relative
-    > .content
-        padding-left: 130px
-        padding-top: 75px
-        padding-bottom: 75px
-        max-width: 1465px
-        margin: 0 auto
-        box-sizing: content-box
-        @media (max-width: 1200px)
-            padding-left: 0
-            padding-top: 50px
-            padding-bottom: 0
-            min-height: auto
-            max-width: 100%
-            margin: 0 auto
 
 .page-content > .shape
     position: absolute

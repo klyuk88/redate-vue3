@@ -87,6 +87,7 @@ const openCities = () => {
 .cities-block .hidden-part.show {
   max-height: 500px;
   margin-top: 24px;
+  overflow: visible;
 }
 
 .cities-block .hidden-part.show > .title {

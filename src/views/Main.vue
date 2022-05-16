@@ -1,4 +1,5 @@
 <template>
+  <div id="main-content">
   <MobileHeader />
   <Cities />
   <div class="page-grid">
@@ -26,6 +27,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -47,6 +49,20 @@ const showCities = computed(() => {
 </script>
 
 <style lang="sass">
+#main-content
+  max-width: 1465px
+  margin: 0 auto
+  padding-left: 130px
+  padding-top: 75px
+  padding-bottom: 75px
+  box-sizing: content-box
+  @media (max-width: 1200px)
+    padding-left: 0
+    padding-top: 50px
+    padding-bottom: 0
+    min-height: auto
+    max-width: 100%
+    margin: 0 auto
 .page-grid
   display: grid
   grid-template-columns: 1fr 370px

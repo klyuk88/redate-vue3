@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-     <component :is="layout">
+  <component :is="layout">
           <router-view/>
   </component>
 </div>

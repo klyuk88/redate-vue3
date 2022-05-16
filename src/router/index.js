@@ -1,11 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'Main',
     components: {
       default: () => import('@/views/Main.vue'),
+    }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    components: {
+      default: () => import('@/views/Search.vue'),
     },
   },
   {
@@ -22,7 +31,13 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return {
+      top: 0
+    }
+  },
 })
 
 export default router
