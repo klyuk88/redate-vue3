@@ -1,11 +1,14 @@
 <template>
   <v-select
     class="form-selecet"
+    :class="{'open':selectOpen}"
     :style="{ 'z-index': zIndex }"
     :options="options"
     :placeholder="placeholder"
     :value="value"
     @input="$emit('input', value)"
+    @open="selectOpen = true"
+    @close="selectOpen = false"
   >
     <template #open-indicator="{ attributes }">
       <span v-bind="attributes">
@@ -29,12 +32,14 @@
 </template>
 <script setup>
 import vSelect from "vue-select";
+import {ref} from 'vue'
 const props = defineProps({
   options: Array,
   placeholder: String,
   value: String,
   zIndex: Number || 0,
 });
+const selectOpen = ref(false)
 </script>
 <style>
 .form-selecet {
@@ -44,7 +49,7 @@ const props = defineProps({
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 11px;
-  background: transparent;
+  background: #242529;
   max-width: 100%;
   width: 100%;
   height: 60px;
@@ -52,6 +57,21 @@ const props = defineProps({
   position: relative;
   z-index: 10000000;
 }
+
+.form-selecet.open .vs__dropdown-toggle {
+  border: 1px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+/* .vs__dropdown-toggle:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 60px;
+  z-index: -1;
+  background: grey;
+} */
 .vs__selected {
   color: #fff;
   font-size: 16px;

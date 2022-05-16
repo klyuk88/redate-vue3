@@ -65,31 +65,11 @@
           <!-- Slider -->
           <div class="filter">
             <div>
-              <v-select
-                class="form-selecet"
-                :options="options"
-                v-model="city"
-                placeholder="Выберите город"
-              >
-                <template #open-indicator="{ attributes }">
-                  <span v-bind="attributes">
-                    <svg
-                      width="17"
-                      height="10"
-                      viewBox="0 0 17 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M1.39492 0.494094L8.14492 7.24409L14.8949 0.494093L16.0263 1.62546L8.14492 9.50684L0.263549 1.62546L1.39492 0.494094Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </span>
-                </template>
-              </v-select>
+              <TheSelect
+              :options="options"
+              :placeholder="'Выберите город'"
+              v-model="city"
+              />
             </div>
             <div>
               <div class="range" :class="{ active: showLabel }">
@@ -140,22 +120,20 @@
 </template>
 <script setup>
 import { ref, reactive } from "vue";
-import vSelect from "vue-select";
 import { Navigation, Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 
-
 import PotentialPartnersItem from "@/components/PotencialPartners/PotentialPartnersItem.vue";
 import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
+import TheSelect from '@/components/Form/TheSelect.vue'
 
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/modules/navigation/navigation.min.css";
 import "swiper/modules/pagination/pagination.min.css";
 import "swiper/modules/scrollbar/scrollbar.min.css";
-
 
 const options = ref(["Москва", "Санкт-Петербург", "Казань"]);
 const city = ref("Москва");
@@ -168,46 +146,44 @@ const attributes = reactive({
 const range = ref([18, 45]);
 
 const showLabel = ref(false);
-
 </script>
 <style lang="sass">
-.form-selecet
-  margin-bottom: 20px
-  .vs__dropdown-toggle
-    color: #fff
-    border: 1px solid rgba(255,255,255,0.3)
-    border-radius: 11px
-    background: transparent
-    max-width: 100%
-    width: 100%
-    height: 60px
-    padding: 0 12px
-    position: relative
-    z-index: 10000000
+// .form-selecet
+//   margin-bottom: 20px
+//   .vs__dropdown-toggle
+//     color: #fff
+//     border: 1px solid rgba(255,255,255,0.3)
+//     border-radius: 11px
+//     background: grey
+//     max-width: 100%
+//     width: 100%
+//     height: 60px
+//     padding: 0 12px
+//     position: relative
+//     z-index: 10000000
 
-  .vs__selected
-    color: #fff
-    font-size: 16px
-    position: static!important
-  .vs__search::placeholder
-    color: rgba(255,255,255,0.3)
-    font-size: 16px
-    font-family: 'Mulish'
-  .vs__clear
-    display: none
-  .vs__dropdown-menu
-    background: #242529
-    padding: 0
-    margin: 0
-    border: 1px solid #fff
-    border-radius: 11px
-    top: 0px
-    padding-top: 60px
-  .vs__dropdown-option
-    color: #fff
-    padding: 20px 15px
-    border-bottom: 1px solid rgba(255,255,255,0.14)
-
+//   .vs__selected
+//     color: #fff
+//     font-size: 16px
+//     position: static!important
+//   .vs__search::placeholder
+//     color: rgba(255,255,255,0.3)
+//     font-size: 16px
+//     font-family: 'Mulish'
+//   .vs__clear
+//     display: none
+//   .vs__dropdown-menu
+//     background: #242529
+//     padding: 0
+//     margin: 0
+//     border: 1px solid #fff
+//     border-radius: 11px
+//     top: 0px
+//     padding-top: 60px
+//   .vs__dropdown-option
+//     color: #fff
+//     padding: 20px 15px
+//     border-bottom: 1px solid rgba(255,255,255,0.14)
 
 .potential-partners > .title-wrap
   display: flex
@@ -265,7 +241,6 @@ const showLabel = ref(false);
       position: absolute
       top: -25px
 
-
 .potential-partners .slider
   position: relative
   @media (max-width: 1200px)
@@ -317,7 +292,4 @@ const showLabel = ref(false);
   display: none
   @media (max-width: 1200px)
     display: flex
-
-
-    
 </style>

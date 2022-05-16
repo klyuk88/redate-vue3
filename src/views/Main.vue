@@ -61,7 +61,8 @@ const showCities = computed(() => {
     max-height: 2000px
     @media screen and (max-width: 1200px)
       overflow: visible
-      height: auto
+      min-height: auto
+      max-height: auto
     > .content
       // max-width: 1400px
       margin: 0 auto

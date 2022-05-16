@@ -12,7 +12,6 @@
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vue-select": "^4.0.0-beta.3",
-    "vue-slick-carousel": "^1.0.6",
     "vue-slider-component": "^4.0.0-beta.4",
     "vuex": "^4.0.0-0"
   },
