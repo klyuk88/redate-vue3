@@ -1,5 +1,7 @@
 <template>
+
 <div class="desc__background" @click="close">
+
   <div class="desc__popup__block">
     <div class="desc__popup__content">
       <div class="desc__popup__text">
@@ -9,6 +11,7 @@
     <div class="desc__popup__arrow">
     </div>
   </div>
+
 
 </div>
 </template>
@@ -36,6 +39,19 @@ export default {
   height: 93.87px;
     top: 180px;
   left: 920px;
+
+</template>
+<script>
+export default {};
+</script>
+<style>
+.desc__popup__block {
+  position: fixed;
+  width: 226.78px;
+  height: 93.87px;
+  top: 180px;
+  left: 900px;
+
 }
 .desc__popup__content {
   width: 226.78px;

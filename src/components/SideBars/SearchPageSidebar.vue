@@ -9,9 +9,9 @@
       />
       <FormRange/>
       
-      <TheFormats/>
-      <FormCheckbox/>
-
+      <TheFormats :margin="'20px 0 0 0'"/>
+      <FormCheckbox :margin="'20px 0 0 10px'"/>
+      <BigButton :title="'Начать поиск'" :margin="'20px 0 0 0'"/>
     </form>
   </div>
 </template>
@@ -21,6 +21,7 @@ import TheSelect from "@/components/Form/TheSelect.vue";
 import TheFormats from '@/components/Form/TheFormats.vue'
 import FormRange from '@/components/Form/FormRange.vue'
 import FormCheckbox from '@/components/Form/FormCheckbox.vue'
+import BigButton from '@/components/Form/BigButton.vue'
 
 import { ref } from "vue";
 

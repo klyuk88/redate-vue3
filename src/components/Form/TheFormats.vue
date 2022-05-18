@@ -1,5 +1,10 @@
 <template>
-  <form id="formats" :class="{'open': formatsOpen}" @click="formatsOpen = !formatsOpen">
+  <div
+    id="formats"
+    :class="{ open: formatsOpen }"
+    @click="formatsOpen = !formatsOpen"
+    :style="{'margin': margin }"
+  >
     <ul class="items">
       <li class="placeholder">
         <span>Выбрать формат</span>
@@ -36,21 +41,26 @@
     <div class="btn-wrap">
       <BigButton :title="'Выбрать'" />
     </div>
-  </form>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 import BigButton from "@/components/Form/BigButton.vue";
 
-const formatsOpen = ref(false)
+const props = defineProps({
+  margin: {
+    type: String,
+    default: '0',
+  },
+});
 
+const formatsOpen = ref(false);
 </script>
 
 <style lang="scss">
 #formats {
   width: 100%;
-  margin-top: 20px;
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 11px;
   max-height: 60px;
@@ -81,7 +91,7 @@ const formatsOpen = ref(false)
         right: 17px;
         top: 50%;
         transform: translateY(-50%);
-        transition: opacity ;
+        transition: opacity;
       }
     }
     li {
@@ -99,10 +109,10 @@ const formatsOpen = ref(false)
           height: 0;
         }
         input:checked + .checkbox {
-          background: transparent;
-          border-color: #fff;
+          background: #2965ff;
+          border: 1px solid #2965ff;
           img {
-            opacity: 0;
+            opacity: 1;
           }
         }
         .lebel {
@@ -115,14 +125,15 @@ const formatsOpen = ref(false)
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #2965ff;
-          border: 1px solid #2965ff;
+          background: transparent;
+          border: 1px solid #fff;
           border-radius: 4px;
           width: 19px;
           height: 19px;
           img {
             width: 13px;
             height: auto;
+            opacity: 0;
           }
         }
       }
@@ -142,7 +153,6 @@ const formatsOpen = ref(false)
         opacity: 0;
       }
     }
-
   }
 }
 </style>
