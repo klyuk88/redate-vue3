@@ -1,4 +1,7 @@
 <template>
+
+<div class="hide__popup__background" @click.self="close">
+
   <div class="hide__popup__block">
     <div class="hide__popup__content">
       <div class="hide__popup__text">
@@ -13,6 +16,11 @@
       </div>
     </div>
   </div>
+
+
+</div>
+=======
+
 </template>
 <script>
 export default {
@@ -24,15 +32,29 @@ export default {
 };
 </script>
 <style>
+
+.hide__popup__background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hide__popup__block {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px;
   gap: 16px;
+
   position: absolute;
     top: -250px;
   left: 70px;
+
   width: 312px;
   height: 166px;
   background: #242529;
