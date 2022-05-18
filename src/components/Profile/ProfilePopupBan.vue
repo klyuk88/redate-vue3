@@ -1,24 +1,20 @@
 <template>
-
-<div class="ban__popup__background" @click.self="close">
-
-  <div class="ban__popup__block">
-    <div class="ban__popup__content">
-      <div class="ban__popup__text">
-        <div class="ban__popup__title">Заблокировать пользователя?</div>
-        <div class="ban__popup__description">
-          Пользователь больше не сможет вам написать или просмотреть профиль.
+  <div class="ban__popup__background" @click.self="close">
+    <div class="ban__popup__block">
+      <div class="ban__popup__content">
+        <div class="ban__popup__text">
+          <div class="ban__popup__title">Заблокировать пользователя?</div>
+          <div class="ban__popup__description">
+            Пользователь больше не сможет вам написать или просмотреть профиль.
+          </div>
         </div>
-      </div>
-      <div class="ban__popup__button__box">
-        <div class="ban__popup__button grey__btn" @click="close">Отмена</div>
-        <div class="ban__popup__button blue__btn">Заблокировать</div>
+        <div class="ban__popup__button__box">
+          <div class="ban__popup__button grey__btn" @click="close">Отмена</div>
+          <div class="ban__popup__button blue__btn">Заблокировать</div>
+        </div>
       </div>
     </div>
   </div>
-
-</div>
-
 </template>
 <script>
 export default {
@@ -30,11 +26,12 @@ export default {
 };
 </script>
 <style>
-
 .ban__popup__background {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  position: fixed;
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -42,19 +39,12 @@ export default {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-
 .ban__popup__block {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px;
   gap: 16px;
-
-
-  position: absolute;
-  top: -250px;
-  left: 70px;
-
   width: 321px;
   height: 166px;
   background: #242529;

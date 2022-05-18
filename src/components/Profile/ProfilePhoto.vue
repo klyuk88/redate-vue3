@@ -1,5 +1,4 @@
 <template>
-  <ProfilePopupMore v-if="modalVisibleMore" @close="modalVisibleMore = false" />
   <ProfileNewMessage
     v-if="modalVisibleMess"
     @close="modalVisibleMess = false"
@@ -9,6 +8,11 @@
     @close="modalVisiblePhoto = false"
   />
   <div class="profile__photo__block">
+    <ProfilePopupMore
+      v-if="modalVisibleMore"
+      @close="modalVisibleMore = false"
+    />
+
     <div class="profile__photo" @click="showModalPhoto"></div>
     <div class="profile__photo__buttons__block">
       <div class="profile__photo__buttons__border">
@@ -65,16 +69,18 @@ export default {
 </script>
 <style>
 .profile__photo__block {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  flex-direction: column;
   width: 817px;
-  height: 1048px;
-  left: 175px;
+  height: 100vh;
   background: rgba(196, 196, 196, 0.05);
-  top: -24px;
   border: 1px solid rgba(255, 255, 255, 0.33);
+  border-bottom: none;
+  border-top: none;
+  margin-right: 209px;
 }
 .profile__photo {
   width: 608px;
@@ -89,11 +95,11 @@ export default {
   align-items: flex-start;
   padding: 7px 8px;
   gap: 10px;
-  position: absolute;
+  position: relative;
   width: 421px;
   height: 68.57px;
-  left: 198px;
-  top: 896px;
+  left: 0px;
+  top: -34px;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.15);

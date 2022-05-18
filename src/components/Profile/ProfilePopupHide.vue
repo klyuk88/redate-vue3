@@ -1,26 +1,20 @@
 <template>
-
-<div class="hide__popup__background" @click.self="close">
-
-  <div class="hide__popup__block">
-    <div class="hide__popup__content">
-      <div class="hide__popup__text">
-        <div class="hide__popup__title">Скрыть пользователя?</div>
-        <div class="hide__popup__description">
-          Пользовател больше не появится в ваших запросах и рассылках.
+  <div class="hide__popup__background" @click.self="close">
+    <div class="hide__popup__block">
+      <div class="hide__popup__content">
+        <div class="hide__popup__text">
+          <div class="hide__popup__title">Скрыть пользователя?</div>
+          <div class="hide__popup__description">
+            Пользовател больше не появится в ваших запросах и рассылках.
+          </div>
         </div>
-      </div>
-      <div class="hide__popup__button__box">
-        <div class="hide__popup__button grey__btn" @click="close">Отмена</div>
-        <div class="hide__popup__button blue__btn">Скрыть</div>
+        <div class="hide__popup__button__box">
+          <div class="hide__popup__button grey__btn" @click="close">Отмена</div>
+          <div class="hide__popup__button blue__btn">Скрыть</div>
+        </div>
       </div>
     </div>
   </div>
-
-
-</div>
-=======
-
 </template>
 <script>
 export default {
@@ -32,11 +26,12 @@ export default {
 };
 </script>
 <style>
-
 .hide__popup__background {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
   display: flex;
@@ -50,11 +45,6 @@ export default {
   align-items: center;
   padding: 24px;
   gap: 16px;
-
-  position: absolute;
-    top: -250px;
-  left: 70px;
-
   width: 312px;
   height: 166px;
   background: #242529;

@@ -1,5 +1,6 @@
 <template>
   <div class="profile__message__block" @click.self="close">
+    <div class="progile__message__box">
       <div class="profile__message__container">
         <div class="profile__message__container__content">
           <div class="profile__message__title">Новое сообщение</div>
@@ -22,29 +23,38 @@
         </div>
       </div>
       <div class="profile__message__close__button" @click="close">
-      <img src="@/assets/images/main/close-message.svg" alt=""></div>
+        <img src="@/assets/images/main/close-message.svg" alt="" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
-   methods: {
-        close() {
-            this.$emit("close");
-        },
-      },
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+  },
 };
 </script>
 <style>
 .profile__message__block {
-  position: absolute;
+  position: fixed;
   z-index: 99;
-
-  width: 1680px;
-  height: 1000px;
-
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+  .progile__message__box {
+  display: flex;
+  justify-content: center;
+  }
 
 .profile__message__container {
   display: flex;
@@ -53,11 +63,8 @@ export default {
   align-items: center;
   padding: 24px;
   gap: 10px;
-  position: absolute;
   width: 387px;
   height: 403px;
-  left: 647px;
-  top: 299px;
   background: rgba(36, 37, 41, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
@@ -140,7 +147,6 @@ export default {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-
 }
 .button__text {
   font-family: "Mulish";
@@ -159,13 +165,9 @@ export default {
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__message__close__button {
-    /* background: #FFFFFF;  */
-position: absolute;
-left: 62.98%;
-right: 36.07%;
-top: 29.9%;
-bottom: 68.5%;
-color: #FFFFFF;
-cursor: pointer;
+
+  margin-left: 24px;
+  color: #ffffff;
+  cursor: pointer;
 }
 </style>
