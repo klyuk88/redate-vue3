@@ -76,6 +76,7 @@
                 <vue-slider
                   v-model="range"
                   :height="2"
+                  :tooltip="'always'"
                   :min="18"
                   :max="45"
                   :interval="1"

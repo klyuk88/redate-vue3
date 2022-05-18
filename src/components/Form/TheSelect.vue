@@ -1,7 +1,7 @@
 <template>
   <v-select
     class="form-selecet"
-    :class="{'open':selectOpen}"
+    :class="{ open: selectOpen }"
     :style="{ 'z-index': zIndex }"
     :options="options"
     :placeholder="placeholder"
@@ -28,20 +28,23 @@
         </svg>
       </span>
     </template>
+    <template #no-options="{}">Совпадений не найдено</template>
   </v-select>
 </template>
+
 <script setup>
 import vSelect from "vue-select";
-import {ref} from 'vue'
+import { ref } from "vue";
 const props = defineProps({
   options: Array,
   placeholder: String,
   value: String,
-  zIndex: Number || 0,
+  zIndex: Number || 0
 });
-const selectOpen = ref(false)
+const selectOpen = ref(false);
 </script>
-<style>
+
+<style lang="scss">
 .form-selecet {
   margin-bottom: 20px;
 }
@@ -52,7 +55,7 @@ const selectOpen = ref(false)
   background: #242529;
   max-width: 100%;
   width: 100%;
-  height: 60px;
+  min-height: 60px;
   padding: 0 12px;
   position: relative;
   z-index: 10000000;
@@ -60,18 +63,8 @@ const selectOpen = ref(false)
 
 .form-selecet.open .vs__dropdown-toggle {
   border: 1px solid #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
-/* .vs__dropdown-toggle:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  top: 0;
-  height: 60px;
-  z-index: -1;
-  background: grey;
-} */
 .vs__selected {
   color: #fff;
   font-size: 16px;
@@ -104,10 +97,9 @@ const selectOpen = ref(false)
 .vs__dropdown-menu::-webkit-scrollbar-track {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.14);
-
 }
 .vs__dropdown-menu::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.33);
+  background: rgba(255, 255, 255, 0.33);
 }
 
 .vs__dropdown-option {
