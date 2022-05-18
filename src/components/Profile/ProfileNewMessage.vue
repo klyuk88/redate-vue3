@@ -38,8 +38,8 @@ export default {
 .profile__message__block {
   position: absolute;
   z-index: 99;
-  width: 1680px;
-  height: 1000px;
+  width: 1000vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
 }

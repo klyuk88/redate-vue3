@@ -1,4 +1,5 @@
 <template>
+<div class="ban__popup__background" @click.self="close">
   <div class="ban__popup__block">
     <div class="ban__popup__content">
       <div class="ban__popup__text">
@@ -13,6 +14,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 export default {
@@ -24,15 +26,22 @@ export default {
 };
 </script>
 <style>
+.ban__popup__background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 .ban__popup__block {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px;
   gap: 16px;
-  position: absolute;
-  top: -250px;
-  left: 70px;
   width: 321px;
   height: 166px;
   background: #242529;

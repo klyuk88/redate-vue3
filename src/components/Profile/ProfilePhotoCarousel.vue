@@ -38,7 +38,9 @@ export default {
 </script>
 <style>
 .album__block {
-  width: 1680px;
+  position: absolute;
+  z-index: 99;
+  width: 100vw;
   height: 1000px;
   display: flex;
   justify-content: center;
@@ -85,7 +87,8 @@ export default {
   padding: 12px;
   gap: 10px;
   backdrop-filter: blur(15px);
-  position: absolute;
+  position: relative;
+  z-index: 100;
   width: 388px;
   height: 78px;
   left: 86px;

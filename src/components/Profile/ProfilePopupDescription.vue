@@ -1,4 +1,5 @@
 <template>
+<div class="desc__background" @click="close">
   <div class="desc__popup__block">
     <div class="desc__popup__content">
       <div class="desc__popup__text">
@@ -8,17 +9,33 @@
     <div class="desc__popup__arrow">
     </div>
   </div>
+
+</div>
 </template>
 <script>
-export default {};
+export default {
+    methods: {
+    close() {
+      this.$emit("close");
+    },
+    }
+};
 </script>
 <style>
+.desc__background {
+ 
+  width: 1680px;
+  height: 1000px;
+  position: absolute;
+  z-index: 99;
+
+}
 .desc__popup__block {
-  position: fixed;
-  width: 226.78px;
+  position: relative;
+   width: 226.78px;
   height: 93.87px;
-  top: 180px;
-  left: 900px;
+    top: 180px;
+  left: 920px;
 }
 .desc__popup__content {
   width: 226.78px;

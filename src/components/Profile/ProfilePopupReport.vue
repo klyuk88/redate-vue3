@@ -1,15 +1,17 @@
 <template>
-  <div class="report__popup__block">
-    <div class="report__popup__content">
-      <div class="report__popup__title">Жалоба на пользователя</div>
-      <div class="report__popup__select">
-        <TheSelect placeholder="Причина" />
+  <div class="report__popup__background" @click.self="close">
+    <div class="report__popup__block">
+      <div class="report__popup__content">
+        <div class="report__popup__title">Жалоба на пользователя</div>
+        <div class="report__popup__select">
+          <TheSelect placeholder="Причина" />
+        </div>
+        <textarea
+          class="report__popup__comment"
+          placeholder="Введите текст..."
+        ></textarea>
+        <div class="report__popup__button">Отправить запрос</div>
       </div>
-      <textarea
-        class="report__popup__comment"
-        placeholder="Введите текст..."
-      ></textarea>
-      <div class="report__popup__button">Отправить запрос</div>
     </div>
   </div>
 </template>
@@ -25,6 +27,16 @@ export default {
 };
 </script>
 <style>
+.report__popup__background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .report__popup__block {
   display: flex;
   flex-direction: row;
@@ -32,15 +44,13 @@ export default {
   align-items: center;
   padding: 24px;
   gap: 10px;
-  position: absolute;
-  width: 376px;
-  height: 412px;
+
   background: #242529;
   border: 1px solid #2b66fb;
   box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
   border-radius: 24px;
-  top: -350px;
-  left: 70px;
+  top: 294px;
+  left: 676px;
 }
 .report__popup__content {
   display: flex;

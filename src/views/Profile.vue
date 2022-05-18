@@ -2,7 +2,6 @@
     <div>
         <ProfilePhoto />
         <ProfileInfo />
-
     </div>
 </template>
 <script setup>

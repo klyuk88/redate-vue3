@@ -31,15 +31,14 @@
           <SearchItem />
         </div>
       </div>
-      <div class="sidebar">
-        <h2>SideBar</h2>
-      </div>
+      <SearchPageSidebar />
     </div>
   </section>
 </template>
 
 <script setup>
 import SearchItem from "@/components/Search/SearchItem.vue";
+import SearchPageSidebar from "@/components/SideBars/SearchPageSidebar.vue";
 </script>
 
 <style lang="scss">
@@ -57,6 +56,25 @@ import SearchItem from "@/components/Search/SearchItem.vue";
       flex-grow: 1;
       position: relative;
       z-index: 1;
+      .search-results {
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.3);
+        padding-bottom: 20px;
+        padding-top: 70px;
+        position: absolute;
+        width: 90%;
+        z-index: 2;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(28, 29, 33, 0.01);
+        backdrop-filter: blur(50px);
+        .results {
+          opacity: 0.3;
+        }
+      }
       .search-items {
         display: flex;
         align-items: flex-start;
@@ -70,7 +88,7 @@ import SearchItem from "@/components/Search/SearchItem.vue";
         padding-top: 150px;
       }
       .search-items::-webkit-scrollbar {
-        width: 5px;
+        width: 2px;
       }
       .search-items::-webkit-scrollbar-track {
         border-radius: 10px;
@@ -78,29 +96,8 @@ import SearchItem from "@/components/Search/SearchItem.vue";
       }
       .search-items::-webkit-scrollbar-thumb {
         background: rgba(255, 255, 255, 1);
-        border-radius: 5px;
+        border-radius: 2px;
       }
-    }
-    .sidebar {
-      width: 450px;
-    }
-  }
-  .search-results {
-    font-size: 18px;
-    color: #fff;
-    text-align: center;
-    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.3);
-    padding-bottom: 20px;
-    padding-top: 70px;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    background: rgba(28, 29, 33, 0.01);
-    backdrop-filter: blur(50px);
-    .results {
-      opacity: 0.3;
     }
   }
 }
