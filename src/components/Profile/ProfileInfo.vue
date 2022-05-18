@@ -121,7 +121,15 @@ export default {
   components: { ProfilePopupDescription },
 };
 </script>
-<style>
+<style lang="scss">
+.text {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 153.5%;
+  color: #ffffff;
+}
 .profile {
   width: 29.04%;
   height: 100%;
@@ -139,14 +147,11 @@ export default {
 .profile__info__title {
 }
 .profile__name {
+  @extend .text;
   width: 240px;
   height: 74px;
-
-  font-family: "Mulish";
-  font-style: normal;
   font-weight: 500;
   font-size: 48px;
-  line-height: 153.5%;
   color: #ffffff;
 }
 .profile__subtext {
@@ -156,20 +161,13 @@ export default {
   justify-content: space-between;
 }
 .profile__location {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
+  @extend .text;
   color: rgba(255, 255, 255, 0.45);
 }
 .profile__vertical__line {
+  @extend .text;
   width: 5px;
   height: 21px;
-
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
   font-size: 16px;
   line-height: 132.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -186,11 +184,7 @@ export default {
 .profile__age {
 }
 .profile__online__status {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
+  @extend .text;
   color: #3e74ff;
 }
 .profile__info__filter {
@@ -205,11 +199,7 @@ export default {
   cursor: pointer;
 }
 .profile__info__filter__description {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
+  @extend .text;
   color: rgba(255, 255, 255, 0.33);
   margin-right: 8px;
 }
@@ -220,7 +210,7 @@ export default {
   flex-wrap: wrap;
 }
 .profile__info__filter__tag {
-  /* width: 160px; */
+  @extend .text;
   height: 35px;
   display: inline-block;
   cursor: pointer;
@@ -232,8 +222,6 @@ export default {
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
   border-radius: 13px;
-  font-family: "Mulish";
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
@@ -263,11 +251,7 @@ export default {
 }
 .profile__info__list__stats {
   display: flex;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
+  @extend .text;
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__info__list__icon {
@@ -280,7 +264,6 @@ export default {
 .profile__info__list__status {
   color: #ffffff;
 }
-
 .profile__info__list__heightweight {
   display: flex;
   width: 188px;
@@ -292,11 +275,7 @@ export default {
 }
 .profile__info__list__height {
   display: flex;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
+  @extend .text;
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__info__list__height__stat {
@@ -308,11 +287,7 @@ export default {
 }
 .profile__info__list__weight {
   display: flex;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
+  @extend .text;
   color: rgba(255, 255, 255, 0.33);
   margin-right: 8px;
 }
@@ -323,12 +298,8 @@ export default {
   display: flex;
 }
 .profile__info__list__hobby {
+  @extend .text;
   display: flex;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
   margin-right: 8px;
 }
@@ -341,16 +312,11 @@ export default {
   height: 46px;
 }
 .profile__info__list__about {
+  @extend .text;
   display: inline-block;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
   margin-right: 8px;
 }
-
 .profile__info__list__about__description {
   color: #ffffff;
 }

@@ -37,8 +37,8 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
 }
-
 .ban__popup__block {
   display: flex;
   flex-direction: column;

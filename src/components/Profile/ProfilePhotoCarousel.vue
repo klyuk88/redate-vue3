@@ -48,7 +48,6 @@ export default {
   align-items: center;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(50px);
-
 }
 .album__content {
   width: 1382px;
@@ -88,10 +87,8 @@ export default {
   padding: 12px;
   gap: 10px;
   backdrop-filter: blur(15px);
-
   position: relative;
   z-index: 100;
-
   width: 388px;
   height: 78px;
   left: 86px;
