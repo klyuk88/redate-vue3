@@ -14,7 +14,7 @@
         <div class="report__popup__button">Отправить запрос</div>
       </div>
 
-  <div class="report__popup__block">
+  <!-- <div class="report__popup__block">
     <div class="report__popup__content">
       <div class="report__popup__title">Жалоба на пользователя</div>
       <div class="report__popup__select">
@@ -24,7 +24,7 @@
         class="report__popup__comment"
         placeholder="Введите текст..."
       ></textarea>
-      <div class="report__popup__button">Отправить запрос</div>
+      <div class="report__popup__button">Отправить запрос</div> -->
 
     </div>
   </div>
@@ -60,7 +60,7 @@ export default {
   align-items: center;
   padding: 24px;
   gap: 10px;
-
+  
   background: #242529;
   border: 1px solid #2b66fb;
   box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);

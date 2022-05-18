@@ -37,7 +37,7 @@
           <div class="menu__title">Пожаловаться</div>
         </div>
 
-  <div class="more__menu__block">
+  <!-- <div class="more__menu__block">
     <ProfilePopupBan v-if="modalBanVisible" @close="modalBanVisible = false" />
     <ProfilePopupHide
       v-if="modalHideVisible"
@@ -73,7 +73,7 @@
         <div class="menu__icon">
           <img src="@/assets/images/main/report.svg" alt="">
         </div>
-        <div class="menu__title">Пожаловаться</div>
+        <div class="menu__title">Пожаловаться</div> -->
 
       </div>
     </div>
