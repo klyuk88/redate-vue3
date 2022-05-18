@@ -8,8 +8,9 @@
         v-model="city"
       />
       <FormRange/>
+      
       <TheFormats/>
-      <!-- <FormCheckBox/> -->
+      <FormCheckbox/>
 
     </form>
   </div>
@@ -19,6 +20,8 @@
 import TheSelect from "@/components/Form/TheSelect.vue";
 import TheFormats from '@/components/Form/TheFormats.vue'
 import FormRange from '@/components/Form/FormRange.vue'
+import FormCheckbox from '@/components/Form/FormCheckbox.vue'
+
 import { ref } from "vue";
 
 const city = ref(null);
