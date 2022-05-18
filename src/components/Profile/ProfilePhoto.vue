@@ -4,8 +4,12 @@
     v-if="modalVisibleMess"
     @close="modalVisibleMess = false"
   />
+  <ProfilePhotoCarousel
+    v-if="modalVisiblePhoto"
+    @close="modalVisiblePhoto = false"
+  />
   <div class="profile__photo__block">
-    <div class="profile__photo"></div>
+    <div class="profile__photo" @click="showModalPhoto"></div>
     <div class="profile__photo__buttons__block">
       <div class="profile__photo__buttons__border">
         <div class="profile__photo__buttons__group">
@@ -31,11 +35,13 @@
 <script>
 import ProfilePopupMore from "./ProfilePopupMore.vue";
 import ProfileNewMessage from "./ProfileNewMessage.vue";
+import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
 export default {
   data() {
     return {
       modalVisibleMore: false,
       modalVisibleMess: false,
+      modalVisiblePhoto: false,
     };
   },
   methods: {
@@ -49,9 +55,12 @@ export default {
     showModalMess() {
       this.modalVisibleMess = true;
     },
+    showModalPhoto() {
+      this.modalVisiblePhoto = true;
+    },
   },
 
-  components: { ProfilePopupMore, ProfileNewMessage },
+  components: { ProfilePopupMore, ProfileNewMessage, ProfilePhotoCarousel },
 };
 </script>
 <style>
@@ -124,7 +133,6 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 18px;
   cursor: pointer;
-
 }
 .profile__photo__button__like {
   width: 56px;
@@ -136,7 +144,6 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
 }
 .profile__photo__button__favorite {
   width: 56px;
@@ -157,6 +164,5 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
 }
 </style>
