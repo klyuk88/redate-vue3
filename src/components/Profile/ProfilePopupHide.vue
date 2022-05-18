@@ -33,6 +33,7 @@ export default {
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -86,15 +87,12 @@ export default {
   display: flex;
   align-items: center;
   text-align: center;
-
   color: rgba(255, 255, 255, 0.6);
 }
 .hide__popup__button__box {
   display: flex;
   justify-content: space-between;
   padding: 0px;
-  gap: 16px;
-
   width: 256px;
   height: 34px;
 }

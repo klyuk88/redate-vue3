@@ -1,5 +1,4 @@
 <template>
-
   <ProfilePopupBan v-if="modalBanVisible" @close="modalBanVisible = false" />
   <ProfilePopupHide v-if="modalHideVisible" @close="modalHideVisible = false" />
   <ProfilePopupReport
@@ -36,45 +35,6 @@
           </div>
           <div class="menu__title">Пожаловаться</div>
         </div>
-
-  <!-- <div class="more__menu__block">
-    <ProfilePopupBan v-if="modalBanVisible" @close="modalBanVisible = false" />
-    <ProfilePopupHide
-      v-if="modalHideVisible"
-      @close="modalHideVisible = false"
-    />
-    <ProfilePopupReport
-      v-if="modalReportVisible"
-      @close="modalReportVisible = false"
-    />
-    <div class="more__menu__content">
-      <div class="more__menu__box">
-        <div class="menu__icon">
-          <img src="@/assets/images/main/share.svg" alt="">
-        </div>
-        <div class="menu__title">Поделиться</div>
-      </div>
-      <div class="more__menu__horizontal__line"></div>
-      <div class="more__menu__box" @click="showModalHide">
-        <div class="menu__icon">
-          <img src="@/assets/images/main/hide.svg" alt="">
-        </div>
-        <div class="menu__title">Скрыть</div>
-      </div>
-      <div class="more__menu__horizontal__line"></div>
-      <div class="more__menu__box" @click="showModalBan">
-        <div class="menu__icon">
-          <img src="@/assets/images/main/ban.svg" alt="">
-        </div>
-        <div class="menu__title">Заблокировать</div>
-      </div>
-      <div class="more__menu__horizontal__line"></div>
-      <div class="more__menu__box" @click="showModalReport">
-        <div class="menu__icon">
-          <img src="@/assets/images/main/report.svg" alt="">
-        </div>
-        <div class="menu__title">Пожаловаться</div> -->
-
       </div>
     </div>
   </div>
@@ -110,7 +70,6 @@ export default {
 };
 </script>
 <style>
-
 .more__menu__background {
   width: 100%;
   height: 100%;

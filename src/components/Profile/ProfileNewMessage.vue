@@ -37,7 +37,14 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
+.text {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 153.5%;
+}
 .profile__message__block {
   position: fixed;
   z-index: 99;
@@ -51,18 +58,16 @@ export default {
   justify-content: center;
   align-items: center;
 }
-  .progile__message__box {
+.progile__message__box {
   display: flex;
   justify-content: center;
-  }
+}
 
 .profile__message__container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 24px;
-  gap: 10px;
   width: 387px;
   height: 403px;
   background: rgba(36, 37, 41, 0.6);
@@ -79,11 +84,7 @@ export default {
   height: 355px;
 }
 .profile__message__title {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 153.5%;
+  @extend .text;
   display: flex;
   align-items: center;
   color: #ffffff;
@@ -98,6 +99,7 @@ export default {
   height: 241px;
 }
 .profile__message__text {
+  @extend .text;
   width: 339px;
   height: 201px;
   outline: none;
@@ -106,23 +108,19 @@ export default {
   background: rgba(36, 37, 41, 0.6);
   border-radius: 11px;
   padding: 11px;
-  font-family: "Mulish";
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__message__description {
+  @extend .text;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   width: 339px;
   height: 32px;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
   font-size: 12px;
   line-height: 132.5%;
   display: flex;
@@ -149,23 +147,16 @@ export default {
   cursor: pointer;
 }
 .button__text {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
+  @extend .text;
   font-size: 16px;
-  line-height: 153.5%;
   color: #ffffff;
 }
 .bitton__options {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
+  @extend .text;
   font-size: 16px;
-  line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__message__close__button {
-
   margin-left: 24px;
   color: #ffffff;
   cursor: pointer;
