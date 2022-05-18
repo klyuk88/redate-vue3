@@ -39,12 +39,8 @@ export default {
   height: 93.87px;
     top: 180px;
   left: 920px;
+}
 
-</template>
-<script>
-export default {};
-</script>
-<style>
 .desc__popup__block {
   position: fixed;
   width: 226.78px;
