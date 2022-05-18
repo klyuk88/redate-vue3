@@ -12,8 +12,6 @@
       <TheFormats :margin="'20px 0 0 0'"/>
       <FormCheckbox :margin="'20px 0 0 10px'"/>
       <BigButton :title="'Начать поиск'" :margin="'20px 0 0 0'"/>
-      
-
     </form>
   </div>
 </template>
