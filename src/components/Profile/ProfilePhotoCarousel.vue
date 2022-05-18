@@ -38,12 +38,11 @@ export default {
 </script>
 <style>
 .album__block {
-
-  position: absolute;
+  position: fixed;
+  left: 0;
   z-index: 99;
-  width: 100vw;
-
-  height: 1000px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

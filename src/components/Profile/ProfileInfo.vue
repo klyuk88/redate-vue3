@@ -123,15 +123,14 @@ export default {
 </script>
 <style>
 .profile {
-  width: 488px;
-  height: 1000px;
+  width: 29.04%;
+  height: 100%;
 }
 .profile__info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  position: relative;
   width: 488px;
   height: 834px;
   left: 1096px;
