@@ -1,5 +1,5 @@
 <template>
-  <div class="ban__popup__background" @click.self="close">
+  <div class="ban__popup__background"  @click.self="close" tabindex="1" @keydown.esc="close" >
     <div class="ban__popup__block">
       <div class="ban__popup__content">
         <div class="ban__popup__text">
