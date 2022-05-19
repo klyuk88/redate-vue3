@@ -27,6 +27,7 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
 export default {
@@ -47,7 +48,7 @@ export default {
 }
 .profile__message__block {
   position: fixed;
-  z-index: 99;
+  z-index: 1002;
   width: 100%;
   height: 100%;
   left: 0;

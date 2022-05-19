@@ -1,4 +1,5 @@
 <template>
+  <ProfileNewMessage v-if="newMessageWindow"/>
   <section id="search">
     <div id="mobile-content">
       <!-- header -->
@@ -66,7 +67,16 @@ import SearchItem from "@/components/Search/SearchItem.vue";
 import SearchPageSidebar from "@/components/SideBars/SearchPageSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import PotrncialPartnerMobile from '@/components/PotencialPartners/PotrncialPartnerMobile.vue'
-import { ref, onUnmounted } from "vue";
+import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue'
+
+import {useStore} from 'vuex'
+import {computed} from 'vue'
+
+const store = useStore()
+
+const newMessageWindow = computed(() => {
+  return store.state.newMessageWindow
+})
 
 // window.addEventListener('scroll', heandleScroll)
 

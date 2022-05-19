@@ -58,7 +58,7 @@ const selectOpen = ref(false);
   min-height: 60px;
   padding: 0 12px;
   position: relative;
-  z-index: 10000000;
+  z-index: 1001;
 }
 
 .form-selecet.open .vs__dropdown-toggle {

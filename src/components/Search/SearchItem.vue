@@ -1,4 +1,5 @@
 <template>
+<router-link to="#" class="search-item-link">
   <div id="search-item">
     <div class="avatar">
       <img src="http://thr.ru/public/article/prephoto/7069.jpg" alt="" />
@@ -8,23 +9,37 @@
         <h5 class="name">Семен</h5>
         <p class="adress">Москва, Россия</p>
       </div>
-      <button class="dialog">
+      <button class="dialog" @click.stop="newMessage">
         <img src="@/assets/images/main/dialog-icon.svg" alt="" />
       </button>
     </div>
   </div>
+  </router-link>
 </template>
 
 <script setup>
+import {useStore} from 'vuex'
+const store = useStore()
+const newMessage = () => {
+  store.commit('openNewMessageWindow')
+}
+
 </script>
 
 <style lang="scss">
+.search-item-link:hover {
+  #search-item {
+    outline: 2px solid #2965FF;
+    box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
+  }
+}
 #search-item {
   min-width: 240px;
   border-radius: 24px;
-  border: 1px solid #ffffff54;
+  outline: 1px solid #ffffff54;
   padding: 5px;
   padding-bottom: 12px;
+  transition: all .2s ease;
   .avatar {
     border-radius: 20px;
     overflow: hidden;
@@ -67,11 +82,14 @@
       border: 1px solid #FFFFFF24;
       background: transparent;
       cursor: pointer;
-      transition: all .3s ease;
+      transition: all .1s ease;
       img {
         width: 18px;
         height: 18px;
       }
+    }
+    .dialog:hover {
+      background: #2965FF;
     }
   }
 }
