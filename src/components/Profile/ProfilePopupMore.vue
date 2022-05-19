@@ -73,14 +73,16 @@ export default {
 .more__menu__background {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   z-index: 99;
 }
 .more__menu__block {
-  position: relative;
+  position: fixed;
   width: 246px;
   height: 213px;
-  left: 561px;
+  left: 890px;
   top: 645px;
   background: rgba(40, 41, 45, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.33);

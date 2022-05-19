@@ -91,8 +91,7 @@ export default {};
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 0px;
-  gap: 16px;
+
   width: 256px;
   height: 34px;
 }
@@ -120,16 +119,13 @@ export default {};
   color: #ffffff;
   width: 120px;
   height: 34px;
-  border: 1px solid;
-  border-image: linear-gradient(
-    132.27deg,
-    #f9ae3f -0.77%,
-    #ffdba5 36.67%,
-    #ad6902 96.37%
-  );
-  border-radius: 11px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+border-radius: 11px;
+
+
 }
+
 </style>

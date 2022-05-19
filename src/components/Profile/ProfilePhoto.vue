@@ -69,18 +69,21 @@ export default {
 </script>
 <style>
 .profile__photo__block {
-  position: relative;
+
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 817px;
+  width: 62.38%;
   height: 100vh;
+  max-width: 1050px;
+  min-width: 608px;
   background: rgba(196, 196, 196, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-bottom: none;
   border-top: none;
-  margin-right: 209px;
+
 }
 .profile__photo {
   width: 608px;

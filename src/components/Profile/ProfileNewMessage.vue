@@ -1,5 +1,5 @@
 <template>
-  <div class="profile__message__block" @click.self="close">
+  <div class="profile__message__block" @click.self="close" @keydown.esc="close">
     <div class="progile__message__box">
       <div class="profile__message__container">
         <div class="profile__message__container__content">
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="profile__message__close__button" @click="close">
+      <div class="profile__message__close__button" @click="close" >
         <img src="@/assets/images/main/close-message.svg" alt="" />
       </div>
     </div>
@@ -57,6 +57,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .progile__message__box {
   display: flex;

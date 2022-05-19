@@ -133,6 +133,7 @@ export default {
 .profile {
   width: 29.04%;
   height: 100%;
+  margin-left: 104px;
 }
 .profile__info {
   display: flex;
