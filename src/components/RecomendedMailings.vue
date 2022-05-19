@@ -94,6 +94,8 @@ import "swiper/modules/scrollbar/scrollbar.min.css";
     top: 50%
     transform: translateY(-50%)
     cursor: pointer
+    @media (max-width: 1200px)
+      display: none
 .slider-pagination
     display: flex
     align-items: center

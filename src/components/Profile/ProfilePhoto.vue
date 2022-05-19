@@ -1,7 +1,6 @@
 <template>
   <ProfileNewMessage
-    v-if="modalVisibleMess"
-    @close="modalVisibleMess = false"
+    v-if="newMessageWindow"
   />
   <ProfilePhotoCarousel
     v-if="modalVisiblePhoto"
@@ -48,6 +47,11 @@ export default {
       modalVisiblePhoto: false,
     };
   },
+  computed: {
+    newMessageWindow() {
+      return this.$store.state.newMessageWindow
+    }
+  },
   methods: {
     close() {
       this.$emit("close");
@@ -57,7 +61,7 @@ export default {
       this.modalVisibleMore = true;
     },
     showModalMess() {
-      this.modalVisibleMess = true;
+      this.$store.commit('openNewMessageWindow')
     },
     showModalPhoto() {
       this.modalVisiblePhoto = true;
@@ -106,8 +110,8 @@ export default {
   backdrop-filter: blur(15px);
   border-radius: 24px;
 }
-.profile__photo__buttons__border {
-}
+/* .profile__photo__buttons__border {
+} */
 .profile__photo__buttons__group {
   display: flex;
   flex-direction: row;

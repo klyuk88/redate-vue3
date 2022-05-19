@@ -32,7 +32,7 @@
 export default {
   methods: {
     close() {
-      this.$emit("close");
+      this.$store.commit('closeNewMessageWindow')
     },
   },
 };

@@ -10,6 +10,7 @@
         'transform': 'translateY(-50%)',
       }"
     />
+    
     <div class="decor-shape"></div>
   </div>
   <Cities />

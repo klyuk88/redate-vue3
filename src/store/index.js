@@ -4,6 +4,7 @@ export default createStore({
   state: {
     mobileMenu: false,
     showCities: false,
+    newMessageWindow: false
   },
   getters: {
 
@@ -17,6 +18,12 @@ export default createStore({
     },
     openCities(state) {
       state.showCities = !state.showCities
+    },
+    openNewMessageWindow(state) {
+      state.newMessageWindow = true
+    },
+    closeNewMessageWindow(state) {
+      state.newMessageWindow = false
     }
   },
   actions: {
