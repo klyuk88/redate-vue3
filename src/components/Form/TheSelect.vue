@@ -36,10 +36,16 @@
 import vSelect from "vue-select";
 import { ref } from "vue";
 const props = defineProps({
-  options: Array,
-  placeholder: String,
+  options: {
+    type: Array,
+    default: ['Option 1','Option 2','Option 3']
+  },
+  placeholder: {
+    type: String,
+    default: 'Выберите значение'
+  },
   value: String,
-  zIndex: Number || 0
+  zIndex: Number
 });
 const selectOpen = ref(false);
 </script>

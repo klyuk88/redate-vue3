@@ -3,7 +3,6 @@
     id="formats"
     :class="{ open: formatsOpen }"
     @click="formatsOpen = !formatsOpen"
-    :style="{'margin': margin }"
   >
     <ul class="items">
       <li class="placeholder">
@@ -47,14 +46,6 @@
 <script setup>
 import { ref } from "vue";
 import BigButton from "@/components/Form/BigButton.vue";
-
-const props = defineProps({
-  margin: {
-    type: String,
-    default: '0',
-  },
-});
-
 const formatsOpen = ref(false);
 </script>
 

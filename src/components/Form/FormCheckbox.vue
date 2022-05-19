@@ -1,12 +1,12 @@
 <template>
-  <div id="form-checkbox" :style="{'margin': margin }">
+  <div id="form-checkbox">
     <label for="online">
       <input type="checkbox" name="Онлайн" id="online">
       <div class="checkbox">
         <img src="@/assets/images/main/checkbox.svg" alt="">
       </div>
       <p class="label">
-        Сейчас онлайн
+        {{title}}
       </p>
     </label>
   </div>
@@ -14,11 +14,12 @@
 
 <script setup>
 const props = defineProps({
-  margin: {
+  title: {
     type: String,
-    default: '0',
-  },
-});
+    default: 'Впишите props title'
+  }
+})
+
 </script>
 
 <style lang="scss">

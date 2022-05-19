@@ -1,14 +1,12 @@
 <template>
-  <ProfileNewMessage v-if="newMessageWindow"/>
-  <section id="search">
+  <ProfileNewMessage v-if="newMessageWindow" />
+  <section id="search" :class="{ hidden: mobileSorting }">
     <div id="mobile-content">
       <!-- header -->
-      <div class="blur-header">
+
+      <div class="blur-header" :class="{ blur: onBlur}">
         <div class="top">
-          <a href="#" class="back-btn">
-            <img src="@/assets/images/main/arrow-left.svg" alt="" />
-            <span>Назад</span>
-          </a>
+          <BackLink @click="closeMobileSorting" />
           <MobileBurger />
         </div>
         <div class="bottom">
@@ -17,10 +15,14 @@
             src="@/assets/images/main/settings-icon.svg"
             alt=""
             class="filter"
+            @click="openMobileSorting"
           />
         </div>
       </div>
       <!-- header end  -->
+
+      <MobileSorting v-if="mobileSorting" />
+
       <div class="decor"></div>
       <div class="search-items">
         <PotrncialPartnerMobile v-for="(items, idx) in 8" :key="idx" />
@@ -66,27 +68,44 @@
 import SearchItem from "@/components/Search/SearchItem.vue";
 import SearchPageSidebar from "@/components/SideBars/SearchPageSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
-import PotrncialPartnerMobile from '@/components/PotencialPartners/PotrncialPartnerMobile.vue'
-import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue'
+import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
+import ProfileNewMessage from "@/components/Profile/ProfileNewMessage.vue";
+import MobileSorting from "@/components/Search/MobileSorting.vue";
+import BackLink from "@/components/Search/BackLink.vue";
+import { onUnmounted, ref } from "vue";
 
-import {useStore} from 'vuex'
-import {computed} from 'vue'
+import { useStore } from "vuex";
+import { computed } from "vue";
 
-const store = useStore()
+const store = useStore();
 
+const openMobileSorting = () => {
+  store.commit("openMobileSorting");
+};
+const closeMobileSorting = () => {
+  store.commit("openMobileSorting");
+};
 const newMessageWindow = computed(() => {
-  return store.state.newMessageWindow
+  return store.state.newMessageWindow;
+});
+const mobileSorting = computed(() => {
+  return store.state.mobileSorting;
+});
+const scrollValue = ref(0);
+
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false 
 })
 
-// window.addEventListener('scroll', heandleScroll)
+//scroll
+window.addEventListener("scroll", heandleScroll);
 
-// function heandleScroll() {
-//   console.log('scroll');
-// }
-// onUnmounted(() => {
-//   window.removeEventListener('scroll', heandleScroll)
-// })
-
+function heandleScroll(e) {
+  scrollValue.value = window.pageYOffset;
+}
+onUnmounted(() => {
+  window.removeEventListener("scroll", heandleScroll);
+});
 </script>
 
 <style lang="scss">
@@ -107,27 +126,10 @@ const newMessageWindow = computed(() => {
       padding: 30px 10px 30px 10px;
       background: transparent;
       z-index: 1;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(30px);
       .top {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .back-btn {
-          display: flex;
-          align-items: center;
-          color: #fff;
-          text-decoration: none;
-          span {
-            font-size: 14px;
-            font-weight: 500;
-            margin-left: 7px;
-          }
-          img {
-            width: 9px;
-            height: auto;
-          }
-        }
       }
       .bottom {
         display: flex;
@@ -143,6 +145,10 @@ const newMessageWindow = computed(() => {
           }
         }
       }
+    }
+    .blur-header.blur {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(30px);
     }
     .decor {
       position: absolute;
@@ -165,7 +171,6 @@ const newMessageWindow = computed(() => {
         black 10%,
         transparent 50%
       );
-
     }
     .search-items {
       margin-top: 140px;
@@ -226,6 +231,11 @@ const newMessageWindow = computed(() => {
       }
     }
   }
+}
+
+#search.hidden {
+  height: 100vh;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1200px) {

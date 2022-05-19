@@ -9,9 +9,9 @@
       />
       <FormRange/>
       
-      <TheFormats :margin="'20px 0 0 0'"/>
-      <FormCheckbox :margin="'20px 0 0 10px'"/>
-      <BigButton :title="'Начать поиск'" :margin="'20px 0 0 0'"/>
+      <TheFormats/>
+      <FormCheckbox :title="'Сейчас онлайн'"/>
+      <BigButton :title="'Начать поиск'"/>
     </form>
   </div>
 </template>
@@ -37,6 +37,15 @@ const cities = ref(["Москва", "Дубай", "Казань", "Санкт-П
   background: rgba(196, 196, 196, 0.05);
   padding: 24px;
   margin-left: 30px;
+  #formats {
+    margin-top: 20px;
+  }
+  #form-checkbox {
+    margin-top: 20px;
+  }
+  .big-btn {
+    margin-top: 20px;
+  }
   .page-subtitle {
     margin-bottom: 16px;
   }
