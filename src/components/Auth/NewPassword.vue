@@ -1,40 +1,65 @@
 <template>
   <div class="signup__background">
     <div class="signup__page">
-      <div class="signup__border">
-        <div class="signup__block">
-          <div class="signup__block__container">
+      <div class="signup__border" :class="newpassError">
+        <div class="signup__block" :class="newpassError">
+          <div class="signup__block__container" :class="newpassError">
             <div class="signup__block__header">
               <h1>Новый пароль</h1>
               <p>Введите новый пароль и подтвердите его</p>
             </div>
-            <div class="signup__block__numbers">
+            <div class="signup__block__numbers" :class="newpassError">
               <input class="input" placeholder="Новый пароль" />
               <input class="input" placeholder="Повторите пароль" />
-              <p>Неправильно введен повторный пароль</p>
+              <p class="" :class="newpassError">
+                Неправильно введен повторный пароль
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="signup__btn">Сохранить</div>
+      <div class="signup__btn" :class="newpassError">Сохранить</div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      hasError: false,
+    };
+  },
+  computed: {
+    newpassError() {
+      if (this.hasError === true) {
+        return "error__password";
+      }
+      return "test";
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 .signup__border {
   width: 446px;
-  height: 391px;
+  height: 359px;
+  &.error__password {
+    height: 391px;
+  }
 }
 .signup__block {
   width: 422px;
-  height: 367px;
+  height: 335px;
+  &.error__password {
+    height: 367px;
+  }
 }
 .signup__block__container {
   width: 326px;
-  height: 271px;
+  height: 239px;
+  &.error__password {
+    height: 271px;
+  }
 }
 .signup__block__header {
   display: flex;
@@ -55,16 +80,26 @@ export default {};
   align-items: center;
   justify-content: space-between;
   width: 326px;
-  height: 168px;
+  height: 136px;
   p {
     font-weight: 600;
     font-size: 12px;
     line-height: 132.5%;
     text-align: center;
     color: #2b66fb;
+    display: none;
+    &.error__password {
+      display: inline-block;
+    }
+  }
+  &.error__password {
+    height: 168px;
   }
 }
-.grey__btn {
-  background: #434447;
+.signup__btn {
+  &.error__password {
+    background: #434447;
+    color: rgba(255, 255, 255, 0.33);
+  }
 }
 </style>

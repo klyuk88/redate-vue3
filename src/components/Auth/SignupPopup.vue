@@ -87,6 +87,7 @@ export default {};
 .auth__back__btn {
   @extend .flex__center;
   @extend .text;
+  cursor: pointer;
   position: fixed;
   top: 70px;
   left: 40px;
@@ -98,7 +99,7 @@ export default {};
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
-  margin-top: 6px;
+
 }
 .signup__navigation {
   position: fixed;
@@ -115,6 +116,7 @@ export default {};
   background: rgba(255, 255, 255, 0.33);
   &.active {
     background: #2b66fb;
+    cursor: pointer;
   }
 }
 .signup__header {
@@ -175,6 +177,7 @@ export default {};
   height: 47px;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   border-radius: 11px;
+  cursor: pointer;
 }
 .signup__footer__menu {
   @extend .flex__center;
