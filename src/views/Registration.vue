@@ -1,11 +1,13 @@
 <template>
   <div class="content__container">
     <!-- <AuthPopup /> -->
-<!-- <ChangeSuccess /> -->
-<ForgotPassword />
+<!-- <ForgotPassword /> -->
+<!-- <SignupPhoneCode /> -->
 <!-- <NewPassword /> -->
 <!-- <SignupPopup /> -->
-<!-- <SignupPhoneCode /> -->
+<!-- <SignupPopupSecond /> -->
+<SignupPopupThird />
+<!-- <ChangeSuccess /> -->
   </div>
 </template>
 <script setup>
@@ -15,6 +17,8 @@ import SignupPhoneCode from "../components/Auth/SignupPhoneCode.vue";
 import ChangeSuccess from "../components/Auth/ChangeSuccess.vue";
 import ForgotPassword from "../components/Auth/ForgotPassword.vue";
 import NewPassword from "../components/Auth/NewPassword.vue";
+import SignupPopupSecond from "../components/Auth/SignupPopupSecond.vue";
+import SignupPopupThird from "../components/Auth/SignupPopupThird.vue";
 
 
 

@@ -1,25 +1,26 @@
 <template>
   <div class="auth__background">
-    <div class="auth__page">
+    <div class="auth__page" :class="error">
       <div class="auth__back__btn">
         <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>
       </div>
-      <div class="auth__block">
-        <div class="auth__input__box">
-          <div class="auth__inner__box">
-            <div class="auth__inner__content">
+      <div class="auth__block" :class="error" >
+        <div class="auth__input__box" :class="error" >
+          <div class="auth__inner__box" :class="error">
+            <div class="auth__inner__content" :class="error">
               <div class="auth__header">
                 <h1>Вход</h1>
                 <p>Введите данные для входа в учетеную запись</p>
               </div>
-              <div class="inputs">
+              <div class="inputs" :class="error">
                 <input
                   class="input"
                   type="text"
                   placeholder="Телефон / Электронная почта"
                 />
                 <input class="input" type="password" placeholder="Пароль" />
+                <span class="" :class="error">Неверное имя пользователя или пароль. Проверьте правильность введеных данных.</span>
               </div>
             </div>
           </div>
@@ -35,7 +36,21 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      hasError: true,
+    };
+  },
+  computed: {
+    error() {
+      if (this.hasError === true) {
+        return "error__auth";
+      }
+      return "test";
+    },
+  }
+};
 </script>
 <style lang="scss">
 .text {
@@ -67,6 +82,9 @@ export default {};
   height: 577px;
   position: relative;
   top: 8%;
+  &.error__auth {
+    height: 585px
+  }
 }
 .auth__block {
   @extend .flex__center;
@@ -76,6 +94,9 @@ export default {};
   height: 356.91px;
   border: 1px solid #2b66fb36;
   border-radius: 32px;
+    &.error__auth {
+      height: 373px;
+    }
 }
 .auth__input__box {
   @extend .flex__center;
@@ -89,9 +110,15 @@ export default {};
   border: 1px solid #2b66fb;
   box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
   border-radius: 24px;
+  &.error__auth {
+    height: 373px;
+  }
 }
 .auth__inner__box {
   @extend .flex__center;
+  &.error__auth {
+    height: 235px;
+  }
 }
 .auth__inner__content {
   @extend .flex__center;
@@ -99,6 +126,9 @@ export default {};
   flex-direction: column;
   width: 326px;
   height: 235px;
+  &.error__auth {
+    height: 277px;
+  }
 }
 .auth__header {
   flex-direction: column;
@@ -134,6 +164,18 @@ span {
   justify-content: space-between;
   width: 326px;
   height: 136px;
+  span {
+    display: none;
+   color:  #2B66FB;
+   text-align: center;
+   &.error__auth {
+     display: inline-block;
+   }
+  }
+  &.error__auth {
+  height: 178px;
+
+  }
 }
 .input {
   @extend .text;
