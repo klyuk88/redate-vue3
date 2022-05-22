@@ -1,18 +1,19 @@
 <template>
-  <div
-    id="formats"
-    :class="{ open: formatsOpen }"
-    @click="formatsOpen = !formatsOpen"
-  >
+  <div id="formats" :class="{ open: formatsOpen }">
     <ul class="items">
-      <li class="placeholder">
+      <li class="placeholder" @click="formatsOpen = !formatsOpen">
         <span>Выбрать формат</span>
         <img src="@/assets/images/main/select-arrow.svg" alt="" />
       </li>
       <li>
         <label for="first">
           <p class="label">Пункт первый</p>
-          <input type="checkbox" id="first" />
+          <input
+            type="checkbox"
+            id="first"
+            value="Первый"
+            v-model="formatsValue"
+          />
           <div class="checkbox">
             <img src="@/assets/images/main/checkbox.svg" alt="" />
           </div>
@@ -21,7 +22,12 @@
       <li>
         <label for="second">
           <p class="label">Пункт второй</p>
-          <input type="checkbox" id="second" />
+          <input
+            type="checkbox"
+            id="second"
+            value="Второй"
+            v-model="formatsValue"
+          />
           <div class="checkbox">
             <img src="@/assets/images/main/checkbox.svg" alt="" />
           </div>
@@ -30,7 +36,12 @@
       <li>
         <label for="third">
           <p class="label">Пункт третий</p>
-          <input type="checkbox" id="third" />
+          <input
+            type="checkbox"
+            id="third"
+            value="Третий"
+            v-model="formatsValue"
+          />
           <div class="checkbox">
             <img src="@/assets/images/main/checkbox.svg" alt="" />
           </div>
@@ -41,12 +52,23 @@
       <BigButton :title="'Выбрать'" />
     </div>
   </div>
+  
+  <div id="selected-meaning">
+    <div class="item" v-for="(item, idx) in formatsValue" :key="idx">
+      <span>{{item}}</span>
+      <img src="@/assets/images/main/carbon_close.svg" alt="" @click="resetValue(idx)"/>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import BigButton from "@/components/Form/BigButton.vue";
 const formatsOpen = ref(false);
+const formatsValue = ref([]);
+const resetValue = (idx) => {
+  formatsValue.value.splice(idx, 1)
+}
 </script>
 
 <style lang="scss">
@@ -143,6 +165,32 @@ const formatsOpen = ref(false);
       img {
         opacity: 0;
       }
+    }
+  }
+}
+
+#selected-meaning {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  gap: 15px;
+  .item {
+    background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    padding-left: 25px;
+    span {
+      margin-right: 15px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    img {
+      width: 25px;
+      height: auto;
+      cursor: pointer;
     }
   }
 }

@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['click']) 
+const emit = defineEmits(['click'])
 </script>
 
 <style lang="scss">

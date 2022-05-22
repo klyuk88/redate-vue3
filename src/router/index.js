@@ -33,6 +33,13 @@ const routes = [{
     components: {
       default: () => import('@/views/Profile.vue'),
     },
+  },
+  {
+    path: '/chat',
+    name: 'Chat',
+    components: {
+      default: () => import('@/views/Chat.vue'),
+    },
   }
 ]
 

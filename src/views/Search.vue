@@ -1,12 +1,12 @@
 <template>
   <ProfileNewMessage v-if="newMessageWindow" />
-  <section id="search" :class="{ hidden: mobileSorting }">
+  <section id="search" :class="{ 'hidden': mobileSorting }">
     <div id="mobile-content">
       <!-- header -->
 
       <div class="blur-header" :class="{ blur: onBlur}">
         <div class="top">
-          <BackLink @click="closeMobileSorting" />
+          <BackLink @click="$router.go(-1)"/>
           <MobileBurger />
         </div>
         <div class="bottom">
@@ -36,27 +36,7 @@
           </h6>
         </div>
         <div class="search-items">
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
-          <SearchItem />
+          <SearchItem v-for="(items, idx) in 10" :key="idx" />
         </div>
       </div>
       <SearchPageSidebar />
@@ -82,9 +62,7 @@ const store = useStore();
 const openMobileSorting = () => {
   store.commit("openMobileSorting");
 };
-const closeMobileSorting = () => {
-  store.commit("openMobileSorting");
-};
+
 const newMessageWindow = computed(() => {
   return store.state.newMessageWindow;
 });
