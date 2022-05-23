@@ -11,15 +11,15 @@
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="signup__page">
-      <div class="signup__border">
-        <div class="signup__block">
-          <div class="signup__block__container">
+      <div class="signup__border" :class="male">
+        <div class="signup__block" :class="male">
+          <div class="signup__block__container" :class="male">
             <div class="signup__input__box">
               <input class="input" type="text" placeholder="Имя" />
               <TheSelect class="select__country" placeholder="Страна, Город" />
               <TheSelect class="select__nation" placeholder="Национальность" />
             </div>
-            <div class="signup__footer">
+            <div class="signup__footer" :class="male">
               <div class="signup__age__block">
                 <p>Дата рождения:</p>
                 <div class="age__input__block">
@@ -36,27 +36,29 @@
                 </div>
               </div>
               <div class="signup__horizontal__line"></div>
-              <div class="footer__desc">
-                <div class="signup__params">
-                  <div class="signup__params__item">
-                    <p>Рост:</p>
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="170"
-                      maxlength="3"
-                    />
+              <div class="footer__desc" :class="male">
+                <div class="signup__params" :class="male">
+                  <div class="signup__params__block" :class="male">
+                    <div class="signup__params__item" :class="male">
+                      <p>Рост:</p>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="170"
+                        maxlength="3"
+                      />
+                    </div>
+                    <div class="signup__params__item" :class="male">
+                      <p>Вес:</p>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="50"
+                        maxlength="3"
+                      />
+                    </div>
                   </div>
-                  <div class="signup__params__item">
-                    <p>Вес:</p>
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="50"
-                      maxlength="3"
-                    />
-                  </div>
-                  <div class="signup__params__item params__size">
+                  <div class="signup__params__item params__size" :class="male">
                     <p>Параметры:</p>
                     <div class="params__input__box">
                       <input
@@ -90,13 +92,33 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn">Продолжить</div>
+      <div class="signup__btn" :class="error">Продолжить</div>
     </div>
   </div>
 </template>
 <script>
 import TheSelect from "../Form/TheSelect.vue";
 export default {
+  data() {
+    return {
+      malePage: false,
+      hasError: false,
+    };
+  },
+  computed: {
+    male() {
+      if (this.malePage === true) {
+        return "male";
+      }
+      return "test";
+    },
+    error() {
+      if (this.hasError === true) {
+        return "error";
+      }
+      return "test";
+    },
+  },
   components: { TheSelect },
 };
 </script>
@@ -107,12 +129,21 @@ export default {
 }
 .signup__border {
   height: 581px;
+  &.male {
+    height: 548px;
+  }
 }
 .signup__block {
   height: 557px;
+  &.male {
+    height: 524px;
+  }
 }
 .signup__block__container {
   height: 461px;
+  &.male {
+    height: 428px;
+  }
 }
 .signup__input__box {
   height: 212px;
@@ -122,9 +153,11 @@ export default {
   justify-content: space-between;
 }
 .input {
-    cursor: pointer;
+  cursor: pointer;
   width: 326px;
   height: 60px;
+  background: none;
+
   &:focus {
     border: #ffffff 1px solid;
   }
@@ -143,6 +176,9 @@ export default {
 }
 .signup__footer {
   height: 225px;
+  &.male {
+    height: 192px;
+  }
   span {
     font-weight: 600;
     font-size: 12px;
@@ -172,6 +208,8 @@ export default {
     border: none;
     width: 43.5px;
     height: 43.5px;
+    background: none;
+
     &.year {
       width: 87px;
       height: 43.5px;
@@ -190,6 +228,7 @@ export default {
   }
   .input {
     border: none;
+    background: none;
   }
 }
 .signup__horizontal__line {
@@ -197,11 +236,27 @@ export default {
   height: 1px;
   background-color: rgba(255, 255, 255, 0.07);
 }
+.signup__params__block {
+  width: 136px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &.male {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 281px;
+    height: 60px;
+  }
+}
 .signup__params {
   display: flex;
   justify-content: space-between;
   width: 326px;
   height: 93px;
+  &.male {
+    height: 60px;
+  }
 }
 .signup__params__item {
   width: 60px;
@@ -210,8 +265,15 @@ export default {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
+  &.male {
+    flex-direction: row;
+    width: 121px;
+  }
 
   &.params__size {
+    &.male {
+      display: none;
+    }
     width: 174px;
     &:focus {
       border: #ffffff 1px solid;
@@ -221,6 +283,7 @@ export default {
     width: 60px;
     height: 60px;
     text-align: center;
+    background: none;
   }
   p {
     font-weight: 500;
@@ -234,6 +297,9 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   height: 117px;
+  &.male {
+    height: 84px;
+  }
 }
 .params__input__box {
   display: flex;
@@ -252,5 +318,11 @@ export default {
   }
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 11px;
+}
+.signup__btn {
+  &.error {
+    color: rgba(255, 255, 255, 0.33);
+    background: #434447;
+  }
 }
 </style>
