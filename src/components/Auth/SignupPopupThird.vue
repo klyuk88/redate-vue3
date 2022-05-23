@@ -19,7 +19,7 @@
                 <p>Отношение к алкоголю:</p>
                 <div class="block__choose">
                   <div class="choose__list">
-                    <p>Нагативное</p>
+                    <p>Негативное</p>
                     <div class="vertical__line"></div>
                     <p>Нейтральное</p>
                     <div class="vertical__line"></div>
@@ -32,7 +32,7 @@
                 <p>Отношение к курению:</p>
                 <div class="block__choose">
                   <div class="choose__list">
-                    <p>Нагативное</p>
+                    <p>Негативное</p>
                     <div class="vertical__line"></div>
                     <p>Нейтральное</p>
                     <div class="vertical__line"></div>
@@ -60,13 +60,16 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+
+};
 </script>
 <style lang="scss" scoped>
 .signup__border {
   width: 446px;
   height: 592px;
 }
+
 .signup__block {
   width: 422px;
   height: 568px;
@@ -111,15 +114,16 @@ export default {};
     color: rgba(255, 255, 255, 0.33);
   }
 }
+
+.choose {
+  color: #ffffff;
+}
 .choose__list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 291px;
   height: 23px;
-  p:active {
-    color: #ffffff;
-  }
 }
 .vertical__line {
   height: 18px;
@@ -144,5 +148,6 @@ export default {};
   line-height: 153.5%;
   text-decoration-line: underline;
   color: #ffffff;
+  cursor: pointer;
 }
 </style>

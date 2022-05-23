@@ -91,11 +91,8 @@
         </div>
         <div class="profile__horizontal__line"></div>
         <div class="profile__info__list__about__block">
-          <div class="profile__info__list__about">О себе:</div>
-          <div class="profile__info__list__about__description">
-            Человек выского ума, занимаюсь бизнесом по продаже машин, ищу
-            спутницу жизни
-          </div>
+          <p class="profile__info__list__about">О себе: <span class="profile__info__list__about__description">Человек выского ума, занимаюсь бизнесом по продаже машин, ищу
+            спутницу жизни</span></p>
         </div>
         <div class="profile__info__list__carousel"></div>
       </div>
