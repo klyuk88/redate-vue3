@@ -1,7 +1,7 @@
 <template>
   <div class="signup__background">
     <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="verification__page">
@@ -9,10 +9,7 @@
         <h1>Верификация</h1>
         <div class="verification__body">
           <div class="photo__block">
-            <img
-              src="../../assets/images/main/verification__avatar.png"
-              alt=""
-            />
+            <img src="@/assets/images/main/verification__avatar.png" alt="" />
           </div>
           <div class="verification__desc">
             <h3>Как сделать?</h3>
@@ -97,6 +94,11 @@ export default {};
     font-size: 48px;
     line-height: 153.5%;
     color: #ffffff;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 153.5%;
   }
 }
 .verification__body {
@@ -211,7 +213,6 @@ export default {};
   width: 283px;
   height: 0px;
   border: 1px solid rgba(255, 255, 255, 0.33);
- 
 }
 .nav__title {
   display: flex;
@@ -227,6 +228,71 @@ export default {};
     &.choosed {
       color: #ffffff;
     }
+  }
+}
+@media (max-width: 1200px) {
+  .verification__page {
+    height: 719px;
+    width: 308px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .verification__block__container {
+    height: 719px;
+    border: none;
+    background: none;
+    h1 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 153.5%;
+    }
+  }
+  .verification__body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 538px;
+    width: 308px;
+  }
+  li {
+    p {
+      font-weight: 600 !important;
+      font-size: 12px !important;
+      line-height: 15px !important;
+    }
+  }
+  .verification__nav {
+    display: none;
+  }
+  .verification__desc {
+    width: 308px;
+    height: 215px;
+    p {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    h4 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 153.5%;
+    }
+  }
+  .btn__continue {
+    width: 335px;
+    height: 60px;
+  }
+  .btn__later {
+    border: none;
+    background: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    width: 98px;
+    height: 18px;
+    text-decoration: underline;
+    top: 5px;
   }
 }
 </style>

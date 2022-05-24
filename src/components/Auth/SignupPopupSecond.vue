@@ -92,7 +92,87 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn" :class="error">Продолжить</div>
+      <div class="signup__btn web" :class="error">Продолжить</div>
+      <div class="mobile__body">
+        <div class="signup__block__container" :class="male">
+          <div class="signup__input__box">
+            <input class="input" type="text" placeholder="Имя" />
+            <TheSelect class="select__country" placeholder="Страна, Город" />
+            <TheSelect class="select__nation" placeholder="Национальность" />
+          </div>
+          <div class="signup__footer" :class="male">
+            <div class="signup__age__block">
+              <p>Дата рождения:</p>
+              <div class="age__input__block">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="01"
+                  maxlength="2"
+                />
+                <div class="vertical__line"></div>
+                <input class="input" placeholder="01" maxlength="2" />
+                <div class="vertical__line"></div>
+                <input class="input year" placeholder="2000" maxlength="4" />
+              </div>
+            </div>
+            <div class="signup__horizontal__line"></div>
+            <div class="footer__desc" :class="male">
+              <div class="signup__params" :class="male">
+                <div class="signup__params__block" :class="male">
+                  <div class="signup__params__item" :class="male">
+                    <p>Рост:</p>
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="170"
+                      maxlength="3"
+                    />
+                  </div>
+                  <div class="signup__params__item" :class="male">
+                    <p>Вес:</p>
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="50"
+                      maxlength="3"
+                    />
+                  </div>
+                </div>
+                <div class="signup__params__item params__size" :class="male">
+                  <p>Параметры:</p>
+                  <div class="params__input__box">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="90"
+                      maxlength="3"
+                    />
+                    <div class="vertical__line"></div>
+
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="60"
+                      maxlength="3"
+                    />
+                    <div class="vertical__line"></div>
+
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="90"
+                      maxlength="3"
+                    />
+                  </div>
+                </div>
+              </div>
+              <span>*Необязательно для заполнения</span>
+            </div>
+          </div>
+        </div>
+        <div class="signup__btn" :class="error">Продолжить</div>
+      </div>
     </div>
   </div>
 </template>
@@ -323,6 +403,49 @@ export default {
   &.error {
     color: rgba(255, 255, 255, 0.33);
     background: #434447;
+  }
+}
+@media (max-width: 1200px) {
+  .signup__background {
+    top: 0;
+  }
+  .signup__btn {
+    &.web {
+      display: none;
+    }
+  }
+  .mobile__body {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 561px;
+          .signup__btn {
+        width: 335px;
+        height: 60px;
+      }
+    .select__country {
+      width: 335px;
+    }
+    .select__nation {
+      width: 335px;
+    }
+    .signup__input__box {
+      .input {
+        width: 335px;
+      }
+    }
+    .signup__footer {
+      width: 335px;
+      .signup__age__block  {
+        width: 335px;
+      }
+      .signup__horizontal__line {
+        width: 335px;
+      }
+      .footer__desc {
+        width: 335px;
+      }
+
+    }
   }
 }
 </style>

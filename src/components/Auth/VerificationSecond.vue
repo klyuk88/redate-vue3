@@ -167,4 +167,43 @@ export default {};
     height: 59px;
   }
 }
+@media (max-width: 1200px) {
+   .verification__page {
+    height: 719px;
+    width: 308px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .verification__block__container {
+    height: 719px;
+    border: none;
+    background: none;
+    h1 {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 153.5%;
+    }
+  }
+  .verification__body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 538px;
+    width: 308px;
+  }
+
+  .verification__nav {
+    display: none;
+  }
+
+  .btn__continue {
+    width: 335px;
+    height: 60px;
+  }
+.btn__update {
+  display: none;
+}
+}
+
 </style>

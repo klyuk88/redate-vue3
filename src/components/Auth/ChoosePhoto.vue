@@ -27,7 +27,7 @@
                   />
                   <img
                     class="delete"
-                    src="../../assets/images/main/cross__delete__photo.svg"
+                    src="@/assets/images/main/cross__delete__photo.svg"
                     alt=""
                   />
                 </div>
@@ -38,7 +38,7 @@
                   />
                   <img
                     class="delete"
-                    src="../../assets/images/main/cross__delete__photo.svg"
+                    src="@/assets/images/main/cross__delete__photo.svg"
                     alt=""
                   />
                 </div>
@@ -49,7 +49,7 @@
                   />
                   <img
                     class="delete"
-                    src="../../assets/images/main/cross__delete__photo.svg"
+                    src="@/assets/images/main/cross__delete__photo.svg"
                     alt=""
                   />
                 </div>
@@ -60,18 +60,20 @@
                   />
                   <img
                     class="delete"
-                    src="../../assets/images/main/cross__delete__photo.svg"
+                    src="@/assets/images/main/cross__delete__photo.svg"
                     alt=""
                   />
                 </div>
               </div>
             </div>
             <p>Выберите фотографию, которая будет вашей аватаркой</p>
-            <div class="upload__btn">Загрузить с компьютера</div>
+            <div class="upload__btn web">Загрузить с компьютера</div>
+            <div class="replace__photo">Очистить фотографии</div>
+            <div class="continue__btn">Продолжить</div>
           </div>
         </div>
       </div>
-      <div class="signup__btn">Зарегистрироваться</div>
+      <div class="signup__btn web">Зарегистрироваться</div>
     </div>
   </div>
 </template>
@@ -79,9 +81,15 @@
 export default {};
 </script>
 <style lang="scss" scoped>
+.continue__btn {
+  display: none;
+}
+.replace__photo {
+  display: none;
+}
 .signup__navigation {
   position: fixed;
-  top: 64px;
+  top: 80px;
   margin-left: 50px;
 }
 .navigation__item {
@@ -106,7 +114,6 @@ export default {};
   position: fixed;
   margin-left: 20px;
   cursor: pointer;
-
 }
 .photo__container {
   width: 308px;
@@ -162,7 +169,6 @@ p {
   border: 1px solid #ffffff;
   border-radius: 11px;
   cursor: pointer;
-
 }
 .signup__btn {
   width: 236px;
@@ -175,5 +181,54 @@ p {
   cursor: pointer;
 
   color: #ffffff;
+}
+@media (max-width: 1200px) {
+  .signup__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup__border {
+    display: flex;
+    border: none;
+  }
+  .signup__block {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .signup__block__container {
+    width: 335px;
+    height: 594px;
+  }
+  .signup__btn {
+    &.web {
+      display: none;
+    }
+  }
+  .upload__btn {
+    &.web {
+      display: none;
+    }
+  }
+  .replace__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 213px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 11px;
+  }
+  .continue__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 335px;
+    height: 60px;
+    background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+    border-radius: 11px;
+    margin-top: 20px;
+  }
 }
 </style>

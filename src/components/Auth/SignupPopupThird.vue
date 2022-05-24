@@ -7,7 +7,7 @@
       <div class="navigation__item"></div>
     </div>
     <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="signup__page">
@@ -51,18 +51,18 @@
                 <input class="input" type="text" />
               </div>
             </div>
+            <div class="signup__btn mobile">Продолжить</div>
+            <p class="skip mobile">Пропустить</p>
           </div>
         </div>
       </div>
-      <div class="signup__btn">Продолжить</div>
-      <p id="skip">Пропустить</p>
+      <div class="signup__btn web">Продолжить</div>
+      <p class="skip web">Пропустить</p>
     </div>
   </div>
 </template>
 <script>
-export default {
-
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 .signup__border {
@@ -140,14 +140,66 @@ export default {
   height: 47px;
 }
 .signup__btn {
-  margin-bottom: 24px;
+  &.mobile {
+    display: none;
+  }
 }
-#skip {
+.skip {
   font-weight: 500;
   font-size: 14px;
   line-height: 153.5%;
   text-decoration-line: underline;
   color: #ffffff;
   cursor: pointer;
+    &.mobile {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .signup__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup__border {
+    display: flex;
+    border: none;
+  }
+  .signup__block {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .signup__block__container {
+    width: 335px;
+    height: 594px;
+  }
+  .block__choose {
+    width: 335px;
+  }
+  .input {
+    width: 335px;
+    background: none;
+    height: 60px;
+  }
+  .skip {
+    &.mobile {
+      display: flex;
+    }
+    &.web {
+      display: none;
+    }
+  }
+  .signup__btn {
+    &.mobile {
+      display: flex;
+      width: 335px;
+      height: 60px;
+      margin-top: 15px;
+    }
+    &.web {
+      display: none;
+    }
+  }
 }
 </style>

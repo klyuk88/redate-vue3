@@ -19,18 +19,52 @@
                 создания нового пароля.
               </p>
             </div>
+
             <div class="signup__block__numbers">
               <input class="block__item" maxlength="1" autofocus />
               <input class="block__item" maxlength="1" />
               <input class="block__item" maxlength="1" />
               <input class="block__item" maxlength="1" />
             </div>
-            <p class="error__message" :class="errorCode" >Неправильно введен код</p>
+              <p class="error__message" :class="errorCode">
+                Неправильно введен код
+              </p>
           </div>
         </div>
       </div>
-      <div class="signup__footer__box">
-        <div class="signup__btn" :class="errorCode" >Подтвердить</div>
+      <div class="mobile__body">
+        <div class="signup__block__container" :class="errorCode">
+          <div class="signup__block__header">
+            <h1>Введите код</h1>
+            <p class="" :class="authPhone">
+              Мы отправили вам смс с кодом подтвреждения, введите его для
+              продожления регистрации.
+            </p>
+            <p class="" :class="authMail">
+              Мы отправили вам код подтверждения на электронную почту для
+              создания нового пароля.
+            </p>
+          </div>
+
+          <div class="mobile__inputs">
+            <div class="signup__block__numbers">
+              <input class="block__item" maxlength="1" autofocus />
+              <input class="block__item" maxlength="1" />
+              <input class="block__item" maxlength="1" />
+              <input class="block__item" maxlength="1" />
+            </div>
+            <p class="error__message" :class="errorCode">
+              Неправильно введен код
+            </p>
+          </div>
+        </div>
+        <div class="signup__footer__box">
+          <div class="signup__btn" :class="errorCode">Подтвердить</div>
+          <p>Вспомнили пароль? <span> Войти</span></p>
+        </div>
+      </div>
+      <div class="signup__footer__box web">
+        <div class="signup__btn" :class="errorCode">Подтвердить</div>
         <p>Вспомнили пароль? <span> Войти</span></p>
       </div>
     </div>
@@ -42,7 +76,7 @@ export default {
     return {
       phoneAuth: false,
       mailAuth: true,
-      errorStatus: true
+      errorStatus: true,
     };
   },
   computed: {
@@ -116,9 +150,8 @@ export default {
   }
 }
 .error__message {
-
-color: #2B66FB;
-display: none;
+  color: #2b66fb;
+  display: none;
   &.error__code {
     display: inline-block;
   }
@@ -165,8 +198,51 @@ display: none;
   }
 }
 p {
-  span  {
+  span {
     margin-left: 3px;
+  }
+}
+@media (max-width: 1200px) {
+  .mobile__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    .signup__block__container {
+        height: 274px;
+
+      &.error__code {
+        height: 254px;
+      }
+    }
+    .mobile__inputs {
+      width: 336px;
+      height: 104px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .signup__btn {
+      width: 335px;
+      height: 60px;
+    }
+    .signup__block__numbers {
+      width: 335px;
+    }
+  }
+  
+  .signup__page {
+    height: 385px;
+  }
+  .block__item {
+    width: 72px;
+    height: 72px;
+  }
+  .signup__footer__box {
+    &.web {
+      display: none;
+    }
   }
 }
 </style>

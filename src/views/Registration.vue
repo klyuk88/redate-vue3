@@ -13,8 +13,8 @@
 <!-- <ChoosePhoto /> -->
 <!-- <ChangeSuccess /> -->
 <!-- <VerificationFirst /> -->
-<!-- <VerificationSecond /> -->
-<VerificationThird />
+<VerificationSecond />
+<!-- <VerificationThird /> -->
   </div>
 </template>
 <script setup>
