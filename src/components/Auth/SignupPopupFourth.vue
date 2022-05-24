@@ -7,17 +7,17 @@
       <div class="navigation__item active"></div>
     </div>
     <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="signup__page">
       <div class="signup__border">
         <div class="signup__block">
           <div class="signup__block__container">
-            <TheFormats />
+            <TheFormats class="format" />
             <div class="container__cash">
               <div class="desc__logo">
-                <img src="../../assets/images/main/description.svg" alt="" />
+                <img src="@/assets/images/main/description.svg" alt="" />
               </div>
               <p class="" :class="female">Трачу в месяц:</p>
               <p class="" :class="male">Доход в месяц:</p>
@@ -28,10 +28,11 @@
             </div>
             <div class="horizontal__line"></div>
             <textarea class="about" placeholder="Расскажите о себе"></textarea>
+            <div class="signup__btn mobile">Продолжить</div>
           </div>
         </div>
       </div>
-      <div class="signup__btn">Продолжить</div>
+      <div class="signup__btn web">Продолжить</div>
     </div>
   </div>
 </template>
@@ -40,8 +41,8 @@ import TheFormats from "../Form/TheFormats.vue";
 export default {
   data() {
     return {
-      femalePage: false,
-      malePage: true,
+      femalePage: true,
+      malePage: false,
     };
   },
   computed: {
@@ -115,6 +116,11 @@ export default {
   height: 1px;
   background-color: rgba(255, 255, 255, 0.07);
 }
+.signup__btn {
+  &.mobile {
+    display: none;
+  }
+}
 .about {
   width: 326px;
   height: 254px;
@@ -130,5 +136,60 @@ export default {
   resize: none;
   background: none;
   padding: 12px;
+}
+@media (max-width: 1200px) {
+  .container__cash {
+    
+    width: 335px;
+  }
+  .cash__border {
+    input {
+      width: 155px;
+    }
+  }
+  .about {
+    width: 335px;
+    height: 248px;
+  }
+  .signup__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup__border {
+    display: flex;
+    border: none;
+  }
+  .signup__block {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .signup__block__container {
+    width: 335px;
+    height: 540px;
+  }
+  .input {
+    width: 335px;
+    background: none;
+    height: 60px;
+  }
+
+  .signup__btn {
+    &.mobile {
+      display: flex;
+      width: 335px;
+      height: 60px;
+      margin-top: 15px;
+    }
+    &.web {
+      display: none;
+    }
+  }
+  .horizontal__line {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+  }
 }
 </style>

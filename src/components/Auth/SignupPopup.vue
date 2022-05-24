@@ -7,7 +7,7 @@
       <div class="navigation__item"></div>
     </div>
     <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="signup__page">
@@ -37,6 +37,30 @@
           </div>
         </div>
       </div>
+      <div class="mobile__body">
+        <div class="signup__block__container">
+          <div class="signup__header">
+            <h1>Регистрация</h1>
+            <p>
+              Начните новые знакомства после быстрой регистрации. Ваши данные
+              будут защищены.
+            </p>
+          </div>
+          <div class="signup__input__box">
+            <input
+              class="input"
+              type="text"
+              placeholder="Телефон / Электронная почта"
+            />
+            <input class="input" type="password" placeholder="Пароль" />
+            <input
+              class="input"
+              type="password"
+              placeholder="Повторите пароль"
+            />
+          </div>
+        </div>
+      </div>
       <div class="signup__footer">
         <div class="signup__btn">Продолжить</div>
         <div class="signup__footer__menu">
@@ -59,6 +83,9 @@
 export default {};
 </script>
 <style lang="scss">
+.mobile__body {
+  display: none;
+}
 .text {
   font-family: "Mulish";
   font-style: normal;
@@ -99,11 +126,10 @@ export default {};
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
-
 }
 .signup__navigation {
   position: fixed;
-  top: 64px;
+  top: 80px;
   width: 176px;
   height: 4px;
   display: flex;
@@ -197,6 +223,61 @@ export default {};
     font-size: 12px;
     line-height: 132.5%;
     color: #2b66fb;
+  }
+}
+@media (max-width: 1200px) {
+  .auth__back__btn {
+    left: 13px;
+  }
+  .auth__back__btn__title {
+    display: none;
+  }
+  .signup__border {
+    display: none;
+  }
+  .signup__page {
+    height: 645px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .mobile__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 372px;
+    width: 335px;
+    .signup__header {
+      width: 302px;
+      height: 88px;
+    }
+    .signup__input__box {
+      width: 335px;
+      height: 212px;
+
+      .input {
+        width: 335px;
+        height: 60px;
+      }
+    }
+
+    .signup__block__container {
+      justify-content: space-between;
+      height: 372px;
+    }
+  }
+  .signup__footer {
+    height: 225px;
+    .signup__btn {
+      width: 335px;
+      height: 60px;
+    }
+    .signup__footer__menu {
+      width: 174px;
+      height: 21px;
+      margin-top: 24px;
+      margin-bottom: 88px;
+    }
   }
 }
 </style>

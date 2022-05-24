@@ -4,7 +4,7 @@
       <div class="navigation__item active"></div>
     </div>
     <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="signup__page">
@@ -16,7 +16,7 @@
                 <div class="inner__border">
                   <div class="add__btn">
                     <img
-                      src="../../assets/images/main/add__photo__btn.svg"
+                      src="@/assets/images/main/add__photo__btn.svg"
                       alt=""
                     />
                   </div>
@@ -28,14 +28,21 @@
               вы сможете поставить на свою аватарку. Остальные фотографии будут
               отображаться в вашей гелерее.
             </p>
-            <div class="btn__block" :class="male">
+            <div class="btn__block web" :class="male">
               <div class="upload__btn">Загрузить с компьютера</div>
+              <div class="random__btn" :class="male">Выбрать случайную</div>
+            </div>
+            <div class="btn__block mobile" :class="male">
+              <div class="btn__box">
+                <div class="upload">Загрузить</div>
+                <div class="make__photo">Сделать снимок</div>
+              </div>
               <div class="random__btn" :class="male">Выбрать случайную</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="btn__continue">Продолжить</div>
+      <div class="btn__continue web">Продолжить</div>
     </div>
   </div>
 </template>
@@ -43,7 +50,7 @@
 export default {
   data() {
     return {
-      malePage: true,
+      malePage: false,
     };
   },
   computed: {
@@ -59,7 +66,7 @@ export default {
 <style lang="scss" scoped>
 .signup__navigation {
   position: fixed;
-  top: 64px;
+  top: 80px !important;
   margin-left: 50px;
 }
 .navigation__item {
@@ -102,6 +109,7 @@ p {
   margin-left: 50px;
 }
 .photo__block {
+  background: none;
 }
 .photo__border {
   width: 308px;
@@ -130,6 +138,9 @@ p {
   &.male {
     width: 228px;
     height: 82px;
+  }
+  &.mobile {
+    display: none;
   }
 }
 .upload__btn {
@@ -167,5 +178,82 @@ p {
   height: 48px;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   border-radius: 11px;
+}
+@media (max-width: 1200px) {
+  .btn__block {
+    
+
+    &.web {
+      display: none;
+    }
+    &.male {
+      height: 82px;
+    }
+  }
+  .signup__page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup__border {
+    display: flex;
+    border: none;
+  }
+  .signup__block {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .signup__block__container {
+    width: 335px;
+    height: 467px;
+    &.male {
+      height: 514px !important;
+    }
+  }
+  .btn__continue {
+    &.web {
+      display: none;
+    }
+  }
+  .btn__block {
+    &.mobile {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .btn__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 305px;
+    height: 35px;
+  }
+  .upload {
+    width: 126px;
+    height: 35px;
+    background: #2b66fb;
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .make__photo {
+    width: 167px;
+    height: 35px;
+    background: #2b66fb;
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .random__btn {
+    width: 197px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 11px;
+  }
 }
 </style>
