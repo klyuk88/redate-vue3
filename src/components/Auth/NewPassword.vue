@@ -1,5 +1,9 @@
 <template>
   <div class="signup__background">
+    <div class="auth__back__btn">
+      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+      <h1 class="auth__back__btn__title">Назад</h1>
+    </div>
     <div class="signup__page">
       <div class="signup__border" :class="newpassError">
         <div class="signup__block" :class="newpassError">
@@ -100,6 +104,33 @@ export default {
   &.error__password {
     background: #434447;
     color: rgba(255, 255, 255, 0.33);
+  }
+}
+@media (max-width: 1200px) {
+  .signup__page {
+    height: 432px;
+  }
+  .signup__border {
+    display: flex;
+    border: none;
+    margin: 0;
+  }
+  .signup__block {
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .signup__block__header {
+    width: 324px;
+    height: 72px;
+  }
+  .signup__block__numbers {
+    width: 335px;
+    height: 136px;
+  }
+  .signup__btn {
+    width: 335px;
+    height: 60px;
   }
 }
 </style>

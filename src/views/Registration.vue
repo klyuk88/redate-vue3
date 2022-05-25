@@ -7,14 +7,15 @@
 <!-- <SignupPopup /> -->
 <!-- <SignupPopupSecond /> -->
 <!-- <SignupPopupThird /> -->
-<!-- <SignupPopupFourth /> -->
+<SignupPopupFourth />
 <!-- <SignupHobby /> -->
 <!-- <UploadPhoto /> -->
 <!-- <ChoosePhoto /> -->
 <!-- <ChangeSuccess /> -->
 <!-- <VerificationFirst /> -->
-<VerificationSecond />
+<!-- <VerificationSecond /> -->
 <!-- <VerificationThird /> -->
+<!-- <SignupPopupComplete /> -->
   </div>
 </template>
 <script setup>
@@ -33,6 +34,7 @@ import ChoosePhoto from "../components/Auth/ChoosePhoto.vue";
 import VerificationFirst from "../components/Auth/VerificationFirst.vue";
 import VerificationSecond from "../components/Auth/VerificationSecond.vue";
 import VerificationThird from "../components/Auth/VerificationThird.vue";
+import SignupPopupComplete from "../components/Auth/SignupPopupComplete.vue";
 
 
 

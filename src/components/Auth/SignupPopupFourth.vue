@@ -121,6 +121,9 @@ export default {
     display: none;
   }
 }
+.format {
+  
+}
 .about {
   width: 326px;
   height: 254px;

@@ -43,12 +43,18 @@
               <div class="horizontal__line"></div>
               <div class="block skills">
                 <p>Увлечения:</p>
-                <input class="input" type="text" />
+                <div class="input">
+                  <div class="chips">Спорт</div>
+                  <div class="chips">Вино</div>
+                  <div class="chips">Путешевствие</div>
+                  <div class="chips">Ужасы</div>
+                  <div class="add">+</div>
+                </div>
               </div>
               <div class="horizontal__line"></div>
               <div class="block skills">
                 <p>Знание языков:</p>
-                <input class="input" type="text" />
+                <div class="input"></div>
               </div>
             </div>
             <div class="signup__btn mobile">Продолжить</div>
@@ -151,7 +157,7 @@ export default {};
   text-decoration-line: underline;
   color: #ffffff;
   cursor: pointer;
-    &.mobile {
+  &.mobile {
     display: none;
   }
 }
@@ -181,6 +187,30 @@ export default {};
     width: 335px;
     background: none;
     height: 60px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .chips {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 132.5%;
+    color: #ffffff;
+    padding: 4px 10px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px ;
+  }
+  .add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
   }
   .skip {
     &.mobile {

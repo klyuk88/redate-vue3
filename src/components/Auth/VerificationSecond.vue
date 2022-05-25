@@ -11,29 +11,58 @@
           <div class="verification__body">
             <div class="add__photo__block">
               <img
-                class=""
+                class="added__photo"
                 src="@/assets/images/main/Verification__add__photo.svg"
                 alt=""
+                :class="added"
               />
-              <div class="inner__add__photo__block added">
-                <img
-                  src="@/assets/images/main/add__photo__btn.svg"
-                  alt=""
-                />
+              <div class="inner__add__photo__block" :class="added">
+                <img src="@/assets/images/main/add__photo__btn.svg" alt="" />
               </div>
             </div>
             <div class="photo__block">
               <img
+                class="mobile__avatar"
                 src="@/assets/images/main/verification__avatar.png"
+                alt=""
+                :class="added"
+              />
+              <img
+                class="mobile__avatar__new"
+                src="@/assets/images/main/Verification__add__photo.svg"
+                :class="added"
                 alt=""
               />
             </div>
+            <p class="mobile__desc" :class="added">
+              Отобразите позу, которая указана на картинке
+            </p>
+            <p class="mobile__desc renew" :class="added">
+              Сравните пример с загруженной вами фотографией
+            </p>
+            <div class="mobile__add__buttons">
+              <div class="mobile__upload">
+                <div class="mobile__upload__inner" :class="added">
+                  <p>Загрузить из галереи</p>
+                </div>
+                <img
+                  class="mobile__avatar__new"
+                  src="@/assets/images/main/verification__preview.svg"
+                  alt=""
+                  :class="added"
+                />
+              </div>
+              <div class="mobile__make__photo">
+                <p class="text__make" :class="added">Сделать снимок</p>
+                <p class="text__again" :class="added">Повторить снимок</p>
+              </div>
+            </div>
           </div>
-          <p class="added">
+          <p class="web" :class="added">
             Отобразите позу, которая указана на картинке справа
           </p>
           <div class="btn__update">Обновить снимок</div>
-          <div class="btn__continue added">Продолжить</div>
+          <div class="btn__continue" :class="added">Продолжить</div>
         </div>
       </div>
       <div class="verification__nav">
@@ -74,7 +103,21 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      photoAdded: true,
+    };
+  },
+  computed: {
+    added() {
+      if (this.photoAdded === true) {
+        return "added";
+      }
+      return "test";
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 .add__photo__block {
@@ -88,6 +131,12 @@ export default {};
   &.added {
     border: 1px solid #2b66fb;
     border-radius: 24px;
+  }
+}
+.added__photo {
+  display: none;
+  &.added {
+    display: flex;
   }
 }
 .verification__content {
@@ -114,6 +163,12 @@ export default {};
     }
   }
 }
+.mobile__avatar__new {
+  display: none;
+}
+.mobile__add__buttons {
+  display: none;
+}
 .inner__add__photo__block {
   width: 230px;
   height: 230px;
@@ -122,9 +177,13 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   &.added {
     display: none;
   }
+}
+.mobile__desc {
+  display: none;
 }
 .horizontal__line {
   &.choosed {
@@ -153,6 +212,7 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .btn__continue {
   width: 228px;
@@ -168,12 +228,21 @@ export default {};
   }
 }
 @media (max-width: 1200px) {
-   .verification__page {
+  .auth__back__btn {
+    top: 49px;
+  }
+  .add__photo__block {
+    display: none;
+  }
+  .verification__page {
     height: 719px;
     width: 308px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .verification__content {
+    height: 731px;
   }
   .verification__block__container {
     height: 719px;
@@ -187,10 +256,32 @@ export default {};
   }
   .verification__body {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     height: 538px;
     width: 308px;
+    .mobile__desc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+      width: 308px;
+      height: 31.79px;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      &.added {
+        display: none;
+        &.renew {
+          display: flex;
+        }
+      }
+      &.renew {
+        display: none;
+      }
+    }
   }
 
   .verification__nav {
@@ -200,10 +291,96 @@ export default {};
   .btn__continue {
     width: 335px;
     height: 60px;
+    &.added {
+      width: 335px;
+      height: 60px;
+    }
   }
-.btn__update {
-  display: none;
-}
-}
+  .btn__update {
+    display: none;
+  }
+  .mobile__add__buttons {
+    width: 308px;
+    height: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile__upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    border: 1px solid #ffffff;
+    border-radius: 24px;
+  }
+  .mobile__upload__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border: 1px dashed rgba(255, 255, 255, 0.33);
+    border-radius: 16px;
+    cursor: pointer;
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 153.5%;
+      width: 76px;
+      height: 42px;
+    }
+  }
+  .web {
+    display: none;
+  }
+  .mobile__make__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 116px;
+    height: 180px;
+    border: 1px solid #ffffff;
+    border-radius: 24px;
+    cursor: pointer;
+    p {
+      width: 58px;
+      height: 42px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 153.5%;
+    }
+  }
+  .text__make {
+    &.added {
+      display: none;
+    }
+  }
+  .text__again {
+    &.added {
+      display: inline-table !important;
+    }
+    &.test {
+      display: none;
+    }
+  }
+  .mobile__avatar__new {
+    display: none;
+    &.added {
+      display: flex;
+    }
+  }
+  .mobile__avatar {
+    &.added {
+      display: none;
+    }
+  }
+  .mobile__upload__inner {
+    &.added {
+      display: none;
+    }
+  }
 
+}
 </style>
