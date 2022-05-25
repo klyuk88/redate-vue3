@@ -4,10 +4,10 @@
 <!-- <ForgotPassword /> -->
 <!-- <SignupPhoneCode /> -->
 <!-- <NewPassword /> -->
-<!-- <SignupPopup /> -->
+<SignupPopup />
 <!-- <SignupPopupSecond /> -->
 <!-- <SignupPopupThird /> -->
-<SignupPopupFourth />
+<!-- <SignupPopupFourth /> -->
 <!-- <SignupHobby /> -->
 <!-- <UploadPhoto /> -->
 <!-- <ChoosePhoto /> -->

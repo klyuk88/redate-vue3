@@ -258,6 +258,9 @@ export default {};
       .input {
         width: 335px;
         height: 60px;
+        &:focus {
+          border: #ffffff 1px solid;
+        }
       }
     }
 
