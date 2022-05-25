@@ -13,7 +13,7 @@
           <div class="signup__block__container" :class="male">
             <div class="photo__block">
               <div class="photo__border">
-                <div class="inner__border">
+                <div class="inner__border" :class="added">
                   <div class="add__btn">
                     <img
                       src="@/assets/images/main/add__photo__btn.svg"
@@ -21,6 +21,7 @@
                     />
                   </div>
                 </div>
+                <img src="@/assets/images/main/upload__photo__male.svg" alt="" :class="added">
               </div>
             </div>
             <p>
@@ -38,6 +39,7 @@
                 <div class="make__photo">Сделать снимок</div>
               </div>
               <div class="random__btn" :class="male">Выбрать случайную</div>
+              <div class="btn__continue web" :class="added">Продолжить</div>
             </div>
           </div>
         </div>
@@ -50,13 +52,20 @@
 export default {
   data() {
     return {
-      malePage: false,
+      malePage: true,
+      randomPhotoAdded: true,
     };
   },
   computed: {
     male() {
       if (this.malePage === true) {
         return "male";
+      }
+      return "test";
+    },
+    added() {
+      if (this.randomPhotoAdded === true) {
+        return "added";
       }
       return "test";
     },
@@ -120,6 +129,9 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  >img {
+    display: none;
+  }
 }
 .inner__border {
   width: 230px;
@@ -180,9 +192,15 @@ p {
   border-radius: 11px;
 }
 @media (max-width: 1200px) {
+  .signup__navigation {
+    margin-left: 0;
+  }
+  .navigation__item {
+    &.active {
+      width: 176px;
+    }
+  }
   .btn__block {
-    
-
     &.web {
       display: none;
     }
@@ -208,12 +226,29 @@ p {
     width: 335px;
     height: 467px;
     &.male {
-      height: 514px !important;
+      height: 616px !important;
+    }
+  }
+  .inner__border {
+    &.added {
+      display: none;
     }
   }
   .btn__continue {
     &.web {
       display: none;
+      &.added {
+        display: flex;
+        width: 335px;
+        height: 60px;
+      }
+    }
+  }
+  .photo__border {
+    img {
+      &.added {
+        display: flex;
+      }
     }
   }
   .btn__block {
@@ -222,6 +257,7 @@ p {
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
+      height: 190px;
     }
   }
   .btn__box {
@@ -254,6 +290,7 @@ p {
     height: 35px;
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 11px;
+    margin-bottom: 30px;
   }
 }
 </style>

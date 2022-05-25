@@ -14,6 +14,17 @@
               <div class="right__side"></div>
             </div>
             <div class="desc__container">
+              <div class="mobile__desc">
+                <p class="title__mobile">Спасибо!</p>
+                <div>
+                  <p class="text__mobile">
+                    Ваша заявка отправлена на модерацию.
+                  </p>
+                  <p class="text__mobile"> За ответом можно следить
+                    в своем профиле.</p>
+
+                </div>
+              </div>
               <h4>
                 Спасибо! Ваша заявка отправлена на модерацию. За ответом можно
                 следить в своем профиле.
@@ -88,9 +99,8 @@ export default {};
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 46px rgba(43, 102, 251, 0.32);
- display: flex;
- border: #2b66fb 2px solid;
-
+  display: flex;
+  border: #2b66fb 2px solid;
 }
 .desc__container {
   height: 254px;
@@ -146,7 +156,7 @@ export default {};
   top: 95px;
 }
 .right__side {
-    position: relative;
+  position: relative;
   width: 25.61px;
   height: 214.45px;
   background: linear-gradient(
@@ -157,5 +167,72 @@ export default {};
   );
   transform: rotate(-135deg);
   left: 155px;
+}
+.mobile__desc {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .verification__content {
+    height: 731px;
+  }
+  .logo__container {
+    width: 198px;
+    height: 198px;
+  }
+  .btn__continue {
+    width: 335px;
+    height: 60px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 130%;
+  }
+  .verification__body {
+    align-items: center;
+  }
+  .desc__container {
+    width: 335px;
+    h4 {
+      display: none;
+    }
+    p {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 153.5%;
+      color: rgba(255, 255, 255, 0.33);
+      span {
+        margin-right: 200px;
+      }
+    }
+  }
+  .horizontal__line {
+    width: 335px;
+  }
+  .mobile__desc {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 345px;
+    height: 92px;
+    p {
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 153.5%;
+      color: #ffffff;
+    }
+  }
+
+  .left__side {
+  width: 20.7px;
+  height: 83.63px;
+  left: 57px;
+  top: 76px;
+}
+.right__side {
+  width: 20.61px;
+  height: 172.45px;
+  left: 113px;
+}
 }
 </style>
