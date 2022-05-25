@@ -122,7 +122,6 @@ export default {
   }
 }
 .format {
-  
 }
 .about {
   width: 326px;
@@ -134,15 +133,18 @@ export default {
   line-height: 153.5%;
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.33);
+  color: #ffffff;
   outline: none;
   resize: none;
   background: none;
   padding: 12px;
+  &::placeholder {
+  color: rgba(255, 255, 255, 0.33);
+
+  }
 }
 @media (max-width: 1200px) {
   .container__cash {
-    
     width: 335px;
   }
   .cash__border {
@@ -153,6 +155,9 @@ export default {
   .about {
     width: 335px;
     height: 248px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 153.5%;
   }
   .signup__page {
     display: flex;
@@ -179,6 +184,9 @@ export default {
   }
 
   .signup__btn {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 153.5%;
     &.mobile {
       display: flex;
       width: 335px;
@@ -192,7 +200,6 @@ export default {
   .horizontal__line {
     margin-top: 15px;
     margin-bottom: 15px;
-
   }
 }
 </style>
