@@ -1,58 +1,63 @@
 <template>
-  <section id="dialog">
+  <section id="dialog" class="single-chat">
     <div id="di-mobile-content">
       <div class="di-mob-decor"></div>
-      <div class="di-mob-header" :class="{'blur': onBlur}">
+      <div class="di-mob-header" :class="{ blur: false }">
         <BackLink @click="$router.go(-1)" />
         <h1 class="di-mob-title">Диалоги</h1>
         <MobileBurger />
       </div>
-
-      <div class="di-mob-items" ref="diMobItems" @scroll="heandleScroll">
-        <DialogItem v-for="(item, idx) in 20" :key="idx" />
-      </div>
-      <button class="delite-dialogs">Удалить все диалоги</button>
     </div>
 
     <div class="grid">
       <div class="content">
+
+        <div class="s-ch-back-avatar-wrap">
+          <img
+            src="https://i.pinimg.com/736x/e0/2f/f2/e02ff20675915081bcefabdf095b9113--beauty-shoot-beauty-tips.jpg"
+            alt=""
+          />
+        </div>
+
         <div class="search-results">
-          <h6 class="label">Диалоги: <span class="results">222</span></h6>
+          <img src="@/assets/images/back_arr.svg" alt="" class="s-ch-back" />
+          <div class="s-ch-status-data">
+            <div class="s-ch-avatar-wrap">
+              <img
+                src="https://i.pinimg.com/236x/e1/ee/46/e1ee462e266376e66763b057596c62cf.jpg"
+                alt=""
+              />
+            </div>
+            <div class="s-ch-name">
+              <h6>Александр</h6>
+              <span>|</span>
+              <p class="s-ch-status">Онлайн</p>
+            </div>
+          </div>
+          <MoreActions/>
         </div>
-        <div class="dialog-items with-scroll">
-          <DialogItem v-for="(item, idx) in 20" :key="idx" />
+
+        <div class="message-list with-scroll">
+          <MessageItem v-for="(item, index) in 30" :key="index"/>
         </div>
-        <button class="delite-dialogs">Удалить все диалоги</button>
+
+        <NewMessage/>
       </div>
       <DialogSidebar />
     </div>
   </section>
 </template>
 
-
 <script setup>
-import DialogItem from "@/components/Chat/DialogItem.vue";
 import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import BackLink from "@/components/Search/BackLink.vue";
-import {computed, ref, onMounted, onUnmounted} from 'vue'
+import NewMessage from '@/components/Chat/NewMessage.vue'
+import MessageItem from '@/components/Chat/MessageItem.vue'
+import MoreActions from '@/components/Chat/MoreActions.vue'
 
 
-const scrollValue = ref(0);
-const diMobItems = ref(null)
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false
-})
-
-function heandleScroll(e) {
-  scrollValue.value = diMobItems.value.scrollTop;
-}
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-
+import { computed, ref, onMounted, onUnmounted } from "vue";
 
 
 </script>
@@ -173,6 +178,84 @@ onUnmounted(() => {
   }
 }
 
+#dialog.single-chat {
+  .s-ch-avatar-wrap {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    margin-right: 25px;
+    img {
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .more-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .message-list {
+    padding: 160px 60px 0 60px;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+  }
+  .search-results {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .s-ch-status-data {
+      display: flex;
+      align-items: center;
+    }
+    .s-ch-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      h6 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      p {
+        font-style: 15px;
+        color: #3e74ff;
+      }
+    }
+  }
+  .grid {
+    .content {
+      position: relative;
+      .s-ch-back-avatar-wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: rgba($color: #1c1d21, $alpha: 1);
+        z-index: -1;
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          left: 0;
+          top: 0;
+          filter: saturate(0) blur(15px);
+          opacity: 0.15;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   #dialog {
     padding: 0;
@@ -186,3 +269,15 @@ onUnmounted(() => {
   }
 }
 </style>
+
+// const onBlur = computed(() => {
+//   return scrollValue.value > 20 ? true : false
+// })
+
+// function heandleScroll(e) {
+//   scrollValue.value = diMobItems.value.scrollTop;
+// }
+
+// onUnmounted(() => {
+//   window.removeEventListener("scroll", heandleScroll);
+// });

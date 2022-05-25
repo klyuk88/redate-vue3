@@ -40,6 +40,13 @@ const routes = [{
     components: {
       default: () => import('@/views/Chat.vue'),
     },
+  },
+  {
+    path: '/chat/:user',
+    name: 'SingleChat',
+    components: {
+      default: () => import('@/views/SingleChat.vue'),
+    },
   }
 ]
 
