@@ -55,12 +55,10 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 24px;
-  background: #242529;
+  background: rgba(36, 37, 41, 0.6);
   border: 1px solid #2b66fb;
   box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
   border-radius: 24px;
-  top: 294px;
-  left: 676px;
 }
 .report__popup__content {
   display: flex;
@@ -82,6 +80,7 @@ export default {
   width: 328px;
   height: 60px;
   cursor: pointer;
+  background: none;
 }
 .report__popup__comment {
   @extend .text;
@@ -92,15 +91,20 @@ export default {
   gap: 10px;
   width: 328px;
   height: 174px;
-  border: 1px solid #ffffff;
   border-radius: 11px;
   font-size: 15px;
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.33);
-  background: #242529;
+  color: #ffffff;
+  background: none;
   outline: none;
   resize: none;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.33);
+  }
+  &:focus {
+    border: #ffffff 1px solid;
+  }
 }
 .report__popup__button {
   @extend .text;
@@ -116,5 +120,35 @@ export default {
   border-radius: 11px;
   font-size: 16px;
   cursor: pointer;
+}
+@media (max-width: 1200px) {
+  .report__popup__block {
+    height: 418px;
+    width: 335px;
+    background: rgba(36, 37, 41, 0.6);
+    border: 1px solid #2b66fb;
+    border-radius: 24px;
+    .report__popup__content {
+      align-items: center;
+      height: 370px;
+      width: 287px;
+      .report__popup__select {
+        width: 287px;
+        height: 60px;
+      }
+      .report__popup__comment {
+        width: 287px;
+        height: 201px;
+      }
+      .report__popup__button {
+        width: 161px;
+        height: 33px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 132.5%;
+        padding: 0;
+      }
+    }
+  }
 }
 </style>

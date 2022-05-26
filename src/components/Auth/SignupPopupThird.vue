@@ -44,17 +44,71 @@
               <div class="block skills">
                 <p>Увлечения:</p>
                 <div class="input">
-                  <div class="chips">Спорт</div>
-                  <div class="chips">Вино</div>
-                  <div class="chips">Путешевствие</div>
-                  <div class="chips">Ужасы</div>
+                  <div class="chips">
+                    Спорт
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    Вино
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    Путешевствие
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    Ужасы
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
                   <div class="add">+</div>
                 </div>
               </div>
               <div class="horizontal__line"></div>
               <div class="block skills">
                 <p>Знание языков:</p>
-                <div class="input"></div>
+                <div class="input">
+                  <div class="chips">
+                    Спорт
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    Вино
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    Путешевствие
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    Ужасы
+                    <img
+                      src="@/assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="add">+</div>
+                </div>
               </div>
             </div>
             <div class="signup__btn mobile">Продолжить</div>
@@ -92,7 +146,7 @@ export default {};
 }
 .block {
   width: 326px;
-  height: 87px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -106,6 +160,38 @@ export default {};
   .skills {
     height: 77px;
   }
+}
+.chips {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 132.5%;
+  color: #ffffff;
+  padding: 4px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  margin-right: 8px;
+  &:not(:last-child) {
+  
+    margin-bottom: 8px;
+  }
+  img {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 2px;
 }
 .block__choose {
   width: 326px;
@@ -130,6 +216,9 @@ export default {};
   justify-content: space-between;
   width: 291px;
   height: 23px;
+  p {
+    cursor: pointer;
+  }
 }
 .vertical__line {
   height: 18px;
@@ -143,7 +232,10 @@ export default {};
 }
 .input {
   margin: 0;
-  height: 47px;
+  min-height: 47px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 .signup__btn {
   &.mobile {
@@ -186,32 +278,9 @@ export default {};
   .input {
     width: 335px;
     background: none;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    min-height: 60px;
   }
-  .chips {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 132.5%;
-    color: #ffffff;
-    padding: 4px 10px;
-    border: 1px solid #ffffff;
-    border-radius: 8px;
-    margin-right: 8px;
-    margin-bottom: 8px ;
-  }
-  .add {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px;
-    width: 24px;
-    height: 24px;
-    border: 1px solid #ffffff;
-    border-radius: 8px;
-  }
+
   .skip {
     &.mobile {
       display: flex;

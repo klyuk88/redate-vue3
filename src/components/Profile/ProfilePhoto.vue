@@ -1,7 +1,5 @@
 <template>
-  <ProfileNewMessage
-    v-if="newMessageWindow"
-  />
+  <ProfileNewMessage v-if="newMessageWindow" />
   <ProfilePhotoCarousel
     v-if="modalVisiblePhoto"
     @close="modalVisiblePhoto = false"
@@ -49,8 +47,8 @@ export default {
   },
   computed: {
     newMessageWindow() {
-      return this.$store.state.newMessageWindow
-    }
+      return this.$store.state.newMessageWindow;
+    },
   },
   methods: {
     close() {
@@ -61,7 +59,7 @@ export default {
       this.modalVisibleMore = true;
     },
     showModalMess() {
-      this.$store.commit('openNewMessageWindow')
+      this.$store.commit("openNewMessageWindow");
     },
     showModalPhoto() {
       this.modalVisiblePhoto = true;
@@ -71,10 +69,8 @@ export default {
   components: { ProfilePopupMore, ProfileNewMessage, ProfilePhotoCarousel },
 };
 </script>
-<style>
+<style lang="scss">
 .profile__photo__block {
-
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +83,6 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-bottom: none;
   border-top: none;
-
 }
 .profile__photo {
   width: 608px;
@@ -177,5 +172,18 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+@media (max-width: 1200px) {
+  .profile__photo__block {
+  min-width: none;
+  background: none;
+    .profile__photo {
+      width: 335px;
+      height: 462px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
+      border-radius: 24px;
+    }
+  }
 }
 </style>
