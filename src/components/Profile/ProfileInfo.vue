@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <ProfilePopupDescription
     v-if="modalDescVisible"
     @close="modalDescVisible = false"
@@ -325,4 +325,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
 }
-</style>
+@media (max-width: 1200px) {
+
+}
+</style> -->

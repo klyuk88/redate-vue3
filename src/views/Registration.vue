@@ -4,7 +4,7 @@
 <!-- <ForgotPassword /> -->
 <!-- <SignupPhoneCode /> -->
 <!-- <NewPassword /> -->
-<SignupPopup />
+<!-- <SignupPopup /> -->
 <!-- <SignupPopupSecond /> -->
 <!-- <SignupPopupThird /> -->
 <!-- <SignupPopupFourth /> -->
@@ -16,6 +16,15 @@
 <!-- <VerificationSecond /> -->
 <!-- <VerificationThird /> -->
 <!-- <SignupPopupComplete /> -->
+<!-- <ProfileNewMessage /> -->
+<!-- <ProfilePopupBan /> -->
+<!-- <ProfilePopupCongrats /> -->
+<!-- <ProfilePopupDescription /> -->
+<!-- <ProfilePopupDiamond /> -->
+<!-- <ProfilePopupDiamondLost /> -->
+<!-- <ProfilePopupHide /> -->
+<!-- <ProfilePopupReport /> -->
+
   </div>
 </template>
 <script setup>
@@ -35,6 +44,15 @@ import VerificationFirst from "../components/Auth/VerificationFirst.vue";
 import VerificationSecond from "../components/Auth/VerificationSecond.vue";
 import VerificationThird from "../components/Auth/VerificationThird.vue";
 import SignupPopupComplete from "../components/Auth/SignupPopupComplete.vue";
+import ProfileNewMessage from "../components/Profile/ProfileNewMessage.vue";
+import ProfilePopupBan from "../components/Profile/ProfilePopupBan.vue";
+import ProfilePopupCongrats from "../components/Profile/ProfilePopupCongrats.vue";
+import ProfilePopupDescription from "../components/Profile/ProfilePopupDescription.vue";
+import ProfilePopupDiamond from "../components/Profile/ProfilePopupDiamond.vue";
+import ProfilePopupDiamondLost from "../components/Profile/ProfilePopupDiamondLost.vue";
+import ProfilePopupHide from "../components/Profile/ProfilePopupHide.vue";
+import ProfilePopupMaillist from "../components/Profile/ProfilePopupMaillist.vue";
+import ProfilePopupReport from "../components/Profile/ProfilePopupReport.vue";
 
 
 

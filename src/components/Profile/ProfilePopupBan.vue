@@ -47,7 +47,7 @@ export default {
   gap: 16px;
   width: 321px;
   height: 166px;
-  background: #242529;
+  background: rgba(36, 37, 41, 0.6);
   border: 1px solid #2b66fb;
   border-radius: 24px;
 }
@@ -55,6 +55,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   height: 118px;
 }
 .ban__popup__text {
