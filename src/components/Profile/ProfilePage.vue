@@ -1,13 +1,48 @@
 <template>
   <div class="profile__page">
+    <div class="nav__box">
+      <div class="auth__back__btn">
+        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </div>
+      <div class="more_mobile">
+        <img src="@/assets/images/main/btn_more.svg" alt="" />
+      </div>
+    </div>
     <div class="left__side">
       <div class="background">
         <div class="photo">
-          <!-- <img
-              class="main__avatar"
-              src="@/assets/images/main/profile__avatar.svg"
+          <img
+            class="main__avatar"
+            src="../../assets/images/main/nate-J5U-22o1ubw-unsplash.jpg"
+            alt=""
+          />
+        </div>
+        <div class="profile__info__list__carousel mobile">
+          <div class="profile__mini__avatar">
+            <img
+              src="../../assets/images/main/woman__mini__avatar1.png"
               alt=""
-            /> -->
+            />
+          </div>
+          <div class="profile__mini__avatar">
+            <img
+              src="../../assets/images/main/woman__mini__avatar1.png"
+              alt=""
+            />
+          </div>
+          <div class="profile__mini__avatar">
+            <img
+              src="../../assets/images/main/woman__mini__avatar1.png"
+              alt=""
+            />
+          </div>
+          <div class="profile__mini__avatar">
+            <img
+              src="../../assets/images/main/woman__mini__avatar1.png"
+              alt=""
+            />
+          </div>
         </div>
         <div class="buttons__block">
           <div class="inner__buttons__block">
@@ -45,13 +80,28 @@
               <div class="big__buttons">
                 <div class="send__message">Написать</div>
                 <div class="icon__btn">
-                  <img src="@/assets/images/main/heart.svg" width="17" height="20" alt="" />
+                  <img
+                    src="@/assets/images/main/heart.svg"
+                    width="17"
+                    height="20"
+                    alt=""
+                  />
                   <div class="vertical__line"></div>
-                  <img src="@/assets/images/main/star.svg" width="19" height="20" alt="" />
+                  <img
+                    src="@/assets/images/main/star.svg"
+                    width="19"
+                    height="20"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
           </div>
+          <img
+            class="down__arrow"
+            src="../../assets/images/main/profile__mobile__down.svg"
+            alt=""
+          />
           <div class="profile__info__filter">
             <div class="profile__info__filter__block">
               <div
@@ -63,6 +113,7 @@
               <div class="profile__info__filter__description">
                 Формат знакомств:
               </div>
+              <div class="mobile__horizontal__line"></div>
             </div>
             <div class="profile__info__filter__tags__block">
               <div class="profile__info__filter__tag">Серьёзные отношения</div>
@@ -73,6 +124,10 @@
           </div>
           <div class="profile__info__list__container">
             <div class="profile__info__list">
+              <div class="mobile__more__info__title">
+                <p>Подробная информация</p>
+                <div class="mobile__horizontal__line"></div>
+              </div>
               <div class="profile__info__list__stats">
                 <div class="profile__info__list__icon">
                   <img src="@/assets/images/main/nation.svg" alt="" />
@@ -116,14 +171,24 @@
               </div>
             </div>
             <div class="profile__horizontal__line"></div>
-            <div class="profile__info__list__heightweight">
-              <div class="profile__info__list__height__block">
-                <div class="profile__info__list__height">Рост:</div>
-                <div class="profile__info__list__height__stat">181</div>
+            <div class="mobile__more__info__title">
+              <p>Основное</p>
+              <div class="mobile__horizontal__line main"></div>
+            </div>
+            <div class="main__heightweight">
+              <div class="profile__info__list__heightweight">
+                <div class="profile__info__list__height__block">
+                  <div class="profile__info__list__height">Рост:</div>
+                  <div class="profile__info__list__height__stat">181</div>
+                </div>
+                <div class="profile__info__list__weight__block">
+                  <div class="profile__info__list__weight">Вес:</div>
+                  <div class="profile__info__list__weight__stat">78</div>
+                </div>
               </div>
-              <div class="profile__info__list__weight__block">
-                <div class="profile__info__list__weight">Вес:</div>
-                <div class="profile__info__list__weight__stat">78</div>
+              <div class="female__version">
+                <div class="profile__info__list__weight">Параметры:</div>
+                <div class="profile__info__list__weight__stat">90/60/90</div>
               </div>
             </div>
             <div class="profile__horizontal__line"></div>
@@ -132,6 +197,15 @@
               <div class="profile__info__list__hobby__item">
                 Спорт, Фильмы, Шахматы
               </div>
+            </div>
+            <div class="mobile__more__info__title">
+              <p>Увлечения</p>
+              <div class="mobile__horizontal__line hobby"></div>
+            </div>
+            <div class="hobby__chips__box">
+              <div class="chips">Спорт</div>
+              <div class="chips">Вино</div>
+              <div class="chips">Путешествие</div>
             </div>
             <div class="profile__horizontal__line"></div>
             <div class="profile__info__list__about__block">
@@ -143,15 +217,49 @@
                 >
               </p>
             </div>
-            <div class="profile__info__list__carousel"></div>
+            <div class="mobile__more__info__title">
+              <p>О себе</p>
+              <div class="mobile__horizontal__line about"></div>
+            </div>
+            <div class="mobile__about__desc">
+              <p>
+                Человек выского ума, занимаюсь бизнесом по продаже машин, ищу
+                спутницу жизни
+              </p>
+            </div>
+            <div class="profile__info__list__carousel">
+              <div class="profile__mini__avatar">
+                <img
+                  src="../../assets/images/main/woman__mini__avatar1.png"
+                  alt=""
+                />
+              </div>
+              <div class="profile__mini__avatar">
+                <img
+                  src="../../assets/images/main/woman__mini__avatar1.png"
+                  alt=""
+                />
+              </div>
+              <div class="profile__mini__avatar">
+                <img
+                  src="../../assets/images/main/woman__mini__avatar1.png"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="logo__title">
+        <h1>REDATE</h1>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+
+};
 </script>
 <style lang="scss">
 .text {
@@ -161,28 +269,31 @@ export default {};
 }
 .profile__page {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   height: 100vh;
+  // width: 100vw;
 }
 .left__side {
   width: 1048px;
+  // width: 54.58vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .right__side {
   width: 688px;
+  // width: 35.8vw;
 }
-.photo__container {
-  width: 608px;
-  height: 816px;
-  border: 1px solid rgba(255, 255, 255, 0.33);
-  filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
-  border-radius: 24px;
-}
+// .photo__container {
+//   width: 608px;
+//   height: 816px;
+//   border: 1px solid rgba(255, 255, 255, 0.33);
+//   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
+//   border-radius: 24px;
+// }
 .background {
   width: 817px;
-  height: 100vh;
+  height: 100%;
   background: rgba(196, 196, 196, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-bottom: none;
@@ -202,7 +313,7 @@ export default {};
   width: 421px;
   height: 68.57px;
   left: -10px;
-  top: -85px;
+  top: -35px;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.15);
@@ -252,6 +363,19 @@ export default {};
   align-items: center;
   justify-content: center;
 }
+.down__arrow {
+  display: none;
+}
+.photo {
+  width: 608px;
+  height: 816px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
+  border-radius: 24px;
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
 .profile__info {
   display: flex;
   flex-direction: column;
@@ -288,6 +412,18 @@ export default {};
 .profile__horizontal__line {
   width: 440px;
   border: 1px solid rgba(255, 255, 255, 0.33);
+}
+.hobby__chips__box {
+  display: none;
+}
+.mobile__more__info__title {
+  display: none;
+}
+.mobile__about__desc {
+  display: none;
+}
+.nav__box {
+  display: none;
 }
 .profile__info__filter__block {
   display: flex;
@@ -356,6 +492,13 @@ export default {};
   width: 356px;
   height: 168px;
 }
+.main__avatar {
+  width: 608px;
+  height: 816px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
+  border-radius: 24px;
+}
 .profile__info__list__stats {
   display: flex;
   @extend .text;
@@ -370,6 +513,13 @@ export default {};
 }
 .profile__info__list__status {
   color: #ffffff;
+}
+.main__heightweight {
+  display: flex;
+  justify-content: space-between;
+  .female__version {
+    display: flex;
+  }
 }
 .profile__info__list__heightweight {
   display: flex;
@@ -421,20 +571,72 @@ export default {};
   color: #ffffff;
 }
 .profile__info__list__carousel {
+  display: flex;
+  // justify-content: flex-start;
+  align-items: center;
   width: 440px;
   height: 88px;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
+  &.mobile {
+    display: none;
+  }
+  .profile__mini__avatar {
+    width: 64px;
+    height: 64px;
+    margin-left: 12px;
+  }
+}
+.logo__title {
+  display: none;
 }
 @media (max-width: 1200px) {
   .profile__page {
     flex-direction: column;
     align-items: center;
     height: 100%;
+    margin-top: 96px;
+    .nav__box {
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 335px;
+      .more_mobile {
+        transform: rotate(90deg);
+        width: 24px;
+        height: 24px;
+      }
+      .auth__back__btn {
+        align-items: center;
+        display: flex;
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        h1 {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 132.5%;
+        }
+      }
+    }
     .left__side {
       width: 335px;
+      flex-direction: column;
       .background {
+        .profile__info__list__carousel {
+          display: flex;
+          position: relative;
+          width: 311px;
+          height: 76px;
+          left: 0px;
+          top: -38px;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(50px);
+          border-radius: 24px;
+        }
         background: none;
         border: none;
         width: 335px;
@@ -449,6 +651,8 @@ export default {};
           background-size: cover;
         }
         .main__avatar {
+          width: 335px;
+          height: 462px;
         }
         .buttons__block {
           display: none;
@@ -458,11 +662,29 @@ export default {};
     .right__side {
       width: 335px;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .logo__title {
+        display: contents;
+        h1 {
+          font-family: "Myanmar MN";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16.1842px;
+          line-height: 153.5%;
+          letter-spacing: 0.245em;
+          color: #ffffff;
+          margin-bottom: 25px;
+          margin-top: 90px;
+        }
+      }
       .profile {
         background: none;
         .profile__info {
           align-items: center;
           width: 335px;
+          height: 862px;
           .buttons__block {
             &.mobile {
               display: flex;
@@ -472,6 +694,10 @@ export default {};
               box-shadow: none;
               position: unset;
               width: 335px;
+              align-items: center;
+              .inner__buttons__block {
+                width: 335px;
+              }
               .send__message {
                 width: 224px;
                 height: 56px;
@@ -491,6 +717,9 @@ export default {};
                 }
               }
             }
+          }
+          .down__arrow {
+            display: flex;
           }
           .profile__info__title {
             width: 267px;
@@ -530,6 +759,18 @@ export default {};
               //   line-height: 153.5%;
             }
           }
+          .hobby__chips__box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 335px;
+          }
+          .chips {
+            padding: 4px 10px;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            margin-right: 8px;
+            margin-bottom: 4px;
+          }
           .profile__info__list__container {
             background: none;
             border: none;
@@ -537,10 +778,62 @@ export default {};
             align-items: center;
             width: 335px;
             .profile__horizontal__line {
+              display: none;
+            }
+            .mobile__more__info__title {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
               width: 335px;
+              height: 23px;
+              p {
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 153.5%;
+                color: rgba(255, 255, 255, 0.33);
+              }
+              .mobile__horizontal__line {
+                width: 140px;
+                height: 0px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                &.main {
+                  width: 250px;
+                }
+                &.hobby {
+                  width: 244px;
+                }
+                &.about {
+                  width: 270px;
+                }
+              }
+            }
+            .mobile__about__desc {
+              display: flex;
+              width: 333px;
+              height: 46px;
+              p {
+                font-weight: 600;
+                font-size: 15px;
+                line-height: 153.5%;
+              }
+            }
+            .main__heightweight {
+              width: 335px;
+              display: flex;
+              justify-content: space-between;
+              .profile__info__list__heightweight {
+                width: 149px;
+                height: 23px;
+              }
+              .female__version {
+                display: flex;
+              }
+            }
+            .profile__info__list__hobby__block {
+              display: none;
             }
             .profile__info__list__about__block {
-              width: 335px;
+              display: none;
             }
             .profile__info__list {
               width: 335px;
