@@ -211,6 +211,9 @@ import { computed, ref, onMounted, onUnmounted } from "vue";
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%!important;
+    padding-left: 30px;
+    padding-right: 30px;
     .s-ch-status-data {
       display: flex;
       align-items: center;

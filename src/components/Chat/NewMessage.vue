@@ -1,15 +1,16 @@
 <template>
+
   <form class="s-ch-new-message">
-    <div class="message">
+    <div class="message with-scroll">
       <div
-        class="message-content with-scroll"
+        class="message-content"
         contenteditable="true"
         @input="message = $event.target.textContent"
         placeholder="Введите сообщение"
         :class="{ 'mess-focus': messFocus }"
-      ></div>
+      >
+      </div>
       <textarea
-        class="with-scroll"
         name="message"
         v-model="message"
         id=""
@@ -105,6 +106,8 @@ onUnmounted(() => {
     position: relative;
     z-index: 0;
     padding: 30px 60px 0 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
     .attach {
       position: absolute;
       right: 20px;
@@ -160,8 +163,10 @@ onUnmounted(() => {
   }
   .message-content {
     cursor: text;
-    max-height: 300px;
-    overflow-y: auto;
+    // max-height: 300px;
+    // min-height: 100%;
+    // overflow-y: auto;
+    // overflow-x: hidden;
     word-wrap: break-word;
   }
   .message-content.mess-focus:before {

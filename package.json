@@ -13,6 +13,7 @@
     "vue-router": "^4.0.0-0",
     "vue-select": "^4.0.0-beta.3",
     "vue-slider-component": "^4.0.0-beta.4",
+    "vue3-touch-events": "^4.1.0",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

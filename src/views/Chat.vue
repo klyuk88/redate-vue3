@@ -10,8 +10,9 @@
 
       <div class="di-mob-items" ref="diMobItems" @scroll="heandleScroll">
         <DialogItem v-for="(item, idx) in 20" :key="idx" />
+        <button class="delite-dialogs">Удалить все диалоги</button>
       </div>
-      <button class="delite-dialogs">Удалить все диалоги</button>
+      
     </div>
 
     <div class="grid">
@@ -21,8 +22,9 @@
         </div>
         <div class="dialog-items with-scroll">
           <DialogItem v-for="(item, idx) in 20" :key="idx" />
+          <button class="delite-dialogs">Удалить все диалоги</button>
         </div>
-        <button class="delite-dialogs">Удалить все диалоги</button>
+        
       </div>
       <DialogSidebar />
     </div>
@@ -109,9 +111,10 @@ onUnmounted(() => {
     }
     .di-mob-items {
       padding-top: 140px;
-      max-height: 85vh;
-      overflow-y: scroll;
+      height: 100vh;
+      overflow-y: auto;
       width: 100%;
+      padding-bottom: 50px;
     }
   }
   margin: 0 auto;
@@ -139,7 +142,7 @@ onUnmounted(() => {
         padding-bottom: 20px;
         padding-top: 70px;
         position: absolute;
-        width: 90%;
+        width: 100%;
         z-index: 2;
         top: 0;
         left: 50%;
@@ -151,11 +154,11 @@ onUnmounted(() => {
         }
       }
       .dialog-items {
-        padding-top: 150px;
-        margin: 0 auto;
-        max-height: 90vh;
-        overflow-y: scroll;
+        max-height: 100vh;
+        overflow-y: auto;
         width: 100%;
+        padding-bottom: 50px;
+        padding: 150px 30px 50px 30px;
       }
     }
   }
