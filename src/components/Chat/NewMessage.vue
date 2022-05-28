@@ -106,8 +106,8 @@ onUnmounted(() => {
     position: relative;
     z-index: 0;
     padding: 30px 60px 0 20px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    // overflow-y: auto;
+    // overflow-x: hidden;
     .attach {
       position: absolute;
       right: 20px;

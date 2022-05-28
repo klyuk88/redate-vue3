@@ -2,16 +2,43 @@
   <section id="dialog" class="single-chat">
     <div id="di-mobile-content">
       <div class="di-mob-decor"></div>
-      <div class="di-mob-header" :class="{ blur: false }">
+
+      <div class="di-mob-header single-chat-header blur">
         <BackLink @click="$router.go(-1)" />
-        <h1 class="di-mob-title">Диалоги</h1>
-        <MobileBurger />
+        <div class="dialog-status-wrap">
+          <p class="name">Александр</p>
+          <span class="status">Онлайн</span>
+        </div>
+        <div class="dialog-mob-avatar-wrap">
+          <img
+            src="https://densegodnya.ru/thumb/2/JxPhNSBaYxUAWgsbD-ltUw/r/d/snezhnyy_bars.jpg"
+            alt=""
+          />
+        </div>
       </div>
+ 
+      <div class="mobile-message-list with-scroll">
+        <MobileMessageItem :right="true" :message="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis, nulla sed atque provident eius natus repellat at libero praesentium illo, velit quam reiciendis quaerat vel asperiores dolore voluptatum ea.'"/>
+        <MobileMessageItem/>
+        <MobileMessageItem :right="true"/>
+        <MobileMessageItem/>
+        <MobileMessageItem :right="true"/>
+        <MobileMessageItem/>
+        <MobileMessageItem :right="true"/>
+        <MobileMessageItem/>
+        <MobileMessageItem :right="true"/>
+        <MobileMessageItem/>
+        <MobileMessageItem :right="true"/>
+        <MobileMessageItem/>
+        <MobileMessageItem :right="true"/>
+      </div>
+
+      <NewMessageMobile/>
+      
     </div>
 
     <div class="grid">
       <div class="content">
-
         <div class="s-ch-back-avatar-wrap">
           <img
             src="https://i.pinimg.com/736x/e0/2f/f2/e02ff20675915081bcefabdf095b9113--beauty-shoot-beauty-tips.jpg"
@@ -34,14 +61,14 @@
               <p class="s-ch-status">Онлайн</p>
             </div>
           </div>
-          <MoreActions/>
+          <MoreActions />
         </div>
 
         <div class="message-list with-scroll">
-          <MessageItem v-for="(item, index) in 30" :key="index"/>
+          <MessageItem v-for="(item, index) in 30" :key="index" />
         </div>
 
-        <NewMessage/>
+        <NewMessage />
       </div>
       <DialogSidebar />
     </div>
@@ -52,22 +79,34 @@
 import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import BackLink from "@/components/Search/BackLink.vue";
-import NewMessage from '@/components/Chat/NewMessage.vue'
-import MessageItem from '@/components/Chat/MessageItem.vue'
-import MoreActions from '@/components/Chat/MoreActions.vue'
-
+import NewMessage from "@/components/Chat/NewMessage.vue";
+import MessageItem from "@/components/Chat/MessageItem.vue";
+import MoreActions from "@/components/Chat/MoreActions.vue";
+import NewMessageMobile from '../components/Chat/NewMessageMobile.vue'
+import MobileMessageItem from '../components/Chat/MobileMessageItem.vue'
 
 import { computed, ref, onMounted, onUnmounted } from "vue";
 
-
+const message = ref(null)
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #dialog {
   #di-mobile-content {
     display: none;
     position: relative;
-    overflow-x: hidden;
+    .dialog-status-wrap {
+      text-align: center;
+      .name {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .status {
+        font-size: 12px;
+        color: #3e74ff;
+        font-weight: 600;
+      }
+    }
     .di-mob-decor {
       position: absolute;
       z-index: 0;
@@ -77,7 +116,7 @@ import { computed, ref, onMounted, onUnmounted } from "vue";
       pointer-events: none;
       width: 300px;
       height: 300px;
-      transform: translateY(-50%) translateX(-50%);
+      transform: translateY(-100%) translateX(-50%);
       background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
       mask-image: radial-gradient(
         ellipse 100% 100% at 50% 50%,
@@ -112,11 +151,38 @@ import { computed, ref, onMounted, onUnmounted } from "vue";
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(30px);
     }
+    .di-mob-header.single-chat-header {
+      padding-bottom: 10px;
+    }
     .di-mob-items {
       padding-top: 140px;
       max-height: 85vh;
       overflow-y: scroll;
       width: 100%;
+    }
+    .dialog-mob-avatar-wrap {
+      width: 36px;
+      height: 36px;
+      position: relative;
+      border-radius: 50%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .mobile-message-list {
+      display: flex;
+      flex-direction: column-reverse;
+      padding-top: 140px;
+      height: calc(100vh - 78px);
+      overflow-y: auto;
+      gap: 8px;
+      align-items: flex-start;
     }
   }
   margin: 0 auto;
@@ -211,7 +277,7 @@ import { computed, ref, onMounted, onUnmounted } from "vue";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%!important;
+    width: 100% !important;
     padding-left: 30px;
     padding-right: 30px;
     .s-ch-status-data {
@@ -272,15 +338,3 @@ import { computed, ref, onMounted, onUnmounted } from "vue";
   }
 }
 </style>
-
-// const onBlur = computed(() => {
-//   return scrollValue.value > 20 ? true : false
-// })
-
-// function heandleScroll(e) {
-//   scrollValue.value = diMobItems.value.scrollTop;
-// }
-
-// onUnmounted(() => {
-//   window.removeEventListener("scroll", heandleScroll);
-// });

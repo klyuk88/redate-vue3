@@ -2,7 +2,7 @@
   <section id="dialog">
     <div id="di-mobile-content">
       <div class="di-mob-decor"></div>
-      <div class="di-mob-header" :class="{'blur': onBlur}">
+      <div class="di-mob-header" :class="{ blur: onBlur }">
         <BackLink @click="$router.go(-1)" />
         <h1 class="di-mob-title">Диалоги</h1>
         <MobileBurger />
@@ -12,7 +12,6 @@
         <DialogItem v-for="(item, idx) in 20" :key="idx" />
         <button class="delite-dialogs">Удалить все диалоги</button>
       </div>
-      
     </div>
 
     <div class="grid">
@@ -23,8 +22,8 @@
         <div class="dialog-items with-scroll">
           <DialogItem v-for="(item, idx) in 20" :key="idx" />
           <button class="delite-dialogs">Удалить все диалоги</button>
+          
         </div>
-        
       </div>
       <DialogSidebar />
     </div>
@@ -37,24 +36,19 @@ import DialogItem from "@/components/Chat/DialogItem.vue";
 import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import BackLink from "@/components/Search/BackLink.vue";
-import {computed, ref, onMounted, onUnmounted} from 'vue'
-
+import { computed, ref, onMounted, onUnmounted } from "vue";
 
 const scrollValue = ref(0);
-const diMobItems = ref(null)
+
+const diMobItems = ref(null);
 
 const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false
-})
+  return scrollValue.value > 20 ? true : false;
+});
 
 function heandleScroll(e) {
   scrollValue.value = diMobItems.value.scrollTop;
 }
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-
 
 
 </script>
@@ -159,6 +153,7 @@ onUnmounted(() => {
         width: 100%;
         padding-bottom: 50px;
         padding: 150px 30px 50px 30px;
+        position: relative;
       }
     }
   }
