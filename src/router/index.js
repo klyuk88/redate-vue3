@@ -42,6 +42,13 @@ const routes = [{
     },
   },
   {
+    path: '/sends',
+    name: 'Sends',
+    components: {
+      default: () => import('@/views/Sends.vue'),
+    },
+  },
+  {
     path: '/chat/:user',
     name: 'SingleChat',
     components: {
