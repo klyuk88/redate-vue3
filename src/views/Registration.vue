@@ -24,6 +24,7 @@
 <!-- <ProfilePopupDiamondLost /> -->
 <!-- <ProfilePopupHide /> -->
 <!-- <ProfilePopupReport /> -->
+<MyProfileSettings />
 
   </div>
 </template>
@@ -53,6 +54,7 @@ import ProfilePopupDiamondLost from "../components/Profile/ProfilePopupDiamondLo
 import ProfilePopupHide from "../components/Profile/ProfilePopupHide.vue";
 import ProfilePopupMaillist from "../components/Profile/ProfilePopupMaillist.vue";
 import ProfilePopupReport from "../components/Profile/ProfilePopupReport.vue";
+import MyProfileSettings from "../components/Profile/MyProfileSettings.vue";
 
 
 

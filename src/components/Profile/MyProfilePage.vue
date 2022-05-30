@@ -110,7 +110,7 @@
                 </div>
               </div>
             </div>
-            <div class="footer">
+            <!-- <div class="footer">
               <div class="btn">
                 <div class="container">
                   <img src="@/assets/images/main/myprofile__edit.svg" alt="" />
@@ -134,6 +134,65 @@
                   />
                   <p>Техническая поддержка</p>
                 </div>
+              </div>
+            </div> -->
+            <div class="female__verification__block">
+              <div class="verification__status">
+                <div class="status__header">
+                  <div class="left__side__header">
+                    <img
+                      src="../../assets/images/main/myprofile__verification__logo.svg"
+                      alt=""
+                    />
+                    <h2>Верификация</h2>
+                  </div>
+                  <div class="horizontal__line"></div>
+                  <div class="right__side__header">
+                    <!-- <div class="status__error">
+                      <h2>Ошибка</h2>
+                      <img
+                        src="../../assets/images/main/myprofile__verification__status__error.svg"
+                        alt=""
+                      />
+                    </div> -->
+                    <div class="status__error">
+                      <h2>Ожидание</h2>
+                      <img
+                        src="../../assets/images/main/myprofile__verification__pending.svg"
+                        alt=""
+                      />
+                    </div>
+                    <!-- <div class="status__error">
+                      <h2>Отложено</h2>
+                      <img
+                        src="../../assets/images/main/myprofile__verification__delayed.svg"
+                        alt=""
+                      />
+                    </div> -->
+                  </div>
+                </div>
+                <!-- <div class="status__desc">
+                  <span
+                    >Мы отправили вам уведомление с данными, которые необходимо
+                    изменить для подтверждения верификации.</span
+                  >
+                </div> -->
+                <div class="status__desc show__error">
+                  <span
+                    >Необходимо пройти верификацию для дальнейшего использования
+                    сайта.</span
+                  >
+                </div>
+              </div>
+              <div class="verification__action ">
+                <h2>Заполнить заново</h2>
+              </div>
+              <div class="verification__action help show__error">
+                <img src="@/assets/images/main/myprofile__headset__logo.svg" alt="">
+                <h2>Техническая поддержка</h2>
+              </div>
+              <div class="verification__action ">
+                <h2>Пройти верификацию</h2>
               </div>
             </div>
           </div>
@@ -568,6 +627,94 @@ export default {};
           }
         }
       }
+      .female__verification__block {
+        @extend .flex__center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 612px;
+        height: 136px;
+        .verification__status {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 24px;
+          width: 456px;
+          height: 136px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .status__header {
+            width: 366px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 21px;
+            .left__side__header {
+              display: flex;
+              img {
+                margin-right: 12px;
+              }
+            }
+            .right__side__header {
+              display: flex;
+              img {
+                margin-left: 8px;
+              }
+              .status__error {
+                display: flex;
+              }
+            }
+            h2 {
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 153.5%;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              color: #ffffff;
+            }
+            .horizontal__line {
+              width: 40px;
+              height: 0px;
+              border: 1px solid #ffffff;
+              transform: rotate(180deg);
+            }
+          }
+          .status__desc {
+            width: 383px;
+            height: 32px;
+            span {
+              font-weight: 600;
+              font-size: 12px;
+              line-height: 132.5%;
+              color: rgba(255, 255, 255, 0.4);
+            }
+          }
+        }
+      }
+      .verification__action {
+        @extend .flex__center;
+        width: 136px;
+        height: 136px;
+        background: #2b66fb;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 24px;
+        display: none;
+        &.help {
+          background: none;
+        }
+        &.show__error {
+          display: flex;
+        }
+        h2 {
+          font-weight: 600;
+          font-size: 15px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
+      
     }
   }
 }
