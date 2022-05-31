@@ -2,42 +2,60 @@
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
-        <div class="scrollbar-container" ref="scrollbarContainer">
-          <div class="scrollbar" ref="scrollbar"></div>
-        </div>
         <div class="header">
           <h1 class="title">Новые рассылки</h1>
         </div>
-        <div class="items" ref="items" @scroll="scrollHeandler">
-          <div
-            v-masonry=""
-            transition-duration="0.3s"
-            item-selector=".item"
-            fit-width="true"
-            class="mansoryContainer"
-          >
-            <div v-masonry-tile class="item">
-                        <SendItem
-            :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! Решила, предложения! Ручеек родного силуэт толку по всей прямо инициал знаках страну они запятой. Переписывается решила путь текста безорфографичный, курсивных взгляд приставка? Залетают она всемогущая заголовок первую моей даль меня знаках, щеке текст, о, продолжил грамматики приставка дороге встретил ведущими семантика курсивных. Приставка.`"
-          />
+          <PerfectScrollbar>
+            <SendSlider/>
+            <div
+              v-masonry=""
+              transition-duration="0.3s"
+              item-selector=".item"
+              fit-width="true"
+              class="mansoryContainer"
+            >
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! Решила, предложения! Ручеек родного силуэт толку по всей прямо инициал знаках страну они запятой. Переписывается решила путь текста безорфографичный, курсивных взгляд приставка? Залетают она всемогущая заголовок первую моей даль меня знаках, щеке текст, о, продолжил грамматики приставка дороге встретил ведущими семантика курсивных. Приставка.`"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали!`"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! Решила, предложения! Ручеек родного силуэт толку по всей прямо инициал знаках страну они запятой. Переписывается решила путь текста безорфографичный, курсивных взгляд приставка? Залетают она всемогущая заголовок первую моей даль меня знаках, щеке текст, о, продолжил грамматики приставка дороге встретил ведущими семантика курсивных. Приставка.`"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! `"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! Решила, предложения! Ручеек родного силуэт толку по всей прямо инициал знаках страну они запятой. Переписывается решила путь текста безорфографичный, курсивных взгляд приставка? Залетают она всемогущая заголовок первую моей даль меня знаках, щеке текст, о, продолжил грамматики приставка дороге встретил ведущими семантика курсивных. Приставка.`"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали!`"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! Решила, предложения! Ручеек родного силуэт толку по всей прямо инициал знаках страну они запятой. Переписывается решила путь текста безорфографичный, курсивных взгляд приставка? Залетают она всемогущая заголовок первую моей даль меня знаках, щеке текст, о, продолжил грамматики приставка дороге встретил ведущими семантика курсивных. Приставка.`"
+                />
+              </div>
+              <div v-masonry-tile class="item">
+                <SendItem
+                  :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! `"
+                />
+              </div>
             </div>
-            <div v-masonry-tile class="item">
-                        <SendItem
-            :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали!`"
-          />
-            </div>
-            <div v-masonry-tile class="item">
-                        <SendItem
-            :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! Решила, предложения! Ручеек родного силуэт толку по всей прямо инициал знаках страну они запятой. Переписывается решила путь текста безорфографичный, курсивных взгляд приставка? Залетают она всемогущая заголовок первую моей даль меня знаках, щеке текст, о, продолжил грамматики приставка дороге встретил ведущими семантика курсивных. Приставка.`"
-          />
-            </div>
-            <div v-masonry-tile class="item">
-                        <SendItem
-            :msg="`Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Толку пунктуация языкового деревни, жизни он это вдали! `"
-          />
-            </div>
-          </div>
-        </div>
+          </PerfectScrollbar>
       </div>
       <div class="sidebar">
         <Sorting />
@@ -50,34 +68,21 @@
 import NewSend from "../components/NewSend.vue";
 import SendItem from "../components/Sends/SendItem.vue";
 import Sorting from "../components/Sends/Sorting.vue";
+import SendSlider from '@/components/Sends/SendSlider.vue'
 import { ref, computed, onMounted } from "vue";
 
 const scrollbar = ref(null);
 const scrollbarContainer = ref(null);
 const items = ref(null);
-
-const scrollHeandler = () => {
-  scrollbar.value.style.top =
-    (scrollbarContainer.value.clientHeight * items.value.scrollTop) /
-      items.value.scrollHeight +
-    "px";
-};
-
-onMounted(() => {
-  scrollbar.value.style.height =
-    (scrollbarContainer.value.clientHeight * items.value.clientHeight) /
-      items.value.scrollHeight +
-    "px";
-});
 </script>
 <style lang="scss">
 #sendings {
-  padding-left: 130px;
+  padding-left: 100px;
   margin: 0 auto;
   .sendings-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(750px, 1057px) 376px;
+    grid-template-columns: minmax(860px, 1057px) minmax(300px, 376px);
     column-gap: 30px;
     align-items: center;
     .main-content {
@@ -103,17 +108,29 @@ onMounted(() => {
           text-align: center;
         }
       }
-      .items {
+      .ps {
         padding-top: 150px;
-        position: relative;
         height: 100vh;
         overflow-y: auto;
         scrollbar-width: none;
+        .ps__rail-y {
+          margin-top: 150px;
+          margin-right: 5px;
+          width: 2px;
+          background: rgba($color: #fff, $alpha: 0.3);
+          border-radius: 0;
+          .ps__thumb-y {
+            width: 2px;
+            background-color: #fff;
+            border-radius: 0;
+            right: 0;
+          }
+        }
         .mansoryContainer {
           margin: 0 auto;
         }
       }
-      .items::-webkit-scrollbar {
+      .ps::-webkit-scrollbar {
         display: none;
       }
       .scrollbar-container {

@@ -6,6 +6,8 @@ import store from './store'
 import 'vue-select/dist/vue-select.css';
 import Vue3TouchEvents from "vue3-touch-events";
 import {VueMasonryPlugin} from 'vue-masonry';
+import PerfectScrollbar from 'vue3-perfect-scrollbar'
+import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
 
 
-createApp(App).use(Vue3TouchEvents).use(VueMasonryPlugin).use(store).use(router).mount('#app')
+createApp(App).use(Vue3TouchEvents).use(PerfectScrollbar).use(VueMasonryPlugin).use(store).use(router).mount('#app')
