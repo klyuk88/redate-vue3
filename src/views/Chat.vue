@@ -19,11 +19,10 @@
         <div class="search-results">
           <h6 class="label">Диалоги: <span class="results">222</span></h6>
         </div>
-        <div class="dialog-items with-scroll">
-          <DialogItem v-for="(item, idx) in 20" :key="idx" />
-          <button class="delite-dialogs">Удалить все диалоги</button>
-          
-        </div>
+        <PerfectScrollbar>
+            <DialogItem v-for="(item, idx) in 20" :key="idx" />
+            <button class="delite-dialogs">Удалить все диалоги</button>
+        </PerfectScrollbar>
       </div>
       <DialogSidebar />
     </div>
@@ -49,8 +48,6 @@ const onBlur = computed(() => {
 function heandleScroll(e) {
   scrollValue.value = diMobItems.value.scrollTop;
 }
-
-
 </script>
 
 <style lang="scss">
@@ -139,21 +136,31 @@ function heandleScroll(e) {
         width: 100%;
         z-index: 2;
         top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
         background: rgba(28, 29, 33, 0.01);
         backdrop-filter: blur(50px);
         .results {
           opacity: 0.3;
         }
       }
-      .dialog-items {
-        max-height: 100vh;
-        overflow-y: auto;
-        width: 100%;
+      .ps {
+        height: 100vh;
         padding-bottom: 50px;
         padding: 150px 30px 50px 30px;
         position: relative;
+        .ps__rail-y {
+          margin-top: 150px;
+          margin-right: 5px;
+          width: 2px;
+          background: rgba($color: #fff, $alpha: 0.3);
+          border-radius: 0;
+          .ps__thumb-y {
+            width: 2px;
+            background-color: #fff;
+            border-radius: 0;
+            right: 0;
+          }
+        }
       }
     }
   }

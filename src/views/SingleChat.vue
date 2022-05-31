@@ -65,7 +65,7 @@
         </div>
 
         <div class="message-list with-scroll">
-          <MessageItem v-for="(item, index) in 30" :key="index" />
+            <MessageItem v-for="(item, index) in 30" :key="index" />
         </div>
 
         <NewMessage />
@@ -245,6 +245,7 @@ const message = ref(null)
 }
 
 #dialog.single-chat {
+
   .s-ch-avatar-wrap {
     width: 40px;
     height: 40px;

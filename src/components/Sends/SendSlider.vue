@@ -71,7 +71,7 @@ import "swiper/modules/pagination/pagination.min.css";
   position: relative;
   max-width: 788px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   .slider-nav.left {
     position: absolute;
     left: -30px;
@@ -87,7 +87,7 @@ import "swiper/modules/pagination/pagination.min.css";
     cursor: pointer;
   }
   .swiper-pagination {
-    bottom: -10px;
+    bottom: -25px;
     .swiper-pagination-bullet {
       background: rgba(255, 255, 255, 0.33);
     }

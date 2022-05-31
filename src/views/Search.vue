@@ -1,12 +1,12 @@
 <template>
   <ProfileNewMessage v-if="newMessageWindow" />
-  <section id="search" :class="{ 'hidden': mobileSorting }">
+  <section id="search" :class="{ hidden: mobileSorting }">
     <div id="mobile-content">
       <!-- header -->
 
-      <div class="blur-header" :class="{ blur: onBlur}">
+      <div class="blur-header" :class="{ blur: onBlur }">
         <div class="top">
-          <BackLink @click="$router.go(-1)"/>
+          <BackLink @click="$router.go(-1)" />
           <MobileBurger />
         </div>
         <div class="bottom">
@@ -24,6 +24,7 @@
       <MobileSorting v-if="mobileSorting" />
 
       <div class="decor"></div>
+
       <div class="search-items">
         <PotrncialPartnerMobile v-for="(items, idx) in 8" :key="idx" />
       </div>
@@ -35,9 +36,11 @@
             Результаты поиска: <span class="results">229 992</span>
           </h6>
         </div>
-        <div class="search-items">
-          <SearchItem v-for="(items, idx) in 10" :key="idx" />
-        </div>
+        <PerfectScrollbar>
+          <div class="search-items">
+            <SearchItem v-for="(items, idx) in 10" :key="idx" />
+          </div>
+        </PerfectScrollbar>
       </div>
       <SearchPageSidebar />
     </div>
@@ -72,8 +75,8 @@ const mobileSorting = computed(() => {
 const scrollValue = ref(0);
 
 const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false 
-})
+  return scrollValue.value > 20 ? true : false;
+});
 
 //scroll
 window.addEventListener("scroll", heandleScroll);
@@ -89,7 +92,7 @@ onUnmounted(() => {
 <style lang="scss">
 #search {
   margin: 0 auto;
-  padding-left: 130px;
+  padding-left: 100px;
   #mobile-content {
     display: none;
     position: relative;
@@ -173,17 +176,33 @@ onUnmounted(() => {
         padding-bottom: 20px;
         padding-top: 70px;
         position: absolute;
-        width: 90%;
+        width: 100%;
         z-index: 2;
         top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(28, 29, 33, 0.01);
-        backdrop-filter: blur(50px);
+        left: 0;
+        background: rgba(196, 196, 196, 0.05);
+        backdrop-filter: blur(30px);
         .results {
           opacity: 0.3;
         }
       }
+      .ps {
+        height: 100vh;
+        .ps__rail-y {
+          margin-top: 150px;
+          margin-right: 5px;
+          width: 2px;
+          background: rgba($color: #fff, $alpha: 0.3);
+          border-radius: 0;
+          .ps__thumb-y {
+            width: 2px;
+            background-color: #fff;
+            border-radius: 0;
+            right: 0;
+          }
+        }
+      }
+
       .search-items {
         display: flex;
         align-items: flex-start;
@@ -192,21 +211,10 @@ onUnmounted(() => {
         gap: 33px;
         max-width: 1050px;
         margin: 0 auto;
-        overflow-y: scroll;
         max-height: 100vh;
         padding-top: 150px;
       }
-      .search-items::-webkit-scrollbar {
-        width: 2px;
-      }
-      .search-items::-webkit-scrollbar-track {
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.14);
-      }
-      .search-items::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 1);
-        border-radius: 2px;
-      }
+
     }
   }
 }

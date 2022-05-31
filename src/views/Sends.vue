@@ -133,22 +133,7 @@ const items = ref(null);
       .ps::-webkit-scrollbar {
         display: none;
       }
-      .scrollbar-container {
-        position: absolute;
-        right: 5px;
-        bottom: 5px;
-        top: 150px;
-        width: 1px;
-        background: rgba($color: #fff, $alpha: 0.3);
-        .scrollbar {
-          position: absolute;
-          right: 0;
-          height: 100px;
-          width: 2px;
-          border-radius: 10px;
-          background: rgba(255, 255, 255, 1);
-        }
-      }
+
     }
     .sidebar {
       .create-new-send {
