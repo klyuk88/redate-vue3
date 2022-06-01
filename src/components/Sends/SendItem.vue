@@ -54,7 +54,7 @@ const props = defineProps({
 </script>
 <style lang="scss">
 .send-item {
-  width: 390px;
+  max-width: 390px;
   padding: 24px;
   margin: 2px;
   background: #2f3034;
