@@ -24,12 +24,12 @@
 <!-- <ProfilePopupDiamondLost /> -->
 <!-- <ProfilePopupHide /> -->
 <!-- <ProfilePopupReport /> -->
-<!-- <MyProfileSettings /> -->
+<MyProfileSettings />
 <!-- <MyProfileEdit /> -->
 <!-- <ProfilePopupDeleteAcc /> -->
 <!-- <ProfilePopupEditComplet /> -->
 <!-- <ProfilePopupVerificationModerate /> -->
-<ProfilePopupVerificationRequest />
+<!-- <ProfilePopupVerificationRequest /> -->
   </div>
 </template>
 <script setup>
@@ -64,6 +64,7 @@ import ProfilePopupDeleteAcc from "../components/Profile/ProfilePopupDeleteAcc.v
 import ProfilePopupEditComplet from "../components/Profile/ProfilePopupEditComplet.vue";
 import ProfilePopupVerificationModerate from "../components/Profile/ProfilePopupVerificationModerate.vue";
 import ProfilePopupVerificationRequest from "../components/Profile/ProfilePopupVerificationRequest.vue";
+import MyProfilePage from "../components/Profile/MyProfilePage.vue";
 
 
 

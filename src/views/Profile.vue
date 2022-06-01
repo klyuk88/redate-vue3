@@ -2,7 +2,7 @@
   <div class="content__container">
     <!-- <ProfilePage /> -->
     <!-- <MyProfilePage /> -->
-
+    
   </div>
 </template>
 <script setup>

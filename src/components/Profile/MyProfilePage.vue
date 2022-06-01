@@ -1,20 +1,57 @@
 <template>
   <div class="profile__page">
-    <div class="nav__box">
-      <div class="auth__back__btn">
-        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </div>
-      <div class="more_mobile">
-        <img src="@/assets/images/main/btn_more.svg" alt="" />
-      </div>
-    </div>
     <div class="left__side">
       <div class="background">
         <div class="container">
           <div class="header">
-            <h1>Мой профиль</h1>
+            <div class="nav__box">
+              <div class="auth__back__btn">
+                <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+                <h1 class="auth__back__btn__title">Назад</h1>
+              </div>
+              <h1>Мой профиль</h1>
+              <!-- <div class="more_mobile">
+                <img src="@/assets/images/main/btn_more.svg" alt="" />
+              </div> -->
+              <MobileBurger />
+            </div>
             <div class="horizontal__line"></div>
+            <div class="mobile__photo__block">
+              <div class="photo__gallery">
+                <div class="gallery__block">
+                  <div class="add__btn">
+                    <img
+                      src="../../assets/images/main/myprofile__add__btn.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="carousel__block">
+                    <div class="carousel">
+                      <img
+                        src="../../assets/images/main/woman__mini__avatar1.png"
+                        alt=""
+                        class="item"
+                      />
+                      <img
+                        src="../../assets/images/main/woman__mini__avatar1.png"
+                        alt=""
+                        class="item"
+                      />
+                      <img
+                        src="../../assets/images/main/woman__mini__avatar1.png"
+                        alt=""
+                        class="item"
+                      />
+                      <img
+                        src="../../assets/images/main/woman__mini__avatar1.png"
+                        alt=""
+                        class="item"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="main">
             <div class="cash__container">
@@ -30,6 +67,7 @@
                 </div>
                 <div class="btn">Пополнить</div>
               </div>
+              <div class="mobile__horizontal__line"></div>
               <div class="block">
                 <div class="options">
                   <img
@@ -49,8 +87,8 @@
                   <div class="progress__bar"></div>
                   <p>Осталось <span>3</span> дня</p>
                 </div>
-                <!-- <div class="vertical__line"></div> -->
-                <div class="item__price">
+                <div class="vertical__line"></div>
+                <div class="item__price ">
                   <div class="days">14 дней</div>
                   <div class="price">$96</div>
                   <div class="progress__bar"></div>
@@ -110,13 +148,20 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="footer">
+            <div class="footer">
               <div class="btn">
                 <div class="container">
                   <img src="@/assets/images/main/myprofile__edit.svg" alt="" />
                   <p>Редактирование анкеты</p>
                 </div>
+                <div class="arrow__next">
+                  <img
+                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
+                    alt=""
+                  />
+                </div>
               </div>
+              <div class="mobile__horizontal__line"></div>
               <div class="btn">
                 <div class="container">
                   <img
@@ -125,7 +170,14 @@
                   />
                   <p>Настройки входа</p>
                 </div>
+                <div class="arrow__next">
+                  <img
+                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
+                    alt=""
+                  />
+                </div>
               </div>
+              <div class="mobile__horizontal__line"></div>
               <div class="btn">
                 <div class="container">
                   <img
@@ -134,9 +186,31 @@
                   />
                   <p>Техническая поддержка</p>
                 </div>
+                <div class="arrow__next">
+                  <img
+                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
+                    alt=""
+                  />
+                </div>
               </div>
-            </div> -->
-            <div class="female__verification__block">
+              <div class="mobile__horizontal__line"></div>
+              <div class="btn mobile">
+                <div class="container">
+                  <img
+                    src="../../assets/images/profile_edit_logo/profile__icon.svg"
+                    alt=""
+                  />
+                  <p>Смотреть профиль</p>
+                </div>
+                <div class="arrow__next">
+                  <img
+                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- <div class="female__verification__block">
               <div class="verification__status">
                 <div class="status__header">
                   <div class="left__side__header">
@@ -148,13 +222,13 @@
                   </div>
                   <div class="horizontal__line"></div>
                   <div class="right__side__header">
-                    <!-- <div class="status__error">
+                    <div class="status__error">
                       <h2>Ошибка</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__status__error.svg"
                         alt=""
                       />
-                    </div> -->
+                    </div>
                     <div class="status__error">
                       <h2>Ожидание</h2>
                       <img
@@ -162,21 +236,21 @@
                         alt=""
                       />
                     </div>
-                    <!-- <div class="status__error">
+                    <div class="status__error">
                       <h2>Отложено</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__delayed.svg"
                         alt=""
                       />
-                    </div> -->
+                    </div>
                   </div>
                 </div>
-                <!-- <div class="status__desc">
+                <div class="status__desc">
                   <span
                     >Мы отправили вам уведомление с данными, которые необходимо
                     изменить для подтверждения верификации.</span
                   >
-                </div> -->
+                </div>
                 <div class="status__desc show__error">
                   <span
                     >Необходимо пройти верификацию для дальнейшего использования
@@ -194,7 +268,7 @@
               <div class="verification__action ">
                 <h2>Пройти верификацию</h2>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -377,7 +451,8 @@
   </div>
 </template>
 <script>
-export default {};
+import MobileBurger from "../MobileBurger.vue";
+export default { components: { MobileBurger } };
 </script>
 <style lang="scss" scoped>
 .flex__center {
@@ -397,6 +472,10 @@ export default {};
       height: 44px;
       @extend .flex__center;
       justify-content: space-between;
+      .mobile__photo__block {
+        display: none;
+      }
+
       h1 {
         font-weight: 600;
         font-size: 18px;
@@ -421,6 +500,9 @@ export default {};
         border-radius: 40px;
         @extend .flex__center;
         justify-content: space-evenly;
+        .mobile__horizontal__line {
+          display: none;
+        }
         .block {
           width: 560px;
           height: 90px;
@@ -477,7 +559,7 @@ export default {};
           background: rgba(27, 28, 30, 0.5);
           border: 1px solid rgba(255, 255, 255, 0.14);
           border-radius: 24px;
-          padding: 36px;
+          padding: 20px;
           .vertical__line {
             width: 104px;
             height: 0px;
@@ -485,6 +567,8 @@ export default {};
             transform: rotate(90deg);
           }
           .item__price {
+                        position: relative;
+              z-index: 0;
             p {
               span {
                 margin-left: 5px;
@@ -533,6 +617,8 @@ export default {};
               display: none;
             }
             &.active {
+              position: relative;
+              z-index: 1;
               width: 194px;
               height: 144px;
               filter: drop-shadow(4px 0px 11px rgba(43, 102, 251, 0.37));
@@ -616,6 +702,12 @@ export default {};
           border: 1px solid rgba(255, 255, 255, 0.14);
           border-radius: 24px;
           cursor: pointer;
+          .arrow__next {
+            display: none;
+          }
+          &.mobile {
+            display: none;
+          }
           .container {
             justify-content: center;
           }
@@ -714,7 +806,6 @@ export default {};
           color: #ffffff;
         }
       }
-      
     }
   }
 }
@@ -763,6 +854,251 @@ export default {};
   .profile__info__list__container {
     width: 488px;
     height: 412px;
+  }
+}
+@media (max-width: 1200px) {
+  .profile__page {
+    margin: 0;
+    .nav__box {
+      // display: none;
+      .auth__back__btn {
+        h1 {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 153.5%;
+        }
+      }
+    }
+  }
+  .right__side {
+    display: none;
+  }
+  .left__side {
+    height: 849px;
+    .background {
+      height: 849px;
+      margin-bottom: 42px;
+      .container {
+        width: 335px;
+        height: 849px;
+        .header {
+          justify-content: end;
+          height: 361px;
+          width: 375px;
+          background: linear-gradient(
+            180deg,
+            rgba(131, 131, 131, 0.2) 0%,
+            rgba(0, 0, 0, 0.2) 100%
+          );
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 0px 0px 40px 40px;
+          .horizontal__line {
+            display: none;
+          }
+          .mobile__photo__block {
+            height: 228px;
+            width: 335px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            background: url(../../assets/images/profile_edit_logo/mobile__avatar.png);
+            background-size: contain;
+            margin-bottom: 20px;
+            .photo__gallery {
+              width: 335px;
+              height: 76px;
+              background: rgba(255, 255, 255, 0.05);
+              backdrop-filter: blur(50px);
+              border-radius: 24px;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              .gallery__block {
+                width: 319px;
+                height: 60px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .add__btn {
+                  width: 60px;
+                  height: 60px;
+                  border: 1px solid rgba(255, 255, 255, 0.14);
+                  border-radius: 16px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  img {
+                    width: 22px;
+                    height: 22px;
+                  }
+                }
+                .carousel__block {
+                  width: 252px;
+                  .carousel {
+                    display: flex;
+                    justify-content: space-between;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .main {
+          justify-content: space-between;
+          height: 465px;
+          .cash__container {
+            width: 335px;
+            height: 219px;
+            background: rgba(27, 28, 30, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            .block {
+              height: 32px;
+              width: 288px;
+              border: none;
+              background: none;
+              margin-top: 10px;
+              padding: 0;
+
+              .options {
+                width: 184.55px;
+                height: 19px;
+                justify-content: unset;
+                p {
+                  width: inherit;
+                  font-weight: 700;
+                  font-size: 14px;
+                  line-height: 132.5%;
+                  height: 19px;
+                  display: flex;
+                }
+              }
+              .btn {
+                width: 89.01px;
+                height: 30.69px;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 132.5%;
+                border-radius: 8px;
+              }
+            }
+
+            .subscription {
+              width: 336px;
+              height: 91px;
+              bottom: -9px;
+              position: relative;
+              padding: 0;
+              .vertical__line {
+                display: none;
+              }
+              .item__price {
+                width: 80px;
+                height: 58.45px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &.active {
+                  background: linear-gradient(
+                    137.15deg,
+                    #2965ff 0%,
+                    #2e66f5 99.89%
+                  );
+                  height: 91px;
+                  width: 112px;
+                  border: 1px solid rgba(255, 255, 255, 0.14);
+                  box-shadow: 0px 0px 10px rgba(43, 102, 251, 0.37);
+                  border-radius: 24px;
+                  .progress__bar {
+                    width: 80px;
+                    height: 20px;
+                  }
+                  .price {
+                    display: none;
+                  }
+                  p {
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 132.5%;
+                    color: rgba(255, 255, 255, 0.6);
+                  }
+                }
+                .days {
+                  font-weight: 600;
+                  font-size: 15px;
+                  line-height: 153.5%;
+                }
+                .price {
+                  width: 80px;
+                  height: 32px;
+                  display: flex;
+                  align-items: center;
+                }
+              }
+            }
+            .mobile__horizontal__line {
+              height: 0px;
+              width: 304px;
+              border: 1px solid rgba(255, 255, 255, 0.05);
+              display: flex;
+            }
+          }
+          .photo__gallery {
+            display: none;
+          }
+          .footer {
+            width: 335px;
+            height: 222px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            .btn {
+              width: 305px;
+              height: 24px;
+              border: none;
+              background: none;
+              flex-direction: row;
+              cursor: pointer;
+              .arrow__next {
+                display: flex;
+              }
+              &.mobile {
+                display: flex;
+              }
+              .container {
+                flex-direction: row;
+                align-items: end;
+                justify-content: left;
+
+                width: 305px;
+                height: 24px;
+                img {
+                  width: 24px;
+                  height: 24px;
+                  margin-right: 12px;
+                }
+                p {
+                  font-weight: 700;
+                  font-size: 14px;
+                  line-height: 132.5%;
+                  height: unset;
+                }
+              }
+            }
+            .mobile__horizontal__line {
+              height: 0px;
+              width: 304px;
+              border: 1px solid rgba(255, 255, 255, 0.05);
+              display: flex;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>
