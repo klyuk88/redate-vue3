@@ -1,4 +1,5 @@
 <template>
+  <NewSendModal/>
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
@@ -59,7 +60,7 @@
       </div>
       <div class="sidebar">
         <Sorting />
-        <div class="create-new-send">Создать новую рассылку</div>
+        <div class="create-new-send" @click="openNewSendWindow">Создать новую рассылку</div>
       </div>
     </div>
   </section>
@@ -69,7 +70,14 @@ import NewSend from "../components/NewSend.vue";
 import SendItem from "../components/Sends/SendItem.vue";
 import Sorting from "../components/Sends/Sorting.vue";
 import SendSlider from '@/components/Sends/SendSlider.vue'
+import NewSendModal from '@/components/Popups/NewSendModal.vue'
 import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore()
+const openNewSendWindow = () => {
+  store.commit('openNewSendWindow')
+}
 
 const scrollbar = ref(null);
 const scrollbarContainer = ref(null);

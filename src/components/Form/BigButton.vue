@@ -1,5 +1,5 @@
 <template>
-  <a class="big-btn" href="!#">{{ title }}</a>
+  <button class="big-btn">{{ title }}</button>
 </template>
 <script setup>
 const props = defineProps({
@@ -17,10 +17,9 @@ const props = defineProps({
   font-weight: 700;
   width: 100%;
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
   border-radius: 11px;
+  border: none;
+  font-family: 'Mulish';
+  cursor: pointer;
 }
 </style>
