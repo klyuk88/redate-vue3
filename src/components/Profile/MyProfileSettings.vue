@@ -473,52 +473,45 @@ export default {};
 @media (max-width: 1200px) {
   .auth__back__btn {
     z-index: 1;
-    top: 48px;
+    top: 12.3vw;
+    left: 3.33vw;
   }
   .page__background {
     .settings__container {
-      // width: 375px;
-      width: 100vw;
-
       border: none;
       background: none;
       .settings__content {
-        width: 89.33vw;
-        // width: 335px;
+        width: 100vw;
         margin: 0;
-        // height: 546px;
-        height: 145.6vw;
+        height: 140vw;
+        position: absolute;
+        left: 0;
         .horizontal__line {
           display: flex;
-          // width: 335px;
-        width: 89.33vw;
-
+          width: 85.89vw;
           border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .settings__header {
-          // width: 375px;
           width: 100vw;
-          // height: 89px;
-          height: 23.73vw;
+          height: 22.8vw;
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(30px);
           justify-content: end;
+          h1 {
+            font-size: 4.35vw;
+          }
           .horizontal__line {
-            // width: 375px;
             width: 100vw;
           }
         }
         .settings__body {
-          // width: 335px;
-        width: 89.33vw;
-          // height: 355px;
-          height: 94.66vw;
+          width: 85.89vw;
+          height: 91vw;
           margin: 0;
           .settings {
             flex-direction: column;
-            // width: 335px;
-        width: 89.33vw;
-
+            width: 85.89vw;
+            height: 24.87vw;
             .settings__desc {
               img {
                 display: none;
@@ -526,24 +519,94 @@ export default {};
               .title {
                 margin: 0;
                 color: #ffffff;
+                font-weight: 500;
+                font-size: 3.589vw;
+                line-height: 153.5%;
               }
             }
+            .input {
+              border-radius: 2.82vw;
+              width: 85.89vw;
+              height: 15.38vw;
+              font-size: 3.846vw;
+              padding: 3.07vw;
+            }
             .inputs__box {
-              // width: 335px;
-        width: 89.33vw;
+              width: 85.89vw;
+              height: 15.38vw;
 
+              .input {
+                border-radius: 2.82vw;
+                width: 85.89vw;
+                height: 15.38vw;
+                font-size: 3.846vw;
+              }
             }
             &.change__mail {
-              // width: 335px;
-        width: 89.33vw;
-
+              width: 85.89vw;
             }
           }
         }
         .settings__footer {
-          // width: 335px;
-        width: 89.33vw;
+          width: 85.89vw;
+          .logout {
+            padding: 1.79vw 3.33vw;
+            height: 8.46vw;
+            border: 0.25vw solid rgba(255, 255, 255, 0.14);
+            border-radius: 2.82vw;
+            font-weight: 700;
+            font-size: 3.589vw;
+            line-height: 132.5%;
+            color: #ffffff;
+            cursor: pointer;
 
+            &.hide {
+              display: none;
+            }
+          }
+          .delete__profile {
+            display: inline-flex;
+            padding: 1.79vw 3.33vw;
+            height: 8.46vw;
+            border: 0.25vw solid #3e74ff;
+            border-radius: 2.82vw;
+            font-weight: 700;
+            font-size: 3.589vw;
+            line-height: 132.5%;
+            color: #3e74ff;
+            cursor: pointer;
+            &.hide {
+              display: none;
+            }
+          }
+          .cancel__changes {
+            display: flex;
+            align-items: center;
+            padding: 1.79vw 3.33vw;
+            height: 8.46vw;
+            border: 0.25vw solid rgba(255, 255, 255, 0.14);
+            border-radius: 2.82vw;
+            font-weight: 700;
+            font-size: 3.589vw;
+            line-height: 132.5%;
+            &.hide {
+              display: none;
+            }
+          }
+          .save__changes {
+            display: flex;
+            align-items: center;
+            padding: 1.79vw 3.33vw;
+            height: 8.46vw;
+            border: 0.25vw solid rgba(255, 255, 255, 0.14);
+            border-radius: 2.82vw;
+            font-weight: 700;
+            font-size: 3.589vw;
+            line-height: 132.5%;
+            &.hide {
+              display: none;
+            }
+          }
         }
       }
     }

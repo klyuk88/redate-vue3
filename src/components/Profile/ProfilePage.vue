@@ -257,14 +257,12 @@
   </div>
 </template>
 <script>
-export default {
-
-};
+export default {};
 </script>
 <style lang="scss">
 .text {
   font-weight: 600;
-  font-size: 15px;
+  font-size: 0.86vw;
   line-height: 153.5%;
 }
 .profile__page {
@@ -274,15 +272,31 @@ export default {
   // width: 100vw;
 }
 .left__side {
-  width: 1048px;
-  // width: 54.58vw;
+  width: 60.36vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .right__side {
-  width: 688px;
-  // width: 35.8vw;
+  width: 39.63vw;
+  .profile {
+
+    .profile__info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 28.11vw;
+      height: 48vw;
+      .buttons__block {
+        display: none;
+      }
+      .profile__info__list__container {
+        width: 28.11vw;
+        height: 29.95vw;
+      }
+    }
+  }
 }
 // .photo__container {
 //   width: 608px;
@@ -292,10 +306,10 @@ export default {
 //   border-radius: 24px;
 // }
 .background {
-  width: 817px;
+  width: 47.06vw;
   height: 100%;
   background: rgba(196, 196, 196, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.33);
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
   border-bottom: none;
   border-top: none;
   display: flex;
@@ -308,47 +322,47 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 7px 8px;
+  padding: 0.403vw 0.46vw;
   position: relative;
-  width: 421px;
-  height: 68.57px;
-  left: -10px;
-  top: -35px;
+  width: 24.25vw;
+  height: 3.91vw;
+  left: -0.57vw;
+  top: -2.01vw;
   background: rgba(40, 37, 42, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.33);
-  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.15);
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  box-shadow: 0px 0.23vw 1.497vw rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(15px);
-  border-radius: 24px;
+  border-radius: 1.497vw;
   .inner__buttons__block {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 405px;
-    height: 54.57px;
+    width: 23.329vw;
+    height: 3.11vw;
     .big__buttons {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      gap: 8px;
-      width: 369px;
-      height: 56px;
+      gap: 0.46vw;
+      width: 21.2557vw;
+      height: 3.2258vw;
       .send__message {
         display: flex;
         align-items: center;
-        padding: 14px 82px;
-        width: 241px;
-        height: 56px;
+        padding: 0.806vw 4.723vw;
+        width: 13.88vw;
+        height: 3.22vw;
         background: rgba(255, 255, 255, 0.14);
-        border: 1px solid rgba(255, 255, 255, 0.33);
-        border-radius: 18px;
+        border: 0.057vw solid rgba(255, 255, 255, 0.33);
+        border-radius: 1.036vw;
         cursor: pointer;
       }
       .icon__btn {
-        width: 56px;
-        height: 56px;
+        width: 3.22vw;
+        height: 3.22vw;
         background: rgba(255, 255, 255, 0.14);
-        border: 1px solid rgba(255, 255, 255, 0.33);
-        border-radius: 18px;
+        border: 0.057vw solid rgba(255, 255, 255, 0.33);
+        border-radius: 1.036vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -367,35 +381,22 @@ export default {
   display: none;
 }
 .photo {
-  width: 608px;
-  height: 816px;
-  border: 1px solid rgba(255, 255, 255, 0.33);
+  width: 35.023vw;
+  height: 47vw;
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
-  border-radius: 24px;
+  border-radius: 1.38vw;
   display: flex;
-  // align-items: center;
-  // justify-content: center;
-}
-.profile__info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 488px;
-  height: 834px;
-  .buttons__block {
-    display: none;
-  }
 }
 
 .profile__name {
   @extend .text;
   font-weight: 500;
-  font-size: 48px;
+  font-size: 2.76vw;
 }
 .profile__subtext {
-  width: 278px;
-  height: 23px;
+  width: 16vw;
+  height: 1.324vw;
   display: flex;
   justify-content: space-between;
 }
@@ -405,13 +406,13 @@ export default {
 }
 .profile__vertical__line {
   @extend .text;
-  width: 5px;
-  height: 21px;
+  width: 0.288vw;
+  height: 1.209vw;
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__horizontal__line {
-  width: 440px;
-  border: 1px solid rgba(255, 255, 255, 0.33);
+  width: 25.34vw;
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
 }
 .hobby__chips__box {
   display: none;
@@ -437,67 +438,66 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 383px;
-  height: 121px;
+  width: 22vw;
+  height: 6.97vw;
 }
 .profile__info__filter__icon {
-  margin-right: 12px;
+  margin-right: 0.69vw;
   cursor: pointer;
 }
 .profile__info__filter__description {
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 8px;
+  margin-right: 0.46vw;
 }
 .profile__info__filter__tags__block {
-  width: 383px;
-  height: 82px;
+  width: 22vw;
+  height: 4.72vw;
   display: flex;
   flex-wrap: wrap;
 }
 .profile__info__filter__tag {
   @extend .text;
-  height: 35px;
+  height: 2vw;
   display: inline-block;
   cursor: pointer;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 8px 12px;
+  padding: 0.46vw 0.69vw;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
-  box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
-  border-radius: 13px;
+  box-shadow: 0px 0.23vw 1.15vw -0.691vw rgba(70, 122, 255, 0.4);
+  border-radius: 0.7488vw;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.806vw;
   line-height: 132.5%;
-  margin-right: 12px;
+  margin-right: 0.691vw;
 }
 .profile__info__list__container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 24px;
-  width: 488px;
-  height: 520px;
+  padding: 1.382vw;
+
   background: rgba(196, 196, 196, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.33);
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
   backdrop-filter: blur(15px);
-  border-radius: 24px;
+  border-radius: 1.382vw;
 }
 .profile__info__list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 356px;
-  height: 168px;
+  width: 20.5vw;
+  height: 9.677vw;
 }
 .main__avatar {
-  width: 608px;
-  height: 816px;
-  border: 1px solid rgba(255, 255, 255, 0.33);
+  width: 35.023vw;
+  height: 47vw;
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
-  border-radius: 24px;
+  border-radius: 1.382vw;
 }
 .profile__info__list__stats {
   display: flex;
@@ -505,11 +505,11 @@ export default {
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__info__list__icon {
-  margin-right: 12px;
+  margin-right: 0.691vw;
 }
 .profile__info__list__title {
   display: flex;
-  margin-right: 8px;
+  margin-right: 0.46vw;
 }
 .profile__info__list__status {
   color: #ffffff;
@@ -517,14 +517,15 @@ export default {
 .main__heightweight {
   display: flex;
   justify-content: space-between;
+  width: 23.559vw;
   .female__version {
     display: flex;
   }
 }
 .profile__info__list__heightweight {
   display: flex;
-  width: 188px;
-  height: 23px;
+  width: 10.829vw;
+  height: 1.324vw;
   justify-content: space-between;
 }
 .profile__info__list__height__block {
@@ -536,7 +537,7 @@ export default {
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__info__list__height__stat {
-  margin-left: 8px;
+  margin-left: 0.46vw;
 }
 .profile__info__list__weight__block {
   display: flex;
@@ -545,7 +546,7 @@ export default {
   display: flex;
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 8px;
+  margin-right: 0.46vw;
 }
 .profile__info__list__hobby__block {
   display: flex;
@@ -554,18 +555,18 @@ export default {
   @extend .text;
   display: flex;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 8px;
+  margin-right: 0.46vw;
 }
 .profile__info__list__about__block {
   display: flex;
-  width: 440px;
-  height: 46px;
+  width: 25.34vw;
+  height: 2.649vw;
 }
 .profile__info__list__about {
   @extend .text;
   display: inline-block;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 8px;
+  margin-right: 0.46vw;
 }
 .profile__info__list__about__description {
   color: #ffffff;
@@ -574,18 +575,18 @@ export default {
   display: flex;
   // justify-content: flex-start;
   align-items: center;
-  width: 440px;
-  height: 88px;
+  width: 25.345vw;
+  height: 5.06vw;
   background: rgba(40, 37, 42, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.33);
-  border-radius: 24px;
+  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  border-radius: 1.382vw;
   &.mobile {
     display: none;
   }
   .profile__mini__avatar {
-    width: 64px;
-    height: 64px;
-    margin-left: 12px;
+    width: 3.686vw;
+    height: 3.686vw;
+    margin-left: 0.691vw;
   }
 }
 .logo__title {
@@ -596,63 +597,79 @@ export default {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    margin-top: 96px;
+    margin-top: 24.61vw;
     .nav__box {
-      margin-bottom: 24px;
+      margin-bottom: 6.153vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 335px;
+      width: 85.89vw;
+
       .more_mobile {
         transform: rotate(90deg);
-        width: 24px;
-        height: 24px;
+        width: 1.382vw;
+        height: 1.382vw;
+        margin-bottom: 12px;
       }
       .auth__back__btn {
         align-items: center;
         display: flex;
         img {
-          width: 24px;
-          height: 24px;
+          width: 6.15vw;
+          height: 6.15vw;
         }
         h1 {
           font-weight: 700;
-          font-size: 14px;
+          font-size: 3.589vw ;
           line-height: 132.5%;
         }
       }
     }
     .left__side {
-      width: 335px;
+      width: 85.89vw;
       flex-direction: column;
       .background {
         .profile__info__list__carousel {
           display: flex;
           position: relative;
-          width: 311px;
-          height: 76px;
+          width: 79.74vw;
+          height: 19.48vw;
           left: 0px;
-          top: -38px;
+          top: -9.74vw;
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(50px);
-          border-radius: 24px;
+          border-radius: 6.15vw;
+          justify-content: center;
+          .profile__mini__avatar {
+            border-radius: 4.1vw;
+            width: 15.38vw;
+            height: 15.38vw;
+            border: 0.256vw solid rgba(255, 255, 255, 0.14);
+            img {
+              width: 15.38vw;
+              height: 15.38vw;
+            }
+          }
         }
         background: none;
         border: none;
-        width: 335px;
-        height: 552px;
+        width: 85.89vw;
+        height: 141.53vw;
+
         .photo {
-          border: #2965ff 1px solid;
-          width: 335px;
-          height: 462px;
+          border: #2965ff 0.256vw solid;
+          width: 85.89vw;
+          height: 118.46vw;
           display: flex;
           align-items: center;
           justify-content: center;
           background-size: cover;
+          border-radius: 6.15vw;
         }
         .main__avatar {
-          width: 335px;
-          height: 462px;
+          width: 85.89vw;
+          height: 118.46vw;
+          border-radius: 6.15vw;
         }
         .buttons__block {
           display: none;
@@ -660,7 +677,7 @@ export default {
       }
     }
     .right__side {
-      width: 335px;
+      width: 85.89vw;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -671,20 +688,20 @@ export default {
           font-family: "Myanmar MN";
           font-style: normal;
           font-weight: 400;
-          font-size: 16.1842px;
+          font-size: 4.1vw;
           line-height: 153.5%;
           letter-spacing: 0.245em;
           color: #ffffff;
-          margin-bottom: 25px;
-          margin-top: 90px;
+          margin-bottom: 6.41vw;
+          margin-top: 23.07vw;
         }
       }
       .profile {
         background: none;
         .profile__info {
           align-items: center;
-          width: 335px;
-          height: 862px;
+          width: 85.89vw;
+          height: 225vw;
           .buttons__block {
             &.mobile {
               display: flex;
@@ -693,26 +710,40 @@ export default {
               backdrop-filter: none;
               box-shadow: none;
               position: unset;
-              width: 335px;
+              width: 85.89vw;
               align-items: center;
               .inner__buttons__block {
-                width: 335px;
+                width: 85.89vw;
+                height: 14.3589vw;
+                .big__buttons {
+                  width: 85.89vw;
+                  height: 14.3589vw;
+                  gap: 2.05vw;
+                  font-size: 3.589vw;
+                }
               }
               .send__message {
-                width: 224px;
-                height: 56px;
+                width: 57.43vw;
+                height: 14.358vw;
+                border-radius: 4.61vw;
               }
               .icon__btn {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 103px;
-                height: 56px;
+                width: 26.41vw;
+                height: 14.358vw;
                 background: rgba(255, 255, 255, 0.05);
+                border-radius: 4.61vw;
+                img {
+                  height: 4.87vw;
+                  width: 4.87vw;
+                }
+
                 .vertical__line {
-                  width: 32px;
+                  width: 8.2vw;
                   height: 0px;
-                  border: 1px solid rgba(255, 255, 255, 0.33);
+                  border: 0.256vw solid rgba(255, 255, 255, 0.33);
                   transform: rotate(90deg);
                 }
               }
@@ -722,61 +753,85 @@ export default {
             display: flex;
           }
           .profile__info__title {
-            width: 267px;
-            height: 63px;
+            width: 68.461vw;
+            height: 16.15vw;
             display: flex;
             flex-direction: column;
             align-items: center;
             .profile__name {
               font-weight: 600;
-              font-size: 32px;
-              line-height: 40px;
+              font-size: 8.2vw;
+              line-height: 10.25vw;
             }
             .profile__subtext {
+              width: 68.46vw;
+              height: 5.89vw;
               .profile__location {
                 color: #ffffff;
                 font-weight: 700;
-                font-size: 14px;
+                font-size: 3.589vw;
                 line-height: 132.5%;
               }
               .profile__age {
                 font-weight: 700;
-                font-size: 14px;
+                font-size: 3.589vw;
                 line-height: 132.5%;
               }
               .profile__status {
                 font-weight: 700;
-                font-size: 14px;
+                font-size: 3.589vw;
                 line-height: 132.5%;
+              }
+              .profile__online__status {
+                font-size: 3.589vw;
+              }
+              .profile__vertical__line {
+                font-size: 3.07vw;
               }
             }
           }
           .profile__info__filter {
-            width: 335px;
+            width: 86.15vw;
+            height: 28.97vw;
             .profile__info__filter__description {
-              //   font-weight: 600;
-              //   font-size: 15px;
-              //   line-height: 153.5%;
+              font-weight: 600;
+              font-size: 3.846vw;
+              line-height: 153.5%;
+            }
+            .profile__info__filter__tags__block {
+              width: 85.89vw;
+              height: 21.02vw;
+              .profile__info__filter__tag {
+                height: 8.97vw;
+                font-size: 3.589vw;
+                border-radius: 3.33vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2.05vw 3.07vw;
+              }
             }
           }
           .hobby__chips__box {
             display: flex;
             flex-wrap: wrap;
-            width: 335px;
-          }
-          .chips {
-            padding: 4px 10px;
-            border: 1px solid #ffffff;
-            border-radius: 8px;
-            margin-right: 8px;
-            margin-bottom: 4px;
+            width: 85.89vw;
+            .chips {
+              padding: 1.025vw 2.56vw;
+              border: 0.256vw solid #ffffff;
+              border-radius: 2.05vw;
+              margin-right: 2.05vw;
+              margin-bottom: 1.0256vw;
+              font-size: 3.589vw;
+            }
           }
           .profile__info__list__container {
             background: none;
             border: none;
             backdrop-filter: none;
             align-items: center;
-            width: 335px;
+            width: 85.89vw;
+            height: 130vw;
             .profile__horizontal__line {
               display: none;
             }
@@ -784,49 +839,68 @@ export default {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              width: 335px;
-              height: 23px;
+              width: 85.89vw;
+              height: 5.897vw;
               p {
                 font-weight: 600;
-                font-size: 15px;
+                font-size: 3.846vw;
                 line-height: 153.5%;
                 color: rgba(255, 255, 255, 0.33);
               }
               .mobile__horizontal__line {
-                width: 140px;
+                width: 35.897vw;
                 height: 0px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                border: 0.256vw solid rgba(255, 255, 255, 0.2);
                 &.main {
-                  width: 250px;
+                  width: 64.1vw;
                 }
                 &.hobby {
-                  width: 244px;
+                  width: 62.56vw;
                 }
                 &.about {
-                  width: 270px;
+                  width: 69.23vw;
                 }
               }
             }
             .mobile__about__desc {
               display: flex;
-              width: 333px;
-              height: 46px;
+              width: 85.38vw;
+              height: 11.79vw;
               p {
                 font-weight: 600;
-                font-size: 15px;
+                font-size: 3.846vw;
                 line-height: 153.5%;
               }
             }
             .main__heightweight {
-              width: 335px;
+              width: 85.89vw;
               display: flex;
               justify-content: space-between;
               .profile__info__list__heightweight {
-                width: 149px;
-                height: 23px;
+                width: 38.205vw;
+                height: 5.897vw;
+                .profile__info__list__height {
+                  font-size: 3.846vw;
+                }
+
+                .profile__info__list__height__stat {
+                  font-size: 3.846vw;
+                }
+                .profile__info__list__weight {
+                  font-size: 3.846vw;
+                }
+                .profile__info__list__weight__stat {
+                  font-size: 3.846vw;
+                }
               }
               .female__version {
                 display: flex;
+                .profile__info__list__weight {
+                  font-size: 3.846vw;
+                }
+                .profile__info__list__weight__stat {
+                  font-size: 3.846vw;
+                }
               }
             }
             .profile__info__list__hobby__block {
@@ -836,8 +910,18 @@ export default {
               display: none;
             }
             .profile__info__list {
-              width: 335px;
-              height: 205px;
+              width: 85.89vw;
+              height: 52.56vw;
+              .profile__info__list__stats {
+                height: 6.153vw;
+                width: 89.74vw;
+                .profile__info__list__title {
+                  font-size: 3.846vw;
+                }
+                .profile__info__list__status {
+                  font-size: 3.846vw;
+                }
+              }
             }
             .profile__info__list__carousel {
               display: none;
