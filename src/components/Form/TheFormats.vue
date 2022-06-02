@@ -53,7 +53,7 @@
     </div>
   </div>
   
-  <div id="selected-meaning">
+  <div id="selected-meaning" v-if="formatsValue.length">
     <div class="item" v-for="(item, idx) in formatsValue" :key="idx">
       <span>{{item}}</span>
       <img src="@/assets/images/main/carbon_close.svg" alt="" @click="resetValue(idx)"/>
@@ -173,6 +173,7 @@ const resetValue = (idx) => {
   display: flex;
   flex-wrap: wrap;
   margin-top: 16px;
+  margin-bottom: 16px;
   gap: 15px;
   .item {
     background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);

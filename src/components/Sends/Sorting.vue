@@ -30,6 +30,9 @@ const cities = ref([
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
   padding: 24px;
+  #formats {
+    margin-bottom: 20px;
+  }
   .big-btn {
     margin-top: 16px;
   }

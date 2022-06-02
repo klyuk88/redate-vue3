@@ -84,4 +84,32 @@
     margin-top: 27px;
   }
 }
+@media (max-width: 1200px) {
+  .send-slide {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+    .text {
+      font-size: 13px;
+    }
+    .timer-btn {
+      width: 100%;
+      height: 43px;
+      border-color: #fff;
+      margin-top: 12px;
+    }
+    .timer-block {
+      .begin {
+        font-size: 15px;
+        margin-top: 0;
+      }
+      .begin:after {
+        margin-top: 12px;
+      }
+      .end {
+        font-size: 15px;
+      }
+    }
+  }
+}
 </style>

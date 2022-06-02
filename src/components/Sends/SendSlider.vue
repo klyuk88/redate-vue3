@@ -97,4 +97,11 @@ import "swiper/modules/pagination/pagination.min.css";
   }
 
 }
+@media (max-width: 1200px) {
+  .send-slider {
+    .slider-nav {
+      display: none;
+    }
+  }
+}
 </style>
