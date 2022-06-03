@@ -1,7 +1,9 @@
 <template>
   <PerfectScrollbar>
-    <!-- <SendSlider /> -->
+    <SendSlider />
     <div class="answers-items">
+      <AnswerItem />
+      <AnswerItem />
       <AnswerItem />
       <AnswerItem />
       <AnswerItem />

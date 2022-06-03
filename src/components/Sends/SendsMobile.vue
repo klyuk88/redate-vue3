@@ -1,10 +1,10 @@
 <template>
   <section id="sendings-mobile">
-
     <MobileSorting v-if="mobileSorting" />
 
     <div class="decor"></div>
-    <div class="header" :class="{ blur: onBlur }">
+
+    <!-- <div class="header" :class="{ blur: onBlur }">
       <BackLink @click="$router.go(-1)" />
 
       <h1 class="title">Мои рассылки</h1>
@@ -18,45 +18,50 @@
         />
         <MobileBurger />
       </div>
-    </div>
+    </div> -->
 
-    <div class="content">
-      <SendSlider />
-      <button class="mob-new-send-btn">
-        <svg
-          width="16"
-          height="17"
-          viewBox="0 0 16 17"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="plus-icon"
-        >
-          <path
-            d="M8.41499 0.880302L6.95368 0.880301L6.95368 7.76934L0.0646402 7.76934L0.0646402 9.23066L6.95368 9.23066L6.95368 16.1197L8.41499 16.1197L8.41499 9.23066L15.304 9.23066L15.304 7.76934L8.41499 7.76934L8.41499 0.880302Z"
-            fill="white"
-          />
-        </svg>
-        <span>Создать рассылку</span>
-      </button>
-
-      <div class="items">
-        <SendItem />
-        <SendItem />
-        <SendItem />
-        <SendItem />
+    <div class="tab-header" :class="{ blur: onBlur }">
+      <BackLink @click="$router.go(-1)" />
+      <div class="actions">
+        <img
+          src="@/assets/images/main/settings-icon.svg"
+          alt=""
+          class="settings"
+          @click="openMobileSorting"
+        />
+        <MobileBurger />
+      </div>
+      <div class="tabs-block">
+        <div class="tab" :class="{active: tabs.sends}" @click="changeTab('sends')">Новые рассылки</div>
+        <div class="tab" :class="{active: tabs.answers}" @click="changeTab('answers')">Ответы +15</div>
+        <div class="active-line" :style="{transform: tabs.answers ? 'translateX(100%)' : 'translateX(0)'}"></div>
       </div>
     </div>
+    <component :is="SendsMobileTabContent"></component>
   </section>
 </template>
 <script setup>
 import BackLink from "@/components/Search/BackLink.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import MobileSorting from "@/components/Search/MobileSorting.vue";
-import SendSlider from "@/components/Sends/SendSlider.vue";
-import SendItem from '@/components/Sends/SendItem.vue'
+import SendsMobileTabContent from "@/components/Sends/SendsMobileTabContent.vue";
 
-import { ref, computed, onUnmounted } from 'vue'
-import {useStore} from 'vuex'
+import { ref, computed, onUnmounted, reactive } from "vue";
+import { useStore } from "vuex";
+
+const tabs = reactive({
+  sends: true,
+  answers: false
+})
+const changeTab = (param) => {
+  if (param === "sends") {
+    tabs.sends = true;
+    tabs.answers = false;
+  } else if (param === "answers") {
+    tabs.answers = true;
+    tabs.sends = false;
+  }
+}
 
 const store = useStore();
 const mobileSorting = computed(() => {
@@ -84,9 +89,6 @@ function heandleScroll(e) {
 onUnmounted(() => {
   window.removeEventListener("scroll", heandleScroll);
 });
-
-
-
 </script>
 <style lang="scss">
 #sendings-mobile {
@@ -144,35 +146,71 @@ onUnmounted(() => {
         }
       }
     }
+    .header + .send-mobile-tab-content {
+      margin-top: 100px;
+    }
     .header.blur {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(30px);
     }
-    .content {
-      margin-top: 100px;
-      .mob-new-send-btn {
+    .tab-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 375px;
+      padding: 30px 0 0 0;
+      z-index: 2;
+      .tabs-block {
         width: 100%;
-        height: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        padding: 30px 0 10px 0;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.4);
+        .active-line {
+          position: absolute;
+          bottom: -1px;
+          width: 50%;
+          height: 2px;
+          background: #fff;
+          left: 0;
+          transition: all 0.3s ease;
+        }
+        .active-line.active {
+          transform: translateX(100%);
+        }
+        .tab {
+          font-size: 13px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+        .tab.active {
+          color: #fff;
+        }
+      }
+      .back-btn {
+        padding-left: 20px;
+      }
+      .actions {
         display: flex;
         align-items: center;
-        justify-content: center;
-        background: linear-gradient(
-          271.17deg,
-          #292a2f -1.65%,
-          #1c264d 60.4%,
-          #242529 99.3%
-        );
-        border: 1px solid rgba(255, 255, 255, 0.33);
-        font-size: 15px;
-        font-weight: 600;
-        color: #fff;
-        .plus-icon {
+        padding-right: 20px;
+        .settings {
           margin-right: 10px;
         }
       }
-      .items {
-        margin-top: 16px;
-      }
+    }
+    .tab-header.blur {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(30px);
+    }
+    .tab-header + .send-mobile-tab-content {
+      margin-top: 130px;
     }
   }
 }

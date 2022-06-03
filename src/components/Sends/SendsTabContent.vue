@@ -53,6 +53,7 @@
 </template>
 <script setup>
 import SendItem from "@/components/Sends/SendItem.vue";
+import SendSlider from '@/components/Sends/SendSlider.vue'
 </script>
 <style lang="scss">
 .ps {

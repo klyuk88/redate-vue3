@@ -3,15 +3,13 @@
     <Swiper
       :slides-per-view="1"
       :space-between="50"
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
       :modules="[Navigation, Pagination]"
       :navigation="{
         nextEl: '.slider-nav.right',
         prevEl: '.slider-nav.left',
       }"
       :pagination="{
-        el: '.swiper-pagination',
+        el: '.send-slider .swiper-pagination',
         type: 'bullets',
       }"
     >
@@ -65,6 +63,7 @@ import { Navigation, Pagination } from "swiper";
 
 import "swiper/swiper.min.css";
 import "swiper/modules/pagination/pagination.min.css";
+import "swiper/modules/navigation/navigation.min.css";
 </script>
 <style lang="scss">
 .send-slider {

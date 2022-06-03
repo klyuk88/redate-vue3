@@ -89,6 +89,7 @@
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 12px;
+    border: 1px solid #FFFFFF54;
     .text {
       font-size: 13px;
     }
