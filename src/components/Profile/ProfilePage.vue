@@ -262,7 +262,7 @@ export default {};
 <style lang="scss">
 .text {
   font-weight: 600;
-  font-size: 0.86vw;
+  font-size: 15px;
   line-height: 153.5%;
 }
 .profile__page {
@@ -272,13 +272,13 @@ export default {};
   // width: 100vw;
 }
 .left__side {
-  width: 60.36vw;
+  width: 1048px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .right__side {
-  width: 39.63vw;
+  width: 688px;
   .profile {
 
     .profile__info {
@@ -286,14 +286,14 @@ export default {};
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      width: 28.11vw;
-      height: 48vw;
+      width: 488px;
+      height: 833px;
       .buttons__block {
         display: none;
       }
       .profile__info__list__container {
-        width: 28.11vw;
-        height: 29.95vw;
+        width: 488px;
+        height: 520px;
       }
     }
   }
@@ -306,10 +306,10 @@ export default {};
 //   border-radius: 24px;
 // }
 .background {
-  width: 47.06vw;
+  width: 817px;
   height: 100%;
   background: rgba(196, 196, 196, 0.05);
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(255, 255, 255, 0.33);
   border-bottom: none;
   border-top: none;
   display: flex;
@@ -322,47 +322,47 @@ export default {};
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0.403vw 0.46vw;
+  padding: 7px 8px;
   position: relative;
-  width: 24.25vw;
-  height: 3.91vw;
-  left: -0.57vw;
-  top: -2.01vw;
+  width: 421px;
+  height: 68px;
+  left: -10px;
+  top: -35px;
   background: rgba(40, 37, 42, 0.2);
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
-  box-shadow: 0px 0.23vw 1.497vw rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(15px);
-  border-radius: 1.497vw;
+  border-radius: 26px;
   .inner__buttons__block {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 23.329vw;
-    height: 3.11vw;
+    width: 405px;
+    height: 54px;
     .big__buttons {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      gap: 0.46vw;
-      width: 21.2557vw;
-      height: 3.2258vw;
+      gap: 8px;
+      width: 369px;
+      height: 56px;
       .send__message {
         display: flex;
         align-items: center;
-        padding: 0.806vw 4.723vw;
-        width: 13.88vw;
-        height: 3.22vw;
+        padding: 14px 82px;
+        width: 241px;
+        height: 56px;
         background: rgba(255, 255, 255, 0.14);
-        border: 0.057vw solid rgba(255, 255, 255, 0.33);
-        border-radius: 1.036vw;
+        border: 1px solid rgba(255, 255, 255, 0.33);
+        border-radius: 18px;
         cursor: pointer;
       }
       .icon__btn {
-        width: 3.22vw;
-        height: 3.22vw;
+        width: 56px;
+        height: 56px;
         background: rgba(255, 255, 255, 0.14);
-        border: 0.057vw solid rgba(255, 255, 255, 0.33);
-        border-radius: 1.036vw;
+        border: 1px solid rgba(255, 255, 255, 0.33);
+        border-radius: 18px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -381,22 +381,22 @@ export default {};
   display: none;
 }
 .photo {
-  width: 35.023vw;
-  height: 47vw;
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  width: 608px;
+  height: 816px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
-  border-radius: 1.38vw;
+  border-radius: 24px;
   display: flex;
 }
 
 .profile__name {
   @extend .text;
   font-weight: 500;
-  font-size: 2.76vw;
+  font-size: 48px;
 }
 .profile__subtext {
-  width: 16vw;
-  height: 1.324vw;
+  width: 278px;
+  height: 23px;
   display: flex;
   justify-content: space-between;
 }
@@ -406,13 +406,13 @@ export default {};
 }
 .profile__vertical__line {
   @extend .text;
-  width: 0.288vw;
-  height: 1.209vw;
+  width: 5px;
+  height: 21px;
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__horizontal__line {
-  width: 25.34vw;
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  width: 440px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
 }
 .hobby__chips__box {
   display: none;
@@ -438,66 +438,66 @@ export default {};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 22vw;
-  height: 6.97vw;
+  width: 382px;
+  height: 121px;
 }
 .profile__info__filter__icon {
-  margin-right: 0.69vw;
+  margin-right: 12px;
   cursor: pointer;
 }
 .profile__info__filter__description {
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 0.46vw;
+  margin-right: 8px;
 }
 .profile__info__filter__tags__block {
-  width: 22vw;
-  height: 4.72vw;
+  width: 382px;
+  height: 82px;
   display: flex;
   flex-wrap: wrap;
 }
 .profile__info__filter__tag {
   @extend .text;
-  height: 2vw;
+  height: 35px;
   display: inline-block;
   cursor: pointer;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0.46vw 0.69vw;
+  padding: 8px 12px;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
-  box-shadow: 0px 0.23vw 1.15vw -0.691vw rgba(70, 122, 255, 0.4);
-  border-radius: 0.7488vw;
+  box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
+  border-radius: 13px;
   font-weight: 700;
-  font-size: 0.806vw;
+  font-size: 14px;
   line-height: 132.5%;
-  margin-right: 0.691vw;
+  margin-right: 12px;
 }
 .profile__info__list__container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.382vw;
+  padding: 24px;
 
   background: rgba(196, 196, 196, 0.05);
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(255, 255, 255, 0.33);
   backdrop-filter: blur(15px);
-  border-radius: 1.382vw;
+  border-radius: 24px;
 }
 .profile__info__list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 20.5vw;
-  height: 9.677vw;
+  width: 356px;
+  height: 168px;
 }
 .main__avatar {
-  width: 35.023vw;
-  height: 47vw;
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
+  width: 608px;
+  height: 816px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
-  border-radius: 1.382vw;
+  border-radius: 24px;
 }
 .profile__info__list__stats {
   display: flex;
@@ -505,11 +505,11 @@ export default {};
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__info__list__icon {
-  margin-right: 0.691vw;
+  margin-right: 12px;
 }
 .profile__info__list__title {
   display: flex;
-  margin-right: 0.46vw;
+  margin-right: 8px;
 }
 .profile__info__list__status {
   color: #ffffff;
@@ -517,15 +517,15 @@ export default {};
 .main__heightweight {
   display: flex;
   justify-content: space-between;
-  width: 23.559vw;
+  width: 409px;
   .female__version {
     display: flex;
   }
 }
 .profile__info__list__heightweight {
   display: flex;
-  width: 10.829vw;
-  height: 1.324vw;
+  width: 188px;
+  height: 23px;
   justify-content: space-between;
 }
 .profile__info__list__height__block {
@@ -537,7 +537,7 @@ export default {};
   color: rgba(255, 255, 255, 0.33);
 }
 .profile__info__list__height__stat {
-  margin-left: 0.46vw;
+  margin-left: 8px;
 }
 .profile__info__list__weight__block {
   display: flex;
@@ -546,7 +546,7 @@ export default {};
   display: flex;
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 0.46vw;
+  margin-right: 8px;
 }
 .profile__info__list__hobby__block {
   display: flex;
@@ -555,18 +555,18 @@ export default {};
   @extend .text;
   display: flex;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 0.46vw;
+  margin-right: 8px;
 }
 .profile__info__list__about__block {
   display: flex;
-  width: 25.34vw;
-  height: 2.649vw;
+  width: 440px;
+  height: 46px;
 }
 .profile__info__list__about {
   @extend .text;
   display: inline-block;
   color: rgba(255, 255, 255, 0.33);
-  margin-right: 0.46vw;
+  margin-right: 8px;
 }
 .profile__info__list__about__description {
   color: #ffffff;
@@ -575,18 +575,18 @@ export default {};
   display: flex;
   // justify-content: flex-start;
   align-items: center;
-  width: 25.345vw;
-  height: 5.06vw;
+  width: 440px;
+  height: 88px;
   background: rgba(40, 37, 42, 0.2);
-  border: 0.057vw solid rgba(255, 255, 255, 0.33);
-  border-radius: 1.382vw;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  border-radius: 24px;
   &.mobile {
     display: none;
   }
   .profile__mini__avatar {
-    width: 3.686vw;
-    height: 3.686vw;
-    margin-left: 0.691vw;
+    width: 64px;
+    height: 64px;
+    margin-left: 12px;
   }
 }
 .logo__title {
@@ -801,6 +801,7 @@ export default {};
             .profile__info__filter__tags__block {
               width: 85.89vw;
               height: 21.02vw;
+              gap: 2px;
               .profile__info__filter__tag {
                 height: 8.97vw;
                 font-size: 3.589vw;

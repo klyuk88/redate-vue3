@@ -32,6 +32,7 @@ export default {};
 .signup__border {
   border: none;
   background: none;
+  display: flex;
   .signup__block {
     width: 304px;
     height: 184px;

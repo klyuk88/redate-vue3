@@ -83,25 +83,29 @@
                 <div class="btn gold">Продлить</div>
               </div>
               <div class="subscription">
-                <div class="item__price active">
-                  <div class="days">7 дней</div>
-                  <div class="price">54$</div>
-                  <div class="progress__bar"></div>
-                  <p>Осталось <span>3</span> дня</p>
+                <div class="item__price active ">
+                  <div class="inner__price__box">
+                    <div class="days">7 дней</div>
+                    <div class="price">54$</div>
+                    <div class="progress__bar"></div>
+                    <p>Осталось <span>3</span> дня</p>
+                  </div>
                 </div>
-                <div class="vertical__line"></div>
-                <div class="item__price">
-                  <div class="days">14 дней</div>
-                  <div class="price">$96</div>
-                  <div class="progress__bar"></div>
-                  <p>Осталось <span>3</span> дня</p>
+                <div class="item__price center ">
+                  <div class="inner__price__box">
+                    <div class="days">14 дней</div>
+                    <div class="price">$96</div>
+                    <div class="progress__bar"></div>
+                    <p>Осталось <span>3</span> дня</p>
+                  </div>
                 </div>
-                <div class="vertical__line"></div>
-                <div class="item__price">
-                  <div class="days">30 дней</div>
-                  <div class="price">$160</div>
-                  <div class="progress__bar"></div>
-                  <p>Осталось<span> 3 </span>дня</p>
+                <div class="item__price ">
+                  <div class="inner__price__box  ">
+                    <div class="days">30 дней</div>
+                    <div class="price">$160</div>
+                    <div class="progress__bar"></div>
+                    <p>Осталось<span> 3 </span>дня</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -467,14 +471,14 @@ export default { components: { MobileBurger } };
 }
 .left__side {
   .background {
-    width: 47.06vw;
+    width: 817px;
   }
   .container {
     @extend .flex__center;
-    height: 46.77vw;
+    height: 812px;
     justify-content: space-between;
     .header {
-      height: 2.534vw;
+      height: 44px;
       @extend .flex__center;
       justify-content: space-between;
       .mobile__photo__block {
@@ -483,25 +487,25 @@ export default { components: { MobileBurger } };
 
       h1 {
         font-weight: 600;
-        font-size: 1.036vw;
+        font-size: 18px;
         line-height: 153.5%;
       }
       .horizontal__line {
-        width: 38.5944vw;
+        width: 670px;
         height: 0px;
-        border: 0.057vw solid rgba(255, 255, 255, 0.33);
+        border: 1px solid rgba(255, 255, 255, 0.33);
       }
     }
     .main {
-      width: 35.25vw;
-      height: 41.47vw;
+      width: 612px;
+      height: 720px;
       @extend .flex__center;
       justify-content: space-between;
       .cash__container {
-        width: 35vw;
-        height: 23.04vw;
+        width: 608px;
+        height: 400px;
         background: rgba(255, 255, 255, 0.05);
-        border: 0, 057vw solid rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 40px;
         @extend .flex__center;
         justify-content: space-evenly;
@@ -509,21 +513,21 @@ export default { components: { MobileBurger } };
           display: none;
         }
         .block {
-          width: 32.258vw;
-          height: 5.184vw;
+          width: 560px;
+          height: 90px;
           background: rgba(27, 28, 30, 0.5);
-          border: 0.057vw solid rgba(255, 255, 255, 0.14);
-          border-radius: 1.382vw;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 24px;
           @extend .flex__center;
           justify-content: space-between;
           flex-direction: row;
-          padding: 0.691vw;
+          padding: 12px;
           .options {
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 700;
-            font-size: 0.921vw;
+            font-size: 16px;
             line-height: 153.5%;
             color: rgba(255, 255, 255, 0.33);
             img {
@@ -536,12 +540,12 @@ export default { components: { MobileBurger } };
           }
           .btn {
             @extend .flex__center;
-            width: 8.06vw;
-            height: 3.341vw;
+            width: 140px;
+            height: 58px;
             background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
-            border-radius: 0.806vw;
+            border-radius: 14px;
             &.gold {
-              border: #ad6902 0.057vw solid;
+              border: #ad6902 1px solid;
               background: linear-gradient(
                 132.27deg,
                 #f9ae3f -0.77%,
@@ -559,39 +563,51 @@ export default { components: { MobileBurger } };
           @extend .flex__center;
           flex-direction: row;
           justify-content: space-between;
-          width: 32.258vw;
-          height: 7.834vw;
+          width: 560px;
+          height: 136px;
           background: rgba(27, 28, 30, 0.5);
-          border: 0.057vw solid rgba(255, 255, 255, 0.14);
-          border-radius: 1.382vw;
-          padding: 1.152vw;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 24px;
+          // padding: 20px;
           .vertical__line {
-            width: 5.99vw;
+            width: 104px;
             height: 0px;
-            border: 0.057vw solid rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             transform: rotate(90deg);
           }
           .item__price {
             position: relative;
             z-index: 0;
+            width: 33%;
+            @extend .flex__center;
+
+            &.center {
+              border-left: 1px grey solid;
+              border-right: 1px grey solid;
+            }
+            .inner__price__box {
+              @extend .flex__center;
+              width: 114px;
+              height: 104px;
+            }
             p {
               span {
-                margin-left: 0.288vw;
-                margin-right: 0.288vw;
+                margin-left: 5px;
+                margin-right: 5px;
               }
             }
             .days {
               font-weight: 700;
-              font-size: 1.382vw;
+              font-size: 24px;
               line-height: 153.5%;
             }
             .price {
               text-align: center;
-              border: #ad6902 0.057vw solid;
-              padding: 0.403vw 1.497vw;
-              border-radius: 0.633vw;
+              border: #ad6902 1px solid;
+              padding: 7px 26px;
+              border-radius: 11px;
               font-weight: 600;
-              font-size: 0.864vw;
+              font-size: 15px;
               line-height: 153.5%;
               background: linear-gradient(
                 132.27deg,
@@ -606,8 +622,8 @@ export default { components: { MobileBurger } };
             }
             .progress__bar {
               display: none;
-              width: 9.21vw;
-              height: 1.382vw;
+              width: 160px;
+              height: 24px;
               background: linear-gradient(
                 89.71deg,
                 rgba(255, 255, 255, 0.93) 0.25%,
@@ -616,24 +632,23 @@ export default { components: { MobileBurger } };
                 rgba(255, 255, 255, 0.2) 65.56%,
                 rgba(255, 255, 255, 0.2) 99.75%
               );
-              border-radius: 0.23vw;
+              border-radius: 4px;
             }
             p {
               display: none;
             }
             &.active {
-              position: relative;
               z-index: 1;
-              width: 11.175vw;
-              height: 8.294vw;
+              width: 194px;
+              height: 144px;
               filter: drop-shadow(4px 0px 11px rgba(43, 102, 251, 0.37));
               background: linear-gradient(
                 137.15deg,
                 #2965ff 0%,
                 #2e66f5 99.89%
               );
-              border: 0.057vw solid rgba(255, 255, 255, 0.14);
-              border-radius: 1.382vw;
+              border: 1px solid rgba(255, 255, 255, 0.14);
+              border-radius: 24px;
               @extend .flex__center;
               .price {
                 display: none;
@@ -650,44 +665,44 @@ export default { components: { MobileBurger } };
       }
       .photo__gallery {
         @extend .flex__center;
-        width: 35.02vw;
-        height: 7.834vw;
+        width: 608px;
+        height: 136px;
         background: rgba(255, 255, 255, 0.05);
-        border-radius: 1.382vw;
+        border-radius: 24px;
         .gallery__block {
           display: flex;
           justify-content: space-between;
-          width: 32.258vw;
+          width: 560px;
           .add__btn {
             @extend .flex__center;
-            width: 5.069vw;
-            height: 5.069vw;
+            width: 88px;
+            height: 88px;
             background: rgba(255, 255, 255, 0.05);
-            border: 0.057vw solid rgba(255, 255, 255, 0.14);
-            border-radius: 1.382vw;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
             cursor: pointer;
           }
           .carousel__block {
             @extend .flex__center;
             flex-direction: row;
-            width: 26.267vw;
-            height: 5.069vw;
+            width: 456px;
+            height: 88px;
             background: rgba(40, 37, 42, 0.2);
-            border: 0.057vw solid rgba(255, 255, 255, 0.33);
+            border: 1px solid rgba(255, 255, 255, 0.33);
             border-radius: 1.382vw;
             .carousel {
               @extend .flex__center;
               flex-direction: row;
               align-items: center;
               justify-content: space-between;
-              width: 23.271vw;
-              height: 3.686vw;
-              border-radius: 0.806vw;
+              width: 404px;
+              height: 64px;
+              border-radius: 14px;
               //   overflow-x: auto;
               .item {
-                width: 3.686vw;
-                height: 3.686vw;
-                border-radius: 0.921vw;
+                width: 64px;
+                height: 64px;
+                border-radius: 16px;
               }
             }
           }
@@ -697,15 +712,15 @@ export default { components: { MobileBurger } };
         @extend .flex__center;
         justify-content: space-between;
         flex-direction: row;
-        width: 35.02vw;
-        height: 7.834vw;
+        width: 608px;
+        height: 136px;
         .btn {
           @extend .flex__center;
-          width: 11.05vw;
-          height: 7.834vw;
+          width: 192px;
+          height: 136px;
           background: rgba(255, 255, 255, 0.05);
-          border: 0.057vw solid rgba(255, 255, 255, 0.14);
-          border-radius: 1.382vw;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 24px;
           cursor: pointer;
           .arrow__next {
             display: none;
@@ -717,10 +732,10 @@ export default { components: { MobileBurger } };
             justify-content: center;
           }
           p {
-            margin-top: 0.691vw;
+            margin-top: 12px;
             font-weight: 600;
-            font-size: 0.921vw;
-            line-height: 1.152vw;
+            font-size: 16px;
+            line-height: 20px;
           }
         }
       }
@@ -728,35 +743,35 @@ export default { components: { MobileBurger } };
         @extend .flex__center;
         flex-direction: row;
         justify-content: space-between;
-        width: 35.25vw;
-        height: 7.834vw;
+        width: 612px;
+        height: 136px;
         .verification__status {
           background: rgba(255, 255, 255, 0.05);
-          border: 0.057vw solid rgba(255, 255, 255, 0.14);
-          border-radius: 1.382vw;
-          width: 26.26vw;
-          height: 7.834vw;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 24px;
+          width: 456px;
+          height: 136px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           .status__header {
-            width: 21.08vw;
-            height: 1.44vw;
+            width: 366px;
+            height: 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-right: 1.2vw;
+            margin-right: 21px;
             .left__side__header {
               display: flex;
               img {
-                margin-right: 0.69vw;
+                margin-right: 12px;
               }
             }
             .right__side__header {
               display: flex;
               img {
-                margin-left: 0.46vw;
+                margin-left: 8px;
               }
               .status__error {
                 display: flex;
@@ -764,7 +779,7 @@ export default { components: { MobileBurger } };
             }
             h2 {
               font-weight: 700;
-              font-size: 0.921vw;
+              font-size: 16px;
               line-height: 153.5%;
               display: flex;
               align-items: center;
@@ -772,18 +787,18 @@ export default { components: { MobileBurger } };
               color: #ffffff;
             }
             .horizontal__line {
-              width: 2.3vw;
+              width: 40px;
               height: 0px;
-              border: 0.057vw solid #ffffff;
+              border: 1px solid #ffffff;
               transform: rotate(180deg);
             }
           }
           .status__desc {
-            width: 22.06vw;
-            height: 1.843vw;
+            width: 383px;
+            height: 32px;
             span {
               font-weight: 600;
-              font-size: 0.69vw;
+              font-size: 12px;
               line-height: 132.5%;
               color: rgba(255, 255, 255, 0.4);
             }
@@ -792,12 +807,12 @@ export default { components: { MobileBurger } };
       }
       .verification__action {
         @extend .flex__center;
-        width: 7.834vw;
-        height: 7.834vw;
+        width: 136px;
+        height: 136px;
         background: #2b66fb;
-        border: 0.057vw solid rgba(255, 255, 255, 0.14);
-        border-radius: 1.382vw;
-        display: none;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 24px;
+        // display: none;
         &.help {
           background: none;
         }
@@ -806,7 +821,7 @@ export default { components: { MobileBurger } };
         }
         h2 {
           font-weight: 600;
-          font-size: 0.864vw;
+          font-size: 15px;
           text-align: center;
           color: #ffffff;
         }
@@ -816,27 +831,28 @@ export default { components: { MobileBurger } };
 }
 .right__side {
   .profile {
-    margin-top: 4.0322vw;
+    margin-top: 70px;
     align-items: baseline;
     .profile__info {
-      height: 41.82vw;
+      width: 488px;
+      height: 833px;
       .profile__title {
         display: flex;
         align-items: center;
 
         .profile__name {
-          margin-right: 4.953vw;
+          margin-right: 86px;
         }
         .status__premium {
           @extend .flex__center;
-          width: 8.064vw;
-          height: 1.728vw;
+          width: 140px;
+          height: 30px;
           filter: drop-shadow(0px 0px 10px rgba(255, 187, 84, 0.3));
-          border-radius: 0.691vw;
+          border-radius: 12px;
           font-family: "Palatino";
           font-style: normal;
           font-weight: 400;
-          font-size: 0.921vw;
+          font-size: 16px;
           line-height: 132.5%;
           letter-spacing: 0.19em;
           text-transform: uppercase;
@@ -851,14 +867,14 @@ export default { components: { MobileBurger } };
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-fill-color: transparent;
-          text-shadow: 0px 0px 0.575vw rgba(255, 187, 84, 0.3);
+          text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
         }
       }
     }
   }
   .profile__info__list__container {
-    width: 28.11vw;
-    height: 23.73vw;
+    width: 488px;
+    height: 412px;
     .main__heightweight {
       align-items: center;
       .profile__info__list__heightweight {
@@ -873,7 +889,7 @@ export default { components: { MobileBurger } };
       .female__version {
         align-items: center;
         .profile__info__list__weight__stat {
-          font-size: 0.86vw;
+          font-size: 15px;
         }
       }
     }
@@ -885,8 +901,7 @@ export default { components: { MobileBurger } };
     .nav__box {
       // display: none;
       h1 {
-          font-size: 3.589vw;
-
+        font-size: 3.589vw;
       }
       .auth__back__btn {
         h1 {
@@ -1028,7 +1043,7 @@ export default { components: { MobileBurger } };
                 display: none;
               }
               .item__price {
-                width: 20.512vw;
+                width: 33%;
                 height: 14.98vw;
                 display: flex;
                 flex-direction: column;
@@ -1040,7 +1055,6 @@ export default { components: { MobileBurger } };
                     #2e66f5 99.89%
                   );
                   height: 23.33vw;
-                  width: 2.87vw;
                   border: 0.256vw solid rgba(255, 255, 255, 0.14);
                   box-shadow: 0px 0px 10px rgba(43, 102, 251, 0.37);
                   border-radius: 6.15vw;
@@ -1090,7 +1104,7 @@ export default { components: { MobileBurger } };
             border: 0.256vw solid rgba(255, 255, 255, 0.14);
             border-radius: 6.15vw;
             .btn {
-              width: 78.20vw;
+              width: 78.2vw;
               height: 6.15vw;
               border: none;
               background: none;
@@ -1107,7 +1121,7 @@ export default { components: { MobileBurger } };
                 align-items: end;
                 justify-content: left;
 
-                width: 78.20vw;
+                width: 78.2vw;
                 height: 6.153vw;
                 img {
                   width: 6.15vw;
@@ -1137,7 +1151,7 @@ export default { components: { MobileBurger } };
             width: 56.66vw;
             height: 26.15vw;
             .status__header {
-              width: 48.20vw;
+              width: 48.2vw;
               height: 15.897vw;
               flex-direction: column;
               margin: 0;
