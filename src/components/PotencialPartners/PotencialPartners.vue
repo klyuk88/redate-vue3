@@ -102,7 +102,7 @@
               </div>
             </div>
             <div>
-              <a class="big-btn" href="#">Начать поиск</a>
+              <BigButton :title="'Начать поиск'"/>
             </div>
           </div>
 
@@ -129,6 +129,7 @@ import "vue-slider-component/theme/default.css";
 import PotentialPartnersItem from "@/components/PotencialPartners/PotentialPartnersItem.vue";
 import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
 import TheSelect from '@/components/Form/TheSelect.vue'
+import BigButton from '@/components/Form/BigButton.vue'
 
 // Import Swiper styles
 import "swiper/swiper.min.css";

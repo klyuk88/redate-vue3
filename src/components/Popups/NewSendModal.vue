@@ -39,8 +39,6 @@ const formats = ref(["Серьезно", "Не серьезно", "Серьез�
 const sendWrap = ref(null)
 document.addEventListener('click', (e) => {
   e.stopPropagation()
-  // console.log(sendWrap.value);
-  // console.log(e.target);
   if(e.target === sendWrap.value) {
     closeNewSendWindow()
   }
