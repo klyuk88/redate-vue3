@@ -37,7 +37,7 @@
         <div class="active-line" :style="{transform: tabs.answers ? 'translateX(100%)' : 'translateX(0)'}"></div>
       </div>
     </div>
-    <component :is="SendsMobileTabContent"></component>
+    <component :is="activeTab"></component>
   </section>
 </template>
 <script setup>
@@ -45,6 +45,7 @@ import BackLink from "@/components/Search/BackLink.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import MobileSorting from "@/components/Search/MobileSorting.vue";
 import SendsMobileTabContent from "@/components/Sends/SendsMobileTabContent.vue";
+import AnswersMobileTabContent from '@/components/Sends/AnswersMobileTabContent.vue'
 
 import { ref, computed, onUnmounted, reactive } from "vue";
 import { useStore } from "vuex";
@@ -62,6 +63,14 @@ const changeTab = (param) => {
     tabs.sends = false;
   }
 }
+
+const activeTab = computed(() => {
+  if(tabs.sends) {
+    return SendsMobileTabContent
+  } else if (tabs.answers) {
+    return AnswersMobileTabContent
+  }
+})
 
 const store = useStore();
 const mobileSorting = computed(() => {
@@ -146,7 +155,7 @@ onUnmounted(() => {
         }
       }
     }
-    .header + .send-mobile-tab-content {
+    .header + .tab-content {
       margin-top: 100px;
     }
     .header.blur {
@@ -209,7 +218,7 @@ onUnmounted(() => {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(30px);
     }
-    .tab-header + .send-mobile-tab-content {
+    .tab-header + .tab-content {
       margin-top: 130px;
     }
   }

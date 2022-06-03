@@ -32,6 +32,15 @@
           :navigation="{
             nextEl: '.next-arrow',
           }"
+          :breakpoints="{
+            0: {
+              slidesPerView: 5
+            },
+            1200: {
+              slidesPerView: 6
+            }
+            
+          }"
         >
           <SwiperSlide v-for="(item, idx) in 10" :key="idx">
             <AnswerItemSlide />
@@ -152,6 +161,17 @@ import "swiper/modules/navigation/navigation.min.css";
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .answer-item {
+    width: 100%;
+    padding: 20px;
+    .slider-block {
+      .slider {
+        max-width: 200px;
+      }
     }
   }
 }

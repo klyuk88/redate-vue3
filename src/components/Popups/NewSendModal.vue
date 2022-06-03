@@ -1,5 +1,5 @@
 <template>
-  <div class="new-send-modal-wrap" :class="{'active': newSendWindow}">
+  <div class="new-send-modal-wrap" ref="sendWrap" :class="{'active': newSendWindow}">
     <div class="new-send-modal">
       <img src="@/assets/images/close-new-send.svg" alt="" class="close" @click="closeNewSendWindow" />
       <div class="title-block">
@@ -9,7 +9,7 @@
       <form class="form-block">
         <div class="inputs-block">
           <TheSelect :placeholder="'Выберите город'" :options="cities" />
-          <TheSelect :placeholder="'Выберите формат'" :options="formats" />
+          <TheSelect :placeholder="'Выберите формат'" :options="formats" :zIndex="1"/>
           <FormTextArea :placeholder="'Сообщение'" :name="'Сообщение'"/>
         </div>
         <small class="small">*В рассылке запрещенно указывать свои контакты</small>
@@ -35,6 +35,16 @@ const closeNewSendWindow = () => {
 }
 const cities = ref(["Москва", "Санкт-Петербург", "Иран", "Стамбул"]);
 const formats = ref(["Серьезно", "Не серьезно", "Серьезно", "Не серьезно"]);
+
+const sendWrap = ref(null)
+document.addEventListener('click', (e) => {
+  e.stopPropagation()
+  // console.log(sendWrap.value);
+  // console.log(e.target);
+  if(e.target === sendWrap.value) {
+    closeNewSendWindow()
+  }
+})
 
 
 </script>
@@ -107,5 +117,23 @@ const formats = ref(["Серьезно", "Не серьезно", "Серьез�
 }
 .new-send-modal-wrap.active {
   display: flex;
+}
+@media (max-width: 1200px) {
+  .new-send-modal-wrap {
+    .new-send-modal {
+      max-width: 95%;
+      .close {
+        display: none;
+      }
+      .form-block {
+        .inputs-block {
+          grid-template-columns: 1fr;
+          .form-textarea {
+            grid-column: 1/1
+          }
+        }
+      }
+    }
+  }
 }
 </style>

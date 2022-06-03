@@ -1,7 +1,8 @@
-<template lang="">
-     <div class="send-mobile-tab-content">
+<template>
+ <NewSendModal v-if="newSendModalShow"/>
+     <div class="tab-content">
       <SendSlider />
-      <button class="mob-new-send-btn">
+      <button class="mob-new-send-btn" @click="openNewSend">
         <svg
           width="16"
           height="17"
@@ -29,9 +30,20 @@
 <script setup>
 import SendItem from "@/components/Sends/SendItem.vue";
 import SendSlider from "@/components/Sends/SendSlider.vue";
+import NewSendModal from '@/components/Popups/NewSendModal.vue'
+import { computed } from "@vue/runtime-core";
+import {useStore} from 'vuex'
+
+const store = useStore()
+const openNewSend = () => {
+  store.commit('openNewSendWindow')
+}
+const newSendModalShow = computed(() => {
+  return store.state.newSendWindow
+})
 </script>
 <style lang="scss">
-.send-mobile-tab-content {
+.tab-content {
   .mob-new-send-btn {
     width: 100%;
     height: 60px;

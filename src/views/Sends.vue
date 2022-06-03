@@ -1,5 +1,5 @@
 <template>
-  <NewSendModal />
+  <NewSendModal v-if="newSendModalShow"/>
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
@@ -20,9 +20,11 @@
 
       <div class="sidebar">
         <Sorting />
+
         <div class="create-new-send" @click="openNewSendWindow">
           Создать новую рассылку
         </div>
+
       </div>
     </div>
   </section>
@@ -42,6 +44,7 @@ import SendsMobile from '@/components/Sends/SendsMobile.vue'
 
 import { reactive, computed} from "vue";
 import { useStore } from "vuex";
+const store = useStore()
 
 const activeTab = computed(() => {
   if(tabs.sends) {
@@ -65,6 +68,12 @@ const tabActive = (param) => {
     tabs.sends = false;
   }
 };
+const newSendModalShow = computed(() => {
+  return store.state.newSendWindow
+})
+const openNewSendWindow = () => {
+  store.commit('openNewSendWindow')
+}
 
 </script>
 
