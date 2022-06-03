@@ -65,7 +65,7 @@
                 disabled
               />
 
-              <div class="send__phone__code hide">Отправить</div>
+              <div class="send__phone__code">Отправить</div>
 
               <div class="sms__code hide">
                 <input class="code__input" type="text" maxlength="4" />
@@ -483,7 +483,7 @@ export default {};
       .settings__content {
         width: 100vw;
         margin: 0;
-        height: 140vw;
+        min-height: 140vw;
         position: absolute;
         left: 0;
         .horizontal__line {
@@ -506,12 +506,12 @@ export default {};
         }
         .settings__body {
           width: 85.89vw;
-          height: 91vw;
+          min-height: 91vw;
           margin: 0;
           .settings {
             flex-direction: column;
             width: 85.89vw;
-            height: 24.87vw;
+            min-height: 24.87vw;
             .settings__desc {
               img {
                 display: none;
@@ -533,13 +533,19 @@ export default {};
             }
             .inputs__box {
               width: 85.89vw;
-              height: 15.38vw;
+              min-height: 15.38vw;
+              flex-direction: column;
 
               .input {
                 border-radius: 2.82vw;
                 width: 85.89vw;
                 height: 15.38vw;
                 font-size: 3.846vw;
+              }
+              .send__phone__code {
+                width: 161.5px;
+                height: 60px;
+                font-size: 12px;
               }
             }
             &.change__mail {

@@ -26,8 +26,10 @@
           </div>
         </div>
       </div>
-      <p class="auth__forgot">Забыли пароль?</p>
-      <div class="auth__btn">Войти</div>
+      <div class="footer__auth__block">
+        <p class="auth__forgot">Забыли пароль?</p>
+        <div class="auth__btn">Войти</div>
+      </div>
       <div class="auth__footer__signup">
         <p class="auth__no__acc">Нет учетной записи?</p>
         <span>Регистрация</span>
@@ -207,5 +209,174 @@ span {
   justify-content: space-between;
   width: 236px;
   height: 21px;
+}
+@media (max-width: 1200px) {
+
+.flex__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth__back__btn {
+  display: none !important;
+}
+.auth__background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth__page {
+  @extend .flex__center;
+  flex-direction: column;
+  height: 650px ; 
+  width: 390px;
+  position: relative;
+  justify-content: space-between;
+  top: 0;
+  &.error__auth {
+    height: 650px;
+  justify-content: space-between;
+
+  }
+}
+.auth__block {
+  @extend .flex__center;
+  margin-bottom: 0;
+  position: relative;
+  width: 446px;
+  height: 356.91px;
+  border:none;
+    &.error__auth {
+      height: 373px;
+    }
+}
+.auth__input__box {
+  @extend .flex__center;
+  width: 422px;
+  height: 331px;
+  background:none;
+  border: none;
+  box-shadow: none;
+  border-radius: 24px;
+  &.error__auth {
+    height: 373px;
+  }
+}
+.auth__inner__box {
+  @extend .flex__center;
+  &.error__auth {
+    height: 235px;
+  }
+}
+.auth__inner__content {
+  @extend .flex__center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 326px;
+  height: 300px;
+  &.error__auth {
+    height: 342px;
+  }
+}
+.auth__header {
+  flex-direction: column;
+  width: 286px;
+  height: 67px;
+  h1 {
+    @extend .text;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+  p {
+    @extend .text;
+    font-size: 12px;
+    line-height: 132.5%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.33);
+  }
+
+.auth__forgot {
+  font-size: 14px;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 0px;
+}
+.auth__no__acc {
+  font-size: 14px;
+}
+span {
+  font-size: 14px;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 326px;
+  height: 136px;
+  span {
+    display: none;
+   color:  #2B66FB;
+   text-align: center;
+   font-weight: 600;
+font-size: 12px;
+line-height: 15px;
+width: 274px;
+   &.error__auth {
+     display: inline-block;
+   }
+  }
+  &.error__auth {
+  height: 178px;
+
+  }
+}
+.input {
+  @extend .text;
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  outline: none;
+  background:  none;
+  width: 326px;
+  height: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  padding: 12px;
+  &:focus {
+    color: #ffffff;
+  }
+}
+.footer__auth__block {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 105px;
+  margin-bottom: 95px;
+}
+.auth__btn {
+  @extend .flex__center;
+  width: 335px;
+  height: 60px;
+  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+  border-radius: 11px;
+  margin-bottom: 0;
+  position: relative;
+  top: 0;
+}
+
+.auth__footer__signup {
+  @extend .flex__center;
+  justify-content: space-between;
+  width: 236px;
+  height: 21px;
+}
 }
 </style>

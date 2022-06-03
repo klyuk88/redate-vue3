@@ -729,4 +729,7 @@ export default { components: { TheSelect } };
     }
   }
 }
+@media (max-width: 1200px) {
+  
+}
 </style>
