@@ -16,29 +16,63 @@
 
     <div class="grid">
       <div class="content">
-        <div class="search-results">
-          <h6 class="label">Диалоги: <span class="results">222</span></h6>
+        <!-- <div class="search-results">
+          <p class="label">Диалоги: <span class="results">222</span></p>
+        </div> -->
+
+        <div class="tab-header">
+          <div class="tab" :class="{ active: tabs.chats }">
+            <p class="title" @click="tabActive('chats')">Диалоги</p>
+          </div>
+          <div class="tab" :class="{ active: tabs.apps }">
+            <p class="title" @click="tabActive('apps')">Заявки + 15</p>
+          </div>
+          <div class="active-line" :class="{ active: tabs.apps }"></div>
         </div>
-        <PerfectScrollbar>
-            <DialogItem v-for="(item, idx) in 20" :key="idx" />
-            <button class="delite-dialogs">Удалить все диалоги</button>
-        </PerfectScrollbar>
+
+        <component :is="activeTab"></component>
       </div>
-      <DialogSidebar />
+
+      <div class="sidebar">
+        <DialogSidebar />
+      </div>
     </div>
   </section>
 </template>
 
 
 <script setup>
-import DialogItem from "@/components/Chat/DialogItem.vue";
 import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import BackLink from "@/components/Search/BackLink.vue";
-import { computed, ref, onMounted, onUnmounted } from "vue";
+import ChatsTabContent from "@/components/Chat/ChatsTabContent.vue";
+import AppsTabContent from "@/components/Chat/AppsTabContent.vue";
+import { computed, ref, onMounted, onUnmounted, reactive } from "vue";
+
+const tabs = reactive({
+  chats: true,
+  apps: false,
+});
+
+const activeTab = computed(() => {
+  if (tabs.chats) {
+    return ChatsTabContent;
+  } else if (tabs.apps) {
+    return AppsTabContent;
+  }
+});
+
+const tabActive = (param) => {
+  if (param === "chats") {
+    tabs.chats = true;
+    tabs.apps = false;
+  } else if (param === "apps") {
+    tabs.apps = true;
+    tabs.chats = false;
+  }
+};
 
 const scrollValue = ref(0);
-
 const diMobItems = ref(null);
 
 const onBlur = computed(() => {
@@ -52,6 +86,8 @@ function heandleScroll(e) {
 
 <style lang="scss">
 #dialog {
+  padding-left: 100px;
+  margin: 0 auto;
   #di-mobile-content {
     display: none;
     position: relative;
@@ -108,23 +144,17 @@ function heandleScroll(e) {
       padding-bottom: 50px;
     }
   }
-  margin: 0 auto;
-  padding-left: 130px;
   .grid {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(860px, 1057px) minmax(300px, 376px);
+    column-gap: 30px;
     align-items: center;
     .content {
-      border-left: 1px solid #ffffff54;
-      border-right: 1px solid #ffffff54;
-      background: rgba(196, 196, 196, 0.05);
-      width: 1000px;
       position: relative;
-      z-index: 1;
-      padding: 0 17px;
+      background: rgba(196, 196, 196, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.33);
       height: 100vh;
-      @media (max-width: 1400px) {
-        width: 700px;
-      }
       .search-results {
         font-size: 18px;
         color: #fff;
@@ -139,27 +169,54 @@ function heandleScroll(e) {
         left: 0;
         background: rgba(28, 29, 33, 0.01);
         backdrop-filter: blur(50px);
+        .label {
+          font-size: 18px;
+          font-weight: 700;
+        }
         .results {
           opacity: 0.3;
         }
       }
-      .ps {
-        height: 100vh;
-        padding-bottom: 50px;
-        padding: 150px 30px 50px 30px;
-        position: relative;
-        .ps__rail-y {
-          margin-top: 150px;
-          margin-right: 5px;
-          width: 2px;
-          background: rgba($color: #fff, $alpha: 0.3);
-          border-radius: 0;
-          .ps__thumb-y {
-            width: 2px;
-            background-color: #fff;
-            border-radius: 0;
-            right: 0;
+      .tab-header {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 70px 0 18px 0;
+        background: rgba(196, 196, 196, 0.05);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.3);
+        z-index: 10;
+        .tab {
+          cursor: pointer;
+          .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.33);
           }
+        }
+        .tab.active {
+          .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+          }
+        }
+        .active-line {
+          position: absolute;
+          bottom: -1px;
+          width: 50%;
+          height: 2px;
+          background: #fff;
+          left: 0;
+          transition: all 0.3s ease;
+        }
+        .active-line.active {
+          transform: translateX(100%);
         }
       }
     }

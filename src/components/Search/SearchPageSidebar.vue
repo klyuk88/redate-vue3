@@ -31,12 +31,11 @@ const cities = ref(["Москва", "Дубай", "Казань", "Санкт-П
 
 <style lang="scss">
 #searchPageSidebar {
-  width: 376px;
+  width: 100%;
   border: 1px solid #ffffff54;
   border-radius: 24px;
   background: rgba(196, 196, 196, 0.05);
   padding: 24px;
-  margin-left: 30px;
   #formats {
     margin-top: 20px;
   }

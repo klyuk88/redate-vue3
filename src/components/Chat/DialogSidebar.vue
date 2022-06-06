@@ -20,8 +20,7 @@ import SendingItem from '@/components/Chat/SendingItem.vue'
 
 <style lang="scss">
 #dialog-sidebar {
-  max-width: 376px;
-  padding-left: 30px;
+  width: 100%;
 }
 .n-card_wrapper {
   padding: 16px 0;

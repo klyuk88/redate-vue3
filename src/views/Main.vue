@@ -64,7 +64,7 @@ const showCities = computed(() => {
 #main-content
   max-width: 1465px
   margin: 0 auto
-  padding-left: 130px
+  padding-left: 100px
   padding-top: 75px
   padding-bottom: 75px
   box-sizing: content-box

@@ -32,9 +32,9 @@
     <div class="grid">
       <div class="content">
         <div class="search-results">
-          <h6 class="label">
+          <p class="label">
             Результаты поиска: <span class="results">229 992</span>
-          </h6>
+          </p>
         </div>
         <PerfectScrollbar>
           <div class="search-items">
@@ -42,14 +42,16 @@
           </div>
         </PerfectScrollbar>
       </div>
-      <SearchPageSidebar />
+      <div class="sidebar">
+        <SearchPageSidebar />
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
 import SearchItem from "@/components/Search/SearchItem.vue";
-import SearchPageSidebar from "@/components/SideBars/SearchPageSidebar.vue";
+import SearchPageSidebar from "@/components/Search/SearchPageSidebar.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
 import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
 import ProfileNewMessage from "@/components/Profile/ProfileNewMessage.vue";
@@ -158,16 +160,16 @@ onUnmounted(() => {
     }
   }
   .grid {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(860px, 1057px) minmax(300px, 376px);
+    column-gap: 30px;
     align-items: center;
     .content {
-      border-left: 1px solid #ffffff54;
-      border-right: 1px solid #ffffff54;
-      padding: 0 17px;
-      background: rgba(196, 196, 196, 0.05);
-      flex-grow: 1;
       position: relative;
-      z-index: 1;
+      background: rgba(196, 196, 196, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.33);
+      height: 100vh;
       .search-results {
         font-size: 18px;
         color: #fff;
@@ -182,12 +184,19 @@ onUnmounted(() => {
         left: 0;
         background: rgba(196, 196, 196, 0.05);
         backdrop-filter: blur(30px);
+        .label {
+          font-size: 18px;
+          font-weight: 600;
+        }
         .results {
           opacity: 0.3;
         }
       }
       .ps {
+        padding-top: 150px;
         height: 100vh;
+        overflow-y: auto;
+        scrollbar-width: none;
         .ps__rail-y {
           margin-top: 150px;
           margin-right: 5px;
@@ -209,12 +218,10 @@ onUnmounted(() => {
         flex-wrap: wrap;
         justify-content: center;
         gap: 33px;
-        max-width: 1050px;
         margin: 0 auto;
         max-height: 100vh;
-        padding-top: 150px;
+        // padding-top: 150px;
       }
-
     }
   }
 }
