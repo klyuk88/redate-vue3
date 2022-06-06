@@ -1,6 +1,6 @@
 <template>
   <div class="special-proposal">
-    <div class="shape"></div>
+    <!-- <div class="shape"></div> -->
     <h2 class="page-subtitle">Спецпредложение</h2>
     <p class="online-info">Сейчас онлайн 596 954</p>
     <div class="items-block">

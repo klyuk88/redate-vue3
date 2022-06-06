@@ -49,6 +49,13 @@ const routes = [{
     },
   },
   {
+    path: '/notifications',
+    name: 'Notifications',
+    components: {
+      default: () => import('@/views/Notifications.vue'),
+    },
+  },
+  {
     path: '/chat/:user',
     name: 'SingleChat',
     components: {
