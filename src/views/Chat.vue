@@ -1,26 +1,14 @@
 <template>
   <section id="dialog">
-    <div id="di-mobile-content">
-      <div class="di-mob-decor"></div>
-      <div class="di-mob-header" :class="{ blur: onBlur }">
-        <BackLink @click="$router.go(-1)" />
-        <h1 class="di-mob-title">Диалоги</h1>
-        <MobileBurger />
-      </div>
-
-      <div class="di-mob-items" ref="diMobItems" @scroll="heandleScroll">
-        <DialogItem v-for="(item, idx) in 20" :key="idx" />
-        <button class="delite-dialogs">Удалить все диалоги</button>
-      </div>
-    </div>
+    
 
     <div class="grid">
       <div class="content">
-        <!-- <div class="search-results">
+        <div class="search-results" v-if="false">
           <p class="label">Диалоги: <span class="results">222</span></p>
-        </div> -->
+        </div>
 
-        <div class="tab-header">
+        <div class="tab-header" v-if="true">
           <div class="tab" :class="{ active: tabs.chats }">
             <p class="title" @click="tabActive('chats')">Диалоги</p>
           </div>
@@ -37,16 +25,17 @@
         <DialogSidebar />
       </div>
     </div>
+
+    <ChatMobile/>
   </section>
 </template>
 
 
 <script setup>
 import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import BackLink from "@/components/Search/BackLink.vue";
 import ChatsTabContent from "@/components/Chat/ChatsTabContent.vue";
 import AppsTabContent from "@/components/Chat/AppsTabContent.vue";
+import ChatMobile from '@/components/Chat/ChatMobile.vue'
 import { computed, ref, onMounted, onUnmounted, reactive } from "vue";
 
 const tabs = reactive({
@@ -72,78 +61,12 @@ const tabActive = (param) => {
   }
 };
 
-const scrollValue = ref(0);
-const diMobItems = ref(null);
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-
-function heandleScroll(e) {
-  scrollValue.value = diMobItems.value.scrollTop;
-}
 </script>
 
 <style lang="scss">
 #dialog {
   padding-left: 100px;
   margin: 0 auto;
-  #di-mobile-content {
-    display: none;
-    position: relative;
-    overflow-x: hidden;
-    .di-mob-decor {
-      position: absolute;
-      z-index: 0;
-      top: 0;
-      left: 50%;
-      opacity: 0.3;
-      pointer-events: none;
-      width: 300px;
-      height: 300px;
-      transform: translateY(-50%) translateX(-50%);
-      background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
-      mask-image: radial-gradient(
-        ellipse 100% 100% at 50% 50%,
-        black 10%,
-        transparent 50%
-      );
-      -webkit-mask-image: radial-gradient(
-        ellipse 100% 100% at 50% 50%,
-        black 10%,
-        transparent 50%
-      );
-    }
-    .di-mob-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 375px;
-      padding: 50px 20px;
-      border-bottom: 1px solid rgba($color: #fff, $alpha: 0.14);
-      z-index: 2;
-      .di-mob-title {
-        font-size: 17px;
-        font-weight: 600;
-      }
-    }
-    .di-mob-header.blur {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(30px);
-    }
-    .di-mob-items {
-      padding-top: 140px;
-      height: 100vh;
-      overflow-y: auto;
-      width: 100%;
-      padding-bottom: 50px;
-    }
-  }
   .grid {
     width: 100%;
     display: grid;
@@ -241,9 +164,6 @@ function heandleScroll(e) {
     width: 100%;
     .grid {
       display: none;
-    }
-    #di-mobile-content {
-      display: block;
     }
   }
 }
