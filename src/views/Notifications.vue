@@ -24,11 +24,13 @@
       </div>
     </div>
   </section>
+  <NotificationsMobile/>
 </template>
 <script setup>
 import LikesTabContent from '@/components/Notifications/LikesTabContent.vue'
 import ViewsTabContent from '@/components/Notifications/ViewsTabContent.vue'
 import SpecialProposal from '@/components/SpecialProposal.vue'
+import NotificationsMobile from '@/components/Notifications/NotificationsMobile.vue'
 import { ref, reactive, computed } from "vue";
 const tabs = reactive({
   likes: true,
@@ -111,6 +113,11 @@ const tabActive = (param) => {
     }
     // .sidebar {
     // }
+  }
+}
+@media (max-width: 1200px) {
+  #notifications {
+    display: none;
   }
 }
 </style>

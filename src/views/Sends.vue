@@ -3,9 +3,10 @@
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
-        <!-- <SendsHeader/> -->
 
-        <div class="tab-header">
+        <SendsHeader v-if="false"/>
+
+        <div class="tab-header" v-if="true">
           <div class="tab" :class="{ 'active': tabs.sends }">
             <p class="title" @click="tabActive('sends')">Новые рассылки</p>
           </div>

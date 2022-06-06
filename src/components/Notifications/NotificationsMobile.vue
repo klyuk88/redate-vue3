@@ -1,40 +1,33 @@
 <template>
-  <section id="sendings-mobile">
-    <MobileSorting v-if="mobileSorting" />
-
+  <section id="notifications-mobile">
     <div class="decor"></div>
-
-    <div class="header" :class="{ blur: onBlur }" v-if="false">
+    <div class="tab-header" :class="{ blur: onBlur }">
       <BackLink @click="$router.go(-1)" />
-
-      <h1 class="title">Мои рассылки</h1>
-
+      <h1 class="title">Уведомления</h1>
       <div class="actions">
-        <img
-          src="@/assets/images/main/settings-icon.svg"
-          alt=""
-          class="settings"
-          @click="openMobileSorting"
-        />
-        <MobileBurger />
-      </div>
-    </div>
-
-    <div class="tab-header" :class="{ blur: onBlur }" v-if="true">
-      <BackLink @click="$router.go(-1)" />
-      <div class="actions">
-        <img
-          src="@/assets/images/main/settings-icon.svg"
-          alt=""
-          class="settings"
-          @click="openMobileSorting"
-        />
         <MobileBurger />
       </div>
       <div class="tabs-block">
-        <div class="tab" :class="{active: tabs.sends}" @click="changeTab('sends')">Новые рассылки</div>
-        <div class="tab" :class="{active: tabs.answers}" @click="changeTab('answers')">Ответы +15</div>
-        <div class="active-line" :style="{transform: tabs.answers ? 'translateX(100%)' : 'translateX(0)'}"></div>
+        <div
+          class="tab"
+          :class="{ active: tabs.likes }"
+          @click="tabActive('likes')"
+        >
+          Лайки +5
+        </div>
+        <div
+          class="tab"
+          :class="{ active: tabs.views }"
+          @click="tabActive('views')"
+        >
+          Просмотр профиля +5
+        </div>
+        <div
+          class="active-line"
+          :style="{
+            transform: tabs.views ? 'translateX(100%)' : 'translateX(0)',
+          }"
+        ></div>
       </div>
     </div>
     <component :is="activeTab"></component>
@@ -43,68 +36,37 @@
 <script setup>
 import BackLink from "@/components/Search/BackLink.vue";
 import MobileBurger from "@/components/MobileBurger.vue";
-import MobileSorting from "@/components/Search/MobileSorting.vue";
-import SendsMobileTabContent from "@/components/Sends/SendsMobileTabContent.vue";
-import AnswersMobileTabContent from '@/components/Sends/AnswersMobileTabContent.vue'
-
+import LikesMobileTabContent from "@/components/Notifications/LikesMobileTabContent.vue";
+import ViewsMobileTabContent from "@/components/Notifications/ViewsMobileTabContent.vue";
 import { ref, computed, onUnmounted, reactive } from "vue";
-import { useStore } from "vuex";
 
 const tabs = reactive({
-  sends: true,
-  answers: false
-})
-const changeTab = (param) => {
-  if (param === "sends") {
-    tabs.sends = true;
-    tabs.answers = false;
-  } else if (param === "answers") {
-    tabs.answers = true;
-    tabs.sends = false;
-  }
-}
-
+  likes: true,
+  views: false,
+});
 const activeTab = computed(() => {
-  if(tabs.sends) {
-    return SendsMobileTabContent
-  } else if (tabs.answers) {
-    return AnswersMobileTabContent
+  if (tabs.likes) {
+    return LikesMobileTabContent;
+  } else if (tabs.views) {
+    return ViewsMobileTabContent;
   }
-})
-
-const store = useStore();
-const mobileSorting = computed(() => {
-  return store.state.mobileSorting;
 });
-const openMobileSorting = () => {
-  store.commit("openMobileSorting");
+const tabActive = (param) => {
+  if (param === "likes") {
+    tabs.likes = true;
+    tabs.views = false;
+  } else if (param === "views") {
+    tabs.views = true;
+    tabs.likes = false;
+  }
 };
-
-const openNewSendWindow = () => {
-  store.commit("openNewSendWindow");
-};
-const scrollValue = ref(0);
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-
-//scroll
-window.addEventListener("scroll", heandleScroll);
-
-function heandleScroll(e) {
-  scrollValue.value = window.pageYOffset;
-}
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
 </script>
 <style lang="scss">
-#sendings-mobile {
+#notifications-mobile {
   display: none;
 }
 @media (max-width: 1200px) {
-  #sendings-mobile {
+  #notifications-mobile {
     display: block;
     position: relative;
     width: 100%;
