@@ -1,6 +1,6 @@
 <template>
   <div
-    class="likes-mobile-item"
+    class="chat-mobile-item"
     :class="{ deliteShow: deliteShow }"
     v-touch:swipe.left="swipeHandlerLeft"
     v-touch:swipe.right="swipeHandlerRight"
@@ -15,17 +15,11 @@
       </div>
       <div class="m-mess_start">
         <div class="name">Александр</div>
-        <div class="meta-block">
-          <p class="note">Понравилась ваша анкета</p>
-          <p class="time">15 минут назад</p>
-        </div>
+        <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sapiente voluptates repudiandae ad adipisci? Accusantium et possimus voluptate consequuntur molestiae saepe id quos. Quos magnam, culpa, mollitia sunt et ut obcaecati dicta voluptatibus quo ab excepturi dolore, odio ipsum fugit.</p>
       </div>
       <div class="m-mess_end">
-        <img
-          src="@/assets/images/message-icon.svg"
-          alt=""
-          class="new-mess-icon"
-        />
+        <p class="time">20:43</p>
+        <div class="count">12</div>
       </div>
     </div>
     <div class="delite-block">
@@ -47,7 +41,7 @@ const swipeHandlerRight = () => {
 </script>
 
 <style lang="scss">
-.likes-mobile-item {
+.chat-mobile-item {
   display: grid;
   grid-template-columns: 370px 100px;
   margin-top: 2px;
@@ -137,6 +131,17 @@ const swipeHandlerRight = () => {
     display: inline-block;
     margin-left: 12px;
     margin-right: auto;
+    .message {
+      font-size: 14px;
+      font-weight: 400;
+      color: #fff;
+      opacity: 0.4;
+      width: 100%;
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 
   .name {
@@ -183,12 +188,28 @@ const swipeHandlerRight = () => {
 
   .m-mess_end {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 58.75px;
-    height: 39px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 14px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    .time {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      opacity: 0.4;
+      line-height: 1;
+    }
+    .count {
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: rgba($color: #fff, $alpha: 0.14);
+      border-radius: 50%;
+    }
   }
 
   .m-mess_del {
@@ -246,12 +267,12 @@ const swipeHandlerRight = () => {
     cursor: pointer;
   }
 }
-.likes-mobile-item.deliteShow {
+.chat-mobile-item.deliteShow {
   transform: translateX(-110px);
 }
 
 @media (max-width: 1200px) {
-  .likes-mobile-item {
+  .chat-mobile-item {
     .m-mess_item {
       width: 100%;
       background-position: bottom;

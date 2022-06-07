@@ -1,11 +1,15 @@
 <template>
   <div class="tab-content">
-    <LikesMobileItem/>
+    <LikesMobileItem v-for="(items, idx) in 20" :key="idx"/>
   </div>
 </template>
 <script setup>
 import LikesMobileItem from '@/components/Notifications/LikesMobileItem.vue'
 </script>
-<style lang="">
+<style lang="scss">
+.tab-content {
+  padding-top: 140px;
+  overflow-x: hidden;
+}
   
 </style>

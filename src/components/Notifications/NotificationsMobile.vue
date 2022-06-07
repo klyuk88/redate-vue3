@@ -60,6 +60,21 @@ const tabActive = (param) => {
     tabs.likes = false;
   }
 };
+const scrollValue = ref(0);
+
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false;
+});
+
+//scroll
+window.addEventListener("scroll", heandleScroll);
+
+function heandleScroll(e) {
+  scrollValue.value = window.pageYOffset;
+}
+onUnmounted(() => {
+  window.removeEventListener("scroll", heandleScroll);
+});
 </script>
 <style lang="scss">
 #notifications-mobile {
@@ -92,38 +107,7 @@ const tabActive = (param) => {
         transparent 50%
       );
     }
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      max-width: 375px;
-      padding: 50px 20px 20px 20px;
-      z-index: 2;
-      .title {
-        font-size: 17px;
-        font-weight: 600;
-        margin-left: 10px;
-      }
-      .actions {
-        display: flex;
-        align-items: center;
-        .settings {
-          margin-right: 10px;
-        }
-      }
-    }
-    .header + .tab-content {
-      margin-top: 100px;
-    }
-    .header.blur {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(30px);
-    }
+
     .tab-header {
       display: flex;
       align-items: center;
@@ -179,9 +163,6 @@ const tabActive = (param) => {
     .tab-header.blur {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(30px);
-    }
-    .tab-header + .tab-content {
-      margin-top: 130px;
     }
   }
 }

@@ -38,7 +38,7 @@
             </router-link>
           </li>
           <li class="item">
-            <router-link to="/search" class="link">
+            <router-link to="/chat" class="link">
               <div class="image-block">
                 <img src="@/assets/images/main/dialog.svg" alt="" />
               </div>
@@ -46,7 +46,7 @@
             </router-link>
           </li>
           <li class="item">
-            <router-link to="/search" class="link">
+            <router-link to="/sends" class="link">
               <div class="image-block">
                 <img src="@/assets/images/main/papka.svg" alt="" />
               </div>
@@ -55,7 +55,7 @@
           </li>
 
           <li class="item">
-            <router-link to="/search" class="link">
+            <router-link to="/notifications" class="link">
               <div class="image-block">
                 <img src="@/assets/images/main/teeny.svg" alt="" />
               </div>
@@ -64,7 +64,7 @@
           </li>
 
           <li class="item">
-            <router-link to="/search" class="link">
+            <router-link to="/favorite" class="link">
               <div class="image-block">
                 <img src="@/assets/images/main/star.svg" alt="" />
               </div>
@@ -83,13 +83,20 @@
 
 
 <script setup>
-import {computed} from 'vue'
+import {computed, watch} from 'vue'
 import {useStore} from 'vuex'
+import {useRoute} from 'vue-router'
 const store = useStore()
+const route = useRoute()
 const mobMenu = computed(() => store.state.mobileMenu)
 const closeMobMenu = () => {
     store.commit('closeMobileMenu')
 }
+watch(route, (newVal, oldVal) => {
+  setTimeout(() => {
+    store.commit('closeMobileMenu')
+  }, 500);
+})
 </script>
 
 

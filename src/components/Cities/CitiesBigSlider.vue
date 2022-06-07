@@ -9,7 +9,6 @@
         el: '.swiper-pagination',
         type: 'bullets',
       }"
-      @swiper="onSwiper"
     >
       <SwiperSlide v-for="(item, idx) in 3" :key="idx">
         <CityBigItem />

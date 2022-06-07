@@ -3,8 +3,6 @@
     <div
       class="m-mess_item"
       :class="{ 'm-new': false }"
-      v-touch:swipe.left="swipeHandlerLeft"
-      v-touch:swipe.right="swipeHandlerRight"
     >
       <div class="m-mess_item-img">
         <div class="m-mess_item-img m-online"></div>
@@ -24,7 +22,7 @@
         <div class="m-mess_new">1</div>
       </div>
     </div>
-    <div class="delite-block" :class="{ deliteShow: deliteShow }">
+    <div class="delite-block">
       <div class="m-mess_del">x</div>
       <div class="delite-btn">Удалить</div>
     </div>
@@ -33,14 +31,7 @@
 
 <script setup>
 import { ref } from "vue";
-const deliteShow = ref(false);
 
-const swipeHandlerLeft = () => {
-  deliteShow.value = true;
-};
-const swipeHandlerRight = () => {
-  deliteShow.value = false;
-};
 </script>
 
 <style lang="scss">
@@ -59,8 +50,7 @@ const swipeHandlerRight = () => {
     align-items: stretch;
     gap: 2px;
   }
-  .delite-block:hover,
-  .delite-block.deliteShow {
+  .delite-block:hover {
     .m-mess_del {
       width: 0;
       opacity: 0;
