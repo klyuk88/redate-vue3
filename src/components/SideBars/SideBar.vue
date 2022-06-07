@@ -74,8 +74,8 @@
     .menu-item.avatar
       border: 1px solid #2B66FB
       filter: drop-shadow(0px 0px 30px rgba(43, 102, 251, 0.55))
-    @media (max-width: 1200px)
-      display: none
+  @media (max-width: 1200px)
+    display: none
 
 .menu-item
   width: 56px
