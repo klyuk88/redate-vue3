@@ -1,36 +1,40 @@
 <template>
   <div class="content__container">
+    <RegistrationTabs />
     <!-- <AuthPopup /> -->
-<!-- <ForgotPassword /> -->
-<!-- <SignupPhoneCode /> -->
-<!-- <NewPassword /> -->
-<!-- <SignupPopup /> -->
-<!-- <SignupPopupSecond /> -->
-<!-- <SignupPopupThird /> -->
-<!-- <SignupPopupFourth /> -->
-<!-- <SignupHobby /> -->
-<!-- <UploadPhoto /> -->
-<!-- <ChoosePhoto /> -->
-<!-- <ChangeSuccess /> -->
-<!-- <VerificationFirst /> -->
-<!-- <VerificationSecond /> -->
-<!-- <VerificationThird /> -->
-<!-- <SignupPopupComplete /> -->
-<!-- <ProfileNewMessage /> -->
-<!-- <ProfilePopupBan /> -->
-<!-- <ProfilePopupCongrats /> -->
-<!-- <ProfilePopupDescription /> -->
-<!-- <ProfilePopupDiamond /> -->
-<!-- <ProfilePopupDiamondLost /> -->
-<!-- <ProfilePopupHide /> -->
-<!-- <ProfilePopupReport /> -->
-<!-- <MyProfileSettings /> -->
-<!-- <MyProfileEdit /> -->
-<!-- <ProfilePopupDeleteAcc /> -->
-<!-- <ProfilePopupEditComplet /> -->
-<!-- <ProfilePopupVerificationModerate /> -->
-<!-- <ProfilePopupVerificationRequest /> -->
-<AuthMainPage />
+      
+  
+
+    <!-- <ForgotPassword /> -->
+    <!-- <SignupPhoneCode /> -->
+    <!-- <NewPassword /> -->
+    <!-- <SignupPopup /> -->
+    <!-- <SignupPopupSecond /> -->
+    <!-- <SignupPopupThird /> -->
+    <!-- <SignupPopupFourth /> -->
+    <!-- <SignupHobby /> -->
+    <!-- <UploadPhoto /> -->
+    <!-- <ChoosePhoto /> -->
+    <!-- <ChangeSuccess /> -->
+    <!-- <VerificationFirst /> -->
+    <!-- <VerificationSecond /> -->
+    <!-- <VerificationThird /> -->
+    <!-- <SignupPopupComplete /> -->
+    <!-- <ProfileNewMessage /> -->
+    <!-- <ProfilePopupBan /> -->
+    <!-- <ProfilePopupCongrats /> -->
+    <!-- <ProfilePopupDescription /> -->
+    <!-- <ProfilePopupDiamond /> -->
+    <!-- <ProfilePopupDiamondLost /> -->
+    <!-- <ProfilePopupHide /> -->
+    <!-- <ProfilePopupReport /> -->
+    <!-- <MyProfileSettings /> -->
+    <!-- <MyProfileEdit /> -->
+    <!-- <ProfilePopupDeleteAcc /> -->
+    <!-- <ProfilePopupEditComplet /> -->
+    <!-- <ProfilePopupVerificationModerate /> -->
+    <!-- <ProfilePopupVerificationRequest /> -->
+    <!-- <AuthMainPage /> -->
   </div>
 </template>
 <script setup>
@@ -67,9 +71,7 @@ import ProfilePopupVerificationModerate from "../components/Profile/ProfilePopup
 import ProfilePopupVerificationRequest from "../components/Profile/ProfilePopupVerificationRequest.vue";
 import MyProfilePage from "../components/Profile/MyProfilePage.vue";
 import AuthMainPage from "../components/Auth/AuthMainPage.vue";
-
-
-
+import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
 </script>
 <style>
 .content__container {

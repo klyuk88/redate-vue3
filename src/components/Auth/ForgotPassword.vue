@@ -11,15 +11,13 @@
             <div class="signup__block__header">
               <h1>Забыли пароль?</h1>
               <p>
-                Введите электронную почту или номер телефон. Мы отправим вам код
-                для восстановления пароля.
+                Введите электронную почту или номер телефона. Мы отправим Вам код для восстановления пароля. 
               </p>
             </div>
             <div class="signup__block__numbers" :class="error">
               <input class="input" placeholder="+7 (438) 943 82 94" />
               <span class="" :class="errorPhone"
-                >Неправильно введен номер телефона. Перепроверьте данные или
-                введите электронную почту.</span
+                >Неправильно введён номер телефона. Перепроверьте данные или введите электронную почту.</span
               >
               <span class="" :class="errorMail"
                 >Неправильно введена электронная почта. Перепроверьте данные или
@@ -33,8 +31,7 @@
         <div class="signup__block__header">
           <h1>Забыли пароль?</h1>
           <p>
-            Введите электронную почту или номер телефон. Мы отправим вам код для
-            восстановления пароля.
+            Введите электронную почту или номер телефона. Мы отправим Вам код для восстановления пароля.
           </p>
         </div>
         <div class="mobile__buttons" :class="error">
@@ -115,6 +112,8 @@ span {
 .signup__border {
   width: 446px;
   height: 299px;
+  border: none;
+  animation: borderanimation 0.7s infinite;
   &.error {
     height: 341px;
   }
@@ -186,6 +185,38 @@ span {
 .footer__text {
   font-weight: 500;
   font-size: 14px;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 425px;
+    height: 376px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 428px;
+    height: 377px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 434px;
+    height: 381px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 450px;
+    height: 406px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 466px;
+    height: 420px;
+  }
 }
 @media (max-width: 1200px) {
   .signup__page {

@@ -83,7 +83,7 @@
                 <div class="btn gold">Продлить</div>
               </div>
               <div class="subscription">
-                <div class="item__price active ">
+                <div class="item__price active">
                   <div class="inner__price__box">
                     <div class="days">7 дней</div>
                     <div class="price">54$</div>
@@ -91,7 +91,7 @@
                     <p>Осталось <span>3</span> дня</p>
                   </div>
                 </div>
-                <div class="item__price center ">
+                <div class="item__price center">
                   <div class="inner__price__box">
                     <div class="days">14 дней</div>
                     <div class="price">$96</div>
@@ -99,8 +99,8 @@
                     <p>Осталось <span>3</span> дня</p>
                   </div>
                 </div>
-                <div class="item__price ">
-                  <div class="inner__price__box  ">
+                <div class="item__price">
+                  <div class="inner__price__box">
                     <div class="days">30 дней</div>
                     <div class="price">$160</div>
                     <div class="progress__bar"></div>
@@ -349,45 +349,56 @@
                 <div class="mobile__horizontal__line"></div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/nation.svg" alt="" />
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/nation.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">Национальность:</div>
                 </div>
-                <div class="profile__info__list__title">Национальность:</div>
                 <div class="profile__info__list__status">Русская</div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/money.svg" alt="" />
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/money.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__title">Доход в месяц:</div>
                 <div class="profile__info__list__status">$ 20 000</div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/language.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">Знание языков:</div>
-                <div class="profile__info__list__status">
-                  Английский, Французский
-                </div>
-              </div>
-              <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/alcohol.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">
-                  Отношение к алкоголю:
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/alcohol.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">
+                    Отношение к алкоголю:
+                  </div>
                 </div>
                 <div class="profile__info__list__status">Негативное</div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/smoke.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">
-                  Отношение к курению:
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/smoke.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">
+                    Отношение к курению:
+                  </div>
                 </div>
                 <div class="profile__info__list__status">Нейтральное</div>
+              </div>
+              <div class="profile__info__list__stats">
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/language.svg" alt="" />
+                  </div>
+
+                  <div class="profile__info__list__title">Знание языков:</div>
+                </div>
+                <div class="profile__info__list__status">
+                  Английский, Французский
+                </div>
               </div>
             </div>
             <div class="profile__horizontal__line"></div>

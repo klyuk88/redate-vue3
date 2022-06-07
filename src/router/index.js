@@ -61,7 +61,17 @@ const routes = [{
     components: {
       default: () => import('@/views/SingleChat.vue'),
     },
-  }
+  },
+  {
+    path: '/auth',
+    name: 'Auth',
+    components: {
+      default: () => import('@/views/Auth.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
 ]
 
 const router = createRouter({

@@ -129,45 +129,55 @@
                 <div class="mobile__horizontal__line"></div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/nation.svg" alt="" />
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/nation.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">Национальность:</div>
                 </div>
-                <div class="profile__info__list__title">Национальность:</div>
                 <div class="profile__info__list__status">Русская</div>
               </div>
               <div class="profile__info__list__stats">
+                <div class="info__list__box">
                 <div class="profile__info__list__icon">
                   <img src="@/assets/images/main/money.svg" alt="" />
                 </div>
                 <div class="profile__info__list__title">Доход в месяц:</div>
+                </div>
                 <div class="profile__info__list__status">$ 20 000</div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/language.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">Знание языков:</div>
-                <div class="profile__info__list__status">
-                  Английский, Французский
-                </div>
-              </div>
-              <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/alcohol.svg" alt="" />
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/alcohol.svg" alt="" />
                 </div>
                 <div class="profile__info__list__title">
                   Отношение к алкоголю:
                 </div>
+                </div>
                 <div class="profile__info__list__status">Негативное</div>
               </div>
               <div class="profile__info__list__stats">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/smoke.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">
-                  Отношение к курению:
+                <div class="info__list__box">
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/smoke.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">
+                    Отношение к курению:
+                  </div>
                 </div>
                 <div class="profile__info__list__status">Нейтральное</div>
+              </div>
+              <div class="profile__info__list__stats">
+                <div class="info__list__box">
+                <div class="profile__info__list__icon">
+                  <img src="@/assets/images/main/language.svg" alt="" />
+                </div>
+                <div class="profile__info__list__title">Знание языков:</div>
+                </div>
+                <div class="profile__info__list__status">
+                  Английский, Французский
+                </div>
               </div>
             </div>
             <div class="profile__horizontal__line"></div>
@@ -280,7 +290,6 @@ export default {};
 .right__side {
   width: 688px;
   .profile {
-
     .profile__info {
       display: flex;
       flex-direction: column;
@@ -503,6 +512,11 @@ export default {};
   display: flex;
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
+  width: 440px;
+  justify-content: space-between;
+}
+.info__list__box {
+  display: flex;
 }
 .profile__info__list__icon {
   margin-right: 12px;
@@ -620,7 +634,7 @@ export default {};
         }
         h1 {
           font-weight: 700;
-          font-size: 3.589vw ;
+          font-size: 3.589vw;
           line-height: 132.5%;
         }
       }

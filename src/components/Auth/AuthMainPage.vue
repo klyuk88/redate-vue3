@@ -36,7 +36,7 @@
             <h1>Абсолютно новый формат знакомств</h1>
             <div class="btn__box">
               <div class="mobile__btn male" @click="chooseMaleMobile">Мужчина</div>
-              <div class="mobile__btn female" @click="chooseFemaleMobile" :class="{ btnMale : maleMobileActive}">ЖЕНЩИНА</div>
+              <div class="mobile__btn female" @click="chooseFemaleMobile" :class="{ btnMale : maleMobileActive}">ДЕВУШКА</div>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
           @mouseenter="changeBackFemale"
           @mouseleave="changeBackFemale"
         >
-          ЖЕНЩИНА
+          ДЕВУШКА
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@ export default {
 h1 {
   width: 220px;
   font-weight: 400;
-  font-size: 15.9719px;
+  font-size: 18px;
   line-height: 21px;
   text-align: center;
   letter-spacing: 0.02em;
