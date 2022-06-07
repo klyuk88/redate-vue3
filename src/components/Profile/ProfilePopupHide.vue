@@ -5,7 +5,7 @@
         <div class="hide__popup__text">
           <div class="hide__popup__title">Скрыть пользователя?</div>
           <div class="hide__popup__description">
-            Пользовател больше не появится в ваших запросах и рассылках.
+            Пользовател больше не появится в Ваших запросах и рассылках.
           </div>
         </div>
         <div class="hide__popup__button__box">

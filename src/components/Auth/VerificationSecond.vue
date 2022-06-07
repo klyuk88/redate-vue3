@@ -38,7 +38,7 @@
               Отобразите позу, которая указана на картинке
             </p>
             <p class="mobile__desc renew" :class="added">
-              Сравните пример с загруженной вами фотографией
+              Сравните пример с загруженной Вами фотографией
             </p>
             <div class="mobile__add__buttons">
               <div class="mobile__upload">

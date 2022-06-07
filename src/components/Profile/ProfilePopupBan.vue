@@ -5,7 +5,7 @@
         <div class="ban__popup__text">
           <div class="ban__popup__title">Заблокировать пользователя?</div>
           <div class="ban__popup__description">
-            Пользователь больше не сможет вам написать или просмотреть профиль.
+            Пользователь больше не сможет Вам написать или просмотреть профиль.
           </div>
         </div>
         <div class="ban__popup__button__box">
