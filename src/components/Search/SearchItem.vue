@@ -2,11 +2,11 @@
 <router-link to="#" class="search-item-link">
   <div id="search-item">
     <div class="avatar">
-      <img src="http://thr.ru/public/article/prephoto/7069.jpg" alt="" />
+      <img src="https://o-tendencii.com/uploads/posts/2022-01/1642420914_5-o-tendencii-com-p-strogii-makiyazh-foto-5.jpg" alt="" />
     </div>
     <div class="about">
       <div class="name-block">
-        <h5 class="name">Семен</h5>
+        <h5 class="name">Имя</h5>
         <p class="adress">Москва, Россия</p>
       </div>
       <button class="dialog" @click.stop="newMessage">
