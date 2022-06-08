@@ -99,7 +99,7 @@ export default {
 h1 {
   width: 220px;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21px;
   text-align: center;
   letter-spacing: 0.02em;

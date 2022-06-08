@@ -1,7 +1,7 @@
 <template>
   <div class="content__container">
-    <!-- <ProfilePage /> -->
-    <MyProfilePage />
+    <ProfilePage />
+    <!-- <MyProfilePage /> -->
     
   </div>
 </template>
