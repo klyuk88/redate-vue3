@@ -1,9 +1,9 @@
 <template>
   <div class="content__container">
-    <RegistrationTabs />
+    <!-- <RegistrationTabs /> -->
     <!-- <AuthPopup /> -->
       
-  
+  <!-- <ProfilePhotoCarousel /> -->
 
     <!-- <ForgotPassword /> -->
     <!-- <SignupPhoneCode /> -->
@@ -28,7 +28,7 @@
     <!-- <ProfilePopupDiamondLost /> -->
     <!-- <ProfilePopupHide /> -->
     <!-- <ProfilePopupReport /> -->
-    <!-- <MyProfileSettings /> -->
+    <MyProfileSettings />
     <!-- <MyProfileEdit /> -->
     <!-- <ProfilePopupDeleteAcc /> -->
     <!-- <ProfilePopupEditComplet /> -->
@@ -72,10 +72,12 @@ import ProfilePopupVerificationRequest from "../components/Profile/ProfilePopupV
 import MyProfilePage from "../components/Profile/MyProfilePage.vue";
 import AuthMainPage from "../components/Auth/AuthMainPage.vue";
 import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
+import ProfilePhotoCarousel from "../components/Profile/ProfilePhotoCarousel.vue";
 </script>
 <style>
 .content__container {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 </style>

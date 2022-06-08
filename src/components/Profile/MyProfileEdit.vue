@@ -173,7 +173,7 @@
                       <div class="vertical__line"></div>
                       <p>Нейтральное</p>
                       <div class="vertical__line"></div>
-                      <p>Хорошее</p>
+                      <p>Положительное</p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +194,7 @@
                       <div class="vertical__line"></div>
                       <p>Нейтральное</p>
                       <div class="vertical__line"></div>
-                      <p>Хорошее</p>
+                      <p>Положительное</p>
                     </div>
                   </div>
                 </div>
@@ -337,6 +337,289 @@
         </div>
       </div>
     </div>
+
+    <div class="accordion">
+      <div class="mobile__header">
+        <div class="title__block">
+          <div class="back__arrow">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </div>
+          <p>Редактирование анкеты</p>
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section1"
+          class="accordion__input"
+        />
+        <label for="section1" class="accordion__label"
+          >Имя и дата рождения</label
+        >
+        <div class="accordion__content">
+          <input class="input" type="text" placeholder="Анастасия" />
+          <div class="age__block">
+            <p>Дата рождения:</p>
+            <div class="age__inputs">
+              <input class="input" type="text" placeholder="01" />
+              <input class="input" type="text" placeholder="01" />
+              <input class="input year" type="text" placeholder="2000" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section2"
+          class="accordion__input"
+        />
+        <label for="section2" class="accordion__label">Параметры тела</label>
+        <div class="accordion__content">
+          <div class="params__block">
+            <div class="params">
+              <p>Рост:</p>
+              <input class="input" type="text" placeholder="170" />
+            </div>
+            <div class="params">
+              <p>Вес:</p>
+              <input class="input" type="text" placeholder="50" />
+            </div>
+            <div class="params female">
+              <p>Параметры:</p>
+              <div class="age__inputs">
+                <input class="input" type="text" placeholder="90" />
+                <input class="input" type="text" placeholder="60" />
+                <input class="input year" type="text" placeholder="90" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section3"
+          class="accordion__input"
+        />
+        <label for="section3" class="accordion__label"
+          >Город, Национальность</label
+        >
+        <div class="accordion__content">
+          <TheSelect class="select__city" placeholder="Москва" />
+          <TheSelect class="select__nation" placeholder="Русская" />
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section4"
+          class="accordion__input"
+        />
+        <label for="section4" class="accordion__label">Формат знакомтв</label>
+        <div class="accordion__content">
+          <div class="chips__block">
+            <div class="chips">
+              <p>Онлайн общение</p>
+              <img
+                src="../../assets/images/main/cross__delete__photo.svg"
+                alt=""
+              />
+            </div>
+            <div class="chips">
+              <p>Пойти на свидание</p>
+              <img
+                src="../../assets/images/main/cross__delete__photo.svg"
+                alt=""
+              />
+            </div>
+            <div class="chips">
+              <p>Спонсорство</p>
+              <img
+                src="../../assets/images/main/cross__delete__photo.svg"
+                alt=""
+              />
+            </div>
+            <div class="chips">
+              <p>Серьёзные отношения</p>
+              <img
+                src="../../assets/images/main/cross__delete__photo.svg"
+                alt=""
+              />
+            </div>
+            <div class="add__btn">
+              <p>Отправиться в путешествие</p>
+              <img
+                src="../../assets/images/main/myprofile__add__btn.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section5"
+          class="accordion__input"
+        />
+        <label for="section5" class="accordion__label">Трачу в месяц</label>
+        <div class="accordion__content">
+          <div class="cash__block">
+            <div class="cash__left__side">
+              <img src="../../assets/images/main/description.svg" alt="" />
+              <p>Трачу в месяц:</p>
+            </div>
+            <div class="cash__right__side">
+              <div class="border__block">
+                <input class="input" type="text" placeholder="50000" />
+                <p>$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section6"
+          class="accordion__input"
+        />
+        <label for="section6" class="accordion__label"
+          >Отношение к Алкоголю, Курению</label
+        >
+        <div class="accordion__content">
+          <div class="smoke__block">
+            <div class="smoke__box">
+              <p>Отноешния к алкоголю</p>
+              <div class="border">
+                <div class="choose__item">Негавтиное</div>
+                <div class="choose__item line">Нейтральное</div>
+                <div class="choose__item">Положительное</div>
+              </div>
+            </div>
+            <div class="horizontal__line"></div>
+            <div class="smoke__box last">
+              <p>Отноешния к курению</p>
+              <div class="border">
+                <div class="choose__item">Негавтиное</div>
+                <div class="choose__item line">Нейтральное</div>
+                <div class="choose__item">Положительное</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile__dropdown">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section7"
+          class="accordion__input"
+        />
+        <label for="section7" class="accordion__label"
+          >Увлечения, Знание языка</label
+        >
+        <div class="accordion__content">
+          <div class="hobby__block">
+            <div class="hobby__box">
+              <p class="title__hobby">Увлечения:</p>
+              <div class="chips__block">
+                <div class="chips__inner__box">
+                  <div class="chips">
+                    <p>Спорт</p>
+                    <img
+                      src="../../assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    <p>Вино</p>
+                    <img
+                      src="../../assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    <p>Путешествие</p>
+                    <img
+                      src="../../assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="chips">
+                    <p>Ужасы</p>
+                    <img
+                      src="../../assets/images/main/signup__chips__close.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="add__btn">
+                    <img
+                      src="../../assets/images/main/add__photo__btn.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="horizontal__line"></div>
+              <div class="hobby__box last">
+                <p class="title__hobby">Знание языков:</p>
+                <div class="chips__block">
+                  <div class="chips__inner__box">
+                    <div class="chips">
+                      <p>Английский</p>
+                      <img
+                        src="../../assets/images/main/signup__chips__close.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="chips">
+                      <p>Испанский</p>
+                      <img
+                        src="../../assets/images/main/signup__chips__close.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="chips">
+                      <p>Татарский</p>
+                      <img
+                        src="../../assets/images/main/signup__chips__close.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="add__btn">
+                      <img
+                        src="../../assets/images/main/add__photo__btn.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile__dropdown last">
+        <input
+          type="checkbox"
+          name="example_accordion"
+          id="section8"
+          class="accordion__input"
+        />
+        <label for="section8" class="accordion__label">О себе</label>
+        <div class="accordion__content">
+          <textarea class="textarea__mobile"></textarea>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -344,6 +627,7 @@ import TheSelect from "../Form/TheSelect.vue";
 export default { components: { TheSelect } };
 </script>
 <style lang="scss" scoped>
+
 .flex__center {
   display: flex;
   justify-content: center;
@@ -353,7 +637,11 @@ export default { components: { TheSelect } };
   width: 100%;
   height: 100%;
   @extend .flex__center;
+    .accordion {
+    display: none;
+  }
 }
+
 .container {
   width: 1056px;
   height: 2205px;
@@ -729,7 +1017,415 @@ export default { components: { TheSelect } };
     }
   }
 }
+
 @media (max-width: 1200px) {
+  .container {
+    .accordion {
+      width: 390px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .mobile__header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        width: 390px;
+        height: 89px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(30px);
+        .title__block {
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+          width: 277px;
+          p {
+            font-weight: 600;
+            font-size: 17px;
+            line-height: 153.5%;
+            color: #ffffff;
+          }
+        }
+      }
+      .mobile__dropdown {
+        width: 390px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+        min-height: 72px;
+        &.last {
+          margin-bottom: 68px;
+        }
+      }
+    }
   
+    .age__block {
+      display: flex;
+      align-items: center;
+      width: 335px;
+      justify-content: space-between;
+      p {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 153.5%;
+        margin-bottom: 20px;
+      }
+    }
+    .input {
+      width: 335px;
+      margin-bottom: 16px;
+      &::placeholder {
+        color: #ffffff;
+      }
+    }
+    .age__inputs {
+      display: flex;
+      width: 176px;
+      height: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 11px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 24px;
+      .input {
+        width: 52px;
+        height: 28px;
+        border: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 0px;
+        margin: 0;
+        &::placeholder {
+          color: #ffffff;
+        }
+        &.year {
+          width: 71px;
+          border: none;
+        }
+      }
+    }
+    .params__block {
+      display: flex;
+      justify-content: space-between;
+      width: 335px;
+      align-items: center;
+      margin-bottom: 24px;
+      .params {
+        width: 60px;
+        height: 93px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 153.5%;
+          color: #ffffff;
+        }
+        &.female {
+          width: 175px;
+          .age__inputs {
+            margin: 0;
+            .input {
+              height: 23px;
+            }
+          }
+        }
+        .input {
+          width: 60px;
+          height: 60px;
+          margin: 0;
+          text-align: center;
+          &.year {
+            width: 52px;
+          }
+        }
+      }
+    }
+    .select__city {
+      width: 335px;
+      z-index: 2;
+      margin-bottom: 16px;
+    }
+    .select__nation {
+      width: 335px;
+      z-index: 1;
+      margin-bottom: 24px;
+    }
+    .chips__block {
+      width: 335px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      .chips {
+        height: 31px;
+        padding: 7px 10px;
+        background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+        border-radius: 13px;
+        gap: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          font-weight: 700;
+          font-size: 13px;
+          line-height: 132.5%;
+          color: #ffffff;
+        }
+      }
+      .add__btn {
+        padding: 7px 10px;
+        gap: 9px;
+        height: 31px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 14px;
+          height: 14px;
+        }
+        p {
+          font-weight: 700;
+          font-size: 13px;
+          line-height: 132.5%;
+          text-align: justify;
+          color: #ffffff;
+        }
+      }
+    }
+    .cash__block {
+      width: 335px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      .cash__left__side {
+        width: 124px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 153.5%;
+          color: #ffffff;
+        }
+      }
+      .cash__right__side {
+        .border__block {
+          width: 176px;
+          height: 60px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 11px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .input {
+            width: 100px;
+            border: none;
+            margin: 0;
+            &::placeholder {
+              color: rgba(255, 255, 255, 0.33);
+            }
+          }
+          p {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 153.5%;
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+    .smoke__block {
+      width: 335px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      .horizontal__line {
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        width: 335px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+      .smoke__box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 87px;
+        &.last {
+          margin-bottom: 24px;
+        }
+        p {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 15px;
+          color: #ffffff;
+        }
+        .border {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 60px;
+          width: 335px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 11px;
+          .choose__item {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 153.5%;
+            color: rgba(255, 255, 255, 0.33);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.line {
+              border-left: 1px solid rgba(255, 255, 255, 0.33);
+              border-right: 1px solid rgba(255, 255, 255, 0.33);
+              width: 123px;
+              margin-left: 12px;
+              margin-right: 12px;
+            }
+          }
+        }
+      }
+    }
+    .hobby__block {
+      width: 335px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+  
+      .horizontal__line {
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        width: 335px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+      .hobby__box {
+        min-height: 107px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        .title__hobby {
+          margin-bottom: 12px;
+        }
+  
+        &.last {
+          margin-bottom: 24px;
+        }
+        p {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 15px;
+          color: #ffffff;
+        }
+        .chips__block {
+          width: 335px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 11px;
+          margin: 0;
+          .chips__inner__box {
+            gap: 8px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 16px 12px;
+            .add__btn {
+              padding: 6px;
+              gap: 10px;
+              width: 24px;
+              height: 24px;
+              border: 1px solid #ffffff;
+              border-radius: 8px;
+            }
+            .chips {
+              padding: 4px 10px;
+              gap: 10px;
+              height: 24px;
+              border: 1px solid #ffffff;
+              border-radius: 8px;
+              background: none;
+            }
+          }
+        }
+      }
+    }
+    .textarea__mobile {
+      width: 335px;
+      min-height: 248px;
+      padding: 18px 12px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 11px;
+      resize: none;
+      outline: none;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 153.5%;
+      color: #ffffff;
+      margin-bottom: 24px;
+    }
+    .accordion__label {
+      width: 335px;
+      padding: 20px 0;
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 153.5%;
+      color: #ffffff;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.1s;
+    }
+  
+    .accordion__label::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      width: 20px;
+      height: 20px;
+      // background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+      background-size: contain;
+      background-image: url(../../assets/images/main/auth__back__arrow.svg);
+  
+      transition: transform 0.4s;
+    }
+  
+    .accordion__content {
+      width: 335px;
+      display: none;
+    }
+  
+    .accordion__input {
+      display: none;
+    }
+  
+    .accordion__input:checked ~ .accordion__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .accordion__input:checked ~ .accordion__label::after {
+      transform: translateY(-50%) rotate(0.5turn);
+    }
+    display: none;
+  }
 }
+
+
 </style>

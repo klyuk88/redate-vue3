@@ -149,6 +149,85 @@
         </div>
       </div>
     </div>
+
+    <div class="mobile__settings">
+      <div class="mobile__header">
+        <div class="header__title__block">
+          <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          <p>Настройки анкеты</p>
+        </div>
+      </div>
+      <div class="mobile__body">
+        <div class="mail__block">
+          <p>Электронная почта</p>
+          <input class="input" type="text" />
+          <span
+            >Введите код полученный из сообщения, которого мы вам
+            отправили.</span
+          >
+          <div class="phone__box__options">
+            <div class="btn send__code">Отправить код</div>
+            <p>Необходимо подтвердить смену учетной записи.</p>
+          </div>
+          <div class="phone__box__input">
+            <input class="input" type="text" />
+            <div class="input__inner__box">
+              <div class="counter__btn">
+                <img
+                  src="../../assets/images/main/myprofile__settings__resend.svg"
+                  alt=""
+                />
+                <span>59</span>
+              </div>
+              <div class="success__logo">
+                <img
+                  src="../../assets/images/main/myprofile__settings__done.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="horizontal__line"></div>
+        </div>
+        <div class="phone__block">
+          <p>Номер телефона</p>
+          <input class="input" type="text" />
+          <div class="phone__box__options">
+            <div class="btn send__code">Отправить код</div>
+            <p>Необходимо подтвердить смену номера телефона.</p>
+          </div>
+          <div class="phone__box__input">
+            <input class="input" type="text" />
+            <div class="input__inner__box">
+              <div class="counter__btn">
+                <img
+                  src="../../assets/images/main/myprofile__settings__resend.svg"
+                  alt=""
+                />
+                <span>59</span>
+              </div>
+              <div class="success__logo">
+                <img
+                  src="../../assets/images/main/myprofile__settings__done.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="horizontal__line"></div>
+        </div>
+        <div class="password__block">
+          <p>Пароль</p>
+          <input class="input" type="text" />
+        </div>
+      </div>
+      <div class="mobile__footer">
+        <div class="btn__block">
+          <div class="btn">Выйти из аккаунта</div>
+          <div class="btn">Удалить профиль</div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -471,148 +550,261 @@ export default {};
   }
 }
 @media (max-width: 1200px) {
-  .auth__back__btn {
-    z-index: 1;
-    top: 12.3vw;
-    left: 3.33vw;
-  }
   .page__background {
     .settings__container {
-      border: none;
-      background: none;
-      .settings__content {
-        width: 100vw;
-        margin: 0;
-        min-height: 140vw;
-        position: absolute;
-        left: 0;
-        .horizontal__line {
+      display: none;
+    }
+    .mobile__settings {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      .mobile__header {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(30px);
+        width: 390px;
+        height: 89px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: center;
+        p {
+          font-weight: 600;
+          font-size: 17px;
+          line-height: 153.5%;
+          color: #ffffff;
+        }
+        .header__title__block {
           display: flex;
-          width: 85.89vw;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .settings__header {
-          width: 100vw;
-          height: 22.8vw;
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(30px);
-          justify-content: end;
-          h1 {
-            font-size: 4.35vw;
-          }
-          .horizontal__line {
-            width: 100vw;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          img {
+            position: absolute;
+            left: 13px;
           }
         }
-        .settings__body {
-          width: 85.89vw;
-          min-height: 91vw;
+      }
+    }
+    .mobile__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      margin-bottom: 32px;
+      height: unset;
+      .mail__block {
+        span {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 16px;
+          display: flex;
+          align-items: center;
+          color: rgba(255, 255, 255, 0.4);
+          width: 335px;
           margin: 0;
-          .settings {
-            flex-direction: column;
-            width: 85.89vw;
-            min-height: 24.87vw;
-            .settings__desc {
-              img {
-                display: none;
-              }
-              .title {
-                margin: 0;
-                color: #ffffff;
-                font-weight: 500;
-                font-size: 3.589vw;
-                line-height: 153.5%;
-              }
-            }
-            .input {
-              border-radius: 2.82vw;
-              width: 85.89vw;
-              height: 15.38vw;
-              font-size: 3.846vw;
-              padding: 3.07vw;
-            }
-            .inputs__box {
-              width: 85.89vw;
-              min-height: 15.38vw;
-              flex-direction: column;
-
-              .input {
-                border-radius: 2.82vw;
-                width: 85.89vw;
-                height: 15.38vw;
-                font-size: 3.846vw;
-              }
-              .send__phone__code {
-                width: 161.5px;
-                height: 60px;
-                font-size: 12px;
-              }
-            }
-            &.change__mail {
-              width: 85.89vw;
+          margin-bottom: 16px;
+        }
+        .phone__box__options {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          p {
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.4);
+            width: 160px;
+            margin: 0;
+          }
+          .btn {
+            &.send__code {
+              border: 1px solid #ffffff;
+              border-radius: 11px;
+              gap: 12px;
+              height: 60px;
+              width: 159px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
             }
           }
         }
-        .settings__footer {
-          width: 85.89vw;
-          .logout {
-            padding: 1.79vw 3.33vw;
-            height: 8.46vw;
-            border: 0.25vw solid rgba(255, 255, 255, 0.14);
-            border-radius: 2.82vw;
-            font-weight: 700;
-            font-size: 3.589vw;
-            line-height: 132.5%;
-            color: #ffffff;
-            cursor: pointer;
+        .phone__box__input {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 267px;
+          margin-bottom: 16px;
+          .input {
+            width: 159px;
+            height: 60px;
+            margin: 0;
+          }
+          .input__inner__box {
+            display: flex;
+            width: 92px;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 16px;
+            .counter__btn {
+              display: flex;
+              justify-content: space-between;
+              flex-direction: column;
+              align-items: center;
+              height: 40px;
+              img {
+                height: 20px;
+                width: 20px;
+              }
+            }
+            .success__logo {
+              width: 56px;
+              height: 40px;
+              border-left: 1px solid rgba(255, 255, 255, 0.2);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+        p {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 153.5%;
+          color: #ffffff;
+          text-align: initial;
+          margin-bottom: 16px;
+        }
+        .input {
+          margin-bottom: 16px;
+        }
+        .horizontal__line {
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          height: 0;
+          width: 335px;
+        }
+      }
+    }
+    .phone__block {
+      margin-top: 16px;
+      .phone__box__options {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        p {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 16px;
+          display: flex;
+          align-items: center;
+          color: rgba(255, 255, 255, 0.4);
+          width: 160px;
+          margin: 0;
+        }
+        .btn {
+          &.send__code {
+            border: 1px solid #ffffff;
+            border-radius: 11px;
+            gap: 12px;
+            height: 60px;
+            width: 159px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+      .phone__box__input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 267px;
+        margin-bottom: 16px;
+        .input {
+          width: 159px;
+          height: 60px;
+          margin: 0;
+        }
+        .input__inner__box {
+          display: flex;
+          width: 92px;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 16px;
+          .counter__btn {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            height: 40px;
+            img {
+              height: 20px;
+              width: 20px;
+            }
+          }
+          .success__logo {
+            width: 56px;
+            height: 40px;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 153.5%;
+        color: #ffffff;
+        text-align: initial;
+        margin-bottom: 16px;
+      }
+      .input {
+        margin-bottom: 16px;
+      }
+      .horizontal__line {
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        height: 0;
+        width: 335px;
+      }
+    }
+    .password__block {
+      margin-top: 16px;
 
-            &.hide {
-              display: none;
-            }
-          }
-          .delete__profile {
-            display: inline-flex;
-            padding: 1.79vw 3.33vw;
-            height: 8.46vw;
-            border: 0.25vw solid #3e74ff;
-            border-radius: 2.82vw;
-            font-weight: 700;
-            font-size: 3.589vw;
-            line-height: 132.5%;
-            color: #3e74ff;
-            cursor: pointer;
-            &.hide {
-              display: none;
-            }
-          }
-          .cancel__changes {
-            display: flex;
-            align-items: center;
-            padding: 1.79vw 3.33vw;
-            height: 8.46vw;
-            border: 0.25vw solid rgba(255, 255, 255, 0.14);
-            border-radius: 2.82vw;
-            font-weight: 700;
-            font-size: 3.589vw;
-            line-height: 132.5%;
-            &.hide {
-              display: none;
-            }
-          }
-          .save__changes {
-            display: flex;
-            align-items: center;
-            padding: 1.79vw 3.33vw;
-            height: 8.46vw;
-            border: 0.25vw solid rgba(255, 255, 255, 0.14);
-            border-radius: 2.82vw;
-            font-weight: 700;
-            font-size: 3.589vw;
-            line-height: 132.5%;
-            &.hide {
-              display: none;
-            }
-          }
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 153.5%;
+        color: #ffffff;
+        text-align: initial;
+        margin-bottom: 16px;
+      }
+      .input {
+      }
+      .horizontal__line {
+      }
+    }
+    .mobile__footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      .btn__block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 335px;
+        margin-top: 24px;
+        .btn {
+          padding: 7px 13px;
+          gap: 10px;
+          height: 33px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 11px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 132.5%;
         }
       }
     }
