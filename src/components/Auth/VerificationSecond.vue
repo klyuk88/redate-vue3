@@ -23,7 +23,7 @@
             <div class="photo__block">
               <img
                 class="mobile__avatar"
-                src="@/assets/images/main/verification__avatar.png"
+                src="../../assets/images/main/verification__avatar.svg"
                 alt=""
                 :class="added"
               />

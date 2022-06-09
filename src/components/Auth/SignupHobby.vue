@@ -25,6 +25,30 @@
                 <div class="chips">Рестораны</div>
                 <div class="chips choosed">Петь</div>
                 <div class="chips">Вкусно поесть</div>
+                                <div class="chips choosed">Спорт</div>
+                <div class="chips">Вино</div>
+                <div class="chips choosed">Деньги</div>
+                <div class="chips">Животные</div>
+                <div class="chips choosed">Технологии</div>
+                <div class="chips">Книги</div>
+                <div class="chips choosed">Кефейни</div>
+                <div class="chips">Вечерние прогулки</div>
+                <div class="chips choosed">Живопись</div>
+                <div class="chips">Рестораны</div>
+                <div class="chips choosed">Петь</div>
+                <div class="chips">Вкусно поесть</div>
+                                <div class="chips choosed">Спорт</div>
+                <div class="chips">Вино</div>
+                <div class="chips choosed">Деньги</div>
+                <div class="chips">Животные</div>
+                <div class="chips choosed">Технологии</div>
+                <div class="chips">Книги</div>
+                <div class="chips choosed">Кефейни</div>
+                <div class="chips">Вечерние прогулки</div>
+                <div class="chips choosed">Живопись</div>
+                <div class="chips">Рестораны</div>
+                <div class="chips choosed">Петь</div>
+                <div class="chips">Вкусно поесть</div>
               </div>
             </div>
           </div>
@@ -67,6 +91,14 @@ export default {
   justify-content: center;
   padding-top: 24px;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 1px;
+    // background-color: red;
+  }
+  // &::-webkit-scrollbar-thumb {
+  //   color: white;
+  //   width: 2px;
+  // }
 }
 .chips {
   padding: 8px 12px;

@@ -27,9 +27,9 @@
                 type="text"
                 placeholder="Телефон / Электронная почта"
               />
-              <input class="input" type="password" placeholder="Пароль" />
+              <input class="input middle" type="password" placeholder="Пароль" />
               <input
-                class="input"
+                class="input last"
                 type="password"
                 placeholder="Повторите пароль"
               />
@@ -54,7 +54,7 @@
             />
             <input class="input" type="password" placeholder="Пароль" />
             <input
-              class="input"
+              class="input "
               type="password"
               placeholder="Повторите пароль"
             />
@@ -151,12 +151,21 @@ export default {};
   align-items: center;
   flex-direction: column;
   width: 314px;
-  height: 83px;
+  margin-bottom: 32px;
+  margin-top: 48px;
+}
+.input {
+  &.last {
+    margin-bottom: 48px;
+  }
+  &.middle {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
 }
 .signup__border {
   @extend .flex__center;
   width: 446px;
-  height: 447px;
   border: 1px solid rgba(43, 102, 251, 0.4);
   border-radius: 32px;
   margin-bottom: 83px;
@@ -165,7 +174,6 @@ export default {};
 .signup__block {
   @extend .flex__center;
   width: 422px;
-  height: 423px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.0384) 0%,
@@ -180,7 +188,7 @@ export default {};
   flex-direction: column;
   justify-content: space-between;
   width: 326px;
-  height: 327px;
+
 }
 
 .signup__input__box {
@@ -188,7 +196,7 @@ export default {};
   flex-direction: column;
   justify-content: space-between;
   width: 326px;
-  height: 212px;
+
 }
 .signup__footer {
   @extend .flex__center;

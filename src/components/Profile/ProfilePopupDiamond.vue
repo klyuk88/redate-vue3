@@ -3,15 +3,14 @@
     <div class="diamond__popup__block">
       <div class="diamond__popup__content">
         <div class="diamond__info">
-          <h2 class="diamond__title">Premium Аккаунт</h2>
+          <h2 class="diamond__title">Открыть диалог с «Цио Хао»?</h2>
           <p class="diamond__text">
-            У Вас стоит лимит до 10 сообщений в день. Снять ограничения можно
-            купив “Premium” подписку.
+       После оплаты сообщения автоматически переносятся в раздел «Диалог»
           </p>
         </div>
         <div class="diamond__button__block">
           <div class="diamond__button__cancel">Отмена</div>
-          <div class="diamond__button__store">Магазин</div>
+          <div class="diamond__button__store">Оплатить $25</div>
         </div>
       </div>
     </div>
@@ -39,21 +38,19 @@ export default {};
   align-items: center;
   padding: 24px;
   gap: 16px;
-  width: 304px;
-  height: 184px;
+  width: 310px;
   background: rgba(36, 37, 41, 0.6);
   border-radius: 24px;
+  border: 1px solid #F9AE3F;
 }
 .diamond__popup__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
   padding: 0px;
   gap: 4px;
-  width: 242px;
-  height: 136px;
+  width: 262px;
 }
 .diamond__info {
   display: flex;
@@ -61,8 +58,7 @@ export default {};
   align-items: center;
   padding: 0px;
   gap: 4px;
-  width: 242px;
-  height: 86px;
+  width: 262px;
 }
 .diamond__title {
   font-family: "Mulish";
@@ -85,6 +81,8 @@ export default {};
   align-items: center;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  width: 246px;
+  margin-bottom: 16px;
 }
 .diamond__button__block {
   display: flex;
@@ -124,7 +122,7 @@ export default {};
   align-items: center;
   position: relative;
 border-radius: 11px;
-
+border: 1px solid #F9AE3F;
 
 }
 

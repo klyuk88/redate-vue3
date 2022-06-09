@@ -123,8 +123,9 @@
                 <span>Трачу в месяц:</span>
               </div>
               <div class="border">
-                <input class="input" type="text" placeholder="Введите сумму" />
-                <span>$</span>
+                <!-- <input class="input" type="text" placeholder="Введите сумму" />
+                <span>$</span> -->
+                
               </div>
             </div>
             <div class="info__bar">

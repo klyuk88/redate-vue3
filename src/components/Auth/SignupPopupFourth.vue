@@ -23,7 +23,7 @@
               <p class="" :class="male">Доход в месяц:</p>
               <div class="cash__border">
                 <input class="input" type="text" />
-                <span class="money__logo"> $ </span>
+                <span class="money__logo"> ₽ </span>
               </div>
             </div>
             <div class="horizontal__line"></div>
