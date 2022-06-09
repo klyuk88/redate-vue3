@@ -35,14 +35,13 @@ export default {};
   display: flex;
   .signup__block {
     width: 304px;
-    height: 184px;
     background: rgba(36, 37, 41, 0.6);
     .signup__block__container {
       width: 244px;
-      height: 136px;
       .signup__header {
         width: 244px;
-        height: 86px;
+        margin: 0;
+        margin: 18px 0 18px 0;
         h1 {
           font-weight: 600;
           font-size: 18px;
@@ -63,6 +62,7 @@ export default {};
       justify-content: space-between;
       align-items: center;
       width: 256px;
+      margin-bottom: 18px;
       .btn {
         display: flex;
         justify-content: center;

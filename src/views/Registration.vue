@@ -23,14 +23,23 @@
     <!-- <ProfileNewMessage /> -->
     <!-- <ProfilePopupBan /> -->
     <!-- <ProfilePopupCongrats /> -->
+
     <!-- <ProfilePopupDescription /> -->
+
     <!-- <ProfilePopupDiamond /> -->
     <!-- <ProfilePopupDiamondLost /> -->
+    <!-- <ProfilePopupDiamondNomoney /> -->
+    <!-- <ProfilePopupDiamondBuy /> -->
     <!-- <ProfilePopupHide /> -->
     <!-- <ProfilePopupReport /> -->
-    <MyProfileSettings />
+    <!-- <MyProfileSettings /> -->
+
     <!-- <MyProfileEdit /> -->
+
+
+    <!-- <ProfilePopupEditCancel /> -->
     <!-- <ProfilePopupDeleteAcc /> -->
+    <!-- <ProfilePopupDeleteConfirm /> -->
     <!-- <ProfilePopupEditComplet /> -->
     <!-- <ProfilePopupVerificationModerate /> -->
     <!-- <ProfilePopupVerificationRequest /> -->
@@ -73,6 +82,12 @@ import MyProfilePage from "../components/Profile/MyProfilePage.vue";
 import AuthMainPage from "../components/Auth/AuthMainPage.vue";
 import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
 import ProfilePhotoCarousel from "../components/Profile/ProfilePhotoCarousel.vue";
+import ProfilePopupDeleteConfirm from "../components/Profile/ProfilePopupDeleteConfirm.vue";
+import ProfilePopupEditCancel from "../components/Profile/ProfilePopupEditCancel.vue";
+import ProfilePopupDiamondNomoney from "../components/Profile/ProfilePopupDiamondNomoney.vue";
+import ProfilePopupDiamondBuy from "../components/Profile/ProfilePopupDiamondBuy.vue";
+
+
 </script>
 <style>
 .content__container {

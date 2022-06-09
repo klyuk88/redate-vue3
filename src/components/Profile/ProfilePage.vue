@@ -144,7 +144,7 @@
                 </div>
                 <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__status">$ 20 000</div>
+                <div class="profile__info__list__status"> 200 000 ₽</div>
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
@@ -302,7 +302,6 @@ export default {};
       }
       .profile__info__list__container {
         width: 488px;
-        height: 520px;
       }
     }
   }
@@ -422,6 +421,8 @@ export default {};
 .profile__horizontal__line {
   width: 440px;
   border: 1px solid rgba(255, 255, 255, 0.33);
+  margin-bottom: 18px;
+  margin-top: 18px;
 }
 .hobby__chips__box {
   display: none;
@@ -487,7 +488,6 @@ export default {};
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
-
   background: rgba(196, 196, 196, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.33);
   backdrop-filter: blur(15px);
@@ -499,7 +499,6 @@ export default {};
   align-items: flex-start;
   justify-content: space-between;
   width: 356px;
-  height: 168px;
 }
 .main__avatar {
   width: 608px;
@@ -594,6 +593,7 @@ export default {};
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
+  margin-top: 16px;
   &.mobile {
     display: none;
   }

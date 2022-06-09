@@ -5,16 +5,15 @@
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header">
-              <h1>Удаление аккаунта</h1>
+              <h1>Редактирование</h1>
               <p>
-                Вы сможете восстановить свой аккаунт в течении этого времени. В
-                ином случае Ваш аккаунт будет навсегда удален и восстановлению
-                не подлежит.
+                Вы уверены что хотите выйти из редактирования анкеты? Данные
+                останутся без сохранения.
               </p>
             </div>
             <div class="btn__block">
-              <div class="btn">Отмена</div>
-              <div class="btn__del">Удалить</div>
+              <div class="btn">Выйти</div>
+              <div class="btn__del">Сохранить</div>
             </div>
           </div>
         </div>
@@ -35,18 +34,27 @@ export default {};
   background: none;
   .signup__block {
     width: 304px;
-    background: rgba(36, 37, 41, 0.6);
+    background: rgba(36, 37, 41, 0.7);
     .signup__block__container {
-      width: 244px;
+      width: 342px;
       .signup__header {
         width: 244px;
+        height: 86px;
         margin: 0;
-        margin-bottom: 18px;
-        margin-top: 18px;
+        // margin-top: 18px;
+        // margin-bottom: 18px;
+        margin: 18px 0 18px 0;
         h1 {
           font-weight: 600;
           font-size: 18px;
           line-height: 153.5%;
+          color: #3e74ff;
+          span {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 153.5%;
+          }
         }
         p {
           font-weight: 400;
@@ -60,7 +68,8 @@ export default {};
       justify-content: space-between;
       align-items: center;
       width: 256px;
-      margin-bottom: 18px;
+      margin: 0 0 18px 0;
+
       .btn {
         display: flex;
         justify-content: center;
@@ -91,23 +100,35 @@ export default {};
     display: flex;
     .signup__block {
       width: 304px;
-      height: 220px;
+      height: 184px;
       background: rgba(36, 37, 41, 0.6);
       .signup__block__container {
         width: 244px;
-        height: 172px;
+        height: 136px;
         .signup__header {
           width: 244px;
-          height: 122px;
+          height: 86px;
           h1 {
             font-weight: 600;
             font-size: 18px;
             line-height: 153.5%;
+            color: #3e74ff;
+            text-align: center;
+            width: 227px;
+            height: 84px;
+            span {
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 153.5%;
+              color: #ffffff;
+            }
           }
           p {
             font-weight: 400;
             font-size: 14px;
             line-height: 18px;
+            width: 264px;
+            height: 90px;
           }
         }
       }

@@ -3,10 +3,9 @@
     <div class="diamond__lost__block">
       <div class="diamond__lost__content">
         <div class="diamond__lost__info">
-          <h1 class="diamond__lost__title">«Premium»</h1>
+          <h1 class="diamond__lost__title">«Premium» </h1>
           <p class="diamond__lost__text">
-            У вас закончился лимит сообщений в день. Необходимо приобрести
-            «Premium» акккаут.
+   Необходимо приобрести Премиум акккаут
           </p>
         </div>
         <div class="diamond__lost__buttons">
@@ -20,7 +19,7 @@
 <script>
 export default {};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .text {
   font-family: "Mulish";
   font-style: normal;
@@ -64,6 +63,7 @@ export default {};
   width: 246px;
 }
 .diamond__lost__title {
+    margin-bottom: 4px;
   @extend .text;
 }
 .diamond__lost__text {
@@ -74,6 +74,7 @@ export default {};
   color: rgba(255, 255, 255, 0.6);
   width: 246px;
   margin-bottom: 16px;
+
 }
 .diamond__lost__buttons {
   display: flex;

@@ -7,7 +7,7 @@
             <div class="signup__header">
               <h1>Верификация</h1>
               <p>
-                Необходимо пройти верификацию, для полного открытия доступа.
+                Необходимо пройти верификацию, для открытия полного доступа.
               </p>
             </div>
             <div class="btn__block">
@@ -33,14 +33,13 @@ export default {};
   background: none;
   .signup__block {
     width: 304px;
-    height: 166px;
     background: rgba(36, 37, 41, 0.6);
     .signup__block__container {
       width: 244px;
-      height: 118px;
       .signup__header {
         width: 244px;
-        height: 68px;
+        margin: 0;
+        margin-top: 18px;
         h1 {
           font-weight: 600;
           font-size: 18px;
@@ -61,6 +60,7 @@ export default {};
       justify-content: space-between;
       align-items: center;
       width: 256px;
+      margin-bottom: 18px;
       .btn {
         display: flex;
         justify-content: center;

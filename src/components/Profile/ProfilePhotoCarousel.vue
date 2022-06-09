@@ -1,48 +1,94 @@
 <template>
-  <div class="album__close" @click="close">
-    <img src="@/assets/images/main/close-album.svg" alt="" />
-  </div>
-  <div class="button__carousel__right">
-    <img src="@/assets/images/main/album__arrow__right.svg" alt="" />
-  </div>
-  <div class="button__carousel__left">
-    <img src="@/assets/images/main/album__arrow__left.svg" alt="" />
-  </div>
   <div class="album__block" @click.self="close">
     <div class="album__content">
+      <div class="button__carousel__right">
+        <img src="@/assets/images/main/album__arrow__right.svg" alt="" />
+      </div>
       <div class="album__photo__container">
         <div class="album__photo__carousel">
           <div class="photo__carousel__container">
             <div class="photo__frame">
+              <img
+                src="../../assets/images/main/album__main__avatar.png"
+                alt=""
+              />
               <div class="photo__frame__carousel">
+                <div class="photo__frame__btn__block">
+                  <div class="btn">Сделать Аватаркой</div>
+                  <div class="btn">Удалить</div>
+                </div>
                 <div class="photo__frame__carousel__item__list">
+                  <div class="photo__frame__carousel__item"></div>
+                  <div class="photo__frame__carousel__item"></div>
+                  <div class="photo__frame__carousel__item"></div>
+                  <div class="photo__frame__carousel__item"></div>
+                  <div class="photo__frame__carousel__item"></div>
                   <div class="photo__frame__carousel__item"></div>
                 </div>
               </div>
             </div>
+            <div class="photo__frame__carousel__counter">4 из 10</div>
           </div>
         </div>
-        <div class="photo__frame__carousel__counter">4 из 10</div>
+      </div>
+      <div class="button__carousel__left">
+        <img src="@/assets/images/main/album__arrow__left.svg" alt="" />
+      </div>
+    </div>
+    <div class="album__close" @click="close">
+      <img src="@/assets/images/main/close-album.svg" alt="" />
+    </div>
+  </div>
+  <div class="mobile__album">
+      <img class="avatar" src="../../assets/images/main/album__main__avatar.png" alt="">
+
+    <div class="mobile__album__header">
+      <div class="btn__back__block">
+        <div class="btn__back">
+          <img class="arrow" src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+        </div>
+        <p>Назад</p>
+      </div>
+      <div class="page__number">1 <span>/ 20</span></div>
+    </div>
+    <div class="mobile__album__body">
+      <!-- <img src="../../assets/images/main/album__main__avatar.png" alt=""> -->
+    </div>
+    <div class="mobile__album__footer">
+      <div class="footer__btn__block">
+        <div class="footer__btn">
+          <img class="logo" src="../../assets/images/main/album__make__avatar.svg" alt="" />
+          <p>Сделать аватаркой</p>
+        </div>
+        <div class="vertical__line"></div>
+        <div class="footer__btn">
+          <img class="logo" src="../../assets/images/main/album__delete__photo.svg" alt="" />
+          <p>Удалить</p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-     methods: {
+  methods: {
     close() {
       this.$emit("close");
     },
   },
 };
 </script>
-<style>
+<style lang="scss" scoped>
+.mobile__album {
+  display: none;
+}
 .album__block {
   position: fixed;
   left: 0;
+  top: 0;
   z-index: 99;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,6 +124,13 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
   border-radius: 24px;
+  img {
+    width: 560px;
+    height: 714px;
+    border-radius: 14px;
+    position: relative;
+    z-index: 0;
+  }
 }
 .photo__frame__carousel {
   display: flex;
@@ -87,13 +140,12 @@ export default {
   padding: 12px;
   gap: 10px;
   backdrop-filter: blur(15px);
-  position: relative;
-  z-index: 100;
+  position: absolute;
   width: 388px;
-  height: 78px;
+  height: 117px;
   left: 86px;
-  top: 675px;
-  z-index: 99;
+  top: 627px;
+  z-index: 100;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
@@ -113,6 +165,7 @@ export default {
   height: 54px;
   background: url(../../assets/images/main/potincial-mini-photo.png);
   border-radius: 14px;
+  cursor: pointer;
 }
 .photo__frame__carousel__counter {
   font-family: "Mulish";
@@ -121,31 +174,146 @@ export default {
   font-size: 16px;
   line-height: 153.5%;
   color: #ffffff;
+  text-align: center;
+  margin-top: 35px;
 }
 .album__close {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  left: 1574.41px;
-  top: 93.5px;
-  z-index: 1;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 818px;
+  margin-left: 24px;
+  img {
+    cursor: pointer;
+  }
+}
+.photo__frame__btn__block {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  height: 28px;
+  .btn {
+    padding: 6px 12px;
+    gap: 10px;
+    width: 174px;
+    height: 28px;
+    background: rgba(40, 37, 42, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    backdrop-filter: blur(15px);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 132.5%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 }
 .button__carousel__right {
-  position: absolute;
-  width: 19.22px;
-  height: 38.41px;
-  left: 501px;
-  top: 448px;
-  z-index: 1;
-  border-radius: 1px;
+  margin-right: 40px;
+  img {
+    cursor: pointer;
+  }
 }
 .button__carousel__left {
-  position: absolute;
-  z-index: 1;
-  width: 19.22px;
-  height: 38.41px;
-  left: 1173.22px;
-  top: 486px;
-  border-radius: 1px;
+  margin-left: 40px;
+  img {
+    cursor: pointer;
+  }
+}
+@media (max-width: 1200px) {
+  .album__block {
+    display: none;
+  }
+  .mobile__album {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    .avatar {
+      height: 100%;
+      position: fixed;
+    }
+  }
+  .mobile__album__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 197px;
+    margin-top: 6px;
+    position: relative;
+    left: -90px;
+    .btn__back__block {
+      display: flex;
+      align-items: center;
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 153.5%;
+        color: #ffffff;
+      }
+      .btn__back {
+      }
+      .page__number {
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 153.5%;
+        color: #ffffff;
+        span {
+          font-weight: 600;
+          font-size: 17px;
+          line-height: 153.5%;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .mobile__album__body {
+    // filter: blur(60px);
+    img {
+      // width: 100%;
+    }
+  }
+  .mobile__album__footer {
+    width: 390px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  .vertical__line {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        height: 34px;
+        width: 0px;
+        position: relative;
+        left: 0;
+  }
+    .footer__btn__block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      .footer__btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 40px;
+        width: 195px;
+        p {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 15px;
+          text-align: center;
+          color: #ffffff;
+        }
+      }
+    }
+  }
 }
 </style>

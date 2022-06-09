@@ -162,7 +162,7 @@
           <p>Электронная почта</p>
           <input class="input" type="text" />
           <span
-            >Введите код полученный из сообщения, которого мы вам
+            >Введите код полученный из сообщения, которого мы Вам
             отправили.</span
           >
           <div class="phone__box__options">
@@ -170,14 +170,14 @@
             <p>Необходимо подтвердить смену учетной записи.</p>
           </div>
           <div class="phone__box__input">
-            <input class="input" type="text" />
+            <input class="input" type="text" maxlength="4" />
             <div class="input__inner__box">
               <div class="counter__btn">
                 <img
                   src="../../assets/images/main/myprofile__settings__resend.svg"
                   alt=""
                 />
-                <span>59</span>
+                <span class="timer">59</span>
               </div>
               <div class="success__logo">
                 <img
@@ -197,7 +197,7 @@
             <p>Необходимо подтвердить смену номера телефона.</p>
           </div>
           <div class="phone__box__input">
-            <input class="input" type="text" />
+            <input class="input" type="text" maxlength="4" />
             <div class="input__inner__box">
               <div class="counter__btn">
                 <img
@@ -218,13 +218,22 @@
         </div>
         <div class="password__block">
           <p>Пароль</p>
-          <input class="input" type="text" />
+          <p>Смена пароля</p>
+          <input class="input" type="text" placeholder="**********" />
+          <input
+            class="input"
+            type="text"
+            placeholder="Введите старый пароль"
+          />
+          <input class="input" type="text" placeholder="Новый пароль" />
         </div>
       </div>
       <div class="mobile__footer">
         <div class="btn__block">
           <div class="btn">Выйти из аккаунта</div>
-          <div class="btn">Удалить профиль</div>
+          <div class="btn blue">Удалить профиль</div>
+          <!-- <div class="btn">Отмена</div>
+          <div class="btn ">Сохранить</div> -->
         </div>
       </div>
     </div>
@@ -308,6 +317,9 @@ export default {};
       }
     }
   }
+}
+.mobile__settings {
+  display: none;
 }
 .settings {
   // @extend .flex__center;
@@ -604,6 +616,11 @@ export default {};
           width: 335px;
           margin: 0;
           margin-bottom: 16px;
+          &.timer {
+            color: #ffffff;
+            font-size: 14px;
+            width: auto;
+          }
         }
         .phone__box__options {
           display: flex;
@@ -642,6 +659,7 @@ export default {};
             width: 159px;
             height: 60px;
             margin: 0;
+            text-align: center;
           }
           .input__inner__box {
             display: flex;
@@ -655,6 +673,7 @@ export default {};
               flex-direction: column;
               align-items: center;
               height: 40px;
+              width: 20px;
               img {
                 height: 20px;
                 width: 20px;
@@ -727,6 +746,7 @@ export default {};
           width: 159px;
           height: 60px;
           margin: 0;
+          text-align: center;
         }
         .input__inner__box {
           display: flex;
@@ -784,6 +804,7 @@ export default {};
         margin-bottom: 16px;
       }
       .input {
+        margin-bottom: 16px;
       }
       .horizontal__line {
       }
@@ -796,6 +817,7 @@ export default {};
         justify-content: space-between;
         width: 335px;
         margin-top: 24px;
+        margin-bottom: 168px;
         .btn {
           padding: 7px 13px;
           gap: 10px;
@@ -805,6 +827,10 @@ export default {};
           font-weight: 700;
           font-size: 14px;
           line-height: 132.5%;
+          &.blue {
+            border: 1px solid #3e74ff;
+            color: #3e74ff;
+          }
         }
       }
     }

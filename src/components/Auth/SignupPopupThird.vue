@@ -15,7 +15,7 @@
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__input__box">
-              <div class="block">
+              <div class="block first">
                 <p>Отношение к алкоголю:</p>
                 <div class="block__choose">
                   <div class="choose__list">
@@ -23,7 +23,7 @@
                     <div class="vertical__line"></div>
                     <p>Нейтральное</p>
                     <div class="vertical__line"></div>
-                    <p>Хорошее</p>
+                    <p>Положительное</p>
                   </div>
                 </div>
               </div>
@@ -36,7 +36,7 @@
                     <div class="vertical__line"></div>
                     <p>Нейтральное</p>
                     <div class="vertical__line"></div>
-                    <p>Хорошее</p>
+                    <p>Положительное</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@
                 </div>
               </div>
               <div class="horizontal__line"></div>
-              <div class="block skills">
+              <div class="block skills last">
                 <p>Знание языков:</p>
                 <div class="input">
                   <div class="chips">
@@ -127,22 +127,17 @@ export default {};
 <style lang="scss" scoped>
 .signup__border {
   width: 446px;
-  height: 592px;
 }
-
 .signup__block {
   width: 422px;
-  height: 568px;
 }
 .signup__block__container {
   width: 326px;
-  height: 472px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .signup__input__box {
-  height: 472px;
 }
 .block {
   width: 326px;
@@ -151,14 +146,21 @@ export default {};
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  &.first {
+  margin-top: 48px;
+  }
   p {
     font-weight: 600;
     font-size: 12px;
     line-height: 132.5%;
     color: #ffffff;
+    margin-bottom:12px;
   }
   .skills {
     height: 77px;
+  }
+  &.last {
+    margin-bottom: 48px;
   }
 }
 .chips {
@@ -169,11 +171,7 @@ export default {};
   padding: 4px 10px;
   border: 1px solid #ffffff;
   border-radius: 8px;
-  margin-right: 8px;
-  &:not(:last-child) {
-  
-    margin-bottom: 8px;
-  }
+
   img {
     margin-left: 5px;
     cursor: pointer;
@@ -218,6 +216,8 @@ export default {};
   height: 23px;
   p {
     cursor: pointer;
+    font-size: 13px;
+    margin: 0;
   }
 }
 .vertical__line {
@@ -229,6 +229,8 @@ export default {};
   width: 326px;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.07);
+  margin-bottom: 24px;
+margin-top: 24px;
 }
 .input {
   margin: 0;

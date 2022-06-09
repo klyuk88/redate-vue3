@@ -14,10 +14,12 @@
             Администрация сайта присвоила Вам особый статус «DIAMOND».
           </p>
           <p class="congrats__desc">
-            Теперь ваш профиль выделяется золотой рамкой и увеличилось
-            количество доступных диалогов в день. Вы выделяетесь из поиска и
-            начало диалога с Вами цениться гораздо дороже,чем с обычными
-            пользователями сайта.
+            Теперь Ваш профиль стал золотого цвета, он сильно выделяется в общем
+            поиске, начало диалога с Вами ценится гораздо дороже, чем с другими
+            пользователями.
+          </p>
+          <p class="congrats__desc">
+            Статус «DIAMOND» невозможно купить. Оставайтесь такой же красивой, приятных Вам знакомств.
           </p>
           <div class="congrats__btn">Посмотреть на свою анкету</div>
         </div>
@@ -59,6 +61,7 @@ export default {};
   background: rgba(36, 37, 41, 0.6);
   box-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
   border-radius: 12px 12px 0px 0px;
+  border: 1px solid #F9AE3F;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,6 +98,7 @@ export default {};
   height: 348px;
   background: rgba(36, 37, 41, 0.7);
   border-radius: 24px;
+  border: 1px solid #F9AE3F;
 }
 .congrats__logo {
 }

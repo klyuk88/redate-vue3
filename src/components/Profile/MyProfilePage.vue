@@ -253,7 +253,7 @@
                 </div>
                 <div class="status__desc">
                   <span
-                    >Мы отправили вам уведомление с данными, которые необходимо
+                    >Мы отправили Вам уведомление с данными, которые необходимо
                     изменить для подтверждения верификации.</span
                   >
                 </div>
@@ -364,7 +364,7 @@
                   </div>
                   <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__status">$ 20 000</div>
+                <div class="profile__info__list__status"> 200 000 ₽</div>
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
@@ -479,6 +479,13 @@ export default { components: { MobileBurger } };
   align-items: center;
 }
 .profile__page {
+  width: 100%;
+}
+.profile__info__list__hobby__block {
+  width: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .left__side {
   .background {
@@ -846,7 +853,7 @@ export default { components: { MobileBurger } };
     align-items: baseline;
     .profile__info {
       width: 488px;
-      height: 833px;
+      height: 730px;
       .profile__title {
         display: flex;
         align-items: center;
@@ -885,7 +892,6 @@ export default { components: { MobileBurger } };
   }
   .profile__info__list__container {
     width: 488px;
-    height: 412px;
     .main__heightweight {
       align-items: center;
       .profile__info__list__heightweight {

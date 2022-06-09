@@ -9,23 +9,21 @@
         <h1>Верификация</h1>
         <div class="verification__body">
           <div class="photo__block">
-            <img src="@/assets/images/main/verification__avatar.png" alt="" />
+            <img src="@/assets/images/main/verification__avatar.svg" alt="" />
           </div>
           <div class="verification__desc">
-            <h3>Как сделать?</h3>
+            <!-- <h3>Как сделать?</h3> -->
             <p>
-              Для прохождениия верификации Вам необходимо сделать фотографии с
-              вашим пасспортом в профиль и анфас. Так же в той же одежде и том
-              же месте сделать фотографию с листом А4 с надписью от руки “Для
-              верификации” и датой.
+              Для использования нашего ресурса Вам нужно пройти верификацию,
+              таким образом мы исключаем возможность появления фейков и
+              мошенников. Верификация проходит автоматически с помощью
+              искусственного интеллекта. Фотография не будет отображаться в
+              Вашем аккаунте, после прохождения, либо отклонения верификации она
+              будет автоматически удалена.
             </p>
-            <ul>
-              <h4>Что дает?</h4>
-              <li><p>Полный доступ к сайту</p></li>
-              <li><p>Возможность найти пару</p></li>
-              <li><p>Прыгать с парашюта</p></li>
-              <li><p>Плавать в пустом море</p></li>
-            </ul>
+            <p>
+              Спасибо за понимание, приятных знакомств.
+            </p>
           </div>
         </div>
         <div class="btn__continue">Продолжить</div>
@@ -106,6 +104,7 @@ export default {};
   height: 327px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .photo__block {
   width: 308px;
@@ -119,7 +118,7 @@ export default {};
   flex-direction: column;
   justify-content: space-between;
   width: 295px;
-  height: 327px;
+  height: 280px;
   h3 {
     font-weight: 600;
     font-size: 18px;
