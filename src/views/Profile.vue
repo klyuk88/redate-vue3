@@ -1,6 +1,6 @@
 <template>
   <div class="content__container">
-    <!-- <ProfilePage /> -->
+    <ProfilePage />
     <!-- <MyProfilePage /> -->
     
   </div>

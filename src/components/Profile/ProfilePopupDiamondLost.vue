@@ -5,7 +5,7 @@
         <div class="diamond__lost__info">
           <h1 class="diamond__lost__title">«Premium»</h1>
           <p class="diamond__lost__text">
-            У вас закончился лимит сообщений в день. Необходимо приобрести
+            У Вас закончился лимит сообщений в день. Необходимо приобрести
             «Premium» акккаут.
           </p>
         </div>
