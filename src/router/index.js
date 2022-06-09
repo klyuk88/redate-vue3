@@ -56,6 +56,13 @@ const routes = [{
     },
   },
   {
+    path: '/favorites',
+    name: 'Favorites',
+    components: {
+      default: () => import('@/views/Favorites.vue'),
+    },
+  },
+  {
     path: '/chat/:user',
     name: 'SingleChat',
     components: {

@@ -121,6 +121,10 @@ onUnmounted(() => {
       max-width: 375px;
       padding: 30px 0 0 0;
       z-index: 2;
+      .title {
+        font-size: 17px;
+        font-weight: 600;
+      }
       .tabs-block {
         width: 100%;
         display: grid;

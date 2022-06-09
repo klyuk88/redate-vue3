@@ -43,7 +43,9 @@ const newSendModalShow = computed(() => {
 })
 </script>
 <style lang="scss">
-.tab-content {
+#sendings-mobile {
+  .tab-content {
+  padding-top: 140px;
   .mob-new-send-btn {
     width: 100%;
     height: 60px;
@@ -68,4 +70,6 @@ const newSendModalShow = computed(() => {
     margin-top: 16px;
   }
 }
+}
+
 </style>

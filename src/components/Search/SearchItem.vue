@@ -64,12 +64,13 @@ const newMessage = () => {
     margin-top: 12px;
     .name-block {
       .name {
-        font-style: 16px;
+        font-size: 16px;
         font-weight: 700;
       }
       .adress {
         font-size: 12px;
         font-weight: 600;
+        opacity: 0.4;
       }
     }
     .dialog {

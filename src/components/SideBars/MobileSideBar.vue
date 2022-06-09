@@ -64,7 +64,7 @@
           </li>
 
           <li class="item">
-            <router-link to="/favorite" class="link">
+            <router-link to="/favorites" class="link">
               <div class="image-block">
                 <img src="@/assets/images/main/star.svg" alt="" />
               </div>

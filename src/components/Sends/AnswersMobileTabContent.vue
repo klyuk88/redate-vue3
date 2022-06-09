@@ -13,6 +13,7 @@
 import AnswerItem from '@/components/Sends/AnswerItem.vue'
 import SendSlider from '@/components/Sends/SendSlider.vue'
 </script>
-<style lang="">
+<style lang="scss">
+
   
 </style>

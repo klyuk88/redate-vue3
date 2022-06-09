@@ -155,9 +155,6 @@ onUnmounted(() => {
         }
       }
     }
-    .header + .tab-content {
-      margin-top: 100px;
-    }
     .header.blur {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(30px);
@@ -217,9 +214,6 @@ onUnmounted(() => {
     .tab-header.blur {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(30px);
-    }
-    .tab-header + .tab-content {
-      margin-top: 130px;
     }
   }
 }
