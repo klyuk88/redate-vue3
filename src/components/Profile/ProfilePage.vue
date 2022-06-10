@@ -11,7 +11,10 @@
     </div>
     <div class="left__side">
       <div class="background">
-        <div class="photo">
+        <div
+          class="photo"
+          :class="{ notification__unblur: notificationStatus }"
+        >
           <img
             class="main__avatar"
             src="../../assets/images/main/nate-J5U-22o1ubw-unsplash.jpg"
@@ -44,7 +47,70 @@
             />
           </div>
         </div>
-        <div class="buttons__block">
+        <div
+          class="notification__stage__two__desc"
+          :class="{ stageTwo: notificationStageTwo }"
+        >
+          <p>
+            Вы можете сразу написать пользователю, а можете “лайкнуть” его
+            выкосаз симпатию либо сохранитьего анкету себе в “Избранное” нажав
+            на соответсювущую кнопку.
+          </p>
+        </div>
+        <div
+          class="stage__three__block"
+          :class="{ stageThree: notificationStageThree }"
+        >
+          <div class="notification__stage__three__desc">
+            <div class="text__box">
+              <p>
+                Нажав на “троеточие” вы можете вызвать окно допольнительных
+                функций:
+              </p>
+              <p>
+                - <span>Поделиться</span> - после чего ссылка на профиль будет
+                скопирована в Ваш буфер обмена.
+              </p>
+              <p>
+                - <span>Скрыть</span> - анкета пользователя больше не будет вам
+                показана в результата поиска.
+              </p>
+              <p>
+                - <span>Заблокировать</span> - заблокирует возможность
+                пользователю написать Вам.
+              </p>
+              <p>
+                - <span>Пожаловаться</span> - позволит пожаловаться модератору
+                на пользователя.
+              </p>
+            </div>
+          </div>
+          <div class="notification__stage__three__moremenu">
+            <div class="moremenu__block">
+              <img src="../../assets/images/main/share.svg" alt="" />
+              <p>Поделиться</p>
+            </div>
+            <div class="moremenu__block">
+              <img src="../../assets/images/main/hide.svg" alt="" />
+              <p>Скрыть</p>
+            </div>
+            <div class="moremenu__block">
+              <img src="../../assets/images/main/ban.svg" alt="" />
+              <p>Заблокировать</p>
+            </div>
+            <div class="moremenu__block last">
+              <img src="../../assets/images/main/report.svg" alt="" />
+              <p>Пожаловаться</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="buttons__block"
+          :class="{
+            notification__unblur: notificationStatus,
+            stageTwo: notificationStageTwo,
+          }"
+        >
           <div class="inner__buttons__block">
             <div class="big__buttons">
               <div class="send__message">Написать</div>
@@ -64,7 +130,10 @@
     </div>
     <div class="right__side">
       <div class="profile" @click.self="close">
-        <div class="profile__info">
+        <div
+          class="profile__info"
+          :class="{ notification__unblur: notificationStatus }"
+        >
           <div class="profile__info__title">
             <div class="profile__name">Владимир</div>
             <div class="profile__subtext">
@@ -139,21 +208,21 @@
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/money.svg" alt="" />
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/money.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__title">Доход в месяц:</div>
-                </div>
-                <div class="profile__info__list__status"> 200 000 ₽</div>
+                <div class="profile__info__list__status">200 000 ₽</div>
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
                   <div class="profile__info__list__icon">
                     <img src="@/assets/images/main/alcohol.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">
-                  Отношение к алкоголю:
-                </div>
+                  </div>
+                  <div class="profile__info__list__title">
+                    Отношение к алкоголю:
+                  </div>
                 </div>
                 <div class="profile__info__list__status">Негативное</div>
               </div>
@@ -170,10 +239,10 @@
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
-                <div class="profile__info__list__icon">
-                  <img src="@/assets/images/main/language.svg" alt="" />
-                </div>
-                <div class="profile__info__list__title">Знание языков:</div>
+                  <div class="profile__info__list__icon">
+                    <img src="@/assets/images/main/language.svg" alt="" />
+                  </div>
+                  <div class="profile__info__list__title">Знание языков:</div>
                 </div>
                 <div class="profile__info__list__status">
                   Английский, Французский
@@ -258,6 +327,38 @@
               </div>
             </div>
           </div>
+          <div
+            class="carousel__notification__block"
+            :class="{ stageFour: notificationStageFour }"
+          >
+            <div class="carousel__notification__text">
+              <p>
+                Нажатие на любое из изображений в мини-галерее вывед вам его в
+                большой галерее с возможностью посмотреть и другие фотографии в
+                полный экран.
+              </p>
+            </div>
+            <div class="profile__info__list__carousel">
+              <div class="profile__mini__avatar">
+                <img
+                  src="../../assets/images/main/woman__mini__avatar1.png"
+                  alt=""
+                />
+              </div>
+              <div class="profile__mini__avatar">
+                <img
+                  src="../../assets/images/main/woman__mini__avatar1.png"
+                  alt=""
+                />
+              </div>
+              <div class="profile__mini__avatar">
+                <img
+                  src="../../assets/images/main/woman__mini__avatar1.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="logo__title">
@@ -265,9 +366,54 @@
       </div>
     </div>
   </div>
+  <div class="gallery_preview" :class="{stageFive: notificationStageFive}">
+    <ProfilePhotoCarousel />
+  </div>
+  <div
+    class="notification__blur"
+    :class="{
+      notification__unblur: notificationStatus,
+      stageTwo: notificationStageTwo,
+      stageThree: notificationStageThree,
+      stageFour: notificationStageFour,
+    }"
+  >
+    <div
+      class="unblured__border"
+      :class="{
+        notification__unblur: notificationStatus,
+        stageTwo: notificationStageTwo,
+        stageThree: notificationStageThree,
+        stageFour: notificationStageFour,
+        stageFive: notificationStageFive,
+      }"
+    >
+      <p>
+        Анкета - страница пользователя противоположного пола где вы можете
+        ознакомитсья с его анкетными данными.
+      </p>
+      <div class="notification__btn__block">
+        <div class="noti__btn">Пропустить знакомство</div>
+        <div class="noti__btn blue">Продолжить <span>(1 из 5)</span></div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-export default {};
+
+
+
+export default {
+  data() {
+    return {
+      notificationStatus: false,
+      notificationStageTwo: false,
+      notificationStageThree: false,
+      notificationStageFour: false,
+      notificationStageFive: false,
+    };
+  },
+};
 </script>
 <style lang="scss">
 .text {
@@ -279,7 +425,257 @@ export default {};
   display: flex;
   justify-content: space-between;
   height: 100vh;
-  // width: 100vw;
+}
+.gallery_preview {
+  display: none;
+  width: 100%;
+  height: 100%;
+  &.stageFive {
+    display: flex;
+    position: relative;
+    z-index: 100;
+  }
+}
+
+.notification__blur {
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 37, 41, 0.6);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notification__blur {
+  display: none;
+  &.notification__unblur {
+    display: flex;
+  }
+  &.stageTwo {
+    display: flex;
+  }
+    &.stageThree {
+    display: flex;
+  }
+    &.stageFour {
+    display: flex;
+  }
+    &.stageFive {
+    display: flex;
+  }
+}
+.carousel__notification__block {
+  display: none;
+  &.stageFour {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 653px;
+    right: 129px;
+  }
+  .carousel__notification__text {
+    width: 530px;
+    height: 107px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ffffff;
+    backdrop-filter: blur(50px);
+    border-radius: 11px;
+    margin-bottom: 29px;
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 153.5%;
+      margin: 24px 37px 27px 21px;
+    }
+  }
+}
+.unblured__border {
+  width: 83%;
+  height: 880px;
+  background: #c4c4c4;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  position: absolute;
+  left: 200px;
+  top: 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  display: none;
+  &.notification__unblur {
+    display: flex;
+  }
+  &.stageTwo {
+    display: flex;
+    background: none;
+    border: none;
+    p {
+      display: none;
+    }
+    .notification__btn__block {
+      justify-content: end;
+      width: 100%;
+    }
+  }
+  &.stageThree {
+    display: flex;
+    background: none;
+    border: none;
+    p {
+      display: none;
+    }
+    .notification__btn__block {
+      justify-content: end;
+      width: 100%;
+    }
+  }
+  &.stageFour {
+    display: flex;
+    background: none;
+    border: none;
+    p {
+      display: none;
+    }
+    .notification__btn__block {
+      justify-content: end;
+      width: 100%;
+    }
+  }
+  &.stageFive {
+    display: flex;
+    background: none;
+    border: none;
+    p {
+      display: none;
+    }
+    .notification__btn__block {
+      justify-content: end;
+      width: 100%;
+    }
+  }
+  p {
+    position: relative;
+    top: 33px;
+  }
+  .notification__btn__block {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 40px;
+    .noti__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 7px 13px;
+      gap: 10px;
+      width: 204px;
+      height: 33px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 132.5%;
+      color: #ffffff;
+      margin-left: 12px;
+      span {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      &.blue {
+        width: 193px;
+        height: 32px;
+        background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+        border-radius: 11px;
+      }
+    }
+  }
+}
+.notification__btn__border {
+  position: relative;
+  z-index: 100;
+}
+.notification__stage__two__desc {
+  width: 790px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffffff;
+  backdrop-filter: blur(50px);
+  border-radius: 11px;
+  position: fixed;
+  top: 720px;
+  left: 280px;
+  display: none;
+  z-index: 100;
+  p {
+    margin: 23px 46px 23px 39px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 153.5%;
+    color: #ffffff;
+  }
+  &.stageTwo {
+    display: block;
+  }
+}
+.stage__three__block {
+  position: absolute;
+  z-index: 100;
+  top: 580px;
+  left: 280px;
+  display: none;
+  &.stageThree {
+    display: flex;
+  }
+}
+.notification__stage__three__desc {
+  width: 409px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffffff;
+  backdrop-filter: blur(50px);
+  border-radius: 11px;
+  margin-right: 35px;
+
+  .text__box {
+    margin: 20px 32px 20px 32px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 153.5%;
+    margin-bottom: 8px;
+    span {
+      font-weight: 700;
+    }
+  }
+}
+.notification__stage__three__moremenu {
+  position: relative;
+  top: 50px;
+  background: rgba(40, 41, 45, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  border-radius: 24px;
+  width: 246px;
+  height: 213px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .moremenu__block {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.33);
+    height: 52px;
+    align-items: center;
+    img {
+      margin-left: 29px;
+      margin-right: 12px;
+    }
+    &.last {
+      border-bottom: none;
+    }
+  }
 }
 .left__side {
   width: 1048px;
@@ -297,6 +693,10 @@ export default {};
       justify-content: space-between;
       width: 488px;
       height: 833px;
+      &.notification__unblur {
+        position: relative;
+        z-index: 100;
+      }
       .buttons__block {
         display: none;
       }
@@ -341,6 +741,12 @@ export default {};
   box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 26px;
+  &.notification__unblur {
+    z-index: 100;
+  }
+  &.stageTwo {
+    z-index: 100;
+  }
   .inner__buttons__block {
     display: flex;
     align-items: center;
@@ -395,6 +801,10 @@ export default {};
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
   border-radius: 24px;
   display: flex;
+  &.notification__unblur {
+    position: relative;
+    z-index: 100;
+  }
 }
 
 .profile__name {
@@ -594,9 +1004,14 @@ export default {};
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
   margin-top: 16px;
+  &.stageFour {
+    position: relative;
+    z-index: 100;
+  }
   &.mobile {
     display: none;
   }
+
   .profile__mini__avatar {
     width: 64px;
     height: 64px;

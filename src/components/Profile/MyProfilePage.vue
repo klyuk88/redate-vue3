@@ -2,7 +2,10 @@
   <div class="profile__page">
     <div class="left__side">
       <div class="background">
-        <div class="container">
+        <div
+          class="container"
+          :class="{ notification__unblur: notificationStatus }"
+        >
           <div class="header">
             <div class="nav__box">
               <div class="auth__back__btn">
@@ -17,7 +20,6 @@
             </div>
             <h1 class="web">Мой профиль</h1>
             <div class="horizontal__line"></div>
-
             <div class="mobile__photo__block">
               <div class="photo__gallery">
                 <div class="gallery__block">
@@ -56,7 +58,14 @@
             </div>
           </div>
           <div class="main">
-            <div class="cash__container">
+            <div
+              class="cash__container"
+              :class="{
+                stageTwo: notificationStageTwo,
+                stageThree: notificationStageThree,
+                stageFour: notificationStageFour,
+              }"
+            >
               <div class="block">
                 <div class="options">
                   <img
@@ -83,7 +92,7 @@
                 <div class="btn gold">Продлить</div>
               </div>
               <div class="subscription">
-                <div class="item__price active">
+                <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">7 дней</div>
                     <div class="price">54$</div>
@@ -91,7 +100,10 @@
                     <p>Осталось <span>3</span> дня</p>
                   </div>
                 </div>
-                <div class="item__price center">
+                <div
+                  class="item__price center"
+                  :class="{ active: notificationStageTwo }"
+                >
                   <div class="inner__price__box">
                     <div class="days">14 дней</div>
                     <div class="price">$96</div>
@@ -109,7 +121,10 @@
                 </div>
               </div>
             </div>
-            <div class="photo__gallery">
+            <div
+              class="photo__gallery"
+              :class="{ stageFive: notificationStageFive }"
+            >
               <div class="gallery__block">
                 <div class="add__btn">
                   <img
@@ -154,8 +169,8 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="footer">
-              <div class="btn">
+            <div class="footer">
+              <div class="btn" :class="{ stageSix: notificationStageSix }">
                 <div class="container">
                   <img src="@/assets/images/main/myprofile__edit.svg" alt="" />
                   <p>Редактирование анкеты</p>
@@ -168,7 +183,7 @@
                 </div>
               </div>
               <div class="mobile__horizontal__line"></div>
-              <div class="btn">
+              <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
                   <img
                     src="@/assets/images/main/myprofile__setting.svg"
@@ -184,7 +199,7 @@
                 </div>
               </div>
               <div class="mobile__horizontal__line"></div>
-              <div class="btn">
+              <div class="btn" :class="{ stageSix: notificationStageEight }">
                 <div class="container">
                   <img
                     src="@/assets/images/main/myprofile__support.svg"
@@ -215,8 +230,8 @@
                   />
                 </div>
               </div>
-            </div> -->
-            <div class="female__verification__block">
+            </div>
+            <!-- <div class="female__verification__block">
               <div class="verification__status">
                 <div class="status__header">
                   <div class="left__side__header">
@@ -227,22 +242,22 @@
                     <h2>Верификация</h2>
                   </div>
                   <div class="horizontal__line"></div>
-                  <div class="right__side__header">
-                    <!-- <div class="status__error">
+                  <div class="right__side__header"> -->
+            <!-- <div class="status__error">
                       <h2>Ошибка</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__status__error.svg"
                         alt=""
                       />
                     </div> -->
-                    <!-- <div class="status__error">
+            <!-- <div class="status__error">
                       <h2>Ожидание</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__pending.svg"
                         alt=""
                       />
                     </div> -->
-                    <div class="status__error">
+            <!-- <div class="status__error">
                       <h2>Отложено</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__delayed.svg"
@@ -250,30 +265,140 @@
                       />
                     </div>
                   </div>
-                </div>
-                <div class="status__desc">
+                </div> -->
+            <!-- <div class="status__desc">
                   <span
                     >Мы отправили Вам уведомление с данными, которые необходимо
                     изменить для подтверждения верификации.</span
                   >
-                </div>
-                <!-- <div class="status__desc show__error">
+                </div> -->
+            <!-- <div class="status__desc show__error">
                   <span
                     >Необходимо пройти верификацию для дальнейшего использования
                     сайта.</span
                   >
                 </div> -->
-              </div>
+            <!-- </div>
               <div class="verification__action">
                 <h2>Заполнить заново</h2>
-              </div>
-              <!-- <div class="verification__action help show__error">
+              </div> -->
+            <!-- <div class="verification__action help show__error">
                 <img src="@/assets/images/main/myprofile__headset__logo.svg" alt="">
                 <h2>Техническая поддержка</h2>
               </div> -->
-              <!-- <div class="verification__action ">
+            <!-- <div class="verification__action ">
                 <h2>Пройти верификацию</h2>
               </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div
+        class="notification__blur"
+        :class="{
+          notification__unblur: notificationStatus,
+          stageTwo: notificationStageTwo,
+          stageThree: notificationStageThree,
+          stageFour: notificationStageFour,
+          stageFive: notificationStageFive,
+          stageSix: notificationStageSix,
+          stageSeven: notificationStageSeven,
+          stageEight: notificationStageEight,
+        }"
+      >
+        <div
+          class="text__notification"
+          :class="{ stageTwo: notificationStageTwo }"
+        >
+          <p>
+            Баланс - внутрений кошелек сайта. Положительный баланс позволяет
+            приобретать тарифный план и пользоваться платными функциями сайта.
+          </p>
+        </div>
+        <div
+          class="text__notification__rate"
+          :class="{ stageThree: notificationStageThree }"
+        >
+          <p>
+            При выборе тарифа у Вас автоматически сниматеся суммы выбраного
+            тарифного плана и начинается подписка на тариф “Премиум”
+          </p>
+        </div>
+        <div
+          class="text__notification__rate"
+          :class="{ stageFour: notificationStageFour }"
+        >
+          <p>
+            После выбора и оплаты тарифа в вашем профиле всегда будет обратный
+            индикатор времени до момента завершенияоплаченного периода платного
+            тарифа.
+          </p>
+          <p>
+            Вы можете продлить этот период по прежней цене нажавкнопку
+            “Продлить”
+          </p>
+        </div>
+        <div
+          class="text__notification__rate"
+          :class="{ stageFive: notificationStageFive }"
+        >
+          <p>Поле редактирования галерее изображений.</p>
+          <p>
+            Чтобы начать редактирование галерее нажмите на любое из ваших ранее
+            загруженных изображений.
+          </p>
+          <p>Чтобы добавить новые фотографии нажмите на кнопку с плюсом.</p>
+        </div>
+        <div
+          class="text__notification__rate"
+          :class="{ stageSix: notificationStageSix }"
+        >
+          <p>
+            Редактирование анкеты приведет Вас в редактирование анкетных данных
+            о вас. Город, дата рождения, параметры, интересы, интересующие вас
+            форматы знакомств.
+          </p>
+        </div>
+        <div
+          class="text__notification__rate"
+          :class="{ stageSeven: notificationStageSeven }"
+        >
+          <p>
+            Настройки входа приведут Вас к окну настройки почты и пароля для
+            входа на сайт.А так же к функциям удаления анкеты и выхода из
+            профиля.
+          </p>
+        </div>
+        <div
+          class="text__notification__rate"
+          :class="{ stageEight: notificationStageEight }"
+        >
+          <p>
+            Техническая поодержка приведет Вас в диалоговое окно с службой
+            поддержки для решенияваших вопросов и обращений.
+          </p>
+        </div>
+        <div
+          class="unblured__border"
+          :class="{
+            notification__unblur: notificationStatus,
+            stageTwo: notificationStageTwo,
+            stageThree: notificationStageThree,
+            stageFour: notificationStageFour,
+            stageFive: notificationStageFive,
+            stageSix: notificationStageSix,
+            stageSeven: notificationStageSeven,
+            stageEight: notificationStageEight,
+          }"
+        >
+          <div class="blur__footer">
+            <p>
+              Мой профиль - страница где вы можете посмотреть новые объявления и
+              начать поиск пары.
+            </p>
+            <div class="notification__btn__block">
+              <div class="noti__btn">Пропустить знакомство</div>
+              <div class="noti__btn blue">Продолжить <span>(1 из 5)</span></div>
             </div>
           </div>
         </div>
@@ -364,7 +489,7 @@
                   </div>
                   <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__status"> 200 000 ₽</div>
+                <div class="profile__info__list__status">200 000 ₽</div>
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
@@ -469,9 +594,50 @@
 </template>
 <script>
 import MobileBurger from "../MobileBurger.vue";
-export default { components: { MobileBurger } };
+export default {
+  components: { MobileBurger },
+  data() {
+    return {
+      notificationStatus: false,
+      notificationStageTwo: false,
+      notificationStageThree: true,
+      notificationStageFour: false,
+      notificationStageFive: false,
+      notificationStageSix: false,
+      notificationStageSeven: false,
+      notificationStageEight: false,
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
+.notification__blur {
+  display: none;
+  &.notification__unblur {
+    display: flex;
+  }
+  &.stageTwo {
+    display: flex;
+  }
+  &.stageThree {
+    display: flex;
+  }
+  &.stageFour {
+    display: flex;
+  }
+  &.stageFive {
+    display: flex;
+  }
+  &.stageSix {
+    display: flex;
+  }
+  &.stageSeven {
+    display: flex;
+  }
+  &.stageEight {
+    display: flex;
+  }
+}
 .flex__center {
   display: flex;
   justify-content: center;
@@ -481,6 +647,137 @@ export default { components: { MobileBurger } };
 .profile__page {
   width: 100%;
 }
+.text__notification {
+  position: relative;
+  top: -100px;
+  left: 250px;
+  width: 487px;
+  height: 115px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffffff;
+  backdrop-filter: blur(50px);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  p {
+    display: block;
+    margin-left: 36px;
+  }
+  &.stageTwo {
+    display: flex;
+  }
+}
+.text__notification__rate {
+  position: relative;
+  top: 0;
+  left: 250px;
+  width: 487px;
+  height: 115px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #ffffff;
+  backdrop-filter: blur(50px);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  p {
+    display: block;
+    margin-left: 36px;
+  }
+  &.stageThree {
+    display: flex;
+  }
+  &.stageFour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    top: 210px;
+    left: -400px;
+    width: 490px;
+    height: 193px;
+    p {
+      width: 420px;
+      margin: 0;
+    }
+  }
+  &.stageFive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    top: 360px;
+    left: -350px;
+    width: 600px;
+    height: 187px;
+    p {
+      width: 542px;
+      margin: 0;
+    }
+  }
+  &.stageSix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    left: -350px;
+    width: 672px;
+    height: 94px;
+    p {
+      width: 542px;
+      margin: 0;
+    }
+  }
+  &.stageSeven {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    left: -350px;
+    width: 672px;
+    height: 94px;
+    p {
+      width: 542px;
+      margin: 0;
+    }
+  }
+  &.stageEight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+    left: -350px;
+    width: 672px;
+    height: 94px;
+    p {
+      width: 542px;
+      margin: 0;
+    }
+  }
+}
+.unblured__border {
+  width: 815px;
+  background: none;
+  left: 210px;
+
+  &.stageTwo {
+  }
+  .blur__footer {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 1458px;
+    p {
+      top: 44px;
+    }
+    .notification__btn__block {
+    }
+  }
+}
+
 .profile__info__list__hobby__block {
   width: 440px;
   display: flex;
@@ -492,6 +789,14 @@ export default { components: { MobileBurger } };
     width: 817px;
   }
   .container {
+    &.stageSix {
+      position: relative;
+      z-index: 100;
+    }
+    &.notification__unblur {
+      position: relative;
+      z-index: 100;
+    }
     @extend .flex__center;
     height: 812px;
     justify-content: space-between;
@@ -525,6 +830,18 @@ export default { components: { MobileBurger } };
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 40px;
+        &.stageTwo {
+          position: relative;
+          z-index: 100;
+        }
+        &.stageThree {
+          position: relative;
+          z-index: 100;
+        }
+        &.stageFour {
+          position: relative;
+          z-index: 100;
+        }
         @extend .flex__center;
         justify-content: space-evenly;
         .mobile__horizontal__line {
@@ -682,6 +999,11 @@ export default { components: { MobileBurger } };
         }
       }
       .photo__gallery {
+        &.stageFive {
+          position: relative;
+          z-index: 100;
+          border: 1px solid rgba(255, 255, 255, 0.4);
+        }
         @extend .flex__center;
         width: 608px;
         height: 136px;
@@ -733,6 +1055,10 @@ export default { components: { MobileBurger } };
         width: 608px;
         height: 136px;
         .btn {
+          &.stageSix {
+            position: relative;
+            z-index: 100;
+          }
           @extend .flex__center;
           width: 192px;
           height: 136px;
@@ -913,6 +1239,9 @@ export default { components: { MobileBurger } };
   }
 }
 @media (max-width: 1200px) {
+  .notification__blur {
+    display: none;
+  }
   .profile__page {
     margin: 0;
     .nav__box {
