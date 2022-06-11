@@ -1,6 +1,6 @@
 <template>
   <section id="sendings-mobile">
-    <MobileSorting v-if="mobileSorting" />
+    <MobileSorting v-if="store.mobileSorting" />
 
     <div class="decor"></div>
 
@@ -48,7 +48,7 @@ import SendsMobileTabContent from "@/components/Sends/SendsMobileTabContent.vue"
 import AnswersMobileTabContent from '@/components/Sends/AnswersMobileTabContent.vue'
 
 import { ref, computed, onUnmounted, reactive } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/stores/main.js";
 
 const tabs = reactive({
   sends: true,
@@ -73,15 +73,13 @@ const activeTab = computed(() => {
 })
 
 const store = useStore();
-const mobileSorting = computed(() => {
-  return store.state.mobileSorting;
-});
+
 const openMobileSorting = () => {
-  store.commit("openMobileSorting");
+  store.mobileSorting = true
 };
 
 const openNewSendWindow = () => {
-  store.commit("openNewSendWindow");
+  store.newSendWindow = true
 };
 const scrollValue = ref(0);
 

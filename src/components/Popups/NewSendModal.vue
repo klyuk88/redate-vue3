@@ -1,5 +1,5 @@
 <template>
-  <div class="new-send-modal-wrap" ref="sendWrap" :class="{'active': newSendWindow}">
+  <div class="new-send-modal-wrap" ref="sendWrap" :class="{'active': store.newSendWindow}">
     <div class="new-send-modal">
       <img src="@/assets/images/close-new-send.svg" alt="" class="close" @click="closeNewSendWindow" />
       <div class="title-block">
@@ -24,14 +24,12 @@ import { ref, computed } from "vue";
 import TheSelect from "@/components/Form/TheSelect.vue";
 import FormTextArea from '@/components/Form/FormTextArea.vue'
 import BigButton from '@/components/Form/BigButton.vue'
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 
 const store = useStore()
-const newSendWindow = computed(() => {
-  return store.state.newSendWindow
-})
+
 const closeNewSendWindow = () => {
-  store.commit('closeNewSendWindow')
+  store.newSendWindow = false
 }
 const cities = ref(["Москва", "Санкт-Петербург", "Иран", "Стамбул"]);
 const formats = ref(["Серьезно", "Не серьезно", "Серьезно", "Не серьезно"]);

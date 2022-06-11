@@ -1,6 +1,6 @@
 <template>
-  <ProfileNewMessage v-if="newMessageWindow" />
-  <section id="search" :class="{ hidden: mobileSorting }">
+  <ProfileNewMessage v-if="store.newMessageWindow" />
+  <section id="search" :class="{ hidden: store.mobileSorting }">
     <div id="mobile-content">
       <!-- header -->
 
@@ -21,7 +21,7 @@
       </div>
       <!-- header end  -->
 
-      <MobileSorting v-if="mobileSorting" />
+      <MobileSorting v-if="store.mobileSorting" />
 
       <div class="decor"></div>
 
@@ -59,21 +59,15 @@ import MobileSorting from "@/components/Search/MobileSorting.vue";
 import BackLink from "@/components/Search/BackLink.vue";
 import { onUnmounted, ref } from "vue";
 
-import { useStore } from "vuex";
+import { useStore } from "@/stores/main.js";
 import { computed } from "vue";
 
 const store = useStore();
 
 const openMobileSorting = () => {
-  store.commit("openMobileSorting");
+  store.mobileSorting = true
 };
 
-const newMessageWindow = computed(() => {
-  return store.state.newMessageWindow;
-});
-const mobileSorting = computed(() => {
-  return store.state.mobileSorting;
-});
 const scrollValue = ref(0);
 
 const onBlur = computed(() => {

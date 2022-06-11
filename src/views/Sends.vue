@@ -1,5 +1,5 @@
 <template>
-  <NewSendModal v-if="newSendModalShow"/>
+  <NewSendModal v-if="store.newSendWindow"/>
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
@@ -44,7 +44,7 @@ import SendsHeader from '@/components/Sends/SendsHeader.vue'
 import SendsMobile from '@/components/Sends/SendsMobile.vue'
 
 import { reactive, computed} from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/stores/main.js";
 const store = useStore()
 
 const activeTab = computed(() => {
@@ -69,11 +69,9 @@ const tabActive = (param) => {
     tabs.sends = false;
   }
 };
-const newSendModalShow = computed(() => {
-  return store.state.newSendWindow
-})
+
 const openNewSendWindow = () => {
-  store.commit('openNewSendWindow')
+  store.newSendWindow = true
 }
 
 </script>

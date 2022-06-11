@@ -35,7 +35,7 @@
         <p class="adress">Москва, Россия</p>
       </div>
       <div class="icons-block">
-        <div class="icon" @click="newMessage">
+        <div class="icon" @click="openNewMess">
           <img src="@/assets/images/main/dialog-icon.svg" alt="" />
         </div>
         <div class="icon">
@@ -46,11 +46,12 @@
   </div>
 </template>
 <script setup>
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 const store = useStore()
-const newMessage = () => {
-  store.commit('openNewMessageWindow')
+const openNewMess = () => {
+  store.newMessageWindow = true
 }
+
 </script>
 <style lang="scss">
 .potencial-item-mobile {

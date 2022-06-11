@@ -31,14 +31,12 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  methods: {
-    close() {
-      this.$store.commit("closeNewMessageWindow");
-    },
-  },
-};
+<script setup>
+import {useStore} from '@/stores/main.js'
+const store = useStore()
+const close = () => {
+  store.newMessageWindow = false
+}
 </script>
 <style lang="scss">
 .text {

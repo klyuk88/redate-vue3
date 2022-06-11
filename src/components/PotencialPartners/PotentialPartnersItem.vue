@@ -1,4 +1,5 @@
 <template>
+
   <div class="potential-partners-item">
       <a href="http://">
         <div class="image-wrap">
@@ -11,7 +12,7 @@
         <h2 class="name">Олег, <span class="age">33</span></h2>
         <p class="adress">Москва, Россия</p>
       </div>
-      <a href="http://" class="dialog-btn">
+      <a href="#" class="dialog-btn" @click.prevent="store.newMessageWindow = true">
         <img
           src="@/assets/images/main/dialog-icon.svg"
           alt=""
@@ -21,7 +22,9 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
+import {useStore} from '@/stores/main.js'
+const store = useStore()
 </script>
 <style lang="sass">
 .potential-partners-item

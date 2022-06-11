@@ -8,7 +8,7 @@
     <!-- На десктопе -->
     <CitiesBigItems/>
     <div class="hidden-part"
-    :class="{'show': showCities}"
+    :class="{'show': store.showCities}"
     >
         <p class="title">Зарегистрировано по городам</p>
         <div class="grid">
@@ -20,13 +20,13 @@
           </div>
         </div>
     </div>
-    <button class="all-cities" @click="openCities">{{showCities ? 'Скрыть' : 'Все города'}}</button>
+    <button class="all-cities" @click="openCities">{{store.showCities ? 'Скрыть' : 'Все города'}}</button>
   </div>
 </template>
 
 <script setup>
 import { computed, onMounted } from 'vue'
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 import Statistics from "@/components/Cities/Statistics.vue";
 import CitiesSmallSlider from "@/components/Cities/CitiesSmallSlider.vue";
 import SearchCities from  '@/components/Cities/SearchCities.vue'
@@ -36,12 +36,8 @@ import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue'
 
 const store = useStore()
 
-const showCities = computed(() => {
-  return store.state.showCities
-})
-
 const openCities = () => {
-  store.commit('openCities')
+  store.showCities = !store.showCities
 }
 
 </script>

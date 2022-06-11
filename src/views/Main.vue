@@ -28,13 +28,13 @@
             «премиум» подписку.
           </p>
         </div>
-        <RecomendedMailings v-if="!showCities" />
+        <RecomendedMailings v-if="!store.showCities" />
         <PotencialPartners />
       </div>
     </div>
     <div class="right-col">
       <div class="content">
-        <NewSend v-if="!showCities" />
+        <NewSend v-if="!store.showCities" />
         <SpecialProposal />
       </div>
     </div>
@@ -49,15 +49,14 @@ import SpecialProposal from "@/components/SpecialProposal.vue";
 import NewSend from "@/components/NewSend.vue";
 import Cities from "@/components/Cities/Cities.vue";
 import MobileBurger from '@/components/MobileBurger.vue'
-
-import { useStore } from "vuex";
+import {useStore} from '@/stores/main.js'
+// import { useStore } from "vuex";
 import { computed } from "vue";
 
 const store = useStore();
 
-const showCities = computed(() => {
-  return store.state.showCities;
-});
+
+
 </script>
 
 <style lang="sass">

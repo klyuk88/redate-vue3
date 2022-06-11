@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { useStore } from "vuex";
+import { useStore } from "@/stores/main.js";
 const props = defineProps({
   styles: {
     type: Object,
@@ -21,7 +21,7 @@ const props = defineProps({
 })
 const store = useStore();
 const openMobMenu = () => {
-  store.commit("openMobileMenu");
+  store.mobileMenu = true
 };
 </script>
 

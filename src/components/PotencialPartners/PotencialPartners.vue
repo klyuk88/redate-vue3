@@ -1,123 +1,123 @@
-<template lang="">
-        <div class="potential-partners">
-          <div class="title-wrap">
-            <h2 class="page-subtitle">Потенциальные партнеры</h2>
-            <a href="#" class="btn">Смотреть</a>
-            <div class="warning">
-              <img
-                src="@/assets/images/main/warning-check.svg"
-                alt=""
-                class="image"
-              />
-              <p class="text">
-                Ваша анкета в поиске будет видна исключено мужчинам оплатившим
-                «премиум» подписку.
-              </p>
-            </div>
-          </div>
-          <div class="slider">
-            <Swiper
-              :modules="[Navigation, Scrollbar]"
-              :spaceBetween="20"
-              :slidesPerView="'auto'"
-              :navigation="{
-                nextEl: '.potential-partners .slider .slider-nav',
-                prevEl: '',
-              }"
-              :scrollbar="{
-                el: '.swiper-scrollbar',
-                draggable: true,
-                dragSize: 88
-              }"
-            >
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <PotentialPartnersItem />
-              </SwiperSlide>
-            </Swiper>
-            <img
-              src="@/assets/images/main/arrow-rigth.svg"
-              alt=""
-              class="slider-nav"
-            />
-            <div class="swiper-scrollbar"></div>
-          </div>
-          <!-- Slider -->
-          <div class="filter">
-            <div>
-              <TheSelect
-              :options="options"
-              :placeholder="'Выберите город'"
-              v-model="city"
-              />
-            </div>
-            <div>
-              <div class="range" :class="{ active: showLabel }">
-                <vue-slider
-                  v-model="range"
-                  :height="2"
-                  :tooltip="'always'"
-                  :min="18"
-                  :max="45"
-                  :interval="1"
-                  :lazy="true"
-                  :enableCross="false"
-                  :railStyle="{
-                    background: 'rgba(255,255,255, 0.3)',
-                  }"
-                  :dotStyle="{
-                    background: '#fff',
-                    height: '12px',
-                    width: '12px',
-                  }"
-                  :processStyle="{ background: '#fff' }"
-                  :tooltipStyle="{
-                    background: 'transparent',
-                    'font-size': '12px',
-                    'font-weigth': '600',
-                  }"
-                  @drag-start="showLabel = true"
-                  @drag-end="showLabel = false"
-                />
-              </div>
-            </div>
-            <div>
-              <BigButton :title="'Начать поиск'"/>
-            </div>
-          </div>
-
-          <!-- Mobile items  -->
-          <div class="mobile-items">
-            <PotrncialPartnerMobile/>
-            <PotrncialPartnerMobile/>
-            <PotrncialPartnerMobile/>
-            <PotrncialPartnerMobile/>
-            <PotrncialPartnerMobile/>
-            <PotrncialPartnerMobile/>
-          </div>
-          <!-- Mobile items end -->
+<template>
+  <ProfileNewMessage v-if="store.newMessageWindow" />
+  <div class="potential-partners">
+    <div class="title-wrap">
+      <h2 class="page-subtitle">Потенциальные партнеры</h2>
+      <a href="#" class="btn">Смотреть</a>
+      <div class="warning">
+        <img
+          src="@/assets/images/main/warning-check.svg"
+          alt=""
+          class="image"
+        />
+        <p class="text">
+          Ваша анкета в поиске будет видна исключено мужчинам оплатившим
+          «премиум» подписку.
+        </p>
+      </div>
+    </div>
+    <div class="slider">
+      <Swiper
+        :modules="[Navigation, Scrollbar]"
+        :spaceBetween="20"
+        :slidesPerView="'auto'"
+        :navigation="{
+          nextEl: '.potential-partners .slider .slider-nav',
+          prevEl: '',
+        }"
+        :scrollbar="{
+          el: '.swiper-scrollbar',
+          draggable: true,
+          dragSize: 88,
+        }"
+      >
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <PotentialPartnersItem />
+        </SwiperSlide>
+      </Swiper>
+      <img
+        src="@/assets/images/main/arrow-rigth.svg"
+        alt=""
+        class="slider-nav"
+      />
+      <div class="swiper-scrollbar"></div>
+    </div>
+    <!-- Slider -->
+    <div class="filter">
+      <div>
+        <TheSelect
+          :options="options"
+          :placeholder="'Выберите город'"
+          v-model="city"
+        />
+      </div>
+      <div>
+        <div class="range" :class="{ active: showLabel }">
+          <vue-slider
+            v-model="range"
+            :height="2"
+            :tooltip="'always'"
+            :min="18"
+            :max="45"
+            :interval="1"
+            :lazy="true"
+            :enableCross="false"
+            :railStyle="{
+              background: 'rgba(255,255,255, 0.3)',
+            }"
+            :dotStyle="{
+              background: '#fff',
+              height: '12px',
+              width: '12px',
+            }"
+            :processStyle="{ background: '#fff' }"
+            :tooltipStyle="{
+              background: 'transparent',
+              'font-size': '12px',
+              'font-weigth': '600',
+            }"
+            @drag-start="showLabel = true"
+            @drag-end="showLabel = false"
+          />
         </div>
+      </div>
+      <div>
+        <BigButton :title="'Начать поиск'" />
+      </div>
+    </div>
 
+    <!-- Mobile items  -->
+    <div class="mobile-items">
+      <PotrncialPartnerMobile />
+      <PotrncialPartnerMobile />
+      <PotrncialPartnerMobile />
+      <PotrncialPartnerMobile />
+      <PotrncialPartnerMobile />
+      <PotrncialPartnerMobile />
+    </div>
+    <!-- Mobile items end -->
+  </div>
 </template>
 <script setup>
 import { ref, reactive } from "vue";
@@ -130,12 +130,17 @@ import PotentialPartnersItem from "@/components/PotencialPartners/PotentialPartn
 import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
 import TheSelect from '@/components/Form/TheSelect.vue'
 import BigButton from '@/components/Form/BigButton.vue'
+import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue'
+
+import {useStore} from '@/stores/main.js'
 
 // Import Swiper styles
 import "swiper/swiper.min.css";
 import "swiper/modules/navigation/navigation.min.css";
 import "swiper/modules/pagination/pagination.min.css";
 import "swiper/modules/scrollbar/scrollbar.min.css";
+
+const store = useStore()
 
 const options = ref(["Москва", "Санкт-Петербург", "Казань"]);
 const city = ref("Москва");
@@ -150,7 +155,6 @@ const range = ref([18, 45]);
 const showLabel = ref(false);
 </script>
 <style lang="sass">
-
 .potential-partners > .title-wrap
   display: flex
   align-items: center

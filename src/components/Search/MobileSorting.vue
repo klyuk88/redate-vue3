@@ -4,7 +4,7 @@
     <div class="decor"></div>
     <div class="head">
       <div class="back-link">
-        <BackLink @click="closeMobileSorting"/>
+        <BackLink @click="store.mobileSorting = false"/>
       </div>
       <h2 class="title">Сортировка</h2>
     </div>
@@ -33,14 +33,12 @@ import FormRange from '@/components/Form/FormRange.vue'
 import FormCheckbox from '@/components/Form/FormCheckbox.vue'
 import BigButton from '@/components/Form/BigButton.vue'
 import {ref} from 'vue'
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 
 const store = useStore()
 const options = ref(['Москва', "Санкт-Петербург", "Казань"])
 const city = ref(null)
-const closeMobileSorting = () => {
-  store.commit('closeMobileSorting')
-}
+
 </script>
 
 <style lang="scss">

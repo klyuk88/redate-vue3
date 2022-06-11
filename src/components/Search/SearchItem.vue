@@ -18,10 +18,10 @@
 </template>
 
 <script setup>
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 const store = useStore()
 const newMessage = () => {
-  store.commit('openNewMessageWindow')
+  store.newMessageWindow = true
 }
 
 </script>

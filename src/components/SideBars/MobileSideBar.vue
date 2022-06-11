@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-sidebar"
-  :class="{active: mobMenu}"
+  :class="{active: store.mobileMenu}"
   >
     <h2 class="logo">Redate</h2>
 
@@ -76,7 +76,7 @@
     </div>
   </div>
 <div class="mobile-sidebar-overlay"
-:class="{active: mobMenu}"
+:class="{active: store.mobileMenu}"
 @click="closeMobMenu"
 ></div>
 </template>
@@ -84,17 +84,17 @@
 
 <script setup>
 import {computed, watch} from 'vue'
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 import {useRoute} from 'vue-router'
 const store = useStore()
 const route = useRoute()
-const mobMenu = computed(() => store.state.mobileMenu)
+
 const closeMobMenu = () => {
-    store.commit('closeMobileMenu')
+    store.mobileMenu = false
 }
 watch(route, (newVal, oldVal) => {
   setTimeout(() => {
-    store.commit('closeMobileMenu')
+    store.mobileMenu = false
   }, 500);
 })
 </script>
