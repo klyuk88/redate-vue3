@@ -50,7 +50,6 @@ import NewSend from "@/components/NewSend.vue";
 import Cities from "@/components/Cities/Cities.vue";
 import MobileBurger from '@/components/MobileBurger.vue'
 import {useStore} from '@/stores/main.js'
-// import { useStore } from "vuex";
 import { computed } from "vue";
 
 const store = useStore();
