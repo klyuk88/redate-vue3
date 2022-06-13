@@ -209,35 +209,35 @@ p {
     align-items: center;
     flex-direction: column;
     .signup__block__container {
-        height: 274px;
+        height: 70.256vw;
 
       &.error__code {
-        height: 254px;
+        height: 65.128vw;
       }
     }
     .mobile__inputs {
-      width: 336px;
-      height: 104px;
+      width: 85.89vw;
+      height: 26.66vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
     }
     .signup__btn {
-      width: 335px;
-      height: 60px;
+      width: 85.89vw;
+      height: 15.384vw;
     }
     .signup__block__numbers {
-      width: 335px;
+      width: 85.89vw;
     }
   }
   
   .signup__page {
-    height: 385px;
+    height: 98.71vw;
   }
   .block__item {
-    width: 72px;
-    height: 72px;
+    width: 18.461vw;
+    height: 18.461vw;
   }
   .signup__footer__box {
     &.web {

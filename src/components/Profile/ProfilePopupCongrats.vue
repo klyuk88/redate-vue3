@@ -161,11 +161,11 @@ export default {};
 }
 @media (max-width: 1200px) {
   .congrats__content {
-    width: 336px;
-    height: 381px;
+    width: 85.89vw;
+    height: 97.69vw;
     .congrats__body__container {
-      width: 336px;
-      height: 352px;
+      width: 85.89vw;
+      height: 90.256vw;
     }
   }
 }

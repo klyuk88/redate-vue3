@@ -90,24 +90,24 @@ export default {};
     background: none;
     display: flex;
     .signup__block {
-      width: 304px;
-      height: 220px;
+      width: 77.948vw;
+      height: 56.41vw;
       background: rgba(36, 37, 41, 0.6);
       .signup__block__container {
-        width: 244px;
-        height: 172px;
+        width: 62.56vw;
+        height: 44.102vw;
         .signup__header {
-          width: 244px;
-          height: 122px;
+          width: 62.56vw;
+          height: 31.282vw;
           h1 {
             font-weight: 600;
-            font-size: 18px;
+            font-size: 4.615vw;
             line-height: 153.5%;
           }
           p {
             font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
+            font-size: 3.589vw;
+            line-height: 4.615vw;
           }
         }
       }
@@ -115,25 +115,25 @@ export default {};
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 256px;
+        width: 65.641vw;
         .btn {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 120px;
-          height: 34px;
-          border: 1px solid rgba(255, 255, 255, 0.33);
-          border-radius: 11px;
+          width: 30.769vw;
+          height: 8.717vw;
+          border: 0.256vw solid rgba(255, 255, 255, 0.33);
+          border-radius: 2.82vw;
           cursor: pointer;
         }
         .btn__del {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 120px;
-          height: 34px;
+          width: 30.769vw;
+          height: 8.717vw;
           background: #2b66fb;
-          border-radius: 11px;
+          border-radius: 2.82vw;
           cursor: pointer;
         }
       }

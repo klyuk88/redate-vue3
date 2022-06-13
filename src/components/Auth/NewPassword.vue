@@ -108,7 +108,7 @@ export default {
 }
 @media (max-width: 1200px) {
   .signup__page {
-    height: 432px;
+    height: 110.769vw;
   }
   .signup__border {
     display: flex;
@@ -121,16 +121,16 @@ export default {
     box-shadow: none;
   }
   .signup__block__header {
-    width: 324px;
-    height: 72px;
+    width: 83.0769vw;
+    height: 18.461vw;
   }
   .signup__block__numbers {
-    width: 335px;
-    height: 136px;
+    width: 85.89vw;
+    height: 34.871vw;
   }
   .signup__btn {
-    width: 335px;
-    height: 60px;
+    width: 85.89vw;
+    height: 15.38vw;
   }
 }
 </style>

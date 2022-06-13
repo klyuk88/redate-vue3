@@ -123,28 +123,28 @@ export default {
 }
 @media (max-width: 1200px) {
   .report__popup__block {
-    height: 418px;
-    width: 335px;
+    height: 107.17vw;
+    width: 85.89vw;
     background: rgba(36, 37, 41, 0.6);
-    border: 1px solid #2b66fb;
-    border-radius: 24px;
+    border: 0.256vw solid #2b66fb;
+    border-radius: 6.153vw;
     .report__popup__content {
       align-items: center;
-      height: 370px;
-      width: 287px;
+      height: 94.87vw;
+      width: 73.589vw;
       .report__popup__select {
-        width: 287px;
-        height: 60px;
+        width: 73.589vw;
+        height: 15.38vw;
       }
       .report__popup__comment {
-        width: 287px;
-        height: 201px;
+        width: 73.589vw;
+        height: 51.538vw;
       }
       .report__popup__button {
-        width: 161px;
-        height: 33px;
+        width: 41.282vw;
+        height: 8.461vw;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 3.589vw;
         line-height: 132.5%;
         padding: 0;
       }

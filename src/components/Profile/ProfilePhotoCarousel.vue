@@ -243,16 +243,16 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 197px;
-    margin-top: 6px;
+    width: 50.51vw;
+    margin-top: 1.538vw;
     position: relative;
-    left: -90px;
+    left: -23.076vw;
     .btn__back__block {
       display: flex;
       align-items: center;
       p {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 3.589vw;
         line-height: 153.5%;
         color: #ffffff;
       }
@@ -260,12 +260,12 @@ export default {
       }
       .page__number {
         font-weight: 600;
-        font-size: 17px;
+        font-size: 4.358vw;
         line-height: 153.5%;
         color: #ffffff;
         span {
           font-weight: 600;
-          font-size: 17px;
+          font-size: 4.358vw;
           line-height: 153.5%;
           color: #ffffff;
         }
@@ -279,8 +279,8 @@ export default {
     }
   }
   .mobile__album__footer {
-    width: 390px;
-    height: 72px;
+    width: 100vw;
+    height: 18.461vw;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(30px);
     display: flex;
@@ -288,8 +288,8 @@ export default {
     align-items: center;
     justify-content: flex-start;
   .vertical__line {
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        height: 34px;
+        border: 0.256vw solid rgba(255, 255, 255, 0.14);
+        height: 8.717vw;
         width: 0px;
         position: relative;
         left: 0;
@@ -298,17 +298,17 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 10px;
+      margin-top: 2.564vw;
       .footer__btn {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 40px;
-        width: 195px;
+        height: 10.256vw;
+        width: 50vw;
         p {
           font-weight: 600;
-          font-size: 12px;
-          line-height: 15px;
+          font-size: 3.076vw;
+          line-height: 3.846vw;
           text-align: center;
           color: #ffffff;
         }

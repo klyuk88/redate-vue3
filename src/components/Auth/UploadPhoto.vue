@@ -197,7 +197,7 @@ p {
   }
   .navigation__item {
     &.active {
-      width: 176px;
+      width: 45.128vw;
     }
   }
   .btn__block {
@@ -205,7 +205,7 @@ p {
       display: none;
     }
     &.male {
-      height: 82px;
+      height: 21.025vw;
     }
   }
   .signup__page {
@@ -223,10 +223,10 @@ p {
     box-shadow: none;
   }
   .signup__block__container {
-    width: 335px;
-    height: 467px;
+    width: 85.89vw;
+    height: 119.743vw;
     &.male {
-      height: 616px !important;
+      height: 157.948vw !important;
     }
   }
   .inner__border {
@@ -239,8 +239,8 @@ p {
       display: none;
       &.added {
         display: flex;
-        width: 335px;
-        height: 60px;
+        width: 85.89vw;
+        height: 15.384vw;
       }
     }
   }
@@ -257,40 +257,40 @@ p {
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
-      height: 190px;
+      height: 48.717vw;
     }
   }
   .btn__box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 305px;
-    height: 35px;
+    width: 78.205vw;
+    height: 8.974vw;
   }
   .upload {
-    width: 126px;
-    height: 35px;
+    width: 32.30vw;
+    height: 8.974vw;
     background: #2b66fb;
-    border-radius: 11px;
+    border-radius: 2.82vw;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .make__photo {
-    width: 167px;
-    height: 35px;
+    width: 42.82vw;
+    height: 8.974vw;
     background: #2b66fb;
-    border-radius: 11px;
+    border-radius: 2.82vw;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .random__btn {
-    width: 197px;
-    height: 35px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 11px;
-    margin-bottom: 30px;
+    width: 50.512vw;
+    height: 8.974vw;
+    border: 0.256vw solid rgba(255, 255, 255, 0.14);
+    border-radius: 2.82vw;
+    margin-bottom: 7.692vw;
   }
 }
 </style>

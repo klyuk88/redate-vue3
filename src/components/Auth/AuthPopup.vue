@@ -289,13 +289,13 @@ span {
   .auth__page {
     @extend .flex__center;
     flex-direction: column;
-    height: 650px;
-    width: 390px;
+    height: 166.66vw;
+    width: 100vw;
     position: relative;
     justify-content: space-between;
     top: 0;
     &.error__auth {
-      height: 650px;
+      height: 166.66vw;
       justify-content: space-between;
     }
   }
@@ -303,106 +303,106 @@ span {
     @extend .flex__center;
     margin-bottom: 0;
     position: relative;
-    width: 446px;
-    height: 356.91px;
+    width: 114.358vw;
+    height: 91.538vw;
     border: none;
     &.error__auth {
-      height: 373px;
+      height: 95.64vw;
     }
   }
   .auth__input__box {
     @extend .flex__center;
-    width: 422px;
-    height: 331px;
+    width: 108.205vw;
+    height: 84.87vw;
     background: none;
     border: none;
     box-shadow: none;
-    border-radius: 24px;
+    border-radius: 6.1538vw;
     &.error__auth {
-      height: 373px;
+      height: 95.641vw;
     }
   }
   .auth__inner__box {
     @extend .flex__center;
     &.error__auth {
-      height: 235px;
+      height: 60.256vw;
     }
   }
   .auth__inner__content {
     @extend .flex__center;
     justify-content: space-between;
     flex-direction: column;
-    width: 326px;
-    height: 300px;
+    width: 83.589vw;
+    height: 76.923vw;
     &.error__auth {
-      height: 342px;
+      height: 87.69vw;
     }
   }
   .auth__header {
     flex-direction: column;
-    width: 286px;
-    height: 67px;
+    width: 79.44vw;
+    height: 17.179vw;
     h1 {
       @extend .text;
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 2.051vw;
     }
   }
   p {
     @extend .text;
-    font-size: 12px;
+    font-size: 3.0769vw;
     line-height: 132.5%;
     text-align: center;
     color: rgba(255, 255, 255, 0.33);
   }
 
   .auth__forgot {
-    font-size: 14px;
+    font-size: 3.589vw;
     margin-bottom: 0;
     position: relative;
     bottom: 0px;
   }
   .auth__no__acc {
-    font-size: 14px;
+    font-size: 3.589vw;
   }
   span {
-    font-size: 14px;
+    font-size: 3.589vw;
   }
   .inputs {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 326px;
-    height: 136px;
+    width: 83.589vw;
+    height: 34.871vw;
     span {
       display: none;
       color: #2b66fb;
       text-align: center;
       font-weight: 600;
-      font-size: 12px;
-      line-height: 15px;
-      width: 274px;
+      font-size: 3.0769vw;
+      line-height: 3.846vw;
+      width: 70.256vw;
       &.error__auth {
         display: inline-block;
       }
     }
     &.error__auth {
-      height: 178px;
+      height: 45.64vw;
     }
   }
   .input {
     @extend .text;
-    font-size: 15px;
+    font-size: 3.846vw;
     line-height: 153.5%;
     color: rgba(255, 255, 255, 0.33);
     outline: none;
     background: none;
-    width: 326px;
-    height: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 11px;
-    padding: 12px;
+    width: 83.589vw;
+    height: 15.384vw;
+    border: 0.256vw solid rgba(255, 255, 255, 0.14);
+    border-radius: 2.82vw;
+    padding: 3.0769vw;
     &:focus {
       color: #ffffff;
     }
@@ -411,15 +411,15 @@ span {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
-    height: 105px;
-    margin-bottom: 95px;
+    height: 26.92vw;
+    margin-bottom: 24.3589vw;
   }
   .auth__btn {
     @extend .flex__center;
-    width: 335px;
-    height: 60px;
+    width: 85.89vw;
+    height: 15.384vw;
     background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
-    border-radius: 11px;
+    border-radius: 2.82vw;
     margin-bottom: 0;
     position: relative;
     top: 0;
@@ -428,8 +428,8 @@ span {
   .auth__footer__signup {
     @extend .flex__center;
     justify-content: space-between;
-    width: 236px;
-    height: 21px;
+    width: 60.512vw;
+    height: 5.384vw;
   }
 }
 </style>

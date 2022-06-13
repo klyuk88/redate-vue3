@@ -102,4 +102,11 @@ label {
   cursor: pointer;
 }
 
+@media (max-width: 1200px) {
+  .signup__border {
+    display: flex;
+    margin: 76px;
+  }
+}
+
 </style>

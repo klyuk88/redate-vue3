@@ -678,20 +678,23 @@ export default {
   }
 }
 .left__side {
-  width: 1048px;
+  // width: 1048px;
   display: flex;
   justify-content: center;
   align-items: center;
+    padding-left: 100px;
+  padding-right: 75px;
 }
 .right__side {
-  width: 688px;
+  // width: 688px;
+
   .profile {
     .profile__info {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      width: 488px;
+      // width: 488px;
       height: 833px;
       &.notification__unblur {
         position: relative;
@@ -701,7 +704,7 @@ export default {
         display: none;
       }
       .profile__info__list__container {
-        width: 488px;
+        // width: 488px;
       }
     }
   }
@@ -714,8 +717,9 @@ export default {
 //   border-radius: 24px;
 // }
 .background {
-  width: 817px;
+  // max-width: 817px;
   height: 100%;
+  padding: 50px;
   background: rgba(196, 196, 196, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-bottom: none;
@@ -795,7 +799,7 @@ export default {
   display: none;
 }
 .photo {
-  width: 608px;
+  width: 100%;
   height: 816px;
   border: 1px solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
@@ -921,7 +925,8 @@ export default {
   display: flex;
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  width: 440px;
+  // width: 440px;
+  width: 123%;
   justify-content: space-between;
 }
 .info__list__box {
@@ -940,7 +945,7 @@ export default {
 .main__heightweight {
   display: flex;
   justify-content: space-between;
-  width: 409px;
+  // width: 409px;
   .female__version {
     display: flex;
   }

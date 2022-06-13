@@ -414,35 +414,38 @@ export default {
       display: none;
     }
   }
+  .signup__page {
+    margin-top: 37px;
+  }
   .mobile__body {
     flex-direction: column;
     justify-content: space-between;
-    height: 561px;
+    height: 143.846vw;
           .signup__btn {
-        width: 335px;
-        height: 60px;
+        width: 85.89vw;
+        height: 15.384vw;
       }
     .select__country {
-      width: 335px;
+      width: 85.89vw;
     }
     .select__nation {
-      width: 335px;
+      width: 85.89vw;
     }
     .signup__input__box {
       .input {
-        width: 335px;
+        width: 85.89vw;
       }
     }
     .signup__footer {
-      width: 335px;
+      width: 85.89vw;
       .signup__age__block  {
-        width: 335px;
+        width: 85.89vw;
       }
       .signup__horizontal__line {
-        width: 335px;
+        width: 85.89vw;
       }
       .footer__desc {
-        width: 335px;
+        width: 85.89vw;
       }
 
     }

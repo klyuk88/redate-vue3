@@ -99,36 +99,36 @@ export default {};
     background: none;
     display: flex;
     .signup__block {
-      width: 304px;
-      height: 184px;
+      width: 77.948vw;
+      height: 47.179vw;
       background: rgba(36, 37, 41, 0.6);
       .signup__block__container {
-        width: 244px;
-        height: 136px;
+        width: 62.56vw;
+        height: 34.87vw;
         .signup__header {
-          width: 244px;
-          height: 86px;
+          width: 62.56vw;
+          height: 22.051vw;
           h1 {
             font-weight: 600;
-            font-size: 18px;
+            font-size: 4.615vw;
             line-height: 153.5%;
             color: #3e74ff;
             text-align: center;
-            width: 227px;
-            height: 84px;
+            width: 58.205vw;
+            height: 21.538vw;
             span {
               font-weight: 600;
-              font-size: 18px;
+              font-size: 4.615vw;
               line-height: 153.5%;
               color: #ffffff;
             }
           }
           p {
             font-weight: 400;
-            font-size: 14px;
-            line-height: 18px;
-            width: 264px;
-            height: 90px;
+            font-size: 3.589vw;
+            line-height: 4.615vw;
+            width: 67.69vw;
+            height: 23.07vw;
           }
         }
       }
@@ -136,25 +136,25 @@ export default {};
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 256px;
+        width: 65.64vw;
         .btn {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 120px;
-          height: 34px;
-          border: 1px solid rgba(255, 255, 255, 0.33);
-          border-radius: 11px;
+          width: 30.769vw;
+          height: 8.717vw;
+          border: 0.256vw solid rgba(255, 255, 255, 0.33);
+          border-radius: 2.82vw;
           cursor: pointer;
         }
         .btn__del {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 120px;
-          height: 34px;
+          width: 30.769vw;
+          height: 8.717vw;
           background: #2b66fb;
-          border-radius: 11px;
+          border-radius: 2.82vw;
           cursor: pointer;
         }
       }
