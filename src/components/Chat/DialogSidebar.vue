@@ -10,12 +10,13 @@
 
       <div class="n-card_loadmore">Открыть больше...</div>
     </div>
-    <div class="n-create">Создать новую рассылку</div>
+    <NewSendButton/>
   </div>
 </template>
 
 <script setup>
 import SendingItem from '@/components/Chat/SendingItem.vue'
+import NewSendButton from '@/components/NewSendButton.vue'
 </script>
 
 <style lang="scss">

@@ -1,9 +1,12 @@
 <template>
   <div class="m-mess_wrapper">
+  
+    
     <div
       class="m-mess_item"
       :class="{ 'm-new': false }"
     >
+      <router-link to="/chat/test" class="dialog-item-link"></router-link>
       <div class="m-mess_item-img">
         <div class="m-mess_item-img m-online"></div>
         <img
@@ -22,6 +25,7 @@
         <div class="m-mess_new">1</div>
       </div>
     </div>
+    
     <div class="delite-block">
       <div class="m-mess_del">x</div>
       <div class="delite-btn">Удалить</div>
@@ -110,6 +114,14 @@ import { ref } from "vue";
   background-repeat: no-repeat, no-repeat;
   background-position: right bottom;
   transition: transform 0.2s ease;
+  .dialog-item-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+  }
 }
 
 .m-new {

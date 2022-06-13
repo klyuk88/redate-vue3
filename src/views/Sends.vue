@@ -1,5 +1,4 @@
 <template>
-  <NewSendModal v-if="store.newSendWindow"/>
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
@@ -21,11 +20,7 @@
 
       <div class="sidebar">
         <Sorting />
-
-        <div class="create-new-send" @click="openNewSendWindow">
-          Создать новую рассылку
-        </div>
-
+        <NewSendButton/>
       </div>
     </div>
   </section>
@@ -37,11 +32,11 @@
 import NewSend from "@/components/NewSend.vue";
 import Sorting from "@/components/Sends/Sorting.vue";
 import SendSlider from "@/components/Sends/SendSlider.vue";
-import NewSendModal from "@/components/Popups/NewSendModal.vue";
 import SendsTabContent from "@/components/Sends/SendsTabContent.vue";
 import AnswersTabContent from "@/components/Sends/AnswersTabContent.vue";
 import SendsHeader from '@/components/Sends/SendsHeader.vue'
 import SendsMobile from '@/components/Sends/SendsMobile.vue'
+import NewSendButton from '@/components/NewSendButton.vue'
 
 import { reactive, computed} from "vue";
 import { useStore } from "@/stores/main.js";
@@ -135,22 +130,7 @@ const openNewSendWindow = () => {
       }
 
     }
-    .sidebar {
-      .create-new-send {
-        width: 100%;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        font-weight: 700;
-        background: rgba(196, 196, 196, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.33);
-        border-radius: 18px;
-        margin-top: 24px;
-        cursor: pointer;
-      }
-    }
+  
   }
 }
 

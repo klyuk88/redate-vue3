@@ -1,7 +1,5 @@
 <template>
   <section id="dialog">
-    
-
     <div class="grid">
       <div class="content">
         <div class="search-results" v-if="false">
@@ -37,6 +35,9 @@ import ChatsTabContent from "@/components/Chat/ChatsTabContent.vue";
 import AppsTabContent from "@/components/Chat/AppsTabContent.vue";
 import ChatMobile from '@/components/Chat/ChatMobile.vue'
 import { computed, ref, onMounted, onUnmounted, reactive } from "vue";
+import {useStore} from '@/stores/main.js'
+
+const store = useStore()
 
 const tabs = reactive({
   chats: true,

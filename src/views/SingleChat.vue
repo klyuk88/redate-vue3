@@ -16,25 +16,27 @@
           />
         </div>
       </div>
- 
+
       <div class="mobile-message-list with-scroll">
-        <MobileMessageItem :right="true" :message="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis, nulla sed atque provident eius natus repellat at libero praesentium illo, velit quam reiciendis quaerat vel asperiores dolore voluptatum ea.'"/>
-        <MobileMessageItem/>
-        <MobileMessageItem :right="true"/>
-        <MobileMessageItem/>
-        <MobileMessageItem :right="true"/>
-        <MobileMessageItem/>
-        <MobileMessageItem :right="true"/>
-        <MobileMessageItem/>
-        <MobileMessageItem :right="true"/>
-        <MobileMessageItem/>
-        <MobileMessageItem :right="true"/>
-        <MobileMessageItem/>
-        <MobileMessageItem :right="true"/>
+        <MobileMessageItem
+          :right="true"
+          :message="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis, nulla sed atque provident eius natus repellat at libero praesentium illo, velit quam reiciendis quaerat vel asperiores dolore voluptatum ea.'"
+        />
+        <MobileMessageItem />
+        <MobileMessageItem :right="true" />
+        <MobileMessageItem />
+        <MobileMessageItem :right="true" />
+        <MobileMessageItem />
+        <MobileMessageItem :right="true" />
+        <MobileMessageItem />
+        <MobileMessageItem :right="true" />
+        <MobileMessageItem />
+        <MobileMessageItem :right="true" />
+        <MobileMessageItem />
+        <MobileMessageItem :right="true" />
       </div>
 
-      <NewMessageMobile/>
-      
+      <NewMessageMobile />
     </div>
 
     <div class="grid">
@@ -65,12 +67,14 @@
         </div>
 
         <div class="message-list with-scroll">
-            <MessageItem v-for="(item, index) in 30" :key="index" />
+          <MessageItem v-for="(item, index) in 30" :key="index" />
         </div>
 
         <NewMessage />
       </div>
-      <DialogSidebar />
+      <div class="sidebar">
+        <DialogSidebar />
+      </div>
     </div>
   </section>
 </template>
@@ -82,12 +86,12 @@ import BackLink from "@/components/Search/BackLink.vue";
 import NewMessage from "@/components/Chat/NewMessage.vue";
 import MessageItem from "@/components/Chat/MessageItem.vue";
 import MoreActions from "@/components/Chat/MoreActions.vue";
-import NewMessageMobile from '../components/Chat/NewMessageMobile.vue'
-import MobileMessageItem from '../components/Chat/MobileMessageItem.vue'
+import NewMessageMobile from "@/components/Chat/NewMessageMobile.vue";
+import MobileMessageItem from "@/components/Chat/MobileMessageItem.vue";
 
 import { computed, ref, onMounted, onUnmounted } from "vue";
 
-const message = ref(null)
+const message = ref(null);
 </script>
 
 <style lang="scss" scoped>
@@ -186,22 +190,18 @@ const message = ref(null)
     }
   }
   margin: 0 auto;
-  padding-left: 130px;
+  padding-left: 100px;
   .grid {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(860px, 1057px) minmax(300px, 376px);
+    column-gap: 30px;
     align-items: center;
     .content {
-      border-left: 1px solid #ffffff54;
-      border-right: 1px solid #ffffff54;
-      background: rgba(196, 196, 196, 0.05);
-      width: 1000px;
       position: relative;
-      z-index: 1;
-      padding: 0 17px;
+      background: rgba(196, 196, 196, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.33);
       height: 100vh;
-      @media (max-width: 1400px) {
-        width: 700px;
-      }
       .search-results {
         font-size: 18px;
         color: #fff;
@@ -245,7 +245,6 @@ const message = ref(null)
 }
 
 #dialog.single-chat {
-
   .s-ch-avatar-wrap {
     width: 40px;
     height: 40px;

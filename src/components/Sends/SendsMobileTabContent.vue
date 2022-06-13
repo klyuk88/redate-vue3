@@ -1,5 +1,4 @@
 <template>
- <NewSendModal v-if="store.newSendWindow"/>
      <div class="tab-content">
       <SendSlider />
       <button class="mob-new-send-btn" @click="openNewSend">
@@ -30,7 +29,6 @@
 <script setup>
 import SendItem from "@/components/Sends/SendItem.vue";
 import SendSlider from "@/components/Sends/SendSlider.vue";
-import NewSendModal from '@/components/Popups/NewSendModal.vue'
 import { computed } from "@vue/runtime-core";
 import {useStore} from '@/stores/main.js'
 
