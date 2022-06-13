@@ -12,11 +12,7 @@ import DefaultLayout from '../layouts/DefaultLayout.vue'
 import AuthLayout from '../layouts/AuthLayout.vue'
 import {computed, watch} from 'vue'
 import {useRoute} from 'vue-router'
-import {useStore} from 'vuex'
-const store = useStore()
 const route = useRoute()
-
-
 const layout = computed(() => {
   return route.meta.layout || DefaultLayout
 })

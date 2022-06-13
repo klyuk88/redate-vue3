@@ -1,5 +1,5 @@
 <template>
- <NewSendModal v-if="newSendModalShow"/>
+ <NewSendModal v-if="store.newSendWindow"/>
      <div class="tab-content">
       <SendSlider />
       <button class="mob-new-send-btn" @click="openNewSend">
@@ -32,15 +32,13 @@ import SendItem from "@/components/Sends/SendItem.vue";
 import SendSlider from "@/components/Sends/SendSlider.vue";
 import NewSendModal from '@/components/Popups/NewSendModal.vue'
 import { computed } from "@vue/runtime-core";
-import {useStore} from 'vuex'
+import {useStore} from '@/stores/main.js'
 
 const store = useStore()
 const openNewSend = () => {
-  store.commit('openNewSendWindow')
+  store.newSendWindow = true
 }
-const newSendModalShow = computed(() => {
-  return store.state.newSendWindow
-})
+
 </script>
 <style lang="scss">
 #sendings-mobile {

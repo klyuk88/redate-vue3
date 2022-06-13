@@ -11,10 +11,6 @@
 import SideBar from "@/components/SideBars/SideBar.vue";
 import MobileSideBar from "@/components/SideBars/MobileSideBar.vue";
 import { computed } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
-const mobMenu = computed(() => store.state.mobileMenu);
 </script>
 
 <style lang="sass">
