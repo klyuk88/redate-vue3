@@ -232,12 +232,12 @@ span {
     }
   }
   .auth__back__btn {
-    left: 13px;
+    left: 3.33vw;
   }
   .signup__block__numbers {
     display: contents;
-    width: 335px;
-    height: 60px;
+    width: 85.89vw;
+    height: 15.38vw;
   }
   .auth__back__btn__title {
     display: none;
@@ -251,10 +251,10 @@ span {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 335px;
-    height: 373px;
+    width: 85.89vw;
+    height: 95.64vw;
     &.error {
-      height: 421px;
+      height: 107.948vw;
     }
 
     .signup__block__numbers {
@@ -272,32 +272,32 @@ span {
           margin-left: 0;
           display: inline-block;
           font-weight: 600;
-          font-size: 12px;
+          font-size: 3.0769vw;
           line-height: 132.5%;
         }
         &.error__mail {
           margin-left: 0;
           display: inline-block;
           font-weight: 600;
-          font-size: 12px;
+          font-size: 3.0769vw;
           line-height: 132.5%;
         }
       }
     }
     .signup__block__header {
-      width: 324px;
-      height: 88px;
+      width: 83.076vw;
+      height: 22.564vw;
       h1 {
         font-weight: 600;
       }
       p {
         font-weight: 400;
-        font-size: 13px;
-        line-height: 16px;
+        font-size: 3.33vw;
+        line-height: 4.102vw;
       }
     }
     .input {
-      width: 335px;
+      width: 85.89vw;
     }
   }
   .mobile__buttons {
@@ -305,19 +305,19 @@ span {
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    width: 335px;
-    height: 213px;
+    width: 85.89vw;
+    height: 54.6153vw;
 
     &.error {
-      height: 261px;
+      height: 66.923vw;
     }
 
     p {
       line-height: 153.5%;
     }
     .signup__btn {
-      width: 335px;
-      height: 60px;
+      width: 85.89vw;
+      height: 15.384vw;
     }
   }
 }

@@ -235,7 +235,7 @@ export default {};
 }
 @media (max-width: 1200px) {
   .auth__back__btn {
-    left: 13px;
+    left: 3.33vw;
   }
   .auth__back__btn__title {
     display: none;
@@ -244,7 +244,7 @@ export default {};
     display: none;
   }
   .signup__page {
-    height: 645px;
+    height: 165.38vw;
     display: flex;
     justify-content: space-between;
   }
@@ -253,41 +253,41 @@ export default {};
     justify-content: center;
     align-items: center;
 
-    height: 372px;
-    width: 335px;
+    height: 95.384vw;
+    width: 85.89vw;
     .signup__header {
-      width: 302px;
-      height: 88px;
+      width: 77.435vw;
+      height: 22.56vw;
     }
     .signup__input__box {
-      width: 335px;
-      height: 212px;
+      width: 85.89vw;
+      height: 54.358vw;
 
       .input {
-        width: 335px;
-        height: 60px;
+        width: 85.89vw;
+        height: 15.384vw;
         &:focus {
-          border: #ffffff 1px solid;
+          border: #ffffff 0.256vw solid;
         }
       }
     }
 
     .signup__block__container {
       justify-content: space-between;
-      height: 372px;
+      height: 95.384vw;
     }
   }
   .signup__footer {
-    height: 225px;
+    height: 57.69vw;
     .signup__btn {
-      width: 335px;
-      height: 60px;
+      width: 85.89vw;
+      height: 15.384vw;
     }
     .signup__footer__menu {
-      width: 174px;
-      height: 21px;
-      margin-top: 24px;
-      margin-bottom: 88px;
+      width: 44.615vw;
+      height: 5.384vw;
+      margin-top: 6.153vw;
+      margin-bottom: 22.564vw;
     }
   }
 }

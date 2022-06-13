@@ -198,8 +198,8 @@ p {
     box-shadow: none;
   }
   .signup__block__container {
-    width: 335px;
-    height: 594px;
+    width: 85.89vw;
+    height: 152.30vw;
   }
   .signup__btn {
     &.web {
@@ -215,20 +215,20 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 213px;
-    height: 35px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 11px;
+    width: 54.61vw;
+    height: 8.974vw;
+    border: 0.256vw solid rgba(255, 255, 255, 0.14);
+    border-radius: 2.82vw;
   }
   .continue__btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 335px;
-    height: 60px;
+    width: 85.89vw;
+    height: 15.38vw;
     background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
-    border-radius: 11px;
-    margin-top: 20px;
+    border-radius: 2.82vw;
+    margin-top: 5.128vw;
   }
 }
 </style>
