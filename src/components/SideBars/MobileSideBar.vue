@@ -8,7 +8,7 @@
       <div class="header">
         <ul class="items">
           <li class="item">
-            <router-link to="/profile" class="link">
+            <router-link to="/profile" class="link profile">
               <div class="image-block profile">
                 <img src="@/assets/images/main/avatar.png" alt="" />
               </div>
@@ -53,7 +53,6 @@
               <p class="title">Рассылки</p>
             </router-link>
           </li>
-
           <li class="item">
             <router-link to="/notifications" class="link">
               <div class="image-block">
@@ -62,7 +61,6 @@
               <p class="title">Уведомления</p>
             </router-link>
           </li>
-
           <li class="item">
             <router-link to="/favorites" class="link">
               <div class="image-block">
@@ -100,7 +98,7 @@ watch(route, (newVal, oldVal) => {
 </script>
 
 
-<style>
+<style lang="scss">
 .mobile-sidebar-overlay {
   position: fixed;
   top: 0;
@@ -157,6 +155,19 @@ watch(route, (newVal, oldVal) => {
   display: flex;
   align-items: center;
   text-decoration: none;
+  border-radius: 16px;
+}
+.mobile-sidebar {
+  .items {
+    .item {
+      .router-link-active.router-link-exact-active.link {
+        background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%);
+        .image-block {
+          background: transparent;
+        }
+      }
+    }
+  }
 }
 .mobile-sidebar .items > .item .link > .title {
   font-size: 16px;
