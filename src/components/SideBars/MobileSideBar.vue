@@ -155,6 +155,7 @@ watch(route, (newVal, oldVal) => {
   display: flex;
   align-items: center;
   text-decoration: none;
+  justify-content: flex-start;
   border-radius: 16px;
 }
 .mobile-sidebar {
@@ -164,6 +165,14 @@ watch(route, (newVal, oldVal) => {
         background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%);
         .image-block {
           background: transparent;
+        }
+      }
+      .router-link-active.router-link-exact-active.link.profile {
+        background: transparent;
+        .image-block {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid #2B66FB;
+          filter: drop-shadow(0px 0px 30px rgba(43, 102, 251, 0.55));
         }
       }
     }
