@@ -9,6 +9,7 @@
   >
     <div class="content__container">
       <div class="male__side">
+        <router-link to="/registration">
         <div
           class="btn"
           @mouseenter="changeBackMale"
@@ -16,6 +17,7 @@
         >
           Мужчина
         </div>
+        </router-link>
       </div>
       <div class="middle__menu">
         <div class="logo">
@@ -31,7 +33,9 @@
           />
         </div>
         <div class="signin__btn__block">
-          <div class="btn">Войти</div>
+          <router-link to="/auth">
+            <div class="btn">Войти</div>
+          </router-link>
           <div class="mobile__btn__block">
             <h1>Абсолютно новый формат знакомств</h1>
             <div class="btn__box">
@@ -43,13 +47,15 @@
         <h1 class="choose">Выбирите свой пол:</h1>
       </div>
       <div class="female__side">
-        <div
-          class="btn"
-          @mouseenter="changeBackFemale"
-          @mouseleave="changeBackFemale"
-        >
-          ДЕВУШКА
-        </div>
+        <router-link to="/registration">
+          <div
+            class="btn"
+            @mouseenter="changeBackFemale"
+            @mouseleave="changeBackFemale"
+          >
+            ДЕВУШКА
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -143,6 +149,7 @@ h1 {
         z-index: 2;
         position: relative;
         bottom: 137px;
+        left: -40px;
         transition: background-color 1s;
         &:hover {
           background: #2b66fb;
@@ -160,6 +167,7 @@ h1 {
       position: relative;
       top: -64px;
       z-index: 3;
+      margin-top: 100px;
       .logo {
         .mobile {
           display: none;
@@ -192,6 +200,8 @@ h1 {
         z-index: 2;
         position: relative;
         bottom: 137px;
+        right: -40px;
+
         transition: background-color 1s;
         &:hover {
           background: #e9218d;

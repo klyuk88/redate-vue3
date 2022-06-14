@@ -6,10 +6,12 @@
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
     </div>
+    <router-link to="/start">
     <div class="auth__back__btn">
       <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
+    </router-link>
     <div class="signup__page">
       <div class="signup__border">
         <div class="signup__block">

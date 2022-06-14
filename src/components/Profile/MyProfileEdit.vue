@@ -1,9 +1,11 @@
 <template>
   <div class="background">
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    <router-link to="/profile">
+      <div class="auth__back__btn">
+        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+        <h1 class="auth__back__btn__title">Назад</h1>
+        </div>
+    </router-link>
     <div class="container">
       <div class="content__container">
         <div class="header">
@@ -625,6 +627,9 @@
 </template>
 <script>
 import TheSelect from "../Form/TheSelect.vue";
+// import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
+import MyProfileSettings from "@/components/Profile/MyProfileSettings.vue";
+
 export default { components: { TheSelect } };
 </script>
 <style lang="scss" scoped>

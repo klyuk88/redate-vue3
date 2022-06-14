@@ -1,13 +1,12 @@
 <template>
   <div class="content__container">
-    <VerificationFirst />
-    <!-- <VerificationSecond /> -->
+    <AuthPopup />
   </div>
 </template>
 <script setup>
-import VerificationTabs from "../components/Auth/VerificationTabs.vue";
-import VerificationFirst from "../components/Auth/VerificationFirst.vue";
-import VerificationSecond from "../components/Auth/VerificationSecond.vue";
+import AuthPopup from '../components/Auth/AuthPopup.vue';
+import SignupPopup from '../components/Auth/SignupPopup.vue';
+
 </script>
 <style>
 .content__container {

@@ -1,12 +1,11 @@
 <template>
   <div class="content__container">
-    <!-- <ProfilePage /> -->
-    <MyProfilePage />
+    <ProfilePage />
 
   </div>
 </template>
 <script setup>
-import ProfilePage from "../components/Profile/ProfilePage.vue";
+import ProfilePage from "@/components/Profile/ProfilePage.vue";
 import MyProfilePage from "../components/Profile/MyProfilePage.vue";
 
 </script>

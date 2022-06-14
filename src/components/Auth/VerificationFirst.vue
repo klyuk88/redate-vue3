@@ -1,9 +1,9 @@
 <template>
   <div class="signup__background">
-    <div class="auth__back__btn">
+    <router-link to="/profile" class="auth__back__btn">
       <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    </router-link>
     <div class="verification__page">
       <div class="verification__block__container">
         <h1>Верификация</h1>
@@ -12,7 +12,6 @@
             <img src="@/assets/images/main/verification__avatar.svg" alt="" />
           </div>
           <div class="verification__desc">
-            <!-- <h3>Как сделать?</h3> -->
             <p>
               Для использования нашего ресурса Вам нужно пройти верификацию,
               таким образом мы исключаем возможность появления фейков и
@@ -21,13 +20,15 @@
               Вашем аккаунте, после прохождения, либо отклонения верификации она
               будет автоматически удалена.
             </p>
-            <p>
-              Спасибо за понимание, приятных знакомств.
-            </p>
+            <p>Спасибо за понимание, приятных знакомств.</p>
           </div>
         </div>
-        <div class="btn__continue">Продолжить</div>
-        <div class="btn__later">Пройти позже</div>
+        <router-link to="/verification/photo">
+          <div class="btn__continue">Продолжить</div>
+        </router-link>
+        <router-link to="/profile">
+          <div class="btn__later">Пройти позже</div>
+        </router-link>
       </div>
       <div class="verification__nav">
         <div class="nav__footer">

@@ -1,7 +1,7 @@
 <template>
-  <div class="album__block" @click.self="close">
+  <div class="album__block"   >
     <div class="album__content">
-      <div class="button__carousel__right">
+      <div class="button__carousel__right" >
         <img src="@/assets/images/main/album__arrow__right.svg" alt="" />
       </div>
       <div class="album__photo__container">
@@ -35,7 +35,7 @@
         <img src="@/assets/images/main/album__arrow__left.svg" alt="" />
       </div>
     </div>
-    <div class="album__close" @click="close">
+    <div class="album__close" @click="$emit('hideModal')">
       <img src="@/assets/images/main/close-album.svg" alt="" />
     </div>
   </div>
@@ -69,14 +69,11 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-  },
-};
+<script setup>
+  import {ref} from 'vue'
+// const showModal = ref(false);
+const emit = defineEmits(['hideModal'])
+  
 </script>
 <style lang="scss" scoped>
 .mobile__album {
