@@ -337,8 +337,8 @@ h1 {
         }
       }
       .middle__menu {
-        margin-top: 50px;
-        height: 678px;
+        margin-top: 12.82vw;
+        height: 173.846vw;
         top: 0;
         width: 33%;
         .choose {
@@ -358,16 +358,16 @@ h1 {
           justify-content: space-between;
           align-items: center;
           flex-direction: column;
-          height: 624px;
+          height: 160vw;
           .mobile__btn__block {
-            height: 200px;
+            height: 51.282vw;
             display: flex;
             justify-content: space-between;
             flex-direction: column;
             align-items: center;
             .btn__box {
-              height: 110px;
-              width: 181px;
+              height: 28.20vw;
+              width: 46.41vw;
               display: flex;
               flex-direction: column;
               justify-content: space-between;
@@ -376,14 +376,14 @@ h1 {
                 justify-content: space-between;
                 align-items: center;
                 flex-direction: column;
-                border: 1px solid rgba(255, 255, 255, 0.33);
+                border: 0.256vw solid rgba(255, 255, 255, 0.33);
                 filter: drop-shadow(0px 32px 83px rgba(18, 34, 74, 0.5));
-                border-radius: 11px;
-                padding: 11px 46px;
-                height: 47px;
-                width: 181px;
+                border-radius: 2.82vw;
+                padding: 2.82vw 11.79vw;
+                height: 12.051vw;
+                width: 46.41vw;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 4.10vw;
                 line-height: 153.5%;
                 text-align: center;
                 text-transform: uppercase;
@@ -393,7 +393,7 @@ h1 {
             }
           }
           .btn {
-            width: 150px;
+            width: 38.46vw;
           }
         }
       }

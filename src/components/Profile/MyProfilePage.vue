@@ -311,8 +311,9 @@
           :class="{ stageTwo: notificationStageTwo }"
         >
           <p>
-            Баланс - внутрений кошелек сайта. Положительный баланс позволяет
-            приобретать тарифный план и пользоваться платными функциями сайта.
+            Баланс - Ваш внутренний кошелёк сайта. Положительный баланс
+            позволяет приобретать подходящий тариф и пользоваться платными
+            функциями сайта.
           </p>
         </div>
         <div
@@ -600,7 +601,7 @@ export default {
     return {
       notificationStatus: false,
       notificationStageTwo: false,
-      notificationStageThree: true,
+      notificationStageThree: false,
       notificationStageFour: false,
       notificationStageFive: false,
       notificationStageSix: false,
@@ -650,7 +651,7 @@ export default {
 .text__notification {
   position: relative;
   top: -100px;
-  left: 250px;
+  left: 350px;
   width: 487px;
   height: 115px;
   background: rgba(255, 255, 255, 0.05);
@@ -672,7 +673,7 @@ export default {
 .text__notification__rate {
   position: relative;
   top: 0;
-  left: 250px;
+  left: 406px;
   width: 487px;
   height: 115px;
   background: rgba(255, 255, 255, 0.05);
@@ -722,7 +723,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 200px;
+    top: 150px;
     left: -350px;
     width: 672px;
     height: 94px;
@@ -735,7 +736,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 200px;
+    top: 150px;
     left: -350px;
     width: 672px;
     height: 94px;
@@ -748,7 +749,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 200px;
+    top: 150px;
     left: -350px;
     width: 672px;
     height: 94px;
@@ -761,7 +762,7 @@ export default {
 .unblured__border {
   width: 815px;
   background: none;
-  left: 210px;
+  left: 320px;
 
   &.stageTwo {
   }
@@ -786,7 +787,10 @@ export default {
 }
 .left__side {
   .background {
-    width: 817px;
+    width: 700px;
+    // width: 100%;
+    justify-content: flex-start;
+
   }
   .container {
     &.stageSix {
@@ -1433,8 +1437,8 @@ export default {
             }
             .mobile__horizontal__line {
               height: 0px;
-              width: 304px;
-              border: 1px solid rgba(255, 255, 255, 0.05);
+              width: 77.948vw;
+              border: 0.256vw solid rgba(255, 255, 255, 0.05);
               display: flex;
             }
           }

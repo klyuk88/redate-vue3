@@ -173,51 +173,51 @@ const close = () => {
     display: none;
   }
   .profile__message__box {
-    width: 335px;
-    height: 383px;
-    border: 1px solid #2b66fb;
-    border-radius: 24px;
+    width: 85.89vw;
+    height: 98.205vw;
+    border: 0.256vw solid #2b66fb;
+    border-radius: 6.153vw;
     background: rgba(36, 37, 41, 0.6);
     align-items: center;
     .profile__message__container {
-      width: 287px;
-      height: 201px;
-      border-radius: 11px;
+      width: 73.589vw;
+      height: 51.538vw;
+      border-radius: 2.82vw;
       background: none;
       border: none;
       .profile__message__container__content {
-        height: 335px;
-        width: 287px;
+        height: 85.89vw;
+        width: 73.589vw;
         align-items: center;
         .mobile__btn__box {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 297px;
-          height: 34px;
+          width: 76.153vw;
+          height: 8.717vw;
           .button__close {
-            width: 120px;
-            height: 34px;
-            border: 1px solid rgba(255, 255, 255, 0.33);
-            border-radius: 11px;
+            width: 30.769vw;
+            height: 8.717vw;
+            border: 0.256vw solid rgba(255, 255, 255, 0.33);
+            border-radius: 2.82vw;
             display: flex;
             align-items: center;
             justify-content: center;
           }
         }
         .profile__message__text__block {
-          width: 287px;
-          height: 241px;
+          width: 73.589vw;
+          height: 61.79vw;
           .profile__message__text {
-            width: 287px;
-            height: 201px;
+            width: 73.589vw;
+            height: 51.538vw;
             background: none;
           }
         }
         .profile__message__button {
-          width: 161px;
-          height: 33px;
-          border-radius: 11px;
+          width: 43.28vw;
+          height: 8.46vw;
+          border-radius: 2.82vw;
           padding: 0;
           display: flex;
           align-items: center;
@@ -228,12 +228,12 @@ const close = () => {
           }
           .button__text {
             font-weight: 700;
-            font-size: 14px;
+            font-size: 3.589vw;
             line-height: 132.5%;
           }
           .button__options {
             font-weight: 700;
-            font-size: 12px;
+            font-size: 3.0769vw;
             line-height: 132.5%;
           }
         }

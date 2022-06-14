@@ -138,7 +138,7 @@ export default {};
   .signup__border {
       justify-content: space-between;
       margin: 0 auto;
-    height: 491px;
+    height: 125.897vw;
     display: flex;
     border: none;
     flex-direction: column;
@@ -154,20 +154,20 @@ export default {};
   .signup__desc {
     h1 {
       font-weight: 600;
-      font-size: 24px;
-      line-height: 30px;
-      width: 251px;
-      height: 30px;
+      font-size: 6.1538vw;
+      line-height: 7.692vw;
+      width: 64.3589vw;
+      height: 7.692vw;
     }
     p {
       font-weight: 400;
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 3.5897vw;
+      line-height: 4.615vw;
       display: flex;
       align-items: center;
       text-align: center;
-      width: 275px;
-      height: 54px;
+      width: 70.512vw;
+      height: 13.846vw;
     }
   }
 }

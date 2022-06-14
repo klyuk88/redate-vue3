@@ -162,10 +162,10 @@ export default {
 }
 @media (max-width: 1200px) {
   .signup__return__btn {
-    margin-left: 13px;
+    margin-left: 3.33vw;
   }
   .signup__page {
-    height: 621px;
+    height: 159.23vw;
   }
   .signup__border {
     display: flex;
@@ -173,7 +173,7 @@ export default {
     margin: 0;
   }
   .signup__block__container {
-    height: 513px;
+    height: 131.53vw;
   }
   .signup__block {
     border: none;
@@ -181,14 +181,14 @@ export default {
     box-shadow: none;
   }
   .signup__body__block {
-    height: 462px;
+    height: 118.461vw;
   }
   .signup__options__block {
     border: none;
   }
   .signup__btn {
-    width: 335px;
-    height: 60px;
+    width: 85.89vw;
+    height: 15.384vw;
   }
 }
 </style>

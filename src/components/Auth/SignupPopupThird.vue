@@ -264,6 +264,7 @@ margin-top: 24px;
   .signup__border {
     display: flex;
     border: none;
+    margin: 0;
   }
   .signup__block {
     border: none;
@@ -271,16 +272,15 @@ margin-top: 24px;
     box-shadow: none;
   }
   .signup__block__container {
-    width: 335px;
-    height: 594px;
+    width: 85.89vw;
   }
   .block__choose {
-    width: 335px;
+    width: 85.89vw;
   }
   .input {
-    width: 335px;
+    width: 85.89vw;
     background: none;
-    min-height: 60px;
+    min-height: 15.384vw;
   }
 
   .skip {
@@ -294,9 +294,8 @@ margin-top: 24px;
   .signup__btn {
     &.mobile {
       display: flex;
-      width: 335px;
-      height: 60px;
-      margin-top: 15px;
+      width: 85.89vw;
+      margin-top: 3.846vw;
     }
     &.web {
       display: none;

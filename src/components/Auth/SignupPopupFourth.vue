@@ -145,18 +145,18 @@ export default {
 }
 @media (max-width: 1200px) {
   .container__cash {
-    width: 335px;
+    width: 85.89vw;
   }
   .cash__border {
     input {
-      width: 155px;
+      width: 39.743vw;
     }
   }
   .about {
-    width: 335px;
-    height: 248px;
+    width: 85.89vw;
+    height: 63.589vw;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 3.846vw;
     line-height: 153.5%;
   }
   .signup__page {
@@ -167,6 +167,7 @@ export default {
   .signup__border {
     display: flex;
     border: none;
+    margin-top: 72px;
   }
   .signup__block {
     border: none;
@@ -174,32 +175,32 @@ export default {
     box-shadow: none;
   }
   .signup__block__container {
-    width: 335px;
-    height: 540px;
+    width: 85.89vw;
+    height: 138.461vw;
   }
   .input {
-    width: 335px;
+    width: 85.89vw;
     background: none;
-    height: 60px;
+    height: 15.384vw;
   }
 
   .signup__btn {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 4.102vw;
     line-height: 153.5%;
     &.mobile {
       display: flex;
-      width: 335px;
-      height: 60px;
-      margin-top: 15px;
+      width: 85.89vw;
+      height: 15.384vw;
+      margin-top: 3.846vw;
     }
     &.web {
       display: none;
     }
   }
   .horizontal__line {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 3.846vw;
+    margin-bottom: 3.846vw;
   }
 }
 </style>
