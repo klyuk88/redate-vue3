@@ -1,4 +1,7 @@
 <template>
+<ProfilePhotoCarousel  v-if="showModal" @hideModal="showModal = false"/>
+<ProfileNewMessage v-if="showModalMessage" @hideModalMessage="showModalMessage = false"/>
+<ProfilePopupMore v-if="showModalMore" @hideModalMore="showModalMore = false"/>
   <div class="profile__page">
     <div class="nav__box">
       <div class="auth__back__btn">
@@ -113,7 +116,7 @@
         >
           <div class="inner__buttons__block">
             <div class="big__buttons">
-              <div class="send__message">Написать</div>
+              <div class="send__message" @click="showModalMessage = true">Написать</div>
               <div class="icon__btn">
                 <img src="@/assets/images/main/star.svg" alt="" />
               </div>
@@ -121,7 +124,7 @@
                 <img src="@/assets/images/main/heart.svg" alt="" />
               </div>
             </div>
-            <div class="more">
+            <div class="more" @click="showModalMore = true">
               <img src="@/assets/images/main/btn_more.svg" alt="" />
             </div>
           </div>
@@ -147,7 +150,7 @@
           <div class="buttons__block mobile">
             <div class="inner__buttons__block">
               <div class="big__buttons">
-                <div class="send__message">Написать</div>
+                <div class="send__message" @click="showModalMessage = true">Написать</div>
                 <div class="icon__btn">
                   <img
                     src="@/assets/images/main/heart.svg"
@@ -307,19 +310,19 @@
               </p>
             </div>
             <div class="profile__info__list__carousel">
-              <div class="profile__mini__avatar">
+              <div class="profile__mini__avatar" @click="showModal = true">
                 <img
                   src="../../assets/images/main/woman__mini__avatar1.png"
                   alt=""
                 />
               </div>
-              <div class="profile__mini__avatar">
+              <div class="profile__mini__avatar" @click="showModal = true">
                 <img
                   src="../../assets/images/main/woman__mini__avatar1.png"
                   alt=""
                 />
               </div>
-              <div class="profile__mini__avatar">
+              <div class="profile__mini__avatar" @click="showModal = true">
                 <img
                   src="../../assets/images/main/woman__mini__avatar1.png"
                   alt=""
@@ -399,21 +402,23 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
+import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
+import ProfileNewMessage from "./ProfileNewMessage.vue";
+import ProfilePopupMore from "./ProfilePopupMore.vue";
 
 
+import { ref, computed } from 'vue'
+const showModal = ref(false);
+const showModalMessage = ref(false);
+const showModalMore = ref(false);
+const notificationStatus = false;
+const notificationStageTwo = false;
+const notificationStageThree = false;
+const notificationStageFour = false;
+const notificationStageFive = false;
 
-export default {
-  data() {
-    return {
-      notificationStatus: false,
-      notificationStageTwo: false,
-      notificationStageThree: false,
-      notificationStageFour: false,
-      notificationStageFive: false,
-    };
-  },
-};
+
 </script>
 <style lang="scss">
 .text {
@@ -889,13 +894,13 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 8px 12px;
-  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
   border-radius: 13px;
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
   margin-right: 12px;
+  border: #2965ff 1px solid;
 }
 .profile__info__list__container {
   display: flex;

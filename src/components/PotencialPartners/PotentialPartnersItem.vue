@@ -1,7 +1,7 @@
 <template>
 
   <div class="potential-partners-item">
-      <a href="http://">
+      <a href="/userprofile">
         <div class="image-wrap">
       <img src="@/assets/images/main/partner-avatar.png" alt="" />
     </div>

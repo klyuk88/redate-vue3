@@ -1,9 +1,11 @@
 <template>
   <div class="page__background">
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    <router-link to="/profile">
+      <div class="auth__back__btn">
+        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </div>
+    </router-link>
     <div class="settings__container">
       <div class="settings__content">
         <div class="settings__header">
@@ -240,7 +242,13 @@
   </div>
 </template>
 <script>
-export default {};
+import AuthPopup from "@/components/Auth/AuthPopup.vue";
+import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
+
+export default {
+
+  
+};
 </script>
 <style lang="scss" scoped>
 .flex__center {

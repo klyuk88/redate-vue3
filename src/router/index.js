@@ -79,6 +79,73 @@ const routes = [{
       layout: 'auth-layout'
     }
   },
+  {
+    path: '/verification',
+    name: 'Verification',
+    components: {
+      default: () => import('@/views/Verification.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/verification/photo',
+    name: 'VerificationPhoto',
+    components: {
+      default: () => import('@/components/Auth/VerificationSecond.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/verification/completed',
+    name: 'VerificationCompleted',
+    components: {
+      default: () => import('@/components/Auth/VerificationThird.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/start',
+    name: 'StartPage',
+    components: {
+      default: () => import('@/components/Auth/AuthMainPage.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    components: {
+      default: () => import('@/components/Profile/MyProfileSettings.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/edit',
+    name: 'Edit',
+    components: {
+      default: () => import('@/components/Profile/MyProfileEdit.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/userprofile',
+    name: 'Userprofile',
+    components: {
+      default: () => import('@/views/UserProfile.vue'),
+    },
+  },
 ]
 
 const router = createRouter({

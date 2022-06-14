@@ -1,9 +1,11 @@
 <template>
   <div class="signup__background">
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    <router-link to="/verification/photo">
+      <div class="auth__back__btn">
+        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </div>
+    </router-link>
     <div class="verification__page">
       <div class="verification__block__container">
         <div class="verification__content">
@@ -20,9 +22,9 @@
                   <p class="text__mobile">
                     Ваша заявка отправлена на модерацию.
                   </p>
-                  <p class="text__mobile"> За ответом можно следить
-                    в своем профиле.</p>
-
+                  <p class="text__mobile">
+                    За ответом можно следить в своем профиле.
+                  </p>
                 </div>
               </div>
               <h4>
@@ -38,7 +40,9 @@
               </p>
             </div>
           </div>
-          <div class="btn__continue">Перейти на главную</div>
+          <router-link to="/">
+            <div class="btn__continue">Перейти на главную</div>
+          </router-link>
         </div>
       </div>
       <div class="verification__nav">
@@ -183,7 +187,7 @@ export default {};
     width: 85.89vw;
     height: 15.384vw;
     font-weight: 700;
-    font-size: 4.10vw;
+    font-size: 4.1vw;
     line-height: 130%;
   }
   .verification__body {
@@ -224,15 +228,15 @@ export default {};
   }
 
   .left__side {
-  width: 5.307vw;
-  height: 21.44vw;
-  left: 14.615vw;
-  top: 19.487vw;
-}
-.right__side {
-  width: 5.284vw;
-  height: 44.217vw;
-  left: 28.97vw;
-}
+    width: 5.307vw;
+    height: 21.44vw;
+    left: 14.615vw;
+    top: 19.487vw;
+  }
+  .right__side {
+    width: 5.284vw;
+    height: 44.217vw;
+    left: 28.97vw;
+  }
 }
 </style>

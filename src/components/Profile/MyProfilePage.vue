@@ -1,4 +1,5 @@
 <template>
+    <ProfilePhotoCarousel v-if="showModal" @hideModal="showModal = false"/>
   <div class="profile__page">
     <div class="left__side">
       <div class="background">
@@ -92,8 +93,8 @@
                 <div class="btn gold">Продлить</div>
               </div>
               <div class="subscription">
-                <div class="item__price">
-                  <div class="inner__price__box">
+                <div class="item__price" >
+                  <div class="inner__price__box" >
                     <div class="days">7 дней</div>
                     <div class="price">54$</div>
                     <div class="progress__bar"></div>
@@ -101,10 +102,11 @@
                   </div>
                 </div>
                 <div
-                  class="item__price center"
+                  class="item__price center active"
                   :class="{ active: notificationStageTwo }"
+                 
                 >
-                  <div class="inner__price__box">
+                  <div class="inner__price__box ">
                     <div class="days">14 дней</div>
                     <div class="price">$96</div>
                     <div class="progress__bar"></div>
@@ -133,7 +135,7 @@
                   />
                 </div>
                 <div class="carousel__block">
-                  <div class="carousel">
+                  <div class="carousel" @click="showModal = true">
                     <img
                       src="../../assets/images/main/woman__mini__avatar1.png"
                       alt=""
@@ -172,8 +174,13 @@
             <div class="footer">
               <div class="btn" :class="{ stageSix: notificationStageSix }">
                 <div class="container">
-                  <img src="@/assets/images/main/myprofile__edit.svg" alt="" />
-                  <p>Редактирование анкеты</p>
+                  <router-link to="/settings">
+                    <img
+                      src="@/assets/images/main/myprofile__edit.svg"
+                      alt=""
+                    />
+                    <p>Редактирование анкеты</p>
+                  </router-link>
                 </div>
                 <div class="arrow__next">
                   <img
@@ -185,11 +192,13 @@
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
-                  <img
-                    src="@/assets/images/main/myprofile__setting.svg"
-                    alt=""
-                  />
-                  <p>Настройки входа</p>
+                  <router-link to="/edit">
+                    <img
+                      src="@/assets/images/main/myprofile__setting.svg"
+                      alt=""
+                    />
+                    <p>Настройки входа</p>
+                  </router-link>
                 </div>
                 <div class="arrow__next">
                   <img
@@ -452,7 +461,6 @@
             <div class="profile__info__filter__block">
               <div
                 class="profile__info__filter__icon"
-                @click="modalDescrVisible"
               >
                 <img src="@/assets/images/main/description.svg" alt="" />
               </div>
@@ -593,23 +601,23 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import MobileBurger from "../MobileBurger.vue";
-export default {
-  components: { MobileBurger },
-  data() {
-    return {
-      notificationStatus: false,
-      notificationStageTwo: false,
-      notificationStageThree: false,
-      notificationStageFour: false,
-      notificationStageFive: false,
-      notificationStageSix: false,
-      notificationStageSeven: false,
-      notificationStageEight: false,
-    };
-  },
-};
+import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
+import { ref, computed } from 'vue'
+
+
+const showModal = ref(false);
+const notificationStatus = false;
+const notificationStageTwo = false;
+const notificationStageThree = false;
+const notificationStageFour = false;
+const notificationStageFive = false;
+const notificationStageSix = false;
+const notificationStageSeven = false;
+const notificationStageEight = false;
+
+
 </script>
 <style lang="scss" scoped>
 .notification__blur {
@@ -782,15 +790,12 @@ export default {
 .profile__info__list__hobby__block {
   width: 440px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 .left__side {
   .background {
     width: 700px;
     // width: 100%;
     justify-content: flex-start;
-
   }
   .container {
     &.stageSix {
@@ -868,6 +873,7 @@ export default {
             font-weight: 700;
             font-size: 16px;
             line-height: 153.5%;
+            margin-left: 20px;
             color: rgba(255, 255, 255, 0.33);
             img {
               margin-right: 0.69vw;
@@ -884,13 +890,8 @@ export default {
             background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
             border-radius: 14px;
             &.gold {
-              border: #ad6902 1px solid;
-              background: linear-gradient(
-                132.27deg,
-                #f9ae3f -0.77%,
-                #ffdba5 36.67%,
-                #ad6902 96.37%
-              );
+              border: #2965ff 1px solid;
+              background: #bdd0ff;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -942,18 +943,16 @@ export default {
             }
             .price {
               text-align: center;
-              border: #ad6902 1px solid;
+              border: #2965ff 1px solid;
               padding: 7px 26px;
               border-radius: 11px;
               font-weight: 600;
               font-size: 15px;
               line-height: 153.5%;
-              background: linear-gradient(
-                132.27deg,
-                #f9ae3f -0.77%,
-                #ffdba5 36.67%,
-                #ad6902 96.37%
-              );
+              width: 114.36px;
+              height: 37px;
+              margin-top: 10px;
+              background: #bdd0ff;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -963,10 +962,12 @@ export default {
               display: none;
               width: 160px;
               height: 24px;
+              margin-top: 5px;
+              margin-bottom: 5px;
               background: linear-gradient(
                 89.71deg,
-                rgba(255, 255, 255, 0.93) 0.25%,
-                rgba(255, 255, 255, 0.86) 46.83%,
+                rgba(248, 195, 4, 0.93) 0.25%,
+                rgba(244, 167, 35, 0.756) 46.83%,
                 #ffffff 65.55%,
                 rgba(255, 255, 255, 0.2) 65.56%,
                 rgba(255, 255, 255, 0.2) 99.75%
@@ -981,12 +982,8 @@ export default {
               width: 194px;
               height: 144px;
               filter: drop-shadow(4px 0px 11px rgba(43, 102, 251, 0.37));
-              background: linear-gradient(
-                137.15deg,
-                #2965ff 0%,
-                #2e66f5 99.89%
-              );
-              border: 1px solid rgba(255, 255, 255, 0.14);
+
+              border: 4px solid #f9ae3e;
               border-radius: 24px;
               @extend .flex__center;
               .price {
@@ -1078,6 +1075,7 @@ export default {
           }
           .container {
             justify-content: center;
+            text-align: center;
           }
           p {
             margin-top: 12px;
@@ -1266,17 +1264,21 @@ export default {
     display: none;
   }
   .left__side {
-    height: 186.66vw;
+    // height: 186.66vw;
+    padding: 0;
     .background {
-      height: 217.69vw;
+      // height: 217.69vw;
       margin-bottom: 10.769vw;
+      padding: 0;
+      width: unset;
       .container {
         width: 85.59vw;
-        height: 175.89vw;
+        // height: 175.89vw;
         .header {
           justify-content: end;
           height: 81.28vw;
-          width: 96.15vw;
+          width: 100vw;
+          margin-bottom: 6.153vw;
           background: linear-gradient(
             180deg,
             rgba(131, 131, 131, 0.2) 0%,
@@ -1343,8 +1345,8 @@ export default {
           }
         }
         .main {
-          justify-content: space-between;
-          height: 88.46vw;
+          justify-content: center;
+          height: unset;
           width: 96.15vw;
           .cash__container {
             width: 85.89vw;
@@ -1352,6 +1354,7 @@ export default {
             background: rgba(27, 28, 30, 0.5);
             border: 0.256vw solid rgba(255, 255, 255, 0.14);
             border-radius: 6.153vw;
+            margin-bottom: 5.128vw;
             .block {
               height: 8.2vw;
               width: 73.84vw;

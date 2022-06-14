@@ -64,23 +64,20 @@ export default {
     VerificationThird,
     SignupPopupFourth,
   },
-  data() {
-    return {
-      activeTab: "tab-1",
-    //   isActiveNav: false
-    };
-  },
-  methods: {
-    setActive(tab) {
-      this.activeTab = tab;
-    },
-    isActive(tab) {
-      return this.activeTab === tab;
-    },
-    // changeActive() {
-    //   return (this.isActiveNav  === !this.isActiveNav);
-    // }
-  },
+  // data() {
+  //   return {
+  //     activeTab: "tab-1",
+  //   //   isActiveNav: false
+  //   };
+  // },
+  // methods: {
+  //   setActive(tab) {
+  //     this.activeTab = tab;
+  //   },
+  //   isActive(tab) {
+  //     return this.activeTab === tab;
+  //   },
+  // },
 };
 </script>
 <style lang="scss" scoped>

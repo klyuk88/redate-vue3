@@ -1,10 +1,12 @@
 <template>
   <div class="auth__background">
     <div class="auth__page" :class="error">
+    <router-link to="/start">
       <div class="auth__back__btn">
         <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>
       </div>
+    </router-link>
       <div class="auth__block" :class="error">
         <div class="" :class="{ animated__border: isClicked }">
           <div class="auth__input__box" :class="error">
