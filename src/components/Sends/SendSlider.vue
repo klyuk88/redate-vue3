@@ -9,8 +9,7 @@
         prevEl: '.slider-nav.left',
       }"
       :pagination="{
-        el: '.send-slider .swiper-pagination',
-        type: 'bullets',
+        clickable: true
       }"
     >
       <SwiperSlide>
@@ -22,8 +21,8 @@
       <SwiperSlide>
         <SendSliderItem />
       </SwiperSlide>
+      
     </Swiper>
-  <div class="swiper-pagination"></div>
     <svg
       class="slider-nav right"
       width="21"
@@ -54,6 +53,7 @@
         stroke-width="2"
       />
     </svg>
+    
   </div>
 </template>
 <script setup>
@@ -71,6 +71,9 @@ import "swiper/modules/navigation/navigation.min.css";
   max-width: 788px;
   margin: 0 auto;
   margin-bottom: 40px;
+  .swiper {
+    position: static;
+  }
   .slider-nav.left {
     position: absolute;
     left: -30px;

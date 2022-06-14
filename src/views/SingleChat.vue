@@ -49,7 +49,7 @@
         </div>
 
         <div class="search-results">
-          <img src="@/assets/images/back_arr.svg" alt="" class="s-ch-back" />
+          <img src="@/assets/images/back_arr.svg" alt="" class="s-ch-back" @click="$router.go(-1)"/>
           <div class="s-ch-status-data">
             <div class="s-ch-avatar-wrap">
               <img
@@ -217,6 +217,9 @@ const message = ref(null);
         transform: translateX(-50%);
         background: rgba(28, 29, 33, 0.01);
         backdrop-filter: blur(50px);
+        .s-ch-back {
+          cursor: pointer;
+        }
         .results {
           opacity: 0.3;
         }
@@ -310,6 +313,7 @@ const message = ref(null);
         overflow: hidden;
         background: rgba($color: #1c1d21, $alpha: 1);
         z-index: -1;
+        
         img {
           position: absolute;
           width: 100%;
@@ -319,6 +323,7 @@ const message = ref(null);
           top: 0;
           filter: saturate(0) blur(15px);
           opacity: 0.15;
+
         }
       }
     }
