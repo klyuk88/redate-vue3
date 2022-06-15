@@ -2,7 +2,7 @@
   <aside class="side-bar">
     <div class="menu">
       <div class="menu-top">
-        <router-link to="/profile" class="profile-link">
+        <router-link to="/account/:user" class="profile-link">
           <div class="menu-item avatar">
             <img src="@/assets/images/main/avatar.png" alt="" class="avatar" />
           </div>

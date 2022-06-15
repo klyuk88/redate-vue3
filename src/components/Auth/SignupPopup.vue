@@ -13,7 +13,7 @@
     </div>
     </router-link>
     <div class="signup__page">
-      <div class="signup__border">
+      <div class="signup__border" :class="{ animated__border: isClicked }">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header">
@@ -64,10 +64,12 @@
         </div>
       </div>
       <div class="signup__footer">
-        <div class="signup__btn">Продолжить</div>
+        <div class="signup__btn" @click="waveAnim">Продолжить</div>
         <div class="signup__footer__menu">
           <p>Есть учетная запись?</p>
-          <span>Войти</span>
+          <router-link to="/auth">
+            <span>Войти</span>
+          </router-link>
         </div>
         <div class="signup__footer__terms">
           <p>
@@ -81,8 +83,33 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
+<script setup>
+import {computed} from 'vue'
+const isClicked = false
+
+const waveAnim = computed(() => {
+  return (isClicked = !isClicked)
+})
+
+// export default {
+//     data() {
+//     return {
+//       hasError: true,
+//       isClicked: false,
+//     };
+//   },
+//   computed: {
+//     error() {
+//       if (this.hasError === true) {
+//         return "error__auth";
+//       }
+//       return "test";
+//     },
+//     waveAnim() {
+//       return (this.isClicked = !this.isClicked);
+//     },
+//   },
+// };
 </script>
 <style lang="scss">
 .mobile__body {
@@ -168,7 +195,7 @@ export default {};
 .signup__border {
   @extend .flex__center;
   width: 446px;
-  border: 1px solid rgba(43, 102, 251, 0.4);
+  // border: 1px solid rgba(43, 102, 251, 0.4);
   border-radius: 32px;
   margin-bottom: 83px;
   margin-top: 208px;
@@ -218,8 +245,12 @@ export default {};
 .signup__footer__menu {
   @extend .flex__center;
   justify-content: space-between;
-  width: 194px;
+  align-items: baseline;
+  width: 179px;
   height: 21px;
+  span {
+    cursor: pointer;
+  }
 }
 .signup__footer__terms {
   @extend .flex__center;
@@ -235,6 +266,48 @@ export default {};
     color: #2b66fb;
   }
 }
+.animated__border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 425px;
+    height: 376px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 428px;
+    height: 377px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 434px;
+    height: 381px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 450px;
+    height: 406px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 466px;
+    height: 420px;
+  }
+}
+
 @media (max-width: 1200px) {
   .auth__back__btn {
     left: 3.33vw;

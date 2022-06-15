@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="mobile__btn__box">
-            <div class="button__close" @click="close">Отмена</div>
+            <div class="button__close" @click="close" >Отмена</div>
             <div class="profile__message__button">
               <div class="button__box">
                 <div class="button__text">Отправить</div>
@@ -37,6 +37,8 @@ const store = useStore()
 const close = () => {
   store.newMessageWindow = false
 }
+
+
 </script>
 <style lang="scss">
 .text {

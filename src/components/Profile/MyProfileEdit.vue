@@ -1,10 +1,10 @@
 <template>
   <div class="background">
-    <router-link to="/profile">
+    <router-link to="/profile/:user">
       <div class="auth__back__btn">
         <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>
-        </div>
+      </div>
     </router-link>
     <div class="container">
       <div class="content__container">
@@ -127,7 +127,6 @@
               <div class="border">
                 <!-- <input class="input" type="text" placeholder="Введите сумму" />
                 <span>$</span> -->
-                
               </div>
             </div>
             <div class="info__bar">
@@ -344,9 +343,11 @@
     <div class="accordion">
       <div class="mobile__header">
         <div class="title__block">
-          <div class="back__arrow">
-            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-          </div>
+          <router-link to="/profile">
+            <div class="back__arrow">
+              <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+            </div>
+          </router-link>
           <p>Редактирование анкеты</p>
         </div>
       </div>
@@ -633,7 +634,6 @@ import MyProfileSettings from "@/components/Profile/MyProfileSettings.vue";
 export default { components: { TheSelect } };
 </script>
 <style lang="scss" scoped>
-
 .flex__center {
   display: flex;
   justify-content: center;
@@ -643,7 +643,7 @@ export default { components: { TheSelect } };
   width: 100%;
   height: 100%;
   @extend .flex__center;
-    .accordion {
+  .accordion {
     display: none;
   }
 }
@@ -700,7 +700,8 @@ export default { components: { TheSelect } };
           .chips {
             @extend .flex__center;
             padding: 8px 12px;
-            background: #2b66fb;
+            // background: #2b66fb;
+            border: #2965ff 1px solid;
             box-shadow: 0px 4px 20px -12px rgba(41, 101, 255, 0.4);
             border-radius: 13px;
             height: 38px;
@@ -960,6 +961,7 @@ export default { components: { TheSelect } };
             padding: 12px 18px;
             margin-right: 12px;
             height: 47px;
+
             img {
               margin-left: 10px;
               cursor: pointer;
@@ -1066,7 +1068,7 @@ export default { components: { TheSelect } };
         }
       }
     }
-  
+
     .age__block {
       display: flex;
       align-items: center;
@@ -1154,7 +1156,7 @@ export default { components: { TheSelect } };
     .select__city {
       width: 85.89vw;
       z-index: 2;
-      margin-bottom: 4.10vw;
+      margin-bottom: 4.1vw;
     }
     .select__nation {
       width: 85.89vw;
@@ -1170,7 +1172,7 @@ export default { components: { TheSelect } };
       .chips {
         height: 7.948vw;
         padding: 1.794vw 2.564vw;
-        background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+        border: #2e66f5 1px solid;
         border-radius: 3.333vw;
         gap: 2.564vw;
         display: flex;
@@ -1235,6 +1237,7 @@ export default { components: { TheSelect } };
           .input {
             width: 25.64vw;
             border: none;
+            
             margin: 0;
             &::placeholder {
               color: rgba(255, 255, 255, 0.33);
@@ -1259,15 +1262,15 @@ export default { components: { TheSelect } };
       .horizontal__line {
         border: 0.256vw solid rgba(255, 255, 255, 0.05);
         width: 85.89vw;
-        margin-top: 4.10vw;
-        margin-bottom: 4.10vw;
+        margin-top: 4.1vw;
+        margin-bottom: 4.1vw;
       }
       .smoke__box {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
-        height: 22.30vw;
+        height: 22.3vw;
         &.last {
           margin-bottom: 6.153vw;
         }
@@ -1310,12 +1313,12 @@ export default { components: { TheSelect } };
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
-  
+
       .horizontal__line {
         border: 0.256vw solid rgba(255, 255, 255, 0.05);
         width: 85.89vw;
-        margin-top: 4.10vw;
-        margin-bottom: 4.10vw;
+        margin-top: 4.1vw;
+        margin-bottom: 4.1vw;
       }
       .hobby__box {
         min-height: 27.435vw;
@@ -1326,7 +1329,7 @@ export default { components: { TheSelect } };
         .title__hobby {
           margin-bottom: 3.0769vw;
         }
-  
+
         &.last {
           margin-bottom: 6.1538vw;
         }
@@ -1347,7 +1350,7 @@ export default { components: { TheSelect } };
             justify-content: flex-start;
             align-items: center;
             flex-wrap: wrap;
-            padding: 4.10vw 3.0769vw;
+            padding: 4.1vw 3.0769vw;
             .add__btn {
               padding: 1.538vw;
               gap: 2.564vw;
@@ -1395,7 +1398,7 @@ export default { components: { TheSelect } };
       position: relative;
       transition: background 0.1s;
     }
-  
+
     .accordion__label::after {
       content: "";
       position: absolute;
@@ -1407,31 +1410,29 @@ export default { components: { TheSelect } };
       // background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
       background-size: contain;
       background-image: url(../../assets/images/main/auth__back__arrow.svg);
-  
+
       transition: transform 0.4s;
     }
-  
+
     .accordion__content {
       width: 85.89vw;
       display: none;
     }
-  
+
     .accordion__input {
       display: none;
     }
-  
+
     .accordion__input:checked ~ .accordion__content {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-  
+
     .accordion__input:checked ~ .accordion__label::after {
       transform: translateY(-50%) rotate(0.5turn);
     }
     display: none;
   }
 }
-
-
 </style>

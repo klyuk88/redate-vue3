@@ -112,9 +112,8 @@ export default {
     box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
   }
   &.choosed {
-    background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+    border: 1px solid #2965ff;
     box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
-    border: none;
   }
 }
 .signup__header__block {

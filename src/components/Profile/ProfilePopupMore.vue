@@ -1,11 +1,11 @@
 <template>
-  <ProfilePopupBan v-if="modalBanVisible" @close="modalBanVisible = false" />
-  <ProfilePopupHide v-if="modalHideVisible" @close="modalHideVisible = false" />
+  <ProfilePopupBan v-if="modalBanVisible" @hideModalBan="modalBanVisible = false" />
+  <ProfilePopupHide v-if="modalHideVisible" @hideModalHide="modalHideVisible = false" />
   <ProfilePopupReport
     v-if="modalReportVisible"
-    @close="modalReportVisible = false"
+    @hideModalReport="modalReportVisible = false"
   />
-  <div class="more__menu__background" @click.self="close">
+  <div class="more__menu__background" @click.self="$emit('hideModalMore')">
     <div class="more__menu__block">
       <div class="more__menu__content">
         <div class="more__menu__box">
@@ -15,21 +15,21 @@
           <div class="menu__title">Поделиться</div>
         </div>
         <div class="more__menu__horizontal__line"></div>
-        <div class="more__menu__box" @click="showModalHide">
+        <div class="more__menu__box" @click="modalHideVisible = true">
           <div class="menu__icon">
             <img src="@/assets/images/main/hide.svg" alt="" />
           </div>
           <div class="menu__title">Скрыть</div>
         </div>
         <div class="more__menu__horizontal__line"></div>
-        <div class="more__menu__box" @click="showModalBan">
+        <div class="more__menu__box" @click="modalBanVisible = true">
           <div class="menu__icon">
             <img src="@/assets/images/main/ban.svg" alt="" />
           </div>
           <div class="menu__title">Заблокировать</div>
         </div>
         <div class="more__menu__horizontal__line"></div>
-        <div class="more__menu__box" @click="showModalReport">
+        <div class="more__menu__box" @click="modalReportVisible = true">
           <div class="menu__icon">
             <img src="@/assets/images/main/report.svg" alt="" />
           </div>
@@ -39,35 +39,20 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import ProfilePopupHide from "./ProfilePopupHide.vue";
 import ProfilePopupBan from "./ProfilePopupBan.vue";
 import ProfilePopupReport from "./ProfilePopupReport.vue";
-export default {
-  data() {
-    return {
-      modalHideVisible: false,
-      modalBanVisible: false,
-      modalReportVisible: false,
-    };
-  },
 
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-    showModalHide() {
-      this.modalHideVisible = true;
-    },
-    showModalBan() {
-      this.modalBanVisible = true;
-    },
-    showModalReport() {
-      this.modalReportVisible = true;
-    },
-  },
-  components: { ProfilePopupHide, ProfilePopupBan, ProfilePopupReport },
-};
+import { ref } from 'vue'
+const modalBanVisible = ref(false);
+const modalHideVisible = ref(false);
+const modalReportVisible = ref(false);
+
+const emit = defineEmits(['hideModalMore'])
+ 
+
+
 </script>
 <style>
 .more__menu__background {
