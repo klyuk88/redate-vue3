@@ -13,10 +13,6 @@
                 alt=""
               />
               <div class="photo__frame__carousel">
-                <div class="photo__frame__btn__block">
-                  <div class="btn">Сделать Аватаркой</div>
-                  <div class="btn">Удалить</div>
-                </div>
                 <div class="photo__frame__carousel__item__list">
                   <div class="photo__frame__carousel__item"></div>
                   <div class="photo__frame__carousel__item"></div>
@@ -43,7 +39,7 @@
       <img class="avatar" src="../../assets/images/main/album__main__avatar.png" alt="">
 
     <div class="mobile__album__header">
-      <router-link to="/profile">
+      <router-link to="/userprofile">
         <div class="btn__back__block">
           <div class="btn__back">
             <img class="arrow" src="../../assets/images/main/auth__back__arrow.svg" alt="" />
@@ -141,9 +137,9 @@ const emit = defineEmits(['hideModal'])
   backdrop-filter: blur(15px);
   position: absolute;
   width: 388px;
-  height: 117px;
+  height: 78px;
   left: 86px;
-  top: 627px;
+  top: 672px;
   z-index: 100;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);

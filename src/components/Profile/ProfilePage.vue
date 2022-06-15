@@ -1,19 +1,27 @@
 <template>
-<ProfilePhotoCarousel  v-if="showModal" @hideModal="showModal = false"/>
-<ProfileNewMessage v-if="showModalMessage" @hideModalMessage="showModalMessage = false"/>
-<ProfilePopupMore v-if="showModalMore" @hideModalMore="showModalMore = false"/>
+  <UserPhotoCarousel v-if="showModal" @hideModal="showModal = false" />
+  <ProfileNewMessage
+    v-if="showModalMessage"
+    @hideModalMessage="showModalMessage = false"
+  />
   <div class="profile__page">
     <div class="nav__box">
-      <div class="auth__back__btn">
-        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </div>
+      <router-link to="/">
+        <div class="auth__back__btn">
+          <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          <h1 class="auth__back__btn__title">Назад</h1>
+        </div>
+      </router-link>
       <div class="more_mobile">
         <img src="@/assets/images/main/btn_more.svg" alt="" />
       </div>
     </div>
     <div class="left__side">
       <div class="background">
+        <ProfilePopupMore
+          v-if="showModalMore"
+          @hideModalMore="showModalMore = false"
+        />
         <div
           class="photo"
           :class="{ notification__unblur: notificationStatus }"
@@ -26,28 +34,36 @@
         </div>
         <div class="profile__info__list__carousel mobile">
           <div class="profile__mini__avatar">
-            <img
-              src="../../assets/images/main/woman__mini__avatar1.png"
-              alt=""
-            />
+            <router-link to="/profile/usergallery">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </router-link>
           </div>
           <div class="profile__mini__avatar">
-            <img
-              src="../../assets/images/main/woman__mini__avatar1.png"
-              alt=""
-            />
+            <router-link to="/profile/usergallery">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </router-link>
           </div>
           <div class="profile__mini__avatar">
-            <img
-              src="../../assets/images/main/woman__mini__avatar1.png"
-              alt=""
-            />
+            <router-link to="/profile/usergallery">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </router-link>
           </div>
           <div class="profile__mini__avatar">
-            <img
-              src="../../assets/images/main/woman__mini__avatar1.png"
-              alt=""
-            />
+            <router-link to="/profile/usergallery">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </router-link>
           </div>
         </div>
         <div
@@ -115,8 +131,8 @@
           }"
         >
           <div class="inner__buttons__block">
-            <div class="big__buttons">
-              <div class="send__message" @click="showModalMessage = true">Написать</div>
+            <div class="big__buttons" >
+              <div class="send__message" >Написать</div>
               <div class="icon__btn">
                 <img src="@/assets/images/main/star.svg" alt="" />
               </div>
@@ -150,7 +166,7 @@
           <div class="buttons__block mobile">
             <div class="inner__buttons__block">
               <div class="big__buttons">
-                <div class="send__message" @click="showModalMessage = true">Написать</div>
+                <div class="send__message"  >Написать</div>
                 <div class="icon__btn">
                   <img
                     src="@/assets/images/main/heart.svg"
@@ -369,7 +385,7 @@
       </div>
     </div>
   </div>
-  <div class="gallery_preview" :class="{stageFive: notificationStageFive}">
+  <div class="gallery_preview" :class="{ stageFive: notificationStageFive }">
     <ProfilePhotoCarousel />
   </div>
   <div
@@ -403,12 +419,11 @@
   </div>
 </template>
 <script setup>
-import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
+import UserPhotoCarousel from "./UserPhotoCarousel.vue";
 import ProfileNewMessage from "./ProfileNewMessage.vue";
 import ProfilePopupMore from "./ProfilePopupMore.vue";
+import { ref } from "vue";
 
-
-import { ref, computed } from 'vue'
 const showModal = ref(false);
 const showModalMessage = ref(false);
 const showModalMore = ref(false);
@@ -417,8 +432,6 @@ const notificationStageTwo = false;
 const notificationStageThree = false;
 const notificationStageFour = false;
 const notificationStageFive = false;
-
-
 </script>
 <style lang="scss">
 .text {
@@ -462,13 +475,13 @@ const notificationStageFive = false;
   &.stageTwo {
     display: flex;
   }
-    &.stageThree {
+  &.stageThree {
     display: flex;
   }
-    &.stageFour {
+  &.stageFour {
     display: flex;
   }
-    &.stageFive {
+  &.stageFive {
     display: flex;
   }
 }
@@ -687,7 +700,7 @@ const notificationStageFive = false;
   display: flex;
   justify-content: center;
   align-items: center;
-    padding-left: 100px;
+  padding-left: 100px;
   padding-right: 75px;
 }
 .right__side {
@@ -1032,11 +1045,15 @@ const notificationStageFive = false;
   display: none;
 }
 @media (max-width: 1200px) {
+  .profile__info__filter__block  {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
   .profile__page {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    margin-top: 24.61vw;
+    margin-top: 8vw;
     .nav__box {
       margin-bottom: 6.153vw;
       display: flex;
@@ -1067,7 +1084,9 @@ const notificationStageFive = false;
     .left__side {
       width: 85.89vw;
       flex-direction: column;
+      padding: 0;
       .background {
+        padding: 0;
         .profile__info__list__carousel {
           display: flex;
           position: relative;
@@ -1093,8 +1112,6 @@ const notificationStageFive = false;
         background: none;
         border: none;
         width: 85.89vw;
-        height: 141.53vw;
-
         .photo {
           border: #2965ff 0.256vw solid;
           width: 85.89vw;
@@ -1140,7 +1157,7 @@ const notificationStageFive = false;
         .profile__info {
           align-items: center;
           width: 85.89vw;
-          height: 225vw;
+          height: unset;
           .buttons__block {
             &.mobile {
               display: flex;
@@ -1230,8 +1247,8 @@ const notificationStageFive = false;
             }
           }
           .profile__info__filter {
+            height: unset;
             width: 86.15vw;
-            height: 28.97vw;
             .profile__info__filter__description {
               font-weight: 600;
               font-size: 3.846vw;
@@ -1239,8 +1256,8 @@ const notificationStageFive = false;
             }
             .profile__info__filter__tags__block {
               width: 85.89vw;
-              height: 21.02vw;
-              gap: 2px;
+              gap: 8px;
+              height: unset;
               .profile__info__filter__tag {
                 height: 8.97vw;
                 font-size: 3.589vw;
@@ -1271,16 +1288,17 @@ const notificationStageFive = false;
             backdrop-filter: none;
             align-items: center;
             width: 85.89vw;
-            height: 130vw;
+            padding: 0;
             .profile__horizontal__line {
               display: none;
             }
             .mobile__more__info__title {
+              margin-top: 32px;
               display: flex;
               align-items: center;
               justify-content: space-between;
               width: 85.89vw;
-              height: 5.897vw;
+              margin-bottom: 8px;
               p {
                 font-weight: 600;
                 font-size: 3.846vw;
@@ -1351,9 +1369,7 @@ const notificationStageFive = false;
             }
             .profile__info__list {
               width: 85.89vw;
-              height: 52.56vw;
               .profile__info__list__stats {
-                height: 6.153vw;
                 width: 89.74vw;
                 .profile__info__list__title {
                   font-size: 3.846vw;

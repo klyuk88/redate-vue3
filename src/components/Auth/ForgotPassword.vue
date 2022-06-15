@@ -1,9 +1,11 @@
 <template>
   <div class="signup__background">
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    <router-link to="/auth">
+      <div class="auth__back__btn">
+        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </div>
+    </router-link>
     <div class="signup__page">
       <div class="signup__border" :class="error">
         <div class="signup__block" :class="error">
@@ -11,13 +13,15 @@
             <div class="signup__block__header">
               <h1>Забыли пароль?</h1>
               <p>
-                Введите электронную почту или номер телефона. Мы отправим Вам код для восстановления пароля. 
+                Введите электронную почту или номер телефона. Мы отправим Вам
+                код для восстановления пароля.
               </p>
             </div>
             <div class="signup__block__numbers" :class="error">
               <input class="input" placeholder="+7 (438) 943 82 94" />
               <span class="" :class="errorPhone"
-                >Неправильно введён номер телефона. Перепроверьте данные или введите электронную почту.</span
+                >Неправильно введён номер телефона. Перепроверьте данные или
+                введите электронную почту.</span
               >
               <span class="" :class="errorMail"
                 >Неправильно введена электронная почта. Перепроверьте данные или
@@ -31,7 +35,8 @@
         <div class="signup__block__header">
           <h1>Забыли пароль?</h1>
           <p>
-            Введите электронную почту или номер телефона. Мы отправим Вам код для восстановления пароля.
+            Введите электронную почту или номер телефона. Мы отправим Вам код
+            для восстановления пароля.
           </p>
         </div>
         <div class="mobile__buttons" :class="error">
@@ -49,11 +54,23 @@
           <div class="signup__btn" :class="(errorPhone, errorMail)">
             Отправить
           </div>
-          <p class="footer__text">Вспомнили пароль? <span> Войти</span></p>
+          <p class="footer__text">
+            Вспомнили пароль?
+            <router-link to="/auth">
+              <span> Войти</span>
+            </router-link>
+          </p>
         </div>
       </div>
-      <div class="signup__btn web" :class="(errorPhone, errorMail)">Отправить</div>
-      <p class="footer__text web">Вспомнили пароль? <span> Войти</span></p>
+      <div class="signup__btn web" :class="(errorPhone, errorMail)">
+        Отправить
+      </div>
+      <p class="footer__text web">
+        Вспомнили пароль?
+        <router-link to="/auth">
+          <span> Войти</span>
+        </router-link>
+      </p>
     </div>
   </div>
 </template>
@@ -185,6 +202,10 @@ span {
 .footer__text {
   font-weight: 500;
   font-size: 14px;
+  span {
+  cursor: pointer;
+
+  }
 }
 @keyframes borderanimation {
   0% {

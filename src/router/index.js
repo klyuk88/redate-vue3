@@ -28,8 +28,8 @@ const routes = [{
     }
   },
   {
-    path: '/profile',
-    name: 'Profile',
+    path: '/account/:user',
+    name: 'Account',
     components: {
       default: () => import('@/views/Profile.vue'),
     },
@@ -120,7 +120,7 @@ const routes = [{
     }
   },
   {
-    path: '/settings',
+    path: '/profile/settings',
     name: 'Settings',
     components: {
       default: () => import('@/components/Profile/MyProfileSettings.vue'),
@@ -130,7 +130,7 @@ const routes = [{
     }
   },
   {
-    path: '/edit',
+    path: '/profile/edit',
     name: 'Edit',
     components: {
       default: () => import('@/components/Profile/MyProfileEdit.vue'),
@@ -140,11 +140,41 @@ const routes = [{
     }
   },
   {
-    path: '/userprofile',
+    path: '/profile/:user',
     name: 'Userprofile',
     components: {
       default: () => import('@/views/UserProfile.vue'),
     },
+  },
+  {
+    path: '/auth/recovery',
+    name: 'RecoveryPass',
+    components: {
+      default: () => import('@/components/Auth/ForgotPassword.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/profile/photogallery',
+    name: 'PhotoGallery',
+    components: {
+      default: () => import('@/components/Profile/ProfilePhotoCarousel.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/profile/usergallery',
+    name: 'UserGallery',
+    components: {
+      default: () => import('@/components/Profile/UserPhotoCarousel.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
   },
 ]
 

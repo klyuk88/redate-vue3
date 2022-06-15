@@ -209,6 +209,7 @@ export default {
 }
 .signup__border {
   height: 581px;
+  border: none;
   &.male {
     height: 548px;
   }

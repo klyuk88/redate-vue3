@@ -127,6 +127,8 @@ export default {};
 <style lang="scss" scoped>
 .signup__border {
   width: 446px;
+  border: none;
+  margin-top: 115px;
 }
 .signup__block {
   width: 422px;
@@ -238,6 +240,7 @@ margin-top: 24px;
   height: auto;
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
 }
 .signup__btn {
   &.mobile {
@@ -251,6 +254,7 @@ margin-top: 24px;
   text-decoration-line: underline;
   color: #ffffff;
   cursor: pointer;
+  margin-top: 24px;
   &.mobile {
     display: none;
   }

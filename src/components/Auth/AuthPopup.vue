@@ -41,12 +41,16 @@
         </div>
       </div>
       <div class="footer__auth__block">
-        <p class="auth__forgot">Забыли пароль?</p>
+        <router-link to="/auth/recovery">
+          <p class="auth__forgot">Забыли пароль?</p>
+        </router-link>
         <div class="auth__btn" @click="waveAnim">Войти</div>
       </div>
       <div class="auth__footer__signup">
         <p class="auth__no__acc">Нет учетной записи?</p>
-        <span>Регистрация</span>
+        <router-link to="/registration">
+          <span>Регистрация</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -178,6 +182,7 @@ p {
 .auth__forgot {
   font-size: 14px;
   margin-bottom: 84px;
+  cursor: pointer;
 }
 .auth__no__acc {
   font-size: 14px;
@@ -226,6 +231,7 @@ span {
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   border-radius: 11px;
   margin-bottom: 24px;
+  cursor: pointer;
 }
 
 .auth__footer__signup {
@@ -233,6 +239,7 @@ span {
   justify-content: space-between;
   width: 236px;
   height: 21px;
+  align-items: baseline;
 }
 
 @keyframes borderanimation {

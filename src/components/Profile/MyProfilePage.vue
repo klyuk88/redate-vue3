@@ -9,10 +9,12 @@
         >
           <div class="header">
             <div class="nav__box">
-              <div class="auth__back__btn">
-                <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-                <h1 class="auth__back__btn__title">Назад</h1>
-              </div>
+              <router-link to="/">
+                <div class="auth__back__btn">
+                  <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+                  <h1 class="auth__back__btn__title">Назад</h1>
+                </div>
+              </router-link>
               <h1>Мой профиль</h1>
               <!-- <div class="more_mobile">
                 <img src="@/assets/images/main/btn_more.svg" alt="" />
@@ -32,26 +34,34 @@
                   </div>
                   <div class="carousel__block">
                     <div class="carousel">
+                      <router-link to="/profile/photogallery">
+                        <img
+                          src="../../assets/images/main/woman__mini__avatar1.png"
+                          alt=""
+                          class="item"
+                        />
+                      </router-link>
+                      <router-link to="/profile/photogallery">
                       <img
                         src="../../assets/images/main/woman__mini__avatar1.png"
                         alt=""
                         class="item"
                       />
+                      </router-link>
+                      <router-link to="/profile/photogallery">
                       <img
                         src="../../assets/images/main/woman__mini__avatar1.png"
                         alt=""
                         class="item"
                       />
+                      </router-link>
+                      <router-link to="/profile/photogallery">
                       <img
                         src="../../assets/images/main/woman__mini__avatar1.png"
                         alt=""
                         class="item"
                       />
-                      <img
-                        src="../../assets/images/main/woman__mini__avatar1.png"
-                        alt=""
-                        class="item"
-                      />
+                      </router-link>
                     </div>
                   </div>
                 </div>
@@ -174,7 +184,7 @@
             <div class="footer">
               <div class="btn" :class="{ stageSix: notificationStageSix }">
                 <div class="container">
-                  <router-link to="/settings">
+                  <router-link to="/profile/settings" class='container'>
                     <img
                       src="@/assets/images/main/myprofile__edit.svg"
                       alt=""
@@ -192,13 +202,13 @@
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
-                  <router-link to="/edit">
+                  <RouterLink to="/profile/edit" class='container'>
                     <img
                       src="@/assets/images/main/myprofile__setting.svg"
                       alt=""
                     />
                     <p>Настройки входа</p>
-                  </router-link>
+                  </RouterLink>
                 </div>
                 <div class="arrow__next">
                   <img
@@ -604,7 +614,7 @@
 <script setup>
 import MobileBurger from "../MobileBurger.vue";
 import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 
 const showModal = ref(false);
@@ -798,6 +808,9 @@ const notificationStageEight = false;
     justify-content: flex-start;
   }
   .container {
+    .container {
+      height: 80px;
+    }
     &.stageSix {
       position: relative;
       z-index: 100;
@@ -966,9 +979,9 @@ const notificationStageEight = false;
               margin-bottom: 5px;
               background: linear-gradient(
                 89.71deg,
-                rgba(248, 195, 4, 0.93) 0.25%,
-                rgba(244, 167, 35, 0.756) 46.83%,
-                #ffffff 65.55%,
+                #2965ff 0.25%,
+                #2965ff 46.83%,
+                #2965ff 65.55%,
                 rgba(255, 255, 255, 0.2) 65.56%,
                 rgba(255, 255, 255, 0.2) 99.75%
               );
@@ -980,10 +993,10 @@ const notificationStageEight = false;
             &.active {
               z-index: 1;
               width: 194px;
-              height: 144px;
+              height: 134px;
               filter: drop-shadow(4px 0px 11px rgba(43, 102, 251, 0.37));
 
-              border: 4px solid #f9ae3e;
+              border: 2px solid #2965ff;
               border-radius: 24px;
               @extend .flex__center;
               .price {
@@ -1044,6 +1057,7 @@ const notificationStageEight = false;
                 width: 64px;
                 height: 64px;
                 border-radius: 16px;
+                cursor: pointer;
               }
             }
           }
@@ -1367,6 +1381,10 @@ const notificationStageEight = false;
                 width: 47.307vw;
                 height: 4.871vw;
                 justify-content: unset;
+                margin: 0;
+                img {
+                  margin-right: 8px;
+                }
                 p {
                   width: inherit;
                   font-weight: 700;
@@ -1402,13 +1420,9 @@ const notificationStageEight = false;
                 flex-direction: column;
                 align-items: center;
                 &.active {
-                  background: linear-gradient(
-                    137.15deg,
-                    #2965ff 0%,
-                    #2e66f5 99.89%
-                  );
+
                   height: 23.33vw;
-                  border: 0.256vw solid rgba(255, 255, 255, 0.14);
+                  border: 0.512vw solid #2965ff;
                   box-shadow: 0px 0px 10px rgba(43, 102, 251, 0.37);
                   border-radius: 6.15vw;
                   .progress__bar {

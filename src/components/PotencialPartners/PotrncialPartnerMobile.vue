@@ -2,11 +2,13 @@
   <div class="potencial-item-mobile">
     <div class="photo-block">
       <div class="photo-wrap">
-        <img
-          src="@/assets/images/main/potencial-mob-photo.png"
-          alt=""
-          class="photo"
-        />
+        <router-link to="/profile/:user">
+          <img
+            src="@/assets/images/main/potencial-mob-photo.png"
+            alt=""
+            class="photo"
+          />
+        </router-link>
       </div>
       <div class="mini-photo">
         <div class="item">

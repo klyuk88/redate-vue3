@@ -1,6 +1,6 @@
 <template>
   <div class="page__background">
-    <router-link to="/profile">
+    <router-link to="/account/:user">
       <div class="auth__back__btn">
         <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>
@@ -155,7 +155,9 @@
     <div class="mobile__settings">
       <div class="mobile__header">
         <div class="header__title__block">
-          <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          <router-link to="/profile">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </router-link>
           <p>Настройки анкеты</p>
         </div>
       </div>
@@ -251,6 +253,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 .flex__center {
   display: flex;
   justify-content: center;
@@ -601,6 +604,7 @@ export default {
           img {
             position: absolute;
             left: 3.333vw;
+            cursor: pointer;
           }
         }
       }

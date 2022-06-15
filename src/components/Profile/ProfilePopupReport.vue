@@ -1,5 +1,5 @@
 <template>
-  <div class="report__popup__background" @click.self="close">
+  <div class="report__popup__background" @click.self="$emit('hideModalReport')">
     <div class="report__popup__block">
       <div class="report__popup__content">
         <div class="report__popup__title">Жалоба на пользователя</div>
@@ -15,16 +15,9 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import TheSelect from "../Form/TheSelect.vue";
-export default {
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-  },
-  components: { TheSelect },
-};
+const emit = defineEmits(['hideModalReport'])
 </script>
 <style lang="scss">
 .text {

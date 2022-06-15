@@ -1,5 +1,5 @@
 <template>
-  <div class="ban__popup__background"  @click.self="close" tabindex="1" @keydown.esc="close" >
+  <div class="ban__popup__background" @click.self="$emit('hideModalBan')" tabindex="1" @keydown.esc="close" >
     <div class="ban__popup__block">
       <div class="ban__popup__content">
         <div class="ban__popup__text">
@@ -9,21 +9,16 @@
           </div>
         </div>
         <div class="ban__popup__button__box">
-          <div class="ban__popup__button grey__btn" @click="close">Отмена</div>
+          <div class="ban__popup__button grey__btn" @click="$emit('hideModalBan')">Отмена</div>
           <div class="ban__popup__button blue__btn">Заблокировать</div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-  },
-};
+<script setup>
+const emit = defineEmits(['hideModalBan'])
+
 </script>
 <style>
 .ban__popup__background {

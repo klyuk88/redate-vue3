@@ -1,5 +1,5 @@
 <template>
-  <div class="hide__popup__background" @click.self="close">
+  <div class="hide__popup__background" @click.self="$emit('hideModalHide')">
     <div class="hide__popup__block">
       <div class="hide__popup__content">
         <div class="hide__popup__text">
@@ -9,21 +9,15 @@
           </div>
         </div>
         <div class="hide__popup__button__box">
-          <div class="hide__popup__button grey__btn" @click="close">Отмена</div>
+          <div class="hide__popup__button grey__btn" @click="$emit('hideModalHide')" >Отмена</div>
           <div class="hide__popup__button blue__btn">Скрыть</div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-  },
-};
+<script setup>
+const emit = defineEmits(['hideModalHide'])
 </script>
 <style>
 .hide__popup__background {

@@ -2,12 +2,16 @@
   <div class="content__container">
     <RegistrationTabs />
     <!-- <AuthPopup /> -->
+    <!-- <SignupHobby /> -->
   </div>
 </template>
 <script setup>
 import AuthPopup from "../components/Auth/AuthPopup.vue";
 
 import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
+
+import SignupHobby from "../components/Auth/SignupHobby.vue";
+
 
 
 

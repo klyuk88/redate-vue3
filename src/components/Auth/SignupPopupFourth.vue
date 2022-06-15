@@ -66,6 +66,9 @@ export default {
 .signup__border {
   width: 446px;
   height: 566px;
+  border: none;
+  margin-top: 115px;
+
 }
 .signup__block {
   width: 422px;
