@@ -68,7 +68,7 @@ const emit = defineEmits(['hideModalMore'])
   width: 246px;
   height: 213px;
   left: 890px;
-  top: 645px;
+  top: 625px;
   background: rgba(40, 41, 45, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;

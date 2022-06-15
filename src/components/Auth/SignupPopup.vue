@@ -7,13 +7,13 @@
       <div class="navigation__item"></div>
     </div>
     <router-link to="/start">
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+      <div class="auth__back__btn">
+        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </div>
     </router-link>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border: isClicked }">
+      <div class="signup__border" :class="{ animated__border__sign: isClicked }">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header">
@@ -28,12 +28,19 @@
                 class="input"
                 type="text"
                 placeholder="Телефон / Электронная почта"
+                @click="isClicked = true"
               />
-              <input class="input middle" type="password" placeholder="Пароль" />
+              <input
+                class="input middle"
+                type="password"
+                placeholder="Пароль"
+                @click="isClicked = true"
+              />
               <input
                 class="input last"
                 type="password"
                 placeholder="Повторите пароль"
+                @click="isClicked = true"
               />
             </div>
           </div>
@@ -56,7 +63,7 @@
             />
             <input class="input" type="password" placeholder="Пароль" />
             <input
-              class="input "
+              class="input"
               type="password"
               placeholder="Повторите пароль"
             />
@@ -64,7 +71,7 @@
         </div>
       </div>
       <div class="signup__footer">
-        <div class="signup__btn" @click="waveAnim">Продолжить</div>
+        <div class="signup__btn" @click="isClicked = true">Продолжить</div>
         <div class="signup__footer__menu">
           <p>Есть учетная запись?</p>
           <router-link to="/auth">
@@ -84,32 +91,9 @@
   </div>
 </template>
 <script setup>
-import {computed} from 'vue'
-const isClicked = false
+import { ref } from "vue";
 
-const waveAnim = computed(() => {
-  return (isClicked = !isClicked)
-})
-
-// export default {
-//     data() {
-//     return {
-//       hasError: true,
-//       isClicked: false,
-//     };
-//   },
-//   computed: {
-//     error() {
-//       if (this.hasError === true) {
-//         return "error__auth";
-//       }
-//       return "test";
-//     },
-//     waveAnim() {
-//       return (this.isClicked = !this.isClicked);
-//     },
-//   },
-// };
+const isClicked = ref(false);
 </script>
 <style lang="scss">
 .mobile__body {
@@ -217,7 +201,6 @@ const waveAnim = computed(() => {
   flex-direction: column;
   justify-content: space-between;
   width: 326px;
-
 }
 
 .signup__input__box {
@@ -225,7 +208,6 @@ const waveAnim = computed(() => {
   flex-direction: column;
   justify-content: space-between;
   width: 326px;
-
 }
 .signup__footer {
   @extend .flex__center;
@@ -266,39 +248,39 @@ const waveAnim = computed(() => {
     color: #2b66fb;
   }
 }
-.animated__border {
+.animated__border__sign {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation-name: borderanimation;
+  animation-name: borderanimationsign;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
   // animation-iteration-count: infinite;
 }
-@keyframes borderanimation {
+@keyframes borderanimationsign {
   0% {
     border: 1px solid #2965ff;
     border-radius: 30px;
     width: 425px;
-    height: 376px;
+    height: 415px;
   }
   25% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 428px;
-    height: 377px;
+    height: 420px;
   }
   50% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 434px;
-    height: 381px;
+    height: 426px;
   }
   75% {
     border: 1px solid #2b66fb45;
     border-radius: 30px;
-    width: 450px;
-    height: 406px;
+    width: 445px;
+    height: 442px;
   }
   100% {
     border: 1px solid #2b66fb00;

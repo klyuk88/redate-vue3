@@ -132,7 +132,7 @@
         >
           <div class="inner__buttons__block">
             <div class="big__buttons" >
-              <div class="send__message" >Написать</div>
+              <div class="send__message" @click.prevent="store.newMessageWindow = true">Написать</div>
               <div class="icon__btn">
                 <img src="@/assets/images/main/star.svg" alt="" />
               </div>
@@ -423,6 +423,11 @@ import UserPhotoCarousel from "./UserPhotoCarousel.vue";
 import ProfileNewMessage from "./ProfileNewMessage.vue";
 import ProfilePopupMore from "./ProfilePopupMore.vue";
 import { ref } from "vue";
+
+
+import {useStore} from '@/stores/main.js'
+const store = useStore()
+
 
 const showModal = ref(false);
 const showModalMessage = ref(false);
