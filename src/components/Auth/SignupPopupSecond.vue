@@ -11,7 +11,7 @@
       <h1 class="auth__back__btn__title">Назад</h1>
     </div>
     <div class="signup__page">
-      <div class="signup__border" :class="male">
+      <div class="signup__border" :class="{ animated__border: isClicked }">
         <div class="signup__block" :class="male">
           <div class="signup__block__container" :class="male">
             <div class="signup__input__box">
@@ -171,36 +171,39 @@
             </div>
           </div>
         </div>
-        <div class="signup__btn" :class="error">Продолжить</div>
+        <div class="signup__btn" :class="error" @click="isClicked = true">Продолжить</div>
       </div>
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import TheSelect from "../Form/TheSelect.vue";
-export default {
-  data() {
-    return {
-      malePage: false,
-      hasError: false,
-    };
-  },
-  computed: {
-    male() {
-      if (this.malePage === true) {
-        return "male";
-      }
-      return "test";
-    },
-    error() {
-      if (this.hasError === true) {
-        return "error";
-      }
-      return "test";
-    },
-  },
-  components: { TheSelect },
-};
+import { ref } from "vue";
+
+const isClicked = ref(true);
+// export default {
+//   data() {
+//     return {
+//       malePage: false,
+//       hasError: false,
+//     };
+//   },
+//   computed: {
+//     male() {
+//       if (this.malePage === true) {
+//         return "male";
+//       }
+//       return "test";
+//     },
+//     error() {
+//       if (this.hasError === true) {
+//         return "error";
+//       }
+//       return "test";
+//     },
+//   },
+//   components: { TheSelect },
+// };
 </script>
 <style lang="scss" scoped>
 .signup__background {
@@ -257,6 +260,7 @@ export default {
 }
 .signup__footer {
   height: 225px;
+  position: unset;
   &.male {
     height: 192px;
   }
@@ -450,6 +454,47 @@ export default {
       }
 
     }
+  }
+}
+.animated__border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 425px;
+    height: 415px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 428px;
+    height: 420px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 434px;
+    height: 426px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 445px;
+    height: 442px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 466px;
+    height: 420px;
   }
 }
 </style>

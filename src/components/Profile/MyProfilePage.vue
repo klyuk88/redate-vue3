@@ -182,7 +182,7 @@
               </div>
             </div>
             <div class="footer">
-              <div class="btn" :class="{ stageSix: notificationStageSix }">
+              <!-- <div class="btn" :class="{ stageSix: notificationStageSix }">
                 <div class="container">
                   <router-link to="/profile/settings" class='container'>
                     <img
@@ -198,9 +198,9 @@
                     alt=""
                   />
                 </div>
-              </div>
+              </div> -->
               <div class="mobile__horizontal__line"></div>
-              <div class="btn" :class="{ stageSix: notificationStageSeven }">
+              <!-- <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
                   <RouterLink to="/profile/edit" class='container'>
                     <img
@@ -216,9 +216,9 @@
                     alt=""
                   />
                 </div>
-              </div>
+              </div> -->
               <div class="mobile__horizontal__line"></div>
-              <div class="btn" :class="{ stageSix: notificationStageEight }">
+              <!-- <div class="btn" :class="{ stageSix: notificationStageEight }">
                 <div class="container">
                   <img
                     src="@/assets/images/main/myprofile__support.svg"
@@ -232,7 +232,7 @@
                     alt=""
                   />
                 </div>
-              </div>
+              </div> -->
               <div class="mobile__horizontal__line"></div>
               <div class="btn mobile">
                 <div class="container">
@@ -250,7 +250,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="female__verification__block">
+            <div class="female__verification__block">
               <div class="verification__status">
                 <div class="status__header">
                   <div class="left__side__header">
@@ -261,7 +261,7 @@
                     <h2>Верификация</h2>
                   </div>
                   <div class="horizontal__line"></div>
-                  <div class="right__side__header"> -->
+                  <div class="right__side__header">
             <!-- <div class="status__error">
                       <h2>Ошибка</h2>
                       <img
@@ -276,7 +276,7 @@
                         alt=""
                       />
                     </div> -->
-            <!-- <div class="status__error">
+            <div class="status__error">
                       <h2>Отложено</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__delayed.svg"
@@ -284,31 +284,35 @@
                       />
                     </div>
                   </div>
-                </div> -->
-            <!-- <div class="status__desc">
+                </div>
+            <div class="status__desc">
                   <span
                     >Мы отправили Вам уведомление с данными, которые необходимо
                     изменить для подтверждения верификации.</span
                   >
-                </div> -->
+                </div>
             <!-- <div class="status__desc show__error">
                   <span
                     >Необходимо пройти верификацию для дальнейшего использования
                     сайта.</span
                   >
                 </div> -->
-            <!-- </div>
+            </div>
+            <router-link to="/profile/edit">
               <div class="verification__action">
                 <h2>Заполнить заново</h2>
-              </div> -->
+              </div>
+            </router-link>
             <!-- <div class="verification__action help show__error">
                 <img src="@/assets/images/main/myprofile__headset__logo.svg" alt="">
                 <h2>Техническая поддержка</h2>
               </div> -->
-            <!-- <div class="verification__action ">
-                <h2>Пройти верификацию</h2>
-              </div> -->
-            <!-- </div> -->
+              <!-- <router-link to="/verification">
+                <div class="verification__action ">
+                    <h2>Пройти верификацию</h2>
+                  </div>
+              </router-link> -->
+            </div>
           </div>
         </div>
       </div>
@@ -1068,7 +1072,6 @@ const notificationStageEight = false;
         justify-content: space-between;
         flex-direction: row;
         width: 608px;
-        height: 136px;
         .btn {
           &.stageSix {
             position: relative;
