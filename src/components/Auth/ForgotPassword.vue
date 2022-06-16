@@ -7,7 +7,7 @@
       </div>
     </router-link>
     <div class="signup__page">
-      <div class="signup__border" :class="error">
+      <div class="signup__border " :class="{ animated__border__pass: isClicked }" >
         <div class="signup__block" :class="error">
           <div class="signup__block__container" :class="error">
             <div class="signup__block__header">
@@ -62,7 +62,8 @@
           </p>
         </div>
       </div>
-      <div class="signup__btn web" :class="(errorPhone, errorMail)">
+    </div>
+      <div class="signup__btn web" @click="isClicked = true">
         Отправить
       </div>
       <p class="footer__text web">
@@ -71,39 +72,45 @@
           <span> Войти</span>
         </router-link>
       </p>
-    </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      hasError: false,
-      phoneError: true,
-      mailError: false,
-    };
-  },
-  computed: {
-    error() {
-      if (this.hasError === true) {
-        return "error";
-      }
-      return "test";
-    },
-    errorPhone() {
-      if (this.phoneError === true && this.hasError === true) {
-        return "error__phone";
-      }
-      return "test";
-    },
-    errorMail() {
-      if (this.mailError === true && this.hasError === true) {
-        return "error__mail";
-      }
-      return "test";
-    },
-  },
-};
+<script setup>
+import SignupPopup from "@/components/Auth/SignupPopup.vue";
+import AuthPopup from "@/components/Auth/AuthPopup.vue";
+
+
+import { ref } from "vue";
+const isClicked = ref(false);
+
+// export default {
+//   data() {
+//     return {
+//       hasError: false,
+//       phoneError: true,
+//       mailError: false,
+//     };
+//   },
+//   computed: {
+//     error() {
+//       if (this.hasError === true) {
+//         return "error";
+//       }
+//       return "test";
+//     },
+//     errorPhone() {
+//       if (this.phoneError === true && this.hasError === true) {
+//         return "error__phone";
+//       }
+//       return "test";
+//     },
+//     errorMail() {
+//       if (this.mailError === true && this.hasError === true) {
+//         return "error__mail";
+//       }
+//       return "test";
+//     },
+//   },
+// };
 </script>
 <style lang="scss" scoped>
 .signup__page {
@@ -130,7 +137,7 @@ span {
   width: 446px;
   height: 299px;
   border: none;
-  animation: borderanimation 0.7s infinite;
+  // animation: borderanimation 0.7s infinite;
   &.error {
     height: 341px;
   }
@@ -207,36 +214,45 @@ span {
 
   }
 }
+.animated__border__pass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+}
 @keyframes borderanimation {
   0% {
     border: 1px solid #2965ff;
     border-radius: 30px;
     width: 425px;
-    height: 376px;
+    height: 276px;
   }
   25% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 428px;
-    height: 377px;
+    height: 290px;
   }
   50% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 434px;
-    height: 381px;
+    height: 304px;
   }
   75% {
     border: 1px solid #2b66fb45;
     border-radius: 30px;
     width: 450px;
-    height: 406px;
+    height: 320px;
   }
   100% {
     border: 1px solid #2b66fb00;
     border-radius: 32px;
     width: 466px;
-    height: 420px;
+    height: 335px;
   }
 }
 @media (max-width: 1200px) {

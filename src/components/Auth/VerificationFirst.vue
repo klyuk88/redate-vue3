@@ -26,7 +26,7 @@
         <router-link to="/verification/photo">
           <div class="btn__continue">Продолжить</div>
         </router-link>
-        <router-link to="/profile">
+        <router-link to="/account/:user">
           <div class="btn__later">Пройти позже</div>
         </router-link>
       </div>

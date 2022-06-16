@@ -1,18 +1,18 @@
 <template>
-  <div class="signup__background">
+  <div class="signup__background" @click.self="$emit('hideModalHobby')">
     <div class="signup__page">
-      <div class="signup__border">
+      <div class="signup__border" :class="{ animated__border__hobby: isClicked }">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header__block">
-              <div class="signup__return__btn">
+              <div class="signup__return__btn" @click="$emit('hideModalHobby')">
                 <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
               </div>
               <p>Выберете до 5 увлечений:</p>
             </div>
             <div class="signup__body__block">
               <p>Выбрано:<span>2</span></p>
-              <div class="signup__options__block">
+              <div class="signup__options__block" @click="isClicked = true">
                 <div class="chips choosed">Спорт</div>
                 <div class="chips">Вино</div>
                 <div class="chips choosed">Деньги</div>
@@ -54,18 +54,31 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn">Выбрать</div>
     </div>
+      <div class="signup__btn" @click.self="$emit('hideModalHobby')">Выбрать</div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
+<script setup>
+  import { ref } from "vue";
+
+const emit = defineEmits(['hideModalHobby'])
+const isClicked = ref(false);
+
 </script>
 <style lang="scss" scoped>
+.signup__page {
+  height: 680px;
+}
+.signup__background {
+    width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 109;
+    background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
+}
 .flex__center {
   display: flex;
   //   justify-content: center;
@@ -133,6 +146,7 @@ export default {
   align-items: center;
   margin-right: 60px;
   margin-top: 4px;
+  cursor: pointer;
 }
 .signup__body__block {
   @extend .flex__center;
@@ -158,6 +172,47 @@ export default {
   height: 384px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 11px;
+}
+.animated__border__hobby {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 482px;
+    height: 562px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 485px;
+    height: 577px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 495px;
+    height: 600px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 510px;
+    height: 615px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 525px;
+    height: 625px;
+  }
 }
 @media (max-width: 1200px) {
   .signup__return__btn {

@@ -107,6 +107,8 @@
   </div>
 </template>
 <script>
+import SignupPopup from "@/components/Auth/SignupPopup.vue";
+import VerificationFirstVue from './VerificationFirst.vue';
 export default {
   data() {
     return {

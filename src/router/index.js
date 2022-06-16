@@ -175,6 +175,66 @@ const routes = [{
     meta: {
       layout: 'auth-layout'
     }
+  }, 
+   {
+    path: '/registration/2',
+    name: 'RegistarationSecond',
+    components: {
+      default: () => import('@/components/Auth/SignupPopupSecond.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/registration/3',
+    name: 'RegistarationThird',
+    components: {
+      default: () => import('@/components/Auth/SignupPopupThird.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/registration/4',
+    name: 'RegistarationFourth',
+    components: {
+      default: () => import('@/components/Auth/SignupPopupFourth.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/registration/photo',
+    name: 'RegistarationPhoto',
+    components: {
+      default: () => import('@/components/Auth/UploadPhoto.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/registration/photo/choose',
+    name: 'RegistarationPhotoChoose',
+    components: {
+      default: () => import('@/components/Auth/ChoosePhoto.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  },
+  {
+    path: '/registration/completed',
+    name: 'RegistarationCompleted',
+    components: {
+      default: () => import('@/components/Auth/SignupPopupComplete.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
   },
 ]
 

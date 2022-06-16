@@ -1,9 +1,6 @@
 <template>
   <UserPhotoCarousel v-if="showModal" @hideModal="showModal = false" />
-  <ProfileNewMessage
-    v-if="showModalMessage"
-    @hideModalMessage="showModalMessage = false"
-  />
+<ProfileNewMessage v-if="store.newMessageWindow" />
   <div class="profile__page">
     <div class="nav__box">
       <router-link to="/">
@@ -430,7 +427,6 @@ const store = useStore()
 
 
 const showModal = ref(false);
-const showModalMessage = ref(false);
 const showModalMore = ref(false);
 const notificationStatus = false;
 const notificationStageTwo = false;

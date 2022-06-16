@@ -1,4 +1,5 @@
 <template>
+<SignupHobby v-if="modalHobbyVisible" @hideModalHobby="modalHobbyVisible = false"/>
   <div class="signup__background">
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
@@ -8,14 +9,16 @@
     </div>
     <div class="auth__back__btn">
       <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
+      <router-link to="/registration/2">
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </router-link>
     </div>
     <div class="signup__page">
-      <div class="signup__border">
-        <div class="signup__block">
+      <div class="signup__border" :class="{ animated__border__sign__three: isClicked }">
+        <div class="signup__block" >
           <div class="signup__block__container">
             <div class="signup__input__box">
-              <div class="block first">
+              <div class="block first" @click="isClicked = true">
                 <p>Отношение к алкоголю:</p>
                 <div class="block__choose">
                   <div class="choose__list">
@@ -26,9 +29,10 @@
                     <p>Положительное</p>
                   </div>
                 </div>
+                
               </div>
               <div class="horizontal__line"></div>
-              <div class="block">
+              <div class="block" @click="isClicked = true">
                 <p>Отношение к курению:</p>
                 <div class="block__choose">
                   <div class="choose__list">
@@ -41,9 +45,9 @@
                 </div>
               </div>
               <div class="horizontal__line"></div>
-              <div class="block skills">
+              <div class="block skills" >
                 <p>Увлечения:</p>
-                <div class="input">
+                <div class="input" @click="isClicked = true">
                   <div class="chips">
                     Спорт
                     <img
@@ -72,13 +76,13 @@
                       alt=""
                     />
                   </div>
-                  <div class="add">+</div>
+                  <div class="add" @click="modalHobbyVisible = true">+</div>
                 </div>
               </div>
               <div class="horizontal__line"></div>
               <div class="block skills last">
                 <p>Знание языков:</p>
-                <div class="input">
+                <div class="input"  >
                   <div class="chips">
                     Спорт
                     <img
@@ -107,7 +111,7 @@
                       alt=""
                     />
                   </div>
-                  <div class="add">+</div>
+                  <div class="add" @click="modalHobbyVisible = true">+</div>
                 </div>
               </div>
             </div>
@@ -116,19 +120,35 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn web">Продолжить</div>
-      <p class="skip web">Пропустить</p>
     </div>
+    <router-link to="/registration/4">
+      <div class="signup__btn web" @click="isClicked = true">Продолжить</div>
+    </router-link>
+    <router-link to="/registration/4">
+      <p class="skip web">Пропустить</p>
+      </router-link>
   </div>
 </template>
-<script>
-export default {};
+<script setup>
+
+import AuthPopup from "@/components/Auth/AuthPopup.vue";
+import SignupHobby from "@/components/Auth/SignupHobby.vue";
+import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
+  import { ref } from "vue";
+const isClicked = ref(false);
+const modalHobbyVisible = ref(false);
+
 </script>
 <style lang="scss" scoped>
+.signup__page {
+height: 715px;
+margin: 0;
+}
 .signup__border {
   width: 446px;
   border: none;
-  margin-top: 115px;
+  position: absolute;
+
 }
 .signup__block {
   width: 422px;
@@ -259,6 +279,47 @@ margin-top: 24px;
     display: none;
   }
 }
+.animated__border__sign__three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 428px;
+    height: 655px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 428px;
+    height: 670px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 434px;
+    height: 675px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 445px;
+    height: 680px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 466px;
+    height: 685px;
+  }
+}
 @media (max-width: 1200px) {
   .signup__page {
     display: flex;
@@ -269,6 +330,7 @@ margin-top: 24px;
     display: flex;
     border: none;
     margin: 0;
+
   }
   .signup__block {
     border: none;

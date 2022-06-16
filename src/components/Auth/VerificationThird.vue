@@ -83,6 +83,7 @@
   </div>
 </template>
 <script>
+import VerificationSecondVue from './VerificationSecond.vue';
 export default {};
 </script>
 <style lang="scss" scoped>
