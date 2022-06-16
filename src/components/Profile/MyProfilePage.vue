@@ -10,7 +10,7 @@
           <div class="header">
             <div class="nav__box">
               <router-link to="/">
-                <div class="auth__back__btn">
+              <div class="auth__back__btn">
                   <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
                   <h1 class="auth__back__btn__title">Назад</h1>
                 </div>
@@ -298,7 +298,7 @@
                   >
                 </div> -->
             </div>
-            <router-link to="/profile/edit">
+            <router-link to="/verification">
               <div class="verification__action">
                 <h2>Заполнить заново</h2>
               </div>
@@ -618,6 +618,8 @@
 <script setup>
 import MobileBurger from "../MobileBurger.vue";
 import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
+
+
 import { ref } from 'vue'
 
 
@@ -1291,6 +1293,7 @@ const notificationStageEight = false;
       .container {
         width: 85.59vw;
         // height: 175.89vw;
+        height: unset;
         .header {
           justify-content: end;
           height: 81.28vw;

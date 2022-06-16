@@ -5,20 +5,24 @@
     </div>
     <div class="auth__back__btn">
       <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
+      <router-link to="/registration/4">
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </router-link>
     </div>
     <div class="signup__page">
-      <div class="signup__border" :class="male">
+      <div class="signup__border" :class="{ animated__border__upload: isClicked }">
         <div class="signup__block" :class="male">
           <div class="signup__block__container" :class="male">
             <div class="photo__block">
-              <div class="photo__border">
+              <div class="photo__border" >
                 <div class="inner__border" :class="added">
                   <div class="add__btn">
-                    <img
-                      src="@/assets/images/main/add__photo__btn.svg"
-                      alt=""
-                    />
+                    <router-link to="/registration/photo/choose">
+                      <img
+                        src="@/assets/images/main/add__photo__btn.svg"
+                        alt=""
+                      />
+                    </router-link>
                   </div>
                 </div>
                 <img src="@/assets/images/main/upload__photo__male.svg" alt="" :class="added">
@@ -44,33 +48,40 @@
           </div>
         </div>
       </div>
-      <div class="btn__continue web">Продолжить</div>
     </div>
+    <router-link to="/registration/completed">
+      <div class="btn__continue web" @click="isClicked = true">Продолжить</div>
+    </router-link>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      malePage: true,
-      randomPhotoAdded: true,
-    };
-  },
-  computed: {
-    male() {
-      if (this.malePage === true) {
-        return "male";
-      }
-      return "test";
-    },
-    added() {
-      if (this.randomPhotoAdded === true) {
-        return "added";
-      }
-      return "test";
-    },
-  },
-};
+<script setup> 
+import { ref } from "vue";
+import AuthPopup from "@/components/Auth/AuthPopup.vue";
+import SignupHobby from "@/components/Auth/SignupHobby.vue";
+import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
+const isClicked = ref(true);
+// export default {
+//   data() {
+//     return {
+//       malePage: true,
+//       randomPhotoAdded: true,
+//     };
+//   },
+//   computed: {
+//     male() {
+//       if (this.malePage === true) {
+//         return "male";
+//       }
+//       return "test";
+//     },
+//     added() {
+//       if (this.randomPhotoAdded === true) {
+//         return "added";
+//       }
+//       return "test";
+//     },
+//   },
+// };
 </script>
 <style lang="scss" scoped>
 .signup__navigation {
@@ -81,9 +92,13 @@ export default {
 .navigation__item {
   width: 128px;
 }
+.signup__page {
+  height: 712px;
+}
 .signup__border {
   width: 454px;
   height: 583px;
+  position: absolute;
   &.male {
     height: 630px;
   }
@@ -178,6 +193,7 @@ p {
   line-height: 132.5%;
   color: #ffffff;
   display: none;
+  cursor: pointer;
   &.male {
     display: inline-flex;
   }
@@ -190,6 +206,48 @@ p {
   height: 48px;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   border-radius: 11px;
+  cursor: pointer;
+}
+.animated__border__upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 431px;
+    height: 559px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 440px;
+    height: 570px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 451px;
+    height: 580px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 461px;
+    height: 590px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 471px;
+    height: 600px;
+  }
 }
 @media (max-width: 1200px) {
   .signup__navigation {

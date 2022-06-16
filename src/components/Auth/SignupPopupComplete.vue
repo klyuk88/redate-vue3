@@ -1,8 +1,8 @@
 <template>
   <div class="signup__background">
-    <div class="signup__page">
-      <div class="signup__border">
-        <div class="signup__block">
+    <div class="signup__page" >
+      <div class="signup__border" :class="{ animated__border__done: isClicked }" >
+        <div class="signup__block"  @click="isClicked = true">
           <div class="signup__content">
             <div class="success__logo">
               <div class="left__logo"></div>
@@ -19,23 +19,30 @@
         </div>
         <div class="btn__done">Отлично!</div>
       </div>
-      <div class="btn__done">Отлично!</div>
     </div>
+      <router-link to="/account/:user">
+        <div class="btn__done">Отлично!</div>
+      </router-link>
   </div>
 </template>
-<script>
-export default {};
+<script setup>
+import AuthPopup from "@/components/Auth/AuthPopup.vue";
+import SignupHobby from "@/components/Auth/SignupHobby.vue";
+import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
+import ChangeSuccess from '@/components/Auth/ChangeSuccess.vue'
+import { ref } from "vue";
+const isClicked = ref(true);
+
 </script>
 <style lang="scss" scoped>
 .signup__page {
-    // justify-content: center;
-    justify-content: space-between;
-    height: 569px;
+    height: 600px;
 }
 .signup__border {
   width: 485px;
   height: 431px;
       margin: 0 ;
+      position: absolute;
 
   .btn__done {
     display: none;
@@ -127,6 +134,48 @@ export default {};
   height: 48px;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   border-radius: 11px;
+  cursor: pointer;
+}
+.animated__border__done {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 461px;
+    height: 408px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 476px;
+    height: 418px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 484px;
+    height: 436px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 492px;
+    height: 454px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 500px;
+    height: 462px;
+  }
 }
 @media (max-width: 1200px) {
   .signup__page {

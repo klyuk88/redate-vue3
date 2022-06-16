@@ -1,10 +1,16 @@
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
-      <div class="navigation__item active"></div>
-      <div class="navigation__item"></div>
-      <div class="navigation__item"></div>
-      <div class="navigation__item"></div>
+        <div class="navigation__item active"></div>
+      <router-link to="/registration/2">
+        <div class="navigation__item"></div>
+      </router-link>
+      <router-link to="/registration/3">
+        <div class="navigation__item"></div>
+      </router-link>
+      <router-link to="/registration/4">
+        <div class="navigation__item"></div>
+      </router-link>
     </div>
     <router-link to="/start">
       <div class="auth__back__btn">
@@ -13,7 +19,10 @@
       </div>
     </router-link>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border__sign: isClicked }">
+      <div
+        class="signup__border"
+        :class="{ animated__border__sign: isClicked }"
+      >
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header">
@@ -70,29 +79,47 @@
           </div>
         </div>
       </div>
-      <div class="signup__footer">
-        <div class="signup__btn" @click="isClicked = true">Продолжить</div>
-        <div class="signup__footer__menu">
-          <p>Есть учетная запись?</p>
-          <router-link to="/auth">
-            <span>Войти</span>
+    <div class="signup__footer mobile">
+      <div class="signup__btn">Продолжить</div>
+      <div class="signup__footer__menu">
+        <p>Есть учетная запись?</p>
+        <router-link to="/auth">
+          <span>Войти</span>
+        </router-link>
+      </div>
+      <div class="signup__footer__terms">
+        <p>
+          Продолжая, вы принимаете
+          <span> Пользовательское соглашение</span>
+          и
+          <span>Политику конфиденциальности</span>
+        </p>
+      </div>
+    </div>
+    </div>
+        <div class="signup__footer web">
+          <router-link to="/registration/2">
+            <div class="signup__btn" @click="isClicked = true">Продолжить</div>
           </router-link>
-        </div>
-        <div class="signup__footer__terms">
-          <p>
-            Продолжая, вы принимаете
-            <span> Пользовательское соглашение</span>
-            и
-            <span>Политику конфиденциальности</span>
-          </p>
-        </div>
+      <div class="signup__footer__menu">
+        <p>Есть учетная запись?</p>
+        <router-link to="/auth">
+          <span>Войти</span>
+        </router-link>
+      </div>
+      <div class="signup__footer__terms">
+        <p>
+          Продолжая, вы принимаете
+          <span> Пользовательское соглашение</span>
+          и
+          <span>Политику конфиденциальности</span>
+        </p>
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
-
 const isClicked = ref(false);
 </script>
 <style lang="scss">
@@ -123,6 +150,7 @@ const isClicked = ref(false);
 .signup__page {
   @extend .flex__center;
   flex-direction: column;
+  height: 600px;
 }
 .auth__back__btn {
   @extend .flex__center;
@@ -179,10 +207,10 @@ const isClicked = ref(false);
 .signup__border {
   @extend .flex__center;
   width: 446px;
-  // border: 1px solid rgba(43, 102, 251, 0.4);
   border-radius: 32px;
-  margin-bottom: 83px;
-  margin-top: 208px;
+  margin-bottom: 43px;
+  position: absolute;
+
 }
 .signup__block {
   @extend .flex__center;
@@ -215,6 +243,9 @@ const isClicked = ref(false);
   justify-content: space-between;
   width: 340px;
   height: 148px;
+  &.mobile {
+    display: none;
+  }
 }
 .signup__btn {
   @extend .flex__center;
@@ -255,19 +286,19 @@ const isClicked = ref(false);
   animation-name: borderanimationsign;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  // animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 @keyframes borderanimationsign {
   0% {
     border: 1px solid #2965ff;
     border-radius: 30px;
-    width: 425px;
+    width: 428px;
     height: 415px;
   }
   25% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
-    width: 428px;
+    width: 430px;
     height: 420px;
   }
   50% {
@@ -336,6 +367,12 @@ const isClicked = ref(false);
   }
   .signup__footer {
     height: 57.69vw;
+    &.web {
+      display: none;
+    }
+    &.mobile {
+      display: flex;
+    }
     .signup__btn {
       width: 85.89vw;
       height: 15.384vw;

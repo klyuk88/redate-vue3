@@ -4,19 +4,29 @@
     :class="{
       maleStyle: maleActive,
       femaleStyle: femaleActive,
-      maleMobileStyle: maleMobileActive
+      maleMobileStyle: maleMobileActive,
     }"
   >
+    <img
+      src="../../assets/images/main/2stage.png"
+      style="display: none"
+      alt=""
+    />
+    <img
+      src="../../assets/images/main/3stage.png"
+      style="display: none"
+      alt=""
+    />
     <div class="content__container">
       <div class="male__side">
         <router-link to="/registration">
-        <div
-          class="btn"
-          @mouseenter="changeBackMale"
-          @mouseleave="changeBackMale"
-        >
-          Мужчина
-        </div>
+          <div
+            class="btn"
+            @mouseenter="changeBackMale"
+            @mouseleave="changeBackMale"
+          >
+            Мужчина
+          </div>
         </router-link>
       </div>
       <div class="middle__menu">
@@ -39,8 +49,16 @@
           <div class="mobile__btn__block">
             <h1>Абсолютно новый формат знакомств</h1>
             <div class="btn__box">
-              <div class="mobile__btn male" @click="chooseMaleMobile">Мужчина</div>
-              <div class="mobile__btn female" @click="chooseFemaleMobile" :class="{ btnMale : maleMobileActive}">ДЕВУШКА</div>
+              <div class="mobile__btn male" @click="chooseMaleMobile">
+                Мужчина
+              </div>
+              <div
+                class="mobile__btn female"
+                @click="chooseFemaleMobile"
+                :class="{ btnMale: maleMobileActive }"
+              >
+                ДЕВУШКА
+              </div>
             </div>
           </div>
         </div>
@@ -67,7 +85,7 @@ export default {
       maleActive: false,
       femaleActive: false,
       maleMobileActive: false,
-      femaleMobileActive: false
+      femaleMobileActive: false,
     };
   },
   methods: {
@@ -78,11 +96,11 @@ export default {
       return (this.femaleActive = !this.femaleActive);
     },
     chooseMaleMobile() {
-      return (this.maleMobileActive = !this.maleMobileActive)
+      return (this.maleMobileActive = !this.maleMobileActive);
     },
-        chooseFemaleMobile() {
-      return (this.femaleMobileActive = !this.femaleMobileActive)
-    }
+    chooseFemaleMobile() {
+      return (this.femaleMobileActive = !this.femaleMobileActive);
+    },
   },
 };
 </script>
@@ -101,6 +119,9 @@ export default {
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
+  animation-name: backgroundAnim;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 h1 {
   width: 220px;
@@ -132,10 +153,12 @@ h1 {
   left: 0;
   top: 0;
 
+
   .content__container {
     display: flex;
     justify-content: space-between;
     // align-items: center;
+
     .male__side {
       width: 100%;
       height: 100vh;
@@ -151,6 +174,7 @@ h1 {
         bottom: 137px;
         left: -40px;
         transition: background-color 1s;
+
         &:hover {
           background: #2b66fb;
           border: 1px solid rgba(255, 255, 255, 0.14);
@@ -168,7 +192,17 @@ h1 {
       top: -64px;
       z-index: 3;
       margin-top: 100px;
+      h1 {
+        animation-name: backgroundAnim;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+      }
+
       .logo {
+        animation-name: logoScale;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        // animation-iteration-count: infinite;
         .mobile {
           display: none;
         }
@@ -179,11 +213,23 @@ h1 {
         align-items: center;
         justify-content: space-between;
         height: 139px;
+        h1 {
+          animation-name: textScale;
+          animation-duration: 2s;
+          animation-fill-mode: forwards;
+          // animation-iteration-count: infinite;
+        }
         .btn {
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: background-color 0.5s;
+          &:hover {
+            background: #2b66fb;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
+          }
         }
       }
     }
@@ -289,37 +335,64 @@ h1 {
     height: 100vh;
   }
 }
-// @keyframes resetBackground {
-//   0% {
-//     opacity: 1;
-//     background: url(../../assets/images/main/3stage.png);
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     width: 100%;
-//     height: 100vh;
-//   }
-//   50% {
-//     opacity: 1;
-//     background: url(../../assets/images/main/1stage.png);
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     width: 100%;
-//     height: 100vh;
-//   }
-//   100% {
-//     opacity: 1;
-//     background: url(../../assets/images/main/1stage.png);
-//     background-size: cover;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     width: 100%;
-//     height: 100vh;
-//   }
-// }
+@keyframes logoScale {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes textScale {
+  0% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes backgroundAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes resetBackground {
+  0% {
+    opacity: 1;
+    background: url(../../assets/images/main/3stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
+  50% {
+    opacity: 1;
+    background: url(../../assets/images/main/1stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
+  100% {
+    opacity: 1;
+    background: url(../../assets/images/main/1stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
+}
 @media (max-width: 1200px) {
-
   .background {
     width: 100%;
     height: 100vh;
@@ -376,7 +449,7 @@ h1 {
             flex-direction: column;
             align-items: center;
             .btn__box {
-              height: 28.20vw;
+              height: 28.2vw;
               width: 46.41vw;
               display: flex;
               flex-direction: column;
@@ -393,7 +466,7 @@ h1 {
                 height: 12.051vw;
                 width: 46.41vw;
                 font-weight: 600;
-                font-size: 4.10vw;
+                font-size: 4.1vw;
                 line-height: 153.5%;
                 text-align: center;
                 text-transform: uppercase;
@@ -422,21 +495,20 @@ h1 {
     }
   }
 }
-  .btnMale {
+.btnMale {
+  background-color: #e9218d;
+}
+.mobileMaleStyle {
+}
+@keyframes btnPink {
+  0% {
+    background-color: none;
+  }
+  50% {
+    background-color: #e9218cb9;
+  }
+  100% {
     background-color: #e9218d;
   }
-  .mobileMaleStyle {
-    
-  }
-  @keyframes btnPink {
-    0% {
-      background-color: none;
-    }
-    50% {
-      background-color: #e9218cb9;
-    }
-    100% {
-      background-color: #e9218d;
-    }
-  }
+}
 </style>

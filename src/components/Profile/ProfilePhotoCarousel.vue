@@ -43,7 +43,7 @@
       <img class="avatar" src="../../assets/images/main/album__main__avatar.png" alt="">
 
     <div class="mobile__album__header">
-      <router-link to="/profile">
+      <router-link to="/account/:user">
         <div class="btn__back__block">
           <div class="btn__back">
             <img class="arrow" src="../../assets/images/main/auth__back__arrow.svg" alt="" />

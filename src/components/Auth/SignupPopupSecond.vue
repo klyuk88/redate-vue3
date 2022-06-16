@@ -8,21 +8,23 @@
     </div>
     <div class="auth__back__btn">
       <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
+      <router-link to="/registration">
+        <h1 class="auth__back__btn__title">Назад</h1>
+      </router-link>
     </div>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border: isClicked }">
+      <div class="signup__border" :class="{ animated__border__sign__two: isClicked }">
         <div class="signup__block" :class="male">
           <div class="signup__block__container" :class="male">
             <div class="signup__input__box">
-              <input class="input" type="text" placeholder="Имя" />
-              <TheSelect class="select__country" placeholder="Страна, Город" />
-              <TheSelect class="select__nation" placeholder="Национальность" />
+              <input class="input" type="text" placeholder="Имя" @click="isClicked = true"/>
+              <TheSelect class="select__country" placeholder="Страна, Город"  @click="isClicked = true" />
+              <TheSelect class="select__nation" placeholder="Национальность" @click="isClicked = true"/>
             </div>
             <div class="signup__footer" :class="male">
               <div class="signup__age__block">
                 <p>Дата рождения:</p>
-                <div class="age__input__block">
+                <div class="age__input__block" @click="isClicked = true">
                   <input
                     class="input"
                     type="text"
@@ -38,8 +40,8 @@
               <div class="signup__horizontal__line"></div>
               <div class="footer__desc" :class="male">
                 <div class="signup__params" :class="male">
-                  <div class="signup__params__block" :class="male">
-                    <div class="signup__params__item" :class="male">
+                  <div class="signup__params__block" :class="male" @click="isClicked = true">
+                    <div class="signup__params__item" :class="male" >
                       <p>Рост:</p>
                       <input
                         class="input"
@@ -92,7 +94,6 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn web" :class="error">Продолжить</div>
       <div class="mobile__body">
         <div class="signup__block__container" :class="male">
           <div class="signup__input__box">
@@ -171,16 +172,23 @@
             </div>
           </div>
         </div>
-        <div class="signup__btn" :class="error" @click="isClicked = true">Продолжить</div>
+        <div class="signup__btn" :class="error" >Продолжить</div>
       </div>
     </div>
+    <router-link to="/registration/3">
+      <div class="signup__btn web" :class="error">Продолжить</div>
+    </router-link>
+
   </div>
 </template>
 <script setup>
 import TheSelect from "../Form/TheSelect.vue";
+import AuthPopup from "@/components/Auth/AuthPopup.vue";
+import SignupHobby from "@/components/Auth/SignupHobby.vue";
+import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
 import { ref } from "vue";
 
-const isClicked = ref(true);
+const isClicked = ref(false);
 // export default {
 //   data() {
 //     return {
@@ -210,9 +218,14 @@ const isClicked = ref(true);
   position: fixed;
   top: -40px;
 }
+.signup__page {
+  height: 800px;
+}
 .signup__border {
   height: 581px;
   border: none;
+  position: absolute;
+
   &.male {
     height: 548px;
   }
@@ -410,9 +423,53 @@ const isClicked = ref(true);
     background: #434447;
   }
 }
+.animated__border__sign__two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: borderanimation;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+}
+@keyframes borderanimation {
+  0% {
+    border: 1px solid #2965ff;
+    border-radius: 30px;
+    width: 428px;
+    height: 565px;
+  }
+  25% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 428px;
+    height: 570px;
+  }
+  50% {
+    border: 1px solid #2b66fb90;
+    border-radius: 30px;
+    width: 434px;
+    height: 576px;
+  }
+  75% {
+    border: 1px solid #2b66fb45;
+    border-radius: 30px;
+    width: 445px;
+    height: 582px;
+  }
+  100% {
+    border: 1px solid #2b66fb00;
+    border-radius: 32px;
+    width: 466px;
+    height: 590px;
+  }
+}
 @media (max-width: 1200px) {
   .signup__background {
     top: 0;
+  }
+  .signup__border {
+    display: none;
   }
   .signup__btn {
     &.web {
@@ -421,6 +478,8 @@ const isClicked = ref(true);
   }
   .signup__page {
     margin-top: 37px;
+    display: flex;
+    justify-content: center;
   }
   .mobile__body {
     flex-direction: column;
@@ -456,45 +515,5 @@ const isClicked = ref(true);
     }
   }
 }
-.animated__border {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation-name: borderanimation;
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-}
-@keyframes borderanimation {
-  0% {
-    border: 1px solid #2965ff;
-    border-radius: 30px;
-    width: 425px;
-    height: 415px;
-  }
-  25% {
-    border: 1px solid #2b66fb90;
-    border-radius: 30px;
-    width: 428px;
-    height: 420px;
-  }
-  50% {
-    border: 1px solid #2b66fb90;
-    border-radius: 30px;
-    width: 434px;
-    height: 426px;
-  }
-  75% {
-    border: 1px solid #2b66fb45;
-    border-radius: 30px;
-    width: 445px;
-    height: 442px;
-  }
-  100% {
-    border: 1px solid #2b66fb00;
-    border-radius: 32px;
-    width: 466px;
-    height: 420px;
-  }
-}
+
 </style>
