@@ -7,7 +7,9 @@ export const useStore = defineStore('main', {
       showCities: false,
       newMessageWindow: false,
       mobileSorting: false,
-      newSendWindow: false
+      newSendWindow: false,
+      maleVersion: false,
+      femaleVersion: false
     }
   }
 })

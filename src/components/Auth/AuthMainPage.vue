@@ -17,6 +17,11 @@
       style="display: none"
       alt=""
     />
+    <img
+      src="../../assets/images/main/shadowStage.png"
+      style="display: none"
+      alt=""
+    />
     <div class="content__container">
       <div class="male__side">
         <router-link to="/registration">
@@ -145,14 +150,16 @@ h1 {
 .background {
   width: 100%;
   height: 100vh;
-  background: url(../../assets/images/main/1stage.png);
+  background: url(../../assets/images/main/shadowStage.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
   left: 0;
   top: 0;
-
+    animation-name: changeStartBack;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
 
   .content__container {
     display: flex;
@@ -200,7 +207,7 @@ h1 {
 
       .logo {
         animation-name: logoScale;
-        animation-duration: 2s;
+        animation-duration: 1s;
         animation-fill-mode: forwards;
         // animation-iteration-count: infinite;
         .mobile {
@@ -215,7 +222,7 @@ h1 {
         height: 139px;
         h1 {
           animation-name: textScale;
-          animation-duration: 2s;
+          animation-duration: 1s;
           animation-fill-mode: forwards;
           // animation-iteration-count: infinite;
         }
@@ -272,10 +279,34 @@ h1 {
   animation-duration: 2s;
   animation-fill-mode: forwards;
 }
-.resetBack {
-  animation-name: resetBackground;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
+@keyframes changeStartBack {
+  0% {
+    opacity: 1;
+    background: url(../../assets/images/main/shadowStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
+  50% {
+    opacity: 1;
+    background: url(../../assets/images/main/1stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
+  100% {
+    opacity: 1;
+    background: url(../../assets/images/main/1stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  }
 }
 @keyframes changebackgroundfemale {
   0% {
@@ -363,35 +394,15 @@ h1 {
     opacity: 1;
   }
 }
-@keyframes resetBackground {
-  0% {
-    opacity: 1;
-    background: url(../../assets/images/main/3stage.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-  }
-  50% {
-    opacity: 1;
-    background: url(../../assets/images/main/1stage.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-  }
-  100% {
-    opacity: 1;
-    background: url(../../assets/images/main/1stage.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-  }
-}
+// @keyframes backgroundShadow {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
 @media (max-width: 1200px) {
   .background {
     width: 100%;
