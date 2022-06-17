@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <router-link to="/account/:user">
+    <router-link to="/account/vasya">
       <div class="auth__back__btn">
         <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>

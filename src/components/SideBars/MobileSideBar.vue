@@ -30,7 +30,7 @@
       <div class="body">
         <ul class="items">
           <li class="item">
-            <router-link to="/" class="link">
+            <router-link to="/main" class="link">
               <div class="image-block">
                 <img src="@/assets/images/main/home.svg" alt="" />
               </div>

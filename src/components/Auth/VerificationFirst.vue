@@ -1,6 +1,6 @@
 <template>
   <div class="signup__background">
-    <router-link to="/account/:user" class="auth__back__btn">
+    <router-link to="/account/vasya" class="auth__back__btn">
       <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
       <h1 class="auth__back__btn__title">Назад</h1>
     </router-link>
@@ -26,7 +26,7 @@
         <router-link to="/verification/photo">
           <div class="btn__continue">Продолжить</div>
         </router-link>
-        <router-link to="/account/:user">
+        <router-link to="/account/vasya">
           <div class="btn__later">Пройти позже</div>
         </router-link>
       </div>

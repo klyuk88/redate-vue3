@@ -20,7 +20,7 @@
         <div class="btn__done">Отлично!</div>
       </div>
     </div>
-      <router-link to="/account/:user">
+      <router-link to="/account/vasya">
         <div class="btn__done">Отлично!</div>
       </router-link>
   </div>

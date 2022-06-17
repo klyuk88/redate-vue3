@@ -2,7 +2,7 @@
   <div class="page-content">
     <SideBar />
     <MobileSideBar/>
-    <slot />
+    <slot/>
     <!-- <div class="shape"></div> -->
   </div>
 </template>

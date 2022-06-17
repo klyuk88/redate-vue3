@@ -2,13 +2,15 @@ import {
   createRouter,
   createWebHistory
 } from 'vue-router'
+import {useAuthStore} from '@/stores/auth.js'
+
 
 const routes = [{
-    path: '/',
+    path: '/main',
     name: 'Main',
     components: {
       default: () => import('@/views/Main.vue'),
-    }
+    },
   },
   {
     path: '/search',
@@ -25,7 +27,7 @@ const routes = [{
     },
     meta: {
       layout: 'auth-layout'
-    }
+    },
   },
   {
     path: '/account/:user',
@@ -236,6 +238,15 @@ const routes = [{
       layout: 'auth-layout'
     }
   },
+  {
+    path: '/:notFound(.*)',
+    components: {
+      default: () => import('@/views/NotFound.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
+    }
+  }
 ]
 
 const router = createRouter({
@@ -248,5 +259,16 @@ const router = createRouter({
     }
   },
 })
+
+router.beforeEach(async (to) => {
+
+  const publicPages = ['/auth','/start','/registration'];
+  const authRequired = !publicPages.includes(to.path);
+  const auth = useAuthStore();
+  if (authRequired && !auth.isLogin) {
+    return { name: 'Auth' }
+  }
+});
+
 
 export default router
