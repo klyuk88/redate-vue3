@@ -2,9 +2,7 @@
   <div class="signup__background">
     <div class="signup__navigation">
         <div class="navigation__item active"></div>
-      <router-link to="/registration/2">
         <div class="navigation__item"></div>
-      </router-link>
       <router-link to="/registration/3">
         <div class="navigation__item"></div>
       </router-link>

@@ -50,7 +50,7 @@
       </form>
       <div class="auth__footer__signup">
         <p class="auth__no__acc">Нет учетной записи?</p>
-        <router-link to="/registration">
+        <router-link to="/start">
           <span>Регистрация</span>
         </router-link>
       </div>
