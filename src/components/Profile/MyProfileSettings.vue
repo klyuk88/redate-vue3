@@ -144,7 +144,7 @@
         </div>
         <div class="horizontal__line"></div>
         <div class="settings__footer">
-          <div class="logout">Выйти из аккаунта</div>
+          <button class="logout" @click="logout">Выйти из аккаунта</button>
           <div class="delete__profile">Удалить профиль</div>
           <div class="cancel__changes hide">Отмена</div>
           <div class="save__changes hide">Сохранить</div>
@@ -234,8 +234,8 @@
       </div>
       <div class="mobile__footer">
         <div class="btn__block">
-          <div class="btn">Выйти из аккаунта</div>
-          <div class="btn blue">Удалить профиль</div>
+          <button class="btn" @click="logout">Выйти из аккаунта</button>
+          <button class="btn blue">Удалить профиль</button>
           <!-- <div class="btn">Отмена</div>
           <div class="btn ">Сохранить</div> -->
         </div>
@@ -243,14 +243,17 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import AuthPopup from "@/components/Auth/AuthPopup.vue";
 import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
+import {useAuthStore} from '@/stores/auth.js'
 
-export default {
+const auth = useAuthStore()
 
-  
-};
+const logout = () => {
+  auth.logout()
+}
+
 </script>
 <style lang="scss" scoped>
 
@@ -529,6 +532,8 @@ export default {
     line-height: 132.5%;
     color: #ffffff;
     cursor: pointer;
+    background: transparent;
+
 
     &.hide {
       display: none;

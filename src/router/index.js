@@ -35,6 +35,27 @@ const routes = [{
     components: {
       default: () => import('@/views/Profile.vue'),
     },
+    children: [
+      {
+        path: '',
+        components: {
+          default: () => import('@/components/Profile/MyProfilePage.vue')
+        }
+      },
+      {
+        path: 'settings',
+        components: {
+          default: () => import('@/components/Profile/MyProfileSettings.vue')
+        }
+      },
+      {
+        path: 'edit',
+        components: {
+          default: () => import('@/components/Profile/MyProfileEdit.vue')
+        }
+      },
+   
+    ]
   },
   {
     path: '/chat',
@@ -112,7 +133,7 @@ const routes = [{
     }
   },
   {
-    path: '/start',
+    path: '/',
     name: 'StartPage',
     components: {
       default: () => import('@/components/Auth/AuthMainPage.vue'),
@@ -121,26 +142,7 @@ const routes = [{
       layout: 'auth-layout'
     }
   },
-  {
-    path: '/profile/settings',
-    name: 'Settings',
-    components: {
-      default: () => import('@/components/Profile/MyProfileSettings.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/profile/edit',
-    name: 'Edit',
-    components: {
-      default: () => import('@/components/Profile/MyProfileEdit.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
+ 
   {
     path: '/profile/:user',
     name: 'Userprofile',
@@ -261,14 +263,17 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to) => {
-
-  const publicPages = ['/auth','/start','/registration'];
+  const publicPages = ['/','/auth','/start','/registration'];
   const authRequired = !publicPages.includes(to.path);
   const auth = useAuthStore();
-  if (authRequired && !auth.isLogin) {
-    return { name: 'Auth' }
+  if (authRequired && !auth.token) {
+    return { name: 'StartPage' }
+  } else if(auth.token && (to.name === 'Auth' || to.name === 'StartPage' || to.name === 'Registration')) {
+    return { name: 'Main' }
   }
 });
+
+
 
 
 export default router

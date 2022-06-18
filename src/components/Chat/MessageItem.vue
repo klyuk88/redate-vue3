@@ -41,6 +41,7 @@
       font-style: 16px;
       color: #fff;
       font-weight: 600;
+      text-align: left;
     }
     .message {
       font-size: 14px;

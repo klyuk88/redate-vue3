@@ -1,12 +1,13 @@
 <template>
   <div class="auth__background">
     <div class="auth__page" :class="error">
-    <router-link to="/start">
-      <div class="auth__back__btn">
-        <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </div>
-    </router-link>
+      <router-link to="/start">
+        <div class="auth__back__btn">
+          <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+          <h1 class="auth__back__btn__title">Назад</h1>
+        </div>
+      </router-link>
+      <form @submit.prevent="authorization" class="auth-form">
       <div class="auth__block" :class="error">
         <div class="" :class="{ animated__border: isClicked }">
           <div class="auth__input__box" :class="error">
@@ -16,25 +17,24 @@
                   <h1>Вход</h1>
                   <p>Введите данные для входа в учетеную запись</p>
                 </div>
-
-                <div class="inputs" :class="error">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Телефон / Электронная почта"
-                    @click.prevent="waveAnim"
-                  />
-                  <input
-                    class="input"
-                    type="password"
-                    placeholder="Пароль"
-                    @click="waveAnim"
-                  />
-                  <span class="" :class="error"
-                    >Неверное имя пользователя или пароль. Проверьте
-                    правильность введеных данных.</span
-                  >
-                </div>
+                
+                  <div class="inputs" :class="error">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Телефон / Электронная почта"
+                      v-model="authForm.login"
+                    />
+                    <input
+                      class="input"
+                      type="password"
+                      placeholder="Пароль"
+                      v-model="authForm.password"
+                    />
+                    <span :class="{'error__auth': useAuth.error}"
+                      >{{useAuth.error}}</span>
+                  </div>
+                
               </div>
             </div>
           </div>
@@ -44,8 +44,10 @@
         <router-link to="/auth/recovery">
           <p class="auth__forgot">Забыли пароль?</p>
         </router-link>
-        <div class="auth__btn" @click="waveAnim">Войти</div>
+        <button class="auth__btn">Войти</button>
+        <!-- <div class="auth__btn" @click="waveAnim">Войти</div> -->
       </div>
+      </form>
       <div class="auth__footer__signup">
         <p class="auth__no__acc">Нет учетной записи?</p>
         <router-link to="/registration">
@@ -55,6 +57,20 @@
     </div>
   </div>
 </template>
+<script setup>
+import { useAuthStore } from "@/stores/auth.js";
+import { ref, reactive } from "vue";
+const useAuth = useAuthStore()
+const authForm = reactive({
+  login: null,
+  password: null
+});
+const authorization = () => {
+  useAuth.authUser(authForm)
+};
+</script>
+
+
 <script>
 export default {
   data() {
@@ -77,6 +93,12 @@ export default {
 };
 </script>
 <style lang="scss">
+
+.auth-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .text {
   font-family: "Mulish";
   font-style: normal;
@@ -158,7 +180,7 @@ export default {
   width: 326px;
   height: 235px;
   &.error__auth {
-    height: 277px;
+    // height: 277px; 
   }
 }
 .auth__header {
@@ -205,7 +227,7 @@ span {
     }
   }
   &.error__auth {
-    height: 178px;
+    // height: 178px; 
   }
 }
 .input {
@@ -232,6 +254,8 @@ span {
   border-radius: 11px;
   margin-bottom: 24px;
   cursor: pointer;
+  border: none;
+  color: #fff
 }
 
 .auth__footer__signup {

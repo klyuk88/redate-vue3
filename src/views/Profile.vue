@@ -1,7 +1,8 @@
 <template>
   <div class="content__container">
     <!-- <ProfilePage /> -->
-    <MyProfilePage />
+    <!-- <MyProfilePage /> -->
+    <router-view></router-view>
 
   </div>
 </template>
