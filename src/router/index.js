@@ -28,12 +28,41 @@ const routes = [{
     meta: {
       layout: 'auth-layout'
     },
-  },
+    children: [
+      {
+      path: '',
+      components: {
+        default: () => import('@/components/Auth/SignupPopup.vue')
+      }
+    },
+    {
+      path: 'step_two',
+      components: {
+        default: () => import('@/components/Auth/SignupPopupSecond.vue')
+      }
+    },
+    {
+      path: 'step_three',
+      components: {
+        default: () => import('@/components/Auth/SignupPopupThird.vue')
+      }
+    },
+    {
+      path: 'step_four',
+      components: {
+        default: () => import('@/components/Auth/SignupPopupFourth.vue')
+      }
+    }
+  ]
+},
   {
     path: '/account/:user',
     name: 'Account',
     components: {
       default: () => import('@/views/Profile.vue'),
+    },
+    meta: {
+      layout: 'auth-layout'
     },
     children: [
       {
@@ -180,36 +209,6 @@ const routes = [{
       layout: 'auth-layout'
     }
   }, 
-   {
-    path: '/registration/2',
-    name: 'RegistarationSecond',
-    components: {
-      default: () => import('@/components/Auth/SignupPopupSecond.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/registration/3',
-    name: 'RegistarationThird',
-    components: {
-      default: () => import('@/components/Auth/SignupPopupThird.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/registration/4',
-    name: 'RegistarationFourth',
-    components: {
-      default: () => import('@/components/Auth/SignupPopupFourth.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
   {
     path: '/registration/photo',
     name: 'RegistarationPhoto',

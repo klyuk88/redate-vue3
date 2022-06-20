@@ -687,6 +687,7 @@ const notificationStageFive = false;
     border-bottom: 1px solid rgba(255, 255, 255, 0.33);
     height: 52px;
     align-items: center;
+
     img {
       margin-left: 29px;
       margin-right: 12px;
@@ -694,6 +695,11 @@ const notificationStageFive = false;
     &.last {
       border-bottom: none;
     }
+  }
+}
+.more {
+  img {
+    cursor: pointer;
   }
 }
 .left__side {
