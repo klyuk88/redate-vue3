@@ -61,9 +61,6 @@ const routes = [{
     components: {
       default: () => import('@/views/Profile.vue'),
     },
-    meta: {
-      layout: 'auth-layout'
-    },
     children: [
       {
         path: '',
@@ -75,13 +72,19 @@ const routes = [{
         path: 'settings',
         components: {
           default: () => import('@/components/Profile/MyProfileSettings.vue')
-        }
+        },
+        meta: {
+          layout: 'auth-layout'
+        },
       },
       {
         path: 'edit',
         components: {
           default: () => import('@/components/Profile/MyProfileEdit.vue')
-        }
+        },
+        meta: {
+          layout: 'auth-layout'
+        },
       },
    
     ]

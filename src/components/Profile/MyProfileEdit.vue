@@ -333,7 +333,9 @@
         <div class="footer">
           <div class="horizontal__line"></div>
           <div class="footer__btns">
+    <router-link to="/account/vasya">
             <div class="btn">Отмена</div>
+            </router-link>
             <div class="btn">Сохранить</div>
           </div>
         </div>
