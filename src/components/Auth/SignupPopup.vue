@@ -1,27 +1,56 @@
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
-        <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item"></div>
         <div class="navigation__item"></div>
-      <router-link to="/registration/3">
         <div class="navigation__item"></div>
-      </router-link>
-      <router-link to="/registration/4">
-        <div class="navigation__item"></div>
-      </router-link>
     </div>
-    <router-link to="/start">
+    <router-link to="/">
       <div class="auth__back__btn">
         <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>
       </div>
     </router-link>
-    <div class="signup__page">
-      <div
-        class="signup__border"
-        :class="{ animated__border__sign: isClicked }"
-      >
-        <div class="signup__block">
+    <div class="central__content">
+      <div class="signup__page">
+        <div class="animated__border" :class="{ animated__border__sign: isClicked }"></div>
+          <div
+            class="signup__border"
+          >
+            <div class="signup__block">
+              <div class="signup__block__container">
+                <div class="signup__header">
+                  <h1>Регистрация</h1>
+                  <p>
+                    Начните новые знакомства после быстрой регистрации. Ваши
+                    данные будут защищены.
+                  </p>
+                </div>
+                <div class="signup__input__box">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Телефон / Электронная почта"
+                    @click="isClicked = true"
+                  />
+                  <input
+                    class="input middle"
+                    type="password"
+                    placeholder="Пароль"
+                    @click="isClicked = true"
+                  />
+                  <input
+                    class="input last"
+                    type="password"
+                    placeholder="Повторите пароль"
+                    @click="isClicked = true"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="mobile__body">
           <div class="signup__block__container">
             <div class="signup__header">
               <h1>Регистрация</h1>
@@ -35,83 +64,52 @@
                 class="input"
                 type="text"
                 placeholder="Телефон / Электронная почта"
-                @click="isClicked = true"
               />
+              <input class="input" type="password" placeholder="Пароль" />
               <input
-                class="input middle"
-                type="password"
-                placeholder="Пароль"
-                @click="isClicked = true"
-              />
-              <input
-                class="input last"
+                class="input"
                 type="password"
                 placeholder="Повторите пароль"
-                @click="isClicked = true"
               />
             </div>
           </div>
         </div>
-      </div>
-      <div class="mobile__body">
-        <div class="signup__block__container">
-          <div class="signup__header">
-            <h1>Регистрация</h1>
-            <p>
-              Начните новые знакомства после быстрой регистрации. Ваши данные
-              будут защищены.
-            </p>
+        <div class="signup__footer mobile">
+          <div class="signup__btn">Продолжить</div>
+          <div class="signup__footer__menu">
+            <p>Есть учетная запись?</p>
+            <router-link to="/auth">
+              <span>Войти</span>
+            </router-link>
           </div>
-          <div class="signup__input__box">
-            <input
-              class="input"
-              type="text"
-              placeholder="Телефон / Электронная почта"
-            />
-            <input class="input" type="password" placeholder="Пароль" />
-            <input
-              class="input"
-              type="password"
-              placeholder="Повторите пароль"
-            />
+          <div class="signup__footer__terms">
+            <p>
+              Продолжая, вы принимаете
+              <span> Пользовательское соглашение</span>
+              и
+              <span>Политику конфиденциальности</span>
+            </p>
           </div>
         </div>
       </div>
-    <div class="signup__footer mobile">
-      <div class="signup__btn">Продолжить</div>
-      <div class="signup__footer__menu">
-        <p>Есть учетная запись?</p>
-        <router-link to="/auth">
-          <span>Войти</span>
+      <div class="signup__footer web">
+        <router-link to="/registration/step_two">
+          <div class="signup__btn" @click="isClicked = true">Продолжить</div>
         </router-link>
-      </div>
-      <div class="signup__footer__terms">
-        <p>
-          Продолжая, вы принимаете
-          <span> Пользовательское соглашение</span>
-          и
-          <span>Политику конфиденциальности</span>
-        </p>
-      </div>
-    </div>
-    </div>
-        <div class="signup__footer web">
-          <router-link to="/registration/2">
-            <div class="signup__btn" @click="isClicked = true">Продолжить</div>
+        <div class="signup__footer__menu">
+          <p>Есть учетная запись?</p>
+          <router-link to="/auth">
+            <span>Войти</span>
           </router-link>
-      <div class="signup__footer__menu">
-        <p>Есть учетная запись?</p>
-        <router-link to="/auth">
-          <span>Войти</span>
-        </router-link>
-      </div>
-      <div class="signup__footer__terms">
-        <p>
-          Продолжая, вы принимаете
-          <span> Пользовательское соглашение</span>
-          и
-          <span>Политику конфиденциальности</span>
-        </p>
+        </div>
+        <div class="signup__footer__terms">
+          <p>
+            Продолжая, вы принимаете
+            <span> Пользовательское соглашение</span>
+            и
+            <span>Политику конфиденциальности</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -120,7 +118,7 @@
 import { ref } from "vue";
 const isClicked = ref(false);
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .mobile__body {
   display: none;
 }
@@ -143,12 +141,22 @@ const isClicked = ref(false);
   left: 0;
   bottom: 0;
   z-index: 100;
+  display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 45px;
 }
 .signup__page {
   @extend .flex__center;
   flex-direction: column;
-  height: 600px;
+  margin-bottom: 96px;
+}
+.central__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 .auth__back__btn {
   @extend .flex__center;
@@ -192,8 +200,13 @@ const isClicked = ref(false);
   width: 314px;
   margin-bottom: 32px;
   margin-top: 48px;
+  p {
+    margin: 0;
+    margin-top: 8px;
+  }
 }
 .input {
+  margin: 0;
   &.last {
     margin-bottom: 48px;
   }
@@ -206,11 +219,10 @@ const isClicked = ref(false);
   @extend .flex__center;
   width: 446px;
   border-radius: 32px;
-  margin-bottom: 43px;
-  position: absolute;
-
 }
 .signup__block {
+  position: relative;
+  z-index: 1;
   @extend .flex__center;
   width: 422px;
   background: linear-gradient(
@@ -270,12 +282,17 @@ const isClicked = ref(false);
   p {
     font-size: 12px;
     line-height: 132.5%;
+    margin: 0;
   }
   span {
     font-size: 12px;
     line-height: 132.5%;
     color: #2b66fb;
   }
+}
+.animated__border {
+  position: absolute;
+  z-index: 0;
 }
 .animated__border__sign {
   display: flex;
@@ -284,26 +301,26 @@ const isClicked = ref(false);
   animation-name: borderanimationsign;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  // animation-iteration-count: infinite;
 }
 @keyframes borderanimationsign {
   0% {
     border: 1px solid #2965ff;
     border-radius: 30px;
     width: 428px;
-    height: 415px;
+    height: 425px;
   }
   25% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 430px;
-    height: 420px;
+    height: 430px;
   }
   50% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 434px;
-    height: 426px;
+    height: 436px;
   }
   75% {
     border: 1px solid #2b66fb45;
@@ -314,7 +331,7 @@ const isClicked = ref(false);
   100% {
     border: 1px solid #2b66fb00;
     border-radius: 32px;
-    width: 466px;
+    width: 450px;
     height: 420px;
   }
 }

@@ -642,6 +642,9 @@ export default { components: { TheSelect } };
 .background {
   width: 100%;
   height: 100%;
+  background: none;
+  border: none;
+  padding: 0;
   @extend .flex__center;
   .accordion {
     display: none;
@@ -653,6 +656,8 @@ export default { components: { TheSelect } };
   height: 2205px;
   background: rgba(196, 196, 196, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.33);
+  border-top: none;
+  border-bottom: none;
   .content__container {
     display: flex;
     flex-direction: column;
@@ -890,6 +895,7 @@ export default { components: { TheSelect } };
               height: 23px;
               p {
                 cursor: pointer;
+                margin: 0;
               }
             }
           }
@@ -915,10 +921,17 @@ export default { components: { TheSelect } };
                 width: 60px;
                 height: 60px;
                 background: none;
+                margin: 0;
+              }
+              p {
+                margin: 0;
               }
             }
           }
           .signup__params__item {
+            p {
+              margin: 0;
+            }
             &.params__size {
               @extend .flex__center;
               justify-content: space-between;
@@ -939,6 +952,7 @@ export default { components: { TheSelect } };
                   background: none;
                   width: 52px;
                   border: none;
+                  margin: 0;
                 }
               }
             }
@@ -1237,7 +1251,7 @@ export default { components: { TheSelect } };
           .input {
             width: 25.64vw;
             border: none;
-            
+
             margin: 0;
             &::placeholder {
               color: rgba(255, 255, 255, 0.33);
@@ -1296,6 +1310,7 @@ export default { components: { TheSelect } };
             display: flex;
             align-items: center;
             justify-content: center;
+
             &.line {
               border-left: 0.256vw solid rgba(255, 255, 255, 0.33);
               border-right: 0.256vw solid rgba(255, 255, 255, 0.33);
