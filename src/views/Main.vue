@@ -51,11 +51,10 @@ import Cities from "@/components/Cities/Cities.vue";
 import MobileBurger from '@/components/MobileBurger.vue'
 import {useStore} from '@/stores/main.js'
 import {useAuthStore} from '@/stores/auth.js'
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 const store = useStore();
 const auth = useAuthStore()
-
 
 
 </script>

@@ -273,7 +273,9 @@ router.beforeEach(async (to) => {
   }
 });
 
-
+router.beforeEach(() => {
+  
+})
 
 
 export default router
