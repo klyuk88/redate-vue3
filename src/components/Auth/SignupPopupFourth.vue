@@ -6,12 +6,7 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item active"></div>
     </div>
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <router-link to="/registration/3">
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </router-link>
-    </div>
+     <slot name="backPhaseThree"></slot>
     <div class="signup__page">
       <div
         class="signup__border"
@@ -32,15 +27,18 @@
               </div>
             </div>
             <div class="horizontal__line"></div>
-            <textarea class="about" placeholder="Расскажите о себе" @click="isClicked = true"></textarea>
+            <textarea
+              class="about"
+              placeholder="Расскажите о себе"
+              @click="isClicked = true"
+            ></textarea>
             <div class="signup__btn mobile">Продолжить</div>
           </div>
         </div>
       </div>
     </div>
-    <router-link to="/registration/photo">
-      <div class="signup__btn web" @click="isClicked = true">Продолжить</div>
-    </router-link>
+    <slot name="fivePhase" ></slot>
+    <!-- <div class="signup__btn web" @click="isClicked = true">Продолжить</div> -->
   </div>
 </template>
 <script setup>
@@ -75,23 +73,52 @@ const isClicked = ref(false);
 // };
 </script>
 <style lang="scss" scoped>
+.signup__navigation {
+  margin-top: 64px;
+  margin-bottom: 153px;
+  width: 176px;
+  height: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation__item {
+  width: 32px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.33);
+  &.active {
+    background: #2b66fb;
+    cursor: pointer;
+  }
+}
+.signup__background {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .signup__page {
-  height: 800px;
 }
 .signup__border {
   width: 446px;
-  height: 566px;
-  border: none;
-  margin: 0;
-  position: absolute;
+
 }
 .signup__block {
   width: 422px;
-  height: 542px;
+  padding: 48px;
+gap: 10px;
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
+border: 1px solid #2B66FB;
+box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
+border-radius: 24px;
+  margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 74px;
 }
 .signup__block__container {
   width: 326px;
-  height: 446px;
 }
 .container__cash {
   width: 326px;
@@ -99,6 +126,7 @@ const isClicked = ref(false);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
   .show {
     display: inline-block;
   }
@@ -133,6 +161,7 @@ const isClicked = ref(false);
   width: 326px;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.07);
+  margin: 24px 0px 24px 0px;
 }
 .signup__btn {
   &.mobile {

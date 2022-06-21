@@ -28,33 +28,7 @@ const routes = [{
     meta: {
       layout: 'auth-layout'
     },
-    children: [
-      {
-      path: '',
-      components: {
-        default: () => import('@/components/Auth/SignupPopup.vue')
-      }
-    },
-    {
-      path: 'step_two',
-      components: {
-        default: () => import('@/components/Auth/SignupPopupSecond.vue')
-      }
-    },
-    {
-      path: 'step_three',
-      components: {
-        default: () => import('@/components/Auth/SignupPopupThird.vue')
-      }
-    },
-    {
-      path: 'step_four',
-      components: {
-        default: () => import('@/components/Auth/SignupPopupFourth.vue')
-      }
-    }
-  ]
-},
+  },
   {
     path: '/account/:user',
     name: 'Account',
@@ -145,26 +119,6 @@ const routes = [{
     }
   },
   {
-    path: '/verification/photo',
-    name: 'VerificationPhoto',
-    components: {
-      default: () => import('@/components/Auth/VerificationSecond.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/verification/completed',
-    name: 'VerificationCompleted',
-    components: {
-      default: () => import('@/components/Auth/VerificationThird.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
     path: '/',
     name: 'StartPage',
     components: {
@@ -212,36 +166,6 @@ const routes = [{
       layout: 'auth-layout'
     }
   }, 
-  {
-    path: '/registration/photo',
-    name: 'RegistarationPhoto',
-    components: {
-      default: () => import('@/components/Auth/UploadPhoto.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/registration/photo/choose',
-    name: 'RegistarationPhotoChoose',
-    components: {
-      default: () => import('@/components/Auth/ChoosePhoto.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/registration/completed',
-    name: 'RegistarationCompleted',
-    components: {
-      default: () => import('@/components/Auth/SignupPopupComplete.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
   {
     path: '/:notFound(.*)',
     components: {
