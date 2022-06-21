@@ -1,15 +1,15 @@
 <template>
   <div class="auth__background">
     <div class="auth__page" :class="error">
-      <router-link to="/start">
+      <router-link to="/">
         <div class="auth__back__btn">
           <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </router-link>
       <form @submit.prevent="authorization" class="auth-form">
-      <div class="auth__block" :class="error">
-        <div class="" :class="{ animated__border: isClicked }">
+        <div class="auth__block" :class="error">
+          <div class="" :class="{ animated__border: isClicked }"></div>
           <div class="auth__input__box" :class="error">
             <div class="auth__inner__box" :class="error">
               <div class="auth__inner__content" :class="error">
@@ -17,40 +17,39 @@
                   <h1>Вход</h1>
                   <p>Введите данные для входа в учетеную запись</p>
                 </div>
-                
-                  <div class="inputs" :class="error">
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="Телефон / Электронная почта"
-                      v-model="authForm.login"
-                    />
-                    <input
-                      class="input"
-                      type="password"
-                      placeholder="Пароль"
-                      v-model="authForm.password"
-                    />
-                    <span :class="{'error__auth': useAuth.error}"
-                      >{{useAuth.error}}</span>
-                  </div>
-                
+
+                <div class="inputs" :class="error">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Телефон / Электронная почта"
+                    v-model="authForm.login"
+                  />
+                  <input
+                    class="input"
+                    type="password"
+                    placeholder="Пароль"
+                    v-model="authForm.password"
+                  />
+                  <span :class="{ error__auth: useAuth.error }">{{
+                    useAuth.error
+                  }}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="footer__auth__block">
-        <router-link to="/auth/recovery">
-          <p class="auth__forgot">Забыли пароль?</p>
-        </router-link>
-        <button class="auth__btn">Войти</button>
-        <!-- <div class="auth__btn" @click="waveAnim">Войти</div> -->
-      </div>
+        <div class="footer__auth__block">
+          <router-link to="/auth/recovery">
+            <p class="auth__forgot">Забыли пароль?</p>
+          </router-link>
+          <button class="auth__btn" @click="isClicked = true">Войти</button>
+          <!-- <div class="auth__btn" @click="waveAnim">Войти</div> -->
+        </div>
       </form>
       <div class="auth__footer__signup">
         <p class="auth__no__acc">Нет учетной записи?</p>
-        <router-link to="/start">
+        <router-link to="/">
           <span>Регистрация</span>
         </router-link>
       </div>
@@ -60,44 +59,71 @@
 <script setup>
 import { useAuthStore } from "@/stores/auth.js";
 import { ref, reactive } from "vue";
-const useAuth = useAuthStore()
+const useAuth = useAuthStore();
 const authForm = reactive({
   login: null,
-  password: null
+  password: null,
 });
 const authorization = () => {
-  useAuth.authUser(authForm)
+  useAuth.authUser(authForm);
 };
+const isClicked = ref(false);
 </script>
-
 
 <script>
-export default {
-  data() {
-    return {
-      hasError: true,
-      isClicked: false,
-    };
-  },
-  computed: {
-    error() {
-      if (this.hasError === true) {
-        return "error__auth";
-      }
-      return "test";
-    },
-    waveAnim() {
-      return (this.isClicked = !this.isClicked);
-    },
-  },
-};
+// export default {
+//   data() {
+//     return {
+//       hasError: true,
+//       isClicked: false,
+//     };
+//   },
+//   computed: {
+//     error() {
+//       if (this.hasError === true) {
+//         return "error__auth";
+//       }
+//       return "test";
+//     },
+//     waveAnim() {
+//       return (this.isClicked = !this.isClicked);
+//     },
+//   },
+// };
 </script>
 <style lang="scss">
-
+.auth__back__btn {
+  @extend .flex__center;
+  @extend .text;
+  cursor: pointer;
+  position: fixed;
+  top: 70px;
+  left: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+  h1 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 132.5%;
+  }
+}
+.text {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+}
+.flex__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .auth-form {
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: unset;
 }
 .text {
   font-family: "Mulish";
@@ -119,28 +145,20 @@ export default {
   bottom: 0;
   z-index: 100;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 101px;
 }
 .auth__page {
   @extend .flex__center;
   flex-direction: column;
-  height: 624px;
-  position: relative;
-  top: 8%;
-  &.error__auth {
-    height: 624px;
-  }
 }
 .auth__block {
   @extend .flex__center;
-  margin-bottom: 23px;
+  margin-bottom: 37px;
   position: relative;
   width: 446px;
-  height: 400px;
-  &.error__auth {
-    height: 400px;
-  }
 }
 .animated__border {
   display: flex;
@@ -150,11 +168,11 @@ export default {
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
   // animation-iteration-count: infinite;
+  position: absolute;
+  z-index: 0;
 }
 .auth__input__box {
   @extend .flex__center;
-  width: 422px;
-  height: 331px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.0384) 0%,
@@ -163,30 +181,22 @@ export default {
   border: 1px solid #2b66fb;
   box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
   border-radius: 24px;
-  &.error__auth {
-    height: 373px;
-  }
 }
 .auth__inner__box {
   @extend .flex__center;
-  &.error__auth {
-    height: 235px;
-  }
 }
 .auth__inner__content {
   @extend .flex__center;
   justify-content: space-between;
   flex-direction: column;
   width: 326px;
-  height: 235px;
-  &.error__auth {
-    // height: 277px; 
-  }
+  margin: 48px 48px 32px 48px;
+  position: relative;
+  z-index: 1;
 }
 .auth__header {
   flex-direction: column;
   width: 286px;
-  height: 67px;
   h1 {
     @extend .text;
     text-align: center;
@@ -199,6 +209,7 @@ p {
   line-height: 132.5%;
   text-align: center;
   color: rgba(255, 255, 255, 0.33);
+  margin-bottom: 32px;
 }
 
 .auth__forgot {
@@ -217,7 +228,6 @@ span {
   flex-direction: column;
   justify-content: space-between;
   width: 326px;
-  height: 136px;
   span {
     display: none;
     color: #2b66fb;
@@ -225,9 +235,6 @@ span {
     &.error__auth {
       display: inline-block;
     }
-  }
-  &.error__auth {
-    // height: 178px; 
   }
 }
 .input {
@@ -242,6 +249,7 @@ span {
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 11px;
   padding: 12px;
+  margin-bottom: 16px;
   &:focus {
     color: #ffffff;
   }
@@ -255,7 +263,7 @@ span {
   margin-bottom: 24px;
   cursor: pointer;
   border: none;
-  color: #fff
+  color: #fff;
 }
 
 .auth__footer__signup {
@@ -271,31 +279,31 @@ span {
     border: 1px solid #2965ff;
     border-radius: 30px;
     width: 425px;
-    height: 376px;
+    height: 366px;
   }
   25% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 428px;
-    height: 377px;
+    height: 367px;
   }
   50% {
     border: 1px solid #2b66fb90;
     border-radius: 30px;
     width: 434px;
-    height: 381px;
+    height: 371px;
   }
   75% {
     border: 1px solid #2b66fb45;
     border-radius: 30px;
     width: 450px;
-    height: 406px;
+    height: 386px;
   }
   100% {
     border: 1px solid #2b66fb00;
     border-radius: 32px;
     width: 466px;
-    height: 420px;
+    height: 390px;
   }
 }
 

@@ -1,6 +1,8 @@
 <template>
   <div class="content__container">
-<SignupPopupVue />
+<!-- <SignupPopupVue /> -->
+    <router-view></router-view>
+
   </div>
 </template>
 <script setup>
