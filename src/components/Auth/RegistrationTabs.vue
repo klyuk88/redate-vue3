@@ -1,55 +1,69 @@
 <template>
   <div>
-    <div class="tabs">
-      <div class="signup__navigation">
-        <div class="nav__box" @click="setActive('tab-1')">
-          <div
-            class="navigation__item active"
-            
-          ></div>
-        </div>
-        <div class="nav__box" @click="setActive('tab-2')">
-          <div
-            class="navigation__item"
-            :class="{ active: isActiveNav}"
-          ></div>
-        </div>
-        <div class="nav__box"  @click="setActive('tab-3')">
-          <div
-            class="navigation__item"
-           :class="{ active: isActiveNav}"
-          ></div>
-        </div>
-        <div class="nav__box"  @click="setActive('tab-4')">
-          <div
-            class="navigation__item"
-           :class="{ active: isActiveNav}"
-          ></div>
-        </div>
-      </div>
-      <div class="tab-content">
-        <div class="tab-pane" v-show="isActive('tab-1')">
-          <div class="for-example">
-            <SignupPopup />
+    <keep-alive>
+      <component :is="changeComponent">
+        <template v-slot:secondPhase>
+          <BigButton
+            @click="nameComponent = 'Second'"
+            title="Продолжить"
+            style="width: 236px; height: 48px"
+          />
+        </template>
+        <template v-slot:thirdPhase>
+          <BigButton
+            @click="nameComponent = 'Third'"
+            title="Продолжить"
+            style="width: 236px; height: 48px"
+          />
+        </template>
+        <template v-slot:backPhaseOne>
+          <div class="auth__back__btn" @click="nameComponent = ''">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+            <h1 class="auth__back__btn__title">Назад</h1>
           </div>
-        </div>
-        <div class="tab-pane" v-show="isActive('tab-2')">
-          <div class="for-example">
-            <SignupPopupSecond />
+        </template>
+        <template v-slot:fourthPhase>
+          <BigButton
+            @click="nameComponent = 'Fourth'"
+            title="Продолжить"
+            style="width: 236px; height: 48px"
+          />
+        </template>
+        <template v-slot:backPhaseTwo>
+          <div class="auth__back__btn" @click="nameComponent = 'Third'">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+            <h1 class="auth__back__btn__title">Назад</h1>
           </div>
-        </div>
-        <div class="tab-pane" v-show="isActive('tab-3')">
-          <div class="for-example">
-            <SignupPopupThird />
+        </template>
+        <template v-slot:fivePhase>
+          <BigButton
+            @click="nameComponent = 'Five'"
+            title="Продолжить"
+            style="width: 236px; height: 48px"
+          />
+        </template>
+        <template v-slot:backPhaseThree>
+          <div class="auth__back__btn" @click="nameComponent = 'Third'">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+            <h1 class="auth__back__btn__title">Назад</h1>
           </div>
-        </div>
-        <div class="tab-pane" v-show="isActive('tab-4')">
-          <div class="for-example">
-            <SignupPopupFourth />
+        </template>
+        <template v-slot:choosePhase>
+          <BigButton
+            @click="nameComponent = 'Six'"
+            title="Загрузить с компьютера"
+            style="width: 228px; height: 35px"
+          />
+        </template>
+        <template v-slot:backPhaseFour>
+          <div class="auth__back__btn" @click="nameComponent = 'Fourth'">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+            <h1 class="auth__back__btn__title">Назад</h1>
           </div>
-        </div>
-      </div>
-    </div>
+        </template>
+      </component>
+    </keep-alive>
+    <!-- <BigButton  v-if="nameComponent == '' " v-on:click="nameComponent =  '' " title="Продолжить" /> -->
   </div>
 </template>
 <script>
@@ -57,47 +71,42 @@ import SignupPopup from "./SignupPopup.vue";
 import SignupPopupSecond from "./SignupPopupSecond.vue";
 import SignupPopupThird from "./SignupPopupThird.vue";
 import SignupPopupFourth from "./SignupPopupFourth.vue";
-
+import SignupPopupFive from "./SignupPopupFive.vue";
+import BigButton from "../Form/BigButton.vue";
 export default {
   components: {
     SignupPopup,
     SignupPopupSecond,
     SignupPopupThird,
     SignupPopupFourth,
+    SignupPopupFive,
+    BigButton,
   },
   data() {
     return {
-      activeTab: "tab-1",
-    //   isActiveNav: false
+      nameComponent: "",
     };
   },
-  methods: {
-    setActive(tab) {
-      this.activeTab = tab;
+  computed: {
+    changeComponent() {
+      return "SignupPopup" + this.nameComponent;
     },
-    isActive(tab) {
-      return this.activeTab === tab;
-    },
-    // changeActive() {
-    //   return (this.isActiveNav  === !this.isActiveNav);
-    // }
   },
 };
 </script>
-<style lang="scss" scoped>
-.signup__navigation {
-  z-index: 150;
-  left: 690px;
-.nav__box {
-    width: 32px;
-    height: 60px;
-      position: relative;
-      left: 183px;
-      top: -25px;
-    cursor: pointer;
-    .navigation__item {
-        background: none;
-    }
+<style lang="scss">
+.auth__back__btn {
+  cursor: pointer;
+  position: fixed;
+  top: 70px;
+  left: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
 }
+.auth__back__btn__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
 }
 </style>

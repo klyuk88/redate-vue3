@@ -1,11 +1,6 @@
 <template>
   <div class="signup__background">
-    <router-link to="/verification">
-      <div class="auth__back__btn">
-        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </div>
-    </router-link>
+      <slot name="backToFirst"></slot>
     <div class="verification__page">
       <div class="verification__block__container">
         <div class="verification__content">
@@ -64,9 +59,7 @@
             Отобразите позу, которая указана на картинке справа
           </p>
           <div class="btn__update">Обновить снимок</div>
-          <router-link to="/verification/completed">
-            <div class="btn__continue" :class="added">Продолжить</div>
-            </router-link>
+          <slot name="toThird"></slot>
         </div>
       </div>
       <div class="verification__nav">

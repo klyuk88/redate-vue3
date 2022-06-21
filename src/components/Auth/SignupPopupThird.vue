@@ -1,5 +1,8 @@
 <template>
-<SignupHobby v-if="modalHobbyVisible" @hideModalHobby="modalHobbyVisible = false"/>
+  <SignupHobby
+    v-if="modalHobbyVisible"
+    @hideModalHobby="modalHobbyVisible = false"
+  />
   <div class="signup__background">
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
@@ -7,15 +10,13 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
     </div>
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <router-link to="/registration/2">
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </router-link>
-    </div>
+    <slot name="backPhaseTwo"></slot>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border__sign__three: isClicked }">
-        <div class="signup__block" >
+      <div
+        class="signup__border"
+        :class="{ animated__border__sign__three: isClicked }"
+      >
+        <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__input__box">
               <div class="block first" @click="isClicked = true">
@@ -29,7 +30,6 @@
                     <p>Положительное</p>
                   </div>
                 </div>
-                
               </div>
               <div class="horizontal__line"></div>
               <div class="block" @click="isClicked = true">
@@ -45,7 +45,7 @@
                 </div>
               </div>
               <div class="horizontal__line"></div>
-              <div class="block skills" >
+              <div class="block skills">
                 <p>Увлечения:</p>
                 <div class="input" @click="isClicked = true">
                   <div class="chips">
@@ -82,7 +82,7 @@
               <div class="horizontal__line"></div>
               <div class="block skills last">
                 <p>Знание языков:</p>
-                <div class="input"  >
+                <div class="input">
                   <div class="chips">
                     Спорт
                     <img
@@ -120,38 +120,72 @@
           </div>
         </div>
       </div>
+    <slot name="fourthPhase" ></slot>
+
+    <p class="skip web">Пропустить</p>
     </div>
-    <router-link to="/registration/4">
-      <div class="signup__btn web" @click="isClicked = true">Продолжить</div>
-    </router-link>
-    <router-link to="/registration/4">
-      <p class="skip web">Пропустить</p>
-      </router-link>
+
+    <!-- <div class="signup__btn web" @click="isClicked = true">Продолжить</div> -->
   </div>
 </template>
 <script setup>
-
 import AuthPopup from "@/components/Auth/AuthPopup.vue";
 import SignupHobby from "@/components/Auth/SignupHobby.vue";
 import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
-  import { ref } from "vue";
+import { ref } from "vue";
 const isClicked = ref(false);
 const modalHobbyVisible = ref(false);
-
 </script>
 <style lang="scss" scoped>
+.signup__navigation {
+  margin-top: 64px;
+  margin-bottom: 100px;
+  width: 176px;
+  height: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation__item {
+  width: 32px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.33);
+  &.active {
+    background: #2b66fb;
+    cursor: pointer;
+  }
+}
+.signup__background {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .signup__page {
-height: 715px;
-margin: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .signup__border {
   width: 446px;
   border: none;
-  position: absolute;
-
+  margin-bottom: 61px;
 }
 .signup__block {
-  width: 422px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 48px;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  border-radius: 24px;
 }
 .signup__block__container {
   width: 326px;
@@ -169,14 +203,14 @@ margin: 0;
   justify-content: space-between;
   align-items: center;
   &.first {
-  margin-top: 48px;
+    margin-top: 48px;
   }
   p {
     font-weight: 600;
     font-size: 12px;
     line-height: 132.5%;
     color: #ffffff;
-    margin-bottom:12px;
+    margin-bottom: 12px;
   }
   .skills {
     height: 77px;
@@ -252,7 +286,7 @@ margin: 0;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.07);
   margin-bottom: 24px;
-margin-top: 24px;
+  margin-top: 24px;
 }
 .input {
   margin: 0;
@@ -275,6 +309,7 @@ margin-top: 24px;
   color: #ffffff;
   cursor: pointer;
   margin-top: 24px;
+  margin-bottom: 32px;
   &.mobile {
     display: none;
   }
@@ -330,7 +365,6 @@ margin-top: 24px;
     display: flex;
     border: none;
     margin: 0;
-
   }
   .signup__block {
     border: none;
