@@ -246,6 +246,9 @@ const isClicked = ref(false);
   .signup__return__btn {
     margin-left: 3.33vw;
   }
+  .signup__header__block {
+    height: unset;
+  }
   .signup__page {
     height: 159.23vw;
   }
@@ -263,10 +266,14 @@ const isClicked = ref(false);
     box-shadow: none;
   }
   .signup__body__block {
-    height: 118.461vw;
+    height: 138vw;
+    p {
+      margin-bottom: 17.7vw;
+    }
   }
   .signup__options__block {
     border: none;
+    overflow: scroll;
   }
   .signup__btn {
     width: 85.89vw;

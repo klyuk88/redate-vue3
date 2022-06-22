@@ -15,7 +15,9 @@
               <div class="auth__inner__content" :class="error">
                 <div class="auth__header">
                   <h1>Вход</h1>
-                  <p class="subTitle">Введите данные для входа в учетеную запись</p>
+                  <p class="subTitle">
+                    Введите данные для входа в учетеную запись
+                  </p>
                 </div>
 
                 <div class="inputs" :class="error">
@@ -40,7 +42,9 @@
           </div>
         </div>
         <div class="footer__auth__block">
-          <slot name="toRecovery"></slot>
+          <div class="mobile__recovery">
+            <slot name="toRecovery"></slot>
+          </div>
           <button class="auth__btn" @click="isClicked = true">Войти</button>
         </div>
       </form>
@@ -195,12 +199,11 @@ const isClicked = ref(false);
   flex-direction: column;
   width: 286px;
   h1 {
-
     text-align: center;
     margin-bottom: 8px;
   }
 }
- .subTitle {
+.subTitle {
   font-size: 12px;
   line-height: 132.5%;
   text-align: center;
@@ -215,7 +218,7 @@ const isClicked = ref(false);
 }
 .auth__no__acc {
   font-size: 14px;
-    font-weight: 500;
+  font-weight: 500;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.4);
 }
@@ -237,7 +240,6 @@ span {
   }
 }
 .input {
-
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -315,92 +317,70 @@ span {
   .auth__back__btn {
     display: none !important;
   }
+  .subTitle {
+    margin-bottom: 88px;
+  }
   .auth__background {
-    position: fixed;
     width: 100%;
     height: 100%;
-    left: 0;
-    bottom: 0;
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
   }
   .auth__page {
     @extend .flex__center;
     flex-direction: column;
-    height: 166.66vw;
     width: 100vw;
     position: relative;
     justify-content: space-between;
     top: 0;
-    &.error__auth {
-      height: 166.66vw;
-      justify-content: space-between;
-    }
   }
   .auth__block {
     @extend .flex__center;
     margin-bottom: 0;
     position: relative;
     width: 114.358vw;
-    height: 91.538vw;
     border: none;
-    &.error__auth {
-      height: 95.64vw;
-    }
   }
   .auth__input__box {
     @extend .flex__center;
     width: 108.205vw;
-    height: 84.87vw;
     background: none;
     border: none;
     box-shadow: none;
     border-radius: 6.1538vw;
-    &.error__auth {
-      height: 95.641vw;
-    }
   }
   .auth__inner__box {
     @extend .flex__center;
-    &.error__auth {
-      height: 60.256vw;
-    }
   }
   .auth__inner__content {
     @extend .flex__center;
     justify-content: space-between;
     flex-direction: column;
     width: 83.589vw;
-    height: 76.923vw;
-    &.error__auth {
-      height: 87.69vw;
-    }
   }
   .auth__header {
     flex-direction: column;
     width: 79.44vw;
-    height: 17.179vw;
     h1 {
-
       text-align: center;
       margin-bottom: 2.051vw;
     }
   }
   p {
-
     font-size: 3.0769vw;
     line-height: 132.5%;
     text-align: center;
     color: rgba(255, 255, 255, 0.33);
   }
-
+.mobile__recovery {
+  margin-bottom: 180px;
+}
   .auth__forgot {
     font-size: 3.589vw;
-    margin-bottom: 0;
     position: relative;
-    bottom: 0px;
   }
   .auth__no__acc {
     font-size: 3.589vw;
@@ -414,7 +394,6 @@ span {
     justify-content: space-between;
     align-items: center;
     width: 83.589vw;
-    height: 34.871vw;
     span {
       display: none;
       color: #2b66fb;
@@ -427,12 +406,8 @@ span {
         display: inline-block;
       }
     }
-    &.error__auth {
-      height: 45.64vw;
-    }
   }
   .input {
-
     font-size: 3.846vw;
     line-height: 153.5%;
     color: rgba(255, 255, 255, 0.33);
@@ -451,8 +426,6 @@ span {
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
-    height: 26.92vw;
-    margin-bottom: 24.3589vw;
   }
   .auth__btn {
     @extend .flex__center;
@@ -460,7 +433,7 @@ span {
     height: 15.384vw;
     background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
     border-radius: 2.82vw;
-    margin-bottom: 0;
+    margin-bottom: 24px;
     position: relative;
     top: 0;
   }

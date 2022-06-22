@@ -7,6 +7,9 @@
       <div class="navigation__item active"></div>
     </div>
      <slot name="backPhaseThree"></slot>
+     <div class="arrowMobile">
+       <slot name="backPhaseThreeMobile"></slot>
+     </div>
     <div class="signup__page">
       <div
         class="signup__border"
@@ -31,13 +34,16 @@
               placeholder="Расскажите о себе"
               @click="isClicked = true"
             ></textarea>
-            <div class="signup__btn mobile">Продолжить</div>
           </div>
         </div>
       </div>
     </div>
-    <slot name="fivePhase" ></slot>
-    <!-- <div class="signup__btn web" @click="isClicked = true">Продолжить</div> -->
+    <div class="webBtn">
+      <slot name="fivePhase" ></slot>
+    </div>
+    <div class="mobileBtn">
+      <slot name="fivePhaseMobile"></slot>
+    </div>
   </div>
 </template>
 <script setup>
@@ -72,9 +78,15 @@ const isClicked = ref(false);
 // };
 </script>
 <style lang="scss" scoped>
+.mobileBtn {
+  display: none;
+}
+.arrowMobile {
+  display: none;
+}
 .signup__navigation {
   margin-top: 64px;
-  margin-bottom: 153px;
+  margin-bottom: 161px;
   width: 176px;
   height: 4px;
   display: flex;
@@ -230,6 +242,24 @@ margin-bottom: 74px;
   }
 }
 @media (max-width: 1200px) {
+  .signup__background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .mobileBtn {
+    display: flex;
+  }
+  .webBtn {
+    display: none;
+  }
+  .arrowMobile {
+    display: flex;
+  }
+  .signup__navigation  {
+    margin-bottom: 72px;
+  }
   .container__cash {
     width: 85.89vw;
   }
@@ -252,17 +282,19 @@ margin-bottom: 74px;
   }
   .signup__border {
     display: flex;
+    justify-content: center;
     border: none;
-    margin-top: 72px;
+    width: unset;
   }
   .signup__block {
     border: none;
     background: none;
     box-shadow: none;
+    width: unset;
+    padding: 0;
   }
   .signup__block__container {
     width: 85.89vw;
-    height: 138.461vw;
   }
   .input {
     width: 85.89vw;

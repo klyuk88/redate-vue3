@@ -13,11 +13,23 @@
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
+        <template v-slot:backToAuthMobile>
+          <div class="auth__back__btn__mobile" @click="nameAuth = ''">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </div>
+        </template>
         <template v-slot:toCode>
           <BigButton
             @click="nameAuth = 'Code'"
             title="Отправить"
             style="width: 236px; height: 48px; margin-bottom: 24px"
+          />
+        </template>
+        <template v-slot:toCodeMobile> 
+          <BigButton
+            @click="nameAuth = 'Code'"
+            title="Отправить"
+            style="width: 85.89vw; height: 15.38vw; margin-bottom: 12.3vw"
           />
         </template>
         <template v-slot:backToAuthSpan>
@@ -89,6 +101,15 @@ export default {
 };
 </script>
 <style lang="scss">
+.auth__back__btn__mobile {
+  cursor: pointer;
+  position: fixed;
+  top: 55px;
+  left: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
 .auth__forgot {
   font-size: 14px;
   margin-bottom: 84px;

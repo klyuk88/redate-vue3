@@ -1,6 +1,9 @@
 <template>
   <div class="signup__background">
       <slot name="backToAuth"></slot>
+      <div class="mobileArrow">
+        <slot name="backToAuthMobile"></slot>
+      </div>
     <div class="signup__page">
       <div
         class="signup__border"
@@ -10,7 +13,7 @@
           <div class="signup__block__container" :class="error">
             <div class="signup__block__header">
               <h1>Забыли пароль?</h1>
-              <p>
+              <p class="subTitle">
                 Введите электронную почту или номер телефона. Мы отправим Вам
                 код для восстановления пароля.
               </p>
@@ -32,7 +35,7 @@
       <div class="mobile__body" :class="error">
         <div class="signup__block__header">
           <h1>Забыли пароль?</h1>
-          <p>
+          <p >
             Введите электронную почту или номер телефона. Мы отправим Вам код
             для восстановления пароля.
           </p>
@@ -49,24 +52,22 @@
               введите номер телефона.</span
             >
           </div>
-          <div class="signup__btn" :class="(errorPhone, errorMail)">
-            Отправить
-          </div>
+          <slot name="toCodeMobile"></slot>
           <p class="footer__text">
             Вспомнили пароль?
-            <router-link to="/auth">
-              <span> Войти</span>
-            </router-link>
+            <slot name="backToAuthSpan"></slot>
           </p>
         </div>
       </div>
     </div>
     <!-- <div class="signup__btn web">Отправить</div> -->
-    <slot name="toCode"></slot>
-    <p class="footer__text web">
-      Вспомнили пароль?
-       <slot name="backToAuthSpan"></slot>
-    </p>
+    <div class="mobileFooter">
+      <slot name="toCode"></slot>
+      <p class="footer__text web">
+        Вспомнили пароль?
+         <slot name="backToAuthSpan"></slot>
+      </p>
+    </div>
   </div>
 </template>
 <script setup>
@@ -104,6 +105,9 @@ const isClicked = ref(false);
 // };
 </script>
 <style lang="scss" scoped>
+.mobileArrow {
+  display: none;
+}
 .signup__page {
   margin-bottom: 169px;
 }
@@ -220,6 +224,9 @@ span {
   font-weight: 500;
   font-size: 14px;
   margin: 0;
+  line-height: 132.5%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.33);
   span {
     cursor: pointer;
   }
@@ -266,6 +273,12 @@ span {
   }
 }
 @media (max-width: 1200px) {
+  .mobileArrow {
+    display: flex;
+  }
+  .mobileFooter {
+    display: none;
+  }
   .signup__page {
     .footer__text {
       &.web {
@@ -299,10 +312,6 @@ span {
     align-items: center;
     justify-content: space-between;
     width: 85.89vw;
-    height: 95.64vw;
-    &.error {
-      height: 107.948vw;
-    }
 
     .signup__block__numbers {
       &.error {
@@ -311,6 +320,7 @@ span {
     }
     .signup__block__header {
       display: flex;
+      margin-bottom: 18.46vw;
       span {
         text-align: center;
         color: #2b66fb;
@@ -345,6 +355,7 @@ span {
     }
     .input {
       width: 85.89vw;
+      margin-bottom: 24px;
     }
   }
   .mobile__buttons {
@@ -353,12 +364,6 @@ span {
     align-items: center;
     flex-direction: column;
     width: 85.89vw;
-    height: 54.6153vw;
-
-    &.error {
-      height: 66.923vw;
-    }
-
     p {
       line-height: 153.5%;
     }
