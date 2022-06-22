@@ -1,6 +1,6 @@
 <template>
   <UserPhotoCarousel v-if="showModal" @hideModal="showModal = false" />
-<ProfileNewMessage v-if="store.newMessageWindow" />
+  <ProfileNewMessage v-if="store.newMessageWindow" />
   <div class="profile__page">
     <div class="nav__box">
       <router-link to="/">
@@ -128,8 +128,13 @@
           }"
         >
           <div class="inner__buttons__block">
-            <div class="big__buttons" >
-              <div class="send__message" @click.prevent="store.newMessageWindow = true">Написать</div>
+            <div class="big__buttons">
+              <div
+                class="send__message"
+                @click.prevent="store.newMessageWindow = true"
+              >
+                Написать
+              </div>
               <div class="icon__btn">
                 <img src="@/assets/images/main/star.svg" alt="" />
               </div>
@@ -163,7 +168,7 @@
           <div class="buttons__block mobile">
             <div class="inner__buttons__block">
               <div class="big__buttons">
-                <div class="send__message"  >Написать</div>
+                <div class="send__message">Написать</div>
                 <div class="icon__btn">
                   <img
                     src="@/assets/images/main/heart.svg"
@@ -421,10 +426,8 @@ import ProfileNewMessage from "./ProfileNewMessage.vue";
 import ProfilePopupMore from "./ProfilePopupMore.vue";
 import { ref } from "vue";
 
-
-import {useStore} from '@/stores/main.js'
-const store = useStore()
-
+import { useStore } from "@/stores/main.js";
+const store = useStore();
 
 const showModal = ref(false);
 const showModalMore = ref(false);
@@ -1052,7 +1055,7 @@ const notificationStageFive = false;
   display: none;
 }
 @media (max-width: 1200px) {
-  .profile__info__filter__block  {
+  .profile__info__filter__block {
     margin-top: 32px;
     margin-bottom: 32px;
   }

@@ -10,7 +10,6 @@
     <div class="signup__page">
       <div
         class="signup__border"
-        :class="{ animated__border__sign__fours: isClicked }"
       >
         <div class="signup__block">
           <div class="signup__block__container">

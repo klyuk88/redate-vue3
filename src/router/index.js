@@ -137,36 +137,6 @@ const routes = [{
     },
   },
   {
-    path: '/auth/recovery',
-    name: 'RecoveryPass',
-    components: {
-      default: () => import('@/components/Auth/ForgotPassword.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/profile/photogallery',
-    name: 'PhotoGallery',
-    components: {
-      default: () => import('@/components/Profile/ProfilePhotoCarousel.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  },
-  {
-    path: '/profile/usergallery',
-    name: 'UserGallery',
-    components: {
-      default: () => import('@/components/Profile/UserPhotoCarousel.vue'),
-    },
-    meta: {
-      layout: 'auth-layout'
-    }
-  }, 
-  {
     path: '/:notFound(.*)',
     components: {
       default: () => import('@/views/NotFound.vue'),

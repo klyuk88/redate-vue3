@@ -11,7 +11,10 @@ import VerificationTabs from '../components/Auth/VerificationTabs.vue';
 .content__container {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
 }
 
 </style>

@@ -23,10 +23,8 @@
             <p>Спасибо за понимание, приятных знакомств.</p>
           </div>
         </div>
-          <slot name="toSecond"></slot>
-        <router-link to="/account/:user">
-          <div class="btn__later">Пройти позже</div>
-        </router-link>
+        <slot name="toSecond"></slot>
+        <slot name="toSkip"></slot>
       </div>
       <div class="verification__nav">
         <div class="nav__footer">

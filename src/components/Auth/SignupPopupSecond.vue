@@ -6,13 +6,10 @@
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
     </div>
-    <!-- <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
-      <router-link to="/registration">
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </router-link>
-    </div> -->
     <slot name="backPhaseOne"></slot>
+    <div class="mobileArrow">
+      <slot name="backPhaseOneMobile"></slot>
+    </div>
     <div class="signup__page">
       <div class="signup__border" :class="{ animated__border__sign__two: isClicked }">
         <div class="signup__block" :class="male">
@@ -92,6 +89,7 @@
                 <span>*Необязательно для заполнения</span>
               </div>
             </div>
+            <slot name="thirdPhaseMobile"></slot>
           </div>
         </div>
       </div>
@@ -173,47 +171,26 @@
             </div>
           </div>
         </div>
-        <!-- <div class="signup__btn" :class="error" >Продолжить</div> -->
       </div>
     </div>
-        <slot name="thirdPhase" ></slot>
+    <div class="webBtn">
+      <slot name="thirdPhase" ></slot>
+    </div>
+    
       <!-- <div class="signup__btn web" :class="error">Продолжить</div> -->
 
   </div>
 </template>
 <script setup>
 import TheSelect from "../Form/TheSelect.vue";
-// import AuthPopup from "@/components/Auth/AuthPopup.vue";
-// import SignupHobby from "@/components/Auth/SignupHobby.vue";
-// import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
 import { ref } from "vue";
 
 const isClicked = ref(false);
-// export default {
-//   data() {
-//     return {
-//       malePage: false,
-//       hasError: false,
-//     };
-//   },
-//   computed: {
-//     male() {
-//       if (this.malePage === true) {
-//         return "male";
-//       }
-//       return "test";
-//     },
-//     error() {
-//       if (this.hasError === true) {
-//         return "error";
-//       }
-//       return "test";
-//     },
-//   },
-//   components: { TheSelect },
-// };
 </script>
 <style lang="scss" scoped>
+.mobileArrow {
+  display: none;
+}
 .signup__navigation {
   margin-top: 64px;
   margin-bottom: 153px;
@@ -248,9 +225,9 @@ margin-bottom: 67px;
 .signup__border {
   border: none;
   position: absolute;
-
-
+  display: none;
 }
+
 .signup__block {
 
 }
@@ -305,6 +282,7 @@ margin-bottom: 67px;
   width: 1px;
   background-color: rgba(255, 255, 255, 0.14);
 }
+
 .signup__age__block {
   width: 326px;
   height: 60px;
@@ -484,10 +462,22 @@ margin-bottom: 67px;
   }
 }
 @media (max-width: 1200px) {
+  .mobileArrow {
+    display: flex;
+  }
   .signup__background {
     top: 0;
   }
+  .webBtn {
+    display: none;
+  }
+  .signup__navigation {
+    margin-bottom: 37px;
+  }
   .signup__border {
+    display: flex;
+  }
+  .mobile__body {
     display: none;
   }
   .signup__btn {
@@ -499,6 +489,10 @@ margin-bottom: 67px;
     margin-top: 37px;
     display: flex;
     justify-content: center;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
   }
   .mobile__body {
     flex-direction: column;

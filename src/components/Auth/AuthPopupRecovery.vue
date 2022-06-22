@@ -1,13 +1,11 @@
 <template>
   <div class="signup__background">
-    <router-link to="/auth">
-      <div class="auth__back__btn">
-        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </div>
-    </router-link>
+      <slot name="backToAuth"></slot>
     <div class="signup__page">
-      <div class="signup__border " :class="{ animated__border__pass: isClicked }" >
+      <div
+        class="signup__border"
+        :class="{ animated__border__pass: isClicked }"
+      >
         <div class="signup__block" :class="error">
           <div class="signup__block__container" :class="error">
             <div class="signup__block__header">
@@ -63,22 +61,15 @@
         </div>
       </div>
     </div>
-      <div class="signup__btn web" @click="isClicked = true">
-        Отправить
-      </div>
-      <p class="footer__text web">
-        Вспомнили пароль?
-        <router-link to="/auth">
-          <span> Войти</span>
-        </router-link>
-      </p>
+    <!-- <div class="signup__btn web">Отправить</div> -->
+    <slot name="toCode"></slot>
+    <p class="footer__text web">
+      Вспомнили пароль?
+       <slot name="backToAuthSpan"></slot>
+    </p>
   </div>
 </template>
 <script setup>
-import SignupPopup from "@/components/Auth/SignupPopup.vue";
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-
-
 import { ref } from "vue";
 const isClicked = ref(false);
 
@@ -114,13 +105,17 @@ const isClicked = ref(false);
 </script>
 <style lang="scss" scoped>
 .signup__page {
-  justify-content: center;
+  margin-bottom: 169px;
+}
+.signup__background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 101px;
 }
 .mobile__body {
+  display: none;
   .signup__block__numbers {
-    &.error {
-      display: none;
-    }
   }
   .signup__block__header {
     display: none;
@@ -135,35 +130,35 @@ span {
 }
 .signup__border {
   width: 446px;
-  height: 299px;
-  border: none;
-  // animation: borderanimation 0.7s infinite;
-  &.error {
-    height: 341px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
+  border-radius: 24px;
 }
 .signup__block {
   width: 422px;
-  height: 275px;
-  &.error {
-    height: 317px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signup__block__container {
   width: 326px;
-  height: 179px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-
-  &.error {
-    height: 221px;
-  }
 }
 .signup__block__numbers {
   display: contents;
   &.error {
-    height: 102px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -190,14 +185,29 @@ span {
 }
 .signup__block__header {
   width: 306px;
-  height: 87px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  p {
+    margin: 0;
+    margin-top: 12px;
+    margin-bottom: 32px;
+  }
+}
+.input {
+  margin: 0;
 }
 .signup__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 24px;
+  width: 236px;
+  height: 48px;
+  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+  border-radius: 11px;
+  cursor: pointer;
   &.error__phone {
     background: #434447;
     color: rgba(255, 255, 255, 0.33);
@@ -209,9 +219,9 @@ span {
 .footer__text {
   font-weight: 500;
   font-size: 14px;
+  margin: 0;
   span {
-  cursor: pointer;
-
+    cursor: pointer;
   }
 }
 .animated__border__pass {
