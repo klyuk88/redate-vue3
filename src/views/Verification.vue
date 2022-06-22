@@ -1,12 +1,10 @@
 <template>
   <div class="content__container">
-      <VerificationFirst />
+<VerificationTabs />
   </div>
 </template>
 <script setup>
-
-import SignupPopup from "../components/Auth/SignupPopup.vue";
-import VerificationFirst from "../components/Auth/VerificationFirst.vue";
+import VerificationTabs from '../components/Auth/VerificationTabs.vue';
 
 </script>
 <style lang="scss">

@@ -93,9 +93,12 @@
         </div>
       </div>
       <div class="signup__footer web">
-        <router-link to="/registration/step_two">
+        <!-- <router-link to="/registration/step_two">
           <div class="signup__btn" @click="isClicked = true">Продолжить</div>
-        </router-link>
+        </router-link> -->
+        <slot name="secondPhase" >
+          
+        </slot>
         <div class="signup__footer__menu">
           <p>Есть учетная запись?</p>
           <router-link to="/auth">
@@ -135,11 +138,6 @@ const isClicked = ref(false);
 }
 .signup__background {
   @extend .flex__center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -175,12 +173,12 @@ const isClicked = ref(false);
   line-height: 132.5%;
 }
 .signup__navigation {
-  position: fixed;
-  top: 80px;
   width: 176px;
   height: 4px;
   display: flex;
   justify-content: space-between;
+  margin-top: 64px;
+  margin-bottom: 220px;
 }
 .navigation__item {
   width: 32px;

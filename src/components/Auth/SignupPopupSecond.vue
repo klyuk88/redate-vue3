@@ -6,12 +6,13 @@
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
     </div>
-    <div class="auth__back__btn">
+    <!-- <div class="auth__back__btn">
       <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
       <router-link to="/registration">
         <h1 class="auth__back__btn__title">Назад</h1>
       </router-link>
-    </div>
+    </div> -->
+    <slot name="backPhaseOne"></slot>
     <div class="signup__page">
       <div class="signup__border" :class="{ animated__border__sign__two: isClicked }">
         <div class="signup__block" :class="male">
@@ -172,20 +173,19 @@
             </div>
           </div>
         </div>
-        <div class="signup__btn" :class="error" >Продолжить</div>
+        <!-- <div class="signup__btn" :class="error" >Продолжить</div> -->
       </div>
     </div>
-    <router-link to="/registration/3">
-      <div class="signup__btn web" :class="error">Продолжить</div>
-    </router-link>
+        <slot name="thirdPhase" ></slot>
+      <!-- <div class="signup__btn web" :class="error">Продолжить</div> -->
 
   </div>
 </template>
 <script setup>
 import TheSelect from "../Form/TheSelect.vue";
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
+// import AuthPopup from "@/components/Auth/AuthPopup.vue";
+// import SignupHobby from "@/components/Auth/SignupHobby.vue";
+// import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
 import { ref } from "vue";
 
 const isClicked = ref(false);
@@ -214,36 +214,50 @@ const isClicked = ref(false);
 // };
 </script>
 <style lang="scss" scoped>
+.signup__navigation {
+  margin-top: 64px;
+  margin-bottom: 153px;
+  width: 176px;
+  height: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation__item {
+  width: 32px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.33);
+  &.active {
+    background: #2b66fb;
+    cursor: pointer;
+  }
+}
 .signup__background {
-  position: fixed;
-  top: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .signup__page {
-  height: 800px;
+    padding: 48px;
+  gap: 10px;
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
+border: 1px solid #2B66FB;
+border-radius: 24px;
+margin-bottom: 67px;
 }
 .signup__border {
-  height: 581px;
   border: none;
   position: absolute;
 
-  &.male {
-    height: 548px;
-  }
+
 }
 .signup__block {
-  height: 557px;
-  &.male {
-    height: 524px;
-  }
+
 }
 .signup__block__container {
-  height: 461px;
-  &.male {
-    height: 428px;
-  }
+
 }
 .signup__input__box {
-  height: 212px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -254,7 +268,7 @@ const isClicked = ref(false);
   width: 326px;
   height: 60px;
   background: none;
-
+  margin: 0;
   &:focus {
     border: #ffffff 1px solid;
   }
@@ -264,6 +278,8 @@ const isClicked = ref(false);
   height: 60px;
   z-index: 2;
   margin: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 .select__nation {
   width: 326px;
@@ -272,10 +288,10 @@ const isClicked = ref(false);
   margin: 0;
 }
 .signup__footer {
-  height: 225px;
+  // height: 225px;
   position: unset;
   &.male {
-    height: 192px;
+    // height: 192px;
   }
   span {
     font-weight: 600;
@@ -295,11 +311,14 @@ const isClicked = ref(false);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
   p {
     font-weight: 500;
     font-size: 14px;
     line-height: 153.5%;
     color: #ffffff;
+    margin: 0;
   }
   input {
     text-align: center;
@@ -333,6 +352,7 @@ const isClicked = ref(false);
   width: 326px;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.07);
+  margin-bottom: 24px;
 }
 .signup__params__block {
   width: 136px;
@@ -351,18 +371,17 @@ const isClicked = ref(false);
   display: flex;
   justify-content: space-between;
   width: 326px;
-  height: 93px;
-  &.male {
-    height: 60px;
-  }
+  margin-bottom: 8px;
 }
 .signup__params__item {
   width: 60px;
-  height: 93px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
+  p {
+    margin-bottom: 12px;
+  }
   &.male {
     flex-direction: row;
     width: 121px;
@@ -394,7 +413,7 @@ const isClicked = ref(false);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 117px;
+  // height: 117px;
   &.male {
     height: 84px;
   }

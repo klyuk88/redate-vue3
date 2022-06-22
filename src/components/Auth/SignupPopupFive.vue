@@ -3,29 +3,29 @@
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
     </div>
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <router-link to="/registration/4">
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </router-link>
-    </div>
+    <slot name="backPhaseFour"></slot>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border__upload: isClicked }">
+      <div
+        class="signup__border"
+        :class="{ animated__border__upload: isClicked }"
+      >
         <div class="signup__block" :class="male">
           <div class="signup__block__container" :class="male">
             <div class="photo__block">
-              <div class="photo__border" >
+              <div class="photo__border">
                 <div class="inner__border" :class="added">
                   <div class="add__btn">
-                    <router-link to="/registration/photo/choose">
                       <img
                         src="@/assets/images/main/add__photo__btn.svg"
                         alt=""
                       />
-                    </router-link>
                   </div>
                 </div>
-                <img src="@/assets/images/main/upload__photo__male.svg" alt="" :class="added">
+                <img
+                  src="@/assets/images/main/upload__photo__male.svg"
+                  alt=""
+                  :class="added"
+                />
               </div>
             </div>
             <p>
@@ -34,7 +34,8 @@
               отображаться в Вашей гелерее.
             </p>
             <div class="btn__block web" :class="male">
-              <div class="upload__btn">Загрузить с компьютера</div>
+              <!-- <div class="upload__btn">Загрузить с компьютера</div> -->
+              <slot name="choosePhase"></slot>
               <div class="random__btn" :class="male">Выбрать случайную</div>
             </div>
             <div class="btn__block mobile" :class="male">
@@ -49,17 +50,11 @@
         </div>
       </div>
     </div>
-    <router-link to="/registration/completed">
-      <div class="btn__continue web" @click="isClicked = true">Продолжить</div>
-    </router-link>
   </div>
 </template>
-<script setup> 
+<script setup>
 import { ref } from "vue";
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
-const isClicked = ref(true);
+const isClicked = ref(false);
 // export default {
 //   data() {
 //     return {
@@ -85,35 +80,47 @@ const isClicked = ref(true);
 </script>
 <style lang="scss" scoped>
 .signup__navigation {
-  position: fixed;
-  top: 80px !important;
-  margin-left: 50px;
+  height: 4px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+  margin-bottom: 158px;
 }
 .navigation__item {
   width: 128px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.33);
+  &.active {
+    background: #2b66fb;
+  }
+}
+.signup__background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .signup__page {
-  height: 712px;
 }
 .signup__border {
-  width: 454px;
-  height: 583px;
-  position: absolute;
-  &.male {
-    height: 630px;
-  }
   .signup__block {
-    width: 430px;
-    height: 559px;
-    &.male {
-      height: 606px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px;
+    gap: 10px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.0384) 0%,
+      rgba(95, 133, 228, 0.05) 68.75%
+    );
+    border: 1px solid #2b66fb;
+    border-radius: 24px;
     .signup__block__container {
       width: 334px;
-      height: 463px;
-      &.male {
-        height: 510px;
-      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 }
@@ -126,12 +133,9 @@ p {
   align-items: center;
   text-align: center;
   color: #ffffff;
+  margin-top: 24px;
 }
-.signup__navigation {
-  position: fixed;
-  top: 64px;
-  margin-left: 50px;
-}
+
 .photo__block {
   background: none;
 }
@@ -144,7 +148,7 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  >img {
+  > img {
     display: none;
   }
 }
@@ -215,7 +219,7 @@ p {
   animation-name: borderanimation;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  // animation-iteration-count: infinite;
 }
 @keyframes borderanimation {
   0% {
@@ -326,7 +330,7 @@ p {
     height: 8.974vw;
   }
   .upload {
-    width: 32.30vw;
+    width: 32.3vw;
     height: 8.974vw;
     background: #2b66fb;
     border-radius: 2.82vw;
