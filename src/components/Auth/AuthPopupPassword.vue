@@ -1,9 +1,6 @@
 <template>
   <div class="signup__background">
-    <div class="auth__back__btn">
-      <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    <slot name="backToCode"></slot>
     <div class="signup__page">
       <div class="signup__border" :class="newpassError">
         <div class="signup__block" :class="newpassError">
@@ -22,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn" :class="newpassError">Сохранить</div>
+      <slot name="toComplete"></slot>
     </div>
   </div>
 </template>
@@ -44,26 +41,32 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.signup__page {
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 .signup__border {
   width: 446px;
-  height: 359px;
-  &.error__password {
-    height: 391px;
-  }
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+gap: 10px;
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
+border: 1px solid #2B66FB;
+box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
+border-radius: 24px;
+margin-bottom: 139px;
 }
 .signup__block {
   width: 422px;
-  height: 335px;
-  &.error__password {
-    height: 367px;
-  }
+  display: flex;
+  justify-content: center;
+
 }
 .signup__block__container {
   width: 326px;
-  height: 239px;
-  &.error__password {
-    height: 271px;
-  }
 }
 .signup__block__header {
   display: flex;
@@ -71,7 +74,10 @@ export default {
   align-items: center;
   flex-direction: column;
   width: 320px;
-  height: 71px;
+  p {
+    margin: 0;
+    margin: 12px 0 32px 0;
+  }
   h1 {
     font-weight: 600;
     font-size: 34px;
@@ -84,7 +90,6 @@ export default {
   align-items: center;
   justify-content: space-between;
   width: 326px;
-  height: 136px;
   p {
     font-weight: 600;
     font-size: 12px;
@@ -95,9 +100,6 @@ export default {
     &.error__password {
       display: inline-block;
     }
-  }
-  &.error__password {
-    height: 168px;
   }
 }
 .signup__btn {

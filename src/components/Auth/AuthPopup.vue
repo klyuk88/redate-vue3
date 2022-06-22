@@ -15,7 +15,7 @@
               <div class="auth__inner__content" :class="error">
                 <div class="auth__header">
                   <h1>Вход</h1>
-                  <p>Введите данные для входа в учетеную запись</p>
+                  <p class="subTitle">Введите данные для входа в учетеную запись</p>
                 </div>
 
                 <div class="inputs" :class="error">
@@ -40,11 +40,8 @@
           </div>
         </div>
         <div class="footer__auth__block">
-          <router-link to="/auth/recovery">
-            <p class="auth__forgot">Забыли пароль?</p>
-          </router-link>
+          <slot name="toRecovery"></slot>
           <button class="auth__btn" @click="isClicked = true">Войти</button>
-          <!-- <div class="auth__btn" @click="waveAnim">Войти</div> -->
         </div>
       </form>
       <div class="auth__footer__signup">
@@ -94,7 +91,7 @@ const isClicked = ref(false);
 <style lang="scss">
 .auth__back__btn {
   @extend .flex__center;
-  @extend .text;
+
   cursor: pointer;
   position: fixed;
   top: 70px;
@@ -160,17 +157,17 @@ const isClicked = ref(false);
   position: relative;
   width: 446px;
 }
-.animated__border {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation-name: borderanimation;
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
-  // animation-iteration-count: infinite;
-  position: absolute;
-  z-index: 0;
-}
+// .animated__border {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   animation-name: borderanimation;
+//   animation-duration: 0.7s;
+//   animation-fill-mode: forwards;
+//   animation-iteration-count: infinite;
+//   position: absolute;
+//   z-index: 0;
+// }
 .auth__input__box {
   @extend .flex__center;
   background: linear-gradient(
@@ -198,13 +195,12 @@ const isClicked = ref(false);
   flex-direction: column;
   width: 286px;
   h1 {
-    @extend .text;
+
     text-align: center;
     margin-bottom: 8px;
   }
 }
-p {
-  @extend .text;
+ .subTitle {
   font-size: 12px;
   line-height: 132.5%;
   text-align: center;
@@ -219,6 +215,9 @@ p {
 }
 .auth__no__acc {
   font-size: 14px;
+    font-weight: 500;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.4);
 }
 span {
   font-size: 14px;
@@ -238,7 +237,7 @@ span {
   }
 }
 .input {
-  @extend .text;
+
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -384,13 +383,13 @@ span {
     width: 79.44vw;
     height: 17.179vw;
     h1 {
-      @extend .text;
+
       text-align: center;
       margin-bottom: 2.051vw;
     }
   }
   p {
-    @extend .text;
+
     font-size: 3.0769vw;
     line-height: 132.5%;
     text-align: center;
@@ -433,7 +432,7 @@ span {
     }
   }
   .input {
-    @extend .text;
+
     font-size: 3.846vw;
     line-height: 153.5%;
     color: rgba(255, 255, 255, 0.33);

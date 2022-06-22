@@ -15,26 +15,38 @@
           </div>
         </div>
       </div>
-      <div class="signup__btn">Отлично!</div>
+      <slot name="toAuth"></slot>
     </div>
   </div>
 </template>
-<script>
+<script setup>
+import { ref } from "vue";
+const done = ref(true);
 
 </script>
 <style lang="scss" scoped>
+.signup__page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .signup__border {
-  width: 328.1px;
-  height: 349.48px;
-  border: 1px solid rgba(43, 102, 251, 0.2);
+  padding: 48px;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
+  border-radius: 24px;
+  margin-bottom: 143px;
 }
 .signup__block {
-  width: 304.1px;
-  height: 325.48px;
 }
 .signup__block__container {
-  width: 208.1px;
-  height: 229.48px;
 }
 h1 {
   font-weight: 600;
@@ -56,7 +68,6 @@ h1 {
 .wrap {
   position: fixed;
   margin-top: 100px;
-
 }
 
 #check-part-1 {
@@ -77,6 +88,7 @@ h1 {
   opacity: 0;
   top: 47px;
   transform-origin: 0 10px;
+
 }
 
 input {
@@ -100,6 +112,7 @@ label {
   height: 150.28px;
   display: block;
   cursor: pointer;
+  margin-bottom: 55px;
 }
 
 @media (max-width: 1200px) {
@@ -108,5 +121,4 @@ label {
     margin: 76px;
   }
 }
-
 </style>

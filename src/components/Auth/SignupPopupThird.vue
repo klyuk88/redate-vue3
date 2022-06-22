@@ -11,11 +11,11 @@
       <div class="navigation__item"></div>
     </div>
     <slot name="backPhaseTwo"></slot>
+    <div class="mobileArrow">
+      <slot name="backPhaseTwoMobile"></slot>
+    </div>
     <div class="signup__page">
-      <div
-        class="signup__border"
-        :class="{ animated__border__sign__three: isClicked }"
-      >
+      <div class="signup__border">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__input__box">
@@ -115,28 +115,35 @@
                 </div>
               </div>
             </div>
-            <div class="signup__btn mobile">Продолжить</div>
-            <p class="skip mobile">Пропустить</p>
           </div>
         </div>
       </div>
-    <slot name="fourthPhase" ></slot>
-
-    <p class="skip web">Пропустить</p>
+      <div class="webBtn">
+        <slot name="fourthPhase"></slot>
+      </div>
+      <div class="mobileBtn">
+        <slot name="fourthPhaseMobile"> </slot>
+      </div>
+      <p class="skip web">Пропустить</p>
     </div>
-
-    <!-- <div class="signup__btn web" @click="isClicked = true">Продолжить</div> -->
+    <div class="mibileSkip">
+      <slot name="mobileSkip"></slot>
+    </div>
   </div>
 </template>
 <script setup>
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
 import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
 import { ref } from "vue";
 const isClicked = ref(false);
 const modalHobbyVisible = ref(false);
 </script>
 <style lang="scss" scoped>
+.mobileBtn {
+  display: none;
+}
+.mobileSkip {
+  display: none;
+}
 .signup__navigation {
   margin-top: 64px;
   margin-bottom: 100px;
@@ -156,9 +163,9 @@ const modalHobbyVisible = ref(false);
   }
 }
 .signup__background {
-    display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
 }
 .signup__page {
@@ -173,7 +180,6 @@ const modalHobbyVisible = ref(false);
   margin-bottom: 61px;
 }
 .signup__block {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,7 +199,8 @@ const modalHobbyVisible = ref(false);
   align-items: center;
   justify-content: space-between;
 }
-.signup__input__box {
+.mobileArrow {
+  display: none;
 }
 .block {
   width: 326px;
@@ -314,6 +321,7 @@ const modalHobbyVisible = ref(false);
     display: none;
   }
 }
+
 .animated__border__sign__three {
   display: flex;
   justify-content: center;
@@ -356,23 +364,52 @@ const modalHobbyVisible = ref(false);
   }
 }
 @media (max-width: 1200px) {
+  .mobileSkip {
+    display: flex;
+  }
+  .signup__navigation {
+    margin-bottom: 62px;
+  }
+  .mobileArrow {
+    display: flex;
+  }
+  .mobileBtn {
+    display: flex;
+  }
   .signup__page {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  .webBtn {
+    display: none;
+  }
   .signup__border {
     display: flex;
     border: none;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: unset;
+  }
+  .block {
+    &.first {
+      margin-top: 0;
+    }
   }
   .signup__block {
     border: none;
     background: none;
     box-shadow: none;
+    padding: 0;
   }
   .signup__block__container {
     width: 85.89vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .block__choose {
     width: 85.89vw;

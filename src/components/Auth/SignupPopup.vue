@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="signup__footer mobile">
-          <div class="signup__btn">Продолжить</div>
+          <slot name="secondPhaseMobile"></slot>
           <div class="signup__footer__menu">
             <p>Есть учетная запись?</p>
             <router-link to="/auth">
@@ -344,29 +344,39 @@ const isClicked = ref(false);
   .signup__border {
     display: none;
   }
+  .signup__navigation {
+    margin-bottom: 38px;
+  }
   .signup__page {
-    height: 165.38vw;
     display: flex;
     justify-content: space-between;
+    margin: 0;
+  }
+  .signup__background {
+    margin: 0;
   }
   .mobile__body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 95.384vw;
     width: 85.89vw;
     .signup__header {
       width: 77.435vw;
-      height: 22.56vw;
+      margin: 0;
+      h1 {
+        margin: 0;
+        margin-bottom: 4.1vw;
+      }
+      p {
+        margin: 0;
+        margin-bottom: 18.46vw;
+      }
     }
     .signup__input__box {
       width: 85.89vw;
-      height: 54.358vw;
-
       .input {
         width: 85.89vw;
-        height: 15.384vw;
+        margin-bottom: 4.1vw;
         &:focus {
           border: #ffffff 0.256vw solid;
         }
@@ -375,11 +385,10 @@ const isClicked = ref(false);
 
     .signup__block__container {
       justify-content: space-between;
-      height: 95.384vw;
     }
   }
   .signup__footer {
-    height: 57.69vw;
+    height: unset;
     &.web {
       display: none;
     }
@@ -388,13 +397,17 @@ const isClicked = ref(false);
     }
     .signup__btn {
       width: 85.89vw;
-      height: 15.384vw;
+      height: 15.38vw;
+      margin-top: 8.2vw;
+      margin-bottom: 6.15vw;
     }
     .signup__footer__menu {
       width: 44.615vw;
-      height: 5.384vw;
-      margin-top: 6.153vw;
+
       margin-bottom: 22.564vw;
+    }
+    .signup__footer__terms {
+      margin-bottom: 15.64vw;
     }
   }
 }

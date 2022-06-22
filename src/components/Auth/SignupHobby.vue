@@ -1,7 +1,7 @@
 <template>
   <div class="signup__background" @click.self="$emit('hideModalHobby')">
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border__hobby: isClicked }">
+      <div class="signup__border">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header__block">
@@ -25,7 +25,7 @@
                 <div class="chips">Рестораны</div>
                 <div class="chips choosed">Петь</div>
                 <div class="chips">Вкусно поесть</div>
-                                <div class="chips choosed">Спорт</div>
+                <div class="chips choosed">Спорт</div>
                 <div class="chips">Вино</div>
                 <div class="chips choosed">Деньги</div>
                 <div class="chips">Животные</div>
@@ -37,7 +37,7 @@
                 <div class="chips">Рестораны</div>
                 <div class="chips choosed">Петь</div>
                 <div class="chips">Вкусно поесть</div>
-                                <div class="chips choosed">Спорт</div>
+                <div class="chips choosed">Спорт</div>
                 <div class="chips">Вино</div>
                 <div class="chips choosed">Деньги</div>
                 <div class="chips">Животные</div>
@@ -55,29 +55,28 @@
         </div>
       </div>
     </div>
-      <div class="signup__btn" @click.self="$emit('hideModalHobby')">Выбрать</div>
+    <div class="signup__btn" @click.self="$emit('hideModalHobby')">Выбрать</div>
   </div>
 </template>
 <script setup>
-  import { ref } from "vue";
+import { ref } from "vue";
 
-const emit = defineEmits(['hideModalHobby'])
+const emit = defineEmits(["hideModalHobby"]);
 const isClicked = ref(false);
-
 </script>
 <style lang="scss" scoped>
 .signup__page {
-  height: 680px;
 }
 .signup__background {
-    width: 100%;
+  width: 100%;
   height: 100%;
   position: fixed;
   left: 0;
   bottom: 0;
   z-index: 109;
-    background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
+  
 }
 .flex__center {
   display: flex;
@@ -86,15 +85,30 @@ const isClicked = ref(false);
 }
 .signup__border {
   width: 504px;
-  height: 584px;
+  padding: 48px;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 65px;
 }
 .signup__block {
   width: 480px;
-  height: 560px;
+  display: flex;
+  justify-content: center;
 }
 .signup__block__container {
   width: 384px;
-  height: 464px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .signup__options__block {
   display: flex;
@@ -104,6 +118,7 @@ const isClicked = ref(false);
   justify-content: center;
   padding-top: 24px;
   overflow-y: scroll;
+  height: 384px;
   &::-webkit-scrollbar {
     width: 1px;
     // background-color: red;
@@ -140,20 +155,32 @@ const isClicked = ref(false);
     line-height: 153.5%;
     color: #ffffff;
     text-align: center;
+    margin: 0;
+    margin-bottom: 24px;
   }
 }
 .signup__return__btn {
   align-items: center;
   margin-right: 60px;
-  margin-top: 4px;
+  margin-bottom: 21px;
   cursor: pointer;
+}
+.signup__btn {
+  width: 236px;
+  height: 48px;
+  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 107px;
 }
 .signup__body__block {
   @extend .flex__center;
   flex-direction: column;
   justify-content: space-between;
   width: 384px;
-  height: 412px;
+  height: 500px;
   p {
     display: flex;
     justify-content: space-between;
@@ -162,6 +189,7 @@ const isClicked = ref(false);
     font-size: 12px;
     line-height: 132.5%;
     color: rgba(255, 255, 255, 0.33);
+    margin: 0;
     span {
       color: #ffffff;
     }
@@ -169,7 +197,7 @@ const isClicked = ref(false);
 }
 .signup__options__block {
   width: 384px;
-  height: 384px;
+  height: 456px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 11px;
 }

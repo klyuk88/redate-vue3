@@ -1,8 +1,11 @@
 <template>
   <div class="signup__background">
-    <div class="signup__page" >
-      <div class="signup__border" :class="{ animated__border__done: isClicked }" >
-        <div class="signup__block"  @click="isClicked = true">
+    <div class="signup__page">
+      <div
+        class="signup__border"
+        :class="{ animated__border__done: isClicked }"
+      >
+        <div class="signup__block" @click="isClicked = true">
           <div class="signup__content">
             <div class="success__logo">
               <div class="left__logo"></div>
@@ -20,30 +23,28 @@
         <div class="btn__done">Отлично!</div>
       </div>
     </div>
-      <router-link to="/account/vasya">
-        <div class="btn__done">Отлично!</div>
-      </router-link>
+    <router-link to="/account/vasya">
+      <div class="btn__done">Отлично!</div>
+    </router-link>
   </div>
 </template>
 <script setup>
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
-import ChangeSuccess from '@/components/Auth/ChangeSuccess.vue'
 import { ref } from "vue";
 const isClicked = ref(true);
-
 </script>
 <style lang="scss" scoped>
-.signup__page {
-    height: 600px;
+.signup__background {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.signup__border {
-  width: 485px;
-  height: 431px;
-      margin: 0 ;
-      position: absolute;
 
+.signup__border {
+  margin: 0;
+  margin-bottom: 102px;
+  margin-top: 297px;
   .btn__done {
     display: none;
   }
@@ -143,50 +144,49 @@ const isClicked = ref(true);
   animation-name: borderanimation;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  // animation-iteration-count: infinite;
 }
-@keyframes borderanimation {
-  0% {
-    border: 1px solid #2965ff;
-    border-radius: 30px;
-    width: 461px;
-    height: 408px;
-  }
-  25% {
-    border: 1px solid #2b66fb90;
-    border-radius: 30px;
-    width: 476px;
-    height: 418px;
-  }
-  50% {
-    border: 1px solid #2b66fb90;
-    border-radius: 30px;
-    width: 484px;
-    height: 436px;
-  }
-  75% {
-    border: 1px solid #2b66fb45;
-    border-radius: 30px;
-    width: 492px;
-    height: 454px;
-  }
-  100% {
-    border: 1px solid #2b66fb00;
-    border-radius: 32px;
-    width: 500px;
-    height: 462px;
-  }
-}
+// @keyframes borderanimation {
+//   0% {
+//     border: 1px solid #2965ff;
+//     border-radius: 30px;
+//     width: 461px;
+//     height: 408px;
+//   }
+//   25% {
+//     border: 1px solid #2b66fb90;
+//     border-radius: 30px;
+//     width: 476px;
+//     height: 418px;
+//   }
+//   50% {
+//     border: 1px solid #2b66fb90;
+//     border-radius: 30px;
+//     width: 484px;
+//     height: 436px;
+//   }
+//   75% {
+//     border: 1px solid #2b66fb45;
+//     border-radius: 30px;
+//     width: 492px;
+//     height: 454px;
+//   }
+//   100% {
+//     border: 1px solid #2b66fb00;
+//     border-radius: 32px;
+//     width: 500px;
+//     height: 462px;
+//   }
+// }
 @media (max-width: 1200px) {
   .signup__page {
- 
     .btn__done {
       display: none;
     }
   }
   .signup__border {
-      justify-content: space-between;
-      margin: 0 auto;
+    justify-content: space-between;
+    margin: 0 auto;
     height: 125.897vw;
     display: flex;
     border: none;

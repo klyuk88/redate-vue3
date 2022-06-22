@@ -1,9 +1,6 @@
 <template>
   <div class="signup__background">
-    <div class="auth__back__btn">
-      <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
-      <h1 class="auth__back__btn__title">Назад</h1>
-    </div>
+    <slot name="backToRecovery"></slot>
     <div class="signup__page">
       <div class="signup__border" :class="errorCode">
         <div class="signup__block" :class="errorCode">
@@ -26,9 +23,9 @@
               <input class="block__item" maxlength="1" />
               <input class="block__item" maxlength="1" />
             </div>
-              <p class="error__message" :class="errorCode">
-                Неправильно введен код
-              </p>
+            <p class="error__message" :class="errorCode">
+              Неправильно введен код
+            </p>
           </div>
         </div>
       </div>
@@ -64,8 +61,8 @@
         </div>
       </div>
       <div class="signup__footer__box web">
-        <div class="signup__btn" :class="errorCode">Подтвердить</div>
-        <p>Вспомнили пароль? <span> Войти</span></p>
+        <slot name="toNewPassword"></slot>
+        <p>Вспомнили пароль? <slot name="backToAuthSpan"></slot></p>
       </div>
     </div>
   </div>
@@ -76,7 +73,7 @@ export default {
     return {
       phoneAuth: false,
       mailAuth: true,
-      errorStatus: true,
+      errorStatus: false,
     };
   },
   computed: {
@@ -102,28 +99,31 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.signup__page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .signup__border {
   border: 1px solid #2b66fb;
-  width: 440px;
-  height: 299px;
-  margin-bottom: 157px;
-  &.error__code {
-    height: 331px;
-  }
+  margin-bottom: 153px;
+  padding: 48px;
+  gap: 10px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
 }
 .signup__block {
-  width: 416px;
-  height: 275px;
-  &.error__code {
-    height: 307px;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .signup__block__container {
   width: 320px;
-  height: 179px;
-  &.error__code {
-    height: 211px;
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .signup__block__numbers {
   display: flex;
@@ -131,6 +131,7 @@ export default {
   align-items: center;
   width: 312px;
   height: 60px;
+  margin-bottom: 16px;
 }
 .signup__block__header {
   display: flex;
@@ -138,25 +139,28 @@ export default {
   align-items: center;
   flex-direction: column;
   width: 320px;
-  height: 87px;
   p {
     display: none;
+    margin: 0;
     &.authPhone {
       display: inline-block;
     }
     &.authMail {
       display: inline-block;
+      margin: 12px 0px 32px 0px;
     }
   }
 }
 .error__message {
   color: #2b66fb;
   display: none;
+  margin: 0;
   &.error__code {
     display: inline-block;
   }
 }
 .signup__btn {
+
   &.error__code {
     background: #434447;
     color: rgba(255, 255, 255, 0.33);
@@ -181,13 +185,15 @@ export default {
     border: #ffffff 1px solid;
   }
 }
+.mobile__body {
+  display: none;
+}
 .signup__footer__box {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   width: 236px;
-  height: 93px;
+  margin-bottom: 101px;
   p {
     font-weight: 500;
     font-size: 14px;
@@ -209,7 +215,7 @@ p {
     align-items: center;
     flex-direction: column;
     .signup__block__container {
-        height: 70.256vw;
+      height: 70.256vw;
 
       &.error__code {
         height: 65.128vw;
@@ -231,7 +237,7 @@ p {
       width: 85.89vw;
     }
   }
-  
+
   .signup__page {
     height: 98.71vw;
   }
