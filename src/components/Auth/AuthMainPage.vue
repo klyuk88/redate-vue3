@@ -54,16 +54,20 @@
           <div class="mobile__btn__block">
             <h1>Абсолютно новый формат знакомств</h1>
             <div class="btn__box">
-              <div class="mobile__btn male" @click="chooseMaleMobile">
-                Мужчина
-              </div>
-              <div
-                class="mobile__btn female"
-                @click="chooseFemaleMobile"
-                :class="{ btnMale: maleMobileActive }"
-              >
-                ДЕВУШКА
-              </div>
+              <router-link to="/registration">
+                <div class="mobile__btn male" @click="chooseMaleMobile">
+                  Мужчина
+                </div>
+              </router-link>
+              <router-link to="/registration">
+                <div
+                  class="mobile__btn female"
+                  @click="chooseFemaleMobile"
+                  :class="{ btnMale: maleMobileActive }"
+                >
+                  ДЕВУШКА
+                </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -82,7 +86,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -158,7 +161,7 @@ h1 {
   position: absolute;
   left: 0;
   top: 0;
-    animation-name: changeStartBack;
+  animation-name: changeStartBack;
   animation-duration: 6s;
   animation-fill-mode: forwards;
 

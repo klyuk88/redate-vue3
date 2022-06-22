@@ -62,15 +62,14 @@
           <BigButton
             @click="nameComponent = 'Fourth'"
             title="Продолжить"
-            style="
-              width: 85.89vw;
-              height: 15.38vw;
-              margin-bottom: 6.15vw;
-            "
+            style="width: 85.89vw; height: 15.38vw; margin-bottom: 6.15vw"
           />
         </template>
         <template v-slot:backPhaseTwoMobile>
-          <div class="auth__back__btn__mobile" @click="nameComponent = 'Second'">
+          <div
+            class="auth__back__btn__mobile"
+            @click="nameComponent = 'Second'"
+          >
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
@@ -90,6 +89,18 @@
             style="width: 236px; height: 48px"
           />
         </template>
+        <template v-slot:fivePhaseMobile>
+          <BigButton
+            @click="nameComponent = 'Five'"
+            title="Продолжить"
+            style="width: 85.89vw; height: 15.38vw; margin-bottom: 6.15vw"
+          />
+        </template>
+        <template v-slot:backPhaseThreeMobile>
+          <div class="auth__back__btn__mobile" @click="nameComponent = 'Third'">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </div>
+        </template>
         <template v-slot:backPhaseThree>
           <div class="auth__back__btn" @click="nameComponent = 'Third'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
@@ -102,6 +113,14 @@
             title="Загрузить с компьютера"
             style="width: 228px; height: 35px"
           />
+        </template>
+        <template v-slot:backPhaseFourthMobile>
+          <div
+            class="auth__back__btn__mobile"
+            @click="nameComponent = 'Fourth'"
+          >
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </div>
         </template>
         <template v-slot:backPhaseFour>
           <div class="auth__back__btn" @click="nameComponent = 'Fourth'">
@@ -167,9 +186,9 @@ export default {
 }
 .skip {
   font-weight: 500;
-font-size: 14px;
-line-height: 18px;
-text-decoration-line: underline;
-color: #FFFFFF;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration-line: underline;
+  color: #ffffff;
 }
 </style>

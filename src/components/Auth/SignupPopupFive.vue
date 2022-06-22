@@ -4,6 +4,9 @@
       <div class="navigation__item active"></div>
     </div>
     <slot name="backPhaseFour"></slot>
+    <div class="mobileArrow">
+      <slot name="backPhaseFourthMobile"></slot>
+    </div>
     <div class="signup__page">
       <div
         class="signup__border"
@@ -15,10 +18,10 @@
               <div class="photo__border">
                 <div class="inner__border" :class="added">
                   <div class="add__btn">
-                      <img
-                        src="@/assets/images/main/add__photo__btn.svg"
-                        alt=""
-                      />
+                    <img
+                      src="@/assets/images/main/add__photo__btn.svg"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <img
@@ -55,30 +58,11 @@
 <script setup>
 import { ref } from "vue";
 const isClicked = ref(false);
-// export default {
-//   data() {
-//     return {
-//       malePage: true,
-//       randomPhotoAdded: true,
-//     };
-//   },
-//   computed: {
-//     male() {
-//       if (this.malePage === true) {
-//         return "male";
-//       }
-//       return "test";
-//     },
-//     added() {
-//       if (this.randomPhotoAdded === true) {
-//         return "added";
-//       }
-//       return "test";
-//     },
-//   },
-// };
 </script>
 <style lang="scss" scoped>
+.mobileArrow {
+  display: none;
+}
 .signup__navigation {
   height: 4px;
   display: flex;
@@ -134,6 +118,7 @@ p {
   text-align: center;
   color: #ffffff;
   margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 .photo__block {
@@ -254,8 +239,12 @@ p {
   }
 }
 @media (max-width: 1200px) {
+  .mobileArrow {
+    display: flex;
+  }
   .signup__navigation {
     margin-left: 0;
+    margin-bottom: 72px;
   }
   .navigation__item {
     &.active {
@@ -278,11 +267,12 @@ p {
   .signup__border {
     display: flex;
     border: none;
-  }
-  .signup__block {
-    border: none;
-    background: none;
-    box-shadow: none;
+    .signup__block {
+      border: none;
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
   }
   .signup__block__container {
     width: 85.89vw;

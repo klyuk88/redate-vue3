@@ -3,8 +3,8 @@
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
-        <div class="navigation__item"></div>
-        <div class="navigation__item"></div>
+      <div class="navigation__item"></div>
+      <div class="navigation__item"></div>
     </div>
     <router-link to="/">
       <div class="auth__back__btn">
@@ -14,42 +14,43 @@
     </router-link>
     <div class="central__content">
       <div class="signup__page">
-        <div class="animated__border" :class="{ animated__border__sign: isClicked }"></div>
-          <div
-            class="signup__border"
-          >
-            <div class="signup__block">
-              <div class="signup__block__container">
-                <div class="signup__header">
-                  <h1>Регистрация</h1>
-                  <p>
-                    Начните новые знакомства после быстрой регистрации. Ваши
-                    данные будут защищены.
-                  </p>
-                </div>
-                <div class="signup__input__box">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Телефон / Электронная почта"
-                    @click="isClicked = true"
-                  />
-                  <input
-                    class="input middle"
-                    type="password"
-                    placeholder="Пароль"
-                    @click="isClicked = true"
-                  />
-                  <input
-                    class="input last"
-                    type="password"
-                    placeholder="Повторите пароль"
-                    @click="isClicked = true"
-                  />
-                </div>
+        <div
+          class="animated__border"
+          :class="{ animated__border__sign: isClicked }"
+        ></div>
+        <div class="signup__border">
+          <div class="signup__block">
+            <div class="signup__block__container">
+              <div class="signup__header">
+                <h1>Регистрация</h1>
+                <p>
+                  Начните новые знакомства после быстрой регистрации. Ваши
+                  данные будут защищены.
+                </p>
+              </div>
+              <div class="signup__input__box">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Телефон / Электронная почта"
+                  @click="isClicked = true"
+                />
+                <input
+                  class="input middle"
+                  type="password"
+                  placeholder="Пароль"
+                  @click="isClicked = true"
+                />
+                <input
+                  class="input last"
+                  type="password"
+                  placeholder="Повторите пароль"
+                  @click="isClicked = true"
+                />
               </div>
             </div>
           </div>
+        </div>
         <div class="mobile__body">
           <div class="signup__block__container">
             <div class="signup__header">
@@ -96,9 +97,7 @@
         <!-- <router-link to="/registration/step_two">
           <div class="signup__btn" @click="isClicked = true">Продолжить</div>
         </router-link> -->
-        <slot name="secondPhase" >
-          
-        </slot>
+        <slot name="secondPhase"> </slot>
         <div class="signup__footer__menu">
           <p>Есть учетная запись?</p>
           <router-link to="/auth">
@@ -143,6 +142,12 @@ const isClicked = ref(false);
   flex-direction: column;
   justify-content: flex-end;
   margin-bottom: 45px;
+}
+p {
+      font-weight: 600;
+    font-size: 14px;
+    line-height: 132.5%;
+    color: rgba(255, 255, 255, 0.33);
 }
 .signup__page {
   @extend .flex__center;
@@ -201,6 +206,11 @@ const isClicked = ref(false);
   p {
     margin: 0;
     margin-top: 8px;
+        font-weight: 600;
+    font-size: 12px;
+    line-height: 132.5%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.33);
   }
 }
 .input {
@@ -265,12 +275,11 @@ const isClicked = ref(false);
 }
 .signup__footer__menu {
   @extend .flex__center;
-  justify-content: space-between;
   align-items: baseline;
-  width: 179px;
   height: 21px;
   span {
     cursor: pointer;
+    margin-left: 5px;
   }
 }
 .signup__footer__terms {
@@ -281,6 +290,7 @@ const isClicked = ref(false);
     font-size: 12px;
     line-height: 132.5%;
     margin: 0;
+    text-align: center;
   }
   span {
     font-size: 12px;
@@ -402,7 +412,6 @@ const isClicked = ref(false);
       margin-bottom: 6.15vw;
     }
     .signup__footer__menu {
-      width: 44.615vw;
 
       margin-bottom: 22.564vw;
     }

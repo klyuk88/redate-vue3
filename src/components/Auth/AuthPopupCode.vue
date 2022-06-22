@@ -110,7 +110,11 @@ export default {
   padding: 48px;
   gap: 10px;
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
 }
 .signup__block {
   display: flex;
@@ -141,7 +145,12 @@ export default {
   width: 320px;
   p {
     display: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
     margin: 0;
+    line-height: 132.5%;
+    color: rgba(255, 255, 255, 0.33);
     &.authPhone {
       display: inline-block;
     }
@@ -160,7 +169,6 @@ export default {
   }
 }
 .signup__btn {
-
   &.error__code {
     background: #434447;
     color: rgba(255, 255, 255, 0.33);
@@ -198,6 +206,8 @@ export default {
     font-weight: 500;
     font-size: 14px;
     line-height: 153.5%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.33);
     span {
       color: #ffffff;
     }
