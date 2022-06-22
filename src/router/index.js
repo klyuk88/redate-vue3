@@ -268,9 +268,9 @@ router.beforeEach(async (to) => {
   const publicPages = ['/','/auth','/start','/registration'];
   const authRequired = !publicPages.includes(to.path);
   const auth = useAuthStore();
-  if (authRequired && !auth.token) {
+  if (authRequired && !auth.isLogin) {
     return { name: 'StartPage' }
-  } else if(auth.token && (to.name === 'Auth' || to.name === 'StartPage' || to.name === 'Registration')) {
+  } else if(auth.isLogin && (to.name === 'Auth' || to.name === 'StartPage' || to.name === 'Registration')) {
     return { name: 'Main' }
   }
 });
