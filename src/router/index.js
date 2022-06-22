@@ -181,7 +181,6 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // always scroll to top
     return {
       top: 0
     }
@@ -192,16 +191,12 @@ router.beforeEach(async (to) => {
   const publicPages = ['/','/auth','/start','/registration'];
   const authRequired = !publicPages.includes(to.path);
   const auth = useAuthStore();
-  if (authRequired && !auth.isLogin) {
+  if (authRequired && !auth.user) {
     return { name: 'StartPage' }
-  } else if(auth.isLogin && (to.name === 'Auth' || to.name === 'StartPage' || to.name === 'Registration')) {
+  } else if(auth.user && (to.name === 'Auth' || to.name === 'StartPage' || to.name === 'Registration')) {
     return { name: 'Main' }
   }
 });
-
-router.beforeEach(() => {
-  
-})
 
 
 export default router
