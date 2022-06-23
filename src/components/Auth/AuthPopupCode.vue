@@ -1,10 +1,13 @@
 <template>
   <div class="signup__background">
     <slot name="backToRecovery"></slot>
+    <div class="mobileArrow">
+      <slot name="backToRecoveryMobile"></slot>
+    </div>
     <div class="signup__page">
-      <div class="signup__border" :class="errorCode">
-        <div class="signup__block" :class="errorCode">
-          <div class="signup__block__container" :class="errorCode">
+      <div class="signup__border">
+        <div class="signup__block">
+          <div class="signup__block__container">
             <div class="signup__block__header">
               <h1>Введите код</h1>
               <p class="" :class="authPhone">
@@ -23,14 +26,12 @@
               <input class="block__item" maxlength="1" />
               <input class="block__item" maxlength="1" />
             </div>
-            <p class="error__message" :class="errorCode">
-              Неправильно введен код
-            </p>
+            <p class="error__message">Неправильно введен код</p>
           </div>
         </div>
       </div>
       <div class="mobile__body">
-        <div class="signup__block__container" :class="errorCode">
+        <div class="signup__block__container">
           <div class="signup__block__header">
             <h1>Введите код</h1>
             <p class="" :class="authPhone">
@@ -50,13 +51,12 @@
               <input class="block__item" maxlength="1" />
               <input class="block__item" maxlength="1" />
             </div>
-            <p class="error__message" :class="errorCode">
-              Неправильно введен код
-            </p>
+            <p class="error__message">Неправильно введен код</p>
           </div>
         </div>
         <div class="signup__footer__box">
-          <div class="signup__btn" :class="errorCode">Подтвердить</div>
+          <div class="signup__btn">Подтвердить</div>
+          <slot name="toNewPasswordMobile"></slot>
           <p>Вспомнили пароль? <span> Войти</span></p>
         </div>
       </div>
@@ -99,6 +99,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.mobileArrow {
+  display: none;
+}
 .signup__page {
   display: flex;
   align-items: center;
@@ -219,43 +222,51 @@ p {
   }
 }
 @media (max-width: 1200px) {
+  .mobileArrow {
+    display: flex;
+  }
   .mobile__body {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     .signup__block__container {
-      height: 70.256vw;
-
-      &.error__code {
-        height: 65.128vw;
+      .signup__block__header {
+        .authMail {
+          margin-bottom: 72px;
+          margin-top: 16px;
+        }
       }
     }
     .mobile__inputs {
       width: 85.89vw;
-      height: 26.66vw;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
     }
     .signup__btn {
+      display: none;
       width: 85.89vw;
       height: 15.384vw;
     }
     .signup__block__numbers {
       width: 85.89vw;
+      margin-bottom: 48px;
     }
   }
 
+  .signup__border {
+    display: none;
+  }
   .signup__page {
-    height: 98.71vw;
   }
   .block__item {
     width: 18.461vw;
     height: 18.461vw;
   }
   .signup__footer__box {
+    margin-bottom: 261px;
     &.web {
       display: none;
     }

@@ -18,6 +18,11 @@
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
+        <template v-slot:backToRecoveryMobile>
+          <div class="auth__back__btn__mobile" @click="nameAuth = 'Recovery'">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </div>
+        </template>
         <template v-slot:toCode>
           <BigButton
             @click="nameAuth = 'Code'"
@@ -25,7 +30,7 @@
             style="width: 236px; height: 48px; margin-bottom: 24px"
           />
         </template>
-        <template v-slot:toCodeMobile> 
+        <template v-slot:toCodeMobile>
           <BigButton
             @click="nameAuth = 'Code'"
             title="Отправить"
@@ -34,6 +39,11 @@
         </template>
         <template v-slot:backToAuthSpan>
           <span @click="nameAuth = ''">Войти</span>
+        </template>
+        <template v-slot:backToCodeMobile>
+          <div class="auth__back__btn__mobile" @click="nameAuth = 'Code'">
+            <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          </div>
         </template>
         <template v-slot:backToRecovery>
           <div class="auth__back__btn" @click="nameAuth = 'Recovery'">
@@ -46,6 +56,13 @@
             @click="nameAuth = 'Password'"
             title="Продолжить"
             style="width: 236px; height: 48px; margin-bottom: 24px"
+          />
+        </template>
+        <template v-slot:toNewPasswordMobile>
+          <BigButton
+            @click="nameAuth = 'Password'"
+            title="Продолжить"
+            style="width: 85.89vw; height: 15.38vw; margin-bottom: 12.3vw"
           />
         </template>
         <template v-slot:backToCode>
@@ -61,11 +78,25 @@
             style="width: 236px; height: 48px; margin-bottom: 146px"
           />
         </template>
+        <template v-slot:toCompleteMobile>
+          <BigButton
+            @click="nameAuth = 'Complete'"
+            title="Сохранить"
+            style="width: 85.89vw; height: 15.38vw; margin-top: 8.2vw"
+          />
+        </template>
         <template v-slot:toAuth>
           <BigButton
             @click="nameAuth = ''"
             title="Сохранить"
             style="width: 236px; height: 48px; margin-bottom: 146px"
+          />
+        </template>
+        <template v-slot:toAuthMobile>
+          <BigButton
+            @click="nameAuth = ''"
+            title="Сохранить"
+            style="width: 85.89vw; height: 15.38vw; margin-bottom: 63.3vw;"
           />
         </template>
       </component>

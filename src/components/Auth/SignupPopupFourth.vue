@@ -21,8 +21,8 @@
               <div class="desc__logo">
                 <img src="@/assets/images/main/description.svg" alt="" />
               </div>
-              <p class="" :class="female">Трачу в месяц:</p>
-              <p class="" :class="male">Доход в месяц:</p>
+              <p class="" >Трачу в месяц:</p>
+              <p class="" >Доход в месяц:</p>
               <div class="cash__border">
                 <input class="input" type="text" @click="isClicked = true" />
                 <span class="money__logo"> ₽ </span>
@@ -48,34 +48,8 @@
 </template>
 <script setup>
 import TheFormats from "../Form/TheFormats.vue";
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
 import { ref } from "vue";
 const isClicked = ref(false);
-// export default {
-//   data() {
-//     return {
-//       femalePage: true,
-//       malePage: false,
-//     };
-//   },
-//   computed: {
-//     female() {
-//       if (this.femalePage === true) {
-//         return "show";
-//       }
-//       return "test";
-//     },
-//     male() {
-//       if (this.malePage === true) {
-//         return "show";
-//       }
-//       return "test";
-//     },
-//   },
-//   components: { TheFormats },
-// };
 </script>
 <style lang="scss" scoped>
 .mobileBtn {
@@ -112,7 +86,8 @@ const isClicked = ref(false);
 }
 .signup__border {
   width: 446px;
-
+  display: flex;
+  justify-content: center;
 }
 .signup__block {
   width: 422px;
@@ -198,6 +173,9 @@ margin-bottom: 74px;
   padding: 12px;
   &::placeholder {
     color: rgba(255, 255, 255, 0.33);
+  }
+  &:focus {
+    border: 1px solid #ffffff;
   }
 }
 .animated__border__sign__fours {

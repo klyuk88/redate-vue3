@@ -15,7 +15,12 @@
           </div>
         </div>
       </div>
-      <slot name="toAuth"></slot>
+      <div class="webBtn">
+        <slot name="toAuth"></slot>
+      </div>
+      <div class="mobileBtn">
+        <slot name="toAuthMobile"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +30,9 @@ const done = ref(true);
 
 </script>
 <style lang="scss" scoped>
+.mobileBtn {
+  display: none;
+}
 .signup__page {
   display: flex;
   justify-content: center;
@@ -49,9 +57,12 @@ const done = ref(true);
 .signup__block__container {
 }
 h1 {
-  font-weight: 600;
-  font-size: 16px;
+
   line-height: 153.5%;
+  font-weight: 600;
+font-size: 24px;
+line-height: 30px;
+color: #FFFFFF;
 }
 
 .check-sign {
@@ -116,9 +127,27 @@ label {
 }
 
 @media (max-width: 1200px) {
+  .webBtn {
+    display: none;
+  }
+  .mobileBtn {
+    display: flex;
+  }
+  .signup__block__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .signup__border {
     display: flex;
-    margin: 76px;
+    margin-bottom: 12.3vw;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  h1 {
+    width: 310px;
   }
 }
 </style>

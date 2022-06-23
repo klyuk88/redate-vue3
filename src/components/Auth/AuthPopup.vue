@@ -1,6 +1,6 @@
 <template>
   <div class="auth__background">
-    <div class="auth__page" :class="error">
+    <div class="auth__page">
       <router-link to="/">
         <div class="auth__back__btn">
           <img src="../../assets/images/main/auth__back__arrow.svg" alt="" />
@@ -8,19 +8,18 @@
         </div>
       </router-link>
       <form @submit.prevent="authorization" class="auth-form">
-        <div class="auth__block" :class="error">
+        <div class="auth__block">
           <div class="" :class="{ animated__border: isClicked }"></div>
-          <div class="auth__input__box" :class="error">
-            <div class="auth__inner__box" :class="error">
-              <div class="auth__inner__content" :class="error">
+          <div class="auth__input__box">
+            <div class="auth__inner__box">
+              <div class="auth__inner__content">
                 <div class="auth__header">
                   <h1>Вход</h1>
                   <p class="subTitle">
                     Введите данные для входа в учетеную запись
                   </p>
                 </div>
-
-                <div class="inputs" :class="error">
+                <div class="inputs">
                   <input
                     class="input"
                     type="text"
@@ -45,7 +44,7 @@
           <div class="mobile__recovery">
             <slot name="toRecovery"></slot>
           </div>
-          <button class="auth__btn" @click="isClicked = true">Войти</button>
+          <button class="auth__btn">Войти</button>
         </div>
       </form>
       <div class="auth__footer__signup">
@@ -253,6 +252,7 @@ span {
   margin-bottom: 16px;
   &:focus {
     color: #ffffff;
+    border: #ffffff solid 1px;
   }
 }
 .auth__btn {
@@ -375,9 +375,9 @@ span {
     text-align: center;
     color: rgba(255, 255, 255, 0.33);
   }
-.mobile__recovery {
-  margin-bottom: 180px;
-}
+  .mobile__recovery {
+    margin-bottom: 180px;
+  }
   .auth__forgot {
     font-size: 3.589vw;
     position: relative;

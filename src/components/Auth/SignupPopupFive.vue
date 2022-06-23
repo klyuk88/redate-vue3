@@ -12,11 +12,11 @@
         class="signup__border"
         :class="{ animated__border__upload: isClicked }"
       >
-        <div class="signup__block" :class="male">
-          <div class="signup__block__container" :class="male">
+        <div class="signup__block">
+          <div class="signup__block__container">
             <div class="photo__block">
               <div class="photo__border">
-                <div class="inner__border" :class="added">
+                <div class="inner__border" >
                   <div class="add__btn">
                     <img
                       src="@/assets/images/main/add__photo__btn.svg"
@@ -27,7 +27,7 @@
                 <img
                   src="@/assets/images/main/upload__photo__male.svg"
                   alt=""
-                  :class="added"
+                  
                 />
               </div>
             </div>
@@ -36,18 +36,18 @@
               Вы сможете поставить на свою аватарку. Остальные фотографии будут
               отображаться в Вашей гелерее.
             </p>
-            <div class="btn__block web" :class="male">
+            <div class="btn__block web">
               <!-- <div class="upload__btn">Загрузить с компьютера</div> -->
               <slot name="choosePhase"></slot>
-              <div class="random__btn" :class="male">Выбрать случайную</div>
+              <div class="random__btn">Выбрать случайную</div>
             </div>
-            <div class="btn__block mobile" :class="male">
+            <div class="btn__block mobile">
               <div class="btn__box">
                 <div class="upload">Загрузить</div>
                 <div class="make__photo">Сделать снимок</div>
               </div>
-              <div class="random__btn" :class="male">Выбрать случайную</div>
-              <div class="btn__continue web" :class="added">Продолжить</div>
+              <div class="random__btn">Выбрать случайную</div>
+              <div class="btn__continue web" >Продолжить</div>
             </div>
           </div>
         </div>
