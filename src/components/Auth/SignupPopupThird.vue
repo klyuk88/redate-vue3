@@ -126,7 +126,7 @@
       </div>
       <p class="skip web">Пропустить</p>
     </div>
-    <div class="mibileSkip">
+    <div class="mobileSkip">
       <slot name="mobileSkip"></slot>
     </div>
   </div>
@@ -140,9 +140,13 @@ const modalHobbyVisible = ref(false);
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
+
 }
 .mobileSkip {
   display: none;
+    p {
+    display: none;
+  }
 }
 .signup__navigation {
   margin-top: 64px;
