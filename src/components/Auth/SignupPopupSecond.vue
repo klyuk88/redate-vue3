@@ -12,14 +12,14 @@
     </div>
     <div class="signup__page">
       <div class="signup__border" :class="{ animated__border__sign__two: isClicked }">
-        <div class="signup__block" :class="male">
-          <div class="signup__block__container" :class="male">
+        <div class="signup__block" >
+          <div class="signup__block__container" >
             <div class="signup__input__box">
               <input class="input" type="text" placeholder="Имя" @click="isClicked = true"/>
               <TheSelect class="select__country" placeholder="Страна, Город"  @click="isClicked = true" />
               <TheSelect class="select__nation" placeholder="Национальность" @click="isClicked = true"/>
             </div>
-            <div class="signup__footer" :class="male">
+            <div class="signup__footer" >
               <div class="signup__age__block">
                 <p>Дата рождения:</p>
                 <div class="age__input__block" @click="isClicked = true">
@@ -36,10 +36,10 @@
                 </div>
               </div>
               <div class="signup__horizontal__line"></div>
-              <div class="footer__desc" :class="male">
-                <div class="signup__params" :class="male">
-                  <div class="signup__params__block" :class="male" @click="isClicked = true">
-                    <div class="signup__params__item" :class="male" >
+              <div class="footer__desc" >
+                <div class="signup__params" >
+                  <div class="signup__params__block"  @click="isClicked = true">
+                    <div class="signup__params__item"  >
                       <p>Рост:</p>
                       <input
                         class="input"
@@ -48,7 +48,7 @@
                         maxlength="3"
                       />
                     </div>
-                    <div class="signup__params__item" :class="male">
+                    <div class="signup__params__item" >
                       <p>Вес:</p>
                       <input
                         class="input"
@@ -58,7 +58,7 @@
                       />
                     </div>
                   </div>
-                  <div class="signup__params__item params__size" :class="male">
+                  <div class="signup__params__item params__size" >
                     <p>Параметры:</p>
                     <div class="params__input__box">
                       <input
@@ -94,13 +94,13 @@
         </div>
       </div>
       <div class="mobile__body">
-        <div class="signup__block__container" :class="male">
+        <div class="signup__block__container" >
           <div class="signup__input__box">
             <input class="input" type="text" placeholder="Имя" />
             <TheSelect class="select__country" placeholder="Страна, Город" />
             <TheSelect class="select__nation" placeholder="Национальность" />
           </div>
-          <div class="signup__footer" :class="male">
+          <div class="signup__footer" >
             <div class="signup__age__block">
               <p>Дата рождения:</p>
               <div class="age__input__block">
@@ -117,10 +117,10 @@
               </div>
             </div>
             <div class="signup__horizontal__line"></div>
-            <div class="footer__desc" :class="male">
-              <div class="signup__params" :class="male">
-                <div class="signup__params__block" :class="male">
-                  <div class="signup__params__item" :class="male">
+            <div class="footer__desc" >
+              <div class="signup__params" >
+                <div class="signup__params__block" >
+                  <div class="signup__params__item" >
                     <p>Рост:</p>
                     <input
                       class="input"
@@ -129,7 +129,7 @@
                       maxlength="3"
                     />
                   </div>
-                  <div class="signup__params__item" :class="male">
+                  <div class="signup__params__item" >
                     <p>Вес:</p>
                     <input
                       class="input"
@@ -139,7 +139,7 @@
                     />
                   </div>
                 </div>
-                <div class="signup__params__item params__size" :class="male">
+                <div class="signup__params__item params__size" >
                   <p>Параметры:</p>
                   <div class="params__input__box">
                     <input
@@ -267,9 +267,7 @@ margin-bottom: 67px;
 .signup__footer {
   // height: 225px;
   position: unset;
-  &.male {
-    // height: 192px;
-  }
+
   span {
     font-weight: 600;
     font-size: 12px;
@@ -391,7 +389,6 @@ margin-bottom: 67px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // height: 117px;
   &.male {
     height: 84px;
   }

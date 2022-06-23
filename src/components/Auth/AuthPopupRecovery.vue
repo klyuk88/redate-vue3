@@ -1,16 +1,16 @@
 <template>
   <div class="signup__background">
-      <slot name="backToAuth"></slot>
-      <div class="mobileArrow">
-        <slot name="backToAuthMobile"></slot>
-      </div>
+    <slot name="backToAuth"></slot>
+    <div class="mobileArrow">
+      <slot name="backToAuthMobile"></slot>
+    </div>
     <div class="signup__page">
       <div
         class="signup__border"
         :class="{ animated__border__pass: isClicked }"
       >
-        <div class="signup__block" :class="error">
-          <div class="signup__block__container" :class="error">
+        <div class="signup__block">
+          <div class="signup__block__container">
             <div class="signup__block__header">
               <h1>Забыли пароль?</h1>
               <p class="subTitle">
@@ -18,13 +18,13 @@
                 код для восстановления пароля.
               </p>
             </div>
-            <div class="signup__block__numbers" :class="error">
+            <div class="signup__block__numbers">
               <input class="input" placeholder="+7 (438) 943 82 94" />
-              <span class="" :class="errorPhone"
+              <span class=""
                 >Неправильно введён номер телефона. Перепроверьте данные или
                 введите электронную почту.</span
               >
-              <span class="" :class="errorMail"
+              <span class=""
                 >Неправильно введена электронная почта. Перепроверьте данные или
                 введите номер телефона.</span
               >
@@ -32,22 +32,22 @@
           </div>
         </div>
       </div>
-      <div class="mobile__body" :class="error">
+      <div class="mobile__body">
         <div class="signup__block__header">
           <h1>Забыли пароль?</h1>
-          <p >
+          <p>
             Введите электронную почту или номер телефона. Мы отправим Вам код
             для восстановления пароля.
           </p>
         </div>
-        <div class="mobile__buttons" :class="error">
-          <div class="signup__block__numbers" :class="error">
+        <div class="mobile__buttons">
+          <div class="signup__block__numbers">
             <input class="input" placeholder="Телефон / Электронная почта" />
-            <span class="" :class="errorPhone"
+            <span class=""
               >Неправильно введен номер телефона. Перепроверьте данные или
               введите электронную почту.</span
             >
-            <span class="" :class="errorMail"
+            <span class=""
               >Неправильно введена электронная почта. Перепроверьте данные или
               введите номер телефона.</span
             >
@@ -65,7 +65,7 @@
       <slot name="toCode"></slot>
       <p class="footer__text web">
         Вспомнили пароль?
-         <slot name="backToAuthSpan"></slot>
+        <slot name="backToAuthSpan"></slot>
       </p>
     </div>
   </div>

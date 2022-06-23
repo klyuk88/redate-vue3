@@ -1,46 +1,46 @@
 <template>
   <div class="signup__background">
     <slot name="backToCode"></slot>
+    <div class="arrowMobile">
+      <slot name="backToCodeMobile"></slot>
+    </div>
     <div class="signup__page">
-      <div class="signup__border" :class="newpassError">
-        <div class="signup__block" :class="newpassError">
-          <div class="signup__block__container" :class="newpassError">
+      <div class="signup__border">
+        <div class="signup__block">
+          <div class="signup__block__container">
             <div class="signup__block__header">
               <h1>Новый пароль</h1>
               <p>Введите новый пароль и подтвердите его</p>
             </div>
-            <div class="signup__block__numbers" :class="newpassError">
+            <div class="signup__block__numbers">
               <input class="input" placeholder="Новый пароль" />
               <input class="input" placeholder="Повторите пароль" />
-              <p class="" :class="newpassError">
+              <p class="">
                 Неправильно введен повторный пароль
               </p>
             </div>
           </div>
         </div>
       </div>
-      <slot name="toComplete"></slot>
+      <div class="webBtn">
+        <slot name="toComplete"></slot>
+      </div>
+      <div class="mobileBtn">
+        <slot name="toCompleteMobile"></slot>
+      </div>
     </div>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      hasError: false,
-    };
-  },
-  computed: {
-    newpassError() {
-      if (this.hasError === true) {
-        return "error__password";
-      }
-      return "test";
-    },
-  },
-};
+
 </script>
 <style lang="scss" scoped>
+.mobileBtn {
+  display: none;
+}
+.arrowMobile {
+  display: none;
+}
 .signup__page {
   display: flex;
 flex-direction: column;
@@ -109,13 +109,26 @@ margin-bottom: 139px;
   }
 }
 @media (max-width: 1200px) {
+  .arrowMobile {
+    display: flex;
+  }
+  .webBtn {
+    display: none;
+  }
+  .mobileBtn {
+    display: flex;
+  }
   .signup__page {
     height: 110.769vw;
+    margin-bottom: 60.05vw
   }
   .signup__border {
     display: flex;
     border: none;
     margin: 0;
+    background: none;
+    padding: 0;
+
   }
   .signup__block {
     border: none;
@@ -124,11 +137,12 @@ margin-bottom: 139px;
   }
   .signup__block__header {
     width: 83.0769vw;
-    height: 18.461vw;
+    p {
+      margin: 16px 0 88px 0;
+    }
   }
   .signup__block__numbers {
     width: 85.89vw;
-    height: 34.871vw;
   }
   .signup__btn {
     width: 85.89vw;
