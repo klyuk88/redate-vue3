@@ -10,7 +10,9 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
     </div>
-    <slot name="backPhaseTwo"></slot>
+    <div class="auth__back__btn">
+      <slot name="backPhaseTwo"></slot>
+    </div>
     <div class="mobileArrow">
       <slot name="backPhaseTwoMobile"></slot>
     </div>
@@ -368,6 +370,9 @@ const modalHobbyVisible = ref(false);
   }
 }
 @media (max-width: 1200px) {
+  .auth__back__btn {
+    display: none;
+  }
   .mobileSkip {
     display: flex;
   }

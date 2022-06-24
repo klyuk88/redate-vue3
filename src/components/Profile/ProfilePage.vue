@@ -168,7 +168,9 @@
           <div class="buttons__block mobile">
             <div class="inner__buttons__block">
               <div class="big__buttons">
-                <div class="send__message">Написать</div>
+                <div class="send__message" 
+                 @click.prevent="store.newMessageWindow = true"
+                >Написать</div>
                 <div class="icon__btn">
                   <img
                     src="@/assets/images/main/heart.svg"
@@ -1056,8 +1058,8 @@ const notificationStageFive = false;
 }
 @media (max-width: 1200px) {
   .profile__info__filter__block {
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 8.2vw;
+    margin-bottom: 2vw;
   }
   .profile__page {
     flex-direction: column;
@@ -1101,7 +1103,7 @@ const notificationStageFive = false;
           display: flex;
           position: relative;
           width: 79.74vw;
-          height: 19.48vw;
+          // height: 19.48vw;
           left: 0px;
           top: -9.74vw;
           background: rgba(255, 255, 255, 0.05);
@@ -1178,6 +1180,9 @@ const notificationStageFive = false;
               position: unset;
               width: 85.89vw;
               align-items: center;
+              padding: 0;
+              height: unset;
+              margin-bottom: 4.1vw;
               .inner__buttons__block {
                 width: 85.89vw;
                 height: 14.3589vw;
@@ -1303,12 +1308,12 @@ const notificationStageFive = false;
               display: none;
             }
             .mobile__more__info__title {
-              margin-top: 32px;
+              margin-top: 8.2vw;
               display: flex;
               align-items: center;
               justify-content: space-between;
               width: 85.89vw;
-              margin-bottom: 8px;
+              margin-bottom: 2vw;
               p {
                 font-weight: 600;
                 font-size: 3.846vw;

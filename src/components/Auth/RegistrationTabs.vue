@@ -162,6 +162,9 @@ export default {
 </script>
 <style lang="scss">
 .auth__back__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   position: fixed;
   top: 70px;

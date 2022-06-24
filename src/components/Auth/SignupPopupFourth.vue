@@ -6,7 +6,9 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item active"></div>
     </div>
-     <slot name="backPhaseThree"></slot>
+    <div class="auth__back__btn">
+      <slot name="backPhaseThree"></slot>
+    </div>
      <div class="arrowMobile">
        <slot name="backPhaseThreeMobile"></slot>
      </div>
@@ -34,6 +36,7 @@
               placeholder="Расскажите о себе"
               @click="isClicked = true"
             ></textarea>
+            <!-- <FormTextArea placeholder="Расскажите о себе"/> -->
           </div>
         </div>
       </div>
@@ -49,6 +52,7 @@
 <script setup>
 import TheFormats from "../Form/TheFormats.vue";
 import { ref } from "vue";
+import FormTextArea from "../Form/FormTextArea.vue";
 const isClicked = ref(false);
 </script>
 <style lang="scss" scoped>
@@ -220,6 +224,9 @@ margin-bottom: 74px;
   }
 }
 @media (max-width: 1200px) {
+  .auth__back__btn {
+    display: none;
+  }
   .signup__background {
     display: flex;
     justify-content: center;

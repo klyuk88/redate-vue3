@@ -24,7 +24,7 @@
     />
     <div class="content__container">
       <div class="male__side">
-        <router-link to="/registration">
+        <router-link to="/registration/:stage">
           <div
             class="btn"
             @mouseenter="changeBackMale"
@@ -88,31 +88,43 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      maleActive: false,
-      femaleActive: false,
-      maleMobileActive: false,
-      femaleMobileActive: false,
-    };
-  },
-  methods: {
-    changeBackMale() {
-      return (this.maleActive = !this.maleActive);
-    },
-    changeBackFemale() {
-      return (this.femaleActive = !this.femaleActive);
-    },
-    chooseMaleMobile() {
-      return (this.maleMobileActive = !this.maleMobileActive);
-    },
-    chooseFemaleMobile() {
-      return (this.femaleMobileActive = !this.femaleMobileActive);
-    },
-  },
-};
+<script setup>
+import { reactive, ref } from "vue";
+
+const activeState = reactive({
+  maleActive: false,
+  femaleActive: false,
+});
+
+const changeBackMale = () => {
+  activeState.maleActive = !activeState.maleActive
+}
+
+
+// export default {
+//   data() {
+//     return {
+//       maleActive: false,
+//       femaleActive: false,
+//       maleMobileActive: false,
+//       femaleMobileActive: false,
+//     };
+//   },
+//   methods: {
+//     changeBackMale() {
+//       return (this.maleActive = !this.maleActive);
+//     },
+//     changeBackFemale() {
+//       return (this.femaleActive = !this.femaleActive);
+//     },
+//     chooseMaleMobile() {
+//       return (this.maleMobileActive = !this.maleMobileActive);
+//     },
+//     chooseFemaleMobile() {
+//       return (this.femaleMobileActive = !this.femaleMobileActive);
+//     },
+//   },
+// };
 </script>
 <style lang="scss" scoped>
 .btn {

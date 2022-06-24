@@ -143,6 +143,9 @@ const isClicked = ref(false);
   justify-content: flex-end;
   margin-bottom: 45px;
 }
+.signup__block {
+
+}
 p {
       font-weight: 600;
     font-size: 14px;
@@ -214,7 +217,21 @@ p {
   }
 }
 .input {
-  margin: 0;
+
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  outline: none;
+  background-color: rgb(32, 34, 43);
+  width: 326px;
+  height: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  padding: 12px;
+  &:focus {
+    color: #ffffff;
+    border: #ffffff solid 1px;
+  }
   &.last {
     margin-bottom: 48px;
   }
