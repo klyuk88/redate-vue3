@@ -15,9 +15,7 @@
             <div class="signup__block__numbers">
               <input class="input" placeholder="Новый пароль" />
               <input class="input" placeholder="Повторите пароль" />
-              <p class="">
-                Неправильно введен повторный пароль
-              </p>
+              <p class="">Неправильно введен повторный пароль</p>
             </div>
           </div>
         </div>
@@ -31,9 +29,7 @@
     </div>
   </div>
 </template>
-<script>
-
-</script>
+<script></script>
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
@@ -43,27 +39,30 @@
 }
 .signup__page {
   display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .signup__border {
   width: 446px;
   display: flex;
   justify-content: center;
   padding: 48px;
-gap: 10px;
-background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
-border: 1px solid #2B66FB;
-box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
-border-radius: 24px;
-margin-bottom: 139px;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
+  border-radius: 24px;
+  margin-bottom: 139px;
 }
 .signup__block {
   width: 422px;
   display: flex;
   justify-content: center;
-
 }
 .signup__block__container {
   width: 326px;
@@ -77,6 +76,11 @@ margin-bottom: 139px;
   p {
     margin: 0;
     margin: 12px 0 32px 0;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 132.5%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.33);
   }
   h1 {
     font-weight: 600;
@@ -120,7 +124,7 @@ margin-bottom: 139px;
   }
   .signup__page {
     height: 110.769vw;
-    margin-bottom: 60.05vw
+    margin-bottom: 60.05vw;
   }
   .signup__border {
     display: flex;
@@ -128,7 +132,6 @@ margin-bottom: 139px;
     margin: 0;
     background: none;
     padding: 0;
-
   }
   .signup__block {
     border: none;

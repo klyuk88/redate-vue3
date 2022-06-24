@@ -5,9 +5,6 @@
   </div>
 </template>
 <script setup>
-import AuthPopup from "../components/Auth/AuthPopup.vue";
-import SignupHobby from "../components/Auth/SignupHobby.vue";
-import SignupPopupVue from "../components/Auth/SignupPopup.vue";
 import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
 
 

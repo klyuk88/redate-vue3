@@ -57,12 +57,11 @@ const done = ref(true);
 .signup__block__container {
 }
 h1 {
-
   line-height: 153.5%;
-  font-weight: 600;
-font-size: 24px;
-line-height: 30px;
 color: #FFFFFF;
+font-weight: 600;
+font-size: 16px;
+line-height: 153.5%;
 }
 
 .check-sign {
@@ -148,6 +147,9 @@ label {
   }
   h1 {
     width: 310px;
+      font-weight: 600;
+font-size: 24px;
+line-height: 30px;
   }
 }
 </style>

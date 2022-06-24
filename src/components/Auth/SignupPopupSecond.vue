@@ -6,12 +6,14 @@
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
     </div>
-    <slot name="backPhaseOne"></slot>
+    <div class="auth__back__btn">
+      <slot name="backPhaseOne"></slot>
+    </div>
     <div class="mobileArrow">
       <slot name="backPhaseOneMobile"></slot>
     </div>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border__sign__two: isClicked }">
+      <div class="signup__border" >
         <div class="signup__block" >
           <div class="signup__block__container" >
             <div class="signup__input__box">
@@ -242,9 +244,20 @@ margin-bottom: 67px;
 }
 .input {
   cursor: pointer;
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  outline: none;
+  background-color: rgb(32, 34, 43);
   width: 326px;
   height: 60px;
-  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  padding: 12px;
+  &:focus {
+    color: #ffffff;
+    border: #ffffff solid 1px;
+  }
   margin: 0;
   &:focus {
     border: #ffffff 1px solid;
@@ -459,6 +472,9 @@ margin-bottom: 67px;
   }
 }
 @media (max-width: 1200px) {
+  .auth__back__btn {
+    display: none;
+  }
   .mobileArrow {
     display: flex;
   }
