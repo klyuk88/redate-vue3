@@ -76,6 +76,10 @@ const isClicked = ref(false);
   z-index: 109;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
+      display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
   
 }
 .flex__center {

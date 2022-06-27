@@ -42,12 +42,13 @@
 }
 
 .statistics .item.big {
-  background: linear-gradient(
+  /* background: linear-gradient(
     91.52deg,
     #2b66fb 10.22%,
     #4272eb 75.83%,
     #2b66fb 75.84%
-  );
+  ); */
+  background-color: #2b66fb;
   border: 1px solid #2b66fb;
   box-shadow: 0px 4px 24px rgba(43, 102, 251, 0.4);
   border-radius: 24px;

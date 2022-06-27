@@ -120,30 +120,52 @@
             </div>
           </div>
         </div>
-        <div
-          class="buttons__block"
-          :class="{
-            notification__unblur: notificationStatus,
-            stageTwo: notificationStageTwo,
-          }"
-        >
-          <div class="inner__buttons__block">
-            <div class="big__buttons">
-              <div
-                class="send__message"
-                @click.prevent="store.newMessageWindow = true"
-              >
-                Написать
+        <div class="page__footer__carousel">
+          <div
+            class="buttons__block"
+            :class="{
+              notification__unblur: notificationStatus,
+              stageTwo: notificationStageTwo,
+            }"
+          >
+            <div class="inner__buttons__block">
+              <div class="big__buttons">
+                <div
+                  class="send__message"
+                  @click.prevent="store.newMessageWindow = true"
+                >
+                  Написать
+                </div>
+                <div class="icon__btn">
+                  <img src="@/assets/images/main/star.svg" alt="" />
+                </div>
+                <div class="icon__btn">
+                  <img src="@/assets/images/main/heart.svg" alt="" />
+                </div>
               </div>
-              <div class="icon__btn">
-                <img src="@/assets/images/main/star.svg" alt="" />
-              </div>
-              <div class="icon__btn">
-                <img src="@/assets/images/main/heart.svg" alt="" />
+              <div class="more" @click="showModalMore = true">
+                <img src="@/assets/images/main/btn_more.svg" alt="" />
               </div>
             </div>
-            <div class="more" @click="showModalMore = true">
-              <img src="@/assets/images/main/btn_more.svg" alt="" />
+          </div>
+          <div class="profile__info__list__carousel">
+            <div class="profile__mini__avatar" @click="showModal = true">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </div>
+            <div class="profile__mini__avatar" @click="showModal = true">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </div>
+            <div class="profile__mini__avatar" @click="showModal = true">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -168,9 +190,12 @@
           <div class="buttons__block mobile">
             <div class="inner__buttons__block">
               <div class="big__buttons">
-                <div class="send__message" 
-                 @click.prevent="store.newMessageWindow = true"
-                >Написать</div>
+                <div
+                  class="send__message"
+                  @click.prevent="store.newMessageWindow = true"
+                >
+                  Написать
+                </div>
                 <div class="icon__btn">
                   <img
                     src="@/assets/images/main/heart.svg"
@@ -329,26 +354,6 @@
                 спутницу жизни
               </p>
             </div>
-            <div class="profile__info__list__carousel">
-              <div class="profile__mini__avatar" @click="showModal = true">
-                <img
-                  src="../../assets/images/main/woman__mini__avatar1.png"
-                  alt=""
-                />
-              </div>
-              <div class="profile__mini__avatar" @click="showModal = true">
-                <img
-                  src="../../assets/images/main/woman__mini__avatar1.png"
-                  alt=""
-                />
-              </div>
-              <div class="profile__mini__avatar" @click="showModal = true">
-                <img
-                  src="../../assets/images/main/woman__mini__avatar1.png"
-                  alt=""
-                />
-              </div>
-            </div>
           </div>
           <div
             class="carousel__notification__block"
@@ -500,7 +505,7 @@ const notificationStageFive = false;
     flex-direction: column;
     align-items: center;
     top: 653px;
-    right: 129px;
+    right: 209px;
   }
   .carousel__notification__text {
     width: 530px;
@@ -517,6 +522,11 @@ const notificationStageFive = false;
       margin: 24px 37px 27px 21px;
     }
   }
+}
+.page__footer__carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .unblured__border {
   width: 83%;
@@ -768,7 +778,6 @@ const notificationStageFive = false;
   position: relative;
   width: 421px;
   height: 68px;
-  left: -10px;
   top: -35px;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
@@ -914,7 +923,6 @@ const notificationStageFive = false;
   @extend .text;
   height: 35px;
   display: inline-block;
-  cursor: pointer;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -1038,7 +1046,9 @@ const notificationStageFive = false;
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
-  margin-top: 16px;
+  position: relative;
+  top: -20px;
+  // margin-top: 16px;
   &.stageFour {
     position: relative;
     z-index: 100;
@@ -1099,6 +1109,9 @@ const notificationStageFive = false;
       padding: 0;
       .background {
         padding: 0;
+        .page__footer__carousel {
+          display: none;
+        }
         .profile__info__list__carousel {
           display: flex;
           position: relative;
