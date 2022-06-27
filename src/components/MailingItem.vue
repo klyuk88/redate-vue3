@@ -6,7 +6,7 @@
       <div class="titles">
         <h3 class="title">Григорий, 40 лет</h3>
         <span class="line"></span>
-        <h3 class="title city">Санкт-Питербург</h3>
+        <h3 class="title city">Санкт-Петербург</h3>
       </div>
       <div class="format">
         <img

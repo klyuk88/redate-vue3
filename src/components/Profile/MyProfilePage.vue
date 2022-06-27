@@ -907,6 +907,7 @@ const notificationStageEight = false;
             height: 58px;
             background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
             border-radius: 14px;
+            cursor: pointer;
             &.gold {
               border: #2965ff 1px solid;
               background: #bdd0ff;
@@ -975,6 +976,7 @@ const notificationStageEight = false;
               -webkit-text-fill-color: transparent;
               background-clip: text;
               text-fill-color: transparent;
+              cursor: pointer;
             }
             .progress__bar {
               display: none;

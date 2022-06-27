@@ -1,4 +1,8 @@
 <template>
+  <SignupHobby
+    v-if="modalHobbyVisible"
+    @hideModalHobby="modalHobbyVisible = false"
+  />
   <div class="background">
     <router-link to="/account/vasya">
       <div class="auth__back__btn">
@@ -149,7 +153,7 @@
                     alt=""
                   />
                 </div>
-                <div class="add__lang">
+                <div class="add__lang" @click="modalHobbyVisible = true">
                   <img
                     src="../../assets/images/profile_edit_logo/add__cross.svg"
                     alt=""
@@ -303,7 +307,7 @@
                     alt=""
                   />
                 </div>
-                <div class="add__lang">
+                <div class="add__lang" @click="modalHobbyVisible = true">
                   <img
                     src="../../assets/images/profile_edit_logo/add__cross.svg"
                     alt=""
@@ -333,8 +337,8 @@
         <div class="footer">
           <div class="horizontal__line"></div>
           <div class="footer__btns">
-    <router-link to="/account/vasya">
-            <div class="btn">Отмена</div>
+            <router-link to="/account/vasya">
+              <div class="btn">Отмена</div>
             </router-link>
             <div class="btn">Сохранить</div>
           </div>
@@ -600,7 +604,7 @@
                         alt=""
                       />
                     </div>
-                    <div class="add__btn">
+                    <div class="add__btn" >
                       <img
                         src="../../assets/images/main/add__photo__btn.svg"
                         alt=""
@@ -628,12 +632,17 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import TheSelect from "../Form/TheSelect.vue";
 // import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
 import MyProfileSettings from "@/components/Profile/MyProfileSettings.vue";
 
-export default { components: { TheSelect } };
+import SignupHobby from "@/components/Auth/SignupHobby.vue";
+import { ref } from "vue";
+const isClicked = ref(false);
+const modalHobbyVisible = ref(false);
+
+// export default { components: { TheSelect } };
 </script>
 <style lang="scss" scoped>
 .flex__center {
