@@ -1,6 +1,6 @@
 <template>
   <ProfilePhotoCarousel v-if="showModal" @hideModal="showModal = false" />
-  <div class="profile__page">
+  <div class="my__profile__page">
     <div class="left__side">
       <div class="background">
         <div
@@ -665,8 +665,11 @@ const notificationStageEight = false;
   flex-direction: column;
   align-items: center;
 }
-.profile__page {
-  width: 100%;
+.my__profile__page {
+  // width: 100%;
+    display: flex;
+  justify-content: space-between;
+  height: 100vh;
 }
 .text__notification {
   position: relative;
@@ -1259,7 +1262,7 @@ const notificationStageEight = false;
   .notification__blur {
     display: none;
   }
-  .profile__page {
+  .my__profile__page {
     .right__side {
       display: none;
     }
