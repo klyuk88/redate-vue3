@@ -443,7 +443,7 @@ const notificationStageFive = false;
 .text {
   font-weight: 600;
   font-size: 15px;
-  line-height: 153.5%;
+  // line-height: 153.5%;
 }
 .profile__page {
   display: flex;

@@ -130,7 +130,7 @@ const isClicked = ref(false);
   font-style: normal;
   font-weight: 600;
   font-size: 34px;
-  line-height: 43px;
+  // line-height: 43px;
 }
 .flex__center {
   display: flex;

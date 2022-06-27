@@ -217,6 +217,7 @@ p {
   }
 }
 .input {
+  margin: 0;
 
   font-size: 15px;
   line-height: 153.5%;

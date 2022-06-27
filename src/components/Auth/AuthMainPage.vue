@@ -22,9 +22,9 @@
       style="display: none"
       alt=""
     />
-    <div class="content__container">
+    <div class="content__container__auth">
       <div class="male__side">
-        <router-link to="/registration/:stage">
+        <router-link to="/registration">
           <div
             class="btn"
             @mouseenter="changeBackMale"
@@ -88,43 +88,43 @@
   </div>
 </template>
 
-<script setup>
-import { reactive, ref } from "vue";
+<script>
+// import { reactive, ref } from "vue";
 
-const activeState = reactive({
-  maleActive: false,
-  femaleActive: false,
-});
+// const activeState = reactive({
+//   maleActive: false,
+//   femaleActive: false,
+// });
 
-const changeBackMale = () => {
-  activeState.maleActive = !activeState.maleActive
-}
+// const changeBackMale = () => {
+//   activeState.maleActive = !activeState.maleActive
+// }
 
 
-// export default {
-//   data() {
-//     return {
-//       maleActive: false,
-//       femaleActive: false,
-//       maleMobileActive: false,
-//       femaleMobileActive: false,
-//     };
-//   },
-//   methods: {
-//     changeBackMale() {
-//       return (this.maleActive = !this.maleActive);
-//     },
-//     changeBackFemale() {
-//       return (this.femaleActive = !this.femaleActive);
-//     },
-//     chooseMaleMobile() {
-//       return (this.maleMobileActive = !this.maleMobileActive);
-//     },
-//     chooseFemaleMobile() {
-//       return (this.femaleMobileActive = !this.femaleMobileActive);
-//     },
-//   },
-// };
+export default {
+  data() {
+    return {
+      maleActive: false,
+      femaleActive: false,
+      maleMobileActive: false,
+      femaleMobileActive: false,
+    };
+  },
+  methods: {
+    changeBackMale() {
+      return (this.maleActive = !this.maleActive);
+    },
+    changeBackFemale() {
+      return (this.femaleActive = !this.femaleActive);
+    },
+    chooseMaleMobile() {
+      return (this.maleMobileActive = !this.maleMobileActive);
+    },
+    chooseFemaleMobile() {
+      return (this.femaleMobileActive = !this.femaleMobileActive);
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 .btn {
@@ -177,7 +177,7 @@ h1 {
   animation-duration: 6s;
   animation-fill-mode: forwards;
 
-  .content__container {
+  .content__container__auth {
     display: flex;
     justify-content: space-between;
     // align-items: center;
@@ -431,7 +431,7 @@ h1 {
     left: 0;
     top: 0;
 
-    .content__container {
+    .content__container__auth {
       align-items: unset;
       .male__side {
         display: none;

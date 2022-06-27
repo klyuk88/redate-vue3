@@ -7,7 +7,7 @@
       </div>
     </router-link>
     <div class="container">
-      <div class="content__container">
+      <div class="content__container__edit">
         <div class="header">
           <h1>Редактирования профиля</h1>
           <div class="horizontal__line"></div>
@@ -660,11 +660,11 @@ export default { components: { TheSelect } };
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-top: none;
   border-bottom: none;
-  .content__container {
+  .content__container__edit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 2205px;
+    // height: 2205px;
 
     .header {
       @extend .flex__center;

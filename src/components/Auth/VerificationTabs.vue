@@ -32,6 +32,12 @@
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </template>
+            <template v-slot:backToStageTwo>
+        <div class="auth__back__btn" v-on:click="nameComponent = 'Second'">
+          <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+          <h1 class="auth__back__btn__title">Назад</h1>
+        </div>
+      </template>
       <template v-slot:toFinish>
         <BigButton
           @click="nameComponent = 'Third'"

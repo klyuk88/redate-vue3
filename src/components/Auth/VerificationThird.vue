@@ -1,11 +1,6 @@
 <template>
   <div class="signup__background">
-    <router-link to="/verification/photo">
-      <div class="auth__back__btn">
-        <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
-        <h1 class="auth__back__btn__title">Назад</h1>
-      </div>
-    </router-link>
+    <slot name="backToStageTwo"></slot>
     <div class="verification__page">
       <div class="verification__block__container">
         <div class="verification__content">

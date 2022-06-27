@@ -1,5 +1,5 @@
 <template>
-  <div class="content__container">
+  <div class="content__container__reg">
 <!-- <SignupPopupVue /> -->
 <RegistrationTabs />
   </div>
@@ -12,7 +12,7 @@ import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
 
 </script>
 <style>
-.content__container {
+.content__container__reg {
   display: flex;
   align-items: center;
   justify-content: center;
