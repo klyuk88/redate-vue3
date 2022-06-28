@@ -2,6 +2,10 @@
   <div class="signup__background">
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
     </div>
     <div class="auth__back__btn">
       <slot name="backPhaseFour"></slot>
@@ -67,13 +71,14 @@ const isClicked = ref(false);
 }
 .signup__navigation {
   height: 4px;
+  width: 176px;
   display: flex;
   justify-content: space-between;
   margin-top: 64px;
   margin-bottom: 158px;
 }
 .navigation__item {
-  width: 128px;
+  width: 32px;
   height: 4px;
   border-radius: 1px;
   background: rgba(255, 255, 255, 0.33);
@@ -250,11 +255,6 @@ p {
   .signup__navigation {
     margin-left: 0;
     margin-bottom: 72px;
-  }
-  .navigation__item {
-    &.active {
-      width: 45.128vw;
-    }
   }
   .btn__block {
     &.web {

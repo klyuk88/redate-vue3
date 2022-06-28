@@ -733,7 +733,7 @@ const notificationStageFive = false;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: space-between;
+      // justify-content: space-between;
       // width: 488px;
       height: 833px;
       &.notification__unblur {
@@ -854,6 +854,7 @@ const notificationStageFive = false;
   @extend .text;
   font-weight: 500;
   font-size: 48px;
+  margin-bottom: 3px;
 }
 .profile__subtext {
   width: 278px;
@@ -903,6 +904,7 @@ const notificationStageFive = false;
   justify-content: space-between;
   width: 382px;
   height: 121px;
+  margin: 48px 0 48px 0;
 }
 .profile__info__filter__icon {
   margin-right: 12px;
@@ -1026,7 +1028,6 @@ const notificationStageFive = false;
 .profile__info__list__about__block {
   display: flex;
   width: 440px;
-  height: 46px;
 }
 .profile__info__list__about {
   @extend .text;

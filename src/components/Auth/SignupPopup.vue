@@ -5,6 +5,7 @@
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
+      <div class="navigation__item"></div>
     </div>
     <router-link to="/">
       <div class="auth__back__btn">
@@ -32,7 +33,7 @@
                 <input
                   class="input"
                   type="text"
-                  placeholder="Телефон / Электронная почта"
+                  placeholder="Электронная почта"
                   @click="isClicked = true"
                 />
                 <input
@@ -64,7 +65,7 @@
               <input
                 class="input"
                 type="text"
-                placeholder="Телефон / Электронная почта"
+                placeholder="Электронная почта"
               />
               <input class="input" type="password" placeholder="Пароль" />
               <input
@@ -218,7 +219,7 @@ p {
 }
 .input {
   margin: 0;
-
+font-family: "Mulish";
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);

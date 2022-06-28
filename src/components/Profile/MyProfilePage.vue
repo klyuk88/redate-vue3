@@ -186,7 +186,7 @@
             <div class="footer">
               <div class="btn" :class="{ stageSix: notificationStageSix }">
                 <div class="container">
-                  <router-link to="/account/:user/settings" class="container">
+                  <router-link to="/account/:user/edit" class="container">
                     <img
                       src="@/assets/images/main/myprofile__edit.svg"
                       alt=""
@@ -204,7 +204,7 @@
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
-                  <RouterLink to="/account/:user/edit" class="container">
+                  <RouterLink  to="/account/:user/settings" class="container">
                     <img
                       src="@/assets/images/main/myprofile__setting.svg"
                       alt=""
@@ -1201,11 +1201,11 @@ const notificationStageEight = false;
     align-items: baseline;
     .profile__info {
       width: 488px;
-      height: 730px;
+      max-height: 900px;
       .profile__title {
         display: flex;
         align-items: center;
-
+        margin-bottom: 3px;
         .profile__name {
           margin-right: 86px;
         }

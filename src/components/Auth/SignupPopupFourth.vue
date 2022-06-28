@@ -5,6 +5,8 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item active"></div>
       <div class="navigation__item active"></div>
+      <div class="navigation__item"></div>
+
     </div>
     <div class="auth__back__btn">
       <slot name="backPhaseThree"></slot>
@@ -161,6 +163,7 @@ margin-bottom: 74px;
 .format {
 }
 .about {
+  font-family: "Mulish";
   width: 326px;
   height: 254px;
   border: 1px solid rgba(255, 255, 255, 0.14);

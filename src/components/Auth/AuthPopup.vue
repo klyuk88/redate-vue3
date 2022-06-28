@@ -23,15 +23,19 @@
                   <input
                     class="input"
                     type="text"
-                    placeholder="Телефон / Электронная почта"
+                    placeholder="Электронная почта"
                     v-model="authForm.login"
                   />
-                  <input
-                    class="input"
-                    type="password"
-                    placeholder="Пароль"
-                    v-model="authForm.password"
-                  />
+                  <div class="input__password">
+                    <input
+                      class="input pass"
+                      type="password"
+                      placeholder="Пароль"
+                      v-model="authForm.password"
+                      id="myInput"
+                    />
+                    <input class="eye" type="checkbox" @click="showPass" />
+                  </div>
                   <span :class="{ error__auth: useAuth.error }">{{
                     useAuth.error
                   }}</span>
@@ -58,7 +62,7 @@
 </template>
 <script setup>
 import { useAuthStore } from "@/stores/auth.js";
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 const useAuth = useAuthStore();
 const authForm = reactive({
   login: null,
@@ -68,6 +72,15 @@ const authorization = () => {
   useAuth.authUser(authForm);
 };
 const isClicked = ref(false);
+
+function showPass() {
+let inputType = document.querySelectorAll(".input")
+inputType.forEach(e => {
+   e.type === 'password' ? e.type = 'text' : e.type = 'password'
+})
+}
+
+
 </script>
 
 <script>
@@ -238,7 +251,23 @@ span {
     }
   }
 }
+.input__password {
+  font-family: "Mulish";
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  outline: none;
+  background-color: rgb(32, 34, 43);
+  width: 326px;
+  height: 60px;
+  border-radius: 11px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .input {
+  font-family: "Mulish";
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -250,10 +279,28 @@ span {
   border-radius: 11px;
   padding: 12px;
   margin-bottom: 16px;
+  &.pass {
+    margin: 0;
+    border: none;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    position: absolute;
+    z-index: 1;
+    &:focus {
+      color: #ffffff;
+      // border: none;
+    }
+  }
   &:focus {
     color: #ffffff;
     border: #ffffff solid 1px;
   }
+}
+.eye {
+  position: relative;
+  z-index: 2;
+  right: -140px;
+
 }
 .auth__btn {
   @extend .flex__center;
