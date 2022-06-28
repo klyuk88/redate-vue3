@@ -13,8 +13,9 @@
               <p>Введите новый пароль и подтвердите его</p>
             </div>
             <div class="signup__block__numbers">
-              <input class="input" placeholder="Новый пароль" />
-              <input class="input" placeholder="Повторите пароль" />
+              <input type="password" class="input" placeholder="Новый пароль" />
+              <input type="checkbox" @click="showPass">
+              <input type="password" class="input repeat" placeholder="Повторите пароль" />
               <p class="">Неправильно введен повторный пароль</p>
             </div>
           </div>
@@ -29,7 +30,16 @@
     </div>
   </div>
 </template>
-<script></script>
+<script setup>
+
+function showPass() {
+let inputType = document.querySelectorAll(".input")
+inputType.forEach(e => {
+   e.type === 'password' ? e.type = 'text' : e.type = 'password'
+})
+}
+
+</script>
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;

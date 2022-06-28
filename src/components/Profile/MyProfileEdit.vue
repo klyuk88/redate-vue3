@@ -217,7 +217,7 @@
                     alt=""
                   />
                 </div>
-                <span>Данные тела: </span>
+                <span>Данные фигуры: </span>
               </div>
               <div class="border">
                 <div class="signup__params__block">
@@ -604,7 +604,7 @@
                         alt=""
                       />
                     </div>
-                    <div class="add__btn" >
+                    <div class="add__btn">
                       <img
                         src="../../assets/images/main/add__photo__btn.svg"
                         alt=""
@@ -773,6 +773,7 @@ const modalHobbyVisible = ref(false);
           }
         }
         .input {
+          font-family: "Mulish";
           width: 326px;
           height: 60px;
           background: none;
@@ -783,17 +784,35 @@ const modalHobbyVisible = ref(false);
           height: 60px;
           border: 1px solid rgba(255, 255, 255, 0.14);
           border-radius: 11px;
+
           .input__day {
             width: 40px;
             background: none;
+            border: none;
+            text-align: center;
+            font-family: "Mulish";
+            font-size: 15px;
+            line-height: 153.5%;
           }
           .input__month {
             width: 40px;
             background: none;
+            border: none;
+            text-align: center;
+            border-left: 1px solid  rgba(255, 255, 255, 0.14);
+            border-right: 1px solid  rgba(255, 255, 255, 0.14);
+            font-family: "Mulish";
+            font-size: 15px;
+            line-height: 153.5%;
           }
           .input__year {
             width: 70px;
             background: none;
+            border: none;
+            text-align: center;
+            font-family: "Mulish";
+            font-size: 15px;
+            line-height: 153.5%;
           }
         }
 
@@ -948,6 +967,9 @@ const modalHobbyVisible = ref(false);
               justify-content: space-between;
               width: 269px;
               height: 60px;
+              p {
+                margin-right: 8px;
+              }
               .params__input__box {
                 @extend .flex__center;
                 width: 174px;
@@ -1008,6 +1030,7 @@ const modalHobbyVisible = ref(false);
         @extend .flex__center;
 
         .about__text__area {
+          font-family: "Mulish";
           background: none;
           outline: none;
           resize: none;

@@ -58,8 +58,13 @@
           <p class="web" :class="added">
             Отобразите позу, которая указана на картинке справа
           </p>
-          <div class="btn__update">Обновить снимок</div>
-          <slot name="toThird"></slot>
+          <div class="btn__update" :class="added">Заменить снимок</div>
+          <div class="btn__upload" :class="added" >
+            Загрузить с компьютера
+          </div>
+          <div class="btn__continue" :class="added">
+            <slot name="toThird"></slot>
+          </div>
         </div>
       </div>
       <div class="verification__nav">
@@ -208,22 +213,29 @@ export default {
   height: 35px;
   border: 1px solid #ffffff;
   border-radius: 11px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &.added {
+    display: flex;
+  }
+}
+.btn__upload {
+  padding: 8px 27px;
+gap: 12px;
+height: 35px;
+background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%);
+border-radius: 11px;
+cursor: pointer;
+&.added {
+  display: none;
+}
 }
 .btn__continue {
-  width: 228px;
-  height: 35px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 132.5%;
-  text-align: right;
-  color: #ffffff;
+display: none;
   &.added {
-    width: 314px;
-    height: 59px;
+display: flex;
   }
 }
 @media (max-width: 1200px) {

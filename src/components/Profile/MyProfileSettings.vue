@@ -13,82 +13,10 @@
           <div class="horizontal__line"></div>
         </div>
         <div class="settings__body">
-          <div class="settings change__mail">
-            <div class="settings__desc">
-              <img
-                src="@/assets/images/main/myprofile__settings__email.svg"
-                alt=""
-              />
-              <div class="title">Электронная почта:</div>
-            </div>
-            <div class="inputs__box">
-              <input
-                class="input"
-                type="text"
-                placeholder="Bomba@mail.com"
-                disabled
-              />
-              <!-- <input class="code__input" type="text" maxlength="4" />
-              <div class="resend__block ">
-                <img
-                  src="../../assets/images/main/myprofile__settings__resend.svg"
-                  alt=""
-                />
-                <div class="resend__counter">59</div>
-              </div>
-              <div class="vertical__line"></div>
-              <div class="logo__done">
-                <img
-                  src="../../assets/images/main/myprofile__settings__done.svg"
-                  alt=""
-                />
-              </div> -->
-            </div>
-            <div class="horizontal__line"></div>
-          </div>
           <span class="span__desc hide"
             >Необходимо подтвердить смену учетной записи. Введите код полученный
             из сообщения, которого мы Вам отправили.</span
           >
-
-          <div class="settings change__phone">
-            <div class="settings__desc">
-              <img
-                src="@/assets/images/main/myprofile__settings__phone.svg"
-                alt=""
-              />
-              <div class="title">Номер телефона:</div>
-            </div>
-            <div class="inputs__box">
-              <input
-                class="input"
-                type="text"
-                placeholder="+7 (435) 495 59 34"
-                disabled
-              />
-
-              <div class="send__phone__code">Отправить</div>
-
-              <div class="sms__code hide">
-                <input class="code__input" type="text" maxlength="4" />
-                <div class="resend__block">
-                  <img
-                    src="../../assets/images/main/myprofile__settings__resend.svg"
-                    alt=""
-                  />
-                  <div class="resend__counter">59</div>
-                </div>
-                <div class="vertical__line"></div>
-                <div class="logo__done">
-                  <img
-                    src="../../assets/images/main/myprofile__settings__done.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="horizontal__line"></div>
-          </div>
           <div class="settings">
             <div class="settings__desc">
               <img
@@ -246,17 +174,15 @@
 <script setup>
 import AuthPopup from "@/components/Auth/AuthPopup.vue";
 import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
-import {useAuthStore} from '@/stores/auth.js'
+import { useAuthStore } from "@/stores/auth.js";
 
-const auth = useAuthStore()
+const auth = useAuthStore();
 
 const logout = () => {
-  auth.logout()
-}
-
+  auth.logout();
+};
 </script>
 <style lang="scss" scoped>
-
 .flex__center {
   display: flex;
   justify-content: center;
@@ -282,7 +208,6 @@ const logout = () => {
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
-      height: 31.62vw;
       margin-top: 4.21vw;
       .horizontal__line {
         width: 47.289vw;
@@ -309,11 +234,11 @@ const logout = () => {
       }
       .settings__body {
         width: 36vw;
-        height: 14vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-right: 10.84vw;
+
         .span__desc {
           font-weight: 600;
           font-size: 0.722vw;
@@ -339,6 +264,8 @@ const logout = () => {
   // @extend .flex__center;
   justify-content: space-between;
   display: flex;
+  margin: 24px 0 24px 0;
+
   &.change__mail {
     width: 49.698vw;
     .horizontal__line {
@@ -509,6 +436,7 @@ const logout = () => {
     background: none;
     outline: none;
     padding: 0.722vw;
+    margin: 0;
     &.change__password {
       margin-top: 0.48vw;
       width: 15.06vw;
@@ -522,6 +450,8 @@ const logout = () => {
   display: flex;
   justify-content: space-between;
   width: 47.4698vw;
+  margin-top: 24px;
+
   .logout {
     padding: 0.42vw 0.783vw;
     height: 2vw;
@@ -533,7 +463,6 @@ const logout = () => {
     color: #ffffff;
     cursor: pointer;
     background: transparent;
-
 
     &.hide {
       display: none;
@@ -626,7 +555,7 @@ const logout = () => {
         span {
           font-weight: 400;
           font-size: 3.333vw;
-          line-height: 4.10vw;
+          line-height: 4.1vw;
           display: flex;
           align-items: center;
           color: rgba(255, 255, 255, 0.4);
@@ -646,7 +575,7 @@ const logout = () => {
           p {
             font-weight: 400;
             font-size: 3.333vw;
-            line-height: 4.10vw;
+            line-height: 4.1vw;
             display: flex;
             align-items: center;
             color: rgba(255, 255, 255, 0.4);
@@ -770,7 +699,7 @@ const logout = () => {
           width: 23.589vw;
           justify-content: space-between;
           align-items: center;
-          margin-left: 4.10vw;
+          margin-left: 4.1vw;
           .counter__btn {
             display: flex;
             justify-content: space-between;
@@ -842,7 +771,7 @@ const logout = () => {
           border: 0.256vw solid rgba(255, 255, 255, 0.14);
           border-radius: 2.82vw;
           font-weight: 700;
-          font-size: 3.589vw ;
+          font-size: 3.589vw;
           line-height: 132.5%;
           &.blue {
             border: 0.256vw solid #3e74ff;
