@@ -15,9 +15,7 @@
         <CitiesSmallSliderItem />
         <CitiesSmallSliderItem />
       </SwiperSlide>
-    </Swiper>
-
-    <img src="@/assets/images/main/arrow-rigth.svg" alt="" class="nav" />
+    </Swiper>    <img src="@/assets/images/main/arrow-rigth.svg" alt="" class="nav" />
   </div>
 </template>
 <script setup>
@@ -35,7 +33,8 @@ import "swiper/modules/pagination/pagination.min.css";
 // }
 
 </script>
-<style>
+<style lang="scss">
+
 .small-slider-wrap {
   position: relative;
 }

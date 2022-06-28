@@ -1,39 +1,41 @@
 <template>
-    <div class="cities-small-slide">
-        <img src="https://www.cruisegid.ru/assets/gallery/1022/20697.jpg" alt="" class="cover">
-        <div class="tray">
-            <div class="title">
-                <img src="@/assets/images/main/location-icon.svg" alt="">
-                <h6 class="title">Геленджик</h6>
-            </div>
-            <div class="statiscic-item">
-                <p class="text">
-                    Всего
-                <span class="line"></span>
-                </p>
-               
-                <p class="text">
-                    20 405
-                </p>
-            </div>
+  <div class="cities-small-slide">
+    <img
+      src="https://www.cruisegid.ru/assets/gallery/1022/20697.jpg"
+      alt=""
+      class="cover"
+    />
+    <div class="tray">
+      <div class="title">
+        <img src="@/assets/images/main/location-icon.svg" alt="" />
+        <h6 class="title">Геленджик</h6>
+      </div>
+      <div class="statiscic-item">
+        <p class="text">
+          Всего
+          <span class="line"></span>
+        </p>
 
-            <div class="statiscic-item">
-                <p class="text">
-                    За сутки
-                <span class="line"></span>
-                </p>
-                <p class="text">
-                    1 405
-                </p>
-            </div>
-        </div>
+        <p class="text">20 405</p>
+      </div>
+
+      <div class="statiscic-item">
+        <p class="text">
+          За сутки
+          <span class="line"></span>
+        </p>
+        <p class="text">1 405</p>
+      </div>
     </div>
+  </div>
+
 </template>
 
 <script>
 </script>
 
-<style>
+<style lang="scss">
+
 .cities-small-slide {
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
@@ -44,62 +46,61 @@
 }
 
 .cities-small-slide .cover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .cities-small-slide .tray {
-    background: #1C1D21;
-    position: absolute;
-    width: 70%;
-    height: 100%;
-    right: 0;
-    z-index: 2;
-    padding: 10px 25px;
+  background: #1c1d21;
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  right: 0;
+  z-index: 2;
+  padding: 10px 25px;
 }
 
 .cities-small-slide .tray .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin-bottom: 4px;
 }
 
 .cities-small-slide .tray .title img {
-    width: 16px;
-    height: auto;
-    margin-right: 3px;
+  width: 16px;
+  height: auto;
+  margin-right: 3px;
 }
 .cities-small-slide .tray .title h6 {
-    font-size: 16px;
-    font-weight: 700;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .cities-small-slide .tray .statiscic-item {
-    display: grid;
-    grid-template-columns: 1fr 40%;
-    column-gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  column-gap: 10px;
 }
 
 .cities-small-slide .tray .statiscic-item .text {
-    font-size: 16px;
-    line-height: 150%;
-    position: relative;
+  font-size: 16px;
+  line-height: 150%;
+  position: relative;
 }
 
 .cities-small-slide .tray .statiscic-item .text > .line {
-    height: 16px;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.14);
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+  height: 16px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
 </style>

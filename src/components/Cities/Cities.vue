@@ -15,13 +15,14 @@
           <div class="slider">
             <CitiesSmallSlider/>
           </div>
-          <div class="search">
+          <!-- <div class="search">
             <SearchCities />
-          </div>
+          </div> -->
         </div>
     </div>
-    <button class="all-cities" @click="openCities">{{store.showCities ? 'Скрыть' : 'Все города'}}</button>
+    <!-- <button class="all-cities" @click="openCities">{{store.showCities ? 'Скрыть' : 'Все города'}}</button> -->
   </div>
+  <Filter/>
 </template>
 
 <script setup>
@@ -33,6 +34,7 @@ import SearchCities from  '@/components/Cities/SearchCities.vue'
 import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue'
 import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue'
 import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue'
+import Filter from '@/components/Main/Filter.vue'
 
 const store = useStore()
 
@@ -101,7 +103,8 @@ const openCities = () => {
 
 .hidden-part .grid {
   display: grid;
-  grid-template-columns: 1fr 370px;
+  /* grid-template-columns: 1fr 370px; */
+  grid-template-columns: 1fr;
 }
 .hidden-part .slider {
   overflow: hidden;

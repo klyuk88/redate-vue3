@@ -64,48 +64,7 @@
       <div class="swiper-scrollbar"></div>
     </div>
     <!-- Slider -->
-    <div class="filter">
-      <div>
-        <TheSelect
-          :options="options"
-          :placeholder="'Выберите город'"
-          v-model="city"
-        />
-      </div>
-      <div>
-        <div class="range" :class="{ active: showLabel }">
-          <vue-slider
-            v-model="range"
-            :height="2"
-            :tooltip="'always'"
-            :min="18"
-            :max="45"
-            :interval="1"
-            :lazy="true"
-            :enableCross="false"
-            :railStyle="{
-              background: 'rgba(255,255,255, 0.3)',
-            }"
-            :dotStyle="{
-              background: '#fff',
-              height: '12px',
-              width: '12px',
-            }"
-            :processStyle="{ background: '#fff' }"
-            :tooltipStyle="{
-              background: 'transparent',
-              'font-size': '12px',
-              'font-weigth': '600',
-            }"
-            @drag-start="showLabel = true"
-            @drag-end="showLabel = false"
-          />
-        </div>
-      </div>
-      <div>
-        <BigButton :title="'Начать поиск'" />
-      </div>
-    </div>
+
 
     <!-- Mobile items  -->
     <div class="mobile-items">
@@ -123,13 +82,9 @@
 import { ref, reactive } from "vue";
 import { Navigation, Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-import VueSlider from "vue-slider-component";
-import "vue-slider-component/theme/default.css";
 
 import PotentialPartnersItem from "@/components/PotencialPartners/PotentialPartnersItem.vue";
 import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
-import TheSelect from '@/components/Form/TheSelect.vue'
-import BigButton from '@/components/Form/BigButton.vue'
 import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue'
 
 import {useStore} from '@/stores/main.js'
@@ -142,17 +97,6 @@ import "swiper/modules/scrollbar/scrollbar.min.css";
 
 const store = useStore()
 
-const options = ref(["Москва", "Санкт-Петербург", "Казань"]);
-const city = ref("Москва");
-const format = ref("Любой");
-const attributes = reactive({
-  ref: "openIndicator",
-  role: "presentation",
-  class: "vs__open-indicator",
-});
-const range = ref([18, 45]);
-
-const showLabel = ref(false);
 </script>
 <style lang="sass">
 .potential-partners > .title-wrap
@@ -183,33 +127,6 @@ const showLabel = ref(false);
 
 .potential-partners
   margin-top: 45px
-  .filter
-    margin-top: 30px
-    display: grid
-    grid-template-columns: repeat(3, 1fr)
-    column-gap: 12px
-    @media (max-width: 1200px)
-      display: none
-    .vue-slider-dot-tooltip-inner-top::after
-      display: none
-    .range
-      border: 1px solid rgba(255,255,255,0.33)
-      height: 60px
-      border-radius: 11px
-      padding: 0 13px
-      padding-top: 16px
-      position: relative
-      .vue-slider-dot-tooltip-top
-        top: 40px
-    .range.active
-      border: 1px solid #fff
-    .range.active:before
-      content: "Возраст"
-      color: #fff
-      font-size: 12px
-      font-weight: 600
-      position: absolute
-      top: -25px
 
 .potential-partners .slider
   position: relative

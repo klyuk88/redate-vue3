@@ -84,8 +84,8 @@ const auth = useAuthStore()
     display: block
   .center-col
     overflow: hidden
-    min-height: 1080px
-    max-height: 2000px
+    // min-height: 1080px
+    // max-height: 2000px
     @media screen and (max-width: 1200px)
       overflow: visible
       min-height: auto
