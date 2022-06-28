@@ -1,6 +1,6 @@
 <template>
-    <ProfilePhotoCarousel v-if="showModal" @hideModal="showModal = false"/>
-  <div class="profile__page">
+  <ProfilePhotoCarousel v-if="showModal" @hideModal="showModal = false" />
+  <div class="my__profile__page">
     <div class="left__side">
       <div class="background">
         <div
@@ -10,8 +10,11 @@
           <div class="header">
             <div class="nav__box">
               <router-link to="/">
-              <div class="auth__back__btn">
-                  <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+                <div class="auth__back__btn">
+                  <img
+                    src="@/assets/images/main/auth__back__arrow.svg"
+                    alt=""
+                  />
                   <h1 class="auth__back__btn__title">Назад</h1>
                 </div>
               </router-link>
@@ -42,25 +45,25 @@
                         />
                       </router-link>
                       <router-link to="/profile/photogallery">
-                      <img
-                        src="../../assets/images/main/woman__mini__avatar1.png"
-                        alt=""
-                        class="item"
-                      />
+                        <img
+                          src="../../assets/images/main/woman__mini__avatar1.png"
+                          alt=""
+                          class="item"
+                        />
                       </router-link>
                       <router-link to="/profile/photogallery">
-                      <img
-                        src="../../assets/images/main/woman__mini__avatar1.png"
-                        alt=""
-                        class="item"
-                      />
+                        <img
+                          src="../../assets/images/main/woman__mini__avatar1.png"
+                          alt=""
+                          class="item"
+                        />
                       </router-link>
                       <router-link to="/profile/photogallery">
-                      <img
-                        src="../../assets/images/main/woman__mini__avatar1.png"
-                        alt=""
-                        class="item"
-                      />
+                        <img
+                          src="../../assets/images/main/woman__mini__avatar1.png"
+                          alt=""
+                          class="item"
+                        />
                       </router-link>
                     </div>
                   </div>
@@ -103,8 +106,8 @@
                 <div class="btn gold">Продлить</div>
               </div>
               <div class="subscription">
-                <div class="item__price" >
-                  <div class="inner__price__box" >
+                <div class="item__price">
+                  <div class="inner__price__box">
                     <div class="days">7 дней</div>
                     <div class="price">54$</div>
                     <div class="progress__bar"></div>
@@ -114,9 +117,8 @@
                 <div
                   class="item__price center active"
                   :class="{ active: notificationStageTwo }"
-                 
                 >
-                  <div class="inner__price__box ">
+                  <div class="inner__price__box">
                     <div class="days">14 дней</div>
                     <div class="price">$96</div>
                     <div class="progress__bar"></div>
@@ -184,7 +186,7 @@
             <div class="footer">
               <div class="btn" :class="{ stageSix: notificationStageSix }">
                 <div class="container">
-                  <router-link to="/account/:user/settings" class='container'>
+                  <router-link to="/account/:user/settings" class="container">
                     <img
                       src="@/assets/images/main/myprofile__edit.svg"
                       alt=""
@@ -202,7 +204,7 @@
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
-                  <RouterLink to="/account/:user/edit" class='container'>
+                  <RouterLink to="/account/:user/edit" class="container">
                     <img
                       src="@/assets/images/main/myprofile__setting.svg"
                       alt=""
@@ -307,7 +309,7 @@
                 <img src="@/assets/images/main/myprofile__headset__logo.svg" alt="">
                 <h2>Техническая поддержка</h2>
               </div> -->
-              <!-- <router-link to="/verification">
+            <!-- <router-link to="/verification">
                 <div class="verification__action ">
                     <h2>Пройти верификацию</h2>
                   </div>
@@ -473,9 +475,7 @@
           />
           <div class="profile__info__filter">
             <div class="profile__info__filter__block">
-              <div
-                class="profile__info__filter__icon"
-              >
+              <div class="profile__info__filter__icon">
                 <img src="@/assets/images/main/description.svg" alt="" />
               </div>
               <div class="profile__info__filter__description">
@@ -619,9 +619,7 @@
 import MobileBurger from "../MobileBurger.vue";
 import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
 
-
-import { ref } from 'vue'
-
+import { ref } from "vue";
 
 const showModal = ref(false);
 const notificationStatus = false;
@@ -632,8 +630,6 @@ const notificationStageFive = false;
 const notificationStageSix = false;
 const notificationStageSeven = false;
 const notificationStageEight = false;
-
-
 </script>
 <style lang="scss" scoped>
 .notification__blur {
@@ -669,8 +665,11 @@ const notificationStageEight = false;
   flex-direction: column;
   align-items: center;
 }
-.profile__page {
-  width: 100%;
+.my__profile__page {
+  // width: 100%;
+    display: flex;
+  justify-content: space-between;
+  height: 100vh;
 }
 .text__notification {
   position: relative;
@@ -908,6 +907,7 @@ const notificationStageEight = false;
             height: 58px;
             background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
             border-radius: 14px;
+            cursor: pointer;
             &.gold {
               border: #2965ff 1px solid;
               background: #bdd0ff;
@@ -976,6 +976,7 @@ const notificationStageEight = false;
               -webkit-text-fill-color: transparent;
               background-clip: text;
               text-fill-color: transparent;
+              cursor: pointer;
             }
             .progress__bar {
               display: none;
@@ -1263,7 +1264,10 @@ const notificationStageEight = false;
   .notification__blur {
     display: none;
   }
-  .profile__page {
+  .my__profile__page {
+    .right__side {
+      display: none;
+    }
     margin: 0;
     .nav__box {
       // display: none;
@@ -1279,20 +1283,15 @@ const notificationStageEight = false;
       }
     }
   }
-  .right__side {
-    display: none;
-  }
+
   .left__side {
-    // height: 186.66vw;
     padding: 0;
     .background {
-      // height: 217.69vw;
       margin-bottom: 10.769vw;
       padding: 0;
       width: unset;
       .container {
         width: 85.59vw;
-        // height: 175.89vw;
         height: unset;
         .header {
           justify-content: end;
@@ -1426,7 +1425,6 @@ const notificationStageEight = false;
                 flex-direction: column;
                 align-items: center;
                 &.active {
-
                   height: 23.33vw;
                   border: 0.512vw solid #2965ff;
                   box-shadow: 0px 0px 10px rgba(43, 102, 251, 0.37);
@@ -1455,6 +1453,7 @@ const notificationStageEight = false;
                   height: 8.205vw;
                   display: flex;
                   align-items: center;
+                  justify-content: center;
                 }
               }
             }

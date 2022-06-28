@@ -3,7 +3,9 @@
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
     </div>
-    <slot name="backPhaseFour"></slot>
+    <div class="auth__back__btn">
+      <slot name="backPhaseFour"></slot>
+    </div>
     <div class="mobileArrow">
       <slot name="backPhaseFourthMobile"></slot>
     </div>
@@ -239,6 +241,9 @@ p {
   }
 }
 @media (max-width: 1200px) {
+  .auth__back__btn {
+    display: none;
+  }
   .mobileArrow {
     display: flex;
   }

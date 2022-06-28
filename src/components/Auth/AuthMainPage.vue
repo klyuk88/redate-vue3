@@ -22,7 +22,7 @@
       style="display: none"
       alt=""
     />
-    <div class="content__container">
+    <div class="content__container__auth">
       <div class="male__side">
         <router-link to="/registration">
           <div
@@ -89,6 +89,18 @@
 </template>
 
 <script>
+// import { reactive, ref } from "vue";
+
+// const activeState = reactive({
+//   maleActive: false,
+//   femaleActive: false,
+// });
+
+// const changeBackMale = () => {
+//   activeState.maleActive = !activeState.maleActive
+// }
+
+
 export default {
   data() {
     return {
@@ -165,7 +177,7 @@ h1 {
   animation-duration: 6s;
   animation-fill-mode: forwards;
 
-  .content__container {
+  .content__container__auth {
     display: flex;
     justify-content: space-between;
     // align-items: center;
@@ -419,7 +431,7 @@ h1 {
     left: 0;
     top: 0;
 
-    .content__container {
+    .content__container__auth {
       align-items: unset;
       .male__side {
         display: none;

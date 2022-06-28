@@ -1,5 +1,5 @@
 <template>
-  <div class="content__container">
+  <div class="content__container__ver">
 <VerificationTabs />
   </div>
 </template>
@@ -8,7 +8,7 @@ import VerificationTabs from '../components/Auth/VerificationTabs.vue';
 
 </script>
 <style lang="scss">
-.content__container {
+.content__container__ver {
   display: flex;
   align-items: center;
   justify-content: center;
