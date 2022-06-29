@@ -1,36 +1,55 @@
 <template>
   <div class="cities-block">
-    <Statistics />
+    <Statistics 
+      :totalRegistered="statistics.totalRegistered"
+      :menRegistered="statistics.menRegistered"
+      :newUsers="statistics.newUsers"
+    />
+
     <div class="decor-line"></div>
     <!-- На мобильном  -->
-    <CitiesBigSlider />
-    <CitiesSearchMobInput/>
+    <CitiesBigSlider
+      v-if="usersStatistics.length"
+      :usersStatistics="usersStatistics"
+      @redirect="redirectHandler"
+    />
+
+    <CitiesSearchMobInput />
     <!-- На десктопе -->
-    <CitiesBigItems/>
-    <div class="hidden-part"
-    :class="{'show': store.showCities}"
+    <CitiesBigItems
+      v-if="usersStatistics.length"
+      :usersStatistics="usersStatistics"
+      @redirect="redirectHandler"
+    />
+
+    <div
+      v-if="usersStatisticsBySlider.length"
+      class="hidden-part"
+      :class="{'show': store.showCities}"
     >
-        <p class="title">Зарегистрировано по городам</p>
-        <div class="grid">
-          <div class="slider">
-            <CitiesSmallSlider/>
-          </div>
-          <!-- <div class="search">
-            <SearchCities />
-          </div> -->
+      <p class="title">Зарегистрировано по городам</p>
+      <div class="grid">
+        <div class="slider">
+          <CitiesSmallSlider 
+            :usersStatistics="usersStatisticsBySlider"
+            @redirect="redirectHandler"
+          />
         </div>
+      </div>
     </div>
-    <!-- <button class="all-cities" @click="openCities">{{store.showCities ? 'Скрыть' : 'Все города'}}</button> -->
   </div>
-  <Filter/>
+
+  <Filter />
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
-import {useStore} from '@/stores/main.js'
-import Statistics from "@/components/Cities/Statistics.vue";
-import CitiesSmallSlider from "@/components/Cities/CitiesSmallSlider.vue";
-import SearchCities from  '@/components/Cities/SearchCities.vue'
+import { computed } from 'vue'
+import { useStore } from '@/stores/main.js'
+import { useStatisticsStore } from '@/stores/statistics.js'
+import { useSearchStore } from '@/stores/search.js'
+import router from '@/router'
+import Statistics from "@/components/Cities/Statistics.vue"
+import CitiesSmallSlider from "@/components/Cities/CitiesSmallSlider.vue"
 import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue'
 import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue'
 import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue'
@@ -38,10 +57,19 @@ import Filter from '@/components/Main/Filter.vue'
 
 const store = useStore()
 
-const openCities = () => {
-  store.showCities = !store.showCities
-}
+const statistics = useStatisticsStore()
 
+const search = useSearchStore()
+
+const usersStatistics = computed(() => statistics.usersStatisticsByCities.slice(0, 3))
+
+const usersStatisticsBySlider = computed(() => statistics.usersStatisticsByCities.slice(3))
+
+const redirectHandler = (params) => {
+  search.setQueryParams(params.id)
+
+  router.push('/search')
+}
 </script>
 
 <style>
@@ -50,7 +78,6 @@ const openCities = () => {
   padding: 24px;
   border-radius: 40px;
   position: relative;
-  /* overflow: hidden; */
 }
 
 .cities-block > .decor-line {
@@ -106,6 +133,7 @@ const openCities = () => {
   /* grid-template-columns: 1fr 370px; */
   grid-template-columns: 1fr;
 }
+
 .hidden-part .slider {
   overflow: hidden;
   padding-right: 50px;
@@ -122,7 +150,5 @@ const openCities = () => {
   .cities-block .hidden-part {
     display: none;
   }
-
-  
 }
 </style>

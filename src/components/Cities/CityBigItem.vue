@@ -2,24 +2,39 @@
   <div class="city-slide">
     <div class="data">
       <p class="city">
-        <img src="@/assets/images/main/location-icon.svg" alt="" /> Москва
+        <img src="@/assets/images/main/location-icon.svg" alt="Иконка локации" /> {{ props.city }}
       </p>
       <div class="item">
-        <p class="numbers">931 030</p>
+        <p class="numbers">{{ props.totalRegistered }}</p>
         <p class="subtitle">Зарегистрировано</p>
       </div>
       <div class="decor-line"></div>
       <div class="item">
-        <p class="numbers">150 065</p>
+        <p class="numbers">{{ props.newUsers }}</p>
         <p class="subtitle">Новых пользователей</p>
       </div>
     </div>
-    <img src="@/assets/images/main/city-1.jpg" alt="" class="city-photo" />
+    <img src="@/assets/images/main/city-1.jpg" :alt="props.city" class="city-photo" />
   </div>
 </template>
+
 <script setup>
-const props = defineProps(["title"]);
+const props = defineProps({
+  city: {
+    type: String,
+    required: true
+  },
+  totalRegistered: {
+    type: Number,
+    required: true
+  },
+  newUsers: {
+    type: Number,
+    required: true
+  }
+})
 </script>
+
 <style>
 .city-slide {
   position: relative;
@@ -28,6 +43,7 @@ const props = defineProps(["title"]);
   height: 220px;
   flex-grow: 1;
   z-index: 0;
+  cursor: pointer;
 }
 
 .city-slide .city-photo {

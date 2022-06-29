@@ -83,6 +83,8 @@ function heandleScroll(e) {
 onUnmounted(() => {
   window.removeEventListener("scroll", heandleScroll);
 });
+
+// TODO Need clear query params in Pinia, before get state on this page
 </script>
 
 <style lang="scss">

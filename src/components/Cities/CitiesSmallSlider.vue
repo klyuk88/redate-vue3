@@ -9,32 +9,58 @@
         nextEl: '.small-slider-wrap .nav',
       }"
     >
-      <SwiperSlide v-for="(item, index) in 3" :key="index">
-        <CitiesSmallSliderItem />
-        <CitiesSmallSliderItem />
-        <CitiesSmallSliderItem />
-        <CitiesSmallSliderItem />
+      <SwiperSlide
+        v-for="(usersStatistics, i) in processedUsersStatistics"
+        :key="i"
+      >
+        <CitiesSmallSliderItem 
+          v-for="(item, j) in usersStatistics"
+          :city="item.name"
+          :totalRegistered="item.cityAll"
+          :newUsers="item.cityNew"
+          @click="clickHandler(item)"
+        />
       </SwiperSlide>
-    </Swiper>    <img src="@/assets/images/main/arrow-rigth.svg" alt="" class="nav" />
+    </Swiper>
+    
+    <img src="@/assets/images/main/arrow-rigth.svg" alt="Иконка стрелки вправо" class="nav" />
   </div>
 </template>
+
 <script setup>
-import CitiesSmallSliderItem from "@/components/Cities/CitiesSmallSliderItem.vue";
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
+import { computed } from 'vue'
+import { Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
+import CitiesSmallSliderItem from '@/components/Cities/CitiesSmallSliderItem.vue'
+import 'swiper/swiper.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
 
-// Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/modules/pagination/pagination.min.css";
+const props = defineProps({
+  usersStatistics: {
+    type: Array,
+    required: true,
+  }
+})
 
-// const size = 3;
-// for (let i = 0; i < Math.ceil(data.value.length / size); i++) {
-//   sliceData.value[i] = data.value.slice(i * size, i * size + size);
-// }
+const emit = defineEmits(['redirect'])
 
+const processedUsersStatistics = computed(() => {
+  const size = 4
+  const subArray = []
+
+  for (let i = 0; i < Math.ceil(props.usersStatistics.length / size); i++) {
+    subArray[i] = props.usersStatistics.slice((i * size), (i * size) + size)
+  }
+
+  return subArray
+})
+
+const clickHandler = (item) => {
+  emit('redirect', item)
+}
 </script>
-<style lang="scss">
 
+<style lang="scss">
 .small-slider-wrap {
   position: relative;
 }
@@ -54,6 +80,4 @@ import "swiper/modules/pagination/pagination.min.css";
   column-gap: 15px;
   row-gap: 15px;
 }
-
 </style>
-

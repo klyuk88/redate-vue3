@@ -13,7 +13,7 @@
     
     <div class="decor-shape"></div>
   </div>
-  <Cities />
+  <Cities v-if="!statistics.isLoading && !statistics.error.status" />
   <div class="page-grid">
     <div class="center-col">
       <div class="content">
@@ -43,20 +43,21 @@
 </template>
 
 <script setup>
-import PotencialPartners from "@/components/PotencialPartners/PotencialPartners.vue";
-import RecomendedMailings from "@/components/RecomendedMailings.vue";
-import SpecialProposal from "@/components/SpecialProposal.vue";
+import PotencialPartners from "@/components/PotencialPartners/PotencialPartners.vue"
+import RecomendedMailings from "@/components/RecomendedMailings.vue"
+import SpecialProposal from "@/components/SpecialProposal.vue"
 import NewSend from "@/components/NewSend.vue";
 import Cities from "@/components/Cities/Cities.vue";
 import MobileBurger from '@/components/MobileBurger.vue'
-import {useStore} from '@/stores/main.js'
-import {useAuthStore} from '@/stores/auth.js'
-import { computed, onMounted } from "vue";
+import { useStore } from '@/stores/main.js'
+import { useAuthStore } from '@/stores/auth.js'
+import { useStatisticsStore } from '@/stores/statistics.js'
 
 const store = useStore();
 const auth = useAuthStore()
+const statistics = useStatisticsStore()
 
-
+statistics.getStatictics()
 </script>
 
 <style lang="sass">

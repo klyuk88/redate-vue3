@@ -10,8 +10,13 @@
         type: 'bullets',
       }"
     >
-      <SwiperSlide v-for="(item, idx) in 3" :key="idx">
-        <CityBigItem />
+      <SwiperSlide v-for="(item, idx) in usersStatistics" :key="idx">
+        <CityBigItem
+          :city="item.name"
+          :totalRegistered="item.cityAll"
+          :newUsers="item.cityNew"
+          @click="clickHandler(item)"
+        />
       </SwiperSlide>
     </Swiper>
     <div class="swiper-pagination"></div>
@@ -19,18 +24,28 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import CityBigItem from "@/components/Cities/CityBigItem.vue";
+import { Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
+import CityBigItem from '@/components/Cities/CityBigItem.vue'
+import 'swiper/swiper.min.css'
+import 'swiper/modules/navigation/navigation.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
+import 'swiper/modules/scrollbar/scrollbar.min.css'
 
-import { Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
+const props = defineProps({
+  usersStatistics: {
+    type: Array,
+    required: true,
+  }
+})
 
-// Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/modules/navigation/navigation.min.css";
-import "swiper/modules/pagination/pagination.min.css";
-import "swiper/modules/scrollbar/scrollbar.min.css";
+const emit = defineEmits(['redirect'])
+
+const clickHandler = (item) => {
+  emit('redirect', item)
+}
 </script>
+
 <style>
 .city-big-slider {
   height: auto;
@@ -41,14 +56,17 @@ import "swiper/modules/scrollbar/scrollbar.min.css";
   display: flex;
   gap: 15px;
 }
+
 .city-big-slider-wrap
   .swiper-pagination
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: #fff;
 }
+
 .city-big-slider-wrap .swiper-pagination .swiper-pagination-bullet {
   background: rgba(255, 255, 255, 0.33);
 }
+
 .city-big-slider-wrap .swiper-pagination-bullets {
   bottom: -25px;
 }
@@ -57,6 +75,7 @@ import "swiper/modules/scrollbar/scrollbar.min.css";
   position: relative;
   display: none;
 }
+
 @media (max-width: 1200px) {
   .city-big-slider-wrap {
     display: block;

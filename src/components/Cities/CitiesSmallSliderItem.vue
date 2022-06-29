@@ -2,13 +2,13 @@
   <div class="cities-small-slide">
     <img
       src="https://www.cruisegid.ru/assets/gallery/1022/20697.jpg"
-      alt=""
+      :alt="props.city"
       class="cover"
     />
     <div class="tray">
       <div class="title">
-        <img src="@/assets/images/main/location-icon.svg" alt="" />
-        <h6 class="title">Геленджик</h6>
+        <img src="@/assets/images/main/location-icon.svg" alt="Иконка локации" />
+        <h6 class="title">{{ props.city }}</h6>
       </div>
       <div class="statiscic-item">
         <p class="text">
@@ -16,7 +16,7 @@
           <span class="line"></span>
         </p>
 
-        <p class="text">20 405</p>
+        <p class="text">{{ props.totalRegistered }}</p>
       </div>
 
       <div class="statiscic-item">
@@ -24,18 +24,30 @@
           За сутки
           <span class="line"></span>
         </p>
-        <p class="text">1 405</p>
+        <p class="text">{{ props.newUsers }}</p>
       </div>
     </div>
   </div>
-
 </template>
 
-<script>
+<script setup>
+const props = defineProps({
+  city: {
+    type: String,
+    required: true
+  },
+  totalRegistered: {
+    type: Number,
+    required: true
+  },
+  newUsers: {
+    type: Number,
+    required: true
+  }
+})
 </script>
 
 <style lang="scss">
-
 .cities-small-slide {
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
@@ -43,6 +55,7 @@
   width: 277px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .cities-small-slide .cover {
@@ -62,13 +75,12 @@
   height: 100%;
   right: 0;
   z-index: 2;
-  padding: 10px 25px;
+  padding: 10px 5px 10px 16px;
 }
 
 .cities-small-slide .tray .title {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   margin-bottom: 4px;
 }
 
