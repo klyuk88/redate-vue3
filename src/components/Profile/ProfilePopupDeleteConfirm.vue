@@ -159,6 +159,7 @@ export default {};
           background: #2b66fb;
           border-radius: 2.82vw;
           cursor: pointer;
+          
         }
       }
     }

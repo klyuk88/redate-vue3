@@ -3,27 +3,52 @@
     <div class="web__version">
       <slot name="backStartPage"></slot>
       <div class="popup__age">
-        <h1>18+</h1>
-        <p>
-          Наш сайт предназначен для совершеннолетних. Перед продложением
-          регистрации пожалуйста подтвердите свой возраст.
-        </p>
-        <div class="btnBox">
-          <slot name="firstPhase"></slot>
-        <slot name="toDenied"></slot>
+        <div class="logo__denied">
+          <img src="../../assets/images/denied__logo.svg" alt="" />
         </div>
+        <p>
+          Благодарим за честный ответ! Мы с нетерпением ждем Вас, когда вы
+          достигнитесвоего соврешеннолетия!
+        </p>
+        <router-link to="/">
+          <BigButton
+            title="Спасибо!"
+            style="
+              width: 394px;
+              height: 48px;
+              font-family: 'Mulish';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 153.5%;
+            "
+          />
+        </router-link>
       </div>
     </div>
     <div class="mobile__version">
-      <h1>18+</h1>
-      <p>
-        Наш сайт предназначен для совершеннолетних. Перед продложением
-        регистрации пожалуйста подтвердите свой возраст.
-      </p>
-      <div class="btnBox">
-        <slot name="firstPhaseMobile"></slot>
-        <slot name="toDeniedMobile"></slot>
+      <div class="logo__denied">
+        <img src="../../assets/images/denied__logo.svg" alt="" />
       </div>
+      <p>
+        Благодарим за честный ответ! Мы с нетерпением ждем Вас, когда вы
+        достигнитесвоего соврешеннолетия!
+      </p>
+              <router-link to="/">
+          <BigButton
+            title="Спасибо!"
+            style="
+              width: 335px;
+              height: 48px;
+              font-family: 'Mulish';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 153.5%;
+              margin: 0px 0 201px 0;
+            "
+          />
+        </router-link>
       <div class="footer__age__redirect">
         <p>Есть учетная запись?</p>
         <router-link to="/auth">
@@ -41,8 +66,10 @@
     </div>
   </div>
 </template>
-<script setup></script>
-<style lang="scss" scoped>
+<script setup>
+import BigButton from "../Form/BigButton.vue";
+</script>
+<style lang="scss">
 .mobile__version {
   display: none;
 }
@@ -58,7 +85,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 48px;
+    padding: 18px;
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.0384) 0%,
@@ -87,6 +114,7 @@
     }
   }
 }
+
 @media (max-width: 1200px) {
   .background__age {
     justify-content: flex-end;
@@ -99,7 +127,7 @@
     flex-direction: column;
     align-items: center;
     p {
-      margin: 16px 0 29px 0;
+      margin: 16px 0 42px 0;
       width: 302px;
       font-weight: 400;
       font-size: 14px;
@@ -112,22 +140,23 @@
       align-items: baseline;
       p {
         margin: 0;
-        color: #77777A;
+        color: #77777a;
         width: unset;
         margin-right: 8px;
       }
     }
     .footer__age__desc {
       margin: 28px 0 60px 0;
-      p  {
+      p {
         width: 340px;
         font-weight: 600;
         font-size: 12px;
         line-height: 132.5%;
         text-align: center;
-        color: #77777A;
+        color: #77777a;
+        margin: 0;
         span {
-           color: #2B66FB; 
+          color: #2b66fb;
         }
       }
     }

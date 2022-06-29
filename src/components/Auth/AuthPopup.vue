@@ -25,6 +25,7 @@
                     type="text"
                     placeholder="Электронная почта"
                     v-model="authForm.login"
+                    @focus="focusInput = false"
                   />
                   <div class="input__password">
                     <input
@@ -33,8 +34,15 @@
                       placeholder="Пароль"
                       v-model="authForm.password"
                       id="myInput"
+                      @focus="focusInput = true"
                     />
-                    <input class="eye" type="checkbox" @click="showPass" />
+                    <input
+                      id="eye"
+                      class="eye"
+                      type="checkbox"
+                      @click="showPass"
+                    />
+                    <label for="eye" :class="{visible : focusInput}"></label>
                   </div>
                   <span :class="{ error__auth: useAuth.error }">{{
                     useAuth.error
@@ -72,15 +80,14 @@ const authorization = () => {
   useAuth.authUser(authForm);
 };
 const isClicked = ref(false);
+const focusInput = ref(false)
 
 function showPass() {
-let inputType = document.querySelectorAll(".input")
-inputType.forEach(e => {
-   e.type === 'password' ? e.type = 'text' : e.type = 'password'
-})
+  let inputType = document.querySelectorAll("#myInput");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
 }
-
-
 </script>
 
 <script>
@@ -298,9 +305,37 @@ span {
 }
 .eye {
   position: relative;
-  z-index: 2;
-  right: -140px;
+  z-index: -1;
+  opacity: 0;
 
+}
+label {
+  position: relative;
+  z-index: 2;
+  right: -130px;
+}
+.eye + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  display: none;
+  &.visible {
+    display: inline-flex;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../../assets/images/eye__open.svg);
+  }
+}
+.eye:checked + label::before {
+  background-image: url(../../assets/images/eye__close.svg);
 }
 .auth__btn {
   @extend .flex__center;
