@@ -1,6 +1,6 @@
 <template>
   <div class="signup__background">
-      <slot name="backToFirst"></slot>
+    <slot name="backToFirst"></slot>
     <div class="verification__page">
       <div class="verification__block__container">
         <div class="verification__content">
@@ -59,9 +59,7 @@
             Отобразите позу, которая указана на картинке справа
           </p>
           <div class="btn__update" :class="added">Заменить снимок</div>
-          <div class="btn__upload" :class="added" >
-            Загрузить с компьютера
-          </div>
+          <div class="btn__upload" :class="added">Загрузить с компьютера</div>
           <div class="btn__continue" :class="added">
             <slot name="toThird"></slot>
           </div>
@@ -106,11 +104,11 @@
 </template>
 <script>
 import SignupPopup from "@/components/Auth/SignupPopup.vue";
-import VerificationFirstVue from './VerificationFirst.vue';
+import VerificationFirstVue from "./VerificationFirst.vue";
 export default {
   data() {
     return {
-      photoAdded: true,
+      photoAdded: false,
     };
   },
   computed: {
@@ -124,6 +122,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.verification__page {
+  height: unset;
+}
 .add__photo__block {
   width: 308px;
   height: 308px;
@@ -144,7 +145,6 @@ export default {
   }
 }
 .verification__content {
-  height: 574px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,6 +154,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 60px;
   p {
     font-weight: 500;
     font-size: 14px;
@@ -223,19 +224,20 @@ export default {
 }
 .btn__upload {
   padding: 8px 27px;
-gap: 12px;
-height: 35px;
-background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%);
-border-radius: 11px;
-cursor: pointer;
-&.added {
-  display: none;
-}
+  gap: 12px;
+  height: 35px;
+  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+  border-radius: 11px;
+  cursor: pointer;
+  &.added {
+    display: none;
+  }
 }
 .btn__continue {
-display: none;
+  display: none;
   &.added {
-display: flex;
+    margin: 24px 0 37px 0;
+    display: flex;
   }
 }
 @media (max-width: 1200px) {
@@ -392,6 +394,5 @@ display: flex;
       display: none;
     }
   }
-
 }
 </style>

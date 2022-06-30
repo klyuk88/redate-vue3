@@ -1,16 +1,14 @@
 <template>
-  <div class="signup__background__delete__acc">
-    <div class="container__delete__acc">
-      <div class="header__delete__acc">
-        <p>Аккаунт будет удален через:<span> 30 дней</span></p>
+  <div class="signup__background__delete__acc__count">
+    <div class="container__delete__acc__count">
+      <div class="header__delete__acc__count">
+        <p>Аккаунт был удален</p>
       </div>
-      <p>
-        Вы можете восстановить свой аккаунт в течении этого времени. В ином
-        случае аккаунт будет навсегда удален и восстановлению не подлежит.
-      </p>
+      <p>Вы можете восстановить свой аккаунт в течегии</p>
+      <div class="delete__acc__counter">21 дней</div>
       <div class="btn__block">
         <div class="btn">Выйти</div>
-        <div class="btn blue">Удалить</div>
+        <div class="btn blue">Восстановить</div>
       </div>
     </div>
   </div>
@@ -19,7 +17,7 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-.signup__background__delete__acc {
+.signup__background__delete__acc__count {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
   height: 100vh;
@@ -29,7 +27,7 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  .container__delete__acc {
+  .container__delete__acc__count {
     padding: 24px;
     background: rgba(36, 37, 41, 0.7);
     border-radius: 24px;
@@ -46,19 +44,20 @@ export default {};
       align-items: center;
       text-align: center;
       color: rgba(255, 255, 255, 0.6);
-      margin: 4px 0 16px 0;
+      margin: 4px 0 4px 0;
     }
-    .header__delete__acc {
+    .delete__acc__counter {
+        margin-bottom: 16px;
+    }
+    .header__delete__acc__count {
       p {
         font-weight: 600;
         font-size: 18px;
         line-height: 153.5%;
         color: #2b66fb;
         margin: 0;
-        span {
-          margin-left: 8px;
-          color: #ffffff;
-        }
+        display: flex;
+        justify-content: center;
       }
     }
     .btn__block {

@@ -1,21 +1,21 @@
 <template>
-  <div class="background__delete__chat">
-    <div class="container__delete__chat">
-      <h1>Удалить диалог у обоих</h1>
+  <div class="background__send__chat">
+    <div class="container__send__chat">
+      <h1 class="web">Ваша рассылка создана!</h1>
+      <h1 class="mobile">Уведомление</h1>
       <p>
-        Вы можете удалить диалог не только у себя, но у и противоположного пола
-        за дополлнительную платку
+        Ваша рассылка создана и отправлена на проверку в модерацию. После
+        проверки она будет опубликована.
       </p>
       <div class="btn__block">
-        <div class="btn">Отмена</div>
-        <div class="btn blue">Удалить 1.000₽</div>
+        <div class="btn blue">Продолжить</div>
       </div>
     </div>
   </div>
 </template>
 <script setup></script>
 <style lang="scss" scoped>
-.background__delete__chat {
+.background__send__chat {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -26,7 +26,7 @@
   position: fixed;
   top: 0;
 }
-.container__delete__chat {
+.container__send__chat {
   padding: 24px 39px;
   background: rgba(36, 37, 41, 0.6);
   border: 1px solid #2b66fb;
@@ -34,6 +34,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .mobile {
+    display: none;
+  }
   h1 {
     font-weight: 600;
     font-size: 18px;
@@ -42,7 +45,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    width: 215px;
+    width: 225px;
   }
   p {
     font-weight: 400;
@@ -68,25 +71,33 @@
       font-weight: 700;
       font-size: 14px;
       line-height: 132.5%;
+      justify-content: center;
       &.blue {
         border: none;
         background: #2b66fb;
         padding: 7px 18px;
-        margin-left: 16px;
       }
     }
   }
 }
 @media (max-width: 1200px) {
-  .container__delete__chat {
-      width: 335px;
-      .btn__block {
-          .btn {
-              width: 145px;
-              &.blue {
-              }
-          }
+  .container__send__chat {
+    .web {
+      display: none;
+    }
+    width: 312px;
+    .mobile {
+        width: unset;
+      display: flex;
+      color: #2b66fb;
+    }
+    .btn__block {
+      .btn {
+        width: 145px;
+        &.blue {
+        }
       }
+    }
   }
 }
 </style>
