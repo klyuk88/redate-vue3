@@ -1,16 +1,14 @@
 <template>
   <div class="page-content">
     <SideBar />
-    <MobileSideBar/>
-    <slot/>
-    <!-- <div class="shape"></div> -->
+    <MobileSideBar />
+    <slot />
   </div>
 </template>
 
 <script setup>
-import SideBar from "@/components/SideBars/SideBar.vue";
-import MobileSideBar from "@/components/SideBars/MobileSideBar.vue";
-import { computed } from "vue";
+import SideBar from '@/components/SideBars/SideBar.vue';
+import MobileSideBar from '@/components/SideBars/MobileSideBar.vue';
 </script>
 
 <style lang="sass">

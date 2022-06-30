@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useStore = defineStore('main', {
   state: () => {
@@ -9,7 +9,7 @@ export const useStore = defineStore('main', {
       mobileSorting: false,
       newSendWindow: false,
       maleVersion: false,
-      femaleVersion: false
-    }
-  }
-})
+      femaleVersion: false,
+    };
+  },
+});

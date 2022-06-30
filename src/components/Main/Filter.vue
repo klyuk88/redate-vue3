@@ -1,11 +1,7 @@
 <template>
   <div class="filter">
     <div>
-      <TheSelect
-        :options="options"
-        :placeholder="'Выберите город'"
-        v-model="city"
-      />
+      <TheSelect :options="options" :placeholder="'Выберите город'" v-model="city" />
     </div>
     <div>
       <div class="range" :class="{ active: showLabel }">
@@ -38,24 +34,48 @@
       </div>
     </div>
     <div>
-      <BigButton :title="'Начать поиск'" />
+      <BigButton :title="'Начать поиск'" @click="clickHandler" />
     </div>
   </div>
 </template>
-<script setup>
-import VueSlider from "vue-slider-component";
-import "vue-slider-component/theme/default.css";
-import TheSelect from '@/components/Form/TheSelect.vue'
-import BigButton from '@/components/Form/BigButton.vue'
-import { ref, reactive } from 'vue'
 
-const options = ref(["Москва", "Санкт-Петербург", "Казань"]);
-const city = ref("Москва");
-const format = ref("Любой");
+<script setup>
+import { ref, computed } from 'vue';
+import VueSlider from 'vue-slider-component';
+import TheSelect from '@/components/Form/TheSelect.vue';
+import BigButton from '@/components/Form/BigButton.vue';
+import 'vue-slider-component/theme/default.css';
+
+const props = defineProps({
+  currentCity: {
+    type: Object,
+    required: true,
+  },
+  cities: {
+    type: Array,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['redirect']);
+
+const city = ref(props.currentCity.name);
 const range = ref([18, 45]);
 const showLabel = ref(false);
 
+const options = computed(() => props.cities.map((city) => city.name));
+
+const clickHandler = () => {
+  const foundCity = props.cities.find((item) => item.name === city.value);
+
+  emit('redirect', {
+    id: foundCity.id,
+    ageMin: range.value[0],
+    ageMax: range.value[1],
+  });
+};
 </script>
+
 <style lang="scss">
 .filter {
   margin-top: 30px;
@@ -83,7 +103,7 @@ const showLabel = ref(false);
     border: 1px solid #fff;
   }
   .range.active:before {
-    content: "Возраст";
+    content: 'Возраст';
     color: #fff;
     font-size: 12px;
     font-weight: 600;

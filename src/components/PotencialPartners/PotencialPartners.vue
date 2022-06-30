@@ -5,15 +5,8 @@
       <h2 class="page-subtitle">Потенциальные партнеры</h2>
       <a href="#" class="btn">Смотреть</a>
       <div class="warning">
-        <img
-          src="@/assets/images/main/warning-check.svg"
-          alt=""
-          class="image"
-        />
-        <p class="text">
-          Ваша анкета в поиске будет видна исключено мужчинам оплатившим
-          «премиум» подписку.
-        </p>
+        <img src="@/assets/images/main/warning-check.svg" alt="" class="image" />
+        <p class="text">{{ infoText }}</p>
       </div>
     </div>
     <div class="slider">
@@ -56,15 +49,10 @@
           <PotentialPartnersItem />
         </SwiperSlide>
       </Swiper>
-      <img
-        src="@/assets/images/main/arrow-rigth.svg"
-        alt=""
-        class="slider-nav"
-      />
+      <img src="@/assets/images/main/arrow-rigth.svg" alt="" class="slider-nav" />
       <div class="swiper-scrollbar"></div>
     </div>
     <!-- Slider -->
-
 
     <!-- Mobile items  -->
     <div class="mobile-items">
@@ -78,26 +66,31 @@
     <!-- Mobile items end -->
   </div>
 </template>
+
 <script setup>
-import { ref, reactive } from "vue";
-import { Navigation, Pagination, Scrollbar } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
+import { computed } from 'vue';
+import { Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js';
+import { useStore } from '@/stores/main.js';
+import { useUserStore } from '@/stores/user.js';
+import PotentialPartnersItem from '@/components/PotencialPartners/PotentialPartnersItem.vue';
+import PotrncialPartnerMobile from '@/components/PotencialPartners/PotrncialPartnerMobile.vue';
+import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue';
+import 'swiper/swiper.min.css';
+import 'swiper/modules/navigation/navigation.min.css';
+import 'swiper/modules/pagination/pagination.min.css';
+import 'swiper/modules/scrollbar/scrollbar.min.css';
 
-import PotentialPartnersItem from "@/components/PotencialPartners/PotentialPartnersItem.vue";
-import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
-import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue'
+const store = useStore();
+const user = useUserStore();
 
-import {useStore} from '@/stores/main.js'
-
-// Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/modules/navigation/navigation.min.css";
-import "swiper/modules/pagination/pagination.min.css";
-import "swiper/modules/scrollbar/scrollbar.min.css";
-
-const store = useStore()
-
+const infoText = computed(() => {
+  return user?.user?.sex === 1
+    ? 'Все девушки проходят верификацию через модерацию сайта. Все данные защищены.'
+    : 'Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.';
+});
 </script>
+
 <style lang="sass">
 .potential-partners > .title-wrap
   display: flex

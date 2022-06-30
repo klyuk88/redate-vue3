@@ -1,6 +1,6 @@
 <template>
   <div class="cities-block">
-    <Statistics 
+    <Statistics
       :totalRegistered="statistics.totalRegistered"
       :menRegistered="statistics.menRegistered"
       :newUsers="statistics.newUsers"
@@ -8,68 +8,57 @@
 
     <div class="decor-line"></div>
     <!-- На мобильном  -->
-    <CitiesBigSlider
-      v-if="usersStatistics.length"
-      :usersStatistics="usersStatistics"
-      @redirect="redirectHandler"
-    />
+    <CitiesBigSlider v-if="usersStatistics.length" :usersStatistics="usersStatistics" @redirect="redirectHandler" />
 
     <CitiesSearchMobInput />
     <!-- На десктопе -->
-    <CitiesBigItems
-      v-if="usersStatistics.length"
-      :usersStatistics="usersStatistics"
-      @redirect="redirectHandler"
-    />
+    <CitiesBigItems v-if="usersStatistics.length" :usersStatistics="usersStatistics" @redirect="redirectHandler" />
 
-    <div
-      v-if="usersStatisticsBySlider.length"
-      class="hidden-part"
-      :class="{'show': store.showCities}"
-    >
+    <div v-if="usersStatisticsBySlider.length" class="hidden-part" :class="{ show: store.showCities }">
       <p class="title">Зарегистрировано по городам</p>
       <div class="grid">
         <div class="slider">
-          <CitiesSmallSlider 
-            :usersStatistics="usersStatisticsBySlider"
-            @redirect="redirectHandler"
-          />
+          <CitiesSmallSlider :usersStatistics="usersStatisticsBySlider" @redirect="redirectHandler" />
         </div>
       </div>
     </div>
   </div>
 
-  <Filter />
+  <Filter v-if="currentCity && cities.length" :currentCity="currentCity" :cities="cities" @redirect="redirectHandler" />
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useStore } from '@/stores/main.js'
-import { useStatisticsStore } from '@/stores/statistics.js'
-import { useSearchStore } from '@/stores/search.js'
-import router from '@/router'
-import Statistics from "@/components/Cities/Statistics.vue"
-import CitiesSmallSlider from "@/components/Cities/CitiesSmallSlider.vue"
-import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue'
-import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue'
-import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue'
-import Filter from '@/components/Main/Filter.vue'
+import { computed } from 'vue';
+import { useStore } from '@/stores/main.js';
+import { useUserStore } from '@/stores/user.js';
+import { useStatisticsStore } from '@/stores/statistics.js';
+import { useSearchStore } from '@/stores/search.js';
+import router from '@/router';
+import Statistics from '@/components/Cities/Statistics.vue';
+import CitiesSmallSlider from '@/components/Cities/CitiesSmallSlider.vue';
+import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue';
+import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue';
+import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue';
+import Filter from '@/components/Main/Filter.vue';
 
-const store = useStore()
+const store = useStore();
+const statistics = useStatisticsStore();
+const search = useSearchStore();
+const user = useUserStore();
 
-const statistics = useStatisticsStore()
+const usersStatistics = computed(() => statistics.usersStatisticsByCities.slice(0, 3));
 
-const search = useSearchStore()
+const usersStatisticsBySlider = computed(() => statistics.usersStatisticsByCities.slice(3));
 
-const usersStatistics = computed(() => statistics.usersStatisticsByCities.slice(0, 3))
+const currentCity = computed(() => user.user?.city || null);
 
-const usersStatisticsBySlider = computed(() => statistics.usersStatisticsByCities.slice(3))
+const cities = computed(() => statistics.cities || []);
 
 const redirectHandler = (params) => {
-  search.setQueryParams(params.id)
+  search.setQueryParams(params.id, params.ageMin, params.ageMax);
 
-  router.push('/search')
-}
+  router.push('/search');
+};
 </script>
 
 <style>
@@ -92,19 +81,19 @@ const redirectHandler = (params) => {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
-  background: #2C66FA;
+  background: #2c66fa;
   border-radius: 0px 0px 18px 18px;
   width: 115px;
   height: 24px;
   font-size: 12px;
   font-weight: 600;
   border: none;
-  color: #fff
+  color: #fff;
 }
 
 .cities-block .hidden-part {
   margin-top: 0;
-  transition: max-height .2s ease;
+  transition: max-height 0.2s ease;
   max-height: 0;
   overflow: hidden;
 }
@@ -139,7 +128,7 @@ const redirectHandler = (params) => {
   padding-right: 50px;
 }
 
-@media (max-width :1200px) {
+@media (max-width: 1200px) {
   .cities-block {
     padding: 0;
     border: none;

@@ -1,14 +1,18 @@
 <template>
-  <button class="big-btn">{{ title }}</button>
+  <button class="big-btn" @click="emit('click')">{{ props.title }}</button>
 </template>
+
 <script setup>
 const props = defineProps({
   title: {
     type: String,
-    default: "Нажмите меня",
+    default: 'Нажмите меня',
   },
 });
+
+const emit = defineEmits(['click']);
 </script>
+
 <style lang="scss">
 .big-btn {
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
