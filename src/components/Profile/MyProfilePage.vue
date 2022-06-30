@@ -88,7 +88,7 @@
                     height="24"
                     alt=""
                   />
-                  <p>Ваш баланс: <span>$6045</span></p>
+                  <p>Ваш баланс: <span>60450₽</span></p>
                 </div>
                 <div class="btn">Пополнить</div>
               </div>
@@ -109,7 +109,7 @@
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">7 дней</div>
-                    <div class="price">54$</div>
+                    <div class="price">3000₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -120,7 +120,7 @@
                 >
                   <div class="inner__price__box">
                     <div class="days">14 дней</div>
-                    <div class="price">$96</div>
+                    <div class="price">5500₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -128,7 +128,7 @@
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">30 дней</div>
-                    <div class="price">$160</div>
+                    <div class="price">11000₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось<span> 3 </span>дня</p>
                   </div>
@@ -439,11 +439,11 @@
               <div class="status__premium">DIAMOND</div>
             </div>
             <div class="profile__subtext">
-              <div class="profile__location">Россия, Москва</div>
+              <div class="profile__location">Москва</div>
               <div class="profile__vertical__line">|</div>
               <div class="profile__age">31 год</div>
               <div class="profile__vertical__line">|</div>
-              <div class="profile__online__status">Онлайн</div>
+              <div class="profile__online__status">ID: <span>667322</span></div>
             </div>
           </div>
           <div class="buttons__block mobile">
@@ -1290,6 +1290,8 @@ const notificationStageEight = false;
       margin-bottom: 10.769vw;
       padding: 0;
       width: unset;
+      background: none;
+      border: none;
       .container {
         width: 85.59vw;
         height: unset;
