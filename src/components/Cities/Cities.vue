@@ -10,7 +10,7 @@
     <!-- На мобильном  -->
     <CitiesBigSlider v-if="usersStatistics.length" :usersStatistics="usersStatistics" @redirect="redirectHandler" />
 
-    <CitiesSearchMobInput />
+    <CitiesSearchMobInput @redirect="redirectHandler" />
     <!-- На десктопе -->
     <CitiesBigItems v-if="usersStatistics.length" :usersStatistics="usersStatistics" @redirect="redirectHandler" />
 
@@ -55,7 +55,7 @@ const currentCity = computed(() => user.user?.city || null);
 const cities = computed(() => statistics.cities || []);
 
 const redirectHandler = (params) => {
-  search.setQueryParams(params.id, params.ageMin, params.ageMax);
+  search.setQueryParams(params.id, params.ageMin, params.ageMax, params.query);
 
   router.push('/search');
 };
