@@ -9,6 +9,8 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
+      <div class="navigation__item"></div>
+
     </div>
     <div class="auth__back__btn">
       <slot name="backPhaseTwo"></slot>
@@ -236,7 +238,7 @@ const modalHobbyVisible = ref(false);
   font-weight: 600;
   font-size: 12px;
   line-height: 132.5%;
-  color: #ffffff;
+  color: #f2ebebbf;
   padding: 4px 10px;
   border: 1px solid #ffffff;
   border-radius: 8px;

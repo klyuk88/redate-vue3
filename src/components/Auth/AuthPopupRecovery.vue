@@ -14,19 +14,14 @@
             <div class="signup__block__header">
               <h1>Забыли пароль?</h1>
               <p class="subTitle">
-                Введите электронную почту или номер телефона. Мы отправим Вам
+                Введите электронную почту. Мы отправим Вам
                 код для восстановления пароля.
               </p>
             </div>
             <div class="signup__block__numbers">
-              <input class="input" placeholder="+7 (438) 943 82 94" />
+              <input type="email" class="input" placeholder="example@example.ru" />
               <span class=""
-                >Неправильно введён номер телефона. Перепроверьте данные или
-                введите электронную почту.</span
-              >
-              <span class=""
-                >Неправильно введена электронная почта. Перепроверьте данные или
-                введите номер телефона.</span
+                >Неправильно введена электронная почта. Перепроверьте данные.</span
               >
             </div>
           </div>
@@ -36,13 +31,13 @@
         <div class="signup__block__header">
           <h1>Забыли пароль?</h1>
           <p>
-            Введите электронную почту или номер телефона. Мы отправим Вам код
+            Введите электронную почту. Мы отправим Вам код
             для восстановления пароля.
           </p>
         </div>
         <div class="mobile__buttons">
           <div class="signup__block__numbers">
-            <input class="input" placeholder="Телефон / Электронная почта" />
+            <input class="input" placeholder="example@example.ru" />
             <span class=""
               >Неправильно введен номер телефона. Перепроверьте данные или
               введите электронную почту.</span
@@ -201,6 +196,7 @@ span {
 }
 .input {
   margin: 0;
+  font-family: "Mulish";
 }
 .signup__btn {
   display: flex;

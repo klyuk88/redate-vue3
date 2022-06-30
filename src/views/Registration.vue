@@ -1,11 +1,15 @@
 <template>
   <div class="content__container__reg">
 <!-- <SignupPopupVue /> -->
-<RegistrationTabs />
+<!-- <RegistrationTabs /> -->
+<ProfilePopupDeleteChat />
   </div>
 </template>
 <script setup>
-import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
+import ProfilePopupDeleteChat from "../components/Profile/ProfilePopupDeleteChat.vue";
+
+
+// import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
 
 
 

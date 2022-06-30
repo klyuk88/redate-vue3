@@ -5,6 +5,7 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
+      <div class="navigation__item"></div>
     </div>
     <div class="auth__back__btn">
       <slot name="backPhaseOne"></slot>
@@ -243,6 +244,7 @@ margin-bottom: 67px;
   justify-content: space-between;
 }
 .input {
+  font-family: "Mulish";
   cursor: pointer;
   font-size: 15px;
   line-height: 153.5%;

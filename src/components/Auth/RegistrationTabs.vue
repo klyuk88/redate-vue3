@@ -2,6 +2,77 @@
   <div>
     <keep-alive>
       <component :is="changeComponent">
+        <template v-slot:firstPhase>
+          <BigButton
+            @click="nameComponent = 'First'"
+            title="Да, мне есть 18"
+            style="
+              width: 193px;
+              height: 48px;
+              font-family: 'Mulish';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 153.5%;
+            "
+          />
+        </template>
+        <template v-slot:toDenied>
+          <BigButton
+            @click="nameComponent = 'Denied'"
+            title="Нет, мне нет 18"
+            style="
+              width: 193px;
+              height: 48px;
+              font-family: 'Mulish';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 153.5%;
+              line-height: 132.5%;
+              margin-left: 8px;
+              border: 1px solid rgba(255, 255, 255, 0.33);
+              border-radius: 11px;
+              background: none;
+            "
+          />
+        </template>
+        <template v-slot:toDeniedMobile>
+          <BigButton
+            @click="nameComponent = 'Denied'"
+            title="Нет, мне нет 18"
+            style="
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              padding: 11px 36px;
+              gap: 10px;
+              width: 335px;
+              height: 47px;
+              border: 1px solid rgba(255, 255, 255, 0.33);
+              border-radius: 11px;
+              font-size: 16px;
+              margin: 16px 0 141px 0;
+              background: none;
+            "
+          />
+        </template>
+        <template v-slot:firstPhaseMobile>
+          <BigButton
+            @click="nameComponent = 'First'"
+            title="Да, мне есть 18"
+            style="
+              width: 335px;
+              height: 48px;
+              font-family: 'Mulish';
+              font-style: normal;
+              font-weight: 600;
+              font-size: 16px;
+              line-height: 153.5%;
+            "
+          />
+        </template>
         <template v-slot:secondPhase>
           <BigButton
             @click="nameComponent = 'Second'"
@@ -40,14 +111,22 @@
             "
           />
         </template>
+        <template v-slot:backStartPage>
+          <router-link to="/">
+            <div class="auth__back__btn">
+              <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
+              <h1 class="auth__back__btn__title">Назад</h1>
+            </div>
+          </router-link>
+        </template>
         <template v-slot:backPhaseOne>
-          <div class="auth__back__btn" @click="nameComponent = ''">
+          <div class="auth__back__btn" @click="nameComponent = 'First'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
         <template v-slot:backPhaseOneMobile>
-          <div class="auth__back__btn__mobile" @click="nameComponent = ''">
+          <div class="auth__back__btn__mobile" @click="nameComponent = 'First'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
@@ -133,20 +212,24 @@
   </div>
 </template>
 <script>
-import SignupPopup from "./SignupPopup.vue";
+import SignupPopupFirst from "./SignupPopupFirst.vue";
 import SignupPopupSecond from "./SignupPopupSecond.vue";
 import SignupPopupThird from "./SignupPopupThird.vue";
 import SignupPopupFourth from "./SignupPopupFourth.vue";
 import SignupPopupFive from "./SignupPopupFive.vue";
 import BigButton from "../Form/BigButton.vue";
+import SignupPopup from "./SignupPopup.vue";
+import SignupPopupDenied from "./SignupPopupDenied.vue";
 export default {
   components: {
     SignupPopup,
+    SignupPopupFirst,
     SignupPopupSecond,
     SignupPopupThird,
     SignupPopupFourth,
     SignupPopupFive,
     BigButton,
+    SignupPopupDenied,
   },
   data() {
     return {

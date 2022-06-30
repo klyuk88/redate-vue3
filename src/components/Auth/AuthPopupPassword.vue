@@ -13,8 +13,36 @@
               <p>Введите новый пароль и подтвердите его</p>
             </div>
             <div class="signup__block__numbers">
-              <input class="input" placeholder="Новый пароль" />
-              <input class="input" placeholder="Повторите пароль" />
+              <div class="input__password middle">
+                <input
+                  id="input"
+                  class="input pass"
+                  type="password"
+                  placeholder="Пароль"
+                  @focus="(focusInput = true), (focusInputRepeat = false)"
+                />
+                <input id="eye" class="eye" type="checkbox" @click="showPass" />
+                <label for="eye" :class="{ visible: focusInput }"></label>
+              </div>
+              <div class="input__password last">
+                <input
+                  id="inputRepeat"
+                  class="input pass__repeat"
+                  type="password"
+                  placeholder="Повторите пароль"
+                  @focus="(focusInputRepeat = true), (focusInput = false)"
+                />
+                <input
+                  id="eyeSecond"
+                  class="eye"
+                  type="checkbox"
+                  @click="showPassRepeat"
+                />
+                <label
+                  for="eyeSecond"
+                  :class="{ visible: focusInputRepeat }"
+                ></label>
+              </div>
               <p class="">Неправильно введен повторный пароль</p>
             </div>
           </div>
@@ -29,7 +57,24 @@
     </div>
   </div>
 </template>
-<script></script>
+<script setup>
+
+import { ref } from "vue";
+const focusInput = ref(false);
+const focusInputRepeat = ref(false);
+
+function showPass() {
+  let inputType = document.querySelectorAll("#input");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
+}
+function showPassRepeat() {
+  let inputType = document.querySelectorAll("#inputRepeat");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
+}</script>
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
@@ -111,6 +156,74 @@
     background: #434447;
     color: rgba(255, 255, 255, 0.33);
   }
+}
+.input {
+    &.pass {
+    margin: 0;
+    border: none;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    position: absolute;
+    z-index: 1;
+  }
+  &.pass__repeat {
+    margin: 0;
+    border: none;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.input__password {
+  font-family: "Mulish";
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  outline: none;
+  background-color: rgb(32, 34, 43);
+  width: 326px;
+  height: 60px;
+  border-radius: 11px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.eye {
+  position: relative;
+  z-index: -1;
+  opacity: 0;
+}
+label {
+  position: relative;
+  z-index: 2;
+  right: -130px;
+}
+.eye + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  display: none;
+  &.visible {
+    display: inline-flex;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../../assets/images/eye__open.svg);
+  }
+}
+.eye:checked + label::before {
+  background-image: url(../../assets/images/eye__close.svg);
 }
 @media (max-width: 1200px) {
   .arrowMobile {

@@ -10,10 +10,6 @@
           <div class="signup__block__container">
             <div class="signup__block__header">
               <h1>Введите код</h1>
-              <p class="" :class="authPhone">
-                Мы отправили вам смс с кодом подтвреждения, введите его для
-                продожления регистрации.
-              </p>
               <p class="" :class="authMail">
                 Мы отправили Вам код подтверждения на электронную почту для
                 создания нового пароля.
@@ -21,10 +17,10 @@
             </div>
 
             <div class="signup__block__numbers">
-              <input class="block__item" maxlength="1" autofocus />
-              <input class="block__item" maxlength="1" />
-              <input class="block__item" maxlength="1" />
-              <input class="block__item" maxlength="1" />
+              <input type="number" max="1" class="block__item" maxlength="1" autofocus/>
+              <input type="number" max="9" class="block__item" maxlength="1"  />
+              <input type="number" max="9" class="block__item" maxlength="1" />
+              <input type="number" max="9" class="block__item" maxlength="1" />
             </div>
             <p class="error__message">Неправильно введен код</p>
           </div>
@@ -46,10 +42,10 @@
 
           <div class="mobile__inputs">
             <div class="signup__block__numbers">
-              <input class="block__item" maxlength="1" autofocus />
-              <input class="block__item" maxlength="1" />
-              <input class="block__item" maxlength="1" />
-              <input class="block__item" maxlength="1" />
+              <input type="number" max="9" class="block__item" maxlength="1" autofocus />
+              <input type="number" max="9" class="block__item" maxlength="1" />
+              <input type="number" max="9" class="block__item" maxlength="1" />
+              <input type="number" max="9" class="block__item" maxlength="1" />
             </div>
             <p class="error__message">Неправильно введен код</p>
           </div>
@@ -190,8 +186,12 @@ export default {
   line-height: 153.5%;
   text-align: center;
   color: #ffffff;
-  text-transform: uppercase;
   background-color: rgb(32, 34, 43);
+  &::-webkit-outer-spin-button,
+&::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
   &:focus {
     border: #ffffff 1px solid;
   }
