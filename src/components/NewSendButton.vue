@@ -1,17 +1,19 @@
-<template>
-  <NewSendModal v-if="store.newSendWindow" />
-  <button class="create-new-send-button" @click="openNewSendWindow">
-    Создать новую рассылку
-  </button>
-</template>
 <script setup>
 import NewSendModal from '@/components/Popups/NewSendModal.vue'
-import {useStore} from '@/stores/main.js'
+import { useStore } from '@/stores/main.js'
 const store = useStore()
 const openNewSendWindow = () => {
   store.newSendWindow = true
 }
 </script>
+
+<template>
+  <NewSendModal v-if="store.newSendWindow" />
+  <button class="create-new-send-button" @click="openNewSendWindow()">
+    Создать новую рассылку
+  </button>
+</template>
+
 <style lang="scss">
 .create-new-send-button {
   width: 100%;

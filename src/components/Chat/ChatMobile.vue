@@ -1,14 +1,64 @@
+<script setup>
+import MobileBurger from '@/components/MobileBurger.vue'
+import BackLink from '@/components/Search/BackLink.vue'
+import AppsMobileTabContent from '@/components/Chat/AppsMobileTabContent.vue'
+import ChatMobileTabContent from '@/components/Chat/ChatMobileTabContent.vue'
+import { ref, computed, reactive, onUnmounted } from 'vue'
+
+const tabs = reactive({
+  chat: true,
+  apps: false,
+})
+
+const changeTab = (param) => {
+  if (param === 'chat') {
+    tabs.chat = true
+    tabs.apps = false
+  } else if (param === 'apps') {
+    tabs.apps = true
+    tabs.chat = false
+  }
+}
+
+const activeTab = computed(() => {
+  if (tabs.chat) {
+    return ChatMobileTabContent
+  } else if (tabs.apps) {
+    return AppsMobileTabContent
+  }
+
+  return null
+})
+
+const scrollValue = ref(0)
+
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false
+})
+
+//scroll
+window.addEventListener('scroll', heandleScroll)
+
+function heandleScroll() {
+  scrollValue.value = window.pageYOffset
+}
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', heandleScroll)
+})
+</script>
+
 <template>
   <div id="di-mobile-content">
     <div class="di-mob-decor"></div>
 
-    <div class="di-mob-header" :class="{ blur: onBlur }" v-if="false">
+    <div v-if="false" class="di-mob-header" :class="{ blur: onBlur }">
       <BackLink @click="$router.go(-1)" />
       <h1 class="di-mob-title">Диалоги</h1>
       <MobileBurger />
     </div>
 
-    <div class="tab-header" :class="{ blur: onBlur }" v-if="true">
+    <div v-if="true" class="tab-header" :class="{ blur: onBlur }">
       <BackLink @click="$router.go(-1)" />
       <div class="actions">
         <MobileBurger />
@@ -40,53 +90,7 @@
     <component :is="activeTab"></component>
   </div>
 </template>
-<script setup>
-import DialogItem from "@/components/Chat/DialogItem.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import BackLink from "@/components/Search/BackLink.vue";
-import AppsMobileTabContent from '@/components/Chat/AppsMobileTabContent.vue'
-import ChatMobileTabContent from '@/components/Chat/ChatMobileTabContent.vue'
-import { ref, computed, reactive, onUnmounted } from "vue";
 
-const tabs = reactive({
-  chat: true,
-  apps: false
-})
-const changeTab = (param) => {
-  if (param === "chat") {
-    tabs.chat = true;
-    tabs.apps = false;
-  } else if (param === "apps") {
-    tabs.apps = true;
-    tabs.chat = false;
-  }
-}
-
-const activeTab = computed(() => {
-  if(tabs.chat) {
-    return ChatMobileTabContent
-  } else if (tabs.apps) {
-    return AppsMobileTabContent
-  }
-})
-
-const scrollValue = ref(0);
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-
-//scroll
-window.addEventListener("scroll", heandleScroll);
-
-function heandleScroll(e) {
-  scrollValue.value = window.pageYOffset;
-}
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-
-</script>
 <style lang="scss">
 #di-mobile-content {
   display: none;

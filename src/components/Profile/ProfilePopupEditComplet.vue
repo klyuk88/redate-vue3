@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__page">
@@ -21,9 +25,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss" scoped>
 .signup__background {
   background: rgba(0, 0, 0, 0.6);
@@ -48,7 +50,7 @@ export default {};
           line-height: 153.5%;
         }
         p {
-            text-align: center;
+          text-align: center;
           width: 244px;
           height: 54px;
           font-weight: 400;
@@ -72,7 +74,6 @@ export default {};
         border: 1px solid rgba(255, 255, 255, 0.33);
         border-radius: 11px;
         cursor: pointer;
-
       }
       .btn__del {
         display: flex;

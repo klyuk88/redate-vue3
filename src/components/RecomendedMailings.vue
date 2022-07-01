@@ -1,70 +1,68 @@
-<template lang="">
-        <div class="recommended-mailings">
-          <div class="title-wrap">
-            <h2 class="page-subtitle">Рекомендованные рассылки</h2>
-            <a href="#" class="link">Открыть все</a>
-            <a href="#" class="mob-link"><img src="@/assets/images/main/recomend-plus.svg" alt=""></a>
-          </div>
-          <div class="slider">
-            <Swiper
-              :modules="[Navigation, Pagination]"
-              :spaceBetween="24"
-              :slidesPerView="2"
-              :navigation="{
-                nextEl: '.recommended-mailings .slider .slider-nav',
-                prevEl: '',
-              }"
-              :pagination="{
-                el: '.slider-pagination',
-                type: 'bullets',
-              }"
-              :breakpoints="{
-                320: {
-                  slidesPerView: 1
-                },
-                1200: {
-                  slidesPerView: 2,
-                }
-              }"
-            >
-              <SwiperSlide>
-                <MailingItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <MailingItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <MailingItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <MailingItem />
-              </SwiperSlide>
-              <SwiperSlide>
-                <MailingItem />
-              </SwiperSlide>
-            </Swiper>
-            <img
-              src="@/assets/images/main/arrow-rigth.svg"
-              alt=""
-              class="slider-nav"
-            />
-            <div class="slider-pagination"></div>
-          </div>
-        </div>
-
-</template>
 <script setup>
-import { Navigation, Pagination, Scrollbar } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-
-import MailingItem from "@/components/MailingItem.vue";
-
-// Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/modules/navigation/navigation.min.css";
-import "swiper/modules/pagination/pagination.min.css";
-import "swiper/modules/scrollbar/scrollbar.min.css";
+import { Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
+import MailingItem from '@/components/MailingItem.vue'
 </script>
+
+<template lang="">
+  <div class="recommended-mailings">
+    <div class="title-wrap">
+      <h2 class="page-subtitle">Рекомендованные рассылки</h2>
+      <a href="#" class="link">Открыть все</a>
+      <a href="#" class="mob-link"
+        ><img src="@/assets/images/main/recomend-plus.svg" alt=""
+      /></a>
+    </div>
+    <div class="slider">
+      <Swiper
+        :modules="[
+Navigation, Pagination
+]"
+        :space-between="24"
+        :slides-per-view="2"
+        :navigation="{
+          nextEl: '.recommended-mailings .slider .slider-nav',
+          prevEl: '',
+        }"
+        :pagination="{
+          el: '.slider-pagination',
+          type: 'bullets',
+        }"
+        :breakpoints="{
+          320: {
+            slidesPerView: 1,
+          },
+          1200: {
+            slidesPerView: 2,
+          },
+        }"
+      >
+        <SwiperSlide>
+          <MailingItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <MailingItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <MailingItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <MailingItem />
+        </SwiperSlide>
+        <SwiperSlide>
+          <MailingItem />
+        </SwiperSlide>
+      </Swiper>
+      <img
+        src="@/assets/images/main/arrow-rigth.svg"
+        alt=""
+        class="slider-nav"
+      />
+      <div class="slider-pagination"></div>
+    </div>
+  </div>
+</template>
+
 <style lang="sass">
 .recommended-mailings > .title-wrap
   display: flex

@@ -1,42 +1,65 @@
-<template>
+<script setup>
+import { ref, computed, onUnmounted } from 'vue'
+const message = ref(null)
+const attachActive = ref(false)
+const messFocus = computed(() => {
+  return message.value ? true : false
+})
 
+const hideAttachElems = (ev) => {
+  if (attachActive.value && ev.target.className !== 'attach') {
+    attachActive.value = false
+  }
+}
+
+document.addEventListener('click', (e) => {
+  hideAttachElems(e)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', hideAttachElems)
+})
+</script>
+
+<template>
   <form class="s-ch-new-message">
     <div class="message with-scroll">
       <div
         class="message-content"
         contenteditable="true"
-        @input="message = $event.target.textContent"
         placeholder="Введите сообщение"
         :class="{ 'mess-focus': messFocus }"
+        @input="message = $event.target.textContent"
+      ></div>
+      <textarea id="" v-model="message" name="message"></textarea>
+      <div
+        class="attach"
+        :class="{ active: attachActive }"
+        @click.stop="attachActive = !attachActive"
       >
-      </div>
-      <textarea
-        name="message"
-        v-model="message"
-        id=""
-      ></textarea>
-      <div class="attach" :class="{'active': attachActive}" @click.stop="attachActive = !attachActive">
         <div class="elements">
           <label for="media">
-            <span>Фото или видео</span> <img src="@/assets/images/media-icon.svg" alt="">
+            <span>Фото или видео</span>
+            <img src="@/assets/images/media-icon.svg" alt="" />
             <input
+              id="media"
               type="file"
               name="media"
-              id="media"
               accept="image/*,video/*"
             />
           </label>
           <label for="file">
-            <span>Файл</span> <img src="@/assets/images/image-icon.svg" alt="">
+            <span>Файл</span>
+            <img src="@/assets/images/image-icon.svg" alt="" />
             <input
+              id="file"
               type="file"
               name="file"
-              id="file"
               accept="application/excel, application/pdf"
             />
           </label>
         </div>
-        <img src="@/assets/images/chat-attach.svg" alt="" class="attach-icon"/>
+        <img src="@/assets/images/chat-attach.svg" alt="" class="attach-icon" />
       </div>
     </div>
 
@@ -64,30 +87,6 @@
     </button>
   </form>
 </template>
-
-<script setup>
-import { ref, computed, onUnmounted } from "vue";
-const message = ref(null);
-const attachActive = ref(false)
-const messFocus = computed(() => {
-  return message.value ? true : false;
-});
-
-const hideAttachElems = (ev) => {
-  if(attachActive.value && ev.target.className !== 'attach') {
-    attachActive.value = false
-  }
-}
-
-document.addEventListener('click', (e) => {
-  hideAttachElems(e)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click',hideAttachElems)
-})
-
-</script>
 
 <style lang="scss">
 .s-ch-new-message {
@@ -170,7 +169,7 @@ onUnmounted(() => {
     word-wrap: break-word;
   }
   .message-content.mess-focus:before {
-    content: "";
+    content: '';
   }
   .message-content:focus {
     outline: none;

@@ -1,3 +1,25 @@
+<script setup>
+import { ref } from 'vue'
+
+const maleActive = ref(false)
+const femaleActive = ref(false)
+const maleMobileActive = ref(false)
+const femaleMobileActive = ref(false)
+
+const changeBackMale = () => {
+  return (maleActive.value = !maleActive.value)
+}
+const changeBackFemale = () => {
+  return (femaleActive.value = !femaleActive.value)
+}
+const chooseMaleMobile = () => {
+  return (maleMobileActive.value = !maleMobileActive.value)
+}
+const chooseFemaleMobile = () => {
+  return (femaleMobileActive.value = !femaleMobileActive.value)
+}
+</script>
+
 <template>
   <div
     class="background"
@@ -27,8 +49,8 @@
         <router-link to="/registration">
           <div
             class="btn"
-            @mouseenter="changeBackMale"
-            @mouseleave="changeBackMale"
+            @mouseenter="changeBackMale()"
+            @mouseleave="changeBackMale()"
           >
             Мужчина
           </div>
@@ -55,15 +77,15 @@
             <h1>Абсолютно новый формат знакомств</h1>
             <div class="btn__box">
               <router-link to="/registration">
-                <div class="mobile__btn male" @click="chooseMaleMobile">
+                <div class="mobile__btn male" @click="chooseMaleMobile()">
                   Мужчина
                 </div>
               </router-link>
               <router-link to="/registration">
                 <div
                   class="mobile__btn female"
-                  @click="chooseFemaleMobile"
                   :class="{ btnMale: maleMobileActive }"
+                  @click="chooseFemaleMobile()"
                 >
                   ДЕВУШКА
                 </div>
@@ -77,8 +99,8 @@
         <router-link to="/registration">
           <div
             class="btn"
-            @mouseenter="changeBackFemale"
-            @mouseleave="changeBackFemale"
+            @mouseenter="changeBackFemale()"
+            @mouseleave="changeBackFemale()"
           >
             ДЕВУШКА
           </div>
@@ -88,44 +110,6 @@
   </div>
 </template>
 
-<script>
-// import { reactive, ref } from "vue";
-
-// const activeState = reactive({
-//   maleActive: false,
-//   femaleActive: false,
-// });
-
-// const changeBackMale = () => {
-//   activeState.maleActive = !activeState.maleActive
-// }
-
-
-export default {
-  data() {
-    return {
-      maleActive: false,
-      femaleActive: false,
-      maleMobileActive: false,
-      femaleMobileActive: false,
-    };
-  },
-  methods: {
-    changeBackMale() {
-      return (this.maleActive = !this.maleActive);
-    },
-    changeBackFemale() {
-      return (this.femaleActive = !this.femaleActive);
-    },
-    chooseMaleMobile() {
-      return (this.maleMobileActive = !this.maleMobileActive);
-    },
-    chooseFemaleMobile() {
-      return (this.femaleMobileActive = !this.femaleMobileActive);
-    },
-  },
-};
-</script>
 <style lang="scss" scoped>
 .btn {
   padding: 11px 44px;

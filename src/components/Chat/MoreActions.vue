@@ -1,10 +1,33 @@
+<script setup>
+import { ref, onUnmounted } from 'vue'
+const moreActions = ref(false)
+
+const hideMoreActions = (e) => {
+  if (
+    moreActions.value &&
+    e.target.className !== 'elements' &&
+    e.target.className !== 'more-actions'
+  ) {
+    moreActions.value = false
+  }
+}
+
+document.addEventListener('click', (e) => {
+  hideMoreActions(e)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', hideMoreActions)
+})
+</script>
+
 <template>
-  <div class="more-actions" :class="{ active: moreActions }" @click.stop="moreActions = !moreActions">
-    <img
-      src="@/assets/images/dots-icon.svg"
-      alt=""
-      class="dots-icon"
-    />
+  <div
+    class="more-actions"
+    :class="{ active: moreActions }"
+    @click.stop="moreActions = !moreActions"
+  >
+    <img src="@/assets/images/dots-icon.svg" alt="" class="dots-icon" />
     <div class="elements">
       <div class="element">
         <img src="@/assets/images/edit-icon.svg" alt="" class="icon" />
@@ -25,25 +48,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, onUnmounted } from "vue";
-const moreActions = ref(false);
-
-const hideMoreActions = (e) => {
-  if (moreActions.value && e.target.className !== "elements" && e.target.className !== 'more-actions') {
-    moreActions.value = false;
-  }
-};
-
-document.addEventListener("click", (e) => {
-  hideMoreActions(e);
-});
-
-onUnmounted(() => {
-  document.removeEventListener("click", hideMoreActions);
-})
-</script>
 
 <style lang="scss">
 .more-actions {

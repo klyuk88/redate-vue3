@@ -1,3 +1,10 @@
+<script setup>
+import { ref } from 'vue'
+import TheFormats from '../Form/TheFormats.vue'
+
+const isClicked = ref(false)
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
@@ -6,18 +13,15 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
-
     </div>
     <div class="auth__back__btn">
       <slot name="backPhaseThree"></slot>
     </div>
-     <div class="arrowMobile">
-       <slot name="backPhaseThreeMobile"></slot>
-     </div>
+    <div class="arrowMobile">
+      <slot name="backPhaseThreeMobile"></slot>
+    </div>
     <div class="signup__page">
-      <div
-        class="signup__border"
-      >
+      <div class="signup__border">
         <div class="signup__block">
           <div class="signup__block__container">
             <TheFormats class="format" />
@@ -25,8 +29,8 @@
               <div class="desc__logo">
                 <img src="@/assets/images/main/description.svg" alt="" />
               </div>
-              <p class="" >Трачу в месяц:</p>
-              <p class="" >Доход в месяц:</p>
+              <p class="">Трачу в месяц:</p>
+              <p class="">Доход в месяц:</p>
               <div class="cash__border">
                 <input class="input" type="text" @click="isClicked = true" />
                 <span class="money__logo"> ₽ </span>
@@ -44,19 +48,14 @@
       </div>
     </div>
     <div class="webBtn">
-      <slot name="fivePhase" ></slot>
+      <slot name="fivePhase"></slot>
     </div>
     <div class="mobileBtn">
       <slot name="fivePhaseMobile"></slot>
     </div>
   </div>
 </template>
-<script setup>
-import TheFormats from "../Form/TheFormats.vue";
-import { ref } from "vue";
-import FormTextArea from "../Form/FormTextArea.vue";
-const isClicked = ref(false);
-</script>
+
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
@@ -83,10 +82,10 @@ const isClicked = ref(false);
   }
 }
 .signup__background {
-      display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .signup__page {
 }
@@ -98,16 +97,20 @@ const isClicked = ref(false);
 .signup__block {
   width: 422px;
   padding: 48px;
-gap: 10px;
-background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
-border: 1px solid #2B66FB;
-box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
-border-radius: 24px;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
+  border-radius: 24px;
   margin: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 74px;
 }
 .signup__block__container {
   width: 326px;
@@ -163,7 +166,7 @@ margin-bottom: 74px;
 .format {
 }
 .about {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   width: 326px;
   height: 254px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -245,7 +248,7 @@ margin-bottom: 74px;
   .arrowMobile {
     display: flex;
   }
-  .signup__navigation  {
+  .signup__navigation {
     margin-bottom: 72px;
   }
   .container__cash {

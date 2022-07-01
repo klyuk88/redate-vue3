@@ -1,5 +1,22 @@
+<script setup>
+import MobileBurger from '../MobileBurger.vue'
+import ProfilePhotoCarousel from './ProfilePhotoCarousel.vue'
+
+import { ref } from 'vue'
+
+const showModal = ref(false)
+const notificationStatus = false
+const notificationStageTwo = false
+const notificationStageThree = false
+const notificationStageFour = false
+const notificationStageFive = false
+const notificationStageSix = false
+const notificationStageSeven = false
+const notificationStageEight = false
+</script>
+
 <template>
-  <ProfilePhotoCarousel v-if="showModal" @hideModal="showModal = false" />
+  <ProfilePhotoCarousel v-if="showModal" @hide-modal="showModal = false" />
   <div class="my__profile__page">
     <div class="left__side">
       <div class="background">
@@ -204,7 +221,7 @@
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
-                  <RouterLink  to="/account/:user/settings" class="container">
+                  <RouterLink to="/account/:user/settings" class="container">
                     <img
                       src="@/assets/images/main/myprofile__setting.svg"
                       alt=""
@@ -431,7 +448,7 @@
       </div>
     </div>
     <div class="right__side">
-      <div class="profile" @click.self="close">
+      <div class="profile" @click.self="close()">
         <div class="profile__info">
           <div class="profile__info__title">
             <div class="profile__title">
@@ -615,22 +632,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import MobileBurger from "../MobileBurger.vue";
-import ProfilePhotoCarousel from "./ProfilePhotoCarousel.vue";
 
-import { ref } from "vue";
-
-const showModal = ref(false);
-const notificationStatus = false;
-const notificationStageTwo = false;
-const notificationStageThree = false;
-const notificationStageFour = false;
-const notificationStageFive = false;
-const notificationStageSix = false;
-const notificationStageSeven = false;
-const notificationStageEight = false;
-</script>
 <style lang="scss" scoped>
 .notification__blur {
   display: none;
@@ -667,7 +669,7 @@ const notificationStageEight = false;
 }
 .my__profile__page {
   // width: 100%;
-    display: flex;
+  display: flex;
   justify-content: space-between;
   height: 100vh;
 }
@@ -787,8 +789,6 @@ const notificationStageEight = false;
   background: none;
   left: 320px;
 
-  &.stageTwo {
-  }
   .blur__footer {
     position: absolute;
     display: flex;
@@ -796,8 +796,6 @@ const notificationStageEight = false;
     width: 1458px;
     p {
       top: 44px;
-    }
-    .notification__btn__block {
     }
   }
 }
@@ -1215,7 +1213,7 @@ const notificationStageEight = false;
           height: 30px;
           filter: drop-shadow(0px 0px 10px rgba(255, 187, 84, 0.3));
           border-radius: 12px;
-          font-family: "Palatino";
+          font-family: 'Palatino';
           font-style: normal;
           font-weight: 400;
           font-size: 16px;

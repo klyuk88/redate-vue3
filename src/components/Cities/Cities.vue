@@ -1,65 +1,89 @@
+<script setup>
+import { computed } from 'vue'
+import { useStore } from '@/stores/main.js'
+import { useUserStore } from '@/stores/user.js'
+import { useStatisticsStore } from '@/stores/statistics.js'
+import { useSearchStore } from '@/stores/search.js'
+import router from '@/router'
+import Statistics from '@/components/Cities/Statistics.vue'
+import CitiesSmallSlider from '@/components/Cities/CitiesSmallSlider.vue'
+import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue'
+import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue'
+import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue'
+import Filter from '@/components/Main/Filter.vue'
+
+const store = useStore()
+const statistics = useStatisticsStore()
+const search = useSearchStore()
+const user = useUserStore()
+
+const usersStatistics = computed(() =>
+  statistics.usersStatisticsByCities.slice(0, 3)
+)
+
+const usersStatisticsBySlider = computed(() =>
+  statistics.usersStatisticsByCities.slice(3)
+)
+
+const currentCity = computed(() => user.user?.city || null)
+
+const cities = computed(() => statistics.cities || [])
+
+const redirectHandler = (params) => {
+  search.setQueryParams(params.id, params.ageMin, params.ageMax, params.query)
+
+  router.push('/search')
+}
+</script>
+
 <template>
   <div class="cities-block">
     <Statistics
-      :totalRegistered="statistics.totalRegistered"
-      :menRegistered="statistics.menRegistered"
-      :newUsers="statistics.newUsers"
+      :total-registered="statistics.totalRegistered"
+      :men-registered="statistics.menRegistered"
+      :new-users="statistics.newUsers"
     />
 
     <div class="decor-line"></div>
     <!-- На мобильном  -->
-    <CitiesBigSlider v-if="usersStatistics.length" :usersStatistics="usersStatistics" @redirect="redirectHandler" />
+    <CitiesBigSlider
+      v-if="usersStatistics.length"
+      :users-statistics="usersStatistics"
+      @redirect="redirectHandler()"
+    />
 
-    <CitiesSearchMobInput @redirect="redirectHandler" />
+    <CitiesSearchMobInput @redirect="redirectHandler()" />
     <!-- На десктопе -->
-    <CitiesBigItems v-if="usersStatistics.length" :usersStatistics="usersStatistics" @redirect="redirectHandler" />
+    <CitiesBigItems
+      v-if="usersStatistics.length"
+      :users-statistics="usersStatistics"
+      @redirect="redirectHandler()"
+    />
 
-    <div v-if="usersStatisticsBySlider.length" class="hidden-part" :class="{ show: store.showCities }">
+    <div
+      v-if="usersStatisticsBySlider.length"
+      class="hidden-part"
+      :class="{ show: store.showCities }"
+    >
       <p class="title">Зарегистрировано по городам</p>
       <div class="grid">
         <div class="slider">
-          <CitiesSmallSlider :usersStatistics="usersStatisticsBySlider" @redirect="redirectHandler" />
+          <CitiesSmallSlider
+            :users-statistics="usersStatisticsBySlider"
+            @redirect="redirectHandler()"
+          />
         </div>
       </div>
     </div>
   </div>
 
-  <Filter v-if="currentCity && cities.length" :currentCity="currentCity" :cities="cities" @redirect="redirectHandler" />
+  <Filter
+    v-if="currentCity && cities.length"
+    :current-city="currentCity"
+    :cities="cities"
+    @redirect="redirectHandler()"
+  />
 </template>
-
-<script setup>
-import { computed } from 'vue';
-import { useStore } from '@/stores/main.js';
-import { useUserStore } from '@/stores/user.js';
-import { useStatisticsStore } from '@/stores/statistics.js';
-import { useSearchStore } from '@/stores/search.js';
-import router from '@/router';
-import Statistics from '@/components/Cities/Statistics.vue';
-import CitiesSmallSlider from '@/components/Cities/CitiesSmallSlider.vue';
-import CitiesBigItems from '@/components/Cities/CitiesBigItems.vue';
-import CitiesBigSlider from '@/components/Cities/CitiesBigSlider.vue';
-import CitiesSearchMobInput from '@/components/Cities/CitiesSearchMobInput.vue';
-import Filter from '@/components/Main/Filter.vue';
-
-const store = useStore();
-const statistics = useStatisticsStore();
-const search = useSearchStore();
-const user = useUserStore();
-
-const usersStatistics = computed(() => statistics.usersStatisticsByCities.slice(0, 3));
-
-const usersStatisticsBySlider = computed(() => statistics.usersStatisticsByCities.slice(3));
-
-const currentCity = computed(() => user.user?.city || null);
-
-const cities = computed(() => statistics.cities || []);
-
-const redirectHandler = (params) => {
-  search.setQueryParams(params.id, params.ageMin, params.ageMax, params.query);
-
-  router.push('/search');
-};
-</script>
 
 <style>
 .cities-block {

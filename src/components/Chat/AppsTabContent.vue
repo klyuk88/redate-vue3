@@ -1,15 +1,16 @@
+<script setup>
+import DialogItem from '@/components/Chat/DialogItem.vue'
+</script>
+
 <template>
   <PerfectScrollbar>
-      <div class="chats-tab-content">
-          <DialogItem v-for="(item, idx) in 5" :key="idx" />
-    <button class="delite-dialogs">Удалить все заявки</button>
-      </div>
-  
+    <div class="chats-tab-content">
+      <DialogItem v-for="(item, idx) in 5" :key="idx" />
+      <button class="delite-dialogs">Удалить все заявки</button>
+    </div>
   </PerfectScrollbar>
 </template>
-<script setup>
-import DialogItem from "@/components/Chat/DialogItem.vue";
-</script>
+
 <style lang="scss">
 .chats-tab-content {
   max-width: 780px;

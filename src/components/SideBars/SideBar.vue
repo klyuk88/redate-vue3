@@ -56,8 +56,7 @@
     </div>
   </aside>
 </template>
-<script setup>
-</script>
+
 <style lang="sass">
 .side-bar
   width: 56px

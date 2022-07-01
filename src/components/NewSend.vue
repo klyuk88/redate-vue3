@@ -1,51 +1,47 @@
+<script setup>
+import { ref } from 'vue'
+import TheSelect from '@/components/Form/TheSelect.vue'
+import BigButton from '@/components/Form/BigButton.vue'
+
+const city = ref('Москва')
+const format = ref('Любой')
+
+const cities = ref([ 'Москва', 'Санкт-Петербург', 'Казань' ])
+const formats = ref([
+  'Онлайн общение',
+  'Серезные отношения',
+  'Свидание',
+  'Онлайн общение',
+  'Серезные отношения',
+  'Свидание',
+  'Свидание',
+  'Онлайн общение',
+  'Серезные отношения',
+  'Свидание',
+])
+</script>
+
 <template>
   <div>
     <div class="new-send">
       <h3 class="page-subtitle mb-16">Создать новую рассылку</h3>
 
       <TheSelect
-      :options="cities"
-      :placeholder="'Выберите город'"
-      v-model="city"
+        v-model="city"
+        :options="cities"
+        placeholder="Выберите город"
       />
       <label class="form-label">Формат знакомств</label>
       <TheSelect
-      :options="formats"
-      :placeholder="'Выберите формат'"
-      v-model="format"
-      :zIndex="1"
+        v-model="format"
+        :options="formats"
+        placeholder="Выберите формат"
+        :z-index="1"
       />
-      <BigButton
-      :title="'Создать рассылку'"
-      />
-      
+      <BigButton title="Создать рассылку" />
     </div>
   </div>
 </template>
-<script setup>
-import { ref } from 'vue'
-import vSelect from "vue-select";
-import TheSelect from '@/components/Form/TheSelect.vue'
-import BigButton from '@/components/Form/BigButton.vue'
-
-const city = ref("Москва");
-const format = ref("Любой");
-
-const cities = ref(["Москва", "Санкт-Петербург", "Казань"]);
-const formats = ref([
-  "Онлайн общение",
-  "Серезные отношения",
-  "Свидание",
-  "Онлайн общение",
-  "Серезные отношения",
-  "Свидание",
-  "Свидание",
-  "Онлайн общение",
-  "Серезные отношения",
-  "Свидание",
-]);
-</script>
-
 
 <style lang="sass">
 .new-send

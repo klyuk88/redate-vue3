@@ -1,5 +1,14 @@
+<script setup>
+const emit = defineEmits(['hideModalBan'])
+</script>
+
 <template>
-  <div class="ban__popup__background" @click.self="$emit('hideModalBan')" tabindex="1" @keydown.esc="close" >
+  <div
+    class="ban__popup__background"
+    tabindex="1"
+    @click.self="emit('hideModalBan')"
+    @keydown.esc="close()"
+  >
     <div class="ban__popup__block">
       <div class="ban__popup__content">
         <div class="ban__popup__text">
@@ -9,17 +18,19 @@
           </div>
         </div>
         <div class="ban__popup__button__box">
-          <div class="ban__popup__button grey__btn" @click="$emit('hideModalBan')">Отмена</div>
+          <div
+            class="ban__popup__button grey__btn"
+            @click="emit('hideModalBan')"
+          >
+            Отмена
+          </div>
           <div class="ban__popup__button blue__btn">Заблокировать</div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup>
-const emit = defineEmits(['hideModalBan'])
 
-</script>
 <style>
 .ban__popup__background {
   width: 100%;
@@ -63,7 +74,7 @@ const emit = defineEmits(['hideModalBan'])
   height: 68px;
 }
 .ban__popup__title {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -74,7 +85,7 @@ const emit = defineEmits(['hideModalBan'])
   color: #ffffff;
 }
 .ban__popup__description {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -100,7 +111,7 @@ const emit = defineEmits(['hideModalBan'])
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

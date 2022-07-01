@@ -1,11 +1,19 @@
+<script setup>
+import { ref } from 'vue'
+
+const emit = defineEmits([ 'hideModalHobby' ])
+
+const isClicked = ref(false)
+</script>
+
 <template>
-  <div class="signup__background" @click.self="$emit('hideModalHobby')">
+  <div class="signup__background" @click.self="emit('hideModalHobby')">
     <div class="signup__page">
       <div class="signup__border">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="signup__header__block">
-              <div class="signup__return__btn" @click="$emit('hideModalHobby')">
+              <div class="signup__return__btn" @click="emit('hideModalHobby')">
                 <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
               </div>
               <p>Выберете до 5 увлечений:</p>
@@ -55,15 +63,10 @@
         </div>
       </div>
     </div>
-    <div class="signup__btn" @click.self="$emit('hideModalHobby')">Выбрать</div>
+    <div class="signup__btn" @click.self="emit('hideModalHobby')">Выбрать</div>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
 
-const emit = defineEmits(["hideModalHobby"]);
-const isClicked = ref(false);
-</script>
 <style lang="scss" scoped>
 .signup__page {
 }
@@ -76,11 +79,10 @@ const isClicked = ref(false);
   z-index: 109;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(50px);
-      display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-end;
-  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .flex__center {
   display: flex;

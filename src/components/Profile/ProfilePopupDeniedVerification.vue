@@ -20,7 +20,7 @@
     </div>
   </div>
 </template>
-<script setup></script>
+
 <style lang="scss" scoped>
 .background__denied__desc {
   display: flex;

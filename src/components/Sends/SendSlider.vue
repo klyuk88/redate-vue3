@@ -1,15 +1,23 @@
+<script setup>
+import { Navigation, Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
+import SendSliderItem from '@/components/Sends/SendSliderItem.vue'
+</script>
+
 <template>
   <div class="send-slider">
     <Swiper
       :slides-per-view="1"
       :space-between="50"
-      :modules="[Navigation, Pagination]"
+      :modules="[
+Navigation, Pagination
+]"
       :navigation="{
         nextEl: '.slider-nav.right',
         prevEl: '.slider-nav.left',
       }"
       :pagination="{
-        clickable: true
+        clickable: true,
       }"
     >
       <SwiperSlide>
@@ -21,7 +29,6 @@
       <SwiperSlide>
         <SendSliderItem />
       </SwiperSlide>
-      
     </Swiper>
     <svg
       class="slider-nav right"
@@ -53,18 +60,9 @@
         stroke-width="2"
       />
     </svg>
-    
   </div>
 </template>
-<script setup>
-import SendSliderItem from "@/components/Sends/SendSliderItem.vue";
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-import { Navigation, Pagination } from "swiper";
 
-import "swiper/swiper.min.css";
-import "swiper/modules/pagination/pagination.min.css";
-import "swiper/modules/navigation/navigation.min.css";
-</script>
 <style lang="scss">
 .send-slider {
   position: relative;
@@ -97,7 +95,6 @@ import "swiper/modules/navigation/navigation.min.css";
       background: #fff;
     }
   }
-
 }
 @media (max-width: 1200px) {
   .send-slider {

@@ -22,8 +22,7 @@
     </div>
   </div>
 </template>
-<script setup>
-</script>
+
 <style lang="scss" scoped>
 .send-slide {
   border: 1px solid #ffffff;
@@ -55,7 +54,7 @@
       margin-top: 12px;
     }
     .begin:after {
-      content: "";
+      content: '';
       display: block;
       width: 90%;
       height: 1px;
@@ -89,7 +88,7 @@
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 12px;
-    border: 1px solid #FFFFFF54;
+    border: 1px solid #ffffff54;
     .text {
       font-size: 13px;
     }

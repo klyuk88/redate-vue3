@@ -1,3 +1,9 @@
+<script>
+import TheSelect from '../Form/TheSelect.vue'
+
+export default { components: { TheSelect } }
+</script>
+
 <template>
   <div class="maillist__background">
     <div class="maillist__box">
@@ -33,14 +39,10 @@
     </div>
   </div>
 </template>
-<script>
-import TheSelect from "../Form/TheSelect.vue";
 
-export default { components: { TheSelect } };
-</script>
 <style lang="scss">
 .text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 15px;

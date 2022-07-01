@@ -1,136 +1,128 @@
+<script setup>
+import { ref, computed } from 'vue'
+// eslint-disable-next-line no-unused-vars
+import AuthPopup from './AuthPopup.vue'
+import BigButton from '../Form/BigButton.vue'
+// eslint-disable-next-line no-unused-vars
+import AuthPopupRecovery from './AuthPopupRecovery.vue'
+// eslint-disable-next-line no-unused-vars
+import AuthPopupCode from './AuthPopupCode.vue'
+// eslint-disable-next-line no-unused-vars
+import AuthPopupPassword from './AuthPopupPassword.vue'
+// eslint-disable-next-line no-unused-vars
+import AuthPopupComplete from './AuthPopupComplete.vue'
+
+const nameAuth = ref('')
+
+const changePage = computed(() => 'AuthPopup' + nameAuth.value)
+</script>
+
 <template>
   <div>
     <keep-alive>
       <component :is="changePage">
-        <template v-slot:toRecovery>
+        <template #toRecovery>
           <p class="auth__forgot" @click="nameAuth = 'Recovery'">
             Забыли пароль?
           </p>
         </template>
-        <template v-slot:backToAuth>
+        <template #backToAuth>
           <div class="auth__back__btn" @click="nameAuth = ''">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
-        <template v-slot:backToAuthMobile>
+        <template #backToAuthMobile>
           <div class="auth__back__btn__mobile" @click="nameAuth = ''">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:backToRecoveryMobile>
+        <template #backToRecoveryMobile>
           <div class="auth__back__btn__mobile" @click="nameAuth = 'Recovery'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:toCode>
+        <template #toCode>
           <BigButton
-            @click="nameAuth = 'Code'"
             title="Отправить"
             style="width: 236px; height: 48px; margin-bottom: 24px"
+            @click="nameAuth = 'Code'"
           />
         </template>
-        <template v-slot:toCodeMobile>
+        <template #toCodeMobile>
           <BigButton
-            @click="nameAuth = 'Code'"
             title="Отправить"
             style="width: 85.89vw; height: 15.38vw; margin-bottom: 12.3vw"
+            @click="nameAuth = 'Code'"
           />
         </template>
-        <template v-slot:backToAuthSpan>
+        <template #backToAuthSpan>
           <span @click="nameAuth = ''">Войти</span>
         </template>
-        <template v-slot:backToCodeMobile>
+        <template #backToCodeMobile>
           <div class="auth__back__btn__mobile" @click="nameAuth = 'Code'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:backToRecovery>
+        <template #backToRecovery>
           <div class="auth__back__btn" @click="nameAuth = 'Recovery'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
-        <template v-slot:toNewPassword>
+        <template #toNewPassword>
           <BigButton
-            @click="nameAuth = 'Password'"
             title="Продолжить"
             style="width: 236px; height: 48px; margin-bottom: 24px"
+            @click="nameAuth = 'Password'"
           />
         </template>
-        <template v-slot:toNewPasswordMobile>
+        <template #toNewPasswordMobile>
           <BigButton
-            @click="nameAuth = 'Password'"
             title="Продолжить"
             style="width: 85.89vw; height: 15.38vw; margin-bottom: 12.3vw"
+            @click="nameAuth = 'Password'"
           />
         </template>
-        <template v-slot:backToCode>
+        <template #backToCode>
           <div class="auth__back__btn" @click="nameAuth = 'Code'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
-        <template v-slot:toComplete>
+        <template #toComplete>
           <BigButton
-            @click="nameAuth = 'Complete'"
             title="Сохранить"
             style="width: 236px; height: 48px; margin-bottom: 146px"
+            @click="nameAuth = 'Complete'"
           />
         </template>
-        <template v-slot:toCompleteMobile>
+        <template #toCompleteMobile>
           <BigButton
-            @click="nameAuth = 'Complete'"
             title="Сохранить"
             style="width: 85.89vw; height: 15.38vw; margin-top: 8.2vw"
+            @click="nameAuth = 'Complete'"
           />
         </template>
-        <template v-slot:toAuth>
+        <template #toAuth>
           <BigButton
-            @click="nameAuth = ''"
             title="Сохранить"
             style="width: 236px; height: 48px; margin-bottom: 146px"
+            @click="nameAuth = ''"
           />
         </template>
-        <template v-slot:toAuthMobile>
+        <template #toAuthMobile>
           <BigButton
-            @click="nameAuth = ''"
             title="Сохранить"
-            style="width: 85.89vw; height: 15.38vw; margin-bottom: 63.3vw;"
+            style="width: 85.89vw; height: 15.38vw; margin-bottom: 63.3vw"
+            @click="nameAuth = ''"
           />
         </template>
       </component>
     </keep-alive>
   </div>
 </template>
-<script>
-import AuthPopup from "./AuthPopup.vue";
-import BigButton from "../Form/BigButton.vue";
-import AuthPopupRecovery from "./AuthPopupRecovery.vue";
-import AuthPopupCode from "./AuthPopupCode.vue";
-import AuthPopupPassword from "./AuthPopupPassword.vue";
-import AuthPopupComplete from "./AuthPopupComplete.vue";
-export default {
-  components: {
-    AuthPopup,
-    BigButton,
-    AuthPopupRecovery,
-    AuthPopupCode,
-    AuthPopupPassword,
-    AuthPopupComplete,
-  },
-  data() {
-    return {
-      nameAuth: "",
-    };
-  },
-  computed: {
-    changePage() {
-      return "AuthPopup" + this.nameAuth;
-    },
-  },
-};
-</script>
+
 <style lang="scss">
 .auth__back__btn__mobile {
   cursor: pointer;

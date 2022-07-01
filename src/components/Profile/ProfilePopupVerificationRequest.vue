@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__page">
@@ -20,9 +24,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss" scoped>
 .signup__background {
   background: rgba(0, 0, 0, 0.6);
@@ -85,27 +87,27 @@ export default {};
   }
 }
 @mixin rings($duration, $delay) {
-    opacity: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: 0;
-    bottom: 0;
-    content: '';
-    height: 100%;
-    width: 100%;
-    border: 8px solid rgba(0,0,0,0.2);
-    border-radius: 100%;
-    animation-name: ripple;
-    animation-duration: $duration;
-    animation-delay: $delay;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(.65,0,.34,1);
-    z-index: -1;
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: 0;
+  bottom: 0;
+  content: '';
+  height: 100%;
+  width: 100%;
+  border: 8px solid rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  animation-name: ripple;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+  z-index: -1;
 }
 
 @media (max-width: 1200px) {
@@ -113,6 +115,4 @@ export default {};
     display: flex;
   }
 }
-
-
 </style>

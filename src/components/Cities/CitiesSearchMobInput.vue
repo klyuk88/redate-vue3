@@ -1,23 +1,23 @@
+<script setup>
+import { ref } from 'vue'
+
+const emit = defineEmits(['redirect'])
+
+const query = ref('')
+
+const clickHandler = () => {
+  emit('redirect', { query: query.value })
+}
+</script>
+
 <template>
   <div class="cities-serch-mob-input">
-    <input type="text" placeholder="Москва" v-model="query" />
-    <button @click="clickHandler">
+    <input v-model="query" type="text" placeholder="Москва" />
+    <button @click="clickHandler()">
       <img src="@/assets/images/main/arrow-form.svg" alt="" />
     </button>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-
-const emit = defineEmits(['redirect']);
-
-const query = ref('');
-
-const clickHandler = () => {
-  emit('redirect', { query: query.value });
-};
-</script>
 
 <style>
 .cities-serch-mob-input {

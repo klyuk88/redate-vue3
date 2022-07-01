@@ -1,3 +1,17 @@
+<script setup>
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
+// eslint-disable-next-line no-unused-vars
+import AuthLayout from '@/layouts/AuthLayout.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const layout = computed(() => {
+  return route.meta.layout || DefaultLayout
+})
+</script>
+
 <template>
   <div class="container">
     <component :is="layout">
@@ -5,19 +19,6 @@
     </component>
   </div>
 </template>
-
-<script setup>
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
-import AuthLayout from '@/layouts/AuthLayout.vue';
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-
-const layout = computed(() => {
-  return route.meta.layout || DefaultLayout;
-});
-</script>
 
 <style lang="scss">
 .container {

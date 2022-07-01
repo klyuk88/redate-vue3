@@ -1,3 +1,9 @@
+<script setup>
+import { Navigation } from 'swiper'
+import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
+import AnswerItemSlide from '@/components/Sends/AnswerItemSlide.vue'
+</script>
+
 <template>
   <div class="answer-item">
     <svg
@@ -28,18 +34,19 @@
           :slides-per-view="6"
           :space-between="4"
           class="slider"
-          :modules="[Navigation]"
+          :modules="[
+Navigation
+]"
           :navigation="{
             nextEl: '.next-arrow',
           }"
           :breakpoints="{
             0: {
-              slidesPerView: 5
+              slidesPerView: 5,
             },
             1200: {
-              slidesPerView: 6
-            }
-            
+              slidesPerView: 6,
+            },
           }"
         >
           <SwiperSlide v-for="(item, idx) in 10" :key="idx">
@@ -69,15 +76,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue.js";
-import AnswerItemSlide from "@/components/Sends/AnswerItemSlide.vue";
 
-// Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/modules/navigation/navigation.min.css";
-</script>
 <style lang="scss">
 .answer-item {
   background: rgba(255, 255, 255, 0.08);
@@ -109,7 +108,7 @@ import "swiper/modules/navigation/navigation.min.css";
       height: 100%;
       top: 0;
       object-fit: cover;
-      border: 1px solid #F9AE3F;
+      border: 1px solid #f9ae3f;
     }
   }
   .title-block {

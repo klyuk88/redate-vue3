@@ -1,3 +1,8 @@
+<script setup>
+import SideBar from '@/components/SideBars/SideBar.vue'
+import MobileSideBar from '@/components/SideBars/MobileSideBar.vue'
+</script>
+
 <template>
   <div class="page-content">
     <SideBar />
@@ -5,11 +10,6 @@
     <slot />
   </div>
 </template>
-
-<script setup>
-import SideBar from '@/components/SideBars/SideBar.vue';
-import MobileSideBar from '@/components/SideBars/MobileSideBar.vue';
-</script>
 
 <style lang="sass">
 .page-content

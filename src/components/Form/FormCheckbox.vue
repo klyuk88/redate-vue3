@@ -1,26 +1,25 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: 'Впишите props title',
+  },
+})
+</script>
+
 <template>
   <div id="form-checkbox">
     <label for="online">
-      <input type="checkbox" name="Онлайн" id="online">
+      <input id="online" type="checkbox" name="Онлайн" />
       <div class="checkbox">
-        <img src="@/assets/images/main/checkbox.svg" alt="">
+        <img src="@/assets/images/main/checkbox.svg" alt="" />
       </div>
       <p class="label">
-        {{title}}
+        {{ title }}
       </p>
     </label>
   </div>
 </template>
-
-<script setup>
-const props = defineProps({
-  title: {
-    type: String,
-    default: 'Впишите props title'
-  }
-})
-
-</script>
 
 <style lang="scss">
 #form-checkbox {
@@ -62,5 +61,4 @@ const props = defineProps({
     }
   }
 }
-
 </style>

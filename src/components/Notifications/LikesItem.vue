@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="likes-item new">
     <div class="avatar-block">
@@ -22,9 +26,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss">
 .likes-item {
   display: grid;
@@ -113,6 +115,6 @@ export default {};
 }
 .likes-item.new {
   background: rgba($color: #fff, $alpha: 0.05);
-  border-color: transparent; 
+  border-color: transparent;
 }
 </style>

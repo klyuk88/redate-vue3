@@ -1,6 +1,19 @@
+<script setup>
+import { ref, computed } from 'vue'
+
+const photoAdded = ref(true)
+
+const added = computed(() => {
+  if (photoAdded.value === true) {
+    return 'added'
+  }
+  return 'test'
+})
+</script>
+
 <template>
   <div class="signup__background">
-      <slot name="backToFirst"></slot>
+    <slot name="backToFirst"></slot>
     <div class="verification__page">
       <div class="verification__block__container">
         <div class="verification__content">
@@ -59,9 +72,7 @@
             Отобразите позу, которая указана на картинке справа
           </p>
           <div class="btn__update" :class="added">Заменить снимок</div>
-          <div class="btn__upload" :class="added" >
-            Загрузить с компьютера
-          </div>
+          <div class="btn__upload" :class="added">Загрузить с компьютера</div>
           <div class="btn__continue" :class="added">
             <slot name="toThird"></slot>
           </div>
@@ -104,25 +115,7 @@
     </div>
   </div>
 </template>
-<script>
-import SignupPopup from "@/components/Auth/SignupPopup.vue";
-import VerificationFirstVue from './VerificationFirst.vue';
-export default {
-  data() {
-    return {
-      photoAdded: true,
-    };
-  },
-  computed: {
-    added() {
-      if (this.photoAdded === true) {
-        return "added";
-      }
-      return "test";
-    },
-  },
-};
-</script>
+
 <style lang="scss" scoped>
 .add__photo__block {
   width: 308px;
@@ -223,19 +216,19 @@ export default {
 }
 .btn__upload {
   padding: 8px 27px;
-gap: 12px;
-height: 35px;
-background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%);
-border-radius: 11px;
-cursor: pointer;
-&.added {
-  display: none;
-}
+  gap: 12px;
+  height: 35px;
+  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+  border-radius: 11px;
+  cursor: pointer;
+  &.added {
+    display: none;
+  }
 }
 .btn__continue {
-display: none;
+  display: none;
   &.added {
-display: flex;
+    display: flex;
   }
 }
 @media (max-width: 1200px) {
@@ -392,6 +385,5 @@ display: flex;
       display: none;
     }
   }
-
 }
 </style>

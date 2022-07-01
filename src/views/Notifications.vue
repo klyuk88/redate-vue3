@@ -1,3 +1,36 @@
+<script setup>
+import { reactive, computed } from 'vue'
+import LikesTabContent from '@/components/Notifications/LikesTabContent.vue'
+import ViewsTabContent from '@/components/Notifications/ViewsTabContent.vue'
+import SpecialProposal from '@/components/SpecialProposal.vue'
+import NotificationsMobile from '@/components/Notifications/NotificationsMobile.vue'
+
+const tabs = reactive({
+  likes: true,
+  views: false,
+})
+
+const activeTab = computed(() => {
+  if (tabs.likes) {
+    return LikesTabContent
+  } else if (tabs.views) {
+    return ViewsTabContent
+  }
+
+  return null
+})
+
+const tabActive = (param) => {
+  if (param === 'likes') {
+    tabs.likes = true
+    tabs.views = false
+  } else if (param === 'views') {
+    tabs.views = true
+    tabs.likes = false
+  }
+}
+</script>
+
 <template>
   <section id="notifications">
     <div class="grid">
@@ -20,39 +53,13 @@
       </div>
 
       <div class="sidebar">
-        <SpecialProposal/>
+        <SpecialProposal />
       </div>
     </div>
   </section>
-  <NotificationsMobile/>
+  <NotificationsMobile />
 </template>
-<script setup>
-import LikesTabContent from '@/components/Notifications/LikesTabContent.vue'
-import ViewsTabContent from '@/components/Notifications/ViewsTabContent.vue'
-import SpecialProposal from '@/components/SpecialProposal.vue'
-import NotificationsMobile from '@/components/Notifications/NotificationsMobile.vue'
-import { ref, reactive, computed } from "vue";
-const tabs = reactive({
-  likes: true,
-  views: false,
-});
-const activeTab = computed(() => {
-  if(tabs.likes) {
-    return LikesTabContent
-  } else if (tabs.views) {
-    return ViewsTabContent
-  }
-})
-const tabActive = (param) => {
-  if (param === "likes") {
-    tabs.likes = true;
-    tabs.views = false;
-  } else if (param === "views") {
-    tabs.views = true;
-    tabs.likes = false;
-  }
-};
-</script>
+
 <style lang="scss">
 #notifications {
   padding-left: 100px;

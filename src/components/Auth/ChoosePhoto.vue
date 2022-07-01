@@ -1,3 +1,9 @@
+<script setup>
+import { ref } from 'vue'
+
+const isClicked = ref(true)
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
@@ -10,7 +16,10 @@
       </router-link>
     </div>
     <div class="signup__page">
-      <div class="signup__border" :class="{ animated__border__upload: isClicked }">
+      <div
+        class="signup__border"
+        :class="{ animated__border__upload: isClicked }"
+      >
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="photo__container">
@@ -77,17 +86,13 @@
       </div>
     </div>
     <router-link to="/verification">
-      <div class="signup__btn web" @click="isClicked = true">Зарегистрироваться</div>
+      <div class="signup__btn web" @click="isClicked = true">
+        Зарегистрироваться
+      </div>
     </router-link>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import SignupPopupVue from "@/components/Auth/SignupPopup.vue";
-const isClicked = ref(true);
-</script>
+
 <style lang="scss" scoped>
 .continue__btn {
   display: none;
@@ -251,7 +256,7 @@ p {
   }
   .signup__block__container {
     width: 85.89vw;
-    height: 152.30vw;
+    height: 152.3vw;
   }
   .signup__btn {
     &.web {

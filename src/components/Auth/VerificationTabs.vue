@@ -1,79 +1,71 @@
+<script setup>
+import { ref, computed } from 'vue'
+import BigButton from '../Form/BigButton.vue'
+// eslint-disable-next-line no-unused-vars
+import Verification from './VerificationFirst.vue'
+// eslint-disable-next-line no-unused-vars
+import VerificationSecond from './VerificationSecond.vue'
+// eslint-disable-next-line no-unused-vars
+import VerificationThird from './VerificationThird.vue'
+// eslint-disable-next-line no-unused-vars
+import VerificationSkip from './VerificationSkip.vue'
+
+const nameComponent = ref('')
+
+const changeStage = computed(() => 'Verification' + nameComponent.value)
+</script>
+
 <template>
   <keep-alive>
     <component :is="changeStage">
-      <template v-slot:toSecond>
+      <template #toSecond>
         <BigButton
-          @click="nameComponent = 'Second'"
           title="Продолжить"
           style="width: 236px; height: 48px"
+          @click="nameComponent = 'Second'"
         />
       </template>
-      <template v-slot:backToMain>
-        <div class="auth__back__btn" v-on:click="nameComponent = ''">
+      <template #backToMain>
+        <div class="auth__back__btn" @click="nameComponent = ''">
           <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </template>
-      <template v-slot:toSkip>
-        <div class="btn__later" v-on:click="nameComponent = 'Skip'">
+      <template #toSkip>
+        <div class="btn__later" @click="nameComponent = 'Skip'">
           Пройти позже
         </div>
       </template>
-      <template v-slot:toThird>
+      <template #toThird>
         <BigButton
-          @click="nameComponent = 'Third'"
           title="Продолжить"
           style="width: 236px; height: 48px"
+          @click="nameComponent = 'Third'"
         />
       </template>
-      <template v-slot:backToFirst>
-        <div class="auth__back__btn" v-on:click="nameComponent = ''">
+      <template #backToFirst>
+        <div class="auth__back__btn" @click="nameComponent = ''">
           <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </template>
-            <template v-slot:backToStageTwo>
-        <div class="auth__back__btn" v-on:click="nameComponent = 'Second'">
+      <template #backToStageTwo>
+        <div class="auth__back__btn" @click="nameComponent = 'Second'">
           <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </template>
-      <template v-slot:toFinish>
+      <template #toFinish>
         <BigButton
-          @click="nameComponent = 'Third'"
           title="Продолжить"
           style="width: 236px; height: 48px"
+          @click="nameComponent = 'Third'"
         />
       </template>
     </component>
   </keep-alive>
 </template>
-<script>
-import BigButton from "../Form/BigButton.vue";
-import Verification from "./VerificationFirst.vue";
-import VerificationSecond from "./VerificationSecond.vue";
-import VerificationThird from "./VerificationThird.vue";
-import VerificationSkip from "./VerificationSkip.vue";
-export default {
-  components: {
-    BigButton,
-    Verification,
-    VerificationSecond,
-    VerificationThird,
-    VerificationSkip
-  },
-  data() {
-    return {
-      nameComponent: "",
-    };
-  },
-  computed: {
-    changeStage() {
-      return "Verification" + this.nameComponent;
-    },
-  },
-};
-</script>
+
 <style lang="scss">
 .auth__back__btn {
   display: flex;

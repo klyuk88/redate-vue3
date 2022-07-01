@@ -1,13 +1,13 @@
+<script setup>
+const emit = defineEmits(['click'])
+</script>
+
 <template>
-  <button class="back-btn" @click="$emit('click')">
+  <button class="back-btn" @click="emit('click')">
     <img src="@/assets/images/main/arrow-left.svg" alt="" />
     <span>Назад</span>
   </button>
 </template>
-
-<script setup>
-const emit = defineEmits(['click'])
-</script>
 
 <style lang="scss">
 .back-btn {

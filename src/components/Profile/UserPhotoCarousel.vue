@@ -1,7 +1,11 @@
+<script setup>
+const emit = defineEmits([ 'hideModal' ])
+</script>
+
 <template>
-  <div class="album__block"   >
+  <div class="album__block">
     <div class="album__content">
-      <div class="button__carousel__right" >
+      <div class="button__carousel__right">
         <img src="@/assets/images/main/album__arrow__right.svg" alt="" />
       </div>
       <div class="album__photo__container">
@@ -31,18 +35,26 @@
         <img src="@/assets/images/main/album__arrow__left.svg" alt="" />
       </div>
     </div>
-    <div class="album__close" @click="$emit('hideModal')">
+    <div class="album__close" @click="emit('hideModal')">
       <img src="@/assets/images/main/close-album.svg" alt="" />
     </div>
   </div>
   <div class="mobile__album">
-      <img class="avatar" src="../../assets/images/main/album__main__avatar.png" alt="">
+    <img
+      class="avatar"
+      src="../../assets/images/main/album__main__avatar.png"
+      alt=""
+    />
 
     <div class="mobile__album__header">
       <router-link to="/userprofile">
         <div class="btn__back__block">
           <div class="btn__back">
-            <img class="arrow" src="../../assets/images/main/auth__back__arrow.svg" alt="" />
+            <img
+              class="arrow"
+              src="../../assets/images/main/auth__back__arrow.svg"
+              alt=""
+            />
           </div>
           <p>Назад</p>
         </div>
@@ -55,24 +67,27 @@
     <div class="mobile__album__footer">
       <div class="footer__btn__block">
         <div class="footer__btn">
-          <img class="logo" src="../../assets/images/main/album__make__avatar.svg" alt="" />
+          <img
+            class="logo"
+            src="../../assets/images/main/album__make__avatar.svg"
+            alt=""
+          />
           <p>Сделать аватаркой</p>
         </div>
         <div class="vertical__line"></div>
         <div class="footer__btn">
-          <img class="logo" src="../../assets/images/main/album__delete__photo.svg" alt="" />
+          <img
+            class="logo"
+            src="../../assets/images/main/album__delete__photo.svg"
+            alt=""
+          />
           <p>Удалить</p>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup>
-  import {ref} from 'vue'
-// const showModal = ref(false);
-const emit = defineEmits(['hideModal'])
-  
-</script>
+
 <style lang="scss" scoped>
 .mobile__album {
   display: none;
@@ -163,7 +178,7 @@ const emit = defineEmits(['hideModal'])
   cursor: pointer;
 }
 .photo__frame__carousel__counter {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -282,13 +297,13 @@ const emit = defineEmits(['hideModal'])
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-  .vertical__line {
-        border: 0.256vw solid rgba(255, 255, 255, 0.14);
-        height: 8.717vw;
-        width: 0px;
-        position: relative;
-        left: 0;
-  }
+    .vertical__line {
+      border: 0.256vw solid rgba(255, 255, 255, 0.14);
+      height: 8.717vw;
+      width: 0px;
+      position: relative;
+      left: 0;
+    }
     .footer__btn__block {
       display: flex;
       align-items: center;

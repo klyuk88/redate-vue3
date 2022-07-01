@@ -1,5 +1,23 @@
+<script setup>
+import UserPhotoCarousel from './UserPhotoCarousel.vue'
+import ProfileNewMessage from './ProfileNewMessage.vue'
+import ProfilePopupMore from './ProfilePopupMore.vue'
+import { ref } from 'vue'
+
+import { useStore } from '@/stores/main.js'
+const store = useStore()
+
+const showModal = ref(false)
+const showModalMore = ref(false)
+const notificationStatus = false
+const notificationStageTwo = false
+const notificationStageThree = false
+const notificationStageFour = false
+const notificationStageFive = false
+</script>
+
 <template>
-  <UserPhotoCarousel v-if="showModal" @hideModal="showModal = false" />
+  <UserPhotoCarousel v-if="showModal" @hide-modal="showModal = false" />
   <ProfileNewMessage v-if="store.newMessageWindow" />
   <div class="profile__page">
     <div class="nav__box">
@@ -17,7 +35,7 @@
       <div class="background">
         <ProfilePopupMore
           v-if="showModalMore"
-          @hideModalMore="showModalMore = false"
+          @hide-modal-more="showModalMore = false"
         />
         <div
           class="photo"
@@ -172,7 +190,7 @@
       </div>
     </div>
     <div class="right__side">
-      <div class="profile" @click.self="close">
+      <div class="profile" @click.self="close()">
         <div
           class="profile__info"
           :class="{ notification__unblur: notificationStatus }"
@@ -221,10 +239,7 @@
           />
           <div class="profile__info__filter">
             <div class="profile__info__filter__block">
-              <div
-                class="profile__info__filter__icon"
-                @click="modalDescrVisible"
-              >
+              <div class="profile__info__filter__icon">
                 <img src="@/assets/images/main/description.svg" alt="" />
               </div>
               <div class="profile__info__filter__description">
@@ -427,23 +442,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import UserPhotoCarousel from "./UserPhotoCarousel.vue";
-import ProfileNewMessage from "./ProfileNewMessage.vue";
-import ProfilePopupMore from "./ProfilePopupMore.vue";
-import { ref } from "vue";
 
-import { useStore } from "@/stores/main.js";
-const store = useStore();
-
-const showModal = ref(false);
-const showModalMore = ref(false);
-const notificationStatus = false;
-const notificationStageTwo = false;
-const notificationStageThree = false;
-const notificationStageFour = false;
-const notificationStageFive = false;
-</script>
 <style lang="scss">
 .text {
   font-weight: 600;
@@ -1167,7 +1166,7 @@ const notificationStageFive = false;
       .logo__title {
         display: contents;
         h1 {
-          font-family: "Myanmar MN";
+          font-family: 'Myanmar MN';
           font-style: normal;
           font-weight: 400;
           font-size: 4.1vw;

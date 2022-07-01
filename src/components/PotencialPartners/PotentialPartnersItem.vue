@@ -1,18 +1,26 @@
-<template>
+<script setup>
+import { useStore } from '@/stores/main.js'
+const store = useStore()
+</script>
 
+<template>
   <div class="potential-partners-item">
-      <a href="/profile/:user">
-        <div class="image-wrap">
-      <img src="@/assets/images/main/partner-avatar.png" alt="" />
-    </div>
-      </a>
+    <a href="/profile/:user">
+      <div class="image-wrap">
+        <img src="@/assets/images/main/partner-avatar.png" alt="" />
+      </div>
+    </a>
 
     <div class="name-wrap">
       <div class="name-adress">
         <h2 class="name">Олег, <span class="age">33</span></h2>
         <p class="adress">Москва, Россия</p>
       </div>
-      <a href="#" class="dialog-btn" @click.prevent="store.newMessageWindow = true">
+      <a
+        href="#"
+        class="dialog-btn"
+        @click.prevent="store.newMessageWindow = true"
+      >
         <img
           src="@/assets/images/main/dialog-icon.svg"
           alt=""
@@ -22,10 +30,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import {useStore} from '@/stores/main.js'
-const store = useStore()
-</script>
+
 <style lang="sass">
 .potential-partners-item
     padding: 4px
@@ -64,7 +69,7 @@ const store = useStore()
                 color: #fff
                 opacity: 0.3
         .dialog-btn
-            border-radius: 14px 
+            border-radius: 14px
             border: 1px solid rgba(255,255,255,0.14)
         .dialog-icon
             padding: 10px 20px

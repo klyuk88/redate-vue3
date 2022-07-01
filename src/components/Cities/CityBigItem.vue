@@ -1,39 +1,43 @@
+<script setup>
+defineProps({
+  city: {
+    type: String,
+    required: true,
+  },
+  totalRegistered: {
+    type: Number,
+    required: true,
+  },
+  newUsers: {
+    type: Number,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <div class="city-slide">
     <div class="data">
       <p class="city">
-        <img src="@/assets/images/main/location-icon.svg" alt="Иконка локации" /> {{ props.city }}
+        <img
+          src="@/assets/images/main/location-icon.svg"
+          alt="Иконка локации"
+        />
+        {{ city }}
       </p>
       <div class="item">
-        <p class="numbers">{{ props.totalRegistered }}</p>
+        <p class="numbers">{{ totalRegistered }}</p>
         <p class="subtitle">Зарегистрировано</p>
       </div>
       <div class="decor-line"></div>
       <div class="item">
-        <p class="numbers">{{ props.newUsers }}</p>
+        <p class="numbers">{{ newUsers }}</p>
         <p class="subtitle">Новых пользователей</p>
       </div>
     </div>
-    <img src="@/assets/images/main/city-1.jpg" :alt="props.city" class="city-photo" />
+    <img src="@/assets/images/main/city-1.jpg" :alt="city" class="city-photo" />
   </div>
 </template>
-
-<script setup>
-const props = defineProps({
-  city: {
-    type: String,
-    required: true
-  },
-  totalRegistered: {
-    type: Number,
-    required: true
-  },
-  newUsers: {
-    type: Number,
-    required: true
-  }
-})
-</script>
 
 <style>
 .city-slide {
@@ -67,30 +71,30 @@ const props = defineProps({
   /* padding: 0 25px; */
 }
 .city-slide .city {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    margin-bottom: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 19px;
 }
 .city-slide .data > .item .numbers {
-    font-size: 32px;
-    font-weight: 800;
+  font-size: 32px;
+  font-weight: 800;
 }
 .city-slide .data > .item .subtitle {
-    font-size: 12px;
-    font-weight: 600;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .city-slide .data > .decor-line {
-    width: 50%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.14);
-    margin: 0 auto;
-    margin-top: 5px;
+  width: 50%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  margin: 0 auto;
+  margin-top: 5px;
 }
 @media (max-width: 1200px) {
   .city-slide {

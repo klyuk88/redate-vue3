@@ -1,3 +1,11 @@
+<script setup>
+import { useStore } from '@/stores/main.js'
+const store = useStore()
+const openNewMess = () => {
+  store.newMessageWindow = true
+}
+</script>
+
 <template>
   <div class="potencial-item-mobile">
     <div class="photo-block">
@@ -37,7 +45,7 @@
         <p class="adress">Москва, Россия</p>
       </div>
       <div class="icons-block">
-        <div class="icon" @click="openNewMess">
+        <div class="icon" @click="openNewMess()">
           <img src="@/assets/images/main/dialog-icon.svg" alt="" />
         </div>
         <div class="icon">
@@ -47,14 +55,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import {useStore} from '@/stores/main.js'
-const store = useStore()
-const openNewMess = () => {
-  store.newMessageWindow = true
-}
 
-</script>
 <style lang="scss">
 .potencial-item-mobile {
   padding: 8px;

@@ -16,17 +16,17 @@
         />
         <p class="format__title">Серьзные отношения</p>
       </div>
-      <p class="about">Идейные соображения высшего порядка, а также сложившаяся структура организации требуют от нас анализа систем массового</p>
+      <p class="about">
+        Идейные соображения высшего порядка, а также сложившаяся структура
+        организации требуют от нас анализа систем массового
+      </p>
       <div class="time-and-btn">
-          <p class="time">2 минуты назад</p>
-          <a href="#"><button class="min-btn">Интересно</button></a>
+        <p class="time">2 минуты назад</p>
+        <a href="#"><button class="min-btn">Интересно</button></a>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-</script>
 
 <style lang="sass" scoped>
 .mailing-item
@@ -105,5 +105,4 @@
         color: #fff
         @media (max-width: 1200px)
           display: none
-
 </style>

@@ -1,3 +1,29 @@
+<script setup>
+import { useAuthStore } from '@/stores/auth.js'
+import { ref, reactive } from 'vue'
+
+const useAuth = useAuthStore()
+
+const authForm = reactive({
+  login: null,
+  password: null,
+})
+
+const authorization = () => {
+  useAuth.authUser(authForm)
+}
+
+const isClicked = ref(false)
+const focusInput = ref(false)
+
+function showPass() {
+  let inputType = document.querySelectorAll('#myInput')
+  inputType.forEach((e) => {
+    e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
+  })
+}
+</script>
+
 <template>
   <div class="auth__background">
     <div class="auth__page">
@@ -7,7 +33,7 @@
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </router-link>
-      <form @submit.prevent="authorization" class="auth-form">
+      <form class="auth-form" @submit.prevent="authorization()">
         <div class="auth__block">
           <div class="" :class="{ animated__border: isClicked }"></div>
           <div class="auth__input__box">
@@ -21,28 +47,28 @@
                 </div>
                 <div class="inputs">
                   <input
+                    v-model="authForm.login"
                     class="input"
                     type="text"
                     placeholder="Электронная почта"
-                    v-model="authForm.login"
                     @focus="focusInput = false"
                   />
                   <div class="input__password">
                     <input
+                      id="myInput"
+                      v-model="authForm.password"
                       class="input pass"
                       type="password"
                       placeholder="Пароль"
-                      v-model="authForm.password"
-                      id="myInput"
                       @focus="focusInput = true"
                     />
                     <input
                       id="eye"
                       class="eye"
                       type="checkbox"
-                      @click="showPass"
+                      @click="showPass()"
                     />
-                    <label for="eye" :class="{visible : focusInput}"></label>
+                    <label for="eye" :class="{ visible: focusInput }"></label>
                   </div>
                   <span :class="{ error__auth: useAuth.error }">{{
                     useAuth.error
@@ -68,49 +94,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import { useAuthStore } from "@/stores/auth.js";
-import { ref, reactive, onMounted } from "vue";
-const useAuth = useAuthStore();
-const authForm = reactive({
-  login: null,
-  password: null,
-});
-const authorization = () => {
-  useAuth.authUser(authForm);
-};
-const isClicked = ref(false);
-const focusInput = ref(false)
 
-function showPass() {
-  let inputType = document.querySelectorAll("#myInput");
-  inputType.forEach((e) => {
-    e.type === "password" ? (e.type = "text") : (e.type = "password");
-  });
-}
-</script>
-
-<script>
-// export default {
-//   data() {
-//     return {
-//       hasError: true,
-//       isClicked: false,
-//     };
-//   },
-//   computed: {
-//     error() {
-//       if (this.hasError === true) {
-//         return "error__auth";
-//       }
-//       return "test";
-//     },
-//     waveAnim() {
-//       return (this.isClicked = !this.isClicked);
-//     },
-//   },
-// };
-</script>
 <style lang="scss">
 .auth__back__btn {
   @extend .flex__center;
@@ -129,7 +113,7 @@ function showPass() {
   }
 }
 .text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 34px;
@@ -146,7 +130,7 @@ function showPass() {
   height: unset;
 }
 .text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 34px;
@@ -259,7 +243,7 @@ span {
   }
 }
 .input__password {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -274,7 +258,7 @@ span {
   justify-content: center;
 }
 .input {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -307,7 +291,6 @@ span {
   position: relative;
   z-index: -1;
   opacity: 0;
-
 }
 label {
   position: relative;
@@ -323,7 +306,7 @@ label {
     display: inline-flex;
   }
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 24px;
     height: 24px;

@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__page">
@@ -22,9 +26,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss" scoped>
 .signup__background {
   background: rgba(0, 0, 0, 0.6);

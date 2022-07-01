@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="signup__background">
     <router-link to="/account/:user" class="auth__back__btn">
@@ -63,9 +67,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss">
 .verification__page {
   height: 755px;

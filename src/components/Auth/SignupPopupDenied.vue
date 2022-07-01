@@ -1,3 +1,7 @@
+<script setup>
+import BigButton from '../Form/BigButton.vue'
+</script>
+
 <template>
   <div class="background__age">
     <div class="web__version">
@@ -34,21 +38,21 @@
         Благодарим за честный ответ! Мы с нетерпением ждем Вас, когда вы
         достигнитесвоего соврешеннолетия!
       </p>
-              <router-link to="/">
-          <BigButton
-            title="Спасибо!"
-            style="
-              width: 335px;
-              height: 48px;
-              font-family: 'Mulish';
-              font-style: normal;
-              font-weight: 600;
-              font-size: 16px;
-              line-height: 153.5%;
-              margin: 0px 0 201px 0;
-            "
-          />
-        </router-link>
+      <router-link to="/">
+        <BigButton
+          title="Спасибо!"
+          style="
+            width: 335px;
+            height: 48px;
+            font-family: 'Mulish';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 153.5%;
+            margin: 0px 0 201px 0;
+          "
+        />
+      </router-link>
       <div class="footer__age__redirect">
         <p>Есть учетная запись?</p>
         <router-link to="/auth">
@@ -66,9 +70,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import BigButton from "../Form/BigButton.vue";
-</script>
+
 <style lang="scss">
 .mobile__version {
   display: none;

@@ -24,11 +24,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-const done = ref(true);
 
-</script>
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
@@ -58,10 +54,10 @@ const done = ref(true);
 }
 h1 {
   line-height: 153.5%;
-color: #FFFFFF;
-font-weight: 600;
-font-size: 16px;
-line-height: 153.5%;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 153.5%;
 }
 
 .check-sign {
@@ -98,7 +94,6 @@ line-height: 153.5%;
   opacity: 0;
   top: 47px;
   transform-origin: 0 10px;
-
 }
 
 input {
@@ -147,9 +142,9 @@ label {
   }
   h1 {
     width: 310px;
-      font-weight: 600;
-font-size: 24px;
-line-height: 30px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
   }
 }
 </style>

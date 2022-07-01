@@ -1,11 +1,30 @@
+<script setup>
+import { ref } from 'vue'
+import ProfilePopupHide from './ProfilePopupHide.vue'
+import ProfilePopupBan from './ProfilePopupBan.vue'
+import ProfilePopupReport from './ProfilePopupReport.vue'
+
+const modalBanVisible = ref(false)
+const modalHideVisible = ref(false)
+const modalReportVisible = ref(false)
+
+const emit = defineEmits([ 'hideModalMore' ])
+</script>
+
 <template>
-  <ProfilePopupBan v-if="modalBanVisible" @hideModalBan="modalBanVisible = false" />
-  <ProfilePopupHide v-if="modalHideVisible" @hideModalHide="modalHideVisible = false" />
+  <ProfilePopupBan
+    v-if="modalBanVisible"
+    @hide-modal-ban="modalBanVisible = false"
+  />
+  <ProfilePopupHide
+    v-if="modalHideVisible"
+    @hide-modal-hide="modalHideVisible = false"
+  />
   <ProfilePopupReport
     v-if="modalReportVisible"
-    @hideModalReport="modalReportVisible = false"
+    @hide-modal-report="modalReportVisible = false"
   />
-  <div class="more__menu__background" @click.self="$emit('hideModalMore')">
+  <div class="more__menu__background" @click.self="emit('hideModalMore')">
     <div class="more__menu__block">
       <div class="more__menu__content">
         <div class="more__menu__box">
@@ -39,21 +58,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import ProfilePopupHide from "./ProfilePopupHide.vue";
-import ProfilePopupBan from "./ProfilePopupBan.vue";
-import ProfilePopupReport from "./ProfilePopupReport.vue";
 
-import { ref } from 'vue'
-const modalBanVisible = ref(false);
-const modalHideVisible = ref(false);
-const modalReportVisible = ref(false);
-
-const emit = defineEmits(['hideModalMore'])
- 
-
-
-</script>
 <style>
 .more__menu__background {
   width: 100%;
@@ -92,7 +97,7 @@ const emit = defineEmits(['hideModalMore'])
   margin-right: 12px;
 }
 .menu__title {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

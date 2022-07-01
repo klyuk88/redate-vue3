@@ -1,3 +1,15 @@
+<script setup>
+import { ref } from 'vue'
+import BigButton from '@/components/Form/BigButton.vue'
+
+const formatsOpen = ref(false)
+const formatsValue = ref([])
+
+const resetValue = (idx) => {
+  formatsValue.value.splice(idx, 1)
+}
+</script>
+
 <template>
   <div id="formats" :class="{ open: formatsOpen }">
     <ul class="items">
@@ -9,10 +21,10 @@
         <label for="first">
           <p class="label">Пункт первый</p>
           <input
-            type="checkbox"
             id="first"
-            value="Первый"
             v-model="formatsValue"
+            type="checkbox"
+            value="Первый"
           />
           <div class="checkbox">
             <img src="@/assets/images/main/checkbox.svg" alt="" />
@@ -23,10 +35,10 @@
         <label for="second">
           <p class="label">Пункт второй</p>
           <input
-            type="checkbox"
             id="second"
-            value="Второй"
             v-model="formatsValue"
+            type="checkbox"
+            value="Второй"
           />
           <div class="checkbox">
             <img src="@/assets/images/main/checkbox.svg" alt="" />
@@ -37,10 +49,10 @@
         <label for="third">
           <p class="label">Пункт третий</p>
           <input
-            type="checkbox"
             id="third"
-            value="Третий"
             v-model="formatsValue"
+            type="checkbox"
+            value="Третий"
           />
           <div class="checkbox">
             <img src="@/assets/images/main/checkbox.svg" alt="" />
@@ -49,27 +61,21 @@
       </li>
     </ul>
     <div class="btn-wrap">
-      <BigButton :title="'Выбрать'" />
+      <BigButton title="Выбрать" />
     </div>
   </div>
-  
-  <div id="selected-meaning" v-if="formatsValue.length">
-    <div class="item" v-for="(item, idx) in formatsValue" :key="idx">
-      <span>{{item}}</span>
-      <img src="@/assets/images/main/carbon_close.svg" alt="" @click="resetValue(idx)"/>
+
+  <div v-if="formatsValue.length" id="selected-meaning">
+    <div v-for="(item, idx) in formatsValue" :key="idx" class="item">
+      <span>{{ item }}</span>
+      <img
+        src="@/assets/images/main/carbon_close.svg"
+        alt=""
+        @click="resetValue(idx)"
+      />
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, computed } from "vue";
-import BigButton from "@/components/Form/BigButton.vue";
-const formatsOpen = ref(false);
-const formatsValue = ref([]);
-const resetValue = (idx) => {
-  formatsValue.value.splice(idx, 1)
-}
-</script>
 
 <style lang="scss">
 #formats {

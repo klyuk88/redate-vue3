@@ -1,3 +1,31 @@
+<script setup>
+import { ref } from 'vue'
+import vSelect from 'vue-select'
+
+defineProps({
+  options: {
+    type: Array,
+    default: () => {},
+  },
+  placeholder: {
+    type: String,
+    default: 'Выберите значение',
+  },
+  value: {
+    type: String,
+    default: '',
+  },
+  zIndex: {
+    type: Number,
+    default: 0,
+  },
+})
+
+const emit = defineEmits(['input'])
+
+const selectOpen = ref(false)
+</script>
+
 <template>
   <v-select
     class="form-selecet"
@@ -6,7 +34,7 @@
     :options="options"
     :placeholder="placeholder"
     :value="value"
-    @input="$emit('input', value)"
+    @input="emit('input', value)"
     @open="selectOpen = true"
     @close="selectOpen = false"
   >
@@ -31,24 +59,6 @@
     <template #no-options="{}">Совпадений не найдено</template>
   </v-select>
 </template>
-
-<script setup>
-import vSelect from "vue-select";
-import { ref } from "vue";
-const props = defineProps({
-  options: {
-    type: Array,
-    default: ['Option 1','Option 2','Option 3']
-  },
-  placeholder: {
-    type: String,
-    default: 'Выберите значение'
-  },
-  value: String,
-  zIndex: Number
-});
-const selectOpen = ref(false);
-</script>
 
 <style lang="scss">
 .form-selecet {
@@ -80,7 +90,7 @@ const selectOpen = ref(false);
 .vs__search::placeholder {
   color: rgba(255, 255, 255, 0.3);
   font-size: 16px;
-  font-family: "Mulish";
+  font-family: 'Mulish';
 }
 
 .vs__clear {

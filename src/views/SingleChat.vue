@@ -1,3 +1,13 @@
+<script setup>
+import DialogSidebar from '@/components/Chat/DialogSidebar.vue'
+import BackLink from '@/components/Search/BackLink.vue'
+import NewMessage from '@/components/Chat/NewMessage.vue'
+import MessageItem from '@/components/Chat/MessageItem.vue'
+import MoreActions from '@/components/Chat/MoreActions.vue'
+import NewMessageMobile from '@/components/Chat/NewMessageMobile.vue'
+import MobileMessageItem from '@/components/Chat/MobileMessageItem.vue'
+</script>
+
 <template>
   <section id="dialog" class="single-chat">
     <div id="di-mobile-content">
@@ -20,7 +30,7 @@
       <div class="mobile-message-list with-scroll">
         <MobileMessageItem
           :right="true"
-          :message="'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis, nulla sed atque provident eius natus repellat at libero praesentium illo, velit quam reiciendis quaerat vel asperiores dolore voluptatum ea.'"
+          message="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus omnis, nulla sed atque provident eius natus repellat at libero praesentium illo, velit quam reiciendis quaerat vel asperiores dolore voluptatum ea."
         />
         <MobileMessageItem />
         <MobileMessageItem :right="true" />
@@ -49,7 +59,12 @@
         </div>
 
         <div class="search-results">
-          <img src="@/assets/images/back_arr.svg" alt="" class="s-ch-back" @click="$router.go(-1)"/>
+          <img
+            src="@/assets/images/back_arr.svg"
+            alt=""
+            class="s-ch-back"
+            @click="$router.go(-1)"
+          />
           <div class="s-ch-status-data">
             <div class="s-ch-avatar-wrap">
               <img
@@ -78,21 +93,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import BackLink from "@/components/Search/BackLink.vue";
-import NewMessage from "@/components/Chat/NewMessage.vue";
-import MessageItem from "@/components/Chat/MessageItem.vue";
-import MoreActions from "@/components/Chat/MoreActions.vue";
-import NewMessageMobile from "@/components/Chat/NewMessageMobile.vue";
-import MobileMessageItem from "@/components/Chat/MobileMessageItem.vue";
-
-import { computed, ref, onMounted, onUnmounted } from "vue";
-
-const message = ref(null);
-</script>
 
 <style lang="scss" scoped>
 #dialog {
@@ -313,7 +313,7 @@ const message = ref(null);
         overflow: hidden;
         background: rgba($color: #1c1d21, $alpha: 1);
         z-index: -1;
-        
+
         img {
           position: absolute;
           width: 100%;
@@ -323,7 +323,6 @@ const message = ref(null);
           top: 0;
           filter: saturate(0) blur(15px);
           opacity: 0.15;
-
         }
       }
     }

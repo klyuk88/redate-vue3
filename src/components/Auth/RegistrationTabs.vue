@@ -1,10 +1,32 @@
+<script setup>
+import { ref, computed } from 'vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopupFirst from './SignupPopupFirst.vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopupSecond from './SignupPopupSecond.vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopupThird from './SignupPopupThird.vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopupFourth from './SignupPopupFourth.vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopupFive from './SignupPopupFive.vue'
+import BigButton from '../Form/BigButton.vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopup from './SignupPopup.vue'
+// eslint-disable-next-line no-unused-vars
+import SignupPopupDenied from './SignupPopupDenied.vue'
+
+const nameComponent = ref('')
+
+const changeComponent = computed(() => 'SignupPopup' + nameComponent.value)
+</script>
+
 <template>
   <div>
     <keep-alive>
       <component :is="changeComponent">
-        <template v-slot:firstPhase>
+        <template #firstPhase>
           <BigButton
-            @click="nameComponent = 'First'"
             title="Да, мне есть 18"
             style="
               width: 193px;
@@ -15,11 +37,11 @@
               font-size: 16px;
               line-height: 153.5%;
             "
+            @click="nameComponent = 'First'"
           />
         </template>
-        <template v-slot:toDenied>
+        <template #toDenied>
           <BigButton
-            @click="nameComponent = 'Denied'"
             title="Нет, мне нет 18"
             style="
               width: 193px;
@@ -35,11 +57,11 @@
               border-radius: 11px;
               background: none;
             "
+            @click="nameComponent = 'Denied'"
           />
         </template>
-        <template v-slot:toDeniedMobile>
+        <template #toDeniedMobile>
           <BigButton
-            @click="nameComponent = 'Denied'"
             title="Нет, мне нет 18"
             style="
               display: flex;
@@ -56,11 +78,11 @@
               margin: 16px 0 141px 0;
               background: none;
             "
+            @click="nameComponent = 'Denied'"
           />
         </template>
-        <template v-slot:firstPhaseMobile>
+        <template #firstPhaseMobile>
           <BigButton
-            @click="nameComponent = 'First'"
             title="Да, мне есть 18"
             style="
               width: 335px;
@@ -71,18 +93,18 @@
               font-size: 16px;
               line-height: 153.5%;
             "
+            @click="nameComponent = 'First'"
           />
         </template>
-        <template v-slot:secondPhase>
+        <template #secondPhase>
           <BigButton
-            @click="nameComponent = 'Second'"
             title="Продолжить"
             style="width: 236px; height: 48px"
+            @click="nameComponent = 'Second'"
           />
         </template>
-        <template v-slot:secondPhaseMobile>
+        <template #secondPhaseMobile>
           <BigButton
-            @click="nameComponent = 'Second'"
             title="Продолжить"
             style="
               width: 85.89vw;
@@ -90,18 +112,18 @@
               margin-top: 8.2vw;
               margin-bottom: 6.15vw;
             "
+            @click="nameComponent = 'Second'"
           />
         </template>
-        <template v-slot:thirdPhase>
+        <template #thirdPhase>
           <BigButton
-            @click="nameComponent = 'Third'"
             title="Продолжить"
             style="width: 236px; height: 48px"
+            @click="nameComponent = 'Third'"
           />
         </template>
-        <template v-slot:thirdPhaseMobile>
+        <template #thirdPhaseMobile>
           <BigButton
-            @click="nameComponent = 'Third'"
             title="Продолжить"
             style="
               width: 85.89vw;
@@ -109,9 +131,10 @@
               margin-top: 12.3vw;
               margin-bottom: 6.15vw;
             "
+            @click="nameComponent = 'Third'"
           />
         </template>
-        <template v-slot:backStartPage>
+        <template #backStartPage>
           <router-link to="/">
             <div class="auth__back__btn">
               <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
@@ -119,32 +142,32 @@
             </div>
           </router-link>
         </template>
-        <template v-slot:backPhaseOne>
+        <template #backPhaseOne>
           <div class="auth__back__btn" @click="nameComponent = 'First'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
-        <template v-slot:backPhaseOneMobile>
+        <template #backPhaseOneMobile>
           <div class="auth__back__btn__mobile" @click="nameComponent = 'First'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:fourthPhase>
+        <template #fourthPhase>
           <BigButton
-            @click="nameComponent = 'Fourth'"
             title="Продолжить"
             style="width: 236px; height: 48px"
+            @click="nameComponent = 'Fourth'"
           />
         </template>
-        <template v-slot:fourthPhaseMobile>
+        <template #fourthPhaseMobile>
           <BigButton
-            @click="nameComponent = 'Fourth'"
             title="Продолжить"
             style="width: 85.89vw; height: 15.38vw; margin-bottom: 6.15vw"
+            @click="nameComponent = 'Fourth'"
           />
         </template>
-        <template v-slot:backPhaseTwoMobile>
+        <template #backPhaseTwoMobile>
           <div
             class="auth__back__btn__mobile"
             @click="nameComponent = 'Second'"
@@ -152,48 +175,48 @@
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:backPhaseTwo>
+        <template #backPhaseTwo>
           <div class="auth__back__btn" @click="nameComponent = 'Second'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
-        <template v-slot:mobileSkip>
+        <template #mobileSkip>
           <p class="skip" @click="nameComponent = 'Fourth'">Пропустить</p>
         </template>
-        <template v-slot:fivePhase>
+        <template #fivePhase>
           <BigButton
-            @click="nameComponent = 'Five'"
             title="Продолжить"
             style="width: 236px; height: 48px"
+            @click="nameComponent = 'Five'"
           />
         </template>
-        <template v-slot:fivePhaseMobile>
+        <template #fivePhaseMobile>
           <BigButton
-            @click="nameComponent = 'Five'"
             title="Продолжить"
             style="width: 85.89vw; height: 15.38vw; margin-bottom: 6.15vw"
+            @click="nameComponent = 'Five'"
           />
         </template>
-        <template v-slot:backPhaseThreeMobile>
+        <template #backPhaseThreeMobile>
           <div class="auth__back__btn__mobile" @click="nameComponent = 'Third'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:backPhaseThree>
+        <template #backPhaseThree>
           <div class="auth__back__btn" @click="nameComponent = 'Third'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
           </div>
         </template>
-        <template v-slot:choosePhase>
+        <template #choosePhase>
           <BigButton
-            @click="nameComponent = 'Six'"
             title="Загрузить с компьютера"
             style="width: 228px; height: 35px"
+            @click="nameComponent = 'Six'"
           />
         </template>
-        <template v-slot:backPhaseFourthMobile>
+        <template #backPhaseFourthMobile>
           <div
             class="auth__back__btn__mobile"
             @click="nameComponent = 'Fourth'"
@@ -201,7 +224,7 @@
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
           </div>
         </template>
-        <template v-slot:backPhaseFour>
+        <template #backPhaseFour>
           <div class="auth__back__btn" @click="nameComponent = 'Fourth'">
             <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             <h1 class="auth__back__btn__title">Назад</h1>
@@ -211,38 +234,7 @@
     </keep-alive>
   </div>
 </template>
-<script>
-import SignupPopupFirst from "./SignupPopupFirst.vue";
-import SignupPopupSecond from "./SignupPopupSecond.vue";
-import SignupPopupThird from "./SignupPopupThird.vue";
-import SignupPopupFourth from "./SignupPopupFourth.vue";
-import SignupPopupFive from "./SignupPopupFive.vue";
-import BigButton from "../Form/BigButton.vue";
-import SignupPopup from "./SignupPopup.vue";
-import SignupPopupDenied from "./SignupPopupDenied.vue";
-export default {
-  components: {
-    SignupPopup,
-    SignupPopupFirst,
-    SignupPopupSecond,
-    SignupPopupThird,
-    SignupPopupFourth,
-    SignupPopupFive,
-    BigButton,
-    SignupPopupDenied,
-  },
-  data() {
-    return {
-      nameComponent: "",
-    };
-  },
-  computed: {
-    changeComponent() {
-      return "SignupPopup" + this.nameComponent;
-    },
-  },
-};
-</script>
+
 <style lang="scss">
 .auth__back__btn {
   display: flex;

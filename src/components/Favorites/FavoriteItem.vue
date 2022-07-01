@@ -13,7 +13,7 @@
           <p class="adress">Москва, Россия</p>
         </div>
         <button class="btn">
-          <img src="@/assets/images/white-star.svg" alt="" class="white-icon"/>
+          <img src="@/assets/images/white-star.svg" alt="" class="white-icon" />
           <img
             src="@/assets/images/star-icon.svg"
             alt=""
@@ -25,9 +25,6 @@
     </div>
   </router-link>
 </template>
-
-<script setup>
-</script>
 
 <style lang="scss">
 .favorite-item {
@@ -99,7 +96,7 @@
   }
 }
 .favorite-item:hover {
-  outline: 2px solid #2965FF;
+  outline: 2px solid #2965ff;
   box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
 }
 .favorite-item.diamond:hover {

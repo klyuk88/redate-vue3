@@ -1,12 +1,13 @@
+<script setup>
+import VerificationTabs from '../components/Auth/VerificationTabs.vue'
+</script>
+
 <template>
   <div class="content__container__ver">
-<VerificationTabs />
+    <VerificationTabs />
   </div>
 </template>
-<script setup>
-import VerificationTabs from '../components/Auth/VerificationTabs.vue';
 
-</script>
 <style lang="scss">
 .content__container__ver {
   display: flex;
@@ -16,5 +17,4 @@ import VerificationTabs from '../components/Auth/VerificationTabs.vue';
   height: 100vh;
   width: 100vw;
 }
-
 </style>

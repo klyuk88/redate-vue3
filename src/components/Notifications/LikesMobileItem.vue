@@ -1,9 +1,21 @@
+<script setup>
+import { ref } from 'vue'
+const deliteShow = ref(false)
+
+const swipeHandlerLeft = () => {
+  deliteShow.value = true
+}
+const swipeHandlerRight = () => {
+  deliteShow.value = false
+}
+</script>
+
 <template>
   <div
-    class="likes-mobile-item"
-    :class="{ deliteShow: deliteShow }"
     v-touch:swipe.left="swipeHandlerLeft"
     v-touch:swipe.right="swipeHandlerRight"
+    class="likes-mobile-item"
+    :class="{ deliteShow: deliteShow }"
   >
     <div class="m-mess_item" :class="{ 'm-new': false }">
       <div class="m-mess_item-img">
@@ -33,18 +45,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-const deliteShow = ref(false);
-
-const swipeHandlerLeft = () => {
-  deliteShow.value = true;
-};
-const swipeHandlerRight = () => {
-  deliteShow.value = false;
-};
-</script>
 
 <style lang="scss">
 .likes-mobile-item {
@@ -207,7 +207,7 @@ const swipeHandlerRight = () => {
   }
 
   .m-online {
-    content: "";
+    content: '';
     position: absolute;
     background: #2b66fb;
     width: 8px;

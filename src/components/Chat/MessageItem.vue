@@ -1,25 +1,21 @@
 <template>
-<div class="message-item">
-  <div class="avatar">
-    <img src="https://i.pinimg.com/236x/e1/ee/46/e1ee462e266376e66763b057596c62cf.jpg" alt="">
+  <div class="message-item">
+    <div class="avatar">
+      <img
+        src="https://i.pinimg.com/236x/e1/ee/46/e1ee462e266376e66763b057596c62cf.jpg"
+        alt=""
+      />
+    </div>
+    <div class="message-wrap">
+      <p class="author">Лёва</p>
+      <p class="message">
+        Далеко-далеко за словесными горами в стране гласных и согласных живут
+        рыбные тексты.
+      </p>
+    </div>
+    <span class="time"> 12:45 </span>
   </div>
-  <div class="message-wrap">
-    <p class="author">
-      Лёва
-    </p>
-    <p class="message">
-      Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.
-    </p>
-  </div>
-  <span class="time">
-    12:45
-  </span>
-</div>
-  
 </template>
-
-<script setup>
-</script>
 
 <style lang="scss">
 .message-item {
@@ -55,7 +51,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    
+
     img {
       position: absolute;
       width: 100%;
@@ -67,5 +63,4 @@
     }
   }
 }
-
 </style>

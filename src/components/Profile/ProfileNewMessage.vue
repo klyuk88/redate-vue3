@@ -1,5 +1,17 @@
+<script setup>
+import { useStore } from '@/stores/main.js'
+const store = useStore()
+const close = () => {
+  store.newMessageWindow = false
+}
+</script>
+
 <template>
-  <div class="profile__message__block" @click.self="close" @keydown.esc="close">
+  <div
+    class="profile__message__block"
+    @click.self="close()"
+    @keydown.esc="close()"
+  >
     <div class="profile__message__box">
       <div class="profile__message__container">
         <div class="profile__message__container__content">
@@ -15,7 +27,7 @@
             </div>
           </div>
           <div class="mobile__btn__box">
-            <div class="button__close" @click="close" >Отмена</div>
+            <div class="button__close" @click="close()">Отмена</div>
             <div class="profile__message__button">
               <div class="button__box">
                 <div class="button__text">Отправить</div>
@@ -25,24 +37,16 @@
           </div>
         </div>
       </div>
-      <div class="profile__message__close__button" @click="close">
+      <div class="profile__message__close__button" @click="close()">
         <img src="@/assets/images/main/close-message.svg" alt="" />
       </div>
     </div>
   </div>
 </template>
-<script setup>
-import {useStore} from '@/stores/main.js'
-const store = useStore()
-const close = () => {
-  store.newMessageWindow = false
-}
 
-
-</script>
 <style lang="scss">
 .text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;

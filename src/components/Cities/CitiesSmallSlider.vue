@@ -1,55 +1,24 @@
-<template>
-  <div class="small-slider-wrap">
-    <Swiper
-      :modules="[Navigation]"
-      :spaceBetween="16"
-      :slidesPerView="'auto'"
-      class="cities-small-slider"
-      :navigation="{
-        nextEl: '.small-slider-wrap .nav',
-      }"
-    >
-      <SwiperSlide
-        v-for="(usersStatistics, i) in processedUsersStatistics"
-        :key="i"
-      >
-        <CitiesSmallSliderItem 
-          v-for="(item, j) in usersStatistics"
-          :city="item.name"
-          :totalRegistered="item.cityAll"
-          :newUsers="item.cityNew"
-          @click="clickHandler(item)"
-        />
-      </SwiperSlide>
-    </Swiper>
-    
-    <img src="@/assets/images/main/arrow-rigth.svg" alt="Иконка стрелки вправо" class="nav" />
-  </div>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 import { Navigation } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
+import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
 import CitiesSmallSliderItem from '@/components/Cities/CitiesSmallSliderItem.vue'
-import 'swiper/swiper.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
 
 const props = defineProps({
   usersStatistics: {
     type: Array,
     required: true,
-  }
+  },
 })
 
-const emit = defineEmits(['redirect'])
+const emit = defineEmits([ 'redirect' ])
 
 const processedUsersStatistics = computed(() => {
   const size = 4
   const subArray = []
 
   for (let i = 0; i < Math.ceil(props.usersStatistics.length / size); i++) {
-    subArray[i] = props.usersStatistics.slice((i * size), (i * size) + size)
+    subArray[i] = props.usersStatistics.slice(i * size, i * size + size)
   }
 
   return subArray
@@ -59,6 +28,39 @@ const clickHandler = (item) => {
   emit('redirect', item)
 }
 </script>
+
+<template>
+  <div class="small-slider-wrap">
+    <Swiper
+      :modules="[
+Navigation
+]"
+      :space-between="16"
+      slides-per-view="auto"
+      class="cities-small-slider"
+      :navigation="{
+        nextEl: '.small-slider-wrap .nav',
+      }"
+    >
+      <SwiperSlide v-for="(usersStats, i) in processedUsersStatistics" :key="i">
+        <CitiesSmallSliderItem
+          v-for="(item, j) in usersStats"
+          :key="j"
+          :city="item.name"
+          :total-registered="item.cityAll"
+          :new-users="item.cityNew"
+          @click="clickHandler(item)"
+        />
+      </SwiperSlide>
+    </Swiper>
+
+    <img
+      src="@/assets/images/main/arrow-rigth.svg"
+      alt="Иконка стрелки вправо"
+      class="nav"
+    />
+  </div>
+</template>
 
 <style lang="scss">
 .small-slider-wrap {

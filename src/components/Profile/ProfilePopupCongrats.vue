@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="congrats__background">
     <div class="congrats__block">
@@ -19,7 +23,8 @@
             пользователями.
           </p>
           <p class="congrats__desc">
-            Статус «DIAMOND» невозможно купить. Оставайтесь такой же красивой, приятных Вам знакомств.
+            Статус «DIAMOND» невозможно купить. Оставайтесь такой же красивой,
+            приятных Вам знакомств.
           </p>
           <div class="congrats__btn">Посмотреть на свою анкету</div>
         </div>
@@ -27,9 +32,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss">
 .congrats__background {
   display: flex;
@@ -61,13 +64,13 @@ export default {};
   background: rgba(36, 37, 41, 0.6);
   box-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
   border-radius: 12px 12px 0px 0px;
-  border: 1px solid #F9AE3F;
+  border: 1px solid #f9ae3f;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .congrats__header__title {
-  font-family: "Palatino";
+  font-family: 'Palatino';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -98,12 +101,12 @@ export default {};
   height: 348px;
   background: rgba(36, 37, 41, 0.7);
   border-radius: 24px;
-  border: 1px solid #F9AE3F;
+  border: 1px solid #f9ae3f;
 }
 .congrats__logo {
 }
 .congrats__title {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -123,7 +126,7 @@ export default {};
   text-fill-color: transparent;
 }
 .congrats__text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -134,7 +137,7 @@ export default {};
   color: rgba(255, 255, 255, 0.6);
 }
 .congrats__desc {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -150,7 +153,7 @@ export default {};
   align-items: center;
   width: 244px;
   height: 34px;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

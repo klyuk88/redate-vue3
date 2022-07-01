@@ -10,7 +10,7 @@
         </p>
         <div class="btnBox">
           <slot name="firstPhase"></slot>
-        <slot name="toDenied"></slot>
+          <slot name="toDenied"></slot>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
     </div>
   </div>
 </template>
-<script setup></script>
+
 <style lang="scss" scoped>
 .mobile__version {
   display: none;
@@ -112,22 +112,22 @@
       align-items: baseline;
       p {
         margin: 0;
-        color: #77777A;
+        color: #77777a;
         width: unset;
         margin-right: 8px;
       }
     }
     .footer__age__desc {
       margin: 28px 0 60px 0;
-      p  {
+      p {
         width: 340px;
         font-weight: 600;
         font-size: 12px;
         line-height: 132.5%;
         text-align: center;
-        color: #77777A;
+        color: #77777a;
         span {
-           color: #2B66FB; 
+          color: #2b66fb;
         }
       }
     }

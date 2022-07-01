@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="diamond__lost__background">
     <div class="diamond__lost__block">
@@ -5,7 +9,7 @@
         <div class="diamond__lost__info">
           <h1 class="diamond__lost__title">Недостаточно средств</h1>
           <p class="diamond__lost__text">
-   У вас нехватает средств для совершения покупки.
+            У вас нехватает средств для совершения покупки.
           </p>
         </div>
         <div class="diamond__lost__buttons">
@@ -16,12 +20,10 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss" scoped>
 .text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -63,7 +65,7 @@ export default {};
   width: 246px;
 }
 .diamond__lost__title {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
   @extend .text;
 }
 .diamond__lost__text {
@@ -74,7 +76,6 @@ export default {};
   color: rgba(255, 255, 255, 0.6);
   width: 246px;
   margin-bottom: 16px;
-
 }
 .diamond__lost__buttons {
   display: flex;

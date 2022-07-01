@@ -13,7 +13,7 @@
     </div>
   </div>
 </template>
-<script setup></script>
+
 <style lang="scss">
 .background__delete__chat {
   height: 100vh;
@@ -79,14 +79,14 @@
 }
 @media (max-width: 1200px) {
   .container__delete__chat {
-      width: 335px;
-      .btn__block {
-          .btn {
-              width: 145px;
-              &.blue {
-              }
-          }
+    width: 335px;
+    .btn__block {
+      .btn {
+        width: 145px;
+        &.blue {
+        }
       }
+    }
   }
 }
 </style>

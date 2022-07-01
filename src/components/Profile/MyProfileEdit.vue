@@ -1,7 +1,15 @@
+<script setup>
+import { ref } from 'vue'
+import TheSelect from '../Form/TheSelect.vue'
+import SignupHobby from '@/components/Auth/SignupHobby.vue'
+
+const modalHobbyVisible = ref(false)
+</script>
+
 <template>
   <SignupHobby
     v-if="modalHobbyVisible"
-    @hideModalHobby="modalHobbyVisible = false"
+    @hide-modal-hobby="modalHobbyVisible = false"
   />
   <div class="background">
     <router-link to="/account/vasya">
@@ -359,9 +367,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section1"
           type="checkbox"
           name="example_accordion"
-          id="section1"
           class="accordion__input"
         />
         <label for="section1" class="accordion__label"
@@ -381,9 +389,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section2"
           type="checkbox"
           name="example_accordion"
-          id="section2"
           class="accordion__input"
         />
         <label for="section2" class="accordion__label">Параметры тела</label>
@@ -410,9 +418,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section3"
           type="checkbox"
           name="example_accordion"
-          id="section3"
           class="accordion__input"
         />
         <label for="section3" class="accordion__label"
@@ -425,9 +433,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section4"
           type="checkbox"
           name="example_accordion"
-          id="section4"
           class="accordion__input"
         />
         <label for="section4" class="accordion__label">Формат знакомтв</label>
@@ -473,9 +481,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section5"
           type="checkbox"
           name="example_accordion"
-          id="section5"
           class="accordion__input"
         />
         <label for="section5" class="accordion__label">Трачу в месяц</label>
@@ -496,9 +504,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section6"
           type="checkbox"
           name="example_accordion"
-          id="section6"
           class="accordion__input"
         />
         <label for="section6" class="accordion__label"
@@ -528,9 +536,9 @@
       </div>
       <div class="mobile__dropdown">
         <input
+          id="section7"
           type="checkbox"
           name="example_accordion"
-          id="section7"
           class="accordion__input"
         />
         <label for="section7" class="accordion__label"
@@ -619,9 +627,9 @@
       </div>
       <div class="mobile__dropdown last">
         <input
+          id="section8"
           type="checkbox"
           name="example_accordion"
-          id="section8"
           class="accordion__input"
         />
         <label for="section8" class="accordion__label">О себе</label>
@@ -632,18 +640,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import TheSelect from "../Form/TheSelect.vue";
-// import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
-import MyProfileSettings from "@/components/Profile/MyProfileSettings.vue";
 
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import { ref } from "vue";
-const isClicked = ref(false);
-const modalHobbyVisible = ref(false);
-
-// export default { components: { TheSelect } };
-</script>
 <style lang="scss" scoped>
 .flex__center {
   display: flex;
@@ -773,7 +770,7 @@ const modalHobbyVisible = ref(false);
           }
         }
         .input {
-          font-family: "Mulish";
+          font-family: 'Mulish';
           width: 326px;
           height: 60px;
           background: none;
@@ -790,7 +787,7 @@ const modalHobbyVisible = ref(false);
             background: none;
             border: none;
             text-align: center;
-            font-family: "Mulish";
+            font-family: 'Mulish';
             font-size: 15px;
             line-height: 153.5%;
           }
@@ -799,9 +796,9 @@ const modalHobbyVisible = ref(false);
             background: none;
             border: none;
             text-align: center;
-            border-left: 1px solid  rgba(255, 255, 255, 0.14);
-            border-right: 1px solid  rgba(255, 255, 255, 0.14);
-            font-family: "Mulish";
+            border-left: 1px solid rgba(255, 255, 255, 0.14);
+            border-right: 1px solid rgba(255, 255, 255, 0.14);
+            font-family: 'Mulish';
             font-size: 15px;
             line-height: 153.5%;
           }
@@ -810,7 +807,7 @@ const modalHobbyVisible = ref(false);
             background: none;
             border: none;
             text-align: center;
-            font-family: "Mulish";
+            font-family: 'Mulish';
             font-size: 15px;
             line-height: 153.5%;
           }
@@ -1030,7 +1027,7 @@ const modalHobbyVisible = ref(false);
         @extend .flex__center;
 
         .about__text__area {
-          font-family: "Mulish";
+          font-family: 'Mulish';
           background: none;
           outline: none;
           resize: none;
@@ -1449,7 +1446,7 @@ const modalHobbyVisible = ref(false);
     }
 
     .accordion__label::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       transform: translateY(-50%);

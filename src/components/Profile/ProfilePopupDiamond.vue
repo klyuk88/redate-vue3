@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="diamond__background">
     <div class="diamond__popup__block">
@@ -5,7 +9,7 @@
         <div class="diamond__info">
           <h2 class="diamond__title">Открыть диалог с «Цио Хао»?</h2>
           <p class="diamond__text">
-       После оплаты сообщения автоматически переносятся в раздел «Диалог»
+            После оплаты сообщения автоматически переносятся в раздел «Диалог»
           </p>
         </div>
         <div class="diamond__button__block">
@@ -16,9 +20,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style>
 .diamond__background {
   position: fixed;
@@ -41,7 +43,7 @@ export default {};
   width: 310px;
   background: rgba(36, 37, 41, 0.6);
   border-radius: 24px;
-  border: 1px solid #F9AE3F;
+  border: 1px solid #f9ae3f;
 }
 .diamond__popup__content {
   display: flex;
@@ -61,7 +63,7 @@ export default {};
   width: 262px;
 }
 .diamond__title {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -72,7 +74,7 @@ export default {};
   color: #ffffff;
 }
 .diamond__text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -101,7 +103,7 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -109,7 +111,7 @@ export default {};
   color: #ffffff;
 }
 .diamond__button__store {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -121,9 +123,7 @@ export default {};
   justify-content: center;
   align-items: center;
   position: relative;
-border-radius: 11px;
-border: 1px solid #F9AE3F;
-
+  border-radius: 11px;
+  border: 1px solid #f9ae3f;
 }
-
 </style>

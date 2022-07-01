@@ -1,3 +1,39 @@
+<script setup>
+import { onMounted } from 'vue'
+import { useStatisticsStore } from '@/stores/statistics.js'
+import { useTariffStore } from '@/stores/tariff.js'
+import { useUserStore } from '@/stores/user.js'
+import { useStore } from '@/stores/main.js'
+import { useUsersStore } from '@/stores/users.js'
+import PotencialPartners from '@/components/PotencialPartners/PotencialPartners.vue'
+import RecomendedMailings from '@/components/RecomendedMailings.vue'
+import SpecialProposal from '@/components/SpecialProposal.vue'
+import NewSend from '@/components/NewSend.vue'
+import Cities from '@/components/Cities/Cities.vue'
+import MobileBurger from '@/components/MobileBurger.vue'
+
+const store = useStore()
+const statistics = useStatisticsStore()
+const tariff = useTariffStore()
+const user = useUserStore()
+const users = useUsersStore()
+
+onMounted(async () => {
+  await user.getUser()
+  await statistics.getStatictics()
+
+  if (user?.user?.sex === 1) {
+    await tariff.getUserCurrentTariff()
+  } else {
+    await user.getUserRegistrationStatus()
+  }
+
+  const oppositeSex = user?.user?.sex === 1 ? 2 : 1
+
+  await users.getSpecialUsers(oppositeSex)
+})
+</script>
+
 <template>
   <div id="main-content">
     <div class="mob-header">
@@ -18,8 +54,15 @@
       <div class="center-col">
         <div class="content">
           <div class="mob-warning">
-            <img src="@/assets/images/main/warning-check.svg" alt="" class="icon" />
-            <p class="text">Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.</p>
+            <img
+              src="@/assets/images/main/warning-check.svg"
+              alt=""
+              class="icon"
+            />
+            <p class="text">
+              Ваша анкета в поиске будет видна исключено мужчинам оплатившим
+              «премиум» подписку.
+            </p>
           </div>
           <RecomendedMailings v-if="!store.showCities" />
           <PotencialPartners />
@@ -34,36 +77,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { onMounted } from 'vue';
-import { useStatisticsStore } from '@/stores/statistics.js';
-import { useTariffStore } from '@/stores/tariff.js';
-import { useUserStore } from '@/stores/user.js';
-import { useStore } from '@/stores/main.js';
-import PotencialPartners from '@/components/PotencialPartners/PotencialPartners.vue';
-import RecomendedMailings from '@/components/RecomendedMailings.vue';
-import SpecialProposal from '@/components/SpecialProposal.vue';
-import NewSend from '@/components/NewSend.vue';
-import Cities from '@/components/Cities/Cities.vue';
-import MobileBurger from '@/components/MobileBurger.vue';
-
-const store = useStore();
-const statistics = useStatisticsStore();
-const tariff = useTariffStore();
-const user = useUserStore();
-
-onMounted(async () => {
-  await user.getUser();
-  await statistics.getStatictics();
-
-  if (user.user.sex === 1) {
-    await tariff.getUserCurrentTariff();
-  } else {
-    await user.getUserRegistrationStatus();
-  }
-});
-</script>
 
 <style lang="sass">
 #main-content

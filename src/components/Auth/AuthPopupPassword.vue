@@ -1,3 +1,22 @@
+<script setup>
+import { ref } from 'vue'
+const focusInput = ref(false)
+const focusInputRepeat = ref(false)
+
+function showPass() {
+  let inputType = document.querySelectorAll('#input')
+  inputType.forEach((e) => {
+    e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
+  })
+}
+function showPassRepeat() {
+  let inputType = document.querySelectorAll('#inputRepeat')
+  inputType.forEach((e) => {
+    e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
+  })
+}
+</script>
+
 <template>
   <div class="signup__background">
     <slot name="backToCode"></slot>
@@ -19,9 +38,14 @@
                   class="input pass"
                   type="password"
                   placeholder="Пароль"
-                  @focus="(focusInput = true), (focusInputRepeat = false)"
+                  @focus=";(focusInput = true), (focusInputRepeat = false)"
                 />
-                <input id="eye" class="eye" type="checkbox" @click="showPass" />
+                <input
+                  id="eye"
+                  class="eye"
+                  type="checkbox"
+                  @click="showPass()"
+                />
                 <label for="eye" :class="{ visible: focusInput }"></label>
               </div>
               <div class="input__password last">
@@ -30,13 +54,13 @@
                   class="input pass__repeat"
                   type="password"
                   placeholder="Повторите пароль"
-                  @focus="(focusInputRepeat = true), (focusInput = false)"
+                  @focus=";(focusInputRepeat = true), (focusInput = false)"
                 />
                 <input
                   id="eyeSecond"
                   class="eye"
                   type="checkbox"
-                  @click="showPassRepeat"
+                  @click="showPassRepeat()"
                 />
                 <label
                   for="eyeSecond"
@@ -57,24 +81,7 @@
     </div>
   </div>
 </template>
-<script setup>
 
-import { ref } from "vue";
-const focusInput = ref(false);
-const focusInputRepeat = ref(false);
-
-function showPass() {
-  let inputType = document.querySelectorAll("#input");
-  inputType.forEach((e) => {
-    e.type === "password" ? (e.type = "text") : (e.type = "password");
-  });
-}
-function showPassRepeat() {
-  let inputType = document.querySelectorAll("#inputRepeat");
-  inputType.forEach((e) => {
-    e.type === "password" ? (e.type = "text") : (e.type = "password");
-  });
-}</script>
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
@@ -158,7 +165,7 @@ function showPassRepeat() {
   }
 }
 .input {
-    &.pass {
+  &.pass {
     margin: 0;
     border: none;
     height: 60px;
@@ -177,7 +184,7 @@ function showPassRepeat() {
 }
 
 .input__password {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -189,7 +196,7 @@ function showPassRepeat() {
   margin-bottom: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .eye {
@@ -211,7 +218,7 @@ label {
     display: inline-flex;
   }
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 24px;
     height: 24px;

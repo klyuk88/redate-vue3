@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import axiosInstance from '@/services/api.js';
+import { defineStore } from 'pinia'
+import axiosInstance from '@/services/api.js'
 
 export const useTariffStore = defineStore('tariff', {
   state: () => {
@@ -10,30 +10,32 @@ export const useTariffStore = defineStore('tariff', {
         message: '',
       },
       isLoading: false,
-    };
+    }
   },
 
   actions: {
     async getUserCurrentTariff() {
       try {
-        this.isLoading = true;
+        this.isLoading = true
 
-        const userCurrentTariffResponse = await axiosInstance.get('/tariffs/current');
+        const userCurrentTariffResponse = await axiosInstance.get(
+          '/tariffs/current'
+        )
 
-        const userCurrentTariff = userCurrentTariffResponse.data || {};
+        const userCurrentTariff = userCurrentTariffResponse.data || null
 
-        if (!Object.keys(userCurrentTariff).length) {
-          throw new Error('Не удалось загрузить статус регистрации пользователя');
+        if (userCurrentTariff === null) {
+          throw new Error('Не удалось загрузить тариф пользователя')
         }
 
-        this.userCurrentTariff = userCurrentTariff;
+        this.userCurrentTariff = userCurrentTariff
 
-        this.isLoading = false;
+        this.isLoading = false
       } catch (error) {
-        this.isLoading = false;
-        this.error.status = true;
-        this.error.message = error.message || 'Неизвестная ошибка';
+        this.isLoading = false
+        this.error.status = true
+        this.error.message = error.message || 'Неизвестная ошибка'
       }
     },
   },
-});
+})

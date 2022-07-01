@@ -1,50 +1,9 @@
-<template>
-  <div class="filter">
-    <div>
-      <TheSelect :options="options" :placeholder="'Выберите город'" v-model="city" />
-    </div>
-    <div>
-      <div class="range" :class="{ active: showLabel }">
-        <vue-slider
-          v-model="range"
-          :height="2"
-          :tooltip="'always'"
-          :min="18"
-          :max="45"
-          :interval="1"
-          :lazy="true"
-          :enableCross="false"
-          :railStyle="{
-            background: 'rgba(255,255,255, 0.3)',
-          }"
-          :dotStyle="{
-            background: '#fff',
-            height: '12px',
-            width: '12px',
-          }"
-          :processStyle="{ background: '#fff' }"
-          :tooltipStyle="{
-            background: 'transparent',
-            'font-size': '12px',
-            'font-weigth': '600',
-          }"
-          @drag-start="showLabel = true"
-          @drag-end="showLabel = false"
-        />
-      </div>
-    </div>
-    <div>
-      <BigButton :title="'Начать поиск'" @click="clickHandler" />
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { ref, computed } from 'vue';
-import VueSlider from 'vue-slider-component';
-import TheSelect from '@/components/Form/TheSelect.vue';
-import BigButton from '@/components/Form/BigButton.vue';
-import 'vue-slider-component/theme/default.css';
+import { ref, computed } from 'vue'
+import VueSlider from 'vue-slider-component'
+import TheSelect from '@/components/Form/TheSelect.vue'
+import BigButton from '@/components/Form/BigButton.vue'
+import 'vue-slider-component/theme/default.css'
 
 const props = defineProps({
   currentCity: {
@@ -55,26 +14,71 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-});
+})
 
-const emit = defineEmits(['redirect']);
+const emit = defineEmits(['redirect'])
 
-const city = ref(props.currentCity.name);
-const range = ref([18, 45]);
-const showLabel = ref(false);
+const city = ref(props.currentCity.name)
+const range = ref([18, 45])
+const showLabel = ref(false)
 
-const options = computed(() => props.cities.map((city) => city.name));
+const options = computed(() => props.cities.map((city) => city.name))
 
 const clickHandler = () => {
-  const foundCity = props.cities.find((item) => item.name === city.value);
+  const foundCity = props.cities.find((item) => item.name === city.value)
 
   emit('redirect', {
     id: foundCity.id,
     ageMin: range.value[0],
     ageMax: range.value[1],
-  });
-};
+  })
+}
 </script>
+
+<template>
+  <div class="filter">
+    <div>
+      <TheSelect
+        v-model="city"
+        :options="options"
+        placeholder="Выберите город"
+      />
+    </div>
+    <div>
+      <div class="range" :class="{ active: showLabel }">
+        <vue-slider
+          v-model="range"
+          :height="2"
+          tooltip="always"
+          :min="18"
+          :max="45"
+          :interval="1"
+          :lazy="true"
+          :enable-cross="false"
+          :rail-style="{
+            background: 'rgba(255,255,255, 0.3)',
+          }"
+          :dot-style="{
+            background: '#fff',
+            height: '12px',
+            width: '12px',
+          }"
+          :process-style="{ background: '#fff' }"
+          :tooltip-style="{
+            background: 'transparent',
+            'font-size': '12px',
+            'font-weigth': '600',
+          }"
+          @drag-start="showLabel = true"
+          @drag-end="showLabel = false"
+        />
+      </div>
+    </div>
+    <div>
+      <BigButton title="Начать поиск" @click="clickHandler()" />
+    </div>
+  </div>
+</template>
 
 <style lang="scss">
 .filter {

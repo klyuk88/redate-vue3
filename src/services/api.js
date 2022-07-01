@@ -5,8 +5,8 @@ const defaultHeaders = {
 }
 
 const instance = axios.create({
-  baseURL: process.env.VUE_APP_API_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   headers: defaultHeaders,
-});
+})
 
-export default instance;
+export default instance

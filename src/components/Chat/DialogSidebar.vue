@@ -1,23 +1,23 @@
+<script setup>
+import SendingItem from '@/components/Chat/SendingItem.vue'
+import NewSendButton from '@/components/NewSendButton.vue'
+</script>
+
 <template>
   <div id="dialog-sidebar">
     <div class="n-card">
       <div class="n-card_title">Новые рассылки</div>
       <div class="n-card_desc">В твоем городе 5490 рассылок</div>
       <div class="n-card_wrapper">
-        <SendingItem/>
-        <SendingItem/>
+        <SendingItem />
+        <SendingItem />
       </div>
 
       <div class="n-card_loadmore">Открыть больше...</div>
     </div>
-    <NewSendButton/>
+    <NewSendButton />
   </div>
 </template>
-
-<script setup>
-import SendingItem from '@/components/Chat/SendingItem.vue'
-import NewSendButton from '@/components/NewSendButton.vue'
-</script>
 
 <style lang="scss">
 #dialog-sidebar {

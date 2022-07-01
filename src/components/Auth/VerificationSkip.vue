@@ -1,3 +1,8 @@
+<script setup>
+import { ref } from 'vue'
+const isClicked = ref(true)
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__page">
@@ -28,10 +33,7 @@
     </router-link>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-const isClicked = ref(true);
-</script>
+
 <style lang="scss" scoped>
 .signup__background {
   width: 100%;

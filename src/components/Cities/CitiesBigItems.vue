@@ -1,23 +1,11 @@
-<template>
-  <div class="city-big-items">
-    <CityBigItem 
-      v-for="(item, idx) in props.usersStatistics" :key="idx"
-      :city="item.name"
-      :totalRegistered="item.cityAll"
-      :newUsers="item.cityNew"
-      @click="clickHandler(item)"
-    />
-  </div>
-</template>
-
 <script setup>
 import CityBigItem from '@/components/Cities/CityBigItem.vue'
 
-const props = defineProps({
+defineProps({
   usersStatistics: {
     type: Array,
     required: true,
-  }
+  },
 })
 
 const emit = defineEmits(['redirect'])
@@ -26,6 +14,19 @@ const clickHandler = (item) => {
   emit('redirect', item)
 }
 </script>
+
+<template>
+  <div class="city-big-items">
+    <CityBigItem
+      v-for="(item, idx) in usersStatistics"
+      :key="idx"
+      :city="item.name"
+      :total-registered="item.cityAll"
+      :new-users="item.cityNew"
+      @click="clickHandler(item)"
+    />
+  </div>
+</template>
 
 <style lang="scss">
 .city-big-items {

@@ -1,9 +1,21 @@
+<script setup>
+import { ref } from 'vue'
+const deliteShow = ref(false)
+
+const swipeHandlerLeft = () => {
+  deliteShow.value = true
+}
+const swipeHandlerRight = () => {
+  deliteShow.value = false
+}
+</script>
+
 <template>
   <div
-    class="chat-mobile-item"
-    :class="{ deliteShow: deliteShow }"
     v-touch:swipe.left="swipeHandlerLeft"
     v-touch:swipe.right="swipeHandlerRight"
+    class="chat-mobile-item"
+    :class="{ deliteShow: deliteShow }"
   >
     <div class="m-mess_item" :class="{ 'm-new': false }">
       <div class="m-mess_item-img">
@@ -15,7 +27,13 @@
       </div>
       <div class="m-mess_start">
         <div class="name">Александр</div>
-        <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sapiente voluptates repudiandae ad adipisci? Accusantium et possimus voluptate consequuntur molestiae saepe id quos. Quos magnam, culpa, mollitia sunt et ut obcaecati dicta voluptatibus quo ab excepturi dolore, odio ipsum fugit.</p>
+        <p class="message">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sapiente
+          voluptates repudiandae ad adipisci? Accusantium et possimus voluptate
+          consequuntur molestiae saepe id quos. Quos magnam, culpa, mollitia
+          sunt et ut obcaecati dicta voluptatibus quo ab excepturi dolore, odio
+          ipsum fugit.
+        </p>
       </div>
       <div class="m-mess_end">
         <p class="time">20:43</p>
@@ -27,18 +45,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-const deliteShow = ref(false);
-
-const swipeHandlerLeft = () => {
-  deliteShow.value = true;
-};
-const swipeHandlerRight = () => {
-  deliteShow.value = false;
-};
-</script>
 
 <style lang="scss">
 .chat-mobile-item {
@@ -228,7 +234,7 @@ const swipeHandlerRight = () => {
   }
 
   .m-online {
-    content: "";
+    content: '';
     position: absolute;
     background: #2b66fb;
     width: 8px;

@@ -1,14 +1,34 @@
+<script setup>
+defineProps({
+  city: {
+    type: String,
+    required: true,
+  },
+  totalRegistered: {
+    type: Number,
+    required: true,
+  },
+  newUsers: {
+    type: Number,
+    required: true,
+  },
+})
+</script>
+
 <template>
   <div class="cities-small-slide">
     <img
       src="https://www.cruisegid.ru/assets/gallery/1022/20697.jpg"
-      :alt="props.city"
+      :alt="city"
       class="cover"
     />
     <div class="tray">
       <div class="title">
-        <img src="@/assets/images/main/location-icon.svg" alt="Иконка локации" />
-        <h6 class="title">{{ props.city }}</h6>
+        <img
+          src="@/assets/images/main/location-icon.svg"
+          alt="Иконка локации"
+        />
+        <h6 class="title">{{ city }}</h6>
       </div>
       <div class="statiscic-item">
         <p class="text">
@@ -16,7 +36,7 @@
           <span class="line"></span>
         </p>
 
-        <p class="text">{{ props.totalRegistered }}</p>
+        <p class="text">{{ totalRegistered }}</p>
       </div>
 
       <div class="statiscic-item">
@@ -24,28 +44,11 @@
           За сутки
           <span class="line"></span>
         </p>
-        <p class="text">{{ props.newUsers }}</p>
+        <p class="text">{{ newUsers }}</p>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-const props = defineProps({
-  city: {
-    type: String,
-    required: true
-  },
-  totalRegistered: {
-    type: Number,
-    required: true
-  },
-  newUsers: {
-    type: Number,
-    required: true
-  }
-})
-</script>
 
 <style lang="scss">
 .cities-small-slide {

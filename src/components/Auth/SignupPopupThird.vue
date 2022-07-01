@@ -1,7 +1,14 @@
+<script setup>
+import SignupHobby from '@/components/Auth/SignupHobby.vue'
+import { ref } from 'vue'
+const isClicked = ref(false)
+const modalHobbyVisible = ref(false)
+</script>
+
 <template>
   <SignupHobby
     v-if="modalHobbyVisible"
-    @hideModalHobby="modalHobbyVisible = false"
+    @hide-modal-hobby="modalHobbyVisible = false"
   />
   <div class="signup__background">
     <div class="signup__navigation">
@@ -10,7 +17,6 @@
       <div class="navigation__item active"></div>
       <div class="navigation__item"></div>
       <div class="navigation__item"></div>
-
     </div>
     <div class="auth__back__btn">
       <slot name="backPhaseTwo"></slot>
@@ -135,20 +141,14 @@
     </div>
   </div>
 </template>
-<script setup>
-import SignupHobby from "@/components/Auth/SignupHobby.vue";
-import { ref } from "vue";
-const isClicked = ref(false);
-const modalHobbyVisible = ref(false);
-</script>
+
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;
-
 }
 .mobileSkip {
   display: none;
-    p {
+  p {
     display: none;
   }
 }

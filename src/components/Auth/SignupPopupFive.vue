@@ -1,3 +1,8 @@
+<script setup>
+import { ref } from 'vue'
+const isClicked = ref(false)
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
@@ -22,7 +27,7 @@
           <div class="signup__block__container">
             <div class="photo__block">
               <div class="photo__border">
-                <div class="inner__border" >
+                <div class="inner__border">
                   <div class="add__btn">
                     <img
                       src="@/assets/images/main/add__photo__btn.svg"
@@ -33,7 +38,6 @@
                 <img
                   src="@/assets/images/main/upload__photo__male.svg"
                   alt=""
-                  
                 />
               </div>
             </div>
@@ -53,7 +57,7 @@
                 <div class="make__photo">Сделать снимок</div>
               </div>
               <div class="random__btn">Выбрать случайную</div>
-              <div class="btn__continue web" >Продолжить</div>
+              <div class="btn__continue web">Продолжить</div>
             </div>
           </div>
         </div>
@@ -61,10 +65,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-const isClicked = ref(false);
-</script>
+
 <style lang="scss" scoped>
 .mobileArrow {
   display: none;

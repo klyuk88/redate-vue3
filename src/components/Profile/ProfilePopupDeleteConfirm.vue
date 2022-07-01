@@ -1,3 +1,7 @@
+<script>
+export default {}
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__page">
@@ -26,9 +30,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="scss" scoped>
 .signup__background {
   background: rgba(0, 0, 0, 0.6);
@@ -72,7 +74,7 @@ export default {};
       justify-content: space-between;
       align-items: center;
       width: 256px;
-      margin-bottom: 18px ;
+      margin-bottom: 18px;
       .btn {
         display: flex;
         justify-content: center;
@@ -117,7 +119,7 @@ export default {};
             line-height: 153.5%;
             color: #3e74ff;
             text-align: center;
-            width: 58.20vw;
+            width: 58.2vw;
             height: 21.53vw;
             span {
               font-weight: 600;
@@ -159,7 +161,6 @@ export default {};
           background: #2b66fb;
           border-radius: 2.82vw;
           cursor: pointer;
-          
         }
       }
     }

@@ -1,10 +1,68 @@
+<script setup>
+import { ref, computed, onUnmounted, reactive } from 'vue'
+import { useStore } from '@/stores/main.js'
+import BackLink from '@/components/Search/BackLink.vue'
+import MobileBurger from '@/components/MobileBurger.vue'
+import MobileSorting from '@/components/Search/MobileSorting.vue'
+import SendsMobileTabContent from '@/components/Sends/SendsMobileTabContent.vue'
+import AnswersMobileTabContent from '@/components/Sends/AnswersMobileTabContent.vue'
+
+const store = useStore()
+
+const tabs = reactive({
+  sends: true,
+  answers: false,
+})
+
+const changeTab = (param) => {
+  if (param === 'sends') {
+    tabs.sends = true
+    tabs.answers = false
+  } else if (param === 'answers') {
+    tabs.answers = true
+    tabs.sends = false
+  }
+}
+
+const activeTab = computed(() => {
+  if (tabs.sends) {
+    return SendsMobileTabContent
+  } else if (tabs.answers) {
+    return AnswersMobileTabContent
+  }
+
+  return null
+})
+
+const openMobileSorting = () => {
+  store.mobileSorting = true
+}
+
+const scrollValue = ref(0)
+
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false
+})
+
+//scroll
+window.addEventListener('scroll', heandleScroll)
+
+function heandleScroll() {
+  scrollValue.value = window.pageYOffset
+}
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', heandleScroll)
+})
+</script>
+
 <template>
   <section id="sendings-mobile">
     <MobileSorting v-if="store.mobileSorting" />
 
     <div class="decor"></div>
 
-    <div class="header" :class="{ blur: onBlur }" v-if="false">
+    <div v-if="false" class="header" :class="{ blur: onBlur }">
       <BackLink @click="$router.go(-1)" />
 
       <h1 class="title">Мои рассылки</h1>
@@ -14,89 +72,50 @@
           src="@/assets/images/main/settings-icon.svg"
           alt=""
           class="settings"
-          @click="openMobileSorting"
+          @click="openMobileSorting()"
         />
         <MobileBurger />
       </div>
     </div>
 
-    <div class="tab-header" :class="{ blur: onBlur }" v-if="true">
+    <div v-if="true" class="tab-header" :class="{ blur: onBlur }">
       <BackLink @click="$router.go(-1)" />
       <div class="actions">
         <img
           src="@/assets/images/main/settings-icon.svg"
           alt=""
           class="settings"
-          @click="openMobileSorting"
+          @click="openMobileSorting()"
         />
         <MobileBurger />
       </div>
       <div class="tabs-block">
-        <div class="tab" :class="{active: tabs.sends}" @click="changeTab('sends')">Новые рассылки</div>
-        <div class="tab" :class="{active: tabs.answers}" @click="changeTab('answers')">Ответы +15</div>
-        <div class="active-line" :style="{transform: tabs.answers ? 'translateX(100%)' : 'translateX(0)'}"></div>
+        <div
+          class="tab"
+          :class="{ active: tabs.sends }"
+          @click="changeTab('sends')"
+        >
+          Новые рассылки
+        </div>
+        <div
+          class="tab"
+          :class="{ active: tabs.answers }"
+          @click="changeTab('answers')"
+        >
+          Ответы +15
+        </div>
+        <div
+          class="active-line"
+          :style="{
+            transform: tabs.answers ? 'translateX(100%)' : 'translateX(0)',
+          }"
+        ></div>
       </div>
     </div>
     <component :is="activeTab"></component>
   </section>
 </template>
-<script setup>
-import BackLink from "@/components/Search/BackLink.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import MobileSorting from "@/components/Search/MobileSorting.vue";
-import SendsMobileTabContent from "@/components/Sends/SendsMobileTabContent.vue";
-import AnswersMobileTabContent from '@/components/Sends/AnswersMobileTabContent.vue'
 
-import { ref, computed, onUnmounted, reactive } from "vue";
-import { useStore } from "@/stores/main.js";
-
-const tabs = reactive({
-  sends: true,
-  answers: false
-})
-const changeTab = (param) => {
-  if (param === "sends") {
-    tabs.sends = true;
-    tabs.answers = false;
-  } else if (param === "answers") {
-    tabs.answers = true;
-    tabs.sends = false;
-  }
-}
-
-const activeTab = computed(() => {
-  if(tabs.sends) {
-    return SendsMobileTabContent
-  } else if (tabs.answers) {
-    return AnswersMobileTabContent
-  }
-})
-
-const store = useStore();
-
-const openMobileSorting = () => {
-  store.mobileSorting = true
-};
-
-const openNewSendWindow = () => {
-  store.newSendWindow = true
-};
-const scrollValue = ref(0);
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-
-//scroll
-window.addEventListener("scroll", heandleScroll);
-
-function heandleScroll(e) {
-  scrollValue.value = window.pageYOffset;
-}
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-</script>
 <style lang="scss">
 #sendings-mobile {
   display: none;

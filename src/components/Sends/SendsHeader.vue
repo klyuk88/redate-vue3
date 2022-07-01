@@ -1,11 +1,13 @@
-<template lang="">
-       <div class="header">
-          <h1 class="title">Новые рассылки</h1>
-        </div>
-</template>
 <script>
-export default {};
+export default {}
 </script>
+
+<template lang="">
+  <div class="header">
+    <h1 class="title">Новые рассылки</h1>
+  </div>
+</template>
+
 <style lang="scss" scoped>
 .header {
   width: 100%;

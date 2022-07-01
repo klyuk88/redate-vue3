@@ -1,75 +1,66 @@
+<script setup>
+import { reactive, computed } from 'vue'
+import Sorting from '@/components/Sends/Sorting.vue'
+import SendsTabContent from '@/components/Sends/SendsTabContent.vue'
+import AnswersTabContent from '@/components/Sends/AnswersTabContent.vue'
+import SendsHeader from '@/components/Sends/SendsHeader.vue'
+import SendsMobile from '@/components/Sends/SendsMobile.vue'
+import NewSendButton from '@/components/NewSendButton.vue'
+
+const activeTab = computed(() => {
+  if (tabs.sends) {
+    return SendsTabContent
+  } else if (tabs.answers) {
+    return AnswersTabContent
+  }
+
+  return null
+})
+
+const tabs = reactive({
+  sends: true,
+  answers: false,
+})
+
+const tabActive = (param) => {
+  if (param === 'sends') {
+    tabs.sends = true
+    tabs.answers = false
+  } else if (param === 'answers') {
+    tabs.answers = true
+    tabs.sends = false
+  }
+}
+</script>
+
 <template>
   <section id="sendings">
     <div class="sendings-grid">
       <div class="main-content">
+        <SendsHeader v-if="false" />
 
-        <SendsHeader v-if="false"/>
-
-        <div class="tab-header" v-if="true">
-          <div class="tab" :class="{ 'active': tabs.sends }">
+        <div v-if="true" class="tab-header">
+          <div class="tab" :class="{ active: tabs.sends }">
             <p class="title" @click="tabActive('sends')">Новые рассылки</p>
           </div>
-          <div class="tab" :class="{ 'active': tabs.answers }">
+          <div class="tab" :class="{ active: tabs.answers }">
             <p class="title" @click="tabActive('answers')">Ответы + 22</p>
           </div>
-          <div class="active-line" :class="{'active': tabs.answers}"></div>
+          <div class="active-line" :class="{ active: tabs.answers }"></div>
         </div>
-        
+
         <component :is="activeTab"></component>
       </div>
 
       <div class="sidebar">
         <Sorting />
-        <NewSendButton/>
+        <NewSendButton />
       </div>
     </div>
   </section>
 
-  <SendsMobile/>
-
+  <SendsMobile />
 </template>
-<script setup>
-import NewSend from "@/components/NewSend.vue";
-import Sorting from "@/components/Sends/Sorting.vue";
-import SendSlider from "@/components/Sends/SendSlider.vue";
-import SendsTabContent from "@/components/Sends/SendsTabContent.vue";
-import AnswersTabContent from "@/components/Sends/AnswersTabContent.vue";
-import SendsHeader from '@/components/Sends/SendsHeader.vue'
-import SendsMobile from '@/components/Sends/SendsMobile.vue'
-import NewSendButton from '@/components/NewSendButton.vue'
-
-import { reactive, computed} from "vue";
-import { useStore } from "@/stores/main.js";
-const store = useStore()
-
-const activeTab = computed(() => {
-  if(tabs.sends) {
-    return SendsTabContent
-  } else if (tabs.answers) {
-    return AnswersTabContent
-  }
-})
-
-const tabs = reactive({
-  sends: true,
-  answers: false
-});
-
-const tabActive = (param) => {
-  if (param === "sends") {
-    tabs.sends = true;
-    tabs.answers = false;
-  } else if (param === "answers") {
-    tabs.answers = true;
-    tabs.sends = false;
-  }
-};
-
-const openNewSendWindow = () => {
-  store.newSendWindow = true
-}
-
-</script>
 
 <style lang="scss">
 #sendings {
@@ -128,9 +119,7 @@ const openNewSendWindow = () => {
           transform: translateX(100%);
         }
       }
-
     }
-  
   }
 }
 
@@ -138,6 +127,5 @@ const openNewSendWindow = () => {
   #sendings {
     display: none;
   }
-
 }
 </style>

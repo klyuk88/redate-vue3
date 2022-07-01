@@ -1,9 +1,30 @@
+<script setup>
+import { Pagination } from 'swiper'
+import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
+import CityBigItem from '@/components/Cities/CityBigItem.vue'
+
+defineProps({
+  usersStatistics: {
+    type: Array,
+    required: true,
+  },
+})
+
+const emit = defineEmits(['redirect'])
+
+const clickHandler = (item) => {
+  emit('redirect', item)
+}
+</script>
+
 <template>
   <div class="city-big-slider-wrap">
     <Swiper
-      :modules="[Pagination]"
-      :spaceBetween="15"
-      :slidesPerView="1"
+      :modules="[
+Pagination
+]"
+      :space-between="15"
+      :slides-per-view="1"
       class="city-big-slider"
       :pagination="{
         el: '.swiper-pagination',
@@ -13,8 +34,8 @@
       <SwiperSlide v-for="(item, idx) in usersStatistics" :key="idx">
         <CityBigItem
           :city="item.name"
-          :totalRegistered="item.cityAll"
-          :newUsers="item.cityNew"
+          :total-registered="item.cityAll"
+          :new-users="item.cityNew"
           @click="clickHandler(item)"
         />
       </SwiperSlide>
@@ -22,29 +43,6 @@
     <div class="swiper-pagination"></div>
   </div>
 </template>
-
-<script setup>
-import { Pagination } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
-import CityBigItem from '@/components/Cities/CityBigItem.vue'
-import 'swiper/swiper.min.css'
-import 'swiper/modules/navigation/navigation.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import 'swiper/modules/scrollbar/scrollbar.min.css'
-
-const props = defineProps({
-  usersStatistics: {
-    type: Array,
-    required: true,
-  }
-})
-
-const emit = defineEmits(['redirect'])
-
-const clickHandler = (item) => {
-  emit('redirect', item)
-}
-</script>
 
 <style>
 .city-big-slider {
@@ -83,6 +81,5 @@ const clickHandler = (item) => {
   .city-big-slider .swiper-slide {
     height: 170px;
   }
-
 }
 </style>

@@ -1,7 +1,17 @@
+<script setup>
+defineProps({
+  msg: {
+    type: String,
+    default:
+      'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана ты несколько образ до ведущими снова, строчка напоивший деревни!',
+  },
+})
+</script>
+
 <template>
   <div class="send-item">
     <svg
-    class="close-send-item"
+      class="close-send-item"
       width="13"
       height="13"
       viewBox="0 0 13 13"
@@ -33,10 +43,10 @@
           <p class="status-text">Серьзные отношения</p>
         </div>
         <p class="message">
-          {{msg}}
+          {{ msg }}
         </p>
       </div>
-     
+
       <div class="meta-block">
         <p class="meta-time">2 минуты назад</p>
         <button class="send-status-btn">Интересно</button>
@@ -44,14 +54,7 @@
     </div>
   </div>
 </template>
-<script setup>
-const props = defineProps({
-  msg: {
-    type: String,
-    default: 'Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Океана ты несколько образ до ведущими снова, строчка напоивший деревни!'
-  }
-})
-</script>
+
 <style lang="scss">
 .send-item {
   max-width: 390px;

@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const useStore = defineStore('main', {
   state: () => {
@@ -10,6 +10,6 @@ export const useStore = defineStore('main', {
       newSendWindow: false,
       maleVersion: false,
       femaleVersion: false,
-    };
+    }
   },
-});
+})

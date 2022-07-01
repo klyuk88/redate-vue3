@@ -1,3 +1,38 @@
+<script setup>
+import { ref } from 'vue'
+const isClicked = ref(false)
+
+// export default {
+//   data() {
+//     return {
+//       hasError: false,
+//       phoneError: true,
+//       mailError: false,
+//     };
+//   },
+//   computed: {
+//     error() {
+//       if (this.hasError === true) {
+//         return "error";
+//       }
+//       return "test";
+//     },
+//     errorPhone() {
+//       if (this.phoneError === true && this.hasError === true) {
+//         return "error__phone";
+//       }
+//       return "test";
+//     },
+//     errorMail() {
+//       if (this.mailError === true && this.hasError === true) {
+//         return "error__mail";
+//       }
+//       return "test";
+//     },
+//   },
+// };
+</script>
+
 <template>
   <div class="signup__background">
     <slot name="backToAuth"></slot>
@@ -14,14 +49,19 @@
             <div class="signup__block__header">
               <h1>Забыли пароль?</h1>
               <p class="subTitle">
-                Введите электронную почту. Мы отправим Вам
-                код для восстановления пароля.
+                Введите электронную почту. Мы отправим Вам код для
+                восстановления пароля.
               </p>
             </div>
             <div class="signup__block__numbers">
-              <input type="email" class="input" placeholder="example@example.ru" />
+              <input
+                type="email"
+                class="input"
+                placeholder="example@example.ru"
+              />
               <span class=""
-                >Неправильно введена электронная почта. Перепроверьте данные.</span
+                >Неправильно введена электронная почта. Перепроверьте
+                данные.</span
               >
             </div>
           </div>
@@ -31,8 +71,8 @@
         <div class="signup__block__header">
           <h1>Забыли пароль?</h1>
           <p>
-            Введите электронную почту. Мы отправим Вам код
-            для восстановления пароля.
+            Введите электронную почту. Мы отправим Вам код для восстановления
+            пароля.
           </p>
         </div>
         <div class="mobile__buttons">
@@ -65,40 +105,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-const isClicked = ref(false);
 
-// export default {
-//   data() {
-//     return {
-//       hasError: false,
-//       phoneError: true,
-//       mailError: false,
-//     };
-//   },
-//   computed: {
-//     error() {
-//       if (this.hasError === true) {
-//         return "error";
-//       }
-//       return "test";
-//     },
-//     errorPhone() {
-//       if (this.phoneError === true && this.hasError === true) {
-//         return "error__phone";
-//       }
-//       return "test";
-//     },
-//     errorMail() {
-//       if (this.mailError === true && this.hasError === true) {
-//         return "error__mail";
-//       }
-//       return "test";
-//     },
-//   },
-// };
-</script>
 <style lang="scss" scoped>
 .mobileArrow {
   display: none;
@@ -196,7 +203,7 @@ span {
 }
 .input {
   margin: 0;
-  font-family: "Mulish";
+  font-family: 'Mulish';
 }
 .signup__btn {
   display: flex;

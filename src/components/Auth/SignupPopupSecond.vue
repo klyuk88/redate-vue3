@@ -1,3 +1,10 @@
+<script setup>
+import TheSelect from '../Form/TheSelect.vue'
+import { ref } from 'vue'
+
+const isClicked = ref(false)
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
@@ -14,15 +21,28 @@
       <slot name="backPhaseOneMobile"></slot>
     </div>
     <div class="signup__page">
-      <div class="signup__border" >
-        <div class="signup__block" >
-          <div class="signup__block__container" >
+      <div class="signup__border">
+        <div class="signup__block">
+          <div class="signup__block__container">
             <div class="signup__input__box">
-              <input class="input" type="text" placeholder="Имя" @click="isClicked = true"/>
-              <TheSelect class="select__country" placeholder="Страна, Город"  @click="isClicked = true" />
-              <TheSelect class="select__nation" placeholder="Национальность" @click="isClicked = true"/>
+              <input
+                class="input"
+                type="text"
+                placeholder="Имя"
+                @click="isClicked = true"
+              />
+              <TheSelect
+                class="select__country"
+                placeholder="Страна, Город"
+                @click="isClicked = true"
+              />
+              <TheSelect
+                class="select__nation"
+                placeholder="Национальность"
+                @click="isClicked = true"
+              />
             </div>
-            <div class="signup__footer" >
+            <div class="signup__footer">
               <div class="signup__age__block">
                 <p>Дата рождения:</p>
                 <div class="age__input__block" @click="isClicked = true">
@@ -39,10 +59,10 @@
                 </div>
               </div>
               <div class="signup__horizontal__line"></div>
-              <div class="footer__desc" >
-                <div class="signup__params" >
-                  <div class="signup__params__block"  @click="isClicked = true">
-                    <div class="signup__params__item"  >
+              <div class="footer__desc">
+                <div class="signup__params">
+                  <div class="signup__params__block" @click="isClicked = true">
+                    <div class="signup__params__item">
                       <p>Рост:</p>
                       <input
                         class="input"
@@ -51,7 +71,7 @@
                         maxlength="3"
                       />
                     </div>
-                    <div class="signup__params__item" >
+                    <div class="signup__params__item">
                       <p>Вес:</p>
                       <input
                         class="input"
@@ -61,7 +81,7 @@
                       />
                     </div>
                   </div>
-                  <div class="signup__params__item params__size" >
+                  <div class="signup__params__item params__size">
                     <p>Параметры:</p>
                     <div class="params__input__box">
                       <input
@@ -97,13 +117,13 @@
         </div>
       </div>
       <div class="mobile__body">
-        <div class="signup__block__container" >
+        <div class="signup__block__container">
           <div class="signup__input__box">
             <input class="input" type="text" placeholder="Имя" />
             <TheSelect class="select__country" placeholder="Страна, Город" />
             <TheSelect class="select__nation" placeholder="Национальность" />
           </div>
-          <div class="signup__footer" >
+          <div class="signup__footer">
             <div class="signup__age__block">
               <p>Дата рождения:</p>
               <div class="age__input__block">
@@ -120,10 +140,10 @@
               </div>
             </div>
             <div class="signup__horizontal__line"></div>
-            <div class="footer__desc" >
-              <div class="signup__params" >
-                <div class="signup__params__block" >
-                  <div class="signup__params__item" >
+            <div class="footer__desc">
+              <div class="signup__params">
+                <div class="signup__params__block">
+                  <div class="signup__params__item">
                     <p>Рост:</p>
                     <input
                       class="input"
@@ -132,7 +152,7 @@
                       maxlength="3"
                     />
                   </div>
-                  <div class="signup__params__item" >
+                  <div class="signup__params__item">
                     <p>Вес:</p>
                     <input
                       class="input"
@@ -142,7 +162,7 @@
                     />
                   </div>
                 </div>
-                <div class="signup__params__item params__size" >
+                <div class="signup__params__item params__size">
                   <p>Параметры:</p>
                   <div class="params__input__box">
                     <input
@@ -177,19 +197,13 @@
       </div>
     </div>
     <div class="webBtn">
-      <slot name="thirdPhase" ></slot>
+      <slot name="thirdPhase"></slot>
     </div>
-    
-      <!-- <div class="signup__btn web" :class="error">Продолжить</div> -->
 
+    <!-- <div class="signup__btn web" :class="error">Продолжить</div> -->
   </div>
 </template>
-<script setup>
-import TheSelect from "../Form/TheSelect.vue";
-import { ref } from "vue";
 
-const isClicked = ref(false);
-</script>
 <style lang="scss" scoped>
 .mobileArrow {
   display: none;
@@ -218,12 +232,16 @@ const isClicked = ref(false);
   align-items: center;
 }
 .signup__page {
-    padding: 48px;
+  padding: 48px;
   gap: 10px;
-background: linear-gradient(180deg, rgba(255, 255, 255, 0.0384) 0%, rgba(95, 133, 228, 0.05) 68.75%);
-border: 1px solid #2B66FB;
-border-radius: 24px;
-margin-bottom: 67px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.0384) 0%,
+    rgba(95, 133, 228, 0.05) 68.75%
+  );
+  border: 1px solid #2b66fb;
+  border-radius: 24px;
+  margin-bottom: 67px;
 }
 .signup__border {
   border: none;
@@ -232,10 +250,8 @@ margin-bottom: 67px;
 }
 
 .signup__block {
-
 }
 .signup__block__container {
-
 }
 .signup__input__box {
   display: flex;
@@ -244,7 +260,7 @@ margin-bottom: 67px;
   justify-content: space-between;
 }
 .input {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   cursor: pointer;
   font-size: 15px;
   line-height: 153.5%;
@@ -513,10 +529,10 @@ margin-bottom: 67px;
     flex-direction: column;
     justify-content: space-between;
     height: 143.846vw;
-          .signup__btn {
-        width: 85.89vw;
-        height: 15.384vw;
-      }
+    .signup__btn {
+      width: 85.89vw;
+      height: 15.384vw;
+    }
     .select__country {
       width: 85.89vw;
     }
@@ -530,7 +546,7 @@ margin-bottom: 67px;
     }
     .signup__footer {
       width: 85.89vw;
-      .signup__age__block  {
+      .signup__age__block {
         width: 85.89vw;
       }
       .signup__horizontal__line {
@@ -539,9 +555,7 @@ margin-bottom: 67px;
       .footer__desc {
         width: 85.89vw;
       }
-
     }
   }
 }
-
 </style>

@@ -1,28 +1,22 @@
 <template>
-    <div class="n-card_item">
-      <div class="n-card_item-img">
-        <img
-          src="https://densegodnya.ru/thumb/2/JxPhNSBaYxUAWgsbD-ltUw/r/d/snezhnyy_bars.jpg"
-          alt=""
-        />
-      </div>
-      <div class="n-card_item-name">Костя, 36 <span>Россия</span></div>
-      <div class="n-card_item-btn n-sent">Отправлено</div>
-      <div class="n-card_item-text">
-        Далеко-далеко за словесными горами в стране гласных и согласных живут
-        рыбные тексты. Свою ручеек всемогущая, путь приставка силуэт свой текст
-        своих там!
-      </div>
+  <div class="n-card_item">
+    <div class="n-card_item-img">
+      <img
+        src="https://densegodnya.ru/thumb/2/JxPhNSBaYxUAWgsbD-ltUw/r/d/snezhnyy_bars.jpg"
+        alt=""
+      />
     </div>
- 
+    <div class="n-card_item-name">Костя, 36 <span>Россия</span></div>
+    <div class="n-card_item-btn n-sent">Отправлено</div>
+    <div class="n-card_item-text">
+      Далеко-далеко за словесными горами в стране гласных и согласных живут
+      рыбные тексты. Свою ручеек всемогущая, путь приставка силуэт свой текст
+      своих там!
+    </div>
+  </div>
 </template>
 
-<script setup>
-</script>
-
 <style lang="scss">
-
-
 .n-card_item-img {
   width: 48px;
   height: 48px;
@@ -99,5 +93,4 @@
   text-align: center;
   cursor: pointer;
 }
-
 </style>

@@ -1,11 +1,6 @@
 <template>
   <div class="m-mess_wrapper">
-  
-    
-    <div
-      class="m-mess_item"
-      :class="{ 'm-new': false }"
-    >
+    <div class="m-mess_item" :class="{ 'm-new': false }">
       <router-link to="/chat/test" class="dialog-item-link"></router-link>
       <div class="m-mess_item-img">
         <div class="m-mess_item-img m-online"></div>
@@ -25,18 +20,13 @@
         <div class="m-mess_new">1</div>
       </div>
     </div>
-    
+
     <div class="delite-block">
       <div class="m-mess_del">x</div>
       <div class="delite-btn">Удалить</div>
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-</script>
 
 <style lang="scss">
 .m-mess_wrapper {
@@ -211,7 +201,7 @@ import { ref } from "vue";
 }
 
 .m-online {
-  content: "";
+  content: '';
   position: absolute;
   background: #2b66fb;
   width: 8px;

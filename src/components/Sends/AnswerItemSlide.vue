@@ -7,14 +7,13 @@
     />
   </div>
 </template>
-<script setup>
-</script>
+
 <style lang="scss">
 .answer-slider-item {
   position: relative;
   width: 38px;
   height: 38px;
-  
+
   .image {
     position: absolute;
     width: 100%;

@@ -1,17 +1,17 @@
-<template>
-  <button class="big-btn" @click="emit('click')">{{ props.title }}</button>
-</template>
-
 <script setup>
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     default: 'Нажмите меня',
   },
-});
+})
 
-const emit = defineEmits(['click']);
+const emit = defineEmits(['click'])
 </script>
+
+<template>
+  <button class="big-btn" @click="emit('click')">{{ title }}</button>
+</template>
 
 <style lang="scss">
 .big-btn {

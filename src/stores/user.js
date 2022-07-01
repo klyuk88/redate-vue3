@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import axiosInstance from '@/services/api.js';
+import { defineStore } from 'pinia'
+import axiosInstance from '@/services/api.js'
 
 export const useUserStore = defineStore('user', {
   state: () => {
@@ -11,52 +11,57 @@ export const useUserStore = defineStore('user', {
         message: '',
       },
       isLoading: false,
-    };
+    }
   },
 
   actions: {
     async getUser() {
       try {
-        this.isLoading = true;
+        this.isLoading = true
 
-        const userResponse = await axiosInstance.get('/users/me');
+        const userResponse = await axiosInstance.get('/users/me')
 
-        const user = userResponse.data || {};
+        const user = userResponse.data || null
 
-        if (!Object.keys(user).length) {
-          throw new Error('Не удалось загрузить данные о пользователе');
+        if (user === null) {
+          throw new Error('Не удалось загрузить данные о пользователе')
         }
 
-        this.user = user;
+        this.user = user
 
-        this.isLoading = false;
+        this.isLoading = false
       } catch (error) {
-        this.isLoading = false;
-        this.error.status = true;
-        this.error.message = error.message || 'Неизвестная ошибка';
+        this.isLoading = false
+        this.error.status = true
+        this.error.message = error.message || 'Неизвестная ошибка'
       }
     },
 
     async getUserRegistrationStatus() {
       try {
-        this.isLoading = true;
+        this.isLoading = true
 
-        const userRegistrationStatusResponse = await axiosInstance.get('/users/registration/status');
+        const userRegistrationStatusResponse = await axiosInstance.get(
+          '/users/registration/status'
+        )
 
-        const userRegistrationStatus = userRegistrationStatusResponse.data || {};
+        const userRegistrationStatus =
+          userRegistrationStatusResponse.data || null
 
-        if (!Object.keys(userRegistrationStatus).length) {
-          throw new Error('Не удалось загрузить статус регистрации пользователя');
+        if (userRegistrationStatus === null) {
+          throw new Error(
+            'Не удалось загрузить статус регистрации пользователя'
+          )
         }
 
-        this.userRegistrationStatus = userRegistrationStatus;
+        this.userRegistrationStatus = userRegistrationStatus
 
-        this.isLoading = false;
+        this.isLoading = false
       } catch (error) {
-        this.isLoading = false;
-        this.error.status = true;
-        this.error.message = error.message || 'Неизвестная ошибка';
+        this.isLoading = false
+        this.error.status = true
+        this.error.message = error.message || 'Неизвестная ошибка'
       }
     },
   },
-});
+})

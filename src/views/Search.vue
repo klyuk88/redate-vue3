@@ -1,3 +1,41 @@
+<script setup>
+import SearchItem from '@/components/Search/SearchItem.vue'
+import SearchPageSidebar from '@/components/Search/SearchPageSidebar.vue'
+import MobileBurger from '@/components/MobileBurger.vue'
+import PotrncialPartnerMobile from '@/components/PotencialPartners/PotrncialPartnerMobile.vue'
+import ProfileNewMessage from '@/components/Profile/ProfileNewMessage.vue'
+import MobileSorting from '@/components/Search/MobileSorting.vue'
+import BackLink from '@/components/Search/BackLink.vue'
+import { onUnmounted, ref } from 'vue'
+
+import { useStore } from '@/stores/main.js'
+import { computed } from 'vue'
+
+const store = useStore()
+
+const openMobileSorting = () => {
+  store.mobileSorting = true
+}
+
+const scrollValue = ref(0)
+
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false
+})
+
+//scroll
+window.addEventListener('scroll', heandleScroll)
+
+function heandleScroll() {
+  scrollValue.value = window.pageYOffset
+}
+onUnmounted(() => {
+  window.removeEventListener('scroll', heandleScroll)
+})
+
+// TODO Need clear query params in Pinia, before get state on this page
+</script>
+
 <template>
   <ProfileNewMessage v-if="store.newMessageWindow" />
   <section id="search" :class="{ hidden: store.mobileSorting }">
@@ -15,7 +53,7 @@
             src="@/assets/images/main/settings-icon.svg"
             alt=""
             class="filter"
-            @click="openMobileSorting"
+            @click="openMobileSorting()"
           />
         </div>
       </div>
@@ -48,44 +86,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import SearchItem from "@/components/Search/SearchItem.vue";
-import SearchPageSidebar from "@/components/Search/SearchPageSidebar.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import PotrncialPartnerMobile from "@/components/PotencialPartners/PotrncialPartnerMobile.vue";
-import ProfileNewMessage from "@/components/Profile/ProfileNewMessage.vue";
-import MobileSorting from "@/components/Search/MobileSorting.vue";
-import BackLink from "@/components/Search/BackLink.vue";
-import { onUnmounted, ref } from "vue";
-
-import { useStore } from "@/stores/main.js";
-import { computed } from "vue";
-
-const store = useStore();
-
-const openMobileSorting = () => {
-  store.mobileSorting = true
-};
-
-const scrollValue = ref(0);
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-
-//scroll
-window.addEventListener("scroll", heandleScroll);
-
-function heandleScroll(e) {
-  scrollValue.value = window.pageYOffset;
-}
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-
-// TODO Need clear query params in Pinia, before get state on this page
-</script>
 
 <style lang="scss">
 #search {

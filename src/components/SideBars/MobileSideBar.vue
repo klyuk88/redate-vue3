@@ -1,7 +1,23 @@
+<script setup>
+import { watch } from 'vue'
+import { useStore } from '@/stores/main.js'
+import { useRoute } from 'vue-router'
+
+const store = useStore()
+const route = useRoute()
+
+const closeMobMenu = () => {
+  store.mobileMenu = false
+}
+watch(route, () => {
+  setTimeout(() => {
+    store.mobileMenu = false
+  }, 500)
+})
+</script>
+
 <template>
-  <div class="mobile-sidebar"
-  :class="{active: store.mobileMenu}"
-  >
+  <div class="mobile-sidebar" :class="{ active: store.mobileMenu }">
     <h2 class="logo">Redate</h2>
 
     <div class="menu-block">
@@ -73,30 +89,12 @@
       </div>
     </div>
   </div>
-<div class="mobile-sidebar-overlay"
-:class="{active: store.mobileMenu}"
-@click="closeMobMenu"
-></div>
+  <div
+    class="mobile-sidebar-overlay"
+    :class="{ active: store.mobileMenu }"
+    @click="closeMobMenu()"
+  ></div>
 </template>
-
-
-<script setup>
-import {computed, watch} from 'vue'
-import {useStore} from '@/stores/main.js'
-import {useRoute} from 'vue-router'
-const store = useStore()
-const route = useRoute()
-
-const closeMobMenu = () => {
-    store.mobileMenu = false
-}
-watch(route, (newVal, oldVal) => {
-  setTimeout(() => {
-    store.mobileMenu = false
-  }, 500);
-})
-</script>
-
 
 <style lang="scss">
 .mobile-sidebar-overlay {
@@ -107,10 +105,10 @@ watch(route, (newVal, oldVal) => {
   width: 0;
   height: 100%;
   z-index: 99;
-  transition: width .2s ease-in;
+  transition: width 0.2s ease-in;
 }
 .mobile-sidebar-overlay.active {
-    width: 100%;
+  width: 100%;
 }
 .mobile-sidebar {
   position: fixed;
@@ -129,7 +127,7 @@ watch(route, (newVal, oldVal) => {
   transition: transform 0.2s ease-in;
 }
 .mobile-sidebar.active {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 .mobile-sidebar .line {
   width: 100%;
@@ -162,7 +160,7 @@ watch(route, (newVal, oldVal) => {
   .items {
     .item {
       .router-link-active.router-link-exact-active.link {
-        background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%);
+        background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
         .image-block {
           background: transparent;
         }
@@ -171,7 +169,7 @@ watch(route, (newVal, oldVal) => {
         background: transparent;
         .image-block {
           background: rgba(255, 255, 255, 0.05);
-          border: 1px solid #2B66FB;
+          border: 1px solid #2b66fb;
           filter: drop-shadow(0px 0px 30px rgba(43, 102, 251, 0.55));
         }
       }

@@ -1,5 +1,9 @@
+<script setup>
+const emit = defineEmits([ 'hideModalHide' ])
+</script>
+
 <template>
-  <div class="hide__popup__background" @click.self="$emit('hideModalHide')">
+  <div class="hide__popup__background" @click.self="emit('hideModalHide')">
     <div class="hide__popup__block">
       <div class="hide__popup__content">
         <div class="hide__popup__text">
@@ -9,16 +13,19 @@
           </div>
         </div>
         <div class="hide__popup__button__box">
-          <div class="hide__popup__button grey__btn" @click="$emit('hideModalHide')" >Отмена</div>
+          <div
+            class="hide__popup__button grey__btn"
+            @click="emit('hideModalHide')"
+          >
+            Отмена
+          </div>
           <div class="hide__popup__button blue__btn">Скрыть</div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup>
-const emit = defineEmits(['hideModalHide'])
-</script>
+
 <style>
 .hide__popup__background {
   position: fixed;
@@ -62,7 +69,7 @@ const emit = defineEmits(['hideModalHide'])
   height: 68px;
 }
 .hide__popup__title {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -73,7 +80,7 @@ const emit = defineEmits(['hideModalHide'])
   color: #ffffff;
 }
 .hide__popup__description {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -97,7 +104,7 @@ const emit = defineEmits(['hideModalHide'])
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

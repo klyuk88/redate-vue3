@@ -1,32 +1,34 @@
 {
   "name": "redate",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier .  --write"
   },
   "dependencies": {
     "axios": "^0.27.2",
-    "core-js": "^3.6.5",
-    "js-cookie": "^3.0.1",
     "pinia": "^2.0.14",
-    "swiper": "^8.1.4",
-    "vue": "^3.0.0",
+    "swiper": "^8.2.6",
+    "vue": "^3.2.27",
     "vue-masonry": "^0.15.0",
-    "vue-router": "^4.0.0-0",
+    "vue-router": "^4.0.16",
     "vue-select": "^4.0.0-beta.3",
-    "vue-slider-component": "^4.0.0-beta.4",
+    "vue-slider-component": "^4.1.0-beta.0",
     "vue3-perfect-scrollbar": "^1.6.0",
     "vue3-touch-events": "^4.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.14",
-    "@vue/cli-plugin-router": "~4.5.14",
-    "@vue/cli-plugin-vuex": "~4.5.14",
-    "@vue/cli-service": "~4.5.14",
-    "@vue/compiler-sfc": "^3.0.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2"
+    "@vitejs/plugin-vue": "^2.3.3",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "prettier": "2.7.1",
+    "sass": "^1.53.0",
+    "vite": "^2.9.9",
+    "vite-plugin-eslint": "^1.6.1"
   }
 }

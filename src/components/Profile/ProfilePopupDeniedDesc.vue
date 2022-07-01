@@ -28,7 +28,7 @@
     </div>
   </div>
 </template>
-<script setup></script>
+
 <style lang="scss" scoped>
 .background__denied__desc {
   display: flex;
@@ -153,8 +153,7 @@
       }
       p {
         width: 314px;
-      margin: 10px 0 16px 0;
-
+        margin: 10px 0 16px 0;
       }
     }
   }

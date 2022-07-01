@@ -1,14 +1,15 @@
-<template>
-<PerfectScrollbar>
-  <div class="views-tab-content">
-    <LikesItem v-for="(item, index) in 5" :key="index"/>
-  </div>
-</PerfectScrollbar>
-
-</template>
 <script setup>
 import LikesItem from '@/components/Notifications/LikesItem.vue'
 </script>
+
+<template>
+  <PerfectScrollbar>
+    <div class="views-tab-content">
+      <LikesItem v-for="(item, index) in 5" :key="index" />
+    </div>
+  </PerfectScrollbar>
+</template>
+
 <style lang="scss">
 .ps {
   padding-top: 150px;
@@ -35,7 +36,5 @@ import LikesItem from '@/components/Notifications/LikesItem.vue'
 .views-tab-content {
   width: 730px;
   margin: 0 auto;
-
 }
-  
 </style>

@@ -1,3 +1,24 @@
+<script setup>
+import { ref, computed } from 'vue'
+
+const phoneAuth = ref(false)
+const mailAuth = ref(true)
+
+const authPhone = computed(() => {
+  if (phoneAuth.value === true) {
+    return 'authPhone'
+  }
+  return 'test'
+})
+
+const authMail = computed(() => {
+  if (mailAuth.value === true) {
+    return 'authMail'
+  }
+  return 'test'
+})
+</script>
+
 <template>
   <div class="signup__background">
     <slot name="backToRecovery"></slot>
@@ -17,8 +38,14 @@
             </div>
 
             <div class="signup__block__numbers">
-              <input type="number" max="1" class="block__item" maxlength="1" autofocus/>
-              <input type="number" max="9" class="block__item" maxlength="1"  />
+              <input
+                type="number"
+                max="1"
+                class="block__item"
+                maxlength="1"
+                autofocus
+              />
+              <input type="number" max="9" class="block__item" maxlength="1" />
               <input type="number" max="9" class="block__item" maxlength="1" />
               <input type="number" max="9" class="block__item" maxlength="1" />
             </div>
@@ -42,7 +69,13 @@
 
           <div class="mobile__inputs">
             <div class="signup__block__numbers">
-              <input type="number" max="9" class="block__item" maxlength="1" autofocus />
+              <input
+                type="number"
+                max="9"
+                class="block__item"
+                maxlength="1"
+                autofocus
+              />
               <input type="number" max="9" class="block__item" maxlength="1" />
               <input type="number" max="9" class="block__item" maxlength="1" />
               <input type="number" max="9" class="block__item" maxlength="1" />
@@ -63,37 +96,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      phoneAuth: false,
-      mailAuth: true,
-      errorStatus: false,
-    };
-  },
-  computed: {
-    authPhone() {
-      if (this.phoneAuth === true) {
-        return "authPhone";
-      }
-      return "test";
-    },
-    authMail() {
-      if (this.mailAuth === true) {
-        return "authMail";
-      }
-      return "test";
-    },
-    errorCode() {
-      if (this.errorStatus === true) {
-        return "error__code";
-      }
-      return "test";
-    },
-  },
-};
-</script>
+
 <style lang="scss" scoped>
 .mobileArrow {
   display: none;
@@ -179,7 +182,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 11px;
   outline: none;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -188,10 +191,10 @@ export default {
   color: #ffffff;
   background-color: rgb(32, 34, 43);
   &::-webkit-outer-spin-button,
-&::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
   &:focus {
     border: #ffffff 1px solid;
   }

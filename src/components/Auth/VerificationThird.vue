@@ -77,10 +77,7 @@
     </div>
   </div>
 </template>
-<script>
-import VerificationSecondVue from './VerificationSecond.vue';
-export default {};
-</script>
+
 <style lang="scss" scoped>
 .verification__block__container {
   display: flex;

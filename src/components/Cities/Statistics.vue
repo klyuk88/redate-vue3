@@ -1,22 +1,5 @@
-<template>
-  <div class="statistics">
-    <div class="item big">
-      <h4 class="title">{{ props.totalRegistered }}</h4>
-      <p class="text">Всего зарегистрировано</p>
-    </div>
-    <div class="item">
-      <h4 class="title">{{ props.menRegistered }}</h4>
-      <p class="text">Зарегистрировано<br />мужских анкет</p>
-    </div>
-    <div class="item">
-      <h4 class="title">{{ props.newUsers }}</h4>
-      <p class="text">Новых пользователей<br />за последнии 24 часа</p>
-    </div>
-  </div>
-</template>
-
 <script setup>
-const props = defineProps({
+defineProps({
   totalRegistered: {
     type: Number,
     required: true,
@@ -31,6 +14,23 @@ const props = defineProps({
   },
 })
 </script>
+
+<template>
+  <div class="statistics">
+    <div class="item big">
+      <h4 class="title">{{ totalRegistered }}</h4>
+      <p class="text">Всего зарегистрировано</p>
+    </div>
+    <div class="item">
+      <h4 class="title">{{ menRegistered }}</h4>
+      <p class="text">Зарегистрировано<br />мужских анкет</p>
+    </div>
+    <div class="item">
+      <h4 class="title">{{ newUsers }}</h4>
+      <p class="text">Новых пользователей<br />за последнии 24 часа</p>
+    </div>
+  </div>
+</template>
 
 <style>
 .statistics {

@@ -1,12 +1,45 @@
+<script setup>
+import { computed, reactive } from 'vue'
+import DialogSidebar from '@/components/Chat/DialogSidebar.vue'
+import ChatsTabContent from '@/components/Chat/ChatsTabContent.vue'
+import AppsTabContent from '@/components/Chat/AppsTabContent.vue'
+import ChatMobile from '@/components/Chat/ChatMobile.vue'
+
+const tabs = reactive({
+  chats: true,
+  apps: false,
+})
+
+const activeTab = computed(() => {
+  if (tabs.chats) {
+    return ChatsTabContent
+  } else if (tabs.apps) {
+    return AppsTabContent
+  }
+
+  return null
+})
+
+const tabActive = (param) => {
+  if (param === 'chats') {
+    tabs.chats = true
+    tabs.apps = false
+  } else if (param === 'apps') {
+    tabs.apps = true
+    tabs.chats = false
+  }
+}
+</script>
+
 <template>
   <section id="dialog">
     <div class="grid">
       <div class="content">
-        <div class="search-results" v-if="false">
+        <div v-if="false" class="search-results">
           <p class="label">Диалоги: <span class="results">222</span></p>
         </div>
 
-        <div class="tab-header" v-if="true">
+        <div v-if="true" class="tab-header">
           <div class="tab" :class="{ active: tabs.chats }">
             <p class="title" @click="tabActive('chats')">Диалоги</p>
           </div>
@@ -24,45 +57,9 @@
       </div>
     </div>
 
-    <ChatMobile/>
+    <ChatMobile />
   </section>
 </template>
-
-
-<script setup>
-import DialogSidebar from "@/components/Chat/DialogSidebar.vue";
-import ChatsTabContent from "@/components/Chat/ChatsTabContent.vue";
-import AppsTabContent from "@/components/Chat/AppsTabContent.vue";
-import ChatMobile from '@/components/Chat/ChatMobile.vue'
-import { computed, ref, onMounted, onUnmounted, reactive } from "vue";
-import {useStore} from '@/stores/main.js'
-
-const store = useStore()
-
-const tabs = reactive({
-  chats: true,
-  apps: false,
-});
-
-const activeTab = computed(() => {
-  if (tabs.chats) {
-    return ChatsTabContent;
-  } else if (tabs.apps) {
-    return AppsTabContent;
-  }
-});
-
-const tabActive = (param) => {
-  if (param === "chats") {
-    tabs.chats = true;
-    tabs.apps = false;
-  } else if (param === "apps") {
-    tabs.apps = true;
-    tabs.chats = false;
-  }
-};
-
-</script>
 
 <style lang="scss">
 #dialog {

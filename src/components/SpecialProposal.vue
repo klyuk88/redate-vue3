@@ -1,6 +1,18 @@
+<script setup>
+import { useSearchStore } from '@/stores/search.js'
+import router from '@/router'
+
+const search = useSearchStore()
+
+const redirectHandler = () => {
+  search.setQueryParams(undefined, undefined, undefined, undefined, true)
+
+  router.push('/search')
+}
+</script>
+
 <template>
   <div class="special-proposal">
-    <!-- <div class="shape"></div> -->
     <h2 class="page-subtitle">Спецпредложение</h2>
     <p class="online-info">Сейчас онлайн 596 954</p>
     <div class="items-block">
@@ -60,13 +72,13 @@
         </div>
         <a href="#" class="transparent-btn"> Написать </a>
       </div>
-      <a href="#" class="load-more">Открыть больше...</a>
+      <button class="load-more" @click="redirectHandler()">
+        Открыть больше...
+      </button>
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
+
 <style lang="sass">
 .special-proposal
     padding: 24px 20px
@@ -92,6 +104,9 @@ export default {};
         color: #fff
         opacity: 0.3
         text-align: center
+        background: none
+        border: none
+        cursor: pointer
     .special-proposal-item
         display: flex
         align-items: center
@@ -131,5 +146,4 @@ export default {};
     z-index: -1
     @media (max-width: 1200px)
       display: none
-
 </style>

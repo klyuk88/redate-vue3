@@ -1,3 +1,27 @@
+<script setup>
+import { ref, computed, onUnmounted } from 'vue'
+import BackLink from '@/components/Search/BackLink.vue'
+import MobileBurger from '@/components/MobileBurger.vue'
+import PotrncialPartnerMobile from '@/components/PotencialPartners/PotrncialPartnerMobile.vue'
+
+//scroll
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false
+})
+
+const scrollValue = ref(0)
+
+window.addEventListener('scroll', heandleScroll)
+
+function heandleScroll() {
+  scrollValue.value = window.pageYOffset
+}
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', heandleScroll)
+})
+</script>
+
 <template>
   <section id="favorites-mobile">
     <div class="decor"></div>
@@ -11,29 +35,9 @@
     <div class="items-block">
       <PotrncialPartnerMobile v-for="(items, idx) in 8" :key="idx" />
     </div>
-
-  </section>  
+  </section>
 </template>
-<script setup>
-import BackLink from "@/components/Search/BackLink.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import PotrncialPartnerMobile from '@/components/PotencialPartners/PotrncialPartnerMobile.vue'
-import { ref, computed, onUnmounted, reactive } from "vue";
 
-//scroll
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-const scrollValue = ref(0);
-window.addEventListener("scroll", heandleScroll);
-
-function heandleScroll(e) {
-  scrollValue.value = window.pageYOffset;
-}
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-</script>
 <style lang="scss">
 #favorites-mobile {
   display: none;

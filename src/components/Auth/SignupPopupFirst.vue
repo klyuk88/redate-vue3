@@ -1,3 +1,24 @@
+<script setup>
+import { ref } from 'vue'
+const isClicked = ref(false)
+
+const focusInput = ref(false)
+const focusInputRepeat = ref(false)
+
+function showPass() {
+  let inputType = document.querySelectorAll('#input')
+  inputType.forEach((e) => {
+    e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
+  })
+}
+function showPassRepeat() {
+  let inputType = document.querySelectorAll('#inputRepeat')
+  inputType.forEach((e) => {
+    e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
+  })
+}
+</script>
+
 <template>
   <div class="signup__background">
     <div class="signup__navigation">
@@ -34,21 +55,25 @@
                   class="input"
                   type="text"
                   placeholder="Электронная почта"
-                  @focus="isClicked = true, focusInputRepeat = false, focusInput = false"
+                  @focus="
+                    ;(isClicked = true),
+                      (focusInputRepeat = false),
+                      (focusInput = false)
+                  "
                 />
                 <div class="input__password middle">
                   <input
-                  id="input"
+                    id="input"
                     class="input pass"
                     type="password"
                     placeholder="Пароль"
-                    @focus="focusInput = true, focusInputRepeat = false"
+                    @focus=";(focusInput = true), (focusInputRepeat = false)"
                   />
                   <input
                     id="eye"
                     class="eye"
                     type="checkbox"
-                    @click="showPass"
+                    @click="showPass()"
                   />
                   <label for="eye" :class="{ visible: focusInput }"></label>
                 </div>
@@ -58,15 +83,18 @@
                     class="input pass__repeat"
                     type="password"
                     placeholder="Повторите пароль"
-                    @focus="focusInputRepeat = true, focusInput = false"
+                    @focus=";(focusInputRepeat = true), (focusInput = false)"
                   />
                   <input
                     id="eyeSecond"
                     class="eye"
                     type="checkbox"
-                    @click="showPassRepeat"
+                    @click="showPassRepeat()"
                   />
-                  <label for="eyeSecond" :class="{ visible : focusInputRepeat }"></label>
+                  <label
+                    for="eyeSecond"
+                    :class="{ visible: focusInputRepeat }"
+                  ></label>
                 </div>
               </div>
             </div>
@@ -137,32 +165,13 @@
     </div>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
-const isClicked = ref(false);
 
-const focusInput = ref(false);
-const focusInputRepeat = ref(false);
-
-function showPass() {
-  let inputType = document.querySelectorAll("#input");
-  inputType.forEach((e) => {
-    e.type === "password" ? (e.type = "text") : (e.type = "password");
-  });
-}
-function showPassRepeat() {
-  let inputType = document.querySelectorAll("#inputRepeat");
-  inputType.forEach((e) => {
-    e.type === "password" ? (e.type = "text") : (e.type = "password");
-  });
-}
-</script>
 <style lang="scss" scoped>
 .mobile__body {
   display: none;
 }
 .text {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 600;
   font-size: 34px;
@@ -254,7 +263,7 @@ p {
 }
 .input {
   margin: 0;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -292,7 +301,7 @@ p {
   border-radius: 32px;
 }
 .input__password {
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-size: 15px;
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
@@ -346,7 +355,7 @@ label {
     display: inline-flex;
   }
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     width: 24px;
     height: 24px;

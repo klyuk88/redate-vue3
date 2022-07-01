@@ -1,5 +1,13 @@
+<script setup>
+const emit = defineEmits(['close'])
+
+const clickHandler = () => {
+  emit('close')
+}
+</script>
+
 <template>
-  <div class="desc__background" @click="close">
+  <div class="desc__background" @click="clickHandler()">
     <div class="desc__popup__block">
       <div class="desc__popup__content">
         <div class="desc__popup__text">
@@ -10,15 +18,7 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-  },
-};
-</script>
+
 <style>
 .desc__background {
   width: 100%;
@@ -49,7 +49,7 @@ export default {
 .desc__popup__text {
   width: 171px;
   height: 42px;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

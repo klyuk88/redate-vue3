@@ -1,3 +1,13 @@
+<script setup>
+import { useAuthStore } from '@/stores/auth.js'
+
+const auth = useAuthStore()
+
+const logout = () => {
+  auth.logout()
+}
+</script>
+
 <template>
   <div class="page__background">
     <router-link to="/account/vasya">
@@ -72,7 +82,7 @@
         </div>
         <div class="horizontal__line"></div>
         <div class="settings__footer">
-          <button class="logout" @click="logout">Выйти из аккаунта</button>
+          <button class="logout" @click="logout()">Выйти из аккаунта</button>
           <div class="delete__profile">Удалить профиль</div>
           <div class="cancel__changes hide">Отмена</div>
           <div class="save__changes hide">Сохранить</div>
@@ -162,7 +172,7 @@
       </div>
       <div class="mobile__footer">
         <div class="btn__block">
-          <button class="btn" @click="logout">Выйти из аккаунта</button>
+          <button class="btn" @click="logout()">Выйти из аккаунта</button>
           <button class="btn blue">Удалить профиль</button>
           <!-- <div class="btn">Отмена</div>
           <div class="btn ">Сохранить</div> -->
@@ -171,17 +181,7 @@
     </div>
   </div>
 </template>
-<script setup>
-import AuthPopup from "@/components/Auth/AuthPopup.vue";
-import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
-import { useAuthStore } from "@/stores/auth.js";
 
-const auth = useAuthStore();
-
-const logout = () => {
-  auth.logout();
-};
-</script>
 <style lang="scss" scoped>
 .flex__center {
   display: flex;
@@ -751,8 +751,6 @@ const logout = () => {
       }
       .input {
         margin-bottom: 4.102vw;
-      }
-      .horizontal__line {
       }
     }
     .mobile__footer {

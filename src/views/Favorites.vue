@@ -1,3 +1,9 @@
+<script setup>
+import FavoriteItem from '@/components/Favorites/FavoriteItem.vue'
+import DialogSidebar from '@/components/Chat/DialogSidebar.vue'
+import FavoritesMobile from '@/components/Favorites/FavoritesMobile.vue'
+</script>
+
 <template>
   <section id="favorites">
     <div class="grid">
@@ -7,23 +13,18 @@
         </div>
         <PerfectScrollbar>
           <div class="items">
-            <FavoriteItem v-for="(item, index) in 20" :key="index"/>
+            <FavoriteItem v-for="(item, index) in 20" :key="index" />
           </div>
         </PerfectScrollbar>
       </div>
       <div class="sidebar">
-        <DialogSidebar/>
+        <DialogSidebar />
       </div>
     </div>
   </section>
-  <FavoritesMobile/>
-
+  <FavoritesMobile />
 </template>
-<script setup>
-import FavoriteItem from '@/components/Favorites/FavoriteItem.vue'
-import DialogSidebar from '@/components/Chat/DialogSidebar.vue'
-import FavoritesMobile from '@/components/Favorites/FavoritesMobile.vue'
-</script>
+
 <style lang="scss">
 #favorites {
   margin: 0 auto;
@@ -88,7 +89,6 @@ import FavoritesMobile from '@/components/Favorites/FavoritesMobile.vue'
         gap: 35px;
         padding-bottom: 50px;
       }
-
     }
   }
 }

@@ -1,3 +1,20 @@
+<script setup>
+defineProps({
+  time: {
+    type: String,
+    default: '00:00',
+  },
+  message: {
+    type: String,
+    default: 'Здесь будет сообщение',
+  },
+  right: {
+    type: Boolean,
+    default: false,
+  },
+})
+</script>
+
 <template>
   <div class="mobile-message-item" :class="{ right: right }">
     <p class="message">
@@ -8,22 +25,7 @@
     </p>
   </div>
 </template>
-<script setup>
-const props = defineProps({
-  time: {
-    type: String,
-    default: "00:00",
-  },
-  message: {
-    type: String,
-    default: `Здесь будет сообщение`,
-  },
-  right: {
-    type: Boolean,
-    default: false,
-  },
-});
-</script>
+
 <style lang="scss">
 .mobile-message-item {
   padding: 6px 10px;

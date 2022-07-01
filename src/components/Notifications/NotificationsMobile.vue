@@ -1,3 +1,53 @@
+<script setup>
+import { ref, computed, onUnmounted, reactive } from 'vue'
+import BackLink from '@/components/Search/BackLink.vue'
+import MobileBurger from '@/components/MobileBurger.vue'
+import LikesMobileTabContent from '@/components/Notifications/LikesMobileTabContent.vue'
+import ViewsMobileTabContent from '@/components/Notifications/ViewsMobileTabContent.vue'
+
+const tabs = reactive({
+  likes: true,
+  views: false,
+})
+
+const activeTab = computed(() => {
+  if (tabs.likes) {
+    return LikesMobileTabContent
+  } else if (tabs.views) {
+    return ViewsMobileTabContent
+  }
+
+  return null
+})
+
+const tabActive = (param) => {
+  if (param === 'likes') {
+    tabs.likes = true
+    tabs.views = false
+  } else if (param === 'views') {
+    tabs.views = true
+    tabs.likes = false
+  }
+}
+
+const scrollValue = ref(0)
+
+const onBlur = computed(() => {
+  return scrollValue.value > 20 ? true : false
+})
+
+//scroll
+window.addEventListener('scroll', heandleScroll)
+
+function heandleScroll() {
+  scrollValue.value = window.pageYOffset
+}
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', heandleScroll)
+})
+</script>
+
 <template>
   <section id="notifications-mobile">
     <div class="decor"></div>
@@ -33,49 +83,7 @@
     <component :is="activeTab"></component>
   </section>
 </template>
-<script setup>
-import BackLink from "@/components/Search/BackLink.vue";
-import MobileBurger from "@/components/MobileBurger.vue";
-import LikesMobileTabContent from "@/components/Notifications/LikesMobileTabContent.vue";
-import ViewsMobileTabContent from "@/components/Notifications/ViewsMobileTabContent.vue";
-import { ref, computed, onUnmounted, reactive } from "vue";
 
-const tabs = reactive({
-  likes: true,
-  views: false,
-});
-const activeTab = computed(() => {
-  if (tabs.likes) {
-    return LikesMobileTabContent;
-  } else if (tabs.views) {
-    return ViewsMobileTabContent;
-  }
-});
-const tabActive = (param) => {
-  if (param === "likes") {
-    tabs.likes = true;
-    tabs.views = false;
-  } else if (param === "views") {
-    tabs.views = true;
-    tabs.likes = false;
-  }
-};
-const scrollValue = ref(0);
-
-const onBlur = computed(() => {
-  return scrollValue.value > 20 ? true : false;
-});
-
-//scroll
-window.addEventListener("scroll", heandleScroll);
-
-function heandleScroll(e) {
-  scrollValue.value = window.pageYOffset;
-}
-onUnmounted(() => {
-  window.removeEventListener("scroll", heandleScroll);
-});
-</script>
 <style lang="scss">
 #notifications-mobile {
   display: none;

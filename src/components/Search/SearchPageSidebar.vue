@@ -1,33 +1,33 @@
-<template>
-  <div id="searchPageSidebar">
-    <h3 class="page-subtitle">Сортировка</h3>
-    <form>
-      <TheSelect
-        :placeholder="'Страна, город'"
-        :options="cities"
-        v-model="city"
-      />
-      <FormRange/>
-      
-      <TheFormats/>
-      <FormCheckbox :title="'Сейчас онлайн'"/>
-      <BigButton :title="'Начать поиск'"/>
-    </form>
-  </div>
-</template>
-
 <script setup>
-import TheSelect from "@/components/Form/TheSelect.vue";
+import TheSelect from '@/components/Form/TheSelect.vue'
 import TheFormats from '@/components/Form/TheFormats.vue'
 import FormRange from '@/components/Form/FormRange.vue'
 import FormCheckbox from '@/components/Form/FormCheckbox.vue'
 import BigButton from '@/components/Form/BigButton.vue'
 
-import { ref } from "vue";
+import { ref } from 'vue'
 
-const city = ref(null);
-const cities = ref(["Москва", "Дубай", "Казань", "Санкт-Петербург"]);
+const city = ref(null)
+const cities = ref([ 'Москва', 'Дубай', 'Казань', 'Санкт-Петербург' ])
 </script>
+
+<template>
+  <div id="searchPageSidebar">
+    <h3 class="page-subtitle">Сортировка</h3>
+    <form>
+      <TheSelect
+        v-model="city"
+        placeholder="Страна, город"
+        :options="cities"
+      />
+      <FormRange />
+
+      <TheFormats />
+      <FormCheckbox title="Сейчас онлайн" />
+      <BigButton title="Начать поиск" />
+    </form>
+  </div>
+</template>
 
 <style lang="scss">
 #searchPageSidebar {
