@@ -74,7 +74,8 @@ function showPassRepeat() {
   inputType.forEach((e) => {
     e.type === "password" ? (e.type = "text") : (e.type = "password");
   });
-}</script>
+}
+</script>
 <style lang="scss" scoped>
 .mobileBtn {
   display: none;

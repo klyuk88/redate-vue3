@@ -175,12 +175,25 @@
 import AuthPopup from "@/components/Auth/AuthPopup.vue";
 import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
 import { useAuthStore } from "@/stores/auth.js";
-
+import { ref } from "vue";
+const focusInput = ref(false);
+const focusInputRepeat = ref(false);
 const auth = useAuthStore();
-
 const logout = () => {
   auth.logout();
 };
+function showPass() {
+  let inputType = document.querySelectorAll("#input");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
+}
+function showPassRepeat() {
+  let inputType = document.querySelectorAll("#inputRepeat");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
+}
 </script>
 <style lang="scss" scoped>
 .flex__center {
