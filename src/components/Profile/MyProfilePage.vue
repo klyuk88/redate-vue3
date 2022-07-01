@@ -202,7 +202,7 @@
                 </div>
               </div>
               <div class="mobile__horizontal__line"></div>
-              <div class="btn" :class="{ stageSix: notificationStageSeven }">
+              <!-- <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
                   <RouterLink  to="/account/:user/settings" class="container">
                     <img
@@ -218,7 +218,7 @@
                     alt=""
                   />
                 </div>
-              </div>
+              </div> -->
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageEight }">
                 <div class="container">
@@ -1081,7 +1081,7 @@ const notificationStageEight = false;
             z-index: 100;
           }
           @extend .flex__center;
-          width: 192px;
+          width: 296px;
           height: 136px;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.14);

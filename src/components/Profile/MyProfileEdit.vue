@@ -13,10 +13,120 @@
     <div class="container">
       <div class="content__container__edit">
         <div class="header">
-          <h1>Редактирования профиля</h1>
+          <div class="title__block">
+            <div class="btn delete">Удалить профиль</div>
+            <h1>Редактирования профиля</h1>
+            <div class="btn leave" @click="logout">
+              <img src="../../assets/images/leave__icon.svg" alt="" />
+              Выйти из аккаунта
+            </div>
+          </div>
           <div class="horizontal__line"></div>
         </div>
         <div class="myprofile__body">
+          <div class="mail__block">
+            <div class="logo">
+              <img
+                src="../../assets/images/main/myprofile__settings__email.svg"
+                alt=""
+              />
+            </div>
+            <p>Электронная почта:</p>
+            <input
+              class="input"
+              type="text"
+              disabled
+              placeholder="Example@example.ru"
+            />
+          </div>
+          <div class="pass__container">
+            <div class="pass__block">
+              <div class="logo">
+                <img
+                  src="../../assets/images/main/myprofile__settings__lock.svg"
+                  alt=""
+                />
+              </div>
+              <p>Пароль:</p>
+              <div class="input__box__pass">
+                <p>Старый пароль</p>
+                <div class="eye__block">
+                  <input
+                    class="input"
+                    type="password"
+                    placeholder="********"
+                    id="input"
+                    @focus="(focusInput = true), (focusInputRepeat = false)"
+                  />
+                  <input
+                    id="eye"
+                    class="eye"
+                    type="checkbox"
+                    @click="showPass"
+                  />
+                  <label for="eye" :class="{ visible: focusInput }"></label>
+                </div>
+              </div>
+              <div class="input__box__pass">
+                <p>Новый пароль</p>
+                <div class="eye__block">
+                  <input
+                    class="input repeat"
+                    type="password"
+                    placeholder="********"
+                    id="inputRepeat"
+                    @focus="(focusInputRepeat = true), (focusInput = false)"
+                  />
+                  <input
+                    id="eyeSecond"
+                    class="eye"
+                    type="checkbox"
+                    @click="showPassRepeat"
+                  />
+                  <label
+                    for="eyeSecond"
+                    :class="{ visible: focusInputRepeat }"
+                  ></label>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="input__password">
+              <input
+                id="input"
+                class="input pass"
+                type="password"
+                placeholder="Пароль"
+                @focus="(focusInput = true), (focusInputRepeat = false)"
+              />
+              <input id="eye" class="eye" type="checkbox" @click="showPass" />
+              <label for="eye" :class="{ visible: focusInput }"></label>
+            </div> -->
+            <!-- <div class="input__password">
+              <input
+                id="inputRepeat"
+                class="input pass__repeat"
+                type="password"
+                placeholder="Повторите пароль"
+                @focus="(focusInputRepeat = true), (focusInput = false)"
+              />
+              <input
+                id="eyeSecond"
+                class="eye"
+                type="checkbox"
+                @click="showPassRepeat"
+              />
+              <label
+                for="eyeSecond"
+                :class="{ visible: focusInputRepeat }"
+              ></label>
+            </div> -->
+            <div class="vertical__line__pass"></div>
+            <img
+              src="../../assets/images/main/myprofile__settings__done.svg"
+              alt=""
+            />
+          </div>
+          <div class="horizontal__line"></div>
           <div class="format__dating">
             <div class="left__side__options">
               <div class="logo">
@@ -104,7 +214,7 @@
                 </div>
                 <span>Город</span>
               </div>
-              <TheSelect class="select__city" placeholder="Россия, Москва" />
+              <TheSelect class="select__city" placeholder="Москва" />
             </div>
             <div class="info__bar">
               <div class="logo__title__group">
@@ -114,9 +224,12 @@
                     alt=""
                   />
                 </div>
-                <span>Национальность</span>
+                <span class="nation__span">Национальность и образование:</span>
               </div>
-              <TheSelect class="select__nation" placeholder="Русская" />
+              <div class="nation__block">
+                <TheSelect class="select__nation" placeholder="Русская" />
+                <TheSelect class="select__education" placeholder="Высшее" />
+              </div>
             </div>
           </div>
           <div class="horizontal__line short"></div>
@@ -634,17 +747,48 @@
 </template>
 <script setup>
 import TheSelect from "../Form/TheSelect.vue";
-// import RegistrationTabs from "@/components/Auth/RegistrationTabs.vue";
 import MyProfileSettings from "@/components/Profile/MyProfileSettings.vue";
 
 import SignupHobby from "@/components/Auth/SignupHobby.vue";
 import { ref } from "vue";
-const isClicked = ref(false);
+import { useAuthStore } from "@/stores/auth.js";
+const focusInput = ref(false);
+const focusInputRepeat = ref(false);
 const modalHobbyVisible = ref(false);
+const auth = useAuthStore();
+const logout = () => {
+  auth.logout();
+};
 
-// export default { components: { TheSelect } };
+function showPass() {
+  let inputType = document.querySelectorAll("#input");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
+}
+function showPassRepeat() {
+  let inputType = document.querySelectorAll("#inputRepeat");
+  inputType.forEach((e) => {
+    e.type === "password" ? (e.type = "text") : (e.type = "password");
+  });
+}
 </script>
 <style lang="scss" scoped>
+.input__password {
+  font-family: "Mulish";
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  background: rgba(196, 196, 196, 0);
+  width: 250px;
+  height: 60px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
 .flex__center {
   display: flex;
   justify-content: center;
@@ -661,7 +805,43 @@ const modalHobbyVisible = ref(false);
     display: none;
   }
 }
-
+.eye__block {
+  height: 60px;
+}
+.eye {
+  position: relative;
+  z-index: -1;
+  opacity: 0;
+}
+label {
+  position: relative;
+  z-index: 2;
+  right: -200px;
+  top: -40px;
+}
+.eye + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  display: none;
+  &.visible {
+    display: inline-flex;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url(../../assets/images/eye__open.svg);
+  }
+}
+.eye:checked + label::before {
+  background-image: url(../../assets/images/eye__close.svg);
+}
 .container {
   width: 1056px;
   height: 2205px;
@@ -680,6 +860,31 @@ const modalHobbyVisible = ref(false);
       flex-direction: column;
       margin-top: 75px;
       margin-bottom: 48px;
+      .title__block {
+        display: flex;
+        align-items: center;
+        .btn {
+          padding: 7px 13px;
+          border: 1px solid #3e74ff;
+          border-radius: 11px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 132.5%;
+          color: #3e74ff;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          img {
+            margin-right: 10px;
+          }
+        }
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 153.5%;
+        margin: 0 109px 0 166px;
+      }
       .horizontal__line {
         width: 847px;
         height: 0px;
@@ -693,6 +898,91 @@ const modalHobbyVisible = ref(false);
       justify-content: space-between;
       width: 784px;
       height: 1563px;
+      .mail__block {
+        width: 784px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        p {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 153.5%;
+          color: rgba(255, 255, 255, 0.4);
+          margin: 0px 99px 0px 12px;
+        }
+        .input {
+          margin: 0;
+          background: none;
+          &::placeholder {
+            color: #ffffff;
+          }
+        }
+      }
+      .pass__container {
+        display: flex;
+        align-items: center;
+        margin-left: 36px;
+        img {
+          margin-top: 24px;
+        }
+        .vertical__line__pass {
+          width: 0px;
+          height: 40px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          margin: 24px 8px 0 8px;
+        }
+        .input {
+          width: 250px;
+          margin: 0;
+          margin-right: 12px;
+          background: none;
+          width: 250px;
+          &::placeholder {
+            color: #ffffff;
+          }
+          &.pass {
+            margin: 0;
+            border: none;
+            height: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            position: absolute;
+            z-index: 1;
+          }
+          &.pass__repeat {
+            margin: 0;
+            border: none;
+            height: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            position: absolute;
+            z-index: 1;
+          }
+        }
+      }
+      .pass__block {
+        display: flex;
+        align-items: center;
+        width: 784px;
+        p {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 153.5%;
+          color: rgba(255, 255, 255, 0.4);
+          margin: 0px 180px 0px 12px;
+          margin-top: 24px;
+        }
+
+        .input__box__pass {
+          display: flex;
+          flex-direction: column;
+          p {
+            margin: 0;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 132.5%;
+          }
+        }
+      }
       .format__dating {
         height: 89px;
         width: 784px;
@@ -704,6 +994,7 @@ const modalHobbyVisible = ref(false);
           @extend .flex__center;
           span {
             margin-left: 12px;
+           color: rgba(255, 255, 255, 0.4);
           }
         }
         .right__side__options {
@@ -777,6 +1068,10 @@ const modalHobbyVisible = ref(false);
           width: 326px;
           height: 60px;
           background: none;
+          margin: 0;
+          &::placeholder {
+            color: #ffffff;
+          }
         }
         .inputs__birth {
           @extend .flex__center;
@@ -799,8 +1094,8 @@ const modalHobbyVisible = ref(false);
             background: none;
             border: none;
             text-align: center;
-            border-left: 1px solid  rgba(255, 255, 255, 0.14);
-            border-right: 1px solid  rgba(255, 255, 255, 0.14);
+            border-left: 1px solid rgba(255, 255, 255, 0.14);
+            border-right: 1px solid rgba(255, 255, 255, 0.14);
             font-family: "Mulish";
             font-size: 15px;
             line-height: 153.5%;
@@ -822,11 +1117,30 @@ const modalHobbyVisible = ref(false);
           height: 60px;
           margin-top: 18px;
         }
+        .nation__span {
+          width: 100px;
+          height: 32px;
+
+          font-family: "Mulish";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 132.5%;
+        }
+        .nation__block {
+          display: flex;
+        }
         .select__nation {
           z-index: 1;
-          width: 512px;
+          width: 250px;
           height: 60px;
           margin-top: 18px;
+        }
+        .select__education {
+          z-index: 1;
+          width: 250px;
+          height: 60px;
+          margin: 18px 0 0 12px;
         }
       }
       .cash__education {
@@ -961,6 +1275,7 @@ const modalHobbyVisible = ref(false);
           .signup__params__item {
             p {
               margin: 0;
+              color: rgba(255, 255, 255, 0.4);
             }
             &.params__size {
               @extend .flex__center;
