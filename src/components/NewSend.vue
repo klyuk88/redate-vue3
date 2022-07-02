@@ -6,7 +6,7 @@ import BigButton from '@/components/Form/BigButton.vue'
 const city = ref('Москва')
 const format = ref('Любой')
 
-const cities = ref([ 'Москва', 'Санкт-Петербург', 'Казань' ])
+const cities = ref(['Москва', 'Санкт-Петербург', 'Казань'])
 const formats = ref([
   'Онлайн общение',
   'Серезные отношения',

@@ -117,6 +117,9 @@ const added = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+.verification__page {
+  height: unset;
+}
 .add__photo__block {
   width: 308px;
   height: 308px;
@@ -137,7 +140,6 @@ const added = computed(() => {
   }
 }
 .verification__content {
-  height: 574px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,6 +149,7 @@ const added = computed(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 60px;
   p {
     font-weight: 500;
     font-size: 14px;
@@ -228,6 +231,7 @@ const added = computed(() => {
 .btn__continue {
   display: none;
   &.added {
+    margin: 24px 0 37px 0;
     display: flex;
   }
 }

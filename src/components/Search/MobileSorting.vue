@@ -9,7 +9,7 @@ import { ref } from 'vue'
 import { useStore } from '@/stores/main.js'
 
 const store = useStore()
-const options = ref([ 'Москва', 'Санкт-Петербург', 'Казань' ])
+const options = ref(['Москва', 'Санкт-Петербург', 'Казань'])
 const city = ref(null)
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-const emit = defineEmits([ 'hideModal' ])
+const emit = defineEmits(['hideModal'])
 </script>
 
 <template>

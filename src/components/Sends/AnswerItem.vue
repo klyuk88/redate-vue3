@@ -34,9 +34,7 @@ import AnswerItemSlide from '@/components/Sends/AnswerItemSlide.vue'
           :slides-per-view="6"
           :space-between="4"
           class="slider"
-          :modules="[
-Navigation
-]"
+          :modules="[Navigation]"
           :navigation="{
             nextEl: '.next-arrow',
           }"

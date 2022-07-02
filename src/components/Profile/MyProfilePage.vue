@@ -105,7 +105,7 @@ const notificationStageEight = false
                     height="24"
                     alt=""
                   />
-                  <p>Ваш баланс: <span>$6045</span></p>
+                  <p>Ваш баланс: <span>60450₽</span></p>
                 </div>
                 <div class="btn">Пополнить</div>
               </div>
@@ -126,7 +126,7 @@ const notificationStageEight = false
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">7 дней</div>
-                    <div class="price">54$</div>
+                    <div class="price">3000₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -137,7 +137,7 @@ const notificationStageEight = false
                 >
                   <div class="inner__price__box">
                     <div class="days">14 дней</div>
-                    <div class="price">$96</div>
+                    <div class="price">5500₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -145,7 +145,7 @@ const notificationStageEight = false
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">30 дней</div>
-                    <div class="price">$160</div>
+                    <div class="price">11000₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось<span> 3 </span>дня</p>
                   </div>
@@ -219,7 +219,7 @@ const notificationStageEight = false
                 </div>
               </div>
               <div class="mobile__horizontal__line"></div>
-              <div class="btn" :class="{ stageSix: notificationStageSeven }">
+              <!-- <div class="btn" :class="{ stageSix: notificationStageSeven }">
                 <div class="container">
                   <RouterLink to="/account/:user/settings" class="container">
                     <img
@@ -235,7 +235,7 @@ const notificationStageEight = false
                     alt=""
                   />
                 </div>
-              </div>
+              </div> -->
               <div class="mobile__horizontal__line"></div>
               <div class="btn" :class="{ stageSix: notificationStageEight }">
                 <div class="container">
@@ -456,11 +456,11 @@ const notificationStageEight = false
               <div class="status__premium">DIAMOND</div>
             </div>
             <div class="profile__subtext">
-              <div class="profile__location">Россия, Москва</div>
+              <div class="profile__location">Москва</div>
               <div class="profile__vertical__line">|</div>
               <div class="profile__age">31 год</div>
               <div class="profile__vertical__line">|</div>
-              <div class="profile__online__status">Онлайн</div>
+              <div class="profile__online__status">ID: <span>667322</span></div>
             </div>
           </div>
           <div class="buttons__block mobile">
@@ -1079,7 +1079,7 @@ const notificationStageEight = false
             z-index: 100;
           }
           @extend .flex__center;
-          width: 192px;
+          width: 296px;
           height: 136px;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1288,6 +1288,8 @@ const notificationStageEight = false
       margin-bottom: 10.769vw;
       padding: 0;
       width: unset;
+      background: none;
+      border: none;
       .container {
         width: 85.59vw;
         height: unset;

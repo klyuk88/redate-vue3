@@ -15,9 +15,7 @@ import MailingItem from '@/components/MailingItem.vue'
     </div>
     <div class="slider">
       <Swiper
-        :modules="[
-Navigation, Pagination
-]"
+        :modules="[Navigation, Pagination]"
         :space-between="24"
         :slides-per-view="2"
         :navigation="{

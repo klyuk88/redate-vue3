@@ -78,7 +78,6 @@ export default {}
 
 .verification__block__container {
   width: 784px;
-  height: 642px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 40px;
@@ -91,6 +90,7 @@ export default {}
     font-size: 48px;
     line-height: 153.5%;
     color: #ffffff;
+    margin: 19px 0 46px 0;
   }
   h3 {
     font-weight: 600;
@@ -100,10 +100,10 @@ export default {}
 }
 .verification__body {
   width: 649px;
-  height: 327px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 80px;
 }
 .photo__block {
   width: 308px;

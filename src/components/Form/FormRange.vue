@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
 
-const range = ref([ 18, 45 ])
+const range = ref([18, 45])
 </script>
 
 <template>

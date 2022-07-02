@@ -1,10 +1,11 @@
 <template>
-  <div class="background__delete__chat">
-    <div class="container__delete__chat">
-      <h1>Удалить диалог у обоих</h1>
+  <div class="background__pay__chat">
+    <div class="container__pay__chat">
+      <h1>Открыть специальный диалог с «Цио Хао»?</h1>
       <p>
-        Вы можете удалить диалог не только у себя, но у и противоположного пола
-        за дополлнительную платку
+        Это не обычный диалог, Цио Хао, инициировала желание как можно скорее
+        найти свою вторую половинку, потому начало контакта с ней будет стоить
+        для Вас меньше обычного.
       </p>
       <div class="btn__block">
         <div class="btn">Отмена</div>
@@ -15,7 +16,7 @@
 </template>
 
 <style lang="scss" scoped>
-.background__delete__chat {
+.background__pay__chat {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -26,7 +27,7 @@
   position: fixed;
   top: 0;
 }
-.container__delete__chat {
+.container__pay__chat {
   padding: 24px 39px;
   background: rgba(36, 37, 41, 0.6);
   border: 1px solid #2b66fb;
@@ -78,7 +79,7 @@
   }
 }
 @media (max-width: 1200px) {
-  .container__delete__chat {
+  .container__pay__chat {
     width: 335px;
     .btn__block {
       .btn {

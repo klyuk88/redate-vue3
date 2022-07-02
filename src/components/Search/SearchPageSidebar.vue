@@ -8,18 +8,14 @@ import BigButton from '@/components/Form/BigButton.vue'
 import { ref } from 'vue'
 
 const city = ref(null)
-const cities = ref([ 'Москва', 'Дубай', 'Казань', 'Санкт-Петербург' ])
+const cities = ref(['Москва', 'Дубай', 'Казань', 'Санкт-Петербург'])
 </script>
 
 <template>
   <div id="searchPageSidebar">
     <h3 class="page-subtitle">Сортировка</h3>
     <form>
-      <TheSelect
-        v-model="city"
-        placeholder="Страна, город"
-        :options="cities"
-      />
+      <TheSelect v-model="city" placeholder="Страна, город" :options="cities" />
       <FormRange />
 
       <TheFormats />

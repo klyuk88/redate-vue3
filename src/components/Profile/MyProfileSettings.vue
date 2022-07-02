@@ -2,7 +2,6 @@
 import { useAuthStore } from '@/stores/auth.js'
 
 const auth = useAuthStore()
-
 const logout = () => {
   auth.logout()
 }

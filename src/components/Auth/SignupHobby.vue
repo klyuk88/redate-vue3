@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const emit = defineEmits([ 'hideModalHobby' ])
+const emit = defineEmits(['hideModalHobby'])
 
 const isClicked = ref(false)
 </script>

@@ -8,7 +8,7 @@ const modalBanVisible = ref(false)
 const modalHideVisible = ref(false)
 const modalReportVisible = ref(false)
 
-const emit = defineEmits([ 'hideModalMore' ])
+const emit = defineEmits(['hideModalMore'])
 </script>
 
 <template>

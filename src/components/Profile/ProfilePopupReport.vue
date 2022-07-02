@@ -1,7 +1,7 @@
 <script setup>
 import TheSelect from '../Form/TheSelect.vue'
 
-const emit = defineEmits([ 'hideModalReport' ])
+const emit = defineEmits(['hideModalReport'])
 </script>
 
 <template>

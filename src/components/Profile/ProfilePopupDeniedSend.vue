@@ -1,20 +1,20 @@
 <template>
-  <div class="background__denied__desc">
-    <div class="content__denied">
-      <div class="container__denied">
-        <div class="header__denied">
+  <div class="background__denied__desc__send">
+    <div class="content__denied__send">
+      <div class="container__denied__send">
+        <div class="header__denied__send">
           <h1>Уведомление</h1>
-          <p>Администрация сайта была вынуждена отказать Вам в Верификации.</p>
+          <p>Рассылка не прошла модерацию, средства возвращены на Ваш счёт.</p>
           <span>Причина отказа:</span>
         </div>
         <div class="plate__info">
-          <p>
-            Фотография с верификации и загруженные фотографии в галерею
-            отличаются.
-          </p>
+          <p>Склонение к простутиции</p>
         </div>
-        <p>Пройти верификацию заново можно в личном кабинете.</p>
-        <div class="btn__to__profile">Перейти в “Мой профиль”</div>
+        <div class="plate__info">
+          <p>Указание личных контактов в рассылке</p>
+        </div>
+        <p>При создании новой рассылки - соблюдайте правила.</p>
+        <div class="btn__to__profile">Перейти в “Рассылки”</div>
       </div>
       <img src="../../assets/images/close-new-send.svg" alt="" />
     </div>
@@ -22,7 +22,7 @@
 </template>
 
 <style lang="scss" scoped>
-.background__denied__desc {
+.background__denied__desc__send {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +38,10 @@
     margin-left: 24px;
     cursor: pointer;
   }
-  .content__denied {
+  .content__denied__send {
     display: flex;
   }
-  .container__denied {
+  .container__denied__send {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -52,7 +52,7 @@
     p {
       margin: 10px 0 34px 0;
     }
-    .header__denied {
+    .header__denied__send {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -128,9 +128,9 @@
     display: none;
   }
 
-  .background__denied__desc {
-    .container__denied {
-      .header__denied {
+  .background__denied__desc__send {
+    .container__denied__send {
+      .header__denied__send {
         p {
           width: 264px;
           margin: 8px 0 8px 0;
@@ -141,7 +141,7 @@
         display: flex;
         justify-content: center;
         p {
-          width: 240px;
+          width: 314px;
           display: flex;
           justify-content: center;
           font-weight: 500;
@@ -155,7 +155,7 @@
         margin: 4px 0 16px 0;
       }
       .btn__to__profile {
-        width: 269px;
+        width: 239px;
         height: 33px;
         border-radius: 11px;
       }

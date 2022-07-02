@@ -9,9 +9,7 @@ import SendSliderItem from '@/components/Sends/SendSliderItem.vue'
     <Swiper
       :slides-per-view="1"
       :space-between="50"
-      :modules="[
-Navigation, Pagination
-]"
+      :modules="[Navigation, Pagination]"
       :navigation="{
         nextEl: '.slider-nav.right',
         prevEl: '.slider-nav.left',

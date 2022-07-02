@@ -1,14 +1,10 @@
 <script setup>
-import ProfilePopupDeleteChat from '../components/Profile/ProfilePopupDeleteChat.vue'
-
-// import RegistrationTabs from "../components/Auth/RegistrationTabs.vue";
+import ProfilePopupMobileCoppy from '../components/Profile/ProfilePopupMobileCoppy.vue'
 </script>
 
 <template>
   <div class="content__container__reg">
-    <!-- <SignupPopupVue /> -->
-    <!-- <RegistrationTabs /> -->
-    <ProfilePopupDeleteChat />
+    <ProfilePopupMobileCoppy />
   </div>
 </template>
 

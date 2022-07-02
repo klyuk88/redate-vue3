@@ -27,6 +27,7 @@ const notificationStageFive = false
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </router-link>
+      <div class="user__id">ID:993155</div>
       <div class="more_mobile">
         <img src="@/assets/images/main/btn_more.svg" alt="" />
       </div>
@@ -198,11 +199,13 @@ const notificationStageFive = false
           <div class="profile__info__title">
             <div class="profile__name">Владимир</div>
             <div class="profile__subtext">
-              <div class="profile__location">Россия, Москва</div>
+              <div class="profile__location">Москва</div>
               <div class="profile__vertical__line">|</div>
               <div class="profile__age">31 год</div>
               <div class="profile__vertical__line">|</div>
-              <div class="profile__online__status">Онлайн</div>
+              <div class="profile__online__id">ID: 637789</div>
+              <div class="profile__vertical__line web">|</div>
+              <div class="profile__online__status real">Онлайн</div>
             </div>
           </div>
           <div class="buttons__block mobile">
@@ -256,7 +259,7 @@ const notificationStageFive = false
           </div>
           <div class="profile__info__list__container">
             <div class="profile__info__list">
-              <div class="mobile__more__info__title">
+              <div class="mobile__more__info__title first">
                 <p>Подробная информация</p>
                 <div class="mobile__horizontal__line"></div>
               </div>
@@ -856,10 +859,9 @@ const notificationStageFive = false
   margin-bottom: 3px;
 }
 .profile__subtext {
-  width: 278px;
   height: 23px;
   display: flex;
-  justify-content: space-between;
+  align-items: baseline;
 }
 .profile__location {
   @extend .text;
@@ -870,6 +872,7 @@ const notificationStageFive = false
   width: 5px;
   height: 21px;
   color: rgba(255, 255, 255, 0.33);
+  margin: 0 12px 0 12px;
 }
 .profile__horizontal__line {
   width: 440px;
@@ -893,9 +896,13 @@ const notificationStageFive = false
   display: flex;
   align-items: center;
 }
+.profile__online__id {
+  @extend .text;
+  color: rgba(255, 255, 255, 0.45);
+}
 .profile__online__status {
   @extend .text;
-  color: #3e74ff;
+  color: #2965ff;
 }
 .profile__info__filter {
   display: flex;
@@ -1068,7 +1075,6 @@ const notificationStageFive = false
 }
 @media (max-width: 1200px) {
   .profile__info__filter__block {
-    margin-top: 8.2vw;
     margin-bottom: 2vw;
   }
   .profile__page {
@@ -1079,10 +1085,15 @@ const notificationStageFive = false
     .nav__box {
       margin-bottom: 6.153vw;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       width: 85.89vw;
-
+      .user__id {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 132.5%;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 107px 0 63px;
+      }
       .more_mobile {
         transform: rotate(90deg);
         width: 1.382vw;
@@ -1238,7 +1249,6 @@ const notificationStageFive = false
           }
           .profile__info__title {
             width: 68.461vw;
-            height: 16.15vw;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1249,7 +1259,10 @@ const notificationStageFive = false
             }
             .profile__subtext {
               width: 68.46vw;
-              height: 5.89vw;
+              height: unset;
+              display: flex;
+              justify-content: center;
+              margin-bottom: 24px;
               .profile__location {
                 color: #ffffff;
                 font-weight: 700;
@@ -1269,14 +1282,21 @@ const notificationStageFive = false
               .profile__online__status {
                 font-size: 3.589vw;
               }
+              .profile__online__id {
+                display: none;
+              }
               .profile__vertical__line {
                 font-size: 3.07vw;
+                &.web {
+                  display: none;
+                }
               }
             }
           }
           .profile__info__filter {
             height: unset;
             width: 86.15vw;
+            margin: 27px 0 32px 0;
             .profile__info__filter__description {
               font-weight: 600;
               font-size: 3.846vw;
@@ -1327,6 +1347,9 @@ const notificationStageFive = false
               justify-content: space-between;
               width: 85.89vw;
               margin-bottom: 2vw;
+              &.first {
+                margin-top: 0;
+              }
               p {
                 font-weight: 600;
                 font-size: 3.846vw;
@@ -1351,7 +1374,6 @@ const notificationStageFive = false
             .mobile__about__desc {
               display: flex;
               width: 85.38vw;
-              height: 11.79vw;
               p {
                 font-weight: 600;
                 font-size: 3.846vw;
