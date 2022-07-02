@@ -1,103 +1,66 @@
 import { defineStore } from 'pinia'
-import axiosInstance from '@/services/api.js'
+import { API } from '@/api/apiService.js'
+import { useLocationsStore } from './locations.js'
 
 export const useStatisticsStore = defineStore('statistics', {
-  state: () => {
-    return {
-      totalRegistered: 0,
-      menRegistered: 0,
-      newUsers: 0,
-      usersStatisticsByCities: [],
-      cities: [],
+  state: () => ({
+    totalRegistered: 0,
+    menRegistered: 0,
+    newUsers: 0,
+    usersStatisticsByCities: {
+      data: [],
       error: {
         status: false,
         message: '',
       },
       isLoading: false,
-    }
-  },
+    },
+    usersStatisticsBySex: {
+      data: [],
+      error: {
+        status: false,
+        message: '',
+      },
+      isLoading: false,
+    },
+    error: {
+      status: false,
+      message: '',
+    },
+    isLoading: false,
+  }),
 
   actions: {
     async getStatictics() {
       try {
         this.isLoading = true
 
-        const countries = await this.getCountries()
-        const country = countries[0]
+        const locations = useLocationsStore()
 
-        const cities = await this.getCities(country.id)
+        if (!locations.countries.data.length || !locations.cities.data.length) {
+          await locations.getLocations()
+        }
 
-        this.cities = cities
+        const country = locations.countries.data[0]
+        const cities = locations.cities.data
 
-        const usersStatisticsByCities = await this.getUsersStatisticsByCities(
-          country.id,
-          cities
-        )
+        await this.getUsersStatisticsByCities(country?.id, cities)
 
-        const usersStatisticsBySex = await this.getUserStatisticsBySex(
-          country.id,
-          cities[0].id,
-          1
-        )
-
-        this.totalRegistered = usersStatisticsByCities[0].countryAll || 0
-        this.menRegistered = usersStatisticsBySex.countryAll || 0
-        this.newUsers = usersStatisticsByCities[0].countryNew || 0
-        this.usersStatisticsByCities = usersStatisticsByCities
+        await this.getUsersStatisticsBySex(country?.id, cities[0]?.id, 1)
 
         this.isLoading = false
       } catch (error) {
-        this.isLoading = false
         this.error.status = true
-        this.error.message = error.message || 'Неизвестная ошибка'
-      }
-    },
+        this.error.message = error.message
 
-    async getCountries() {
-      try {
-        const countriesResponse = await axiosInstance.get('/database/countries')
-
-        const countries = countriesResponse.data?.list || []
-
-        if (!countries.length) {
-          throw new Error('Не удалось загрузить список стран')
-        }
-
-        return countries
-      } catch (error) {
-        throw new Error(error.message)
-      }
-    },
-
-    async getCities(countryId) {
-      try {
-        const citiesRequestData = {
-          pagination: {
-            page: 0,
-            count: 500,
-          },
-          countryId,
-        }
-
-        const citiesResponse = await axiosInstance.post(
-          '/database/cities',
-          citiesRequestData
-        )
-
-        const cities = citiesResponse.data?.list || []
-
-        if (!cities.length) {
-          throw new Error('Не удалось загрузить список городов')
-        }
-
-        return cities
-      } catch (error) {
-        throw new Error(error.message)
+        this.isLoading = false
       }
     },
 
     async getUsersStatisticsByCities(countryId, cities) {
       try {
+        this.usersStatisticsByCities.isLoading = true
+
         const promises = []
 
         cities.forEach((city) => {
@@ -106,7 +69,7 @@ export const useStatisticsStore = defineStore('statistics', {
             cityId: city.id,
           }
 
-          const request = axiosInstance.post('/users/statistics', requestData)
+          const request = API.post('/users/statistics', requestData)
 
           promises.push(request)
         })
@@ -126,35 +89,50 @@ export const useStatisticsStore = defineStore('statistics', {
 
         mappedUsersStatistics.sort((a, b) => b - a)
 
-        return mappedUsersStatistics
+        this.usersStatisticsByCities.data = mappedUsersStatistics
+        this.totalRegistered = mappedUsersStatistics[0]?.countryAll || 0
+        this.newUsers = mappedUsersStatistics[0]?.countryNew || 0
+
+        this.usersStatisticsByCities.isLoading = false
       } catch (error) {
+        this.usersStatisticsByCities.status = true
+        this.usersStatisticsByCities.message = error.message
+
+        this.usersStatisticsByCities.isLoading = false
+
         throw new Error(error.message)
       }
     },
 
-    async getUserStatisticsBySex(countryId, cityId, sex) {
+    async getUsersStatisticsBySex(countryId, cityId, sex) {
       try {
+        this.usersStatisticsBySex.isLoading = true
+
         const usersStatisticsRequestData = {
           countryId,
           cityId,
           sex,
         }
 
-        const usersStatisticsResponse = await axiosInstance.post(
+        const usersStatisticsResponse = await API.post(
           '/users/statistics',
           usersStatisticsRequestData
         )
 
-        const usersStatistics = usersStatisticsResponse.data || null
-
-        if (usersStatistics === null) {
-          throw new Error(
-            'Не удалось загрузить статистику пользователей по полу'
-          )
+        if (!usersStatisticsResponse.status) {
+          throw new Error(usersStatisticsResponse.message)
         }
 
-        return usersStatistics
+        this.usersStatisticsBySex.data = usersStatisticsResponse.data
+        this.menRegistered = usersStatisticsResponse.data?.countryAll || 0
+
+        this.usersStatisticsBySex.isLoading = false
       } catch (error) {
+        this.usersStatisticsBySex.error.status = true
+        this.usersStatisticsBySex.error.message = error.message
+
+        this.usersStatisticsBySex.isLoading = false
+
         throw new Error(error.message)
       }
     },

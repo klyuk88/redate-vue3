@@ -5,7 +5,9 @@ import router from '@/router'
 const search = useSearchStore()
 
 const redirectHandler = () => {
-  search.setQueryParams(undefined, undefined, undefined, undefined, true)
+  const params = { onlySpecialOffers: true }
+
+  search.setQueryParams(params)
 
   router.push('/search')
 }

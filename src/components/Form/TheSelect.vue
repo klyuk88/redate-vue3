@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import vSelect from 'vue-select'
 
-defineProps({
+const props = defineProps({
   options: {
     type: Array,
     default: () => {},
@@ -33,7 +33,7 @@ const selectOpen = ref(false)
     :style="{ 'z-index': zIndex }"
     :options="options"
     :placeholder="placeholder"
-    :value="value"
+    :value="props.value"
     @input="emit('input', value)"
     @open="selectOpen = true"
     @close="selectOpen = false"

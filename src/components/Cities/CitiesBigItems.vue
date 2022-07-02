@@ -11,7 +11,9 @@ defineProps({
 const emit = defineEmits(['redirect'])
 
 const clickHandler = (item) => {
-  emit('redirect', item)
+  const params = { cityId: item.id }
+
+  emit('redirect', params)
 }
 </script>
 

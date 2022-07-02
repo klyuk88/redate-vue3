@@ -1,66 +1,97 @@
 import { defineStore } from 'pinia'
-import axiosInstance from '@/services/api.js'
+import { API } from '@/api/apiService.js'
 
 export const useUserStore = defineStore('user', {
-  state: () => {
-    return {
-      user: null,
-      userRegistrationStatus: null,
+  state: () => ({
+    information: {
+      data: null,
       error: {
         status: false,
         message: '',
       },
       isLoading: false,
-    }
-  },
+    },
+    registrationStatus: {
+      data: null,
+      error: {
+        status: false,
+        message: '',
+      },
+      isLoading: false,
+    },
+    currentTariff: {
+      data: null,
+      error: {
+        status: false,
+        message: '',
+      },
+      isLoading: false,
+    },
+  }),
 
   actions: {
-    async getUser() {
+    async getInformation() {
       try {
-        this.isLoading = true
+        this.information.isLoading = true
 
-        const userResponse = await axiosInstance.get('/users/me')
+        const informationResponse = await API.get('/users/me')
 
-        const user = userResponse.data || null
-
-        if (user === null) {
-          throw new Error('Не удалось загрузить данные о пользователе')
+        if (!informationResponse.status) {
+          throw new Error(informationResponse.message)
         }
 
-        this.user = user
+        this.information.data = informationResponse.data
 
-        this.isLoading = false
+        this.information.isLoading = false
       } catch (error) {
-        this.isLoading = false
-        this.error.status = true
-        this.error.message = error.message || 'Неизвестная ошибка'
+        this.information.error.status = true
+        this.information.error.message = error.message
+
+        this.information.isLoading = false
       }
     },
 
-    async getUserRegistrationStatus() {
+    async getRegistrationStatus() {
       try {
-        this.isLoading = true
+        this.registrationStatus.isLoading = true
 
-        const userRegistrationStatusResponse = await axiosInstance.get(
+        const registrationStatusResponse = await API.get(
           '/users/registration/status'
         )
 
-        const userRegistrationStatus =
-          userRegistrationStatusResponse.data || null
-
-        if (userRegistrationStatus === null) {
-          throw new Error(
-            'Не удалось загрузить статус регистрации пользователя'
-          )
+        if (!registrationStatusResponse.status) {
+          throw new Error(registrationStatusResponse.message)
         }
 
-        this.userRegistrationStatus = userRegistrationStatus
+        this.registrationStatus.data = registrationStatusResponse.data
 
-        this.isLoading = false
+        this.registrationStatus.isLoading = false
       } catch (error) {
-        this.isLoading = false
-        this.error.status = true
-        this.error.message = error.message || 'Неизвестная ошибка'
+        this.registrationStatus.error.status = true
+        this.registrationStatus.error.message = error.message
+
+        this.registrationStatus.isLoading = false
+      }
+    },
+
+    async getCurrentTariff() {
+      try {
+        this.currentTariff.isLoading = true
+
+        const currentTariffResponse = await API.get('/tariffs/current')
+
+        if (!currentTariffResponse.status) {
+          throw new Error(currentTariffResponse.message)
+        }
+
+        this.currentTariff.data = currentTariffResponse.data
+
+        this.currentTariff.isLoading = false
+      } catch (error) {
+        this.currentTariff.error.status = true
+        this.currentTariff.error.message = error.message
+
+        this.currentTariff.isLoading = false
       }
     },
   },

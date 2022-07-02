@@ -12,7 +12,7 @@ const store = useStore()
 const user = useUserStore()
 
 const infoText = computed(() => {
-  return user?.user?.sex === 1
+  return user.information.data?.sex === 1
     ? 'Все девушки проходят верификацию через модерацию сайта. Все данные защищены.'
     : 'Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.'
 })
@@ -35,9 +35,7 @@ const infoText = computed(() => {
     </div>
     <div class="slider">
       <Swiper
-        :modules="[
-Navigation, Scrollbar
-]"
+        :modules="[Navigation, Scrollbar]"
         :space-between="20"
         slides-per-view="auto"
         :navigation="{
@@ -126,6 +124,9 @@ Navigation, Scrollbar
 
 .potential-partners
   margin-top: 45px
+
+.potential-partners .slider .swiper-scrollbar
+  bottom: auto
 
 .potential-partners .slider
   position: relative

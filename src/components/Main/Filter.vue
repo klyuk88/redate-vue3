@@ -18,7 +18,7 @@ const props = defineProps({
 
 const emit = defineEmits(['redirect'])
 
-const city = ref(props.currentCity.name)
+const city = ref(props.currentCity?.name)
 const range = ref([18, 45])
 const showLabel = ref(false)
 
@@ -27,11 +27,13 @@ const options = computed(() => props.cities.map((city) => city.name))
 const clickHandler = () => {
   const foundCity = props.cities.find((item) => item.name === city.value)
 
-  emit('redirect', {
-    id: foundCity.id,
+  const params = {
+    cityId: foundCity.id,
     ageMin: range.value[0],
     ageMax: range.value[1],
-  })
+  }
+
+  emit('redirect', params)
 }
 </script>
 
@@ -82,16 +84,21 @@ const clickHandler = () => {
 
 <style lang="scss">
 .filter {
+  position: relative;
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 12px;
+  z-index: 100;
+
   @media (max-width: 1200px) {
     display: none;
   }
+
   .vue-slider-dot-tooltip-inner-top::after {
     display: none;
   }
+
   .range {
     border: 1px solid rgba(255, 255, 255, 0.33);
     height: 60px;
@@ -103,9 +110,11 @@ const clickHandler = () => {
       top: 40px;
     }
   }
+
   .range.active {
     border: 1px solid #fff;
   }
+
   .range.active:before {
     content: 'Возраст';
     color: #fff;

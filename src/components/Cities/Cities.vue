@@ -1,9 +1,10 @@
 <script setup>
 import { computed } from 'vue'
 import { useStore } from '@/stores/main.js'
-import { useUserStore } from '@/stores/user.js'
 import { useStatisticsStore } from '@/stores/statistics.js'
 import { useSearchStore } from '@/stores/search.js'
+import { useUserStore } from '@/stores/user.js'
+import { useLocationsStore } from '@/stores/locations'
 import router from '@/router'
 import Statistics from '@/components/Cities/Statistics.vue'
 import CitiesSmallSlider from '@/components/Cities/CitiesSmallSlider.vue'
@@ -16,21 +17,30 @@ const store = useStore()
 const statistics = useStatisticsStore()
 const search = useSearchStore()
 const user = useUserStore()
+const locations = useLocationsStore()
 
 const usersStatistics = computed(() =>
-  statistics.usersStatisticsByCities.slice(0, 3)
+  statistics.usersStatisticsByCities.data.slice(0, 3)
 )
 
-const usersStatisticsBySlider = computed(() =>
-  statistics.usersStatisticsByCities.slice(3)
+const usersStatisticsForSlider = computed(() =>
+  statistics.usersStatisticsByCities.data.slice(3)
 )
 
-const currentCity = computed(() => user.user?.city || null)
+const currentCity = computed(() => user.information.data?.city || {})
 
-const cities = computed(() => statistics.cities || [])
+const cities = computed(() => locations.cities.data)
+
+const statisticsError = computed(() => statistics.error.status)
+
+const usersStatisticsError = computed(
+  () => statistics.usersStatisticsByCities.error.status
+)
+
+const citiesError = computed(() => locations.cities.error.status)
 
 const redirectHandler = (params) => {
-  search.setQueryParams(params.id, params.ageMin, params.ageMax, params.query)
+  search.setQueryParams(params)
 
   router.push('/search')
 }
@@ -39,6 +49,7 @@ const redirectHandler = (params) => {
 <template>
   <div class="cities-block">
     <Statistics
+      v-if="!statisticsError"
       :total-registered="statistics.totalRegistered"
       :men-registered="statistics.menRegistered"
       :new-users="statistics.newUsers"
@@ -47,21 +58,21 @@ const redirectHandler = (params) => {
     <div class="decor-line"></div>
     <!-- На мобильном  -->
     <CitiesBigSlider
-      v-if="usersStatistics.length"
+      v-if="!usersStatisticsError && usersStatistics.length"
       :users-statistics="usersStatistics"
-      @redirect="redirectHandler()"
+      @redirect="redirectHandler($event)"
     />
 
-    <CitiesSearchMobInput @redirect="redirectHandler()" />
+    <CitiesSearchMobInput @redirect="redirectHandler($event)" />
     <!-- На десктопе -->
     <CitiesBigItems
-      v-if="usersStatistics.length"
+      v-if="!usersStatisticsError && usersStatistics.length"
       :users-statistics="usersStatistics"
-      @redirect="redirectHandler()"
+      @redirect="redirectHandler($event)"
     />
 
     <div
-      v-if="usersStatisticsBySlider.length"
+      v-if="!usersStatisticsError && usersStatisticsForSlider.length"
       class="hidden-part"
       :class="{ show: store.showCities }"
     >
@@ -69,8 +80,8 @@ const redirectHandler = (params) => {
       <div class="grid">
         <div class="slider">
           <CitiesSmallSlider
-            :users-statistics="usersStatisticsBySlider"
-            @redirect="redirectHandler()"
+            :users-statistics="usersStatisticsForSlider"
+            @redirect="redirectHandler($event)"
           />
         </div>
       </div>
@@ -78,10 +89,10 @@ const redirectHandler = (params) => {
   </div>
 
   <Filter
-    v-if="currentCity && cities.length"
+    v-if="!citiesError && cities.length && Object.keys(currentCity).length"
     :current-city="currentCity"
     :cities="cities"
-    @redirect="redirectHandler()"
+    @redirect="redirectHandler($event)"
   />
 </template>
 

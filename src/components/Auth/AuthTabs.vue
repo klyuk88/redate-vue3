@@ -1,26 +1,44 @@
 <script setup>
 import { ref, computed } from 'vue'
-// eslint-disable-next-line no-unused-vars
-import AuthPopup from './AuthPopup.vue'
 import BigButton from '../Form/BigButton.vue'
-// eslint-disable-next-line no-unused-vars
+import AuthPopup from './AuthPopup.vue'
 import AuthPopupRecovery from './AuthPopupRecovery.vue'
-// eslint-disable-next-line no-unused-vars
 import AuthPopupCode from './AuthPopupCode.vue'
-// eslint-disable-next-line no-unused-vars
 import AuthPopupPassword from './AuthPopupPassword.vue'
-// eslint-disable-next-line no-unused-vars
 import AuthPopupComplete from './AuthPopupComplete.vue'
 
 const nameAuth = ref('')
 
-const changePage = computed(() => 'AuthPopup' + nameAuth.value)
+const component = computed(() => {
+  const componentName = 'AuthPopup' + nameAuth.value
+
+  let component = null
+
+  switch (componentName) {
+    case 'AuthPopupRecovery':
+      component = AuthPopupRecovery
+      break
+    case 'AuthPopupCode':
+      component = AuthPopupCode
+      break
+    case 'AuthPopupPassword':
+      component = AuthPopupPassword
+      break
+    case 'AuthPopupComplete':
+      component = AuthPopupComplete
+      break
+    default:
+      component = AuthPopup
+  }
+
+  return component
+})
 </script>
 
 <template>
   <div>
     <keep-alive>
-      <component :is="changePage">
+      <component :is="component">
         <template #toRecovery>
           <p class="auth__forgot" @click="nameAuth = 'Recovery'">
             Забыли пароль?

@@ -13,16 +13,16 @@ defineProps({
 const emit = defineEmits(['redirect'])
 
 const clickHandler = (item) => {
-  emit('redirect', item)
+  const params = { cityId: item.id }
+
+  emit('redirect', params)
 }
 </script>
 
 <template>
   <div class="city-big-slider-wrap">
     <Swiper
-      :modules="[
-Pagination
-]"
+      :modules="[Pagination]"
       :space-between="15"
       :slides-per-view="1"
       class="city-big-slider"

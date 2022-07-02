@@ -12,25 +12,25 @@ export const useSearchStore = defineStore('search', {
   },
 
   actions: {
-    setQueryParams(cityId, ageMin, ageMax, query, onlySpecialOffers) {
-      if (cityId) {
-        this.cityId = cityId
+    setQueryParams(params) {
+      if (params?.cityId) {
+        this.cityId = params.cityId
       }
 
-      if (ageMin) {
-        this.ageMin = ageMin
+      if (params?.ageMin) {
+        this.ageMin = params.ageMin
       }
 
-      if (ageMax) {
-        this.ageMax = ageMax
+      if (params?.ageMax) {
+        this.ageMax = params.ageMax
       }
 
-      if (query) {
-        this.query = query
+      if (params?.query) {
+        this.query = params.query
       }
 
-      if (onlySpecialOffers) {
-        this.onlySpecialOffers = onlySpecialOffers
+      if (params?.onlySpecialOffers) {
+        this.onlySpecialOffers = params.onlySpecialOffers
       }
     },
   },

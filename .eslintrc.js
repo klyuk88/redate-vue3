@@ -50,7 +50,7 @@ module.exports = {
     'vue/padding-line-between-blocks': ['error', 'always'],
     'vue/v-for-delimiter-style': ['error', 'in'],
     'vue/v-on-function-call': ['error', 'always'],
-    'vue/array-bracket-newline': ['error', 'always'],
+    'vue/array-bracket-newline': 'off',
     'vue/component-tags-order': [
       'error',
       {

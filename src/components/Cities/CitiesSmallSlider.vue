@@ -11,9 +11,9 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits([ 'redirect' ])
+const emit = defineEmits(['redirect'])
 
-const processedUsersStatistics = computed(() => {
+const formatedUsersStatistics = computed(() => {
   const size = 4
   const subArray = []
 
@@ -25,16 +25,16 @@ const processedUsersStatistics = computed(() => {
 })
 
 const clickHandler = (item) => {
-  emit('redirect', item)
+  const params = { cityId: item.id }
+
+  emit('redirect', params)
 }
 </script>
 
 <template>
   <div class="small-slider-wrap">
     <Swiper
-      :modules="[
-Navigation
-]"
+      :modules="[Navigation]"
       :space-between="16"
       slides-per-view="auto"
       class="cities-small-slider"
@@ -42,7 +42,7 @@ Navigation
         nextEl: '.small-slider-wrap .nav',
       }"
     >
-      <SwiperSlide v-for="(usersStats, i) in processedUsersStatistics" :key="i">
+      <SwiperSlide v-for="(usersStats, i) in formatedUsersStatistics" :key="i">
         <CitiesSmallSliderItem
           v-for="(item, j) in usersStats"
           :key="j"

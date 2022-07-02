@@ -1,10 +1,8 @@
 <script setup>
-import { onMounted } from 'vue'
-import { useStatisticsStore } from '@/stores/statistics.js'
-import { useTariffStore } from '@/stores/tariff.js'
-import { useUserStore } from '@/stores/user.js'
+import { onMounted, computed } from 'vue'
 import { useStore } from '@/stores/main.js'
-import { useUsersStore } from '@/stores/users.js'
+import { useStatisticsStore } from '@/stores/statistics.js'
+import { useUserStore } from '@/stores/user.js'
 import PotencialPartners from '@/components/PotencialPartners/PotencialPartners.vue'
 import RecomendedMailings from '@/components/RecomendedMailings.vue'
 import SpecialProposal from '@/components/SpecialProposal.vue'
@@ -14,23 +12,18 @@ import MobileBurger from '@/components/MobileBurger.vue'
 
 const store = useStore()
 const statistics = useStatisticsStore()
-const tariff = useTariffStore()
 const user = useUserStore()
-const users = useUsersStore()
+
+const infoText = computed(() => {
+  return user.information.data?.sex === 1
+    ? 'Все девушки проходят верификацию через модерацию сайта. Все данные защищены.'
+    : 'Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.'
+})
+
+const statisticsError = computed(() => statistics.error.status)
 
 onMounted(async () => {
-  await user.getUser()
   await statistics.getStatictics()
-
-  if (user?.user?.sex === 1) {
-    await tariff.getUserCurrentTariff()
-  } else {
-    await user.getUserRegistrationStatus()
-  }
-
-  const oppositeSex = user?.user?.sex === 1 ? 2 : 1
-
-  await users.getSpecialUsers(oppositeSex)
 })
 </script>
 
@@ -38,6 +31,7 @@ onMounted(async () => {
   <div id="main-content">
     <div class="mob-header">
       <h1 class="title">Главная</h1>
+
       <MobileBurger
         :styles="{
           position: 'absolute',
@@ -49,7 +43,9 @@ onMounted(async () => {
 
       <div class="decor-shape"></div>
     </div>
-    <Cities v-if="!statistics.isLoading && !statistics.error.status" />
+
+    <Cities v-if="!statisticsError" />
+
     <div class="page-grid">
       <div class="center-col">
         <div class="content">
@@ -59,18 +55,18 @@ onMounted(async () => {
               alt=""
               class="icon"
             />
-            <p class="text">
-              Ваша анкета в поиске будет видна исключено мужчинам оплатившим
-              «премиум» подписку.
-            </p>
+            <p class="text">{{ infoText }}</p>
           </div>
+
           <RecomendedMailings v-if="!store.showCities" />
+
           <PotencialPartners />
         </div>
       </div>
       <div class="right-col">
         <div class="content">
           <NewSend v-if="!store.showCities" />
+
           <SpecialProposal />
         </div>
       </div>

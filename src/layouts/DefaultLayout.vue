@@ -1,13 +1,30 @@
 <script setup>
+import { onMounted } from 'vue'
+import { useUserStore } from '@/stores/user.js'
 import SideBar from '@/components/SideBars/SideBar.vue'
 import MobileSideBar from '@/components/SideBars/MobileSideBar.vue'
+
+const user = useUserStore()
+
+onMounted(async () => {
+  await user.getInformation()
+
+  const userSex = user.information.data.sex
+
+  if (userSex === 1) {
+    await user.getCurrentTariff()
+  } else {
+    await user.getRegistrationStatus()
+  }
+})
 </script>
 
 <template>
   <div class="page-content">
     <SideBar />
     <MobileSideBar />
-    <slot />
+
+    <router-view />
   </div>
 </template>
 
