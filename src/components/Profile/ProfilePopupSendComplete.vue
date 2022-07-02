@@ -94,8 +94,6 @@
     .btn__block {
       .btn {
         width: 145px;
-        &.blue {
-        }
       }
     }
   }
