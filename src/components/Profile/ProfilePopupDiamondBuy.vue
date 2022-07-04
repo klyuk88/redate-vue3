@@ -1,9 +1,32 @@
-<script>
-export default {}
+<script setup>
+import { ref } from 'vue'
+import router from '@/router'
+
+const emit = defineEmits(['close'])
+
+const popup = ref(null)
+
+const clickOutsideHandler = (event) => {
+  if (event.target === popup.value) {
+    emit('close')
+  }
+}
+
+const clickCloseHandler = () => {
+  emit('close')
+}
+
+const clickRedirectHandler = () => {
+  router.push('/profile/me')
+}
 </script>
 
 <template>
-  <div class="diamond__lost__background">
+  <div
+    ref="popup"
+    class="diamond__lost__background"
+    @click="clickOutsideHandler($event)"
+  >
     <div class="diamond__lost__block">
       <div class="diamond__lost__content">
         <div class="diamond__lost__info">
@@ -13,8 +36,12 @@ export default {}
           </p>
         </div>
         <div class="diamond__lost__buttons">
-          <div class="diamond__lost__cancel">Отмена</div>
-          <div class="diamond__lost__store">Магазин</div>
+          <div class="diamond__lost__cancel" @click="clickCloseHandler()">
+            Отмена
+          </div>
+          <div class="diamond__lost__store" @click="clickRedirectHandler()">
+            Магазин
+          </div>
         </div>
       </div>
     </div>
@@ -97,6 +124,7 @@ export default {}
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
+  cursor: pointer;
 }
 .diamond__lost__store {
   @extend .text;
@@ -110,5 +138,6 @@ export default {}
   font-size: 14px;
   line-height: 132.5%;
   border: 1px solid #f9ae3f;
+  cursor: pointer;
 }
 </style>

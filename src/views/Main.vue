@@ -9,6 +9,7 @@ import SpecialProposal from '@/components/SpecialProposal.vue'
 import NewSend from '@/components/NewSend.vue'
 import Cities from '@/components/Cities/Cities.vue'
 import MobileBurger from '@/components/MobileBurger.vue'
+import Substrate from '@/components/Substrate.vue'
 
 const store = useStore()
 const statistics = useStatisticsStore()
@@ -20,6 +21,14 @@ const infoText = computed(() => {
     : 'Ваша анкета в поиске будет видна исключено мужчинам оплатившим «премиум» подписку.'
 })
 
+const showSubstrate = computed(() => {
+  if (user.information.data?.sex === 1) {
+    return user.currentTariff.error.status
+  } else {
+    return !user.registrationStatus.data?.isModerated
+  }
+})
+
 const statisticsError = computed(() => statistics.error.status)
 
 onMounted(async () => {
@@ -29,6 +38,8 @@ onMounted(async () => {
 
 <template>
   <div id="main-content">
+    <Substrate v-if="showSubstrate" />
+
     <div class="mob-header">
       <h1 class="title">Главная</h1>
 
