@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
+import router from '@/router'
 import { useUserStore } from '@/stores/user.js'
 import SideBar from '@/components/SideBars/SideBar.vue'
 import MobileSideBar from '@/components/SideBars/MobileSideBar.vue'
@@ -9,7 +10,13 @@ const user = useUserStore()
 onMounted(async () => {
   await user.getInformation()
 
-  const userSex = user.information.data.sex
+  const userError = user.information.error?.status
+
+  if (userError) {
+    router.push('/500')
+  }
+
+  const userSex = user.information.data?.sex
 
   if (userSex === 1) {
     await user.getCurrentTariff()

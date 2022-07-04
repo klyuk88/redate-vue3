@@ -130,6 +130,15 @@ const routes = [
     },
   },
   {
+    path: '/500',
+    components: {
+      default: () => import('@/views/ServerError.vue'),
+    },
+    meta: {
+      layout: 'auth-layout',
+    },
+  },
+  {
     path: '/:notFound(.*)',
     components: {
       default: () => import('@/views/NotFound.vue'),
