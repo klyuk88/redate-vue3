@@ -53,8 +53,8 @@ const closeHandler = () => {
   position: fixed;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 150px;
+  width: calc(100% - 150px);
   height: 100vh;
   z-index: 1000;
 
@@ -65,8 +65,8 @@ const closeHandler = () => {
   &__block {
     position: absolute;
     top: 0;
-    left: 150px;
-    width: calc(100% - 150px);
+    left: 0;
+    width: 100%;
     height: 100%;
     z-index: 1001;
   }
