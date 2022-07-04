@@ -1,24 +1,46 @@
 <script setup>
 import { ref, computed } from 'vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopupFirst from './SignupPopupFirst.vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopupSecond from './SignupPopupSecond.vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopupThird from './SignupPopupThird.vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopupFourth from './SignupPopupFourth.vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopupFive from './SignupPopupFive.vue'
 import BigButton from '../Form/BigButton.vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopup from './SignupPopup.vue'
-// eslint-disable-next-line no-unused-vars
 import SignupPopupDenied from './SignupPopupDenied.vue'
 
 const nameComponent = ref('')
 
-const changeComponent = computed(() => 'SignupPopup' + nameComponent.value)
+const changeComponent = computed(() => {
+  const componentName = 'SignupPopup' + nameComponent.value
+
+  let changeComponent = null
+
+  switch (componentName) {
+    case 'SignupPopupFirst':
+      changeComponent = SignupPopupFirst
+      break
+    case 'SignupPopupSecond':
+      changeComponent = SignupPopupSecond
+      break
+    case 'SignupPopupThird':
+      changeComponent = SignupPopupThird
+      break
+    case 'SignupPopupFourth':
+      changeComponent = SignupPopupFourth
+      break
+    case 'SignupPopupFive':
+      changeComponent = SignupPopupFive
+      break
+    case 'SignupPopupDenied':
+      changeComponent = SignupPopupDenied
+      break
+    default:
+      changeComponent = SignupPopup
+      break
+  }
+  return changeComponent
+})
 </script>
 
 <template>

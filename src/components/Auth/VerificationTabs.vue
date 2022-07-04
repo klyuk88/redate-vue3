@@ -1,18 +1,34 @@
 <script setup>
 import { ref, computed } from 'vue'
 import BigButton from '../Form/BigButton.vue'
-// eslint-disable-next-line no-unused-vars
 import Verification from './VerificationFirst.vue'
-// eslint-disable-next-line no-unused-vars
 import VerificationSecond from './VerificationSecond.vue'
-// eslint-disable-next-line no-unused-vars
 import VerificationThird from './VerificationThird.vue'
-// eslint-disable-next-line no-unused-vars
 import VerificationSkip from './VerificationSkip.vue'
 
 const nameComponent = ref('')
 
-const changeStage = computed(() => 'Verification' + nameComponent.value)
+const changeStage = computed(() => {
+  const componentName = 'Verification' + nameComponent.value
+
+  let changeStage = null
+
+  switch (componentName) {
+    case 'VerificationSecond':
+      changeStage = VerificationSecond
+      break
+    case 'VerificationThird':
+      changeStage = VerificationThird
+      break
+    case 'VerificationSkip':
+      changeStage = VerificationSkip
+      break
+    default:
+      changeStage = Verification
+  }
+  return changeStage
+})
+
 </script>
 
 <template>
