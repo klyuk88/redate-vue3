@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+
 import SignupPopupFirst from './SignupPopupFirst.vue'
 import SignupPopupSecond from './SignupPopupSecond.vue'
 import SignupPopupThird from './SignupPopupThird.vue'
@@ -9,8 +10,8 @@ import BigButton from '../Form/BigButton.vue'
 import SignupPopup from './SignupPopup.vue'
 import SignupPopupDenied from './SignupPopupDenied.vue'
 
-const nameComponent = ref('')
 
+const nameComponent = ref('')
 const changeComponent = computed(() => {
   const componentName = 'SignupPopup' + nameComponent.value
 

@@ -1,3 +1,10 @@
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+router.push({ name: 'Verification', query: { stage: 'final' } })
+</script>
+
 <template>
   <div class="signup__background">
     <!-- <slot name="backToStageTwo"></slot> -->

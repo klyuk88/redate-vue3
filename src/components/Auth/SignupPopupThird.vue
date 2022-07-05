@@ -1,6 +1,9 @@
 <script setup>
 import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
+import { useRouter } from  'vue-router'
+const router = useRouter()
+router.push({ name: 'Registration', query: { stage: 'three' } })
 const isClicked = ref(false)
 const modalHobbyVisible = ref(false)
 </script>
