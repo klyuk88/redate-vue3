@@ -21,6 +21,13 @@ const emit = defineEmits(['redirect'])
 const city = ref(props.currentCity?.name)
 const range = ref([18, 45])
 const showLabel = ref(false)
+const datingFormats = ref([
+  'Серьезные отношения',
+  'Легкие отношения',
+  'Путешествия',
+  'Свидание на ночь',
+])
+const datingFormat = ref(null)
 
 const options = computed(() => props.cities.map((city) => city.name))
 
@@ -31,6 +38,7 @@ const clickHandler = () => {
     cityId: foundCity.id,
     ageMin: range.value[0],
     ageMax: range.value[1],
+    datingFormat: datingFormat.value,
   }
 
   emit('redirect', params)
@@ -44,6 +52,13 @@ const clickHandler = () => {
         v-model="city"
         :options="options"
         placeholder="Выберите город"
+      />
+    </div>
+    <div>
+      <TheSelect
+        v-model="datingFormat"
+        :options="datingFormats"
+        placeholder="Формат знакомств"
       />
     </div>
     <div>
@@ -87,7 +102,7 @@ const clickHandler = () => {
   position: relative;
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 12px;
   z-index: 100;
 
