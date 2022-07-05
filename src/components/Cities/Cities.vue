@@ -44,6 +44,10 @@ const redirectHandler = (params) => {
 
   router.push('/search')
 }
+
+const openCities = () => {
+  store.showCities = !store.showCities
+}
 </script>
 
 <template>
@@ -86,6 +90,14 @@ const redirectHandler = (params) => {
         </div>
       </div>
     </div>
+
+    <button
+      v-if="usersStatisticsForSlider.length"
+      class="all-cities"
+      @click="openCities()"
+    >
+      {{ store.showCities ? 'Скрыть' : 'Все города' }}
+    </button>
   </div>
 
   <Filter
