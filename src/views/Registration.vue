@@ -1,10 +1,10 @@
 <script setup>
-import ProfilePopupMobileCoppy from '../components/Profile/ProfilePopupMobileCoppy.vue'
+import RegistrationTabs from '../components/Auth/RegistrationTabs.vue'
 </script>
 
 <template>
   <div class="content__container__reg">
-    <ProfilePopupMobileCoppy />
+    <RegistrationTabs />
   </div>
 </template>
 

@@ -775,6 +775,50 @@ function showPassRepeat() {
 </template>
 
 <style lang="scss" scoped>
+        .input {
+  font-family: 'Mulish';
+  font-size: 15px;
+  line-height: 153.5%;
+  color: rgba(255, 255, 255, 0.33);
+  outline: none;
+  background: none;
+  width: 326px;
+  height: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  padding: 12px;
+  margin-bottom: 16px;
+  &:focus {
+    color: #ffffff;
+    border: #ffffff solid 1px;
+  }
+}
+.auth__back__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  top: 70px;
+  left: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
+.auth__back__btn__mobile {
+  cursor: pointer;
+  position: fixed;
+  top: 55px;
+  left: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
+.auth__back__btn__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
 .input__password {
   font-family: 'Mulish';
   font-size: 15px;
@@ -898,7 +942,6 @@ label {
       flex-direction: column;
       justify-content: space-between;
       width: 784px;
-      height: 1563px;
       .mail__block {
         width: 784px;
         display: flex;
@@ -1028,6 +1071,7 @@ label {
         width: 784px;
         height: 0px;
         border: 1px solid rgba(255, 255, 255, 0.14);
+        margin: 48px 0 48px 0;
         &.short {
           width: 513px;
           height: 0px;
@@ -1064,14 +1108,33 @@ label {
             width: 512px;
           }
         }
+
+        // .input {
+        //   font-family: 'Mulish';
+        //   width: 326px;
+        //   height: 60px;
+        //   background: none;
+        //   margin: 0;
+        //   &::placeholder {
+        //     color: #ffffff;
+        //   }
+        // }
         .input {
           font-family: 'Mulish';
+          font-size: 15px;
+          line-height: 153.5%;
+          color: rgba(255, 255, 255, 0.33);
+          outline: none;
+          background: none;
           width: 326px;
           height: 60px;
-          background: none;
-          margin: 0;
-          &::placeholder {
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 11px;
+          padding: 12px;
+          margin-bottom: 16px;
+          &:focus {
             color: #ffffff;
+            border: #ffffff solid 1px;
           }
         }
         .inputs__birth {
@@ -1363,7 +1426,7 @@ label {
       }
     }
     .footer {
-      margin-top: 92px;
+      margin-top: 48px;
       @extend .flex__center;
       flex-direction: column;
       .horizontal__line {

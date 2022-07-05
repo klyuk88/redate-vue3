@@ -140,6 +140,26 @@ const notificationStageFive = false
           </div>
         </div>
         <div class="page__footer__carousel">
+          <div class="profile__info__list__carousel">
+            <div class="profile__mini__avatar" @click="showModal = true">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </div>
+            <div class="profile__mini__avatar" @click="showModal = true">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </div>
+            <div class="profile__mini__avatar" @click="showModal = true">
+              <img
+                src="../../assets/images/main/woman__mini__avatar1.png"
+                alt=""
+              />
+            </div>
+          </div>
           <div
             class="buttons__block"
             :class="{
@@ -165,26 +185,6 @@ const notificationStageFive = false
               <div class="more" @click="showModalMore = true">
                 <img src="@/assets/images/main/btn_more.svg" alt="" />
               </div>
-            </div>
-          </div>
-          <div class="profile__info__list__carousel">
-            <div class="profile__mini__avatar" @click="showModal = true">
-              <img
-                src="../../assets/images/main/woman__mini__avatar1.png"
-                alt=""
-              />
-            </div>
-            <div class="profile__mini__avatar" @click="showModal = true">
-              <img
-                src="../../assets/images/main/woman__mini__avatar1.png"
-                alt=""
-              />
-            </div>
-            <div class="profile__mini__avatar" @click="showModal = true">
-              <img
-                src="../../assets/images/main/woman__mini__avatar1.png"
-                alt=""
-              />
             </div>
           </div>
         </div>
@@ -279,7 +279,7 @@ const notificationStageFive = false
                   </div>
                   <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__status">200 000 ₽</div>
+                <div class="profile__info__list__status">200.000 ₽</div>
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
@@ -446,10 +446,11 @@ const notificationStageFive = false
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .text {
   font-weight: 600;
   font-size: 15px;
+
   // line-height: 153.5%;
 }
 .profile__page {
@@ -715,6 +716,7 @@ const notificationStageFive = false
   }
 }
 .more {
+  margin-top: 6px;
   img {
     cursor: pointer;
   }
@@ -778,13 +780,9 @@ const notificationStageFive = false
   justify-content: center;
   padding: 7px 8px;
   position: relative;
-  width: 421px;
+  width: 416px;
   height: 68px;
   top: -35px;
-  background: rgba(40, 37, 42, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.33);
-  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(15px);
   border-radius: 26px;
   &.notification__unblur {
     z-index: 100;
@@ -840,12 +838,13 @@ const notificationStageFive = false
   display: none;
 }
 .photo {
-  width: 100%;
-  height: 816px;
+  width: 608px;
+  height: 770px;
   border: 1px solid rgba(255, 255, 255, 0.33);
   filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
   border-radius: 24px;
   display: flex;
+  margin-top: 50px;
   &.notification__unblur {
     position: relative;
     z-index: 100;
@@ -962,21 +961,24 @@ const notificationStageFive = false
 }
 .main__avatar {
   width: 608px;
-  height: 816px;
-  border: 1px solid rgba(255, 255, 255, 0.33);
-  filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
+  height: 770px;
+  // border: 1px solid rgba(255, 255, 255, 0.33);
+  // filter: drop-shadow(12px 12px 40px rgba(30, 29, 31, 0.16));
   border-radius: 24px;
 }
+
+
+
 .profile__info__list__stats {
   display: flex;
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  // width: 440px;
   width: 123%;
   justify-content: space-between;
 }
 .info__list__box {
   display: flex;
+  align-items: center;
 }
 .profile__info__list__icon {
   margin-right: 12px;
@@ -1037,6 +1039,7 @@ const notificationStageFive = false
 }
 .profile__info__list__about {
   @extend .text;
+
   display: inline-block;
   color: rgba(255, 255, 255, 0.33);
   margin-right: 8px;
@@ -1048,13 +1051,14 @@ const notificationStageFive = false
   display: flex;
   // justify-content: flex-start;
   align-items: center;
-  width: 440px;
-  height: 88px;
+  width: 413px;
+  height: 79px;
+  backdrop-filter: blur(16px);
   background: rgba(40, 37, 42, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 24px;
   position: relative;
-  top: -20px;
+  top: -40px;
   // margin-top: 16px;
   &.stageFour {
     position: relative;
@@ -1065,9 +1069,11 @@ const notificationStageFive = false
   }
 
   .profile__mini__avatar {
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
     margin-left: 12px;
+    display: flex;
+    align-items: center;
   }
 }
 .logo__title {

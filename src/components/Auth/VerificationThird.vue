@@ -1,6 +1,6 @@
 <template>
   <div class="signup__background">
-    <slot name="backToStageTwo"></slot>
+    <!-- <slot name="backToStageTwo"></slot> -->
     <div class="verification__page">
       <div class="verification__block__container">
         <div class="verification__content">
@@ -79,16 +79,25 @@
 </template>
 
 <style lang="scss" scoped>
+.verification__page {
+  height: unset;
+}
 .verification__block__container {
   display: flex;
   justify-content: center;
+  margin-bottom: 60px;
 }
 .verification__content {
-  height: 589px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  h1 {
+    margin: 40px 0 104px 0;
+  }
+  .verification__body {
+    margin-bottom: 120px;
+  }
 }
 .logo__container {
   width: 246px;
@@ -164,6 +173,9 @@
   );
   transform: rotate(-135deg);
   left: 155px;
+}
+.btn__continue {
+  margin-bottom: 34px;
 }
 .mobile__desc {
   display: none;

@@ -126,7 +126,7 @@ const notificationStageEight = false
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">7 дней</div>
-                    <div class="price">3000₽</div>
+                    <div class="price">3.000 ₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -137,7 +137,7 @@ const notificationStageEight = false
                 >
                   <div class="inner__price__box">
                     <div class="days">14 дней</div>
-                    <div class="price">5500₽</div>
+                    <div class="price">5.500 ₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -145,7 +145,7 @@ const notificationStageEight = false
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">30 дней</div>
-                    <div class="price">11000₽</div>
+                    <div class="price">11.000 ₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось<span> 3 </span>дня</p>
                   </div>
@@ -453,7 +453,9 @@ const notificationStageEight = false
           <div class="profile__info__title">
             <div class="profile__title">
               <div class="profile__name">Владимир</div>
-              <div class="status__premium">DIAMOND</div>
+              <div class="gradient">
+                <div class="status__premium">DIAMOND</div>
+              </div>
             </div>
             <div class="profile__subtext">
               <div class="profile__location">Москва</div>
@@ -529,7 +531,7 @@ const notificationStageEight = false
                   </div>
                   <div class="profile__info__list__title">Доход в месяц:</div>
                 </div>
-                <div class="profile__info__list__status">200 000 ₽</div>
+                <div class="profile__info__list__status">200.000 ₽</div>
               </div>
               <div class="profile__info__list__stats">
                 <div class="info__list__box">
@@ -561,8 +563,8 @@ const notificationStageEight = false
 
                   <div class="profile__info__list__title">Знание языков:</div>
                 </div>
-                <div class="profile__info__list__status">
-                  Английский, Французский
+                <div class="profile__info__list__status lang">
+                  Английский, Французский Английский, Французский
                 </div>
               </div>
             </div>
@@ -608,8 +610,12 @@ const notificationStageEight = false
               <p class="profile__info__list__about">
                 О себе:
                 <span class="profile__info__list__about__description"
-                  >Человек выского ума, занимаюсь бизнесом по продаже машин, ищу
-                  спутницу жизни</span
+                  >С другой стороны, начало повседневной работы по формированию
+                  позиции, а также свежий взгляд на привычные вещи — безусловно
+                  открывает новые горизонты для благоприятных перспектив.
+                  Приятно, граждане, наблюдать, как реплицированные с зарубежных
+                  источников, современные исследования, которые
+                  представляют.</span
                 >
               </p>
             </div>
@@ -799,18 +805,61 @@ const notificationStageEight = false
     }
   }
 }
-
+.hobby__chips__box {
+  display: none;
+}
+.mobile__about__desc {
+  display: none;
+}
 .profile__info__list__hobby__block {
-  width: 440px;
+  width: 422px;
   display: flex;
+  margin: 18px 0 18px 0;
+  .profile__info__list__hobby {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 153.5%;
+    color: rgba(255, 255, 255, 0.33);
+    margin-right: 8px;
+  }
+  .profile__info__list__hobby__item {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 153.5%;
+  }
+}
+.profile__info__list__about__block {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 153.5%;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.33);
+  span {
+    color: #ffffff;
+    margin-left: 4px;
+  }
 }
 .left__side {
   .background {
-    width: 700px;
-    // width: 100%;
     justify-content: flex-start;
+    height: 100%;
+    background: rgba(196, 196, 196, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    border-bottom: none;
+    border-top: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 103px;
+    margin-left: 100px;
   }
   .container {
+    margin-top: 94px;
+    .header {
+      .nav__box {
+        display: none;
+      }
+    }
     .container {
       height: 80px;
     }
@@ -823,21 +872,20 @@ const notificationStageEight = false
       z-index: 100;
     }
     @extend .flex__center;
-    height: 812px;
+    // height: 812px;
     justify-content: space-between;
     .header {
-      height: 44px;
       @extend .flex__center;
-      justify-content: space-between;
       .mobile__photo__block {
         display: none;
       }
-
-      h1 {
+      .web {
+        margin-bottom: 16px;
         font-weight: 600;
         font-size: 18px;
         line-height: 153.5%;
       }
+
       .horizontal__line {
         width: 670px;
         height: 0px;
@@ -846,9 +894,9 @@ const notificationStageEight = false
     }
     .main {
       width: 612px;
-      height: 720px;
       @extend .flex__center;
       justify-content: space-between;
+      margin-top: 48px;
       .cash__container {
         width: 608px;
         height: 400px;
@@ -908,7 +956,7 @@ const notificationStageEight = false
             cursor: pointer;
             &.gold {
               border: #2965ff 1px solid;
-              background: #bdd0ff;
+              background: #ffffff;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -948,6 +996,7 @@ const notificationStageEight = false
               height: 104px;
             }
             p {
+              color: rgba(255, 255, 255, 0.6);
               span {
                 margin-left: 5px;
                 margin-right: 5px;
@@ -966,10 +1015,10 @@ const notificationStageEight = false
               font-weight: 600;
               font-size: 15px;
               line-height: 153.5%;
-              width: 114.36px;
+              width: 116px;
               height: 37px;
               margin-top: 10px;
-              background: #bdd0ff;
+              background: #3e74ff;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               background-clip: text;
@@ -980,8 +1029,8 @@ const notificationStageEight = false
               display: none;
               width: 160px;
               height: 24px;
-              margin-top: 5px;
-              margin-bottom: 5px;
+              margin-top: 14px;
+              margin-bottom: 9px;
               background: linear-gradient(
                 89.71deg,
                 #2965ff 0.25%,
@@ -1018,6 +1067,7 @@ const notificationStageEight = false
         }
       }
       .photo__gallery {
+        margin: 24px 0 24px 0;
         &.stageFive {
           position: relative;
           z-index: 100;
@@ -1092,6 +1142,7 @@ const notificationStageEight = false
             display: none;
           }
           .container {
+            margin: 0;
             justify-content: center;
             text-align: center;
           }
@@ -1196,31 +1247,106 @@ const notificationStageEight = false
 .right__side {
   .profile {
     margin-top: 70px;
+    display: flex;
     align-items: baseline;
     .profile__info {
       width: 488px;
       max-height: 900px;
+      .profile__info__title {
+        height: 97px;
+      }
       .profile__title {
         display: flex;
         align-items: center;
         margin-bottom: 3px;
         .profile__name {
-          margin-right: 86px;
+          margin-right: 114px;
+          font-weight: 500;
+          font-size: 48px;
+          line-height: 153.5%;
+        }
+        // .status__premium {
+        //   @extend .flex__center;
+        //   box-shadow: inset 4px -3px 5px -3px rgba(225, 177, 104, 0.98),
+        //     inset 1px 2px 1px -1px #82700c;
+        //   filter: drop-shadow(0px 0px 10px rgba(255, 187, 84, 0.3));
+        //   border-radius: 12px;
+        // font-family: 'Palatino';
+        // font-style: normal;
+        // font-weight: 400;
+        // font-size: 16px;
+        // line-height: 132.5%;
+        //   letter-spacing: 0.19em;
+        //   text-transform: uppercase;
+        //   // border: #ad6902 0.057vw solid;
+        //   width: 140px;
+        //   height: 30px;
+        //   border: 0.5px solid #fdd8a0;
+        //   box-shadow: inset 4px -3px 5px -3px rgba(225, 177, 104, 0.98),
+        //     inset 1px 2px 1px -1px #b2700c;
+        //   border-radius: 12px;
+
+        //   background: linear-gradient(
+        //     132.27deg,
+        //     #f9ae3f -0.77%,
+        //     #ffdba5 36.67%,
+        //     #ad6902 96.37%
+        //   );
+        //   -webkit-background-clip: text;
+        //   -webkit-text-fill-color: transparent;
+        //   background-clip: text;
+        //   text-fill-color: transparent;
+        //   text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+        // }
+        .gradient {
+          color: #ffffff;
+          // padding: 10px 30px;
+          font-size: 16px;
+          border-radius: 12px;
+          position: relative;
+        }
+        .gradient:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          // border-radius: 12px;
+          background: linear-gradient(
+            rgba(249, 174, 63, 1),
+            rgba(255, 219, 165, 1),
+            rgba(173, 105, 2, 1)
+          );
+          background-size: 100% 100%;
+          -webkit-clip-path: polygon(
+            0% 100%,
+            1px 100%,
+            1px 1px,
+            calc(100% - 1px) 1px,
+            calc(100% - 1px) calc(100% - 1px),
+            1px calc(100% - 1px),
+            1px 100%,
+            100% 100%,
+            100% 0%,
+            0% 0%
+          );
+          clip-path: inset(1px 1px 1px round 15px);
         }
         .status__premium {
-          @extend .flex__center;
-          width: 140px;
-          height: 30px;
-          filter: drop-shadow(0px 0px 10px rgba(255, 187, 84, 0.3));
-          border-radius: 12px;
+          z-index: 999;
+          position: relative;
           font-family: 'Palatino';
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
           line-height: 132.5%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
           letter-spacing: 0.19em;
           text-transform: uppercase;
-          border: #ad6902 0.057vw solid;
           background: linear-gradient(
             132.27deg,
             #f9ae3f -0.77%,
@@ -1231,29 +1357,204 @@ const notificationStageEight = false
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-fill-color: transparent;
+          width: 140px;
+          height: 30px;
           text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+        }
+      }
+      .profile__subtext {
+        width: 329px;
+        display: flex;
+        .profile__location {
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 153.5%;
+          color: rgba(255, 255, 255, 0.45);
+          margin-right: 12px;
+        }
+        .profile__age {
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 153.5%;
+          margin: 0 12px 0 12px;
+        }
+        .profile__online__status {
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 153.5%;
+          color: rgba(255, 255, 255, 0.45);
+          margin-left: 12px;
         }
       }
     }
   }
-  .profile__info__list__container {
-    width: 488px;
-    .main__heightweight {
+  .profile__info__filter {
+    margin: 48px 0 48px 0;
+    .profile__info__filter__block {
+      display: flex;
       align-items: center;
-      .profile__info__list__heightweight {
+      margin-bottom: 16px;
+      .profile__info__filter__icon {
+        display: flex;
         align-items: center;
+        justify-content: center;
+        img {
+          margin-right: 12px;
+        }
+      }
+      .profile__info__filter__description {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 153.5%;
+        color: rgba(255, 255, 255, 0.33);
+      }
+    }
+  }
+  .profile__info__filter__tags__block {
+    width: 467px;
+    height: 82px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .profile__info__filter__tag {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 132.5%;
+    height: 35px;
+    display: inline-block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    box-shadow: 0px 4px 20px -12px rgba(70, 122, 255, 0.4);
+    border-radius: 13px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 132.5%;
+    margin-right: 12px;
+    border: #2965ff 1px solid;
+  }
+  .mobile__more__info__title {
+    display: none;
+  }
+  .profile__info__list__container {
+    padding: 24px;
+    width: 470px;
+    background: rgba(196, 196, 196, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profile__info__list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 422px;
+      margin-bottom: 16px;
+      .profile__info__list__stats {
+        display: flex;
+        width: 422px;
+        justify-content: space-between;
+
+        .info__list__box {
+          display: flex;
+          .profile__info__list__title {
+            margin-left: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 153.5%;
+            color: rgba(255, 255, 255, 0.33);
+          }
+        }
+        .profile__info__list__status {
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 153.5%;
+          &.lang {
+            width: 196px;
+          }
+        }
+      }
+    }
+    .profile__horizontal__line {
+      width: 422px;
+      height: 0px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .main__heightweight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 422px;
+      margin: 16px 0 18px 0;
+      .profile__info__list__heightweight {
+        display: flex;
+        align-items: center;
+
         .profile__info__list__height__block {
+          display: flex;
           align-items: center;
+          margin-right: 75px;
+          .profile__info__list__height {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 153.5%;
+            color: rgba(255, 255, 255, 0.33);
+            margin-right: 8px;
+          }
         }
         .profile__info__list__weight__block {
+          display: flex;
           align-items: center;
+          // margin: 0 71px 0 71px;
+          .profile__info__list__weight {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 153.5%;
+            color: rgba(255, 255, 255, 0.33);
+            margin-right: 8px;
+          }
         }
       }
       .female__version {
+        display: flex;
         align-items: center;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 153.5%;
+        color: rgba(255, 255, 255, 0.33);
         .profile__info__list__weight__stat {
-          font-size: 15px;
+          color: #ffffff;
+          margin-left: 8px;
         }
+      }
+    }
+  }
+}
+.down__arrow {
+  display: none;
+}
+.logo__title {
+  display: none;
+}
+.right__side {
+  // width: 688px;
+
+  .profile {
+    .profile__info {
+      &.notification__unblur {
+        position: relative;
+        z-index: 100;
+      }
+      .buttons__block {
+        display: none;
+      }
+      .profile__info__list__container {
+        // width: 488px;
       }
     }
   }
