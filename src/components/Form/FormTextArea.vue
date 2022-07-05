@@ -1,6 +1,12 @@
 <script setup>
-defineProps({
+import { ref } from 'vue'
+
+const props = defineProps({
   name: {
+    type: String,
+    default: '',
+  },
+  value: {
     type: String,
     default: '',
   },
@@ -9,14 +15,20 @@ defineProps({
     default: '',
   },
 })
+
+const emit = defineEmits(['input'])
+
+const message = ref(props.value)
 </script>
 
 <template>
   <div class="form-textarea">
     <textarea
+      v-model="message"
       :name="name"
       :placeholder="placeholder"
       maxlength="300"
+      @input="emit('input', message)"
     ></textarea>
     <span class="words-count">300</span>
   </div>

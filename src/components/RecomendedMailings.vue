@@ -8,7 +8,7 @@ import MailingItem from '@/components/MailingItem.vue'
   <div class="recommended-mailings">
     <div class="title-wrap">
       <h2 class="page-subtitle">Рекомендованные рассылки</h2>
-      <a href="#" class="link">Открыть все</a>
+      <router-link to="/sends" class="link">Открыть все</router-link>
       <a href="#" class="mob-link"
         ><img src="@/assets/images/main/recomend-plus.svg" alt=""
       /></a>

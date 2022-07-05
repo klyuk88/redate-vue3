@@ -1,24 +1,47 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 import TheSelect from '@/components/Form/TheSelect.vue'
 import BigButton from '@/components/Form/BigButton.vue'
 
-const city = ref('Москва')
-const format = ref('Любой')
+const props = defineProps({
+  currentCity: {
+    type: Object,
+    required: true,
+  },
+  cities: {
+    type: Array,
+    required: true,
+  },
+})
 
-const cities = ref(['Москва', 'Санкт-Петербург', 'Казань'])
-const formats = ref([
-  'Онлайн общение',
-  'Серезные отношения',
-  'Свидание',
-  'Онлайн общение',
-  'Серезные отношения',
-  'Свидание',
-  'Свидание',
-  'Онлайн общение',
-  'Серезные отношения',
-  'Свидание',
+const emit = defineEmits('openModal')
+
+const city = ref(props.currentCity?.name)
+
+const datingFormats = ref([
+  'Серьезные отношения',
+  'Легкие отношения',
+  'Путешествия',
+  'Свидание на ночь',
 ])
+const datingFormat = ref(null)
+
+const options = computed(() => props.cities.map((city) => city.name))
+
+const clickHandler = () => {
+  const params = { city, datingFormat }
+
+  emit('openModal', params)
+}
+
+watch(
+  () => props.currentCity,
+  () => {
+    if (props.currentCity?.name) {
+      city.value = props.currentCity.name
+    }
+  }
+)
 </script>
 
 <template>
@@ -28,23 +51,25 @@ const formats = ref([
 
       <TheSelect
         v-model="city"
-        :options="cities"
+        :options="options"
         placeholder="Выберите город"
+        :z-index="2"
       />
       <label class="form-label">Формат знакомств</label>
       <TheSelect
-        v-model="format"
-        :options="formats"
+        v-model="datingFormat"
+        :options="datingFormats"
         placeholder="Выберите формат"
         :z-index="1"
       />
-      <BigButton title="Создать рассылку" />
+      <BigButton title="Создать рассылку" @click="clickHandler()" />
     </div>
   </div>
 </template>
 
 <style lang="sass">
 .new-send
+    position: relative
     padding: 0 20px
 .form-label
     color: #fff

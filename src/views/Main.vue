@@ -3,6 +3,8 @@ import { onMounted, computed } from 'vue'
 import { useStore } from '@/stores/main.js'
 import { useStatisticsStore } from '@/stores/statistics.js'
 import { useUserStore } from '@/stores/user.js'
+import { useMailingStore } from '@/stores/mailing.js'
+import { useLocationsStore } from '@/stores/locations.js'
 import PotencialPartners from '@/components/PotencialPartners/PotencialPartners.vue'
 import RecomendedMailings from '@/components/RecomendedMailings.vue'
 import SpecialProposal from '@/components/SpecialProposal.vue'
@@ -10,10 +12,13 @@ import NewSend from '@/components/NewSend.vue'
 import Cities from '@/components/Cities/Cities.vue'
 import MobileBurger from '@/components/MobileBurger.vue'
 import Substrate from '@/components/Substrate.vue'
+import NewSendModal from '@/components/Popups/NewSendModal.vue'
 
 const store = useStore()
 const statistics = useStatisticsStore()
 const user = useUserStore()
+const mailing = useMailingStore()
+const locations = useLocationsStore()
 
 const infoText = computed(() => {
   return user.information.data?.sex === 1
@@ -29,16 +34,33 @@ const showSubstrate = computed(() => {
   }
 })
 
+const currentCity = computed(() => user.information.data?.city || {})
+
+const cities = computed(() => locations.cities.data)
+
+const citiesError = computed(() => locations.cities.error.status)
+
 const statisticsError = computed(() => statistics.error.status)
 
 onMounted(async () => {
   await statistics.getStatictics()
+
+  await mailing.getPrice()
+
+  await mailing.getList()
 })
+
+const openModal = (params) => {
+  store.newSendWindowParams = params
+  store.newSendWindow = true
+}
 </script>
 
 <template>
   <div id="main-content">
     <Substrate v-if="showSubstrate" />
+
+    <NewSendModal v-if="!citiesError" />
 
     <div class="mob-header">
       <h1 class="title">Главная</h1>
@@ -76,7 +98,12 @@ onMounted(async () => {
       </div>
       <div class="right-col">
         <div class="content">
-          <NewSend v-if="!store.showCities" />
+          <NewSend
+            v-if="!store.showCities && !citiesError"
+            :current-city="currentCity"
+            :cities="cities"
+            @open-modal="openModal($event)"
+          />
 
           <SpecialProposal />
         </div>

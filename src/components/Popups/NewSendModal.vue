@@ -1,25 +1,69 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useStore } from '@/stores/main.js'
+import { useLocationsStore } from '@/stores/locations.js'
+import { useMailingStore } from '@/stores/mailing.js'
 import TheSelect from '@/components/Form/TheSelect.vue'
 import FormTextArea from '@/components/Form/FormTextArea.vue'
 import BigButton from '@/components/Form/BigButton.vue'
 
 const store = useStore()
+const locations = useLocationsStore()
+const mailing = useMailingStore()
 
-const closeNewSendWindow = () => {
-  store.newSendWindow = false
-}
-const cities = ref(['Москва', 'Санкт-Петербург', 'Иран', 'Стамбул'])
-const formats = ref(['Серьезно', 'Не серьезно', 'Серьезно', 'Не серьезно'])
+const { newSendWindowParams } = storeToRefs(store)
+
+const datingFormats = ref([
+  'Серьезные отношения',
+  'Легкие отношения',
+  'Путешествия',
+  'Свидание на ночь',
+])
+const datingFormat = ref(store.newSendWindowParams?.datingFormat || null)
 
 const sendWrap = ref(null)
+
+const city = ref(store.newSendWindowParams?.city || null)
+
+const message = ref('')
+
+const cities = computed(() => locations.cities.data)
+
+const options = computed(() => cities.value.map((city) => city.name))
+
+const price = computed(() => mailing.price.data?.amount)
+
+watch(newSendWindowParams, () => {
+  if (newSendWindowParams?.value?.city) {
+    city.value = newSendWindowParams.value.city
+  }
+
+  if (newSendWindowParams?.value?.datingFormat) {
+    datingFormat.value = newSendWindowParams.value.datingFormat
+  }
+})
+
 document.addEventListener('click', (e) => {
   e.stopPropagation()
   if (e.target === sendWrap.value) {
     closeNewSendWindow()
   }
 })
+
+const closeNewSendWindow = () => {
+  store.newSendWindow = false
+}
+
+const clickHandler = async () => {
+  await mailing.send(city.value, datingFormat.value, message.value)
+
+  closeNewSendWindow()
+}
+
+const inputHandler = (msg) => {
+  message.value = msg
+}
 </script>
 
 <template>
@@ -39,21 +83,34 @@ document.addEventListener('click', (e) => {
         <p class="title">Создание рассылки</p>
         <p class="time">Время публикации — 8 часов</p>
       </div>
-      <form class="form-block">
+      <div class="form-block">
         <div class="inputs-block">
-          <TheSelect placeholder="Выберите город" :options="cities" />
           <TheSelect
-            placeholder="Выберите формат"
-            :options="formats"
+            v-model="city"
+            placeholder="Выберите город"
+            :options="options"
             :z-index="1"
           />
-          <FormTextArea placeholder="Сообщение" name="Сообщение" />
+          <TheSelect
+            v-model="datingFormat"
+            placeholder="Выберите формат"
+            :options="datingFormats"
+            :z-index="1"
+          />
+          <FormTextArea
+            placeholder="Сообщение"
+            name="Сообщение"
+            @input="inputHandler($event)"
+          />
         </div>
         <small class="small"
           >*В рассылке запрещенно указывать свои контакты</small
         >
-        <BigButton title="Создать рассылку $34" />
-      </form>
+        <BigButton
+          :title="`Создать рассылку $${price}`"
+          @click="clickHandler()"
+        />
+      </div>
     </div>
   </div>
 </template>

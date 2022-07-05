@@ -8,6 +8,7 @@ export const useStore = defineStore('main', {
       newMessageWindow: false,
       mobileSorting: false,
       newSendWindow: false,
+      newSendWindowParams: null,
       maleVersion: false,
       femaleVersion: false,
     }
