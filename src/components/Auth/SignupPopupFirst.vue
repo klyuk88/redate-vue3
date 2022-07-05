@@ -1,10 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-const isClicked = ref(false)
+import { useRouter } from 'vue-router'
+const router = useRouter()
+router.push({ name: 'Registration', query: { stage: 'one' } })
 
+const isClicked = ref(false)
 const focusInput = ref(false)
 const focusInputRepeat = ref(false)
-
 function showPass() {
   let inputType = document.querySelectorAll('#input')
   inputType.forEach((e) => {
@@ -143,9 +145,6 @@ function showPassRepeat() {
         </div>
       </div>
       <div class="signup__footer web">
-        <!-- <router-link to="/registration/step_two">
-          <div class="signup__btn" @click="isClicked = true">Продолжить</div>
-        </router-link> -->
         <slot name="secondPhase"> </slot>
         <div class="signup__footer__menu">
           <p>Есть учетная запись?</p>

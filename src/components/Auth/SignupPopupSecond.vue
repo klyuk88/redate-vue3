@@ -1,6 +1,10 @@
 <script setup>
 import TheSelect from '../Form/TheSelect.vue'
 import { ref } from 'vue'
+import { useRouter } from  'vue-router'
+const router = useRouter()
+
+router.push({ name: 'Registration', query: { stage: 'two' } })
 
 const isClicked = ref(false)
 </script>

@@ -4,6 +4,9 @@ import TheSelect from '../Form/TheSelect.vue'
 import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth.js'
+
+const passConfirm = ref(true)
+const femaleVersion = ref(true)
 const focusInput = ref(false)
 const focusInputRepeat = ref(false)
 const modalHobbyVisible = ref(false)
@@ -116,7 +119,14 @@ function showPassRepeat() {
                     :class="{ visible: focusInputRepeat }"
                   ></label>
                 </div>
+                           
               </div>
+               <div class="vertical__line__pass" v-if="passConfirm" ></div>
+            <img
+              src="../../assets/images/main/myprofile__settings__done.svg"
+              alt=""
+              v-if="passConfirm"
+            />
             </div>
             <!-- <div class="input__password">
               <input
@@ -148,11 +158,7 @@ function showPassRepeat() {
                 :class="{ visible: focusInputRepeat }"
               ></label>
             </div> -->
-            <div class="vertical__line__pass"></div>
-            <img
-              src="../../assets/images/main/myprofile__settings__done.svg"
-              alt=""
-            />
+
           </div>
           <div class="horizontal__line"></div>
           <div class="format__dating">
@@ -267,7 +273,8 @@ function showPassRepeat() {
                 <div class="logo">
                   <img src="../../assets/images/main/money.svg" alt="" />
                 </div>
-                <span>Трачу в месяц:</span>
+                <span  v-if="femaleVersion" >Трачу в месяц:</span>
+                <span  v-if="!femaleVersion" >Зарабатываю в месяц:</span>
               </div>
               <div class="border">
                 <!-- <input class="input" type="text" placeholder="Введите сумму" />
@@ -381,7 +388,7 @@ function showPassRepeat() {
                     />
                   </div>
                 </div>
-                <div class="signup__params__item params__size">
+                <div class="signup__params__item params__size" v-if="femaleVersion" >
                   <p>Параметры:</p>
                   <div class="params__input__box">
                     <input
@@ -711,7 +718,7 @@ function showPassRepeat() {
                       alt=""
                     />
                   </div>
-                  <div class="add__btn">
+                  <div class="add__btn" @click="modalHobbyVisible = true">
                     <img
                       src="../../assets/images/main/add__photo__btn.svg"
                       alt=""
@@ -745,7 +752,7 @@ function showPassRepeat() {
                         alt=""
                       />
                     </div>
-                    <div class="add__btn">
+                    <div class="add__btn" @click="modalHobbyVisible = true">
                       <img
                         src="../../assets/images/main/add__photo__btn.svg"
                         alt=""
@@ -775,7 +782,7 @@ function showPassRepeat() {
 </template>
 
 <style lang="scss" scoped>
-        .input {
+.input {
   font-family: 'Mulish';
   font-size: 15px;
   line-height: 153.5%;
@@ -861,8 +868,8 @@ function showPassRepeat() {
 label {
   position: relative;
   z-index: 2;
-  right: -200px;
-  top: -40px;
+  // right: -200px;
+  // top: -40px;
 }
 .eye + label {
   display: inline-flex;
@@ -965,7 +972,7 @@ label {
       .pass__container {
         display: flex;
         align-items: center;
-        margin-left: 36px;
+        margin-top: 16px;
         img {
           margin-top: 24px;
         }
@@ -1176,6 +1183,7 @@ label {
         }
 
         .select__city {
+          position: relative;
           z-index: 2;
           width: 512px;
           height: 60px;
@@ -1195,6 +1203,7 @@ label {
           display: flex;
         }
         .select__nation {
+          position: relative;
           z-index: 1;
           width: 250px;
           height: 60px;
@@ -1454,6 +1463,9 @@ label {
 }
 
 @media (max-width: 1200px) {
+  .auth__back__btn {
+    display: none;
+  }
   .container {
     .accordion {
       width: 100vw;
