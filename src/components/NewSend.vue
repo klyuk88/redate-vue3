@@ -55,7 +55,6 @@ watch(
         placeholder="Выберите город"
         :z-index="2"
       />
-      <label class="form-label">Формат знакомств</label>
       <TheSelect
         v-model="datingFormat"
         :options="datingFormats"

@@ -13,6 +13,7 @@ import Cities from '@/components/Cities/Cities.vue'
 import MobileBurger from '@/components/MobileBurger.vue'
 import Substrate from '@/components/Substrate.vue'
 import NewSendModal from '@/components/Popups/NewSendModal.vue'
+import NewSendModalSuccess from '@/components/Popups/NewSendModalSuccess.vue'
 
 const store = useStore()
 const statistics = useStatisticsStore()
@@ -38,6 +39,8 @@ const currentCity = computed(() => user.information.data?.city || {})
 
 const cities = computed(() => locations.cities.data)
 
+const showNewSendModalSuccess = computed(() => store.newSendWindowSuccess)
+
 const citiesError = computed(() => locations.cities.error.status)
 
 const statisticsError = computed(() => statistics.error.status)
@@ -61,6 +64,8 @@ const openModal = (params) => {
     <Substrate v-if="showSubstrate" />
 
     <NewSendModal v-if="!citiesError" />
+
+    <NewSendModalSuccess v-if="showNewSendModalSuccess" />
 
     <div class="mob-header">
       <h1 class="title">Главная</h1>
@@ -91,7 +96,10 @@ const openModal = (params) => {
             <p class="text">{{ infoText }}</p>
           </div>
 
-          <RecomendedMailings v-if="!store.showCities" />
+          <RecomendedMailings
+            v-if="!store.showCities"
+            @open-modal="openModal($event)"
+          />
 
           <PotencialPartners />
         </div>

@@ -2,6 +2,12 @@
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
 import MailingItem from '@/components/MailingItem.vue'
+
+const emit = defineEmits('openModal')
+
+const clickHandler = () => {
+  emit('openModal')
+}
 </script>
 
 <template lang="">
@@ -9,9 +15,9 @@ import MailingItem from '@/components/MailingItem.vue'
     <div class="title-wrap">
       <h2 class="page-subtitle">Рекомендованные рассылки</h2>
       <router-link to="/sends" class="link">Открыть все</router-link>
-      <a href="#" class="mob-link"
-        ><img src="@/assets/images/main/recomend-plus.svg" alt=""
-      /></a>
+      <div class="mob-link" @click="clickHandler()">
+        <img src="@/assets/images/main/recomend-plus.svg" alt="" />
+      </div>
     </div>
     <div class="slider">
       <Swiper

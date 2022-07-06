@@ -55,7 +55,7 @@ export const useMailingStore = defineStore('mailing', {
 
         const listRequestData = {
           page: 0,
-          count: 10,
+          count: 8,
         }
 
         const listResponse = await API.post('/mailing/list', listRequestData)
@@ -96,20 +96,20 @@ export const useMailingStore = defineStore('mailing', {
 
         const sendResponse = await API.post('/mailing/add', sendRequestData)
 
-        console.log(sendResponse)
-
-        // if (!listResponse.status) {
-        //   throw new Error(listResponse.message)
-        // }
-
-        // this.list.data = listResponse.data
+        if (!sendResponse.status) {
+          throw new Error(sendResponse.message)
+        }
 
         this.isLoading = false
+
+        return sendResponse.data
       } catch (error) {
         this.error.status = true
         this.error.message = error.message
 
         this.isLoading = false
+
+        return this.error
       }
     },
   },

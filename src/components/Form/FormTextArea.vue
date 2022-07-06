@@ -14,6 +14,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  error: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emit = defineEmits(['input'])
@@ -22,15 +26,15 @@ const message = ref(props.value)
 </script>
 
 <template>
-  <div class="form-textarea">
+  <div class="form-textarea" :class="{ error: error }">
     <textarea
       v-model="message"
       :name="name"
       :placeholder="placeholder"
-      maxlength="300"
+      maxlength="500"
       @input="emit('input', message)"
     ></textarea>
-    <span class="words-count">300</span>
+    <span class="words-count">500</span>
   </div>
 </template>
 
@@ -39,6 +43,7 @@ const message = ref(props.value)
   width: 100%;
   position: relative;
   textarea {
+    font-family: 'Mulish';
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.33);
     border-radius: 11px;
@@ -61,6 +66,16 @@ const message = ref(props.value)
     right: 15px;
     bottom: 15px;
     color: rgba(255, 255, 255, 0.33);
+  }
+}
+
+.form-textarea.error {
+  textarea {
+    border-color: #2965ff;
+
+    &:focus {
+      outline-color: #2965ff;
+    }
   }
 }
 </style>
