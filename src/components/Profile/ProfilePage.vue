@@ -967,8 +967,6 @@ const notificationStageFive = false
   border-radius: 24px;
 }
 
-
-
 .profile__info__list__stats {
   display: flex;
   @extend .text;

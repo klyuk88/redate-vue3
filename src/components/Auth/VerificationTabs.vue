@@ -28,7 +28,6 @@ const changeStage = computed(() => {
   }
   return changeStage
 })
-
 </script>
 
 <template>
