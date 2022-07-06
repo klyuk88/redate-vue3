@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import TheFormats from '../Form/TheFormats.vue'
+import { useRouter } from  'vue-router'
+const router = useRouter()
 
+router.push({ name: 'Registration', query: { stage: 'four' } })
 const isClicked = ref(false)
 </script>
 

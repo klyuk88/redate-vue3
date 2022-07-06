@@ -1,8 +1,26 @@
 <script setup>
 import MobileBurger from '../MobileBurger.vue'
 import ProfilePhotoCarousel from './ProfilePhotoCarousel.vue'
-
+import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
+
+const auth = useAuthStore()
+const logout = () => {
+  auth.logout()
+}
+// Ожидание верификации
+const verificationWait = ref(false)
+// Ошибка верификации
+const errorVerification = ref(false)
+// Необходимость продолжить верификацию
+const continueVerificate = ref(true)
+// Уже верифицированная версия
+const verificated = ref(true)
+// Куплен премиум
+const statusDiamond = ref(true)
+// Мужской / Женский (У мужчины нет верификации)
+const female = ref(true)
+
 
 const showModal = ref(false)
 const notificationStatus = false
@@ -35,7 +53,10 @@ const notificationStageEight = false
                   <h1 class="auth__back__btn__title">Назад</h1>
                 </div>
               </router-link>
-              <h1>Мой профиль</h1>
+              <div class="title__mobile">
+                <h1>Мой профиль</h1>
+                <div class="id__profile">ID: <span>889966</span></div>
+              </div>
               <!-- <div class="more_mobile">
                 <img src="@/assets/images/main/btn_more.svg" alt="" />
               </div> -->
@@ -200,58 +221,43 @@ const notificationStageEight = false
                 </div>
               </div>
             </div>
-            <div class="footer">
-              <div class="btn" :class="{ stageSix: notificationStageSix }">
-                <div class="container">
-                  <router-link to="/account/:user/edit" class="container">
+            <div v-if="verificated || !female" class="footer" >
+              <div v-if="verificated || !female" class="verificated">
+                <div class="btn  " :class="{ stageSix: notificationStageSix }">
+                  <div class="container">
+                    <router-link to="/account/:user/edit" class="route__to__edit">
+                      <img
+                        src="@/assets/images/main/myprofile__edit.svg"
+                        alt=""
+                      />
+                      <p>Редактирование анкеты</p>
+                    </router-link>
+                  </div>
+                  <div class="arrow__next">
                     <img
-                      src="@/assets/images/main/myprofile__edit.svg"
+                      src="../../assets/images/profile_edit_logo/footer__arrow.svg"
                       alt=""
                     />
-                    <p>Редактирование анкеты</p>
-                  </router-link>
+                  </div>
                 </div>
-                <div class="arrow__next">
-                  <img
-                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="mobile__horizontal__line"></div>
-              <!-- <div class="btn" :class="{ stageSix: notificationStageSeven }">
-                <div class="container">
-                  <RouterLink to="/account/:user/settings" class="container">
+                <div class="mobile__horizontal__line"></div>
+                <div class="btn " :class="{ stageSix: notificationStageEight }">
+                  <div class="container">
                     <img
-                      src="@/assets/images/main/myprofile__setting.svg"
+                      src="@/assets/images/main/myprofile__support.svg"
                       alt=""
                     />
-                    <p>Настройки входа</p>
-                  </RouterLink>
-                </div>
-                <div class="arrow__next">
-                  <img
-                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
-                    alt=""
-                  />
-                </div>
-              </div> -->
-              <div class="mobile__horizontal__line"></div>
-              <div class="btn" :class="{ stageSix: notificationStageEight }">
-                <div class="container">
-                  <img
-                    src="@/assets/images/main/myprofile__support.svg"
-                    alt=""
-                  />
-                  <p>Техническая поддержка</p>
-                </div>
-                <div class="arrow__next">
-                  <img
-                    src="../../assets/images/profile_edit_logo/footer__arrow.svg"
-                    alt=""
-                  />
+                    <p>Техническая поддержка</p>
+                  </div>
+                  <div class="arrow__next">
+                    <img
+                      src="../../assets/images/profile_edit_logo/footer__arrow.svg"
+                      alt=""
+                    />
+                  </div>
                 </div>
               </div>
+
               <div class="mobile__horizontal__line"></div>
               <div class="btn mobile">
                 <div class="container">
@@ -269,8 +275,9 @@ const notificationStageEight = false
                 </div>
               </div>
             </div>
-            <!-- <div class="female__verification__block">
-              <div class="verification__status">
+
+            <div class="female__verification__block">
+              <div v-if="!verificated && female" class="verification__status" >
                 <div class="status__header">
                   <div class="left__side__header">
                     <img
@@ -280,22 +287,23 @@ const notificationStageEight = false
                     <h2>Верификация</h2>
                   </div>
                   <div class="horizontal__line"></div>
-                  <div class="right__side__header"> -->
-            <!-- <div class="status__error">
+                  <div class="right__side__header">
+                    <div v-if="errorVerification && !verificated && !verificationWait && !continueVerificate " class="status__error" >
                       <h2>Ошибка</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__status__error.svg"
                         alt=""
                       />
-                    </div> -->
-            <!-- <div class="status__error">
+                    </div>
+                    <div v-if="verificationWait && !verificated && !errorVerification && !continueVerificate " class="status__error" >
                       <h2>Ожидание</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__pending.svg"
                         alt=""
                       />
-                    </div> -->
-            <!-- <div class="status__error">
+                    </div>
+
+                    <div v-if="continueVerificate && !verificated && !verificationWait && !errorVerification  " class="status__error" >
                       <h2>Отложено</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__delayed.svg"
@@ -303,35 +311,63 @@ const notificationStageEight = false
                       />
                     </div>
                   </div>
-                </div>
-            <div class="status__desc">
-                  <span
-                    >Мы отправили Вам уведомление с данными, которые необходимо
-                    изменить для подтверждения верификации.</span
-                  >
-                </div> -->
-            <!-- <div class="status__desc show__error">
-                  <span
-                    >Необходимо пройти верификацию для дальнейшего использования
-                    сайта.</span
-                  >
-                </div> -->
-            <!-- </div>
-            <router-link to="/verification">
-              <div class="verification__action">
-                <h2>Заполнить заново</h2>
-              </div>
-            </router-link> -->
-            <!-- <div class="verification__action help show__error">
-                <img src="@/assets/images/main/myprofile__headset__logo.svg" alt="">
-                <h2>Техническая поддержка</h2>
-              </div> -->
-            <!-- <router-link to="/verification">
-                <div class="verification__action ">
-                    <h2>Пройти верификацию</h2>
+                  <div class="mobile__notification">
+                    <div
+                      v-if="continueVerificate && !verificated && !verificationWait && !errorVerification  "
+                      class="status__desc show__error"
+                    >
+                      <span
+                        >Необходимо пройти верификацию для дальнейшего
+                        использования сайта.</span
+                      >
+                    </div>
+                  <div v-if="errorVerification  && !verificated  && !verificationWait && !continueVerificate  " class="status__desc" >
+                    <span
+                      >Мы отправили Вам уведомление с данными, которые
+                      необходимо изменить для подтверждения верификации.</span
+                    >
                   </div>
-              </router-link> -->
-            <!-- </div> -->
+                  </div>
+                </div>
+                <div class="web__notification">
+                  <div
+                    v-if="continueVerificate && !verificated && !verificationWait && !errorVerification  "
+                    class="status__desc show__error"
+                  >
+                    <span
+                      >Необходимо пройти верификацию для дальнейшего
+                      использования сайта.</span
+                    >
+                  </div>
+                  <div v-if="errorVerification  && !verificated  && !verificationWait && !continueVerificate  " class="status__desc" >
+                    <span
+                      >Мы отправили Вам уведомление с данными, которые
+                      необходимо изменить для подтверждения верификации.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                v-if="verificationWait && !verificated && !errorVerification && !continueVerificate && female "
+                class="verification__action help show__error"
+              >
+                <img
+                  src="@/assets/images/main/myprofile__headset__logo.svg"
+                  alt=""
+                />
+                <h2>Техническая поддержка</h2>
+              </div>
+              <router-link to="/verification">
+                <div v-if="continueVerificate && !verificated && !verificationWait && !errorVerification && female "  class="verification__action" >
+                  <h2>Пройти верификацию</h2>
+                </div>
+              </router-link>
+              <router-link to="/verification">
+                <div  v-if="errorVerification  && !verificated && !verificationWait && !continueVerificate && female " class="verification__action">
+                  <h2>Заполнить заново</h2>
+                </div>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -453,8 +489,10 @@ const notificationStageEight = false
           <div class="profile__info__title">
             <div class="profile__title">
               <div class="profile__name">Владимир</div>
-              <div class="gradient">
-                <div class="status__premium">DIAMOND</div>
+              <div v-if="statusDiamond" class="gradient" >
+                <div class="status__premium">
+                  <span>DIAMOND</span>
+                </div>
               </div>
             </div>
             <div class="profile__subtext">
@@ -529,7 +567,8 @@ const notificationStageEight = false
                   <div class="profile__info__list__icon">
                     <img src="@/assets/images/main/money.svg" alt="" />
                   </div>
-                  <div class="profile__info__list__title">Доход в месяц:</div>
+                  <div v-if="!female" class="profile__info__list__title"  >Доход в месяц:</div>
+                  <div v-if="female" class="profile__info__list__title"  >Трачу в месяц:</div>
                 </div>
                 <div class="profile__info__list__status">200.000 ₽</div>
               </div>
@@ -584,7 +623,7 @@ const notificationStageEight = false
                   <div class="profile__info__list__weight__stat">78</div>
                 </div>
               </div>
-              <div class="female__version">
+              <div v-if="female" class="female__version"  >
                 <div class="profile__info__list__weight">Параметры:</div>
                 <div class="profile__info__list__weight__stat">90/60/90</div>
               </div>
@@ -630,6 +669,12 @@ const notificationStageEight = false
               </p>
             </div>
           </div>
+          <div  v-if="!verificated && female " class="logout__box" >
+            <div class="logout__non__verification" @click="logout()">
+              <img src="../../assets/images/leave__icon.svg" alt="" />
+              Выйти из аккаунта
+            </div>
+          </div>
         </div>
       </div>
       <div class="logo__title">
@@ -640,6 +685,9 @@ const notificationStageEight = false
 </template>
 
 <style lang="scss" scoped>
+.mobile__notification {
+  display: none;
+}
 .notification__blur {
   display: none;
   &.notification__unblur {
@@ -839,6 +887,29 @@ const notificationStageEight = false
     margin-left: 4px;
   }
 }
+.logout__box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 31px;
+}
+.logout__non__verification {
+  width: 189px;
+  height: 33px;
+  border: 1px solid #3e74ff;
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+  color: #3e74ff;
+  cursor: pointer;
+  img {
+    margin-right: 10px;
+  }
+}
 .left__side {
   .background {
     justify-content: flex-start;
@@ -854,7 +925,7 @@ const notificationStageEight = false
     margin-left: 100px;
   }
   .container {
-    margin-top: 94px;
+    margin-top: 70px;
     .header {
       .nav__box {
         display: none;
@@ -944,7 +1015,7 @@ const notificationStageEight = false
             }
             span {
               color: #ffffff;
-              margin-left: 0.69vw;
+              margin-left: 6px;
             }
           }
           .btn {
@@ -1120,9 +1191,13 @@ const notificationStageEight = false
       }
       .footer {
         @extend .flex__center;
-        justify-content: space-between;
-        flex-direction: row;
-        width: 608px;
+
+        .verificated {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          width: 608px;
+        }
         .btn {
           &.stageSix {
             position: relative;
@@ -1265,86 +1340,15 @@ const notificationStageEight = false
           font-size: 48px;
           line-height: 153.5%;
         }
-        // .status__premium {
-        //   @extend .flex__center;
-        //   box-shadow: inset 4px -3px 5px -3px rgba(225, 177, 104, 0.98),
-        //     inset 1px 2px 1px -1px #82700c;
-        //   filter: drop-shadow(0px 0px 10px rgba(255, 187, 84, 0.3));
-        //   border-radius: 12px;
-        // font-family: 'Palatino';
-        // font-style: normal;
-        // font-weight: 400;
-        // font-size: 16px;
-        // line-height: 132.5%;
-        //   letter-spacing: 0.19em;
-        //   text-transform: uppercase;
-        //   // border: #ad6902 0.057vw solid;
-        //   width: 140px;
-        //   height: 30px;
-        //   border: 0.5px solid #fdd8a0;
-        //   box-shadow: inset 4px -3px 5px -3px rgba(225, 177, 104, 0.98),
-        //     inset 1px 2px 1px -1px #b2700c;
-        //   border-radius: 12px;
-
-        //   background: linear-gradient(
-        //     132.27deg,
-        //     #f9ae3f -0.77%,
-        //     #ffdba5 36.67%,
-        //     #ad6902 96.37%
-        //   );
-        //   -webkit-background-clip: text;
-        //   -webkit-text-fill-color: transparent;
-        //   background-clip: text;
-        //   text-fill-color: transparent;
-        //   text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
-        // }
         .gradient {
-          color: #ffffff;
-          // padding: 10px 30px;
-          font-size: 16px;
-          border-radius: 12px;
-          position: relative;
-        }
-        .gradient:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          // border-radius: 12px;
-          background: linear-gradient(
-            rgba(249, 174, 63, 1),
-            rgba(255, 219, 165, 1),
-            rgba(173, 105, 2, 1)
-          );
-          background-size: 100% 100%;
-          -webkit-clip-path: polygon(
-            0% 100%,
-            1px 100%,
-            1px 1px,
-            calc(100% - 1px) 1px,
-            calc(100% - 1px) calc(100% - 1px),
-            1px calc(100% - 1px),
-            1px 100%,
-            100% 100%,
-            100% 0%,
-            0% 0%
-          );
-          clip-path: inset(1px 1px 1px round 15px);
-        }
-        .status__premium {
-          z-index: 999;
-          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           font-family: 'Palatino';
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
           line-height: 132.5%;
-          display: flex;
-          align-items: center;
-          text-align: center;
-          justify-content: center;
           letter-spacing: 0.19em;
           text-transform: uppercase;
           background: linear-gradient(
@@ -1357,9 +1361,32 @@ const notificationStageEight = false
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-fill-color: transparent;
+          text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+        }
+        .gradient:before {
+          background: linear-gradient(
+            103.31deg,
+            #b3854d 5.67%,
+            #f3d7af 28.06%,
+            #c6a47c 85.27%
+          );
+        }
+        .gradient:before {
+          content: '';
           width: 140px;
           height: 30px;
-          text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+          position: absolute;
+          border-radius: 12px;
+          padding: 1px;
+          -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+            linear-gradient(#fff, #fff 0);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
+        .status__premium {
+          margin-top: 4px;
         }
       }
       .profile__subtext {
@@ -1384,6 +1411,7 @@ const notificationStageEight = false
           line-height: 153.5%;
           color: rgba(255, 255, 255, 0.45);
           margin-left: 12px;
+          margin-top: 1px;
         }
       }
     }
@@ -1560,43 +1588,85 @@ const notificationStageEight = false
   }
 }
 @media (max-width: 1200px) {
+  .mobile__notification {
+    display: flex;
+  }
+  .web__notification {
+    display: none;
+  }
   .notification__blur {
     display: none;
   }
   .my__profile__page {
+    margin-bottom: 42px;
     .right__side {
       display: none;
     }
     margin: 0;
     .nav__box {
-      // display: none;
       h1 {
         font-size: 3.589vw;
       }
-      .auth__back__btn {
+      .title__mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 76px 0px 49px;
         h1 {
-          font-weight: 500;
-          font-size: 3.589vw;
+          font-weight: 600;
+          font-size: 17px;
           line-height: 153.5%;
+          display: flex;
+          align-items: center;
+          color: #ffffff;
+          width: 116px;
+        }
+        .id__profile {
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 153.5%;
+          color: rgba(255, 255, 255, 0.45);
+        }
+      }
+      .auth__back__btn {
+        align-items: center;
+        display: flex;
+        img {
+          width: 6.15vw;
+          height: 6.15vw;
+        }
+        h1 {
+          font-weight: 700;
+          font-size: 3.589vw;
+          line-height: 132.5%;
         }
       }
     }
   }
-
+.route__to__edit {
+  display: flex;
+  align-items: center;
+  img {
+    margin-top: 7px;
+  }
+}
   .left__side {
     padding: 0;
     .background {
+      margin: 0;
       margin-bottom: 10.769vw;
       padding: 0;
       width: unset;
       background: none;
       border: none;
       .container {
+        margin: 0;
+        margin-bottom: 48px;
         width: 85.59vw;
         height: unset;
         .header {
           justify-content: end;
-          height: 81.28vw;
+          // height: 81.28vw;
           width: 100vw;
           margin-bottom: 6.153vw;
           background: linear-gradient(
@@ -1606,6 +1676,13 @@ const notificationStageEight = false
           );
           border: 0.256vw solid rgba(255, 255, 255, 0.14);
           border-radius: 0px 0px 10.256vw 10.256vw;
+          .nav__box {
+            display: flex;
+            align-items: center;
+            width: 342px;
+            margin-top: 44px;
+            margin-bottom: 24px;
+          }
           h1 {
             &.web {
               display: none;
@@ -1665,6 +1742,8 @@ const notificationStageEight = false
           }
         }
         .main {
+          margin: 0;
+          margin-bottom: 42px;
           justify-content: center;
           height: unset;
           width: 96.15vw;
@@ -1750,6 +1829,9 @@ const notificationStageEight = false
                   line-height: 153.5%;
                 }
                 .price {
+                  font-weight: 600;
+                  font-size: 12px;
+                  line-height: 132.5%;
                   width: 20.51vw;
                   height: 8.205vw;
                   display: flex;
@@ -1769,13 +1851,16 @@ const notificationStageEight = false
             display: none;
           }
           .footer {
+            padding: 16px 19px 16px 19px;
             width: 85.89vw;
-            height: 56.92vw;
             flex-direction: column;
-            justify-content: space-evenly;
             background: rgba(255, 255, 255, 0.05);
             border: 0.256vw solid rgba(255, 255, 255, 0.14);
             border-radius: 6.15vw;
+            .verificated {
+              flex-direction: column;
+              width: unset;
+            }
             .btn {
               width: 78.2vw;
               height: 6.15vw;
@@ -1783,6 +1868,9 @@ const notificationStageEight = false
               background: none;
               flex-direction: row;
               cursor: pointer;
+              &.edit {
+                width: unset;
+              }
               .arrow__next {
                 display: flex;
               }
@@ -1794,7 +1882,7 @@ const notificationStageEight = false
                 align-items: end;
                 justify-content: left;
 
-                width: 78.2vw;
+                // width: 78.2vw;
                 height: 6.153vw;
                 img {
                   width: 6.15vw;
@@ -1814,6 +1902,8 @@ const notificationStageEight = false
               width: 77.948vw;
               border: 0.256vw solid rgba(255, 255, 255, 0.05);
               display: flex;
+              margin: 16px 0 16px 0;
+
             }
           }
         }
@@ -1828,7 +1918,7 @@ const notificationStageEight = false
               height: 15.897vw;
               flex-direction: column;
               margin: 0;
-              margin-top: 11.53vw;
+              // margin-top: 11.53vw;
               .left__side__header {
                 margin-bottom: 3.07vw;
                 h2 {

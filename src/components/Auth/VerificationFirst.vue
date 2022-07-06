@@ -1,5 +1,8 @@
-<script>
-export default {}
+<script setup>
+import { useRouter } from  'vue-router'
+const router = useRouter()
+
+router.push({ name: 'Verification', query: { stage: 'one' } })
 </script>
 
 <template>
