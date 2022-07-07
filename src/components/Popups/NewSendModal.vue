@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia'
 import { useStore } from '@/stores/main.js'
 import { useLocationsStore } from '@/stores/locations.js'
 import { useMailingStore } from '@/stores/mailing.js'
+import { useUserStore } from '@/stores/user.js'
 import TheSelect from '@/components/Form/TheSelect.vue'
 import FormTextArea from '@/components/Form/FormTextArea.vue'
 import BigButton from '@/components/Form/BigButton.vue'
@@ -11,6 +12,7 @@ import BigButton from '@/components/Form/BigButton.vue'
 const store = useStore()
 const locations = useLocationsStore()
 const mailing = useMailingStore()
+const user = useUserStore()
 
 const { newSendWindowParams } = storeToRefs(store)
 
@@ -24,7 +26,9 @@ const datingFormat = ref(store.newSendWindowParams?.datingFormat || null)
 
 const sendWrap = ref(null)
 
-const city = ref(store.newSendWindowParams?.city || null)
+const city = ref(
+  store.newSendWindowParams?.city || user.information.data?.city?.name || null
+)
 
 const message = ref('')
 

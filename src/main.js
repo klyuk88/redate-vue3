@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import Vue3TouchEvents from 'vue3-touch-events'
 import { VueMasonryPlugin } from 'vue-masonry'
+import timeago from 'vue-timeago3'
 import { createPinia } from 'pinia'
 import router from './router'
 import '~vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
@@ -18,6 +19,7 @@ createApp(App)
   .use(Vue3TouchEvents)
   .use(PerfectScrollbar)
   .use(VueMasonryPlugin)
+  .use(timeago)
   .use(createPinia())
   .use(router)
   .mount('#app')

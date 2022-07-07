@@ -64,7 +64,7 @@ export const useMailingStore = defineStore('mailing', {
           throw new Error(listResponse.message)
         }
 
-        this.list.data = listResponse.data
+        this.list.data = listResponse.data.list
 
         this.list.isLoading = false
       } catch (error) {

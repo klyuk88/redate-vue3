@@ -1,23 +1,20 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from '@/stores/main.js'
-import { useMailingStore } from '../../stores/mailing'
+import FormCheckbox from '../Form/FormCheckbox.vue'
 
 const store = useStore()
-const mailing = useMailingStore()
 
 const popup = ref(null)
 
 const clickOutsideHandler = (event) => {
   if (event.target === popup.value) {
-    store.newSendWindowSuccess = false
+    store.hideRecomendedMailingModal = false
   }
 }
 
 const clickCloseHandler = async () => {
-  await mailing.getList()
-
-  store.newSendWindowSuccess = false
+  store.hideRecomendedMailingModal = false
 }
 </script>
 
@@ -30,16 +27,22 @@ const clickCloseHandler = async () => {
     <div class="diamond__lost__block">
       <div class="diamond__lost__content">
         <div class="diamond__lost__info">
-          <h1 class="diamond__lost__title">Ваша рассылка создана!</h1>
+          <h1 class="diamond__lost__title">Скрыть рассылку пользователя</h1>
           <p class="diamond__lost__text">
-            Ваша рассылка создана и отправлена на проверку в модерацию. После
-            проверки она будет опубликована.
+            Удаляя рассылку выбранного пользователя Вы так же скрываете <br />от
+            себя все будущие его рассылки. <br />Вы уверены что хотите это
+            сделать?
           </p>
         </div>
+        <FormCheckbox
+          title="Больше меня не спрашивать"
+          class="diamond__lost__checkbox"
+        />
         <div class="diamond__lost__buttons">
-          <div class="diamond__lost__store" @click="clickCloseHandler()">
-            Продолжить
+          <div class="diamond__lost__cancel" @click="clickCloseHandler()">
+            Отмена
           </div>
+          <div class="diamond__lost__store">Скрыть</div>
         </div>
       </div>
     </div>
@@ -71,7 +74,7 @@ const clickCloseHandler = async () => {
 }
 .diamond__lost__block {
   padding: 24px;
-  width: 314px;
+  width: 334px;
 
   background: rgba(36, 37, 41, 0.6);
   border-radius: 24px;
@@ -83,6 +86,7 @@ const clickCloseHandler = async () => {
   align-items: center;
   justify-content: space-between;
 }
+
 .diamond__lost__info {
   display: flex;
   justify-content: center;
@@ -98,7 +102,7 @@ const clickCloseHandler = async () => {
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
   margin-bottom: 16px;
 }
 .diamond__lost__buttons {
@@ -106,8 +110,9 @@ const clickCloseHandler = async () => {
   justify-content: center;
   align-items: center;
   padding: 0px;
-  width: 256px;
+  width: 334px;
   height: 34px;
+  margin-top: 8px;
 }
 .diamond__lost__cancel {
   @extend .text;
@@ -137,5 +142,18 @@ const clickCloseHandler = async () => {
   border: 1px solid #2b66fb;
   background: #2b66fb;
   cursor: pointer;
+  margin-left: 16px;
+}
+</style>
+
+<style lang="scss">
+.diamond__lost__checkbox {
+  .label {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin-left: 10px !important;
+  }
 }
 </style>

@@ -14,6 +14,7 @@ import MobileBurger from '@/components/MobileBurger.vue'
 import Substrate from '@/components/Substrate.vue'
 import NewSendModal from '@/components/Popups/NewSendModal.vue'
 import NewSendModalSuccess from '@/components/Popups/NewSendModalSuccess.vue'
+import HideRecomendedMailingModal from '@/components/Popups/HideRecomendedMailingModal.vue'
 
 const store = useStore()
 const statistics = useStatisticsStore()
@@ -41,6 +42,10 @@ const cities = computed(() => locations.cities.data)
 
 const showNewSendModalSuccess = computed(() => store.newSendWindowSuccess)
 
+const showHideRecomendedMailingModal = computed(
+  () => store.hideRecomendedMailingModal
+)
+
 const citiesError = computed(() => locations.cities.error.status)
 
 const statisticsError = computed(() => statistics.error.status)
@@ -66,6 +71,8 @@ const openModal = (params) => {
     <NewSendModal v-if="!citiesError" />
 
     <NewSendModalSuccess v-if="showNewSendModalSuccess" />
+
+    <HideRecomendedMailingModal v-if="showHideRecomendedMailingModal" />
 
     <div class="mob-header">
       <h1 class="title">Главная</h1>

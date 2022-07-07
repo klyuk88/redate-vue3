@@ -1,9 +1,27 @@
 <script setup>
+import { computed } from 'vue'
+import { useMailingStore } from '@/stores/mailing.js'
+import { useUserStore } from '@/stores/user.js'
 import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from '~swiper/vue/swiper-vue.js'
 import MailingItem from '@/components/MailingItem.vue'
 
+const mailing = useMailingStore()
+const user = useUserStore()
+
 const emit = defineEmits('openModal')
+
+const mailings = computed(() => mailing.list.data)
+
+const mailingsLoading = computed(() => mailing.list.isLoading)
+
+const showSubstrate = computed(() => {
+  if (user.information.data?.sex === 1) {
+    return user.currentTariff.error.status
+  } else {
+    return !user.registrationStatus.data?.isModerated
+  }
+})
 
 const clickHandler = () => {
   emit('openModal')
@@ -19,7 +37,7 @@ const clickHandler = () => {
         <img src="@/assets/images/main/recomend-plus.svg" alt="" />
       </div>
     </div>
-    <div class="slider">
+    <div v-if="mailings.length && !mailingsLoading" class="slider">
       <Swiper
         :modules="[Navigation, Pagination]"
         :space-between="24"
@@ -41,20 +59,8 @@ const clickHandler = () => {
           },
         }"
       >
-        <SwiperSlide>
-          <MailingItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MailingItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MailingItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MailingItem />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MailingItem />
+        <SwiperSlide v-for="(item, idx) in mailings" :key="idx">
+          <MailingItem :mailing="item" :show-substrate="showSubstrate" />
         </SwiperSlide>
       </Swiper>
       <img
@@ -63,6 +69,17 @@ const clickHandler = () => {
         class="slider-nav"
       />
       <div class="slider-pagination"></div>
+    </div>
+    <div
+      v-if="!mailings.length && !mailingsLoading"
+      class="recommended-mailings-empty"
+    >
+      <p class="recommended-mailings-empty__title">
+        Список рассылок пуст, будьте первыми —
+        <span class="recommended-mailings-empty__button" @click="clickHandler()"
+          >Создать</span
+        >
+      </p>
     </div>
   </div>
 </template>
@@ -113,4 +130,23 @@ const clickHandler = () => {
     display: none
     @media (max-width: 1200px)
         display: block
+
+.recommended-mailings-empty
+  width: 100%
+  height: 204px
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 1px solid rgba(255, 255, 255, 0.14)
+  border-radius: 24px
+
+  &__title
+    font-weight: 600
+    font-size: 15px
+    line-height: 153.5%
+    color: #FFFFFF
+
+  &__button
+    color: #2B66FB
+    cursor: pointer
 </style>
