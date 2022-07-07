@@ -3,8 +3,7 @@
     <div class="container__delete__chat">
       <h1>Удалить диалог у обоих</h1>
       <p>
-        Вы можете удалить диалог не только у себя, но у и противоположного пола
-        за дополлнительную платку
+     Вы можете удалить диалог не только у себя, но у и собеседника
       </p>
       <div class="btn__block">
         <div class="btn">Отмена</div>
@@ -21,14 +20,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
 }
 .container__delete__chat {
   padding: 24px 39px;
-  background: rgba(36, 37, 41, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid #2b66fb;
   border-radius: 24px;
   display: flex;

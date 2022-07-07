@@ -20,8 +20,8 @@ export default {}
 
 <style lang="scss" scoped>
 .signup__background__delete__acc__count {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -31,7 +31,8 @@ export default {}
   align-items: center;
   .container__delete__acc__count {
     padding: 24px;
-    background: rgba(36, 37, 41, 0.7);
+      background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #2b66fb;
     display: flex;

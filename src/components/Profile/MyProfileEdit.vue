@@ -4,7 +4,9 @@ import TheSelect from '../Form/TheSelect.vue'
 import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth.js'
+import ProfilePopupDeleteAcc from './ProfilePopupDeleteAcc.vue'
 
+const modalDeleteAcc = ref(false)
 const passConfirm = ref(true)
 const femaleVersion = ref(true)
 const focusInput = ref(false)
@@ -30,6 +32,7 @@ function showPassRepeat() {
 </script>
 
 <template>
+<ProfilePopupDeleteAcc v-if="modalDeleteAcc" @hideModalDelete="modalDeleteAcc = false" />
   <SignupHobby
     v-if="modalHobbyVisible"
     @hide-modal-hobby="modalHobbyVisible = false"
@@ -45,7 +48,7 @@ function showPassRepeat() {
       <div class="content__container__edit">
         <div class="header">
           <div class="title__block">
-            <div class="btn delete">Удалить профиль</div>
+            <div class="btn delete" @click="modalDeleteAcc = true">Удалить профиль</div>
             <h1>Редактирования профиля</h1>
             <div class="btn leave" @click="logout()">
               <img src="../../assets/images/leave__icon.svg" alt="" />
@@ -95,7 +98,7 @@ function showPassRepeat() {
                     type="checkbox"
                     @click="showPass()"
                   />
-                  <label for="eye" :class="{ visible: focusInput }"></label>
+                  <label class="eyeFirst" for="eye" :class="{ visible: focusInput }"></label>
                 </div>
               </div>
               <div class="input__box__pass">
@@ -115,6 +118,7 @@ function showPassRepeat() {
                     @click="showPassRepeat()"
                   />
                   <label
+                  class="eyeSecond"
                     for="eyeSecond"
                     :class="{ visible: focusInputRepeat }"
                   ></label>
@@ -893,6 +897,14 @@ label {
 }
 .eye:checked + label::before {
   background-image: url(../../assets/images/eye__close.svg);
+}
+.eyeFirst {
+  left: 200px;
+    top: -42px;
+}
+.eyeSecond {
+left: 200px;
+    top: -42px;
 }
 .container {
   width: 1056px;

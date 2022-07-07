@@ -33,8 +33,8 @@ const emit = defineEmits(['hideModalHide'])
   height: 100%;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -49,7 +49,8 @@ const emit = defineEmits(['hideModalHide'])
   gap: 16px;
   width: 312px;
   height: 166px;
-  background: #242529;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid #2b66fb;
   border-radius: 24px;
 }

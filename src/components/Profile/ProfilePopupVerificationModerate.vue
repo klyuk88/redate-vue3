@@ -27,21 +27,33 @@ export default {}
 
 <style lang="scss" scoped>
 .signup__background {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
 }
 .signup__border {
   border: none;
   background: none;
   .signup__block {
-    width: 304px;
-    background: rgba(36, 37, 41, 0.6);
+    border: 1px solid #2b66fb;
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     .signup__block__container {
-      width: 244px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
       .signup__header {
         width: 244px;
         margin: 0;
-        margin-top: 18px;
+        text-align: center;
         h1 {
           font-weight: 600;
           font-size: 18px;
@@ -54,6 +66,7 @@ export default {}
           font-weight: 400;
           font-size: 14px;
           line-height: 18px;
+          color: rgba(255, 255, 255, 0.6);
         }
       }
     }
@@ -62,7 +75,6 @@ export default {}
       justify-content: space-between;
       align-items: center;
       width: 256px;
-      margin-bottom: 18px;
       .btn {
         display: flex;
         justify-content: center;

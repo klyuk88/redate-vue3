@@ -12,7 +12,7 @@ import MobileBurger from '../MobileBurger.vue'
       <MobileBurger style="margin-right: 20px" />
     </div>
     <div class="container__banned">
-      <h1>Пользователь заблокирвоан</h1>
+      <h1>Пользователь заблокирован</h1>
       <p>
         Администрация сайта была вынуждена временно заблокировать анкету
         пользователя по причине:
@@ -44,7 +44,8 @@ import MobileBurger from '../MobileBurger.vue'
     flex-direction: column;
     align-items: center;
     padding: 24px;
-    background: #1c1d21;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #2b66fb;
     h1 {

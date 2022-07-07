@@ -19,7 +19,8 @@
           </p>
         </div>
         <p>
-          Ваши данные были возвращены к прежнему состоянию. При некорректном заполнении анкеты, в следующий раз, она может быть заблокирована.
+          Ваши данные были возвращены к прежнему состоянию. При некорректном
+          заполнении анкеты, в следующий раз, она может быть заблокирована.
         </p>
         <div class="btn__to__profile">Посмотреть свою анкету</div>
       </div>
@@ -35,8 +36,8 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
   img {
@@ -52,7 +53,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: #1c1d21;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #2b66fb;
     padding: 24px;
@@ -75,7 +77,7 @@
         font-size: 14px;
         line-height: 132.5%;
         color: #ffffff;
-        margin: 4px 0 4px 0;
+        margin: 4px 0 12px 0;
       }
       span {
         font-weight: 400;

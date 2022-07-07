@@ -37,8 +37,8 @@ const emit = defineEmits(['hideModalReport'])
   height: 100%;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   z-index: 100;
   display: flex;
   justify-content: center;
@@ -51,7 +51,8 @@ const emit = defineEmits(['hideModalReport'])
   justify-content: center;
   align-items: center;
   padding: 24px;
-  background: rgba(36, 37, 41, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid #2b66fb;
   box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
   border-radius: 24px;

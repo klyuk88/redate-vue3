@@ -22,14 +22,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
 }
 .container__pay__chat {
   padding: 24px 39px;
-  background: rgba(36, 37, 41, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid #2b66fb;
   border-radius: 24px;
   display: flex;
