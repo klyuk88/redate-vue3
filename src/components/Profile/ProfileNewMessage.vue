@@ -113,7 +113,7 @@ const close = () => {
   outline: none;
   resize: none;
   border: 1px solid rgba(255, 255, 255, 0.33);
-  background:none;
+  background: none;
   border-radius: 11px;
   padding: 11px;
   font-weight: 500;

@@ -42,7 +42,6 @@ const clickCloseHandler = () => {
 </template>
 
 <style lang="scss" scoped>
-
 .signup__background {
   width: 100vw;
   height: 100vh;

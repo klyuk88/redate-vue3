@@ -508,8 +508,7 @@ label {
     justify-content: space-between;
     width: 60.512vw;
     height: 5.384vw;
-  margin-bottom: 56px;
-
+    margin-bottom: 56px;
   }
 }
 </style>

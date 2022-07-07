@@ -1,11 +1,12 @@
 <script setup>
-
 const emit = defineEmits(['hideModalDelete'])
-
 </script>
 
 <template>
-  <div class="signup__background__delete__acc" @click.self="emit('hideModalDelete')">
+  <div
+    class="signup__background__delete__acc"
+    @click.self="emit('hideModalDelete')"
+  >
     <div class="container__delete__acc">
       <div class="header__delete__acc">
         <p>Аккаунт будет удален через:<span> 30 дней</span></p>
@@ -37,8 +38,8 @@ const emit = defineEmits(['hideModalDelete'])
   z-index: 99;
   .container__delete__acc {
     padding: 24px;
-      background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #2b66fb;
     display: flex;

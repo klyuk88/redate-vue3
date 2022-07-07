@@ -61,7 +61,7 @@ export default {}
 .congrats__header__border {
   width: 140px;
   height: 30px;
-    background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
   border-radius: 12px 12px 0px 0px;
@@ -100,7 +100,7 @@ export default {}
   padding: 24px;
   width: 408px;
   height: 348px;
-    background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   border: 1px solid #f9ae3f;

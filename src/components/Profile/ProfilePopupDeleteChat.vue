@@ -2,9 +2,7 @@
   <div class="background__delete__chat">
     <div class="container__delete__chat">
       <h1>Удалить диалог у обоих</h1>
-      <p>
-     Вы можете удалить диалог не только у себя, но у и собеседника
-      </p>
+      <p>Вы можете удалить диалог не только у себя, но у и собеседника</p>
       <div class="btn__block">
         <div class="btn">Отмена</div>
         <div class="btn blue">Удалить 1.000₽</div>

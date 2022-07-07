@@ -65,8 +65,8 @@ const isClicked = ref(false)
               </div>
               <div class="signup__horizontal__line"></div>
               <div class="footer__desc">
-                <div class="signup__params" v-if="femalePage" >
-                  <div class="signup__params__block " @click="isClicked = true">
+                <div v-if="femalePage" class="signup__params">
+                  <div class="signup__params__block" @click="isClicked = true">
                     <div class="signup__params__item">
                       <p>Рост:</p>
                       <input
@@ -112,8 +112,11 @@ const isClicked = ref(false)
                     </div>
                   </div>
                 </div>
-                 <div class="signup__params" v-if="!femalePage" >
-                  <div class="signup__params__block male" @click="isClicked = true">
+                <div v-if="!femalePage" class="signup__params">
+                  <div
+                    class="signup__params__block male"
+                    @click="isClicked = true"
+                  >
                     <div class="signup__params__item male">
                       <p>Рост:</p>
                       <input
@@ -191,7 +194,7 @@ const isClicked = ref(false)
             </div>
             <div class="signup__horizontal__line"></div>
             <div class="footer__desc">
-              <div class="signup__params" v-if="femalePage" >
+              <div v-if="femalePage" class="signup__params">
                 <div class="signup__params__block">
                   <div class="signup__params__item">
                     <p>Рост:</p>
@@ -240,7 +243,7 @@ const isClicked = ref(false)
                   </div>
                 </div>
               </div>
-              <div class="signup__params" v-if="!femalePage" >
+              <div v-if="!femalePage" class="signup__params">
                 <div class="signup__params__block male">
                   <div class="signup__params__item male">
                     <p>Рост:</p>

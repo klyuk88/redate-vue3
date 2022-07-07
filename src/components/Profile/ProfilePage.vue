@@ -45,7 +45,10 @@ const notificationStageFive = false
         />
         <div
           class="photo"
-          :class="{ notification__unblur: notificationStatus, diamond: statusDiamond }"
+          :class="{
+            notification__unblur: notificationStatus,
+            diamond: statusDiamond,
+          }"
         >
           <img
             class="main__avatar"

@@ -27,7 +27,6 @@ const statusDiamond = ref(true)
 // Мужской / Женский (У мужчины нет верификации)
 const female = ref(true)
 
-
 const showModalNew = ref(false)
 
 const showModal = ref(false)
@@ -42,7 +41,10 @@ const notificationStageEight = false
 </script>
 
 <template>
-<ProfilePopupHideSends v-if="showModalNew" @hide-modal="showModalNew = false"/>
+  <ProfilePopupHideSends
+    v-if="showModalNew"
+    @hide-modal="showModalNew = false"
+  />
   <ProfilePhotoCarousel v-if="showModal" @hide-modal="showModal = false" />
   <div class="my__profile__page">
     <div class="left__side">
@@ -1451,7 +1453,6 @@ const notificationStageEight = false
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-fill-color: transparent;
-
         }
         .gradient:before {
           background: linear-gradient(
