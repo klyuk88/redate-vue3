@@ -1,25 +1,149 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useStore } from '@/stores/main.js'
+import { useLocationsStore } from '@/stores/locations.js'
+import { useMailingStore } from '@/stores/mailing.js'
 import TheSelect from '@/components/Form/TheSelect.vue'
 import FormTextArea from '@/components/Form/FormTextArea.vue'
 import BigButton from '@/components/Form/BigButton.vue'
 
 const store = useStore()
+const locations = useLocationsStore()
+const mailing = useMailingStore()
 
-const closeNewSendWindow = () => {
-  store.newSendWindow = false
-}
-const cities = ref(['Москва', 'Санкт-Петербург', 'Иран', 'Стамбул'])
-const formats = ref(['Серьезно', 'Не серьезно', 'Серьезно', 'Не серьезно'])
+const { newSendWindowParams } = storeToRefs(store)
+
+const datingFormats = ref([
+  'Серьезные отношения',
+  'Легкие отношения',
+  'Путешествия',
+  'Свидание на ночь',
+])
+const datingFormat = ref(store.newSendWindowParams?.datingFormat || null)
 
 const sendWrap = ref(null)
+
+const city = ref(store.newSendWindowParams?.city || null)
+
+const message = ref('')
+
+const error = ref(false)
+const errorMessage = ref('')
+
+const cityError = ref(false)
+const datingFormatError = ref(false)
+const messageError = ref(false)
+
+const cities = computed(() => locations.cities.data)
+
+const options = computed(() => cities.value.map((city) => city.name))
+
+const price = computed(() => mailing.price.data?.amount)
+
+watch(newSendWindowParams, () => {
+  if (newSendWindowParams?.value?.city) {
+    city.value = newSendWindowParams.value.city
+  }
+
+  if (newSendWindowParams?.value?.datingFormat) {
+    datingFormat.value = newSendWindowParams.value.datingFormat
+  }
+})
+
+watch(city, () => {
+  if (city.value) {
+    cityError.value = false
+
+    error.value = false
+    errorMessage.value = ''
+  }
+})
+
+watch(datingFormat, () => {
+  if (datingFormat.value) {
+    datingFormatError.value = false
+
+    error.value = false
+    errorMessage.value = ''
+  }
+})
+
+watch(message, () => {
+  if (message.value) {
+    messageError.value = false
+
+    error.value = false
+    errorMessage.value = ''
+  }
+})
+
 document.addEventListener('click', (e) => {
   e.stopPropagation()
   if (e.target === sendWrap.value) {
     closeNewSendWindow()
   }
 })
+
+const closeNewSendWindow = () => {
+  store.newSendWindow = false
+}
+
+const openNewSendWindowSuccess = () => {
+  store.newSendWindowSuccess = true
+}
+
+const clickHandler = async () => {
+  if (!city.value) {
+    errorMessage.value = 'Выберите город'
+    error.value = true
+
+    cityError.value = true
+
+    return
+  }
+
+  if (!datingFormat.value) {
+    errorMessage.value = 'Выбирите формат знакомств'
+    error.value = true
+
+    datingFormatError.value = true
+
+    return
+  }
+
+  if (message.value.length < 20 || message.value.length > 500) {
+    errorMessage.value = 'Текст рассылки должен содержать больше 20 символов'
+    error.value = true
+
+    messageError.value = true
+
+    return
+  }
+
+  const response = await mailing.send(
+    city.value,
+    datingFormat.value,
+    message.value
+  )
+
+  console.log('Response', response)
+
+  if (response.status) {
+    errorMessage.value = response.message
+    error.value = true
+
+    return
+  }
+
+  closeNewSendWindow()
+
+  openNewSendWindowSuccess()
+}
+
+const inputHandler = (msg) => {
+  message.value = msg
+}
 </script>
 
 <template>
@@ -28,7 +152,7 @@ document.addEventListener('click', (e) => {
     class="new-send-modal-wrap"
     :class="{ active: store.newSendWindow }"
   >
-    <div class="new-send-modal">
+    <div class="new-send-modal" :class="{ error: error }">
       <img
         src="@/assets/images/close-new-send.svg"
         alt=""
@@ -37,23 +161,43 @@ document.addEventListener('click', (e) => {
       />
       <div class="title-block">
         <p class="title">Создание рассылки</p>
-        <p class="time">Время публикации — 8 часов</p>
+        <p class="time">Время публикации 8 часов</p>
       </div>
-      <form class="form-block">
+      <div class="form-block">
         <div class="inputs-block">
-          <TheSelect placeholder="Выберите город" :options="cities" />
           <TheSelect
-            placeholder="Выберите формат"
-            :options="formats"
-            :z-index="1"
+            v-model="city"
+            placeholder="Выберите город"
+            :options="options"
+            :z-index="2"
+            :error="cityError"
           />
-          <FormTextArea placeholder="Сообщение" name="Сообщение" />
+          <TheSelect
+            v-model="datingFormat"
+            placeholder="Выберите формат"
+            :options="datingFormats"
+            :z-index="1"
+            :error="datingFormatError"
+          />
+          <FormTextArea
+            placeholder="Сообщение"
+            name="Сообщение"
+            :error="messageError"
+            @input="inputHandler($event)"
+          />
         </div>
-        <small class="small"
-          >*В рассылке запрещенно указывать свои контакты</small
-        >
-        <BigButton title="Создать рассылку $34" />
-      </form>
+        <small class="small">
+          Напоминаем, что в рассылке запрещенно указывать свои контактные данные
+        </small>
+        <BigButton
+          :title="`Создать рассылку ${price}₽`"
+          @click="clickHandler()"
+        />
+
+        <div v-if="error" class="new-send-modal-wrap__error">
+          {{ errorMessage }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +216,16 @@ document.addEventListener('click', (e) => {
   align-items: center;
   justify-content: center;
   display: none;
+
+  &__error {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 153.5%;
+    color: #2965ff;
+    text-align: center;
+  }
+
   .new-send-modal {
     width: 715px;
     max-width: 715px;
@@ -97,7 +251,7 @@ document.addEventListener('click', (e) => {
       .time {
         font-size: 14px;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.33);
+        color: #ffffff;
       }
     }
     .form-block {
@@ -117,13 +271,22 @@ document.addEventListener('click', (e) => {
         margin-top: 16px;
       }
       .small {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.33);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 153.5%;
+        color: #ffffff;
         display: block;
+        text-align: center;
+        margin-top: 4px;
       }
     }
   }
 }
+
+.new-send-modal.error {
+  border-color: #2965ff;
+}
+
 .new-send-modal-wrap.active {
   display: flex;
 }
@@ -131,9 +294,24 @@ document.addEventListener('click', (e) => {
   .new-send-modal-wrap {
     .new-send-modal {
       max-width: 95%;
+
       .close {
         display: none;
       }
+
+      .title-block {
+        flex-direction: column;
+        align-items: center;
+        .title {
+          line-height: 27.63px;
+        }
+
+        .time {
+          color: rgba(255, 255, 255, 0.33);
+          line-height: 21.49px;
+        }
+      }
+
       .form-block {
         .inputs-block {
           grid-template-columns: 1fr;

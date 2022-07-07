@@ -123,14 +123,13 @@ function showPassRepeat() {
                     :class="{ visible: focusInputRepeat }"
                   ></label>
                 </div>
-                           
               </div>
-               <div class="vertical__line__pass" v-if="passConfirm" ></div>
-            <img
-              src="../../assets/images/main/myprofile__settings__done.svg"
-              alt=""
-              v-if="passConfirm"
-            />
+              <div v-if="passConfirm" class="vertical__line__pass"></div>
+              <img
+                v-if="passConfirm"
+                src="../../assets/images/main/myprofile__settings__done.svg"
+                alt=""
+              />
             </div>
             <!-- <div class="input__password">
               <input
@@ -162,7 +161,6 @@ function showPassRepeat() {
                 :class="{ visible: focusInputRepeat }"
               ></label>
             </div> -->
-
           </div>
           <div class="horizontal__line"></div>
           <div class="format__dating">
@@ -277,8 +275,8 @@ function showPassRepeat() {
                 <div class="logo">
                   <img src="../../assets/images/main/money.svg" alt="" />
                 </div>
-                <span  v-if="femaleVersion" >Трачу в месяц:</span>
-                <span  v-if="!femaleVersion" >Зарабатываю в месяц:</span>
+                <span v-if="femaleVersion">Трачу в месяц:</span>
+                <span v-if="!femaleVersion">Зарабатываю в месяц:</span>
               </div>
               <div class="border">
                 <!-- <input class="input" type="text" placeholder="Введите сумму" />
@@ -392,7 +390,10 @@ function showPassRepeat() {
                     />
                   </div>
                 </div>
-                <div class="signup__params__item params__size" v-if="femaleVersion" >
+                <div
+                  v-if="femaleVersion"
+                  class="signup__params__item params__size"
+                >
                   <p>Параметры:</p>
                   <div class="params__input__box">
                     <input

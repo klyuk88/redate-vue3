@@ -27,7 +27,9 @@ const statusDiamond = ref(true)
 // Мужской / Женский (У мужчины нет верификации)
 const female = ref(true)
 
+
 const showModalNew = ref(false)
+
 const showModal = ref(false)
 const notificationStatus = false
 const notificationStageTwo = false
@@ -228,11 +230,14 @@ const notificationStageEight = false
                 </div>
               </div>
             </div>
-            <div v-if="verificated || !female" class="footer" >
+            <div v-if="verificated || !female" class="footer">
               <div v-if="verificated || !female" class="verificated">
-                <div class="btn  " :class="{ stageSix: notificationStageSix }">
+                <div class="btn" :class="{ stageSix: notificationStageSix }">
                   <div class="container">
-                    <router-link to="/account/:user/edit" class="route__to__edit">
+                    <router-link
+                      to="/account/:user/edit"
+                      class="route__to__edit"
+                    >
                       <img
                         src="@/assets/images/main/myprofile__edit.svg"
                         alt=""
@@ -248,7 +253,7 @@ const notificationStageEight = false
                   </div>
                 </div>
                 <div class="mobile__horizontal__line"></div>
-                <div class="btn " :class="{ stageSix: notificationStageEight }">
+                <div class="btn" :class="{ stageSix: notificationStageEight }">
                   <div class="container">
                     <img
                       src="@/assets/images/main/myprofile__support.svg"
@@ -284,7 +289,7 @@ const notificationStageEight = false
             </div>
 
             <div class="female__verification__block">
-              <div v-if="!verificated && female" class="verification__status" >
+              <div v-if="!verificated && female" class="verification__status">
                 <div class="status__header">
                   <div class="left__side__header">
                     <img
@@ -295,14 +300,30 @@ const notificationStageEight = false
                   </div>
                   <div class="horizontal__line"></div>
                   <div class="right__side__header">
-                    <div v-if="errorVerification && !verificated && !verificationWait && !continueVerificate " class="status__error" >
+                    <div
+                      v-if="
+                        errorVerification &&
+                        !verificated &&
+                        !verificationWait &&
+                        !continueVerificate
+                      "
+                      class="status__error"
+                    >
                       <h2>Ошибка</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__status__error.svg"
                         alt=""
                       />
                     </div>
-                    <div v-if="verificationWait && !verificated && !errorVerification && !continueVerificate " class="status__error" >
+                    <div
+                      v-if="
+                        verificationWait &&
+                        !verificated &&
+                        !errorVerification &&
+                        !continueVerificate
+                      "
+                      class="status__error"
+                    >
                       <h2>Ожидание</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__pending.svg"
@@ -310,7 +331,15 @@ const notificationStageEight = false
                       />
                     </div>
 
-                    <div v-if="continueVerificate && !verificated && !verificationWait && !errorVerification  " class="status__error" >
+                    <div
+                      v-if="
+                        continueVerificate &&
+                        !verificated &&
+                        !verificationWait &&
+                        !errorVerification
+                      "
+                      class="status__error"
+                    >
                       <h2>Отложено</h2>
                       <img
                         src="../../assets/images/main/myprofile__verification__delayed.svg"
@@ -320,7 +349,12 @@ const notificationStageEight = false
                   </div>
                   <div class="mobile__notification">
                     <div
-                      v-if="continueVerificate && !verificated && !verificationWait && !errorVerification  "
+                      v-if="
+                        continueVerificate &&
+                        !verificated &&
+                        !verificationWait &&
+                        !errorVerification
+                      "
                       class="status__desc show__error"
                     >
                       <span
@@ -328,17 +362,30 @@ const notificationStageEight = false
                         использования сайта.</span
                       >
                     </div>
-                  <div v-if="errorVerification  && !verificated  && !verificationWait && !continueVerificate  " class="status__desc" >
-                    <span
-                      >Мы отправили Вам уведомление с данными, которые
-                      необходимо изменить для подтверждения верификации.</span
+                    <div
+                      v-if="
+                        errorVerification &&
+                        !verificated &&
+                        !verificationWait &&
+                        !continueVerificate
+                      "
+                      class="status__desc"
                     >
-                  </div>
+                      <span
+                        >Мы отправили Вам уведомление с данными, которые
+                        необходимо изменить для подтверждения верификации.</span
+                      >
+                    </div>
                   </div>
                 </div>
                 <div class="web__notification">
                   <div
-                    v-if="continueVerificate && !verificated && !verificationWait && !errorVerification  "
+                    v-if="
+                      continueVerificate &&
+                      !verificated &&
+                      !verificationWait &&
+                      !errorVerification
+                    "
                     class="status__desc show__error"
                   >
                     <span
@@ -346,7 +393,15 @@ const notificationStageEight = false
                       использования сайта.</span
                     >
                   </div>
-                  <div v-if="errorVerification  && !verificated  && !verificationWait && !continueVerificate  " class="status__desc" >
+                  <div
+                    v-if="
+                      errorVerification &&
+                      !verificated &&
+                      !verificationWait &&
+                      !continueVerificate
+                    "
+                    class="status__desc"
+                  >
                     <span
                       >Мы отправили Вам уведомление с данными, которые
                       необходимо изменить для подтверждения верификации.</span
@@ -355,7 +410,13 @@ const notificationStageEight = false
                 </div>
               </div>
               <div
-                v-if="verificationWait && !verificated && !errorVerification && !continueVerificate && female "
+                v-if="
+                  verificationWait &&
+                  !verificated &&
+                  !errorVerification &&
+                  !continueVerificate &&
+                  female
+                "
                 class="verification__action help show__error"
               >
                 <img
@@ -365,12 +426,30 @@ const notificationStageEight = false
                 <h2>Техническая поддержка</h2>
               </div>
               <router-link to="/verification">
-                <div v-if="continueVerificate && !verificated && !verificationWait && !errorVerification && female "  class="verification__action" >
+                <div
+                  v-if="
+                    continueVerificate &&
+                    !verificated &&
+                    !verificationWait &&
+                    !errorVerification &&
+                    female
+                  "
+                  class="verification__action"
+                >
                   <h2>Пройти верификацию</h2>
                 </div>
               </router-link>
               <router-link to="/verification">
-                <div  v-if="errorVerification  && !verificated && !verificationWait && !continueVerificate && female " class="verification__action">
+                <div
+                  v-if="
+                    errorVerification &&
+                    !verificated &&
+                    !verificationWait &&
+                    !continueVerificate &&
+                    female
+                  "
+                  class="verification__action"
+                >
                   <h2>Заполнить заново</h2>
                 </div>
               </router-link>
@@ -496,7 +575,7 @@ const notificationStageEight = false
           <div class="profile__info__title">
             <div class="profile__title">
               <div class="profile__name">Владимир</div>
-              <div v-if="statusDiamond" class="gradient" >
+              <div v-if="statusDiamond" class="gradient">
                 <div class="status__premium">
                   <span>DIAMOND</span>
                 </div>
@@ -574,8 +653,12 @@ const notificationStageEight = false
                   <div class="profile__info__list__icon">
                     <img src="@/assets/images/main/money.svg" alt="" />
                   </div>
-                  <div v-if="!female" class="profile__info__list__title"  >Доход в месяц:</div>
-                  <div v-if="female" class="profile__info__list__title"  >Трачу в месяц:</div>
+                  <div v-if="!female" class="profile__info__list__title">
+                    Доход в месяц:
+                  </div>
+                  <div v-if="female" class="profile__info__list__title">
+                    Трачу в месяц:
+                  </div>
                 </div>
                 <div class="profile__info__list__status">200.000 ₽</div>
               </div>
@@ -630,7 +713,7 @@ const notificationStageEight = false
                   <div class="profile__info__list__weight__stat">78</div>
                 </div>
               </div>
-              <div v-if="female" class="female__version"  >
+              <div v-if="female" class="female__version">
                 <div class="profile__info__list__weight">Параметры:</div>
                 <div class="profile__info__list__weight__stat">90/60/90</div>
               </div>
@@ -676,7 +759,7 @@ const notificationStageEight = false
               </p>
             </div>
           </div>
-          <div  v-if="!verificated && female " class="logout__box" >
+          <div v-if="!verificated && female" class="logout__box">
             <div class="logout__non__verification" @click="logout()">
               <img src="../../assets/images/leave__icon.svg" alt="" />
               Выйти из аккаунта
@@ -1651,13 +1734,13 @@ const notificationStageEight = false
       }
     }
   }
-.route__to__edit {
-  display: flex;
-  align-items: center;
-  img {
-    margin-top: 7px;
+  .route__to__edit {
+    display: flex;
+    align-items: center;
+    img {
+      margin-top: 7px;
+    }
   }
-}
   .left__side {
     padding: 0;
     .background {
@@ -1911,7 +1994,6 @@ const notificationStageEight = false
               border: 0.256vw solid rgba(255, 255, 255, 0.05);
               display: flex;
               margin: 16px 0 16px 0;
-
             }
           }
         }

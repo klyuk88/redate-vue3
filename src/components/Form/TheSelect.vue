@@ -19,6 +19,10 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  error: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emit = defineEmits(['input'])
@@ -29,7 +33,7 @@ const selectOpen = ref(false)
 <template>
   <v-select
     class="form-selecet"
-    :class="{ open: selectOpen }"
+    :class="{ open: selectOpen, error: error }"
     :style="{ 'z-index': zIndex }"
     :options="options"
     :placeholder="placeholder"
@@ -75,6 +79,10 @@ const selectOpen = ref(false)
   padding: 0 12px;
   position: relative;
   z-index: 1001;
+}
+
+.form-selecet.error .vs__dropdown-toggle {
+  border-color: #2965ff;
 }
 
 .form-selecet.open .vs__dropdown-toggle {

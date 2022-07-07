@@ -8,6 +8,7 @@ export const useSearchStore = defineStore('search', {
       ageMin: 18,
       ageMax: 45,
       onlySpecialOffers: false,
+      datingFormat: '',
     }
   },
 
@@ -31,6 +32,10 @@ export const useSearchStore = defineStore('search', {
 
       if (params?.onlySpecialOffers) {
         this.onlySpecialOffers = params.onlySpecialOffers
+      }
+
+      if (params?.datingFormat) {
+        this.datingFormat = params.datingFormat
       }
     },
   },

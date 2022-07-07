@@ -4,7 +4,7 @@ import { useStore } from '@/stores/main.js'
 import { useStatisticsStore } from '@/stores/statistics.js'
 import { useSearchStore } from '@/stores/search.js'
 import { useUserStore } from '@/stores/user.js'
-import { useLocationsStore } from '@/stores/locations'
+import { useLocationsStore } from '@/stores/locations.js'
 import router from '@/router'
 import Statistics from '@/components/Cities/Statistics.vue'
 import CitiesSmallSlider from '@/components/Cities/CitiesSmallSlider.vue'
@@ -43,6 +43,10 @@ const redirectHandler = (params) => {
   search.setQueryParams(params)
 
   router.push('/search')
+}
+
+const openCities = () => {
+  store.showCities = !store.showCities
 }
 </script>
 
@@ -86,6 +90,14 @@ const redirectHandler = (params) => {
         </div>
       </div>
     </div>
+
+    <button
+      v-if="usersStatisticsForSlider.length"
+      class="all-cities"
+      @click="openCities()"
+    >
+      {{ store.showCities ? 'Скрыть' : 'Все города' }}
+    </button>
   </div>
 
   <Filter

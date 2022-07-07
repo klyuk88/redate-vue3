@@ -10,7 +10,6 @@ import BigButton from '../Form/BigButton.vue'
 import SignupPopup from './SignupPopup.vue'
 import SignupPopupDenied from './SignupPopupDenied.vue'
 
-
 const nameComponent = ref('')
 const changeComponent = computed(() => {
   const componentName = 'SignupPopup' + nameComponent.value

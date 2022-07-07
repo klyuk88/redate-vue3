@@ -1,23 +1,19 @@
 <script setup>
 import { ref } from 'vue'
-import router from '@/router'
+import { useStore } from '@/stores/main.js'
 
-const emit = defineEmits(['close'])
+const store = useStore()
 
 const popup = ref(null)
 
 const clickOutsideHandler = (event) => {
   if (event.target === popup.value) {
-    emit('close')
+    store.newSendWindowSuccess = false
   }
 }
 
 const clickCloseHandler = () => {
-  emit('close')
-}
-
-const clickRedirectHandler = () => {
-  router.push('/profile/me')
+  store.newSendWindowSuccess = false
 }
 </script>
 
@@ -30,17 +26,15 @@ const clickRedirectHandler = () => {
     <div class="diamond__lost__block">
       <div class="diamond__lost__content">
         <div class="diamond__lost__info">
-          <h1 class="diamond__lost__title">«Premium»</h1>
+          <h1 class="diamond__lost__title">Ваша рассылка создана!</h1>
           <p class="diamond__lost__text">
-            Необходимо приобрести Премиум акккаут
+            Ваша рассылка создана и отправлена на проверку в модерацию. После
+            проверки она будет опубликована.
           </p>
         </div>
         <div class="diamond__lost__buttons">
-          <div class="diamond__lost__cancel" @click="clickCloseHandler()">
-            Отмена
-          </div>
-          <div class="diamond__lost__store" @click="clickRedirectHandler()">
-            Магазин
+          <div class="diamond__lost__store" @click="clickCloseHandler()">
+            Продолжить
           </div>
         </div>
       </div>
@@ -67,16 +61,17 @@ const clickRedirectHandler = () => {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
+  z-index: 1000;
 }
 .diamond__lost__block {
   padding: 24px;
-  width: 304px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
+  width: 314px;
+
+  background: rgba(36, 37, 41, 0.6);
   border-radius: 24px;
-  border: 1px solid #f9ae3f;
+  border: 1px solid #2b66fb;
 }
 .diamond__lost__content {
   display: flex;
@@ -89,7 +84,6 @@ const clickRedirectHandler = () => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 246px;
 }
 .diamond__lost__title {
   margin-bottom: 4px;
@@ -101,12 +95,11 @@ const clickRedirectHandler = () => {
   font-size: 14px;
   line-height: 18px;
   color: rgba(255, 255, 255, 0.6);
-  width: 246px;
   margin-bottom: 16px;
 }
 .diamond__lost__buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0px;
   width: 256px;
@@ -137,7 +130,8 @@ const clickRedirectHandler = () => {
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
-  border: 1px solid #f9ae3f;
+  border: 1px solid #2b66fb;
+  background: #2b66fb;
   cursor: pointer;
 }
 </style>

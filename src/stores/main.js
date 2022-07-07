@@ -4,10 +4,12 @@ export const useStore = defineStore('main', {
   state: () => {
     return {
       mobileMenu: false,
-      showCities: true,
+      showCities: false,
       newMessageWindow: false,
       mobileSorting: false,
       newSendWindow: false,
+      newSendWindowParams: null,
+      newSendWindowSuccess: false,
       maleVersion: false,
       femaleVersion: false,
     }
