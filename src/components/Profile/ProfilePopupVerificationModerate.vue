@@ -123,7 +123,7 @@ const clickRedirectHandler = () => {
       }
     }
   }
-
+}
 .text {
   font-family: 'Mulish';
   font-style: normal;

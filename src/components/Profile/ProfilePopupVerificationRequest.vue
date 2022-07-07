@@ -117,7 +117,7 @@ const clickCloseHandler = () => {
 }
 @mixin rings($duration, $delay) {
   opacity: 0;
-
+}
 .text {
   font-family: 'Mulish';
   font-style: normal;
