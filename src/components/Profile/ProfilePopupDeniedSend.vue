@@ -28,8 +28,8 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
   img {
@@ -45,7 +45,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: #1c1d21;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #2b66fb;
     padding: 24px;

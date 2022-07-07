@@ -20,7 +20,8 @@
   .container__blur {
     width: 293px;
     height: 76px;
-    background: rgba(36, 37, 41, 0.6);
+        background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     border: 1px solid #2b66fb;
     border-radius: 24px;
     display: flex;

@@ -1,7 +1,10 @@
 <script setup>
+
 import { ref } from 'vue'
 
 const emit = defineEmits(['hideModalHobby'])
+
+
 
 const isClicked = ref(false)
 </script>
@@ -21,7 +24,7 @@ const isClicked = ref(false)
             <div class="signup__body__block">
               <p>Выбрано:<span>2</span></p>
               <div class="signup__options__block" @click="isClicked = true">
-                <div class="chips choosed">Спорт</div>
+                <!-- <div class="chips choosed">Спорт</div>
                 <div class="chips">Вино</div>
                 <div class="chips choosed">Деньги</div>
                 <div class="chips">Животные</div>
@@ -56,7 +59,7 @@ const isClicked = ref(false)
                 <div class="chips choosed">Живопись</div>
                 <div class="chips">Рестораны</div>
                 <div class="chips choosed">Петь</div>
-                <div class="chips">Вкусно поесть</div>
+                <div class="chips">Вкусно поесть</div> -->
               </div>
             </div>
           </div>
@@ -77,8 +80,8 @@ const isClicked = ref(false)
   left: 0;
   bottom: 0;
   z-index: 109;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -93,11 +96,8 @@ const isClicked = ref(false)
   width: 504px;
   padding: 48px;
   gap: 10px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.0384) 0%,
-    rgba(95, 133, 228, 0.05) 68.75%
-  );
+background: rgba(0, 0, 0, 0.7);
+backdrop-filter: blur(30px);
   border: 1px solid #2b66fb;
   border-radius: 24px;
   display: flex;

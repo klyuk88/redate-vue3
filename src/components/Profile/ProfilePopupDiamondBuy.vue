@@ -67,14 +67,14 @@ const clickRedirectHandler = () => {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
 }
 .diamond__lost__block {
   padding: 24px;
   width: 304px;
-
-  background: rgba(36, 37, 41, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   border: 1px solid #f9ae3f;
 }

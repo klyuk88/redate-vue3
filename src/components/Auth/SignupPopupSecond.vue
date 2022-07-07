@@ -6,6 +6,7 @@ const router = useRouter()
 
 router.push({ name: 'Registration', query: { stage: 'two' } })
 
+const femalePage = ref(false)
 const isClicked = ref(false)
 </script>
 
@@ -64,8 +65,8 @@ const isClicked = ref(false)
               </div>
               <div class="signup__horizontal__line"></div>
               <div class="footer__desc">
-                <div class="signup__params">
-                  <div class="signup__params__block" @click="isClicked = true">
+                <div class="signup__params" v-if="femalePage" >
+                  <div class="signup__params__block " @click="isClicked = true">
                     <div class="signup__params__item">
                       <p>Рост:</p>
                       <input
@@ -95,7 +96,6 @@ const isClicked = ref(false)
                         maxlength="3"
                       />
                       <div class="vertical__line"></div>
-
                       <input
                         class="input"
                         type="text"
@@ -103,7 +103,53 @@ const isClicked = ref(false)
                         maxlength="3"
                       />
                       <div class="vertical__line"></div>
-
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="90"
+                        maxlength="3"
+                      />
+                    </div>
+                  </div>
+                </div>
+                 <div class="signup__params" v-if="!femalePage" >
+                  <div class="signup__params__block male" @click="isClicked = true">
+                    <div class="signup__params__item male">
+                      <p>Рост:</p>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="170"
+                        maxlength="3"
+                      />
+                    </div>
+                    <div class="signup__params__item male">
+                      <p>Вес:</p>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="50"
+                        maxlength="3"
+                      />
+                    </div>
+                  </div>
+                  <div class="signup__params__item params__size male">
+                    <p>Параметры:</p>
+                    <div class="params__input__box">
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="90"
+                        maxlength="3"
+                      />
+                      <div class="vertical__line"></div>
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="60"
+                        maxlength="3"
+                      />
+                      <div class="vertical__line"></div>
                       <input
                         class="input"
                         type="text"
@@ -145,7 +191,7 @@ const isClicked = ref(false)
             </div>
             <div class="signup__horizontal__line"></div>
             <div class="footer__desc">
-              <div class="signup__params">
+              <div class="signup__params" v-if="femalePage" >
                 <div class="signup__params__block">
                   <div class="signup__params__item">
                     <p>Рост:</p>
@@ -189,6 +235,28 @@ const isClicked = ref(false)
                       class="input"
                       type="text"
                       placeholder="90"
+                      maxlength="3"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="signup__params" v-if="!femalePage" >
+                <div class="signup__params__block male">
+                  <div class="signup__params__item male">
+                    <p>Рост:</p>
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="170"
+                      maxlength="3"
+                    />
+                  </div>
+                  <div class="signup__params__item male">
+                    <p>Вес:</p>
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="50"
                       maxlength="3"
                     />
                   </div>
@@ -270,7 +338,8 @@ const isClicked = ref(false)
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
   outline: none;
-  background-color: rgb(32, 34, 43);
+  // background-color: rgb(32, 34, 43);
+  background: none;
   width: 326px;
   height: 60px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -376,6 +445,7 @@ const isClicked = ref(false)
     align-items: center;
     width: 281px;
     height: 60px;
+    margin-left: 11px;
   }
 }
 .signup__params {
@@ -394,6 +464,9 @@ const isClicked = ref(false)
     margin-bottom: 12px;
   }
   &.male {
+    p {
+      margin: 0;
+    }
     flex-direction: row;
     width: 121px;
   }

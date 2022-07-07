@@ -216,7 +216,7 @@ function showPass() {
 
 .auth__forgot {
   font-size: 14px;
-  margin-bottom: 84px;
+  // margin-bottom: 84px;
   cursor: pointer;
 }
 .auth__no__acc {
@@ -256,6 +256,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none;
 }
 .input {
   font-family: 'Mulish';
@@ -390,7 +391,6 @@ label {
     height: 100%;
     z-index: 100;
     display: flex;
-    justify-content: center;
     align-items: center;
     margin: 0;
   }
@@ -441,7 +441,7 @@ label {
     color: rgba(255, 255, 255, 0.33);
   }
   .mobile__recovery {
-    margin-bottom: 180px;
+    margin-bottom: 96px;
   }
   .auth__forgot {
     font-size: 3.589vw;
@@ -508,6 +508,8 @@ label {
     justify-content: space-between;
     width: 60.512vw;
     height: 5.384vw;
+  margin-bottom: 56px;
+
   }
 }
 </style>

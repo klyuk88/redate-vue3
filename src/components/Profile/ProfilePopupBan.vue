@@ -7,7 +7,6 @@ const emit = defineEmits(['hideModalBan'])
     class="ban__popup__background"
     tabindex="1"
     @click.self="emit('hideModalBan')"
-    @keydown.esc="close()"
   >
     <div class="ban__popup__block">
       <div class="ban__popup__content">
@@ -42,8 +41,8 @@ const emit = defineEmits(['hideModalBan'])
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
 }
 .ban__popup__block {
   display: flex;
@@ -53,7 +52,9 @@ const emit = defineEmits(['hideModalBan'])
   gap: 16px;
   width: 321px;
   height: 166px;
-  background: rgba(36, 37, 41, 0.6);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+
   border: 1px solid #2b66fb;
   border-radius: 24px;
 }

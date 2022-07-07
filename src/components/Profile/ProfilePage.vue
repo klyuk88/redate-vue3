@@ -7,6 +7,11 @@ import { ref } from 'vue'
 import { useStore } from '@/stores/main.js'
 const store = useStore()
 
+// Куплен премиум
+const statusDiamond = ref(true)
+
+const femalePage = ref(true)
+
 const showModal = ref(false)
 const showModalMore = ref(false)
 const notificationStatus = false
@@ -40,7 +45,7 @@ const notificationStageFive = false
         />
         <div
           class="photo"
-          :class="{ notification__unblur: notificationStatus }"
+          :class="{ notification__unblur: notificationStatus, diamond: statusDiamond }"
         >
           <img
             class="main__avatar"
@@ -197,13 +202,20 @@ const notificationStageFive = false
           :class="{ notification__unblur: notificationStatus }"
         >
           <div class="profile__info__title">
-            <div class="profile__name">Владимир</div>
+            <div class="profile__title">
+              <div class="profile__name">Владимир</div>
+              <div v-if="statusDiamond" class="gradient">
+                <div class="status__premium">
+                  <span>DIAMOND</span>
+                </div>
+              </div>
+            </div>
             <div class="profile__subtext">
               <div class="profile__location">Москва</div>
               <div class="profile__vertical__line">|</div>
               <div class="profile__age">31 год</div>
               <div class="profile__vertical__line">|</div>
-              <div class="profile__online__id">ID: 637789</div>
+              <div class="profile__online__id"><span>ID: 637789</span></div>
               <div class="profile__vertical__line web">|</div>
               <div class="profile__online__status real">Онлайн</div>
             </div>
@@ -277,7 +289,12 @@ const notificationStageFive = false
                   <div class="profile__info__list__icon">
                     <img src="@/assets/images/main/money.svg" alt="" />
                   </div>
-                  <div class="profile__info__list__title">Доход в месяц:</div>
+                  <div v-if="!femalePage" class="profile__info__list__title">
+                    Доход в месяц:
+                  </div>
+                  <div v-if="femalePage" class="profile__info__list__title">
+                    Трачу в месяц:
+                  </div>
                 </div>
                 <div class="profile__info__list__status">200.000 ₽</div>
               </div>
@@ -331,7 +348,7 @@ const notificationStageFive = false
                   <div class="profile__info__list__weight__stat">78</div>
                 </div>
               </div>
-              <div class="female__version">
+              <div v-if="femalePage" class="female__version">
                 <div class="profile__info__list__weight">Параметры:</div>
                 <div class="profile__info__list__weight__stat">90/60/90</div>
               </div>
@@ -468,7 +485,10 @@ const notificationStageFive = false
     z-index: 100;
   }
 }
-
+.profile__title {
+  display: flex;
+  align-items: center;
+}
 .notification__blur {
   width: 100%;
   height: 100%;
@@ -632,6 +652,54 @@ const notificationStageFive = false
     }
   }
 }
+.gradient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Palatino';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 132.5%;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    132.27deg,
+    #f9ae3f -0.77%,
+    #ffdba5 36.67%,
+    #ad6902 96.37%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.gradient:before {
+  background: linear-gradient(
+    103.31deg,
+    #b3854d 5.67%,
+    #f3d7af 28.06%,
+    #c6a47c 85.27%
+  );
+}
+.gradient:before {
+  content: '';
+  width: 140px;
+  height: 30px;
+  position: absolute;
+  border-radius: 12px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.status__premium {
+  margin-top: 4px;
+  margin-left: 3px;
+}
+
 .notification__btn__border {
   position: relative;
   z-index: 100;
@@ -845,14 +913,39 @@ const notificationStageFive = false
   border-radius: 24px;
   display: flex;
   margin-top: 50px;
+  &.diamond {
+    border: none;
+  }
   &.notification__unblur {
     position: relative;
     z-index: 100;
   }
 }
+.diamond:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.diamond:before {
+  content: '';
+  width: 607px;
+  height: 769px;
+  position: absolute;
+  border-radius: 24px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
 
 .profile__name {
   @extend .text;
+  margin-right: 114px;
   font-weight: 500;
   font-size: 48px;
   margin-bottom: 3px;
@@ -874,7 +967,7 @@ const notificationStageFive = false
   margin: 0 12px 0 12px;
 }
 .profile__horizontal__line {
-  width: 440px;
+  width: 422px;
   border: 1px solid rgba(255, 255, 255, 0.33);
   margin-bottom: 18px;
   margin-top: 18px;
@@ -957,7 +1050,7 @@ const notificationStageFive = false
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 356px;
+  width: 422px;
 }
 .main__avatar {
   width: 608px;
@@ -971,8 +1064,9 @@ const notificationStageFive = false
   display: flex;
   @extend .text;
   color: rgba(255, 255, 255, 0.33);
-  width: 123%;
   justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 .info__list__box {
   display: flex;
@@ -1033,7 +1127,7 @@ const notificationStageFive = false
 }
 .profile__info__list__about__block {
   display: flex;
-  width: 440px;
+  width: 422px;
 }
 .profile__info__list__about {
   @extend .text;
@@ -1078,6 +1172,9 @@ const notificationStageFive = false
   display: none;
 }
 @media (max-width: 1200px) {
+  .gradient {
+    display: none;
+  }
   .profile__info__filter__block {
     margin-bottom: 2vw;
   }
@@ -1260,6 +1357,7 @@ const notificationStageFive = false
               font-weight: 600;
               font-size: 8.2vw;
               line-height: 10.25vw;
+              margin-right: 0;
             }
             .profile__subtext {
               width: 68.46vw;
@@ -1424,12 +1522,13 @@ const notificationStageFive = false
             .profile__info__list {
               width: 85.89vw;
               .profile__info__list__stats {
-                width: 89.74vw;
+                // width: 89.74vw;
                 .profile__info__list__title {
                   font-size: 3.846vw;
                 }
                 .profile__info__list__status {
                   font-size: 3.846vw;
+                  // width: 100px;
                 }
               }
             }
