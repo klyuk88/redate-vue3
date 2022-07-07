@@ -30,6 +30,7 @@ const emit = defineEmits(['hideModalDelete'])
   width: 100vw;
   position: fixed;
   top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
