@@ -102,13 +102,14 @@ const emit = defineEmits(['hideModal'])
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
 }
 .album__content {
   width: 1382px;
   height: 818px;
-  background: rgba(36, 37, 41, 0.02);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.33);
   backdrop-filter: blur(30px);
   border-radius: 24px;

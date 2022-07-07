@@ -3,6 +3,7 @@ import MobileBurger from '../MobileBurger.vue'
 import ProfilePhotoCarousel from './ProfilePhotoCarousel.vue'
 import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
+import ProfilePopupHideSends from './ProfilePopupHideSends.vue'
 
 const auth = useAuthStore()
 const logout = () => {
@@ -10,16 +11,24 @@ const logout = () => {
 }
 // Ожидание верификации
 const verificationWait = ref(false)
+
 // Ошибка верификации
 const errorVerification = ref(false)
+
 // Необходимость продолжить верификацию
 const continueVerificate = ref(true)
+
 // Уже верифицированная версия
 const verificated = ref(true)
+
 // Куплен премиум
 const statusDiamond = ref(true)
+
 // Мужской / Женский (У мужчины нет верификации)
 const female = ref(true)
+
+
+const showModalNew = ref(false)
 
 const showModal = ref(false)
 const notificationStatus = false
@@ -33,6 +42,7 @@ const notificationStageEight = false
 </script>
 
 <template>
+<ProfilePopupHideSends v-if="showModalNew" @hide-modal="showModalNew = false"/>
   <ProfilePhotoCarousel v-if="showModal" @hide-modal="showModal = false" />
   <div class="my__profile__page">
     <div class="left__side">
@@ -127,7 +137,7 @@ const notificationStageEight = false
                   />
                   <p>Ваш баланс: <span>60450₽</span></p>
                 </div>
-                <div class="btn">Пополнить</div>
+                <div class="btn" @click="showModalNew = true">Пополнить</div>
               </div>
               <div class="mobile__horizontal__line"></div>
               <div class="block">
@@ -1441,7 +1451,7 @@ const notificationStageEight = false
           -webkit-text-fill-color: transparent;
           background-clip: text;
           text-fill-color: transparent;
-          text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+
         }
         .gradient:before {
           background: linear-gradient(
@@ -1467,6 +1477,7 @@ const notificationStageEight = false
         }
         .status__premium {
           margin-top: 4px;
+          margin-left: 3px;
         }
       }
       .profile__subtext {

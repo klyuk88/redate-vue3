@@ -33,28 +33,46 @@ export default {}
 
 <style lang="scss" scoped>
 .signup__background {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 0;
 }
 .signup__border {
   border: none;
   background: none;
   .signup__block {
     width: 408px;
-    background: rgba(36, 37, 41, 0.7);
+    // padding: 24px 33px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid #2b66fb;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .signup__block__container {
       width: 342px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       .signup__header {
         width: 342px;
         margin: 0;
-        margin-bottom: 18px;
-        margin-top: 18px;
+        margin-bottom: 16px;
+        margin-top: 24px;
 
         h1 {
           font-weight: 600;
           font-size: 18px;
           line-height: 153.5%;
           color: #3e74ff;
+          margin-bottom: 4px;
           span {
             color: #ffffff;
             font-weight: 600;
@@ -66,6 +84,10 @@ export default {}
           font-weight: 400;
           font-size: 14px;
           line-height: 18px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.6);
         }
       }
     }

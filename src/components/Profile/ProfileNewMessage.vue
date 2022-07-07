@@ -59,8 +59,8 @@ const close = () => {
   height: 100%;
   left: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(50px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,9 +77,10 @@ const close = () => {
   align-items: center;
   width: 387px;
   height: 403px;
-  background: rgba(36, 37, 41, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid #2b66fb;
+  // box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.17);
   border-radius: 24px;
 }
 .profile__message__container__content {
@@ -112,7 +113,7 @@ const close = () => {
   outline: none;
   resize: none;
   border: 1px solid rgba(255, 255, 255, 0.33);
-  background: rgba(36, 37, 41, 0.6);
+  background:none;
   border-radius: 11px;
   padding: 11px;
   font-weight: 500;
