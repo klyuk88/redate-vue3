@@ -18,13 +18,10 @@ export default {}
             Администрация сайта присвоила Вам особый статус «DIAMOND».
           </p>
           <p class="congrats__desc">
-            Теперь Ваш профиль стал золотого цвета, он сильно выделяется в общем
-            поиске, начало диалога с Вами ценится гораздо дороже, чем с другими
-            пользователями.
-          </p>
-          <p class="congrats__desc">
-            Статус «DIAMOND» невозможно купить. Оставайтесь такой же красивой,
-            приятных Вам знакомств.
+            Теперь ваш профиль выделяется золотой рамкой и увеличилось
+            количество доступных диалогов в день. Вы выделяетесь из поиска и
+            начало диалога с Вами цениться гораздо дороже, чем с обычными
+            пользователями сайта.
           </p>
           <div class="congrats__btn">Посмотреть на свою анкету</div>
         </div>
@@ -61,14 +58,34 @@ export default {}
 .congrats__header__border {
   width: 140px;
   height: 30px;
-    background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   box-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
   border-radius: 12px 12px 0px 0px;
-  border: 1px solid #f9ae3f;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.congrats__header__border:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.congrats__header__border:before {
+  content: '';
+  width: 140px;
+  height: 30px;
+  position: absolute;
+  border-radius: 12px 12px 0px 0px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 .congrats__header__title {
   font-family: 'Palatino';
@@ -91,21 +108,42 @@ export default {}
   background-clip: text;
   text-fill-color: transparent;
   text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+  margin-top: 5px;
+  margin-left: 3px;
 }
 .congrats__body__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 24px;
   width: 408px;
   height: 348px;
-    background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 24px;
-  border: 1px solid #f9ae3f;
+}
+.congrats__body__container:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.congrats__body__container:before {
+  content: '';
+  width: 408px;
+  height: 348px;
+  position: absolute;
+  border-radius: 24px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 .congrats__logo {
+  margin: 24px 0 16px 0;
 }
 .congrats__title {
   font-family: 'Mulish';
@@ -137,6 +175,7 @@ export default {}
   align-items: center;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  margin: 4px 0 18px 0;
 }
 .congrats__desc {
   font-family: 'Mulish';
@@ -148,6 +187,7 @@ export default {}
   align-items: center;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
+  width: 306px;
 }
 .congrats__btn {
   display: flex;
@@ -163,6 +203,7 @@ export default {}
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-radius: 11px;
+  margin: 16px 0 24px 0;
 }
 @media (max-width: 1200px) {
   .congrats__content {
@@ -171,7 +212,14 @@ export default {}
     .congrats__body__container {
       width: 85.89vw;
       height: 90.256vw;
+      p {
+        width: 300px;
+      }
     }
+  }
+  .congrats__body__container:before {
+    content: '';
+    width: 335px;
   }
 }
 </style>

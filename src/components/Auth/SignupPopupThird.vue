@@ -1,4 +1,5 @@
 <script setup>
+import { API } from '@/api/apiService.js'
 import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -6,6 +7,7 @@ const router = useRouter()
 router.push({ name: 'Registration', query: { stage: 'three' } })
 const isClicked = ref(false)
 const modalHobbyVisible = ref(false)
+
 </script>
 
 <template>
@@ -130,6 +132,7 @@ const modalHobbyVisible = ref(false)
             </div>
           </div>
         </div>
+        <button @click="btn()" style="font-size: 24px">test</button>
       </div>
       <div class="webBtn">
         <slot name="fourthPhase"></slot>

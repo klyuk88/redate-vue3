@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 router.push({ name: 'Registration', query: { stage: 'one' } })
@@ -7,6 +7,35 @@ router.push({ name: 'Registration', query: { stage: 'one' } })
 const isClicked = ref(false)
 const focusInput = ref(false)
 const focusInputRepeat = ref(false)
+
+const regForm = reactive({
+  email: null,
+  password: null,
+  password2: null,
+})
+const submit = () => {
+  const isEmailExist = regForm.email && regForm.email.length
+  const isPasswordExist = regForm.password && regForm.password.length
+  const isPassword2Exist = regForm.password2 && regForm.password2.length
+
+  if(!isEmailExist){
+    return alert('email')
+  }
+  if(!isPasswordExist) {
+    return alert('password')
+  }
+  if(!isPassword2Exist) {
+    return alert('password2')
+  }
+  if ((regForm.password.length < 6 && isPasswordExist) || (regForm.password2.length < 6 && isPassword2Exist)) {
+    return alert('length < 6')
+  }
+  if(regForm.password !== regForm.password2) {
+    return alert('pass not matching')
+  }
+  return alert('done')
+}
+
 function showPass() {
   let inputType = document.querySelectorAll('#input')
   inputType.forEach((e) => {
@@ -36,14 +65,78 @@ function showPassRepeat() {
         <h1 class="auth__back__btn__title">Назад</h1>
       </div>
     </router-link>
-    <div class="central__content">
-      <div class="signup__page">
-        <div
-          class="animated__border"
-          :class="{ animated__border__sign: isClicked }"
-        ></div>
-        <div class="signup__border">
-          <div class="signup__block">
+    <form @submit.prevent="submit()">
+      <div class="central__content">
+        <div class="signup__page">
+          <div
+            class="animated__border"
+            :class="{ animated__border__sign: isClicked }"
+          ></div>
+          <div class="signup__border">
+            <div class="signup__block">
+              <div class="signup__block__container">
+                <div class="signup__header">
+                  <h1>Регистрация</h1>
+                  <p>
+                    Начните новые знакомства после быстрой регистрации. Ваши
+                    данные будут защищены.
+                  </p>
+                </div>
+                <div class="signup__input__box">
+                  <input
+                    v-model="regForm.email"
+                    class="input"
+                    type="email"
+                    placeholder="Электронная почта"
+                    @focus="
+                      ;(isClicked = true),
+                        (focusInputRepeat = false),
+                        (focusInput = false)
+                    "
+                  />
+                  <div class="input__password middle">
+                    <input
+                      id="input"
+                      v-model="regForm.password"
+                      class="input pass"
+                      type="password"
+                      placeholder="Пароль"
+                      @focus=";(focusInput = true), (focusInputRepeat = false)"
+                    />
+                    <input
+                      id="eye"
+                      class="eye"
+                      type="checkbox"
+                      @click="showPass()"
+                    />
+                    <label for="eye" :class="{ visible: focusInput }"></label>
+                  </div>
+                  <div class="input__password last">
+                    <input
+                      id="inputRepeat"
+                      v-model="regForm.password2"
+                      class="input pass__repeat"
+                      type="password"
+                      placeholder="Повторите пароль"
+                      @focus=";(focusInputRepeat = true), (focusInput = false)"
+                    />
+                    <input
+                      id="eyeSecond"
+                      class="eye"
+                      type="checkbox"
+                      @click="showPassRepeat()"
+                    />
+                    <label
+                      for="eyeSecond"
+                      :class="{ visible: focusInputRepeat }"
+                    ></label>
+                  </div>
+                  <span class="error__message">{{  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mobile__body">
             <div class="signup__block__container">
               <div class="signup__header">
                 <h1>Регистрация</h1>
@@ -57,77 +150,37 @@ function showPassRepeat() {
                   class="input"
                   type="text"
                   placeholder="Электронная почта"
-                  @focus="
-                    ;(isClicked = true),
-                      (focusInputRepeat = false),
-                      (focusInput = false)
-                  "
                 />
-                <div class="input__password middle">
-                  <input
-                    id="input"
-                    class="input pass"
-                    type="password"
-                    placeholder="Пароль"
-                    @focus=";(focusInput = true), (focusInputRepeat = false)"
-                  />
-                  <input
-                    id="eye"
-                    class="eye"
-                    type="checkbox"
-                    @click="showPass()"
-                  />
-                  <label for="eye" :class="{ visible: focusInput }"></label>
-                </div>
-                <div class="input__password last">
-                  <input
-                    id="inputRepeat"
-                    class="input pass__repeat"
-                    type="password"
-                    placeholder="Повторите пароль"
-                    @focus=";(focusInputRepeat = true), (focusInput = false)"
-                  />
-                  <input
-                    id="eyeSecond"
-                    class="eye"
-                    type="checkbox"
-                    @click="showPassRepeat()"
-                  />
-                  <label
-                    for="eyeSecond"
-                    :class="{ visible: focusInputRepeat }"
-                  ></label>
-                </div>
+                <input class="input" type="password" placeholder="Пароль" />
+                <input
+                  class="input"
+                  type="password"
+                  placeholder="Повторите пароль"
+                />
               </div>
             </div>
           </div>
-        </div>
-        <div class="mobile__body">
-          <div class="signup__block__container">
-            <div class="signup__header">
-              <h1>Регистрация</h1>
-              <p>
-                Начните новые знакомства после быстрой регистрации. Ваши данные
-                будут защищены.
-              </p>
+          <div class="signup__footer mobile">
+            <slot name="secondPhaseMobile"></slot>
+            <div class="signup__footer__menu">
+              <p>Есть учетная запись?</p>
+              <router-link to="/auth">
+                <span>Войти</span>
+              </router-link>
             </div>
-            <div class="signup__input__box">
-              <input
-                class="input"
-                type="text"
-                placeholder="Электронная почта"
-              />
-              <input class="input" type="password" placeholder="Пароль" />
-              <input
-                class="input"
-                type="password"
-                placeholder="Повторите пароль"
-              />
+            <div class="signup__footer__terms">
+              <p>
+                Продолжая, вы принимаете
+                <span> Пользовательское соглашение</span>
+                и
+                <span>Политику конфиденциальности</span>
+              </p>
             </div>
           </div>
         </div>
-        <div class="signup__footer mobile">
-          <slot name="secondPhaseMobile"></slot>
+        <div class="signup__footer web">
+          <slot name="secondPhase"> </slot>
+          <button style="font-size: 24px">test</button>
           <div class="signup__footer__menu">
             <p>Есть учетная запись?</p>
             <router-link to="/auth">
@@ -144,24 +197,7 @@ function showPassRepeat() {
           </div>
         </div>
       </div>
-      <div class="signup__footer web">
-        <slot name="secondPhase"> </slot>
-        <div class="signup__footer__menu">
-          <p>Есть учетная запись?</p>
-          <router-link to="/auth">
-            <span>Войти</span>
-          </router-link>
-        </div>
-        <div class="signup__footer__terms">
-          <p>
-            Продолжая, вы принимаете
-            <span> Пользовательское соглашение</span>
-            и
-            <span>Политику конфиденциальности</span>
-          </p>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
 </template>
 
@@ -318,8 +354,18 @@ p {
     margin-bottom: 16px;
   }
   &.last {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
+}
+.error__message {
+  font-weight: 600;
+font-size: 12px;
+line-height: 132.5%;
+display: flex;
+align-items: center;
+text-align: center;
+color: #2B66FB;
+margin-bottom: 48px;
 }
 .signup__block {
   position: relative;

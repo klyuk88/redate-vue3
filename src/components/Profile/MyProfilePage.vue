@@ -514,16 +514,18 @@ const notificationStageEight = false
           </p>
           <p>Чтобы добавить новые фотографии нажмите на кнопку с плюсом.</p>
         </div>
-        <div
-          class="text__notification__rate"
-          :class="{ stageSix: notificationStageSix }"
-        >
-          <p>
-            Редактирование анкеты приведет Вас в редактирование анкетных данных
-            о вас. Город, дата рождения, параметры, интересы, интересующие вас
-            форматы знакомств.
-          </p>
-        </div>
+        <router-link to="/account/:user/edit">
+          <div
+            class="text__notification__rate"
+            :class="{ stageSix: notificationStageSix }"
+          >
+            <p>
+              Редактирование анкеты приведет Вас в редактирование анкетных данных
+              о вас. Город, дата рождения, параметры, интересы, интересующие вас
+              форматы знакомств.
+            </p>
+          </div>
+        </router-link>
         <div
           class="text__notification__rate"
           :class="{ stageSeven: notificationStageSeven }"

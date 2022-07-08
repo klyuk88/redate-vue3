@@ -45,18 +45,39 @@ export default {}
   backdrop-filter: blur(20px);
 }
 .diamond__lost__block {
-  padding: 24px;
   width: 304px;
+  height: 180px;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 24px;
-  border: 1px solid #f9ae3f;
+}
+.diamond__lost__block:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.diamond__lost__block:before {
+  content: '';
+  width: 304px;
+  height: 180px;
+  position: absolute;
+  border-radius: 24px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 .diamond__lost__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-top: 24px;
 }
 .diamond__lost__info {
   display: flex;
@@ -97,6 +118,8 @@ export default {}
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
+  cursor: pointer;
+  position: relative;
 }
 .diamond__lost__store {
   @extend .text;
@@ -109,6 +132,27 @@ export default {}
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
-  border: 1px solid #f9ae3f;
+cursor: pointer;
+}
+.diamond__lost__store:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.diamond__lost__store:before {
+  content: '';
+  width: 120px;
+  height: 34px;
+  position: absolute;
+  border-radius: 11px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 </style>

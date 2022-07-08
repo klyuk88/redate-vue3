@@ -38,13 +38,36 @@ export default {}
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px;
-  gap: 16px;
+  /* padding: 24px; */
+  /* gap: 16px; */
   width: 310px;
+  height: 188px;
+
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
   border-radius: 24px;
-  border: 1px solid #f9ae3f;
+  /* border: 1px solid #f9ae3f; */
+}
+.diamond__popup__block:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.diamond__popup__block:before {
+  content: '';
+  width: 310px;
+  height: 188px;
+  position: absolute;
+  border-radius: 24px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 .diamond__popup__content {
   display: flex;
@@ -54,6 +77,7 @@ export default {}
   padding: 0px;
   gap: 4px;
   width: 262px;
+  margin-top: 24px;
 }
 .diamond__info {
   display: flex;
@@ -92,7 +116,6 @@ export default {}
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-
   width: 256px;
   height: 34px;
 }
@@ -110,6 +133,8 @@ export default {}
   font-size: 14px;
   line-height: 132.5%;
   color: #ffffff;
+  cursor: pointer;
+  position: relative;
 }
 .diamond__button__store {
   font-family: 'Mulish';
@@ -125,6 +150,28 @@ export default {}
   align-items: center;
   position: relative;
   border-radius: 11px;
-  border: 1px solid #f9ae3f;
+  cursor: pointer;
 }
+.diamond__button__store:before {
+  background: linear-gradient(
+    103.31deg,
+    #f9ae3f 100%,
+    #ffdba5 100%,
+    #ad6902 100%
+  );
+}
+.diamond__button__store:before {
+  content: '';
+  width: 120px;
+  height: 34px;
+  position: absolute;
+  border-radius: 11px;
+  padding: 1px;
+  -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+    linear-gradient(#fff, #fff 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
 </style>
