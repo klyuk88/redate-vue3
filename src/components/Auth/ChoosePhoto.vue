@@ -8,6 +8,10 @@ const isClicked = ref(true)
   <div class="signup__background">
     <div class="signup__navigation">
       <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
+      <div class="navigation__item active"></div>
     </div>
     <div class="auth__back__btn">
       <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
@@ -16,10 +20,7 @@ const isClicked = ref(true)
       </router-link>
     </div>
     <div class="signup__page">
-      <div
-        class="signup__border"
-        :class="{ animated__border__upload: isClicked }"
-      >
+      <div class="signup__border">
         <div class="signup__block">
           <div class="signup__block__container">
             <div class="photo__container">
@@ -77,7 +78,9 @@ const isClicked = ref(true)
                 </div>
               </div>
             </div>
-            <p>Выберите фотографию, которая будет Вашей аватаркой</p>
+            <p class="description">
+              Выберите фотографию, которая будет Вашей аватаркой
+            </p>
             <div class="upload__btn web">Загрузить с компьютера</div>
             <div class="replace__photo">Очистить фотографии</div>
             <div class="continue__btn">Продолжить</div>
@@ -94,35 +97,121 @@ const isClicked = ref(true)
 </template>
 
 <style lang="scss" scoped>
+.auth__back__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  top: 70px;
+  left: 40px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
+.auth__back__btn__mobile {
+  cursor: pointer;
+  position: fixed;
+  top: 55px;
+  left: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
+.auth__back__btn__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 132.5%;
+}
+.signup__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  .signup__page {
+    margin-bottom: 49px;
+    .signup__border {
+      .signup__block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.0384) 0%,
+          rgba(95, 133, 228, 0.05) 68.75%
+        );
+        border: 1px solid #2b66fb;
+        border-radius: 24px;
+        .signup__block__container {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          .photo__main {
+            margin: 48px 48px 0 48px;
+            img {
+              width: 308px;
+              height: 308px;
+            }
+          }
+          .photo__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+          }
+          align-items: center;
+          .description {
+            width: 246px;
+            text-align: center;
+            margin-bottom: 32px;
+          }
+          .upload__btn {
+            &.web {
+              margin-bottom: 48px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .signup__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .continue__btn {
   display: none;
-}
-.signup__page {
-  height: 715px;
 }
 .replace__photo {
   display: none;
 }
+
 .signup__navigation {
-  position: fixed;
-  top: 80px;
-  margin-left: 50px;
+  height: 4px;
+  width: 176px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+  margin-bottom: 133px;
+}
+.navigation__item {
+  width: 32px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.33);
+  &.active {
+    background: #2b66fb;
+  }
 }
 .navigation__item {
   width: 128px;
 }
-.signup__border {
-  width: 428px;
-  height: 623px;
-}
-.signup__block {
-  width: 404px;
-  height: 595px;
-}
-.signup__block__container {
-  width: 308px;
-  height: 499px;
-}
+
 .avatar {
   margin-top: 14px;
 }
@@ -131,23 +220,16 @@ const isClicked = ref(true)
   margin-left: 20px;
   cursor: pointer;
 }
-.photo__container {
-  width: 308px;
-  height: 376px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .photo__main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #2b66fb;
-  filter: drop-shadow(0px 8px 25px rgba(43, 102, 251, 0.17));
-  border-radius: 24px;
-  width: 308px;
-  height: 308px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // border: 1px solid #2b66fb;
+  // filter: drop-shadow(0px 8px 25px rgba(43, 102, 251, 0.17));
+  // border-radius: 24px;
+  // width: 308px;
+  // height: 308px;
 }
 .photo__mini__block {
   width: 305px;
@@ -155,6 +237,7 @@ const isClicked = ref(true)
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
 }
 .photo__mini__item {
   display: flex;
