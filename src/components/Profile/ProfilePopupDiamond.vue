@@ -173,5 +173,4 @@ export default {}
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
-
 </style>

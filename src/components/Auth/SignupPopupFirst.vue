@@ -18,19 +18,22 @@ const submit = () => {
   const isPasswordExist = regForm.password && regForm.password.length
   const isPassword2Exist = regForm.password2 && regForm.password2.length
 
-  if(!isEmailExist){
+  if (!isEmailExist) {
     return alert('email')
   }
-  if(!isPasswordExist) {
+  if (!isPasswordExist) {
     return alert('password')
   }
-  if(!isPassword2Exist) {
+  if (!isPassword2Exist) {
     return alert('password2')
   }
-  if ((regForm.password.length < 6 && isPasswordExist) || (regForm.password2.length < 6 && isPassword2Exist)) {
+  if (
+    (regForm.password.length < 6 && isPasswordExist) ||
+    (regForm.password2.length < 6 && isPassword2Exist)
+  ) {
     return alert('length < 6')
   }
-  if(regForm.password !== regForm.password2) {
+  if (regForm.password !== regForm.password2) {
     return alert('pass not matching')
   }
   return alert('done')
@@ -131,7 +134,7 @@ function showPassRepeat() {
                       :class="{ visible: focusInputRepeat }"
                     ></label>
                   </div>
-                  <span class="error__message">{{  }}</span>
+                  <span class="error__message">{{}}</span>
                 </div>
               </div>
             </div>
@@ -359,13 +362,13 @@ p {
 }
 .error__message {
   font-weight: 600;
-font-size: 12px;
-line-height: 132.5%;
-display: flex;
-align-items: center;
-text-align: center;
-color: #2B66FB;
-margin-bottom: 48px;
+  font-size: 12px;
+  line-height: 132.5%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2b66fb;
+  margin-bottom: 48px;
 }
 .signup__block {
   position: relative;

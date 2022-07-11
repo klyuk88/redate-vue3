@@ -132,7 +132,7 @@ export default {}
   font-weight: 700;
   font-size: 14px;
   line-height: 132.5%;
-cursor: pointer;
+  cursor: pointer;
 }
 .diamond__lost__store:before {
   background: linear-gradient(

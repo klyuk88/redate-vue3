@@ -6,7 +6,6 @@ const router = useRouter()
 router.push({ name: 'Registration', query: { stage: 'three' } })
 const isClicked = ref(false)
 const modalHobbyVisible = ref(false)
-
 </script>
 
 <template>
@@ -131,7 +130,7 @@ const modalHobbyVisible = ref(false)
             </div>
           </div>
         </div>
-        <button  style="font-size: 24px">test</button>
+        <button style="font-size: 24px">test</button>
       </div>
       <div class="webBtn">
         <slot name="fourthPhase"></slot>

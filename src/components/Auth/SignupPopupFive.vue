@@ -354,7 +354,6 @@ p {
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
-
     }
   }
   .btn__box {

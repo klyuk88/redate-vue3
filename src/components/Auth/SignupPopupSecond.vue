@@ -211,7 +211,7 @@ const isClicked = ref(false)
           </div>
         </div>
       </div>
-      <form @submit.prevent="submit()" class="web__form">
+      <form class="web__form" @submit.prevent="submit()">
         <div class="mobile__body">
           <div class="signup__block__container">
             <div class="signup__input__box">
@@ -238,87 +238,87 @@ const isClicked = ref(false)
             </div>
           </div>
           <div class="signup__horizontal__line"></div>
-            <div class="footer__desc">
-              <div v-if="femalePage" class="signup__params">
-                <div class="signup__params__block">
-                  <div class="signup__params__item">
-                    <p>Рост:</p>
-                    <input
-                      v-model="stageTwoForm.height"
-                      class="input"
-                      type="text"
-                      placeholder="170"
-                      maxlength="3"
-                    />
-                  </div>
-                  <div class="signup__params__item">
-                    <p>Вес:</p>
-                    <input
-                      v-model="stageTwoForm.weight"
-                      class="input"
-                      type="text"
-                      placeholder="50"
-                      maxlength="3"
-                    />
-                  </div>
+          <div class="footer__desc">
+            <div v-if="femalePage" class="signup__params">
+              <div class="signup__params__block">
+                <div class="signup__params__item">
+                  <p>Рост:</p>
+                  <input
+                    v-model="stageTwoForm.height"
+                    class="input"
+                    type="text"
+                    placeholder="170"
+                    maxlength="3"
+                  />
                 </div>
-                <div class="signup__params__item params__size">
-                  <p>Параметры:</p>
-                  <div class="params__input__box">
-                    <input
-                      v-model="stageTwoForm.womenParameters.breast"
-                      class="input"
-                      type="text"
-                      placeholder="90"
-                      maxlength="3"
-                    />
-                    <div class="vertical__line"></div>
-
-                    <input
-                      v-model="stageTwoForm.womenParameters.waist"
-                      class="input"
-                      type="text"
-                      placeholder="60"
-                      maxlength="3"
-                    />
-                    <div class="vertical__line"></div>
-
-                    <input
-                      v-model="stageTwoForm.womenParameters.tips"
-                      class="input"
-                      type="text"
-                      placeholder="90"
-                      maxlength="3"
-                    />
-                  </div>
+                <div class="signup__params__item">
+                  <p>Вес:</p>
+                  <input
+                    v-model="stageTwoForm.weight"
+                    class="input"
+                    type="text"
+                    placeholder="50"
+                    maxlength="3"
+                  />
                 </div>
               </div>
-              <div v-if="!femalePage" class="signup__params">
-                <div class="signup__params__block male">
-                  <div class="signup__params__item male">
-                    <p>Рост:</p>
-                    <input
-                      v-model="stageTwoForm.height"
-                      class="input"
-                      type="text"
-                      placeholder="170"
-                      maxlength="3"
-                    />
-                  </div>
-                  <div class="signup__params__item male">
-                    <p>Вес:</p>
-                    <input
-                      v-model="stageTwoForm.weight"
-                      class="input"
-                      type="text"
-                      placeholder="50"
-                      maxlength="3"
-                    />
-                  </div>
+              <div class="signup__params__item params__size">
+                <p>Параметры:</p>
+                <div class="params__input__box">
+                  <input
+                    v-model="stageTwoForm.womenParameters.breast"
+                    class="input"
+                    type="text"
+                    placeholder="90"
+                    maxlength="3"
+                  />
+                  <div class="vertical__line"></div>
+
+                  <input
+                    v-model="stageTwoForm.womenParameters.waist"
+                    class="input"
+                    type="text"
+                    placeholder="60"
+                    maxlength="3"
+                  />
+                  <div class="vertical__line"></div>
+
+                  <input
+                    v-model="stageTwoForm.womenParameters.tips"
+                    class="input"
+                    type="text"
+                    placeholder="90"
+                    maxlength="3"
+                  />
                 </div>
               </div>
-              <span>*Необязательно для заполнения</span>
             </div>
+            <div v-if="!femalePage" class="signup__params">
+              <div class="signup__params__block male">
+                <div class="signup__params__item male">
+                  <p>Рост:</p>
+                  <input
+                    v-model="stageTwoForm.height"
+                    class="input"
+                    type="text"
+                    placeholder="170"
+                    maxlength="3"
+                  />
+                </div>
+                <div class="signup__params__item male">
+                  <p>Вес:</p>
+                  <input
+                    v-model="stageTwoForm.weight"
+                    class="input"
+                    type="text"
+                    placeholder="50"
+                    maxlength="3"
+                  />
+                </div>
+              </div>
+            </div>
+            <span>*Необязательно для заполнения</span>
+          </div>
         </div>
         <button style="font-size: 24px">test</button>
       </form>

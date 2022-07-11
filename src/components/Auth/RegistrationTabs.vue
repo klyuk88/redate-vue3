@@ -120,7 +120,6 @@ const changeComponent = computed(() => {
         </template>
         <template #secondPhase>
           <BigButton
-          
             title="Продолжить"
             style="width: 236px; height: 48px"
             @click="nameComponent = 'Second'"
