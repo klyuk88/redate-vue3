@@ -106,8 +106,10 @@ const isClicked = ref(false)
                 </div>
               </div>
               <div class="signup__horizontal__line"></div>
+
               <div v-if="femalePage" class="footer__desc">
                 <div class="signup__params" >
+
                   <div class="signup__params__block" @click="isClicked = true">
                     <div class="signup__params__item">
                       <p>Рост:</p>
@@ -225,6 +227,7 @@ const isClicked = ref(false)
               <TheSelect class="select__country" placeholder="Страна, Город" />
               <TheSelect class="select__nation" placeholder="Национальность" />
             </div>
+
             <div class="signup__footer">
               <div class="signup__age__block">
                 <p>Дата рождения:</p>
@@ -239,6 +242,30 @@ const isClicked = ref(false)
                   <input class="input" placeholder="01" maxlength="2" />
                   <div class="vertical__line"></div>
                   <input class="input year" placeholder="2000" maxlength="4" />
+
+            <div class="signup__horizontal__line"></div>
+            <div class="footer__desc">
+              <div v-if="femalePage" class="signup__params">
+                <div class="signup__params__block">
+                  <div class="signup__params__item">
+                    <p>Рост:</p>
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="170"
+                      maxlength="3"
+                    />
+                  </div>
+                  <div class="signup__params__item">
+                    <p>Вес:</p>
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="50"
+                      maxlength="3"
+                    />
+                  </div>
+
                 </div>
               </div>
               <div class="signup__horizontal__line"></div>
@@ -297,6 +324,7 @@ const isClicked = ref(false)
                     </div>
                   </div>
                 </div>
+
                 <div v-if="!femalePage" class="signup__params" >
                   <div class="signup__params__block male">
                     <div class="signup__params__item male">
@@ -319,6 +347,7 @@ const isClicked = ref(false)
                         maxlength="3"
                       />
                     </div>
+
                   </div>
                 </div>
                 <span>*Необязательно для заполнения</span>

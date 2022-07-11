@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from '@/stores/main.js'
+import { useMailingStore } from '../../stores/mailing'
 
 const store = useStore()
+const mailing = useMailingStore()
 
 const popup = ref(null)
 
@@ -12,7 +14,9 @@ const clickOutsideHandler = (event) => {
   }
 }
 
-const clickCloseHandler = () => {
+const clickCloseHandler = async () => {
+  await mailing.getList()
+
   store.newSendWindowSuccess = false
 }
 </script>

@@ -12,6 +12,7 @@ export const useStore = defineStore('main', {
       newSendWindowSuccess: false,
       maleVersion: false,
       femaleVersion: false,
+      hideRecomendedMailingModal: false,
     }
   },
 })

@@ -51,7 +51,6 @@ const clickRedirectHandler = () => {
 </template>
 
 <style lang="scss" scoped>
-
 .signup__background {
   width: 100vw;
   height: 100vh;
@@ -152,7 +151,6 @@ const clickRedirectHandler = () => {
   background: rgba(36, 37, 41, 0.6);
   border-radius: 24px;
   border: 1px solid #2b66fb;
-
 }
 .diamond__lost__content {
   display: flex;

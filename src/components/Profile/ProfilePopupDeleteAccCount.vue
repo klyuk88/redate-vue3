@@ -31,8 +31,8 @@ export default {}
   align-items: center;
   .container__delete__acc__count {
     padding: 24px;
-      background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
     border: 1px solid #2b66fb;
     display: flex;

@@ -41,7 +41,7 @@ defineProps({
       }
     }
     .label {
-      font-style: 15px;
+      font-size: 15px;
       font-weight: 600;
       margin-left: 12px;
     }

@@ -1,10 +1,7 @@
 <script setup>
-
 import { ref } from 'vue'
 
 const emit = defineEmits(['hideModalHobby'])
-
-
 
 const isClicked = ref(false)
 </script>
@@ -96,8 +93,8 @@ const isClicked = ref(false)
   width: 504px;
   padding: 48px;
   gap: 10px;
-background: rgba(0, 0, 0, 0.7);
-backdrop-filter: blur(30px);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(30px);
   border: 1px solid #2b66fb;
   border-radius: 24px;
   display: flex;
