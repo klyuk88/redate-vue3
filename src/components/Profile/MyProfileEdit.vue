@@ -5,6 +5,7 @@ import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth.js'
 import ProfilePopupDeleteAcc from './ProfilePopupDeleteAcc.vue'
+import IntervalRange from '../Form/IntervalRange.vue'
 
 const modalDeleteAcc = ref(false)
 const passConfirm = ref(true)
@@ -287,10 +288,7 @@ function showPassRepeat() {
                 <span v-if="femaleVersion">Трачу в месяц:</span>
                 <span v-if="!femaleVersion">Зарабатываю в месяц:</span>
               </div>
-              <div class="border">
-                <!-- <input class="input" type="text" placeholder="Введите сумму" />
-                <span>$</span> -->
-              </div>
+              <IntervalRange class="info__bar-interval-range" />
             </div>
             <div class="info__bar">
               <div class="logo__title__group">
@@ -1211,6 +1209,7 @@ label {
           height: 60px;
           margin-top: 18px;
         }
+
         .nation__span {
           width: 100px;
           height: 32px;
@@ -1249,6 +1248,10 @@ label {
           justify-content: space-between;
           width: 784px;
           height: 60px;
+
+          &:last-child {
+            margin-top: 25px;
+          }
 
           .border {
             span {
@@ -1896,5 +1899,11 @@ label {
     }
     display: none;
   }
+}
+
+.info__bar-interval-range {
+  position: relative;
+  z-index: 2;
+  width: 512px;
 }
 </style>

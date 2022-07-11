@@ -46,7 +46,7 @@ module.exports = {
         ignoreStringEscape: false,
       },
     ],
-    'vue/no-v-text': 'error',
+    'vue/no-v-text': 'off',
     'vue/padding-line-between-blocks': ['error', 'always'],
     'vue/v-for-delimiter-style': ['error', 'in'],
     'vue/v-on-function-call': ['error', 'always'],
