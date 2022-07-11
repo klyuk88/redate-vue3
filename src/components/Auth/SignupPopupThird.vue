@@ -1,5 +1,4 @@
 <script setup>
-import { API } from '@/api/apiService.js'
 import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -132,7 +131,7 @@ const modalHobbyVisible = ref(false)
             </div>
           </div>
         </div>
-        <button @click="btn()" style="font-size: 24px">test</button>
+        <button  style="font-size: 24px">test</button>
       </div>
       <div class="webBtn">
         <slot name="fourthPhase"></slot>

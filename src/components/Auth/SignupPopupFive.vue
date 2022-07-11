@@ -4,6 +4,8 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 router.push({ name: 'Registration', query: { stage: 'five' } })
+const femalePage = ref(false)
+const uploaded = ref(true)
 const isClicked = ref(false)
 </script>
 
@@ -53,17 +55,25 @@ const isClicked = ref(false)
             <div class="btn__block web">
               <!-- <div class="upload__btn">Загрузить с компьютера</div> -->
               <slot name="choosePhase"></slot>
-              <div class="random__btn">Выбрать случайную</div>
+              <div v-if="!femalePage" class="random__btn">
+                Выбрать случайную
+              </div>
             </div>
             <div class="btn__block mobile">
               <div class="btn__box">
                 <div class="upload">Загрузить</div>
                 <div class="make__photo">Сделать снимок</div>
               </div>
-              <div class="random__btn">Выбрать случайную</div>
+              <div v-if="!femalePage" class="random__btn">
+                Выбрать случайную
+              </div>
               <div class="btn__continue web">Продолжить</div>
             </div>
           </div>
+        </div>
+        <div v-if="!femalePage" class="btn__male__continue">Продолжить</div>
+        <div v-if="uploaded" class="btn__mobile__continue">
+          Зарегистрироваться
         </div>
       </div>
     </div>
@@ -71,6 +81,9 @@ const isClicked = ref(false)
 </template>
 
 <style lang="scss" scoped>
+.btn__mobile__continue {
+  display: none;
+}
 .mobileArrow {
   display: none;
 }
@@ -99,6 +112,9 @@ const isClicked = ref(false)
 .signup__page {
 }
 .signup__border {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .signup__block {
     display: flex;
     justify-content: center;
@@ -193,7 +209,7 @@ p {
   font-size: 14px;
   line-height: 132.5%;
   color: #ffffff;
-  display: none;
+  margin-top: 12px;
   cursor: pointer;
   &.male {
     display: inline-flex;
@@ -207,6 +223,17 @@ p {
   height: 48px;
   background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
   border-radius: 11px;
+  cursor: pointer;
+}
+.btn__male__continue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 236px;
+  height: 48px;
+  background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+  border-radius: 11px;
+  margin-top: 42px;
   cursor: pointer;
 }
 .animated__border__upload {
@@ -251,6 +278,19 @@ p {
   }
 }
 @media (max-width: 1200px) {
+  .btn__mobile__continue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 335px;
+    height: 60px;
+    background: linear-gradient(137.15deg, #2965ff 0%, #2e66f5 99.89%);
+    border-radius: 11px;
+    margin-top: 48px;
+  }
+  .btn__male__continue {
+    display: none;
+  }
   .auth__back__btn {
     display: none;
   }
@@ -286,10 +326,6 @@ p {
   }
   .signup__block__container {
     width: 85.89vw;
-    height: 119.743vw;
-    &.male {
-      height: 157.948vw !important;
-    }
   }
   .inner__border {
     &.added {
@@ -302,7 +338,6 @@ p {
       &.added {
         display: flex;
         width: 85.89vw;
-        height: 15.384vw;
       }
     }
   }
@@ -319,7 +354,7 @@ p {
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
-      height: 48.717vw;
+
     }
   }
   .btn__box {
@@ -352,7 +387,6 @@ p {
     height: 8.974vw;
     border: 0.256vw solid rgba(255, 255, 255, 0.14);
     border-radius: 2.82vw;
-    margin-bottom: 7.692vw;
   }
 }
 </style>
