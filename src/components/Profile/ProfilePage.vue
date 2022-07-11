@@ -43,6 +43,7 @@ const notificationStageFive = false
           v-if="showModalMore"
           @hide-modal-more="showModalMore = false"
         />
+        <div v-if="statusDiamond" class="diamond__title">diamond</div>
         <div
           class="photo"
           :class="{
@@ -220,7 +221,12 @@ const notificationStageFive = false
               <div class="profile__vertical__line">|</div>
               <div class="profile__online__id"><span>ID: 637789</span></div>
               <div class="profile__vertical__line web">|</div>
-              <div class="profile__online__status real">Онлайн</div>
+              <div
+                class="profile__online__status real"
+                :class="{ diamond__status: statusDiamond }"
+              >
+                Онлайн
+              </div>
             </div>
           </div>
           <div class="buttons__block mobile">
@@ -228,11 +234,15 @@ const notificationStageFive = false
               <div class="big__buttons">
                 <div
                   class="send__message"
+                  :class="{ diamond__mobile__send: statusDiamond }"
                   @click.prevent="store.newMessageWindow = true"
                 >
                   Написать
                 </div>
-                <div class="icon__btn">
+                <div
+                  class="icon__btn"
+                  :class="{ diamond__mobile: statusDiamond }"
+                >
                   <img
                     src="@/assets/images/main/heart.svg"
                     width="17"
@@ -877,7 +887,7 @@ const notificationStageFive = false
       .send__message {
         display: flex;
         align-items: center;
-        padding: 14px 82px;
+        justify-content: center;
         width: 241px;
         height: 56px;
         background: rgba(255, 255, 255, 0.14);
@@ -1174,6 +1184,9 @@ const notificationStageFive = false
 .logo__title {
   display: none;
 }
+.diamond__title {
+  display: none;
+}
 @media (max-width: 1200px) {
   .gradient {
     display: none;
@@ -1252,6 +1265,52 @@ const notificationStageFive = false
         background: none;
         border: none;
         width: 85.89vw;
+        .diamond__title {
+          font-family: 'Palatino';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 9px;
+          line-height: 132.5%;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          letter-spacing: 0.19em;
+          text-transform: uppercase;
+          background: linear-gradient(
+            132.27deg,
+            #f9ae3f -0.77%,
+            #ffdba5 36.67%,
+            #ad6902 96.37%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          text-shadow: 0px 0px 10px rgba(255, 187, 84, 0.3);
+        }
+        .diamond__title:before {
+          background: linear-gradient(
+            103.31deg,
+            #f9ae3f 100%,
+            #ffdba5 100%,
+            #ad6902 100%
+          );
+        }
+        .diamond__title:before {
+          content: '';
+          width: 82px;
+          height: 17px;
+          position: absolute;
+          border-radius: 12px 12px 0px 0px;
+          padding: 1px;
+          -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+            linear-gradient(#fff, #fff 0);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
         .photo {
           border: #2965ff 0.256vw solid;
           width: 85.89vw;
@@ -1261,7 +1320,16 @@ const notificationStageFive = false
           justify-content: center;
           background-size: cover;
           border-radius: 6.15vw;
+          margin-top: 0;
+          &.diamond {
+            border: none;
+          }
         }
+        .diamond:before {
+          width: 85.89vw;
+          height: 118.46vw;
+        }
+
         .main__avatar {
           width: 85.89vw;
           height: 118.46vw;
@@ -1325,6 +1393,31 @@ const notificationStageFive = false
                 width: 57.43vw;
                 height: 14.358vw;
                 border-radius: 4.61vw;
+                &.diamond__mobile__send {
+                  border: none;
+                }
+              }
+              .diamond__mobile__send:before {
+                background: linear-gradient(
+                  103.31deg,
+                  #f9ae3f 100%,
+                  #ffdba5 100%,
+                  #ad6902 100%
+                );
+              }
+              .diamond__mobile__send:before {
+                content: '';
+                width: 57.43vw;
+                height: 14.358vw;
+                position: absolute;
+                border-radius: 4.61vw;
+                padding: 1px;
+                -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+                  linear-gradient(#fff, #fff 0);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                  linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
               }
               .icon__btn {
                 display: flex;
@@ -1334,6 +1427,9 @@ const notificationStageFive = false
                 height: 14.358vw;
                 background: rgba(255, 255, 255, 0.05);
                 border-radius: 4.61vw;
+                &.diamond__mobile {
+                  border: none;
+                }
                 img {
                   height: 4.87vw;
                   width: 4.87vw;
@@ -1345,6 +1441,28 @@ const notificationStageFive = false
                   border: 0.256vw solid rgba(255, 255, 255, 0.33);
                   transform: rotate(90deg);
                 }
+              }
+              .diamond__mobile:before {
+                background: linear-gradient(
+                  103.31deg,
+                  #f9ae3f 100%,
+                  #ffdba5 100%,
+                  #ad6902 100%
+                );
+              }
+              .diamond__mobile:before {
+                content: '';
+                width: 26.41vw;
+                height: 14.358vw;
+                position: absolute;
+                border-radius: 4.61vw;
+                padding: 1px;
+                -webkit-mask: linear-gradient(#fff, #fff 0) content-box,
+                  linear-gradient(#fff, #fff 0);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                  linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
               }
             }
           }
@@ -1386,6 +1504,21 @@ const notificationStageFive = false
               }
               .profile__online__status {
                 font-size: 3.589vw;
+                &.diamond__status {
+                  font-weight: 700;
+                  font-size: 14px;
+                  line-height: 132.5%;
+                  background: linear-gradient(
+                    132.27deg,
+                    #f9ae3f -0.77%,
+                    #ffdba5 36.67%,
+                    #ad6902 96.37%
+                  );
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  background-clip: text;
+                  text-fill-color: transparent;
+                }
               }
               .profile__online__id {
                 display: none;
