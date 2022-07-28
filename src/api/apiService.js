@@ -22,7 +22,9 @@ class ApiService {
   }
 
   getToken() {
-    return localStorage.getItem('token') || null
+    const tokens = JSON.parse(localStorage.getItem('tokens')) || null
+
+    return tokens?.access?.token
   }
 
   async get(url) {

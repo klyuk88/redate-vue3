@@ -131,8 +131,6 @@ const clickHandler = async () => {
     message.value
   )
 
-  console.log('Response', response)
-
   if (response.status) {
     errorMessage.value = response.message
     error.value = true

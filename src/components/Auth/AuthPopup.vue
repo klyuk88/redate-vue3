@@ -1,27 +1,50 @@
 <script setup>
-import { useAuthStore } from '@/stores/auth.js'
-import { ref, reactive } from 'vue'
+import { ref, computed } from 'vue'
+import { useUserStore } from '@/stores/user.js'
 
-const useAuth = useAuthStore()
+const userStore = useUserStore()
 
-const authForm = reactive({
-  login: null,
-  password: null,
-})
+const email = ref('')
 
-const authorization = () => {
-  useAuth.authUser(authForm)
-}
+const password = ref('')
+
+const eye = ref(true)
+
+const error = ref(false)
+const errorMessage = ref('')
 
 const isClicked = ref(false)
+
 const focusInput = ref(false)
 
-function showPass() {
-  let inputType = document.querySelectorAll('#myInput')
-  inputType.forEach((e) => {
-    e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
-  })
+const passwordInputType = computed(() => (eye.value ? 'password' : 'text'))
+
+const auth = async () => {
+  if (email.value.length < 5) {
+    errorMessage.value = 'Email' // TODO Узнать сообщение
+    error.value = true
+
+    return
+  }
+
+  if (password.value.length < 3) {
+    errorMessage.value = 'Password' // TODO Узнать сообщение
+    error.value = true
+
+    return
+  }
+
+  const response = await userStore.auth(email.value, password.value)
+
+  if (response.status) {
+    errorMessage.value = response.message
+    error.value = true
+
+    return
+  }
 }
+
+const changeEye = () => (eye.value = !eye.value)
 </script>
 
 <template>
@@ -33,7 +56,7 @@ function showPass() {
           <h1 class="auth__back__btn__title">Назад</h1>
         </div>
       </router-link>
-      <form class="auth-form" @submit.prevent="authorization()">
+      <form class="auth-form" @submit.prevent="auth()">
         <div class="auth__block">
           <div class="" :class="{ animated__border: isClicked }"></div>
           <div class="auth__input__box">
@@ -47,7 +70,7 @@ function showPass() {
                 </div>
                 <div class="inputs">
                   <input
-                    v-model="authForm.login"
+                    v-model="email"
                     class="input"
                     type="text"
                     placeholder="Электронная почта"
@@ -56,9 +79,9 @@ function showPass() {
                   <div class="input__password">
                     <input
                       id="myInput"
-                      v-model="authForm.password"
+                      v-model="password"
                       class="input pass"
-                      type="password"
+                      :type="passwordInputType"
                       placeholder="Пароль"
                       @focus="focusInput = true"
                     />
@@ -66,13 +89,13 @@ function showPass() {
                       id="eye"
                       class="eye"
                       type="checkbox"
-                      @click="showPass()"
+                      @click="changeEye()"
                     />
                     <label for="eye" :class="{ visible: focusInput }"></label>
                   </div>
-                  <span :class="{ error__auth: useAuth.error }">{{
-                    useAuth.error
-                  }}</span>
+                  <span :class="{ error__auth: error }">
+                    {{ errorMessage }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -82,7 +105,7 @@ function showPass() {
           <div class="mobile__recovery">
             <slot name="toRecovery"></slot>
           </div>
-          <button class="auth__btn">Войти</button>
+          <button class="auth__btn" @click="auth()">Войти</button>
         </div>
       </form>
       <div class="auth__footer__signup">
@@ -315,11 +338,11 @@ label {
     flex-grow: 0;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url(../../assets/images/eye__open.svg);
+    background-image: url(../../assets/images/eye__close.svg);
   }
 }
 .eye:checked + label::before {
-  background-image: url(../../assets/images/eye__close.svg);
+  background-image: url(../../assets/images/eye__open.svg);
 }
 .auth__btn {
   @extend .flex__center;
