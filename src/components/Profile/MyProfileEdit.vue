@@ -42,7 +42,7 @@ function showPassRepeat() {
     @hide-modal-hobby="modalHobbyVisible = false"
   />
   <div class="background">
-    <router-link to="/account/vasya">
+    <router-link to="/account/:user">
       <div class="auth__back__btn">
         <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
         <h1 class="auth__back__btn__title">Назад</h1>
@@ -509,7 +509,7 @@ function showPassRepeat() {
     <div class="accordion">
       <div class="mobile__header">
         <div class="title__block">
-          <router-link to="/profile">
+          <router-link to="/account/vasya">
             <div class="back__arrow">
               <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
             </div>
