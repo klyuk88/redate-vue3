@@ -124,7 +124,7 @@ function showPassRepeat() {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  width: 320px;
+  // width: 320px;
   p {
     margin: 0;
     margin: 12px 0 32px 0;
@@ -145,7 +145,7 @@ function showPassRepeat() {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 326px;
+  // width: 326px;
   p {
     font-weight: 600;
     font-size: 12px;
@@ -189,7 +189,7 @@ function showPassRepeat() {
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
   outline: none;
-  background-color: rgb(32, 34, 43);
+  background: none;
   width: 326px;
   height: 60px;
   border-radius: 11px;
@@ -259,17 +259,18 @@ label {
     box-shadow: none;
   }
   .signup__block__header {
-    width: 83.0769vw;
+    // width: 83.0769vw;
     p {
       margin: 16px 0 88px 0;
     }
   }
   .signup__block__numbers {
-    width: 85.89vw;
+    // width: 85.89vw;
   }
   .signup__btn {
     width: 85.89vw;
     height: 15.38vw;
   }
 }
+
 </style>

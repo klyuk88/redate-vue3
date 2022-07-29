@@ -118,6 +118,7 @@ label {
   display: block;
   cursor: pointer;
   margin-bottom: 55px;
+  right: 0;
 }
 
 @media (max-width: 1200px) {

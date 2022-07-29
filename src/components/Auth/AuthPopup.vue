@@ -354,6 +354,9 @@ label {
   cursor: pointer;
   border: none;
   color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 153.5%;
 }
 
 .auth__footer__signup {
