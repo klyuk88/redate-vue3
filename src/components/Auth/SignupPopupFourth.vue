@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import TheFormats from '../Form/TheFormats.vue'
 import { useRouter } from 'vue-router'
+import IntervalRange from '../Form/IntervalRange.vue'
+
 const router = useRouter()
 
 router.push({ name: 'Registration', query: { stage: 'four' } })
@@ -29,15 +31,7 @@ const isClicked = ref(false)
           <div class="signup__block__container">
             <TheFormats class="format" />
             <div class="container__cash">
-              <div class="desc__logo">
-                <img src="@/assets/images/main/description.svg" alt="" />
-              </div>
-              <p class="">Трачу в месяц:</p>
-              <p class="">Доход в месяц:</p>
-              <div class="cash__border">
-                <input class="input" type="text" @click="isClicked = true" />
-                <span class="money__logo"> ₽ </span>
-              </div>
+              <IntervalRange class="interval__range"/>
             </div>
             <div class="horizontal__line"></div>
             <textarea
@@ -200,6 +194,9 @@ const isClicked = ref(false)
   animation-fill-mode: forwards;
   // animation-iteration-count: infinite;
 }
+.interval__range {
+  width: 300px;
+}
 @keyframes borderanimation {
   0% {
     border: 1px solid #2965ff;
@@ -255,6 +252,10 @@ const isClicked = ref(false)
     margin-bottom: 72px;
   }
   .container__cash {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 44px;
     width: 85.89vw;
   }
   .cash__border {

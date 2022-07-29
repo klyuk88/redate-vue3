@@ -320,7 +320,7 @@ const isClicked = ref(false)
             <span>*Необязательно для заполнения</span>
           </div>
         </div>
-        <button style="font-size: 24px">test</button>
+        <!-- <button style="font-size: 24px">test</button> -->
       </form>
     </div>
     <div class="webBtn">
@@ -424,6 +424,9 @@ const isClicked = ref(false)
 .signup__footer {
   // height: 225px;
   position: unset;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   span {
     font-weight: 600;
