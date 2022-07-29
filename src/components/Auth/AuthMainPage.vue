@@ -414,7 +414,7 @@ h1 {
     position: absolute;
     left: 0;
     top: 0;
-
+    animation-name: changeStartBackMobile;
     .content__container__auth {
       align-items: unset;
       .male__side {
@@ -520,6 +520,36 @@ h1 {
   }
   100% {
     background-color: #e9218d;
+  }
+}
+
+@keyframes changeStartBackMobile {
+  0% {
+    opacity: 1;
+    background: url(../../assets/images/main/shadowStage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 85vh;
+  }
+  50% {
+    opacity: 1;
+    background: url(../../assets/images/main/1stage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 85vh;
+  }
+  100% {
+    opacity: 1;
+    // background: url(../../assets/images/main/mobile__background__mainpage.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 85vh;
   }
 }
 </style>

@@ -153,13 +153,51 @@ function showPassRepeat() {
                   class="input"
                   type="text"
                   placeholder="Электронная почта"
+                  @focus=";(focusInputRepeat = false), (focusInput = false)"
                 />
-                <input class="input" type="password" placeholder="Пароль" />
-                <input
+                <div class="input__password middle">
+                  <input
+                    id="input"
+                    v-model="regForm.password"
+                    class="input pass"
+                    type="password"
+                    placeholder="Пароль"
+                    @focus=";(focusInput = true), (focusInputRepeat = false)"
+                  />
+                  <input
+                    id="eye"
+                    class="eye"
+                    type="checkbox"
+                    @click="showPass()"
+                  />
+                  <label for="eye" :class="{ visible: focusInput }"></label>
+                </div>
+                <div class="input__password last">
+                  <input
+                    id="inputRepeat"
+                    v-model="regForm.password2"
+                    class="input pass__repeat"
+                    type="password"
+                    placeholder="Повторите пароль"
+                    @focus=";(focusInputRepeat = true), (focusInput = false)"
+                  />
+                  <input
+                    id="eyeSecond"
+                    class="eye"
+                    type="checkbox"
+                    @click="showPassRepeat()"
+                  />
+                  <label
+                    for="eyeSecond"
+                    :class="{ visible: focusInputRepeat }"
+                  ></label>
+                </div>
+                <!-- <input class="input" type="password" placeholder="Пароль" /> -->
+                <!-- <input
                   class="input"
                   type="password"
                   placeholder="Повторите пароль"
-                />
+                /> -->
               </div>
             </div>
           </div>
@@ -183,7 +221,7 @@ function showPassRepeat() {
         </div>
         <div class="signup__footer web">
           <slot name="secondPhase"> </slot>
-          <button style="font-size: 24px">test</button>
+          <!-- <button style="font-size: 24px">test</button> -->
           <div class="signup__footer__menu">
             <p>Есть учетная запись?</p>
             <router-link to="/auth">
@@ -520,6 +558,9 @@ label {
 }
 
 @media (max-width: 1200px) {
+  .input__password {
+    background: none;
+  }
   .auth__back__btn {
     left: 3.33vw;
   }
@@ -561,7 +602,7 @@ label {
       width: 85.89vw;
       .input {
         width: 85.89vw;
-        margin-bottom: 4.1vw;
+        // margin-bottom: 4.1vw;
         &:focus {
           border: #ffffff 0.256vw solid;
         }
@@ -593,5 +634,11 @@ label {
       margin-bottom: 15.64vw;
     }
   }
+}
+.signup__block__container {
+  @extend .flex__center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 326px;
 }
 </style>
