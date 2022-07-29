@@ -5,8 +5,9 @@ const router = useRouter()
 
 router.push({ name: 'Registration', query: { stage: 'five' } })
 const femalePage = ref(false)
-const uploaded = ref(true)
+const uploaded = ref(false)
 const isClicked = ref(false)
+const randomPhoto = ref(true)
 </script>
 
 <template>
@@ -47,10 +48,13 @@ const isClicked = ref(false)
                 />
               </div>
             </div>
-            <p>
+            <p v-if="!uploaded">
               Вы можете добавите от 3 до 10 фотографий, после этогов одну из них
               Вы сможете поставить на свою аватарку. Остальные фотографии будут
               отображаться в Вашей гелерее.
+            </p>
+            <p v-if="uploaded">
+              Выберите фотографию, которая будет вашей аватаркой
             </p>
             <div class="btn__block web">
               <!-- <div class="upload__btn">Загрузить с компьютера</div> -->
@@ -60,20 +64,28 @@ const isClicked = ref(false)
               </div>
             </div>
             <div class="btn__block mobile">
-              <div class="btn__box">
-                <div class="upload">Загрузить</div>
-                <div class="make__photo">Сделать снимок</div>
+              <div class="btn__box" :class="{ replace : uploaded }">
+                <div v-if="!uploaded || randomPhoto" class="upload">Загрузить</div>
+                <div v-if="!uploaded || randomPhoto" class="make__photo">Сделать снимок</div>
+                <div v-if="uploaded" class="replace__photo">Очистить фотографии</div>
               </div>
-              <div v-if="!femalePage" class="random__btn">
+              <div v-if="!femalePage && !uploaded" class="random__btn">
                 Выбрать случайную
               </div>
               <div class="btn__continue web">Продолжить</div>
             </div>
           </div>
         </div>
-        <div v-if="!femalePage" class="btn__male__continue">Продолжить</div>
         <router-link to="/main">
-          <div v-if="uploaded" class="btn__mobile__continue">
+          <div v-if="!femalePage" class="btn__male__continue">Продолжить</div>
+        </router-link>
+        <router-link to="/main">
+          <div v-if="femalePage && uploaded" class="btn__male__continue">
+            Продолжить
+          </div>
+        </router-link>
+        <router-link to="/main">
+          <div v-if="uploaded || randomPhoto" class="btn__mobile__continue">
             Зарегистрироваться
           </div>
         </router-link>
@@ -83,6 +95,9 @@ const isClicked = ref(false)
 </template>
 
 <style lang="scss" scoped>
+.replace__photo {
+  display: none;
+}
 .btn__mobile__continue {
   display: none;
 }
@@ -280,6 +295,15 @@ p {
   }
 }
 @media (max-width: 1200px) {
+  .replace__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 213px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 11px;
+  }
   .btn__mobile__continue {
     display: flex;
     align-items: center;
@@ -364,6 +388,9 @@ p {
     align-items: center;
     width: 78.205vw;
     height: 8.974vw;
+    &.replace {
+      justify-content: center;
+    }
   }
   .upload {
     width: 32.3vw;
