@@ -3,7 +3,6 @@ import MobileBurger from '../MobileBurger.vue'
 import ProfilePhotoCarousel from './ProfilePhotoCarousel.vue'
 import { useAuthStore } from '@/stores/auth.js'
 import { ref } from 'vue'
-import ProfilePopupHideSends from './ProfilePopupHideSends.vue'
 
 const auth = useAuthStore()
 const logout = () => {
@@ -27,8 +26,6 @@ const statusDiamond = ref(true)
 // Мужской / Женский (У мужчины нет верификации)
 const female = ref(true)
 
-const showModalNew = ref(false)
-
 const showModal = ref(false)
 const notificationStatus = false
 const notificationStageTwo = false
@@ -41,10 +38,6 @@ const notificationStageEight = false
 </script>
 
 <template>
-  <ProfilePopupHideSends
-    v-if="showModalNew"
-    @hide-modal="showModalNew = false"
-  />
   <ProfilePhotoCarousel v-if="showModal" @hide-modal="showModal = false" />
   <div class="my__profile__page">
     <div class="left__side">
@@ -55,7 +48,7 @@ const notificationStageEight = false
         >
           <div class="header">
             <div class="nav__box">
-              <router-link to="/">
+              <router-link to="/main">
                 <div class="auth__back__btn">
                   <img
                     src="@/assets/images/main/auth__back__arrow.svg"
@@ -139,7 +132,7 @@ const notificationStageEight = false
                   />
                   <p>Ваш баланс: <span>60450₽</span></p>
                 </div>
-                <div class="btn" @click="showModalNew = true">Пополнить</div>
+                <div class="btn">Пополнить</div>
               </div>
               <div class="mobile__horizontal__line"></div>
               <div class="block">
