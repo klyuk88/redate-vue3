@@ -344,7 +344,7 @@ p {
   line-height: 153.5%;
   color: rgba(255, 255, 255, 0.33);
   outline: none;
-  background-color: rgb(32, 34, 43);
+  background: none;
   width: 326px;
   height: 60px;
   border: 1px solid rgba(255, 255, 255, 0.14);

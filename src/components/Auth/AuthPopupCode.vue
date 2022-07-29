@@ -189,7 +189,8 @@ const authMail = computed(() => {
   line-height: 153.5%;
   text-align: center;
   color: #ffffff;
-  background-color: rgb(32, 34, 43);
+  // background-color: rgb(32, 34, 43);
+  background: none;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
