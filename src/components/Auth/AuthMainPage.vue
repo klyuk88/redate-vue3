@@ -531,7 +531,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 85vh;
+    height: 70vh;
   }
   50% {
     opacity: 1;
@@ -540,16 +540,16 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 85vh;
+    height: 70vh;
   }
   100% {
     opacity: 1;
-    // background: url(../../assets/images/main/mobile__background__mainpage.png);
+    background: url(../../assets/images/main/mobile__background__mainpage.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 85vh;
+    height: 70vh;
   }
 }
 </style>

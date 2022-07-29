@@ -72,9 +72,11 @@ const isClicked = ref(false)
           </div>
         </div>
         <div v-if="!femalePage" class="btn__male__continue">Продолжить</div>
-        <div v-if="uploaded" class="btn__mobile__continue">
-          Зарегистрироваться
-        </div>
+        <router-link to="/main">
+          <div v-if="uploaded" class="btn__mobile__continue">
+            Зарегистрироваться
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
