@@ -151,12 +151,6 @@ export const useUserStore = defineStore('user', {
 
         this.setTokens(data)
 
-        // const registerStatusResponse = await API.get(
-        //   '/users/registration/status'
-        // )
-
-        // console.log(registerStatusResponse)
-
         this.tokens.isLoading = false
 
         router.push('/main')

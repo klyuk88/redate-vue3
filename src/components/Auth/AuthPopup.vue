@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useUserStore } from '@/stores/user.js'
 
 const userStore = useUserStore()
@@ -13,6 +13,9 @@ const eye = ref(true)
 const error = ref(false)
 const errorMessage = ref('')
 
+const emailError = ref(false)
+const passwordError = ref(false)
+
 const isClicked = ref(false)
 
 const focusInput = ref(false)
@@ -20,16 +23,20 @@ const focusInput = ref(false)
 const passwordInputType = computed(() => (eye.value ? 'password' : 'text'))
 
 const auth = async () => {
-  if (email.value.length < 5) {
-    errorMessage.value = 'Email' // TODO Узнать сообщение
+  if (!email.value.length) {
+    errorMessage.value = 'Введите email'
     error.value = true
+
+    emailError.value = true
 
     return
   }
 
-  if (password.value.length < 3) {
-    errorMessage.value = 'Password' // TODO Узнать сообщение
+  if (!password.value.length) {
+    errorMessage.value = 'Введите пароль'
     error.value = true
+
+    passwordError.value = true
 
     return
   }
@@ -43,6 +50,24 @@ const auth = async () => {
     return
   }
 }
+
+watch(email, () => {
+  if (email.value) {
+    emailError.value = false
+
+    error.value = false
+    errorMessage.value = ''
+  }
+})
+
+watch(password, () => {
+  if (password.value) {
+    passwordError.value = false
+
+    error.value = false
+    errorMessage.value = ''
+  }
+})
 
 const changeEye = () => (eye.value = !eye.value)
 </script>
@@ -72,6 +97,7 @@ const changeEye = () => (eye.value = !eye.value)
                   <input
                     v-model="email"
                     class="input"
+                    :class="{ error: emailError }"
                     type="text"
                     placeholder="Электронная почта"
                     @focus="focusInput = false"
@@ -81,6 +107,7 @@ const changeEye = () => (eye.value = !eye.value)
                       id="myInput"
                       v-model="password"
                       class="input pass"
+                      :class="{ error: passwordError }"
                       :type="passwordInputType"
                       placeholder="Пароль"
                       @focus="focusInput = true"
@@ -305,6 +332,9 @@ span {
       color: #ffffff;
       // border: none;
     }
+  }
+  &.error {
+    border-color: #2965ff;
   }
   &:focus {
     color: #ffffff;
