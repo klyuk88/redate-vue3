@@ -1,9 +1,10 @@
 <script setup>
-import { useAuthStore } from '@/stores/auth.js'
+import { useUserStore } from '@/stores/user.js'
 
-const auth = useAuthStore()
+const userStore = useUserStore()
+
 const logout = () => {
-  auth.logout()
+  userStore.logout()
 }
 </script>
 

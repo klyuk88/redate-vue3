@@ -1,13 +1,11 @@
 <script setup>
+import { ref } from 'vue'
+import { useUserStore } from '@/stores/user.js'
 import MobileBurger from '../MobileBurger.vue'
 import ProfilePhotoCarousel from './ProfilePhotoCarousel.vue'
-import { useAuthStore } from '@/stores/auth.js'
-import { ref } from 'vue'
 
-const auth = useAuthStore()
-const logout = () => {
-  auth.logout()
-}
+const userStore = useUserStore()
+
 // Ожидание верификации
 const verificationWait = ref(false)
 
@@ -35,6 +33,10 @@ const notificationStageFive = false
 const notificationStageSix = false
 const notificationStageSeven = false
 const notificationStageEight = false
+
+const logout = () => {
+  userStore.logout()
+}
 </script>
 
 <template>

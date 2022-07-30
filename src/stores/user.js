@@ -65,9 +65,7 @@ export const useUserStore = defineStore('user', {
       try {
         this.registrationStatus.isLoading = true
 
-        const registrationStatusResponse = await API.get(
-          '/users/registration/status'
-        )
+        const registrationStatusResponse = await API.get('/user/status')
 
         if (!registrationStatusResponse.status) {
           throw new Error(registrationStatusResponse.message)
@@ -76,11 +74,15 @@ export const useUserStore = defineStore('user', {
         this.registrationStatus.data = registrationStatusResponse.data
 
         this.registrationStatus.isLoading = false
+
+        return this.registrationStatus.data
       } catch (error) {
         this.registrationStatus.error.status = true
         this.registrationStatus.error.message = error.message
 
         this.registrationStatus.isLoading = false
+
+        return this.registrationStatus.error
       }
     },
 

@@ -23,9 +23,13 @@ router.beforeEach(async (to) => {
 
   if (authRequired && tokens === null) {
     return { name: 'StartPage' }
-  } else if (tokens !== null && PUBLIC_PAGES.includes(to.path)) {
+  }
+
+  if (PUBLIC_PAGES.includes(to.path) && tokens !== null) {
     return { name: 'Main' }
-  } else if (tokens !== null) {
+  }
+
+  if (tokens !== null) {
     const date = Date.now()
 
     const { expiredAt } = tokens.access
@@ -46,6 +50,26 @@ router.beforeEach(async (to) => {
       if (!updatedTokens.access?.token) {
         return { name: 'Auth' }
       }
+    }
+
+    const registrationStatus = await userStore.getRegistrationStatus()
+
+    if (!registrationStatus.acceptEmail) {
+      console.log('Redirect to accepting email')
+
+      return
+    }
+
+    if (!registrationStatus.verification) {
+      console.log('Check verification status')
+
+      return
+    }
+
+    if (!registrationStatus.inSearch) {
+      console.log('Redirect to profile and check user info')
+
+      return
     }
   }
 })

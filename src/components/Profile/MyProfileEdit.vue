@@ -1,11 +1,12 @@
 <script setup>
-import TheSelect from '../Form/TheSelect.vue'
-
-import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import { ref } from 'vue'
-import { useAuthStore } from '@/stores/auth.js'
+import { useUserStore } from '@/stores/user.js'
+import TheSelect from '../Form/TheSelect.vue'
+import SignupHobby from '@/components/Auth/SignupHobby.vue'
 import ProfilePopupDeleteAcc from './ProfilePopupDeleteAcc.vue'
 import IntervalRange from '../Form/IntervalRange.vue'
+
+const userStore = useUserStore()
 
 const modalDeleteAcc = ref(false)
 const passConfirm = ref(true)
@@ -13,9 +14,9 @@ const femaleVersion = ref(true)
 const focusInput = ref(false)
 const focusInputRepeat = ref(false)
 const modalHobbyVisible = ref(false)
-const auth = useAuthStore()
+
 const logout = () => {
-  auth.logout()
+  userStore.logout()
 }
 
 function showPass() {
@@ -24,6 +25,7 @@ function showPass() {
     e.type === 'password' ? (e.type = 'text') : (e.type = 'password')
   })
 }
+
 function showPassRepeat() {
   let inputType = document.querySelectorAll('#inputRepeat')
   inputType.forEach((e) => {
