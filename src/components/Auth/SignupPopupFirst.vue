@@ -1,6 +1,22 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+
+defineProps({
+  error: {
+    type: Boolean,
+    default: false,
+  },
+  errorMessage: {
+    type: String,
+    default: '',
+  },
+  // errorType: {
+  //   type: String,
+  //   default: '',
+  // },
+})
+
 const router = useRouter()
 router.push({ name: 'Registration', query: { stage: 'one' } })
 
@@ -8,36 +24,9 @@ const isClicked = ref(false)
 const focusInput = ref(false)
 const focusInputRepeat = ref(false)
 
-const regForm = reactive({
-  email: null,
-  password: null,
-  password2: null,
-})
-const submit = () => {
-  const isEmailExist = regForm.email && regForm.email.length
-  const isPasswordExist = regForm.password && regForm.password.length
-  const isPassword2Exist = regForm.password2 && regForm.password2.length
-
-  if (!isEmailExist) {
-    return alert('email')
-  }
-  if (!isPasswordExist) {
-    return alert('password')
-  }
-  if (!isPassword2Exist) {
-    return alert('password2')
-  }
-  if (
-    (regForm.password.length < 6 && isPasswordExist) ||
-    (regForm.password2.length < 6 && isPassword2Exist)
-  ) {
-    return alert('length < 6')
-  }
-  if (regForm.password !== regForm.password2) {
-    return alert('pass not matching')
-  }
-  return alert('done')
-}
+const email = ref('')
+const password = ref('')
+const repeatPassword = ref('')
 
 function showPass() {
   let inputType = document.querySelectorAll('#input')
@@ -68,7 +57,7 @@ function showPassRepeat() {
         <h1 class="auth__back__btn__title">Назад</h1>
       </div>
     </router-link>
-    <form @submit.prevent="submit()">
+    <div>
       <div class="central__content">
         <div class="signup__page">
           <div
@@ -87,7 +76,7 @@ function showPassRepeat() {
                 </div>
                 <div class="signup__input__box">
                   <input
-                    v-model="regForm.email"
+                    v-model="email"
                     class="input"
                     type="email"
                     placeholder="Электронная почта"
@@ -100,7 +89,7 @@ function showPassRepeat() {
                   <div class="input__password middle">
                     <input
                       id="input"
-                      v-model="regForm.password"
+                      v-model="password"
                       class="input pass"
                       type="password"
                       placeholder="Пароль"
@@ -117,7 +106,7 @@ function showPassRepeat() {
                   <div class="input__password last">
                     <input
                       id="inputRepeat"
-                      v-model="regForm.password2"
+                      v-model="repeatPassword"
                       class="input pass__repeat"
                       type="password"
                       placeholder="Повторите пароль"
@@ -134,7 +123,9 @@ function showPassRepeat() {
                       :class="{ visible: focusInputRepeat }"
                     ></label>
                   </div>
-                  <span class="error__message">{{}}</span>
+                  <span v-if="error" class="error__message">{{
+                    errorMessage
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -150,6 +141,7 @@ function showPassRepeat() {
               </div>
               <div class="signup__input__box">
                 <input
+                  v-model="email"
                   class="input"
                   type="text"
                   placeholder="Электронная почта"
@@ -158,7 +150,7 @@ function showPassRepeat() {
                 <div class="input__password middle">
                   <input
                     id="input"
-                    v-model="regForm.password"
+                    v-model="password"
                     class="input pass"
                     type="password"
                     placeholder="Пароль"
@@ -175,7 +167,7 @@ function showPassRepeat() {
                 <div class="input__password last">
                   <input
                     id="inputRepeat"
-                    v-model="regForm.password2"
+                    v-model="repeatPassword"
                     class="input pass__repeat"
                     type="password"
                     placeholder="Повторите пароль"
@@ -202,7 +194,12 @@ function showPassRepeat() {
             </div>
           </div>
           <div class="signup__footer mobile">
-            <slot name="secondPhaseMobile"></slot>
+            <slot
+              name="secondPhaseMobile"
+              :email="email"
+              :password="password"
+              :repeat-password="repeatPassword"
+            ></slot>
             <div class="signup__footer__menu">
               <p>Есть учетная запись?</p>
               <router-link to="/auth">
@@ -220,7 +217,12 @@ function showPassRepeat() {
           </div>
         </div>
         <div class="signup__footer web">
-          <slot name="secondPhase"> </slot>
+          <slot
+            name="secondPhase"
+            :email="email"
+            :password="password"
+            :repeat-password="repeatPassword"
+          ></slot>
           <!-- <button style="font-size: 24px">test</button> -->
           <div class="signup__footer__menu">
             <p>Есть учетная запись?</p>
@@ -238,7 +240,7 @@ function showPassRepeat() {
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </template>
 

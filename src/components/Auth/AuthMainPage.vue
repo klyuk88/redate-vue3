@@ -18,6 +18,10 @@ const chooseMaleMobile = () => {
 const chooseFemaleMobile = () => {
   return (femaleMobileActive.value = !femaleMobileActive.value)
 }
+
+const setSex = (sex) => {
+  localStorage.setItem('sex', sex)
+}
 </script>
 
 <template>
@@ -46,7 +50,7 @@ const chooseFemaleMobile = () => {
     />
     <div class="content__container__auth">
       <div class="male__side">
-        <router-link to="/registration">
+        <router-link to="/registration" @click="setSex(1)">
           <div
             class="btn"
             @mouseenter="changeBackMale()"
@@ -76,12 +80,12 @@ const chooseFemaleMobile = () => {
           <div class="mobile__btn__block">
             <h1>Абсолютно новый формат знакомств</h1>
             <div class="btn__box">
-              <router-link to="/registration">
+              <router-link to="/registration" @click="setSex(1)">
                 <div class="mobile__btn male" @click="chooseMaleMobile()">
                   Мужчина
                 </div>
               </router-link>
-              <router-link to="/registration">
+              <router-link to="/registration" @click="setSex(2)">
                 <div
                   class="mobile__btn female"
                   :class="{ btnMale: maleMobileActive }"
@@ -101,6 +105,7 @@ const chooseFemaleMobile = () => {
             class="btn"
             @mouseenter="changeBackFemale()"
             @mouseleave="changeBackFemale()"
+            @click="setSex(2)"
           >
             ДЕВУШКА
           </div>

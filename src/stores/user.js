@@ -166,6 +166,44 @@ export const useUserStore = defineStore('user', {
       }
     },
 
+    async registration(email, password, sex) {
+      try {
+        this.tokens.isLoading = true
+
+        const encryptedPassword = SHA256(password).toString()
+
+        const registrationRequestData = {
+          email,
+          password: encryptedPassword,
+          sex,
+        }
+
+        const registrationResponse = await API.post(
+          '/auth/registration',
+          registrationRequestData
+        )
+
+        if (!registrationResponse.status) {
+          throw new Error(registrationResponse.message)
+        }
+
+        const { data } = registrationResponse
+
+        this.setTokens(data)
+
+        this.tokens.isLoading = false
+
+        return { status: false, message: 'ok' }
+      } catch (error) {
+        this.tokens.error.status = true
+        this.tokens.error.message = error.message
+
+        this.tokens.isLoading = false
+
+        return this.tokens.error
+      }
+    },
+
     async updateTokens() {
       try {
         this.tokens.isLoading = true
