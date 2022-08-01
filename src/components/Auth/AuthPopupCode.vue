@@ -17,6 +17,7 @@ const authMail = computed(() => {
   }
   return 'test'
 })
+
 </script>
 
 <template>
@@ -38,16 +39,17 @@ const authMail = computed(() => {
             </div>
 
             <div class="signup__block__numbers">
-              <input
-                type="number"
-                max="1"
-                class="block__item"
-                maxlength="1"
-                autofocus
-              />
-              <input type="number" max="9" class="block__item" maxlength="1" />
-              <input type="number" max="9" class="block__item" maxlength="1" />
-              <input type="number" max="9" class="block__item" maxlength="1" />
+                <input
+                  type="text"
+                  class="block__item"
+                  maxlength="1"
+                  autofocus
+                />
+                <input type="text" class="block__item" maxlength="1" />
+                <input type="text" class="block__item" maxlength="1" />
+                <input type="text" class="block__item" maxlength="1" />
+                <input type="text" class="block__item" maxlength="1" />
+                <input type="text" class="block__item" maxlength="1" />
             </div>
             <p class="error__message">Неправильно введен код</p>
           </div>
@@ -69,16 +71,12 @@ const authMail = computed(() => {
 
           <div class="mobile__inputs">
             <div class="signup__block__numbers">
-              <input
-                type="number"
-                max="9"
-                class="block__item"
-                maxlength="1"
-                autofocus
-              />
-              <input type="number" max="9" class="block__item" maxlength="1" />
-              <input type="number" max="9" class="block__item" maxlength="1" />
-              <input type="number" max="9" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" autofocus />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
             </div>
             <p class="error__message">Неправильно введен код</p>
           </div>
@@ -88,7 +86,7 @@ const authMail = computed(() => {
           <slot name="toNewPasswordMobile"></slot>
           <p>
             Вспомнили пароль?
-<slot name="backToAuthSpan"></slot>
+            <slot name="backToAuthSpan"></slot>
           </p>
         </div>
       </div>
@@ -138,7 +136,7 @@ const authMail = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 312px;
+  width: 375px;
   height: 60px;
   margin-bottom: 16px;
 }
@@ -258,7 +256,8 @@ p {
       height: 15.384vw;
     }
     .signup__block__numbers {
-      width: 85.89vw;
+      // width: 85.89vw;
+      width: 375px;
       margin-bottom: 48px;
     }
   }
@@ -269,8 +268,8 @@ p {
   .signup__page {
   }
   .block__item {
-    width: 18.461vw;
-    height: 18.461vw;
+    // width: 18.461vw;
+    // height: 18.461vw;
   }
   .signup__footer__box {
     margin-bottom: 261px;

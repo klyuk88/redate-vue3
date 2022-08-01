@@ -1790,6 +1790,7 @@ const logout = () => {
             justify-content: end;
             background: url(../../assets/images/profile_edit_logo/mobile__avatar.png);
             background-size: contain;
+            background-repeat: no-repeat;
             margin-bottom: 5.128vw;
             .photo__gallery {
               width: 85.89vw;
