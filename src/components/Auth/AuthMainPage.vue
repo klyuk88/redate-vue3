@@ -536,7 +536,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 70vh;
+    height:100%;
   }
   50% {
     opacity: 1;
@@ -545,16 +545,46 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 70vh;
+    height:100%;
   }
   100% {
     opacity: 1;
-    background: url(../../assets/images/main/mobile__background__mainpage.png);
+    background: url(../../assets/images/test/Group3825.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 70vh;
+    height:100%;
   }
 }
+// @keyframes changeStartBackMobile {
+//   0% {
+//     opacity: 1;
+//     background: url(../../assets/images/main/male.png);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     transform: translate(0,  );
+//     width: 100%;
+//     height: 70vh;
+//   }
+//   50% {
+//     opacity: 1;
+//     background: url(../../assets/images/main/male.png);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     width: 100%;
+//     height: 70vh;
+//   }
+//   100% {
+//     opacity: 1;
+//     background: url(../../assets/images/test/male.png);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     width: 100%;
+//     height: 70vh;
+//   }
+// }
 </style>

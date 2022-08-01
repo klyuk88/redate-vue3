@@ -1693,6 +1693,7 @@ const logout = () => {
     }
     margin: 0;
     .nav__box {
+      display: flex;
       h1 {
         font-size: 3.589vw;
       }
@@ -1715,6 +1716,12 @@ const logout = () => {
           font-size: 15px;
           line-height: 153.5%;
           color: rgba(255, 255, 255, 0.45);
+          span {
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 153.5%;
+          }
         }
       }
       .auth__back__btn {
@@ -1732,6 +1739,7 @@ const logout = () => {
       }
     }
   }
+  
   .route__to__edit {
     display: flex;
     align-items: center;
