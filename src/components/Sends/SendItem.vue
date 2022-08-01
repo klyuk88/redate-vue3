@@ -35,11 +35,11 @@ defineProps({
 
       <div class="message-block">
         <div class="status-block">
-          <img
+          <!-- <img
             src="@/assets/images/status-icon.svg"
             alt=""
             class="status-icon"
-          />
+          /> -->
           <p class="status-text">Серьзные отношения</p>
         </div>
         <p class="message">
@@ -109,7 +109,7 @@ defineProps({
       .status-text {
         color: #3e74ff;
         font-size: 14px;
-        margin-left: 6px;
+        // margin-left: 6px;
       }
     }
     .message {
