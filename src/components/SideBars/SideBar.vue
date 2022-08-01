@@ -9,7 +9,7 @@
         </router-link>
 
         <div class="menu-item">
-          <p class="balance">$6045</p>
+          <p class="balance">6450₽</p>
         </div>
       </div>
       <div class="line"></div>
