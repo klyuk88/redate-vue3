@@ -52,7 +52,8 @@
       </nav>
     </div>
     <div class="logo">
-      <span>ReDate</span>
+      <!-- <span>ReDate</span> -->
+      <img src="@/assets/images/side-bar-logo.svg" alt="logo">
     </div>
   </aside>
 </template>
@@ -113,16 +114,19 @@
   background-color: rgba(255,255,255,0.14 )
   margin: 0 auto
   margin-bottom: 12px
+.side-bar .logo img
+  width: 50px
+  height: auto
 
-.side-bar .logo
-  font-size: 13px
-  font-weight: 400
-  display: flex
-  align-items: center
-  justify-content: center
-  width: 56px
-  height: 20px
-  background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%)
-  border-radius: 8px
-  color: #fff
+// .side-bar .logo
+//   font-size: 13px
+//   font-weight: 400
+//   display: flex
+//   align-items: center
+//   justify-content: center
+//   width: 56px
+//   height: 20px
+//   background: linear-gradient(137.15deg, #2965FF 0%, #2E66F5 99.89%)
+//   border-radius: 8px
+//   color: #fff
 </style>
