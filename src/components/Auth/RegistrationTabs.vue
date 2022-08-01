@@ -303,7 +303,6 @@ const registration = async (props) => {
         <BigButton
           title="Загрузить с компьютера"
           style="width: 228px; height: 35px"
-          @click="nameComponent = 'Six'"
         />
       </template>
       <template #backPhaseFourthMobile>

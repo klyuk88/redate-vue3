@@ -86,7 +86,10 @@ const authMail = computed(() => {
         <div class="signup__footer__box">
           <div class="signup__btn">Подтвердить</div>
           <slot name="toNewPasswordMobile"></slot>
-          <p>Вспомнили пароль? <span> Войти</span></p>
+          <p>
+            Вспомнили пароль?
+<slot name="backToAuthSpan"></slot>
+          </p>
         </div>
       </div>
       <div class="signup__footer__box web">
