@@ -328,7 +328,7 @@ p {
   flex-direction: column;
   width: 314px;
   margin-bottom: 32px;
-  margin-top: 48px;
+  // margin-top: 48px;
   p {
     margin: 0;
     margin-top: 8px;
@@ -397,7 +397,7 @@ p {
     margin-bottom: 16px;
   }
   &.last {
-    margin-bottom: 32px;
+    margin-bottom: 0px;
   }
 }
 .error__message {
@@ -408,7 +408,8 @@ p {
   align-items: center;
   text-align: center;
   color: #2b66fb;
-  margin-bottom: 48px;
+  margin-top: 12px;
+  // margin-bottom: 48px;
 }
 .signup__block {
   position: relative;
@@ -462,6 +463,7 @@ label {
   flex-direction: column;
   justify-content: space-between;
   width: 326px;
+  padding: 48px;
 }
 
 .signup__input__box {
@@ -507,7 +509,7 @@ label {
     margin: 0;
     text-align: center;
   }
-  span {
+  a {
     font-size: 12px;
     line-height: 132.5%;
     color: #2b66fb;
