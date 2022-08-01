@@ -13,5 +13,6 @@ import RegistrationTabs from '../components/Auth/RegistrationTabs.vue'
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 </style>
