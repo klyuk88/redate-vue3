@@ -62,9 +62,9 @@ import BigButton from '../Form/BigButton.vue'
       <div class="footer__age__desc">
         <p>
           Продолжая, вы принимаете
-          <span> Пользовательское соглашение</span>
+          <span><a href="/rules.pdf" target="_blank" rel="noopener noreferrer">Пользовательское соглашение</a> </span>
           и
-          <span>Политику конфиденциальности</span>
+          <span><a href="/politic.pdf" target="_blank" rel="noopener noreferrer">Политику конфиденциальности</a></span>
         </p>
       </div>
     </div>
