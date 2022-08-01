@@ -4,25 +4,27 @@
 
 <template>
   <div class="backgound__codeconfirm">
-  <slot name="backPhaseOne"></slot>
+    <slot name="backPhaseOne"></slot>
     <div class="container__codeconfirm">
-      <div class="content">
-        <h1>Введите код</h1>
-        <p>
-          Мы отправили вам код на электронную почту, введите его для продожления
-          регистрации.
-        </p>
-        <div class="input__box">
-          <input type="text" maxlength="1" />
-          <input type="text" maxlength="1" />
-          <input type="text" maxlength="1" />
-          <input type="text" maxlength="1" />
-          <input type="text" maxlength="1" />
-          <input type="text" maxlength="1" />
+      <form name="verifyForm">
+        <div class="content">
+          <h1>Введите код</h1>
+          <p>
+            Мы отправили вам код на электронную почту, введите его для
+            продожления регистрации.
+          </p>
+          <div class="input__box">
+            <input type="text" name="n1" maxlength="1" tabindex="1" autofocus/>
+            <input type="text" name="n2" maxlength="1" tabindex="2"/>
+            <input type="text" name="n3" maxlength="1" tabindex="3"/>
+            <input type="text" name="n4" maxlength="1" tabindex="4"/>
+            <input type="text" name="n5" maxlength="1" tabindex="5"/>
+            <input type="text" name="n6" maxlength="1" tabindex="6"/>
+          </div>
+          <!-- <span v-if="error" class="error__message">{{ errorMessage }}</span> -->
         </div>
-        <!-- <span v-if="error" class="error__message">{{ errorMessage }}</span> -->
-      </div>
-      <slot name='thirdPhase'></slot>
+        <slot name="thirdPhase"></slot>
+      </form>
     </div>
   </div>
 </template>
@@ -34,6 +36,11 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 146px;
+    form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
     .content {
       margin: 362px 0 169px 0;
       display: flex;
@@ -88,21 +95,21 @@
   }
 }
 @media (max-width: 1200px) {
-.backgound__codeconfirm {
-  .container__codeconfirm {
-    margin-bottom: 306px;
-    .content {
-      border: none;
-      background: none;
-      box-shadow: none;
-      margin: 166px 0 48px 0;
-      padding: 0;
+  .backgound__codeconfirm {
+    .container__codeconfirm {
+      margin-bottom: 306px;
+      .content {
+        border: none;
+        background: none;
+        box-shadow: none;
+        margin: 166px 0 48px 0;
+        padding: 0;
 
-      .input__box {
-        width: 375px;
+        .input__box {
+          width: 375px;
+        }
       }
-    };
+    }
   }
-}
 }
 </style>

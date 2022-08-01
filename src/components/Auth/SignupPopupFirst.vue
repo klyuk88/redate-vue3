@@ -80,6 +80,7 @@ function showPassRepeat() {
                     class="input"
                     type="email"
                     placeholder="Электронная почта"
+                    tabindex="1"
                     @focus="
                       ;(isClicked = true),
                         (focusInputRepeat = false),
@@ -93,6 +94,7 @@ function showPassRepeat() {
                       class="input pass"
                       type="password"
                       placeholder="Пароль"
+                      tabindex="2"
                       @focus=";(focusInput = true), (focusInputRepeat = false)"
                     />
                     <input
@@ -110,6 +112,7 @@ function showPassRepeat() {
                       class="input pass__repeat"
                       type="password"
                       placeholder="Повторите пароль"
+                      tabindex="3"
                       @focus=";(focusInputRepeat = true), (focusInput = false)"
                     />
                     <input
