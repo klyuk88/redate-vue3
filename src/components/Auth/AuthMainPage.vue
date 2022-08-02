@@ -536,7 +536,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height:100%;
+    height: 100%;
   }
   50% {
     opacity: 1;
@@ -545,7 +545,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height:100%;
+    height: 100%;
   }
   100% {
     opacity: 1;
@@ -554,7 +554,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height:100%;
+    height: 100%;
   }
 }
 // @keyframes changeStartBackMobile {

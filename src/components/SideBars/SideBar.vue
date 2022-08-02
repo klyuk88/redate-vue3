@@ -53,7 +53,7 @@
     </div>
     <div class="logo">
       <!-- <span>ReDate</span> -->
-      <img src="@/assets/images/side-bar-logo.svg" alt="logo">
+      <img src="@/assets/images/side-bar-logo.svg" alt="logo" />
     </div>
   </aside>
 </template>

@@ -14,12 +14,12 @@
             продожления регистрации.
           </p>
           <div class="input__box">
-            <input type="text" name="n1" maxlength="1" tabindex="1" autofocus/>
-            <input type="text" name="n2" maxlength="1" tabindex="2"/>
-            <input type="text" name="n3" maxlength="1" tabindex="3"/>
-            <input type="text" name="n4" maxlength="1" tabindex="4"/>
-            <input type="text" name="n5" maxlength="1" tabindex="5"/>
-            <input type="text" name="n6" maxlength="1" tabindex="6"/>
+            <input type="text" name="n1" maxlength="1" tabindex="1" autofocus />
+            <input type="text" name="n2" maxlength="1" tabindex="2" />
+            <input type="text" name="n3" maxlength="1" tabindex="3" />
+            <input type="text" name="n4" maxlength="1" tabindex="4" />
+            <input type="text" name="n5" maxlength="1" tabindex="5" />
+            <input type="text" name="n6" maxlength="1" tabindex="6" />
           </div>
           <!-- <span v-if="error" class="error__message">{{ errorMessage }}</span> -->
         </div>

@@ -1739,7 +1739,7 @@ const logout = () => {
       }
     }
   }
-  
+
   .route__to__edit {
     display: flex;
     align-items: center;

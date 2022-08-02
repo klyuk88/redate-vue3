@@ -31,7 +31,7 @@ const isClicked = ref(false)
           <div class="signup__block__container">
             <TheFormats class="format" />
             <div class="container__cash">
-              <IntervalRange class="interval__range"/>
+              <IntervalRange class="interval__range" />
             </div>
             <div class="horizontal__line"></div>
             <textarea

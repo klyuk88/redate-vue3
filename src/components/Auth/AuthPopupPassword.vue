@@ -272,5 +272,4 @@ label {
     height: 15.38vw;
   }
 }
-
 </style>

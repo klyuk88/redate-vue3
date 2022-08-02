@@ -17,7 +17,6 @@ const authMail = computed(() => {
   }
   return 'test'
 })
-
 </script>
 
 <template>
@@ -39,17 +38,12 @@ const authMail = computed(() => {
             </div>
 
             <div class="signup__block__numbers">
-                <input
-                  type="text"
-                  class="block__item"
-                  maxlength="1"
-                  autofocus
-                />
-                <input type="text" class="block__item" maxlength="1" />
-                <input type="text" class="block__item" maxlength="1" />
-                <input type="text" class="block__item" maxlength="1" />
-                <input type="text" class="block__item" maxlength="1" />
-                <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" autofocus />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
+              <input type="text" class="block__item" maxlength="1" />
             </div>
             <p class="error__message">Неправильно введен код</p>
           </div>

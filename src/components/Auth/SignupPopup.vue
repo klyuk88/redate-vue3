@@ -33,9 +33,17 @@
       <div class="footer__age__desc">
         <p>
           Продолжая, вы принимаете
-          <span><a href="/rules.pdf" target="_blank" rel="noopener noreferrer">Пользовательское соглашение</a> </span>
+          <span
+            ><a href="/rules.pdf" target="_blank" rel="noopener noreferrer"
+              >Пользовательское соглашение</a
+            >
+          </span>
           и
-          <span><a href="/politic.pdf" target="_blank" rel="noopener noreferrer">Политику конфиденциальности</a></span>
+          <span
+            ><a href="/politic.pdf" target="_blank" rel="noopener noreferrer"
+              >Политику конфиденциальности</a
+            ></span
+          >
         </p>
       </div>
     </div>
