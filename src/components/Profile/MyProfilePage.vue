@@ -51,7 +51,7 @@ const logout = () => {
           <div class="header">
             <div class="nav__box">
               <router-link to="/main">
-                <div class="auth__back__btn">
+                <div class="auth__back__btn__profile">
                   <img
                     src="@/assets/images/main/auth__back__arrow.svg"
                     alt=""
@@ -153,7 +153,7 @@ const logout = () => {
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">7 дней</div>
-                    <div class="price">3.000 ₽</div>
+                    <div class="price">2.800 ₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -164,7 +164,7 @@ const logout = () => {
                 >
                   <div class="inner__price__box">
                     <div class="days">14 дней</div>
-                    <div class="price">5.500 ₽</div>
+                    <div class="price">5.000 ₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось <span>3</span> дня</p>
                   </div>
@@ -172,7 +172,7 @@ const logout = () => {
                 <div class="item__price">
                   <div class="inner__price__box">
                     <div class="days">30 дней</div>
-                    <div class="price">11.000 ₽</div>
+                    <div class="price">8.400 ₽</div>
                     <div class="progress__bar"></div>
                     <p>Осталось<span> 3 </span>дня</p>
                   </div>
@@ -1154,6 +1154,7 @@ const logout = () => {
               @extend .flex__center;
               width: 114px;
               height: 104px;
+              
             }
             p {
               color: rgba(255, 255, 255, 0.6);
@@ -1677,6 +1678,7 @@ const logout = () => {
   }
 }
 @media (max-width: 1200px) {
+  
   .mobile__notification {
     display: flex;
   }
@@ -1724,19 +1726,7 @@ const logout = () => {
           }
         }
       }
-      .auth__back__btn {
-        align-items: center;
-        display: flex;
-        img {
-          width: 6.15vw;
-          height: 6.15vw;
-        }
-        h1 {
-          font-weight: 700;
-          font-size: 3.589vw;
-          line-height: 132.5%;
-        }
-      }
+
     }
   }
   
@@ -1779,6 +1769,10 @@ const logout = () => {
             width: 342px;
             margin-top: 44px;
             margin-bottom: 24px;
+            .auth__back__btn__profile {
+              display: flex;
+              align-items: center;
+            }
           }
           h1 {
             &.web {
@@ -1910,15 +1904,17 @@ const logout = () => {
                   .progress__bar {
                     width: 20.51vw;
                     height: 5.128vw;
+                    margin: 4px;
                   }
                   .price {
                     display: none;
                   }
                   p {
                     font-weight: 600;
-                    font-size: 3.076vw;
+                    font-size: 12px;
                     line-height: 132.5%;
                     color: rgba(255, 255, 255, 0.6);
+
                   }
                 }
                 .days {
@@ -1930,7 +1926,7 @@ const logout = () => {
                   font-weight: 600;
                   font-size: 12px;
                   line-height: 132.5%;
-                  width: 20.51vw;
+                  width: 24.7vw;
                   height: 8.205vw;
                   display: flex;
                   align-items: center;
@@ -1992,6 +1988,7 @@ const logout = () => {
                   font-size: 3.589vw;
                   line-height: 132.5%;
                   height: unset;
+                  color: #ffffff;
                 }
               }
             }

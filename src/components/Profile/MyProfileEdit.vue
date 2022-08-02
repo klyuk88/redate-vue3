@@ -43,7 +43,7 @@ function showPassRepeat() {
     v-if="modalHobbyVisible"
     @hide-modal-hobby="modalHobbyVisible = false"
   />
-  <div class="background">
+  <div class="background__edit">
     <router-link to="/account/:user">
       <div class="auth__back__btn">
         <img src="@/assets/images/main/auth__back__arrow.svg" alt="" />
@@ -642,7 +642,7 @@ function showPassRepeat() {
         />
         <label for="section5" class="accordion__label">Трачу в месяц</label>
         <div class="accordion__content">
-          <div class="cash__block">
+          <!-- <div class="cash__block">
             <div class="cash__left__side">
               <img src="../../assets/images/main/description.svg" alt="" />
               <p>Трачу в месяц:</p>
@@ -653,7 +653,8 @@ function showPassRepeat() {
                 <p>$</p>
               </div>
             </div>
-          </div>
+          </div> -->
+          <IntervalRange class="interval__range__mobile"/>
         </div>
       </div>
       <div class="mobile__dropdown">
@@ -860,7 +861,7 @@ function showPassRepeat() {
   justify-content: center;
   align-items: center;
 }
-.background {
+.background__edit {
   width: 100%;
   height: 100%;
   background: none;
@@ -917,8 +918,8 @@ label {
   top: -42px;
 }
 .container {
-  width: 1056px;
-  height: 2205px;
+  // width: 1056px;
+  // height: 2205px;
   background: rgba(196, 196, 196, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.33);
   border-top: none;
@@ -1490,6 +1491,10 @@ label {
 }
 
 @media (max-width: 1200px) {
+  .interval__range__mobile {
+    width: 295px;
+    margin: 24px 0 44px 0;
+  }
   .auth__back__btn {
     display: none;
   }
@@ -1756,7 +1761,7 @@ label {
           border-radius: 2.82vw;
           .choose__item {
             font-weight: 600;
-            font-size: 3.8461vw;
+            font-size: 3.5vw;
             line-height: 153.5%;
             color: rgba(255, 255, 255, 0.33);
             display: flex;
@@ -1766,9 +1771,9 @@ label {
             &.line {
               border-left: 0.256vw solid rgba(255, 255, 255, 0.33);
               border-right: 0.256vw solid rgba(255, 255, 255, 0.33);
-              width: 31.538vw;
-              margin-left: 3.076vw;
-              margin-right: 3.076vw;
+              width: 29vw;
+              margin-left: 1.5vw;
+              margin-right: 1.5vw;
             }
           }
         }
@@ -1864,6 +1869,7 @@ label {
       cursor: pointer;
       position: relative;
       transition: background 0.1s;
+      right: 0;
     }
 
     .accordion__label::after {
