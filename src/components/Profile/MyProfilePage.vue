@@ -1154,7 +1154,6 @@ const logout = () => {
               @extend .flex__center;
               width: 114px;
               height: 104px;
-              
             }
             p {
               color: rgba(255, 255, 255, 0.6);
@@ -1678,7 +1677,6 @@ const logout = () => {
   }
 }
 @media (max-width: 1200px) {
-  
   .mobile__notification {
     display: flex;
   }
@@ -1726,7 +1724,6 @@ const logout = () => {
           }
         }
       }
-
     }
   }
 
@@ -1914,7 +1911,6 @@ const logout = () => {
                     font-size: 12px;
                     line-height: 132.5%;
                     color: rgba(255, 255, 255, 0.6);
-
                   }
                 }
                 .days {

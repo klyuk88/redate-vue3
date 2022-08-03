@@ -654,7 +654,7 @@ function showPassRepeat() {
               </div>
             </div>
           </div> -->
-          <IntervalRange class="interval__range__mobile"/>
+          <IntervalRange class="interval__range__mobile" />
         </div>
       </div>
       <div class="mobile__dropdown">

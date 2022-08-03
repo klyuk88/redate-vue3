@@ -9,6 +9,6 @@
   display: flex;
   align-items: center;
   margin: 0 auto;
-height: unset;
+  height: unset;
 }
 </style>
