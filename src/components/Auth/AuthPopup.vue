@@ -1,6 +1,9 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user.js'
+
+const router = useRouter()
 
 const userStore = useUserStore()
 
@@ -49,6 +52,8 @@ const auth = async () => {
 
     return
   }
+
+  router.push('/main')
 }
 
 watch(email, () => {

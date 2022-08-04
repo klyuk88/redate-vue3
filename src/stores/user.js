@@ -37,6 +37,14 @@ export const useUserStore = defineStore('user', {
       },
       isLoading: false,
     },
+    emailStatus: {
+      data: null,
+      error: {
+        status: false,
+        message: '',
+      },
+      isLoading: false,
+    },
   }),
 
   actions: {
@@ -149,13 +157,15 @@ export const useUserStore = defineStore('user', {
           throw new Error(authResponse.message)
         }
 
+        localStorage.setItem('email', email)
+
         const { data } = authResponse
 
         this.setTokens(data)
 
         this.tokens.isLoading = false
 
-        router.push('/main')
+        return { status: false, message: '' }
       } catch (error) {
         this.tokens.error.status = true
         this.tokens.error.message = error.message
@@ -186,6 +196,8 @@ export const useUserStore = defineStore('user', {
         if (!registrationResponse.status) {
           throw new Error(registrationResponse.message)
         }
+
+        localStorage.setItem('email', email)
 
         const { data } = registrationResponse
 
@@ -231,6 +243,39 @@ export const useUserStore = defineStore('user', {
         this.tokens.isLoading = false
 
         return this.tokens.error
+      }
+    },
+
+    async acceptEmail(email, code) {
+      try {
+        this.emailStatus.isLoading = true
+
+        const acceptEmailRequestData = {
+          email,
+          code,
+        }
+
+        const acceptEmailResponse = await API.post(
+          '/user/email/accept',
+          acceptEmailRequestData
+        )
+
+        if (!acceptEmailResponse.status) {
+          throw new Error(acceptEmailResponse.message)
+        }
+
+        this.emailStatus.data = acceptEmailResponse.data
+
+        this.emailStatus.isLoading = false
+
+        return this.emailStatus.data
+      } catch (error) {
+        this.emailStatus.error.status = true
+        this.emailStatus.error.message = error.message
+
+        this.emailStatus.isLoading = false
+
+        return this.emailStatus.error
       }
     },
 

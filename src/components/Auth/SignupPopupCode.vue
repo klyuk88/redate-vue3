@@ -1,12 +1,62 @@
-<!-- <script setup>
+<script setup>
+defineProps({
+  error: {
+    type: Boolean,
+    default: false,
+  },
+  errorMessage: {
+    type: String,
+    default: '',
+  },
+})
 
-</script> -->
+let code = Array(6)
+let dataFromPaste
+
+const handleInput = (event) => {
+  const inputType = event?.inputType
+  let currentActiveElement = event?.target
+
+  if (inputType === 'insertText') {
+    currentActiveElement.nextElementSibling?.focus()
+  }
+
+  if (inputType === 'insertFromPaste' && dataFromPaste) {
+    for (const num of dataFromPaste) {
+      let id = parseInt(currentActiveElement.id.split('_')[1])
+
+      currentActiveElement.value = num
+
+      code[id] = num
+
+      if (currentActiveElement.nextElementSibling) {
+        currentActiveElement = currentActiveElement.nextElementSibling
+        currentActiveElement.nextElementSibling?.focus()
+      }
+    }
+  }
+}
+
+const handleDelete = (event) => {
+  let value = event?.target?.value
+
+  let currentActiveElement = event?.target
+
+  if (!value) {
+    currentActiveElement?.previousElementSibling?.focus()
+  }
+}
+
+const onPaste = (event) => {
+  dataFromPaste = event?.clipboardData?.getData('text').trim().split('')
+}
+</script>
 
 <template>
   <div class="backgound__codeconfirm">
     <slot name="backPhaseOne"></slot>
     <div class="container__codeconfirm">
-      <form name="verifyForm">
+      <div class="form">
         <div class="content">
           <h1>Введите код</h1>
           <p>
@@ -14,17 +64,22 @@
             продожления регистрации.
           </p>
           <div class="input__box">
-            <input type="text" name="n1" maxlength="1" tabindex="1" autofocus />
-            <input type="text" name="n2" maxlength="1" tabindex="2" />
-            <input type="text" name="n3" maxlength="1" tabindex="3" />
-            <input type="text" name="n4" maxlength="1" tabindex="4" />
-            <input type="text" name="n5" maxlength="1" tabindex="5" />
-            <input type="text" name="n6" maxlength="1" tabindex="6" />
+            <input
+              v-for="(n, index) in code"
+              :id="'input_' + index"
+              :key="index"
+              v-model="code[index]"
+              type="text"
+              maxlength="1"
+              @input="handleInput($event)"
+              @keydown.delete="handleDelete($event)"
+              @paste="onPaste($event)"
+            />
           </div>
-          <!-- <span v-if="error" class="error__message">{{ errorMessage }}</span> -->
+          <span v-if="error" class="error__message">{{ errorMessage }}</span>
         </div>
-        <slot name="thirdPhase"></slot>
-      </form>
+        <slot name="thirdPhase" :code="code"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +91,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 146px;
-    form {
+    .form {
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -111,5 +166,29 @@
       }
     }
   }
+}
+
+.error__message {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 132.5%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2b66fb;
+  margin-top: 12px;
+  // margin-bottom: 48px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 </style>

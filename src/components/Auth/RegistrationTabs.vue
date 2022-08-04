@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user.js'
 import SignupPopupFirst from './SignupPopupFirst.vue'
 import SignupPopupSecond from './SignupPopupSecond.vue'
@@ -11,9 +12,19 @@ import SignupPopup from './SignupPopup.vue'
 import SignupPopupDenied from './SignupPopupDenied.vue'
 import SignupPopupCode from './SignupPopupCode.vue'
 
+const router = useRouter()
+
+const query = router?.currentRoute?.value?.query?.stage
+
+let stage = ''
+
+if (query) {
+  stage = `${query[0].toUpperCase()}${query.slice(1)}`
+}
+
 const userStore = useUserStore()
 
-const nameComponent = ref('')
+const nameComponent = ref(stage || '')
 
 const error = ref(false)
 const errorMessage = ref('')
@@ -96,8 +107,6 @@ const registration = async (props) => {
     sex
   )
 
-  console.log(registrationResponse)
-
   if (registrationResponse.status) {
     error.value = true
     errorMessage.value = registrationResponse.message
@@ -107,6 +116,34 @@ const registration = async (props) => {
   }
 
   nameComponent.value = 'Code'
+}
+
+const acceptEmail = async (props) => {
+  const { code } = props
+
+  const codeStr = code.join('')
+
+  if (!codeStr.length) {
+    error.value = true
+    errorMessage.value = 'Введите код'
+    errorType.value = ''
+
+    return
+  }
+
+  const email = localStorage.getItem('email') || ''
+
+  const acceptEmailResponse = await userStore.acceptEmail(email, codeStr)
+
+  if (acceptEmailResponse.status) {
+    error.value = true
+    errorMessage.value = acceptEmailResponse.message
+    errorType.value = ''
+
+    return
+  }
+
+  nameComponent.value = 'Third'
 }
 </script>
 
@@ -208,14 +245,14 @@ const registration = async (props) => {
           @click="registration(secondPhaseMobileProps)"
         />
       </template>
-      <template #thirdPhase>
+      <template #thirdPhase="thirdPhaseProps">
         <BigButton
           title="Продолжить"
           style="width: 236px; height: 48px"
-          @click="nameComponent = 'Third'"
+          @click="acceptEmail(thirdPhaseProps)"
         />
       </template>
-      <template #thirdPhaseMobile>
+      <template #thirdPhaseMobilee="thirdPhaseMobileProps">
         <BigButton
           title="Продолжить"
           style="
@@ -224,7 +261,7 @@ const registration = async (props) => {
             margin-top: 12.3vw;
             margin-bottom: 6.15vw;
           "
-          @click="nameComponent = 'Third'"
+          @click="acceptEmail(thirdPhaseMobileProps)"
         />
       </template>
       <template #backStartPage>

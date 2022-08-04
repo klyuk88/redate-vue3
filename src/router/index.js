@@ -25,10 +25,6 @@ router.beforeEach(async (to) => {
     return { name: 'StartPage' }
   }
 
-  if (PUBLIC_PAGES.includes(to.path) && tokens !== null) {
-    return { name: 'Main' }
-  }
-
   if (tokens !== null) {
     const date = Date.now()
 
@@ -55,21 +51,27 @@ router.beforeEach(async (to) => {
     const registrationStatus = await userStore.getRegistrationStatus()
 
     if (!registrationStatus.acceptEmail) {
-      console.log('Redirect to accepting email')
+      if (to.path === '/registration' && to.query.stage === 'code') {
+        return
+      }
 
-      return
+      return { name: 'Registration', query: { stage: 'code' } }
     }
 
-    if (!registrationStatus.verification) {
-      console.log('Check verification status')
+    // if (!registrationStatus.verification) {
+    //   console.log('Check verification status')
 
-      return
-    }
+    //   return
+    // }
 
-    if (!registrationStatus.inSearch) {
-      console.log('Redirect to profile and check user info')
+    // if (!registrationStatus.inSearch) {
+    //   console.log('Redirect to profile and check user info')
 
-      return
+    //   return
+    // }
+
+    if (PUBLIC_PAGES.includes(to.path)) {
+      return { name: 'Main' }
     }
   }
 })
