@@ -42,6 +42,10 @@ export const useUserStore = defineStore('user', {
       },
       isLoading: false,
     },
+    forbidden: {
+      data: localStorage.getItem('forbidden') || null,
+      isLoading: false,
+    },
   }),
 
   actions: {

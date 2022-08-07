@@ -15,10 +15,52 @@ const routes = [
   },
   {
     path: '/registration',
-    name: 'Registration',
+    name: 'Registration2',
     components: {
       default: () => import('@/views/Registration.vue'),
     },
+    meta: {
+      layout: 'auth-layout',
+    },
+  },
+  {
+    path: '/registration2',
+    name: 'Registration',
+    components: {
+      default: () => import('@/views/Registration'),
+    },
+    children: [
+      {
+        path: 'first',
+        name: 'Registration first',
+        components: {
+          default: () => import('@/views/Registration/views/First'),
+        },
+        meta: {
+          backUrl: '/',
+        },
+      },
+      {
+        path: 'forbidden',
+        name: 'Registration forbidden',
+        components: {
+          default: () => import('@/views/Registration/views/Forbidden'),
+        },
+        meta: {
+          backUrl: null,
+        },
+      },
+      {
+        path: 'second',
+        name: 'Registration second',
+        components: {
+          default: () => import('@/views/Registration/views/Second'),
+        },
+        meta: {
+          backUrl: '/registration/first',
+        },
+      },
+    ],
     meta: {
       layout: 'auth-layout',
     },

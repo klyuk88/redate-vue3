@@ -14,6 +14,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  type: {
+    type: String,
+    default: 'first',
+    validator: (prop) => ['first', 'second'].includes(prop),
+  },
+  icon: {
+    type: String,
+    default: '',
+  },
 })
 
 const cssClasses = computed(() => {
@@ -26,11 +35,17 @@ const cssClasses = computed(() => {
 
 <template>
   <div class="start-form" :class="cssClasses">
-    <div class="start-form__container">
+    <div
+      class="start-form__container"
+      :class="`start-form__container--${type}`"
+    >
+      <img v-if="icon" class="start-form__icon" :src="icon" />
       <h2 v-if="title" class="start-form__title">{{ title }}</h2>
-      <p v-if="description" class="start-form__description">
-        {{ description }}
-      </p>
+      <p
+        v-if="description"
+        class="start-form__description"
+        v-html="description"
+      ></p>
 
       <div class="start-form__slot">
         <slot></slot>
@@ -56,8 +71,6 @@ const cssClasses = computed(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 422px;
-    padding: 48px;
     border: 1px solid #2b66fb;
     background: linear-gradient(
       180deg,
@@ -66,6 +79,31 @@ const cssClasses = computed(() => {
     );
     box-shadow: 0px 32px 83px rgba(18, 34, 74, 0.5);
     border-radius: 24px;
+
+    &--first {
+      width: 422px;
+      padding: 48px;
+    }
+
+    &--second {
+      width: 432px;
+      padding: 20.5px 19px;
+
+      .start-form__description {
+        width: 100%;
+        max-width: 346px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__icon {
+    width: 58px;
+    height: 48px;
+    object-fit: contain;
   }
 
   &__title {
@@ -124,13 +162,30 @@ const cssClasses = computed(() => {
     }
 
     &__container {
-      width: 100%;
-      max-width: 335px;
       padding: 0;
       border: none;
       border-radius: 0;
       box-shadow: none;
       background: transparent;
+
+      &--first {
+        width: 100%;
+        max-width: 335px;
+      }
+
+      &--second {
+        width: 100%;
+        max-width: 335px;
+
+        .start-form__description {
+          width: 100%;
+          max-width: 302px;
+        }
+
+        .start-form__slot {
+          margin-top: 29px;
+        }
+      }
     }
 
     &__title {

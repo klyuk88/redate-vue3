@@ -12,5 +12,9 @@ export const useRegistrationStore = defineStore('registration', {
       error: null,
       isLoading: false,
     },
+    forbidden: {
+      data: null,
+      isLoading: false,
+    },
   }),
 })

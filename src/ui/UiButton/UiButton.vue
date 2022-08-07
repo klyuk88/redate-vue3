@@ -11,12 +11,12 @@ const props = defineProps({
   variant: {
     type: String,
     default: 'primary',
-    validator: (prop) => ['primary'].includes(prop),
+    validator: (prop) => ['primary', 'secondary'].includes(prop),
   },
   size: {
     type: String,
     default: 'normal',
-    validator: (prop) => ['normal', 'big'].includes(prop),
+    validator: (prop) => ['normal', 'normal-auto', 'big'].includes(prop),
   },
   disabled: {
     type: Boolean,
@@ -78,6 +78,12 @@ const clickHandler = () => {
     }
   }
 
+  &--secondary {
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    border-radius: 11px;
+    background: transparent;
+  }
+
   &--normal {
     width: 165px;
     height: 47px;
@@ -85,6 +91,11 @@ const clickHandler = () => {
 
   &--big {
     width: 236px;
+    height: 47px;
+  }
+
+  &--normal-auto {
+    width: 100%;
     height: 47px;
   }
 
@@ -131,6 +142,13 @@ const clickHandler = () => {
   }
 }
 
+.ui-button--is-loading.ui-button--secondary {
+  &:hover,
+  &:active {
+    background: transparent;
+  }
+}
+
 @keyframes loader {
   from {
     transform: rotate(0deg);
@@ -147,6 +165,13 @@ const clickHandler = () => {
       &:hover,
       &:active {
         background: #2e66f5;
+      }
+    }
+
+    &--secondary {
+      &:hover,
+      &:active {
+        background: transparent;
       }
     }
 

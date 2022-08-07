@@ -40,4 +40,12 @@ const clickHandler = () => {
     font-weight: 700;
   }
 }
+
+@media only screen and (max-width: 991px) {
+  .ui-back-link {
+    &__title {
+      display: none;
+    }
+  }
+}
 </style>
