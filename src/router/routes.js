@@ -95,7 +95,7 @@ const routes = [
     path: '/auth',
     name: 'Auth',
     components: {
-      default: () => import('@/views/Auth.vue'),
+      default: () => import('@/views/Auth'),
     },
     meta: {
       layout: 'auth-layout',

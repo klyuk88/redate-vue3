@@ -25,15 +25,15 @@ onMounted(async () => {
 </template>
 
 <style lang="scss">
-.container {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 40px;
-  margin: 0 auto;
+// .container {
+//   width: 100%;
+//   max-width: 100%;
+//   padding: 0 40px;
+//   margin: 0 auto;
 
-  @media (max-width: 1200px) {
-    max-width: 375px;
-    padding: 0 10px;
-  }
-}
+//   @media (max-width: 1200px) {
+//     max-width: 375px;
+//     padding: 0 10px;
+//   }
+// }
 </style>

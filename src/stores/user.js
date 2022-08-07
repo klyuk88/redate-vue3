@@ -31,10 +31,7 @@ export const useUserStore = defineStore('user', {
     },
     tokens: {
       data: JSON.parse(localStorage.getItem('tokens')) || null,
-      error: {
-        status: false,
-        message: '',
-      },
+      error: null,
       isLoading: false,
     },
     emailStatus: {
