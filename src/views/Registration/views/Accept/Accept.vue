@@ -38,7 +38,7 @@ const inputHandler = (event) => {
 }
 
 const clickHandler = async () => {
-  if (code.value.length !== 6) {
+  if (code.value.length !== 4) {
     codeError.value = true
     errorMessage.value = 'Введите код'
 

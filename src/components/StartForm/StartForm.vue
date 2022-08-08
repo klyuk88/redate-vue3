@@ -100,7 +100,7 @@ const cssClasses = computed(() => {
     }
 
     &--third {
-      width: 577px;
+      width: 422px;
       padding: 48px;
 
       .start-form__description {

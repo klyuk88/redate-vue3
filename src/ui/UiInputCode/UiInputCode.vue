@@ -16,7 +16,7 @@ const cssClasses = computed(() => {
   }
 })
 
-let code = Array(6)
+let code = Array(4)
 let dataFromPaste
 
 const inputHandler = (event) => {
@@ -118,8 +118,8 @@ const focusHandler = () => {
 @media only screen and (max-width: 991px) {
   .ui-input-code {
     &__item {
-      width: 40px;
-      height: 40px;
+      width: 58px;
+      height: 58px;
     }
   }
 }
