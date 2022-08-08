@@ -7,6 +7,7 @@ export const useRegistrationStore = defineStore('registration', {
       error: null,
       isLoading: false,
     },
+    sex: localStorage.getItem('sex') || null,
     acceptEmail: {
       data: null,
       error: null,

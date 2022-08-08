@@ -48,6 +48,7 @@ const routes = [
         },
         meta: {
           backUrl: null,
+          steps: [],
         },
       },
       {
@@ -58,6 +59,7 @@ const routes = [
         },
         meta: {
           backUrl: '/registration/first',
+          steps: [true, false, false, false, false],
         },
       },
     ],

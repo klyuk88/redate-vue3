@@ -97,7 +97,7 @@ const stopAnimateByTimeout = () => {
     <div class="auth__form">
       <StartForm
         title="Вход"
-        description="Введите данные для входа в учетеную запись"
+        description="Введите данные для входа в учетную запись"
         :animate="isAnimate"
       >
         <div class="auth__block">

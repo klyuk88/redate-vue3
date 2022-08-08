@@ -22,9 +22,12 @@ class ApiService {
         throw new Error(registrationResponse.message)
       }
 
-      return { data: registrationResponse.data, error: null }
+      return {
+        data: registrationResponse.data,
+        error: { status: false, message: '' },
+      }
     } catch (error) {
-      return { data: null, error: { status: false, message: error.message } }
+      return { data: null, error: { status: true, message: error.message } }
     }
   }
 
@@ -44,9 +47,12 @@ class ApiService {
         throw new Error(acceptEmailResponse.message)
       }
 
-      return { data: acceptEmailResponse.data, error: null }
+      return {
+        data: acceptEmailResponse.data,
+        error: { status: false, message: '' },
+      }
     } catch (error) {
-      return { data: null, error: { status: false, message: error.message } }
+      return { data: null, error: { status: true, message: error.message } }
     }
   }
 }
