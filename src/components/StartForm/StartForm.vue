@@ -17,7 +17,7 @@ const props = defineProps({
   type: {
     type: String,
     default: 'first',
-    validator: (prop) => ['first', 'second'].includes(prop),
+    validator: (prop) => ['first', 'second', 'third'].includes(prop),
   },
   icon: {
     type: String,
@@ -96,6 +96,16 @@ const cssClasses = computed(() => {
         font-size: 14px;
         line-height: 18px;
         font-weight: 400;
+      }
+    }
+
+    &--third {
+      width: 577px;
+      padding: 48px;
+
+      .start-form__description {
+        width: 100%;
+        max-width: 320px;
       }
     }
   }
@@ -184,6 +194,20 @@ const cssClasses = computed(() => {
 
         .start-form__slot {
           margin-top: 29px;
+        }
+      }
+
+      &--third {
+        width: 100%;
+        max-width: 335px;
+
+        .start-form__description {
+          width: 100%;
+          max-width: 302px;
+        }
+
+        .start-form__slot {
+          margin-top: 72px;
         }
       }
     }

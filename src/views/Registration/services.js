@@ -46,11 +46,37 @@ class Service {
       return
     }
 
+    localStorage.setItem('email', email)
+
     this.registrationStore.registration.data = data
 
     this.registrationStore.registration.isLoading = false
 
-    this.router.push({ name: 'Registration third' })
+    this.router.push({ name: 'Registration accept' })
+  }
+
+  async acceptEmail(code) {
+    this.registrationStore.acceptEmail.isLoading = true
+
+    const { email } = this.registrationStore
+
+    const codeStr = code.join('')
+
+    const { data, error } = await RegistrationApi.acceptEmail(email, codeStr)
+
+    if (error.status) {
+      this.registrationStore.acceptEmail.error = error
+
+      this.registrationStore.acceptEmail.isLoading = false
+
+      return
+    }
+
+    this.registrationStore.acceptEmail.data = data
+
+    this.registrationStore.acceptEmail.isLoading = false
+
+    this.router.push({ name: 'Registration second' })
   }
 }
 

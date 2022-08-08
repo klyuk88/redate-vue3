@@ -7,7 +7,7 @@ import Steps from './components/Steps'
 const router = useRouter()
 
 if (router.currentRoute.value.name === 'Registration') {
-  router.push({ name: 'Registration first' })
+  router.push({ name: 'Registration confirm' })
 }
 
 const isBackLink = computed(
@@ -50,7 +50,7 @@ const backLinkClickHandler = () => {
   }
 
   &__steps {
-    position: fixed;
+    position: absolute;
     top: 64px;
     left: 50%;
     transform: translate(-50%, 0);
@@ -65,10 +65,6 @@ const backLinkClickHandler = () => {
     &__back-link {
       top: 54px;
       left: 13px;
-    }
-
-    &__steps {
-      position: absolute;
     }
   }
 }

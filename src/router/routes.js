@@ -31,10 +31,10 @@ const routes = [
     },
     children: [
       {
-        path: 'first',
-        name: 'Registration first',
+        path: 'confirm',
+        name: 'Registration confirm',
         components: {
-          default: () => import('@/views/Registration/views/First'),
+          default: () => import('@/views/Registration/views/Confirm'),
         },
         meta: {
           backUrl: '/',
@@ -52,14 +52,25 @@ const routes = [
         },
       },
       {
-        path: 'second',
-        name: 'Registration second',
+        path: 'first',
+        name: 'Registration first',
         components: {
-          default: () => import('@/views/Registration/views/Second'),
+          default: () => import('@/views/Registration/views/First'),
+        },
+        meta: {
+          backUrl: '/registration/confitm',
+          steps: [true, false, false, false, false],
+        },
+      },
+      {
+        path: 'accept',
+        name: 'Registration accept',
+        components: {
+          default: () => import('@/views/Registration/views/Accept'),
         },
         meta: {
           backUrl: '/registration/first',
-          steps: [true, false, false, false, false],
+          steps: [],
         },
       },
     ],
