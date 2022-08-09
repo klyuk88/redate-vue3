@@ -46,7 +46,7 @@ const resetValue = (idx) => {
         </label>
       </li>
       <li>
-        <label for="third">
+        <label for="third" class="last__label">
           <p class="label">Пункт третий</p>
           <input
             id="third"
@@ -61,7 +61,7 @@ const resetValue = (idx) => {
       </li>
     </ul>
     <div class="btn-wrap">
-      <BigButton title="Выбрать" />
+      <BigButton title="Выбрать" class="big__btn__search" />
     </div>
   </div>
 
@@ -122,6 +122,9 @@ const resetValue = (idx) => {
         justify-content: space-between;
         border-bottom: 1px solid rgba($color: #fff, $alpha: 0.3);
         cursor: pointer;
+        &.last__label {
+          border: none;
+        }
         input {
           position: absolute;
           width: 0;
@@ -161,6 +164,10 @@ const resetValue = (idx) => {
   .btn-wrap {
     padding: 4px;
     box-sizing: content-box;
+    .big__btn__search {
+      border-radius: 7px;
+      margin: 0;
+    }
   }
 }
 #formats.open {

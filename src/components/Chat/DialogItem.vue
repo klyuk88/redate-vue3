@@ -67,7 +67,7 @@
     font-weight: 700;
     width: 0;
     overflow: hidden;
-    transition: width 0.2s ease;
+    transition: width 0.4s ease;
   }
 }
 
@@ -98,9 +98,10 @@
   justify-content: space-between;
   position: relative;
   align-items: center;
-  background: linear-gradient(#414141, #414141),
-    linear-gradient(#414141, #414141);
-  background-size: 90.5% 1px;
+  // background: linear-gradient(#414141, #414141),
+  //   linear-gradient(#414141, #414141);
+  // background-size: 90.5% 1px;
+  background: rgba(255, 255, 255, 0.05);
   background-repeat: no-repeat, no-repeat;
   background-position: right bottom;
   transition: transform 0.2s ease;
