@@ -1,0 +1,175 @@
+<script setup>
+import { ref } from 'vue'
+import StartForm from '@/components/StartForm'
+import Tabs from '../../components/Tabs'
+import UiButton from '@/ui/UiButton'
+
+const attitudeToAlcohol = ref([
+  {
+    id: 1,
+    title: 'Негавтиное',
+    active: false,
+  },
+  {
+    id: 2,
+    title: 'Нейтральное',
+    active: true,
+  },
+  {
+    id: 3,
+    title: 'Хорошее',
+    active: false,
+  },
+])
+
+const attitudeTowardsSmoking = ref([
+  {
+    id: 1,
+    title: 'Негавтиное',
+    active: false,
+  },
+  {
+    id: 2,
+    title: 'Нейтральное',
+    active: true,
+  },
+  {
+    id: 3,
+    title: 'Хорошее',
+    active: false,
+  },
+])
+
+const changeAttitudeToAlcoholTabsHandler = (tab) => {
+  attitudeToAlcohol.value.forEach((value) => {
+    if (value.title === tab.title) {
+      value.active = true
+    } else {
+      value.active = false
+    }
+  })
+}
+
+const changeAttitudeTowardsSmokingTabsHandler = (tab) => {
+  attitudeTowardsSmoking.value.forEach((value) => {
+    if (value.title === tab.title) {
+      value.active = true
+    } else {
+      value.active = false
+    }
+  })
+}
+
+const clickHandler = () => {}
+</script>
+
+<template>
+  <div class="third">
+    <div class="third__form">
+      <StartForm>
+        <div class="third__block">
+          <span class="third__title">Отношение к алкоголю:</span>
+          <Tabs
+            :tabs="attitudeToAlcohol"
+            @click="changeAttitudeToAlcoholTabsHandler($event)"
+          />
+        </div>
+        <div class="third__block">
+          <span class="third__title">Отношение к курению:</span>
+          <Tabs
+            :tabs="attitudeTowardsSmoking"
+            @click="changeAttitudeTowardsSmokingTabsHandler($event)"
+          />
+        </div>
+        <div class="third__block">
+          <span class="third__title">Увлечения:</span>
+        </div>
+        <div class="third__block">
+          <span class="third__title">Знание языков:</span>
+        </div>
+      </StartForm>
+    </div>
+
+    <div class="third__button">
+      <UiButton size="big" title="Продолжить" @click="clickHandler()" />
+    </div>
+
+    <router-link to="/registration/fourth" class="third__skip">
+      Пропустить
+    </router-link>
+  </div>
+</template>
+
+<style lang="scss">
+.third {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  min-height: 939px;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24px;
+    margin-top: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 132.5%;
+    color: #ffffff;
+  }
+
+  &__button {
+    margin-top: 49px;
+    margin-bottom: 24px;
+  }
+
+  &__skip {
+    display: inline-block;
+    margin-bottom: 62px;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 153.5%;
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .third {
+    justify-content: flex-start;
+    min-height: auto;
+
+    &__form {
+      width: 100%;
+      margin-top: 140px;
+    }
+
+    &__button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 48px;
+      margin-bottom: 140px;
+    }
+  }
+}
+</style>

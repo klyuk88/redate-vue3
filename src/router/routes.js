@@ -84,6 +84,17 @@ const routes = [
           steps: [true, true, false, false],
         },
       },
+      {
+        path: 'third',
+        name: 'Registration third',
+        components: {
+          default: () => import('@/views/Registration/views/Third'),
+        },
+        meta: {
+          backUrl: '/registration/second',
+          steps: [true, true, true, false],
+        },
+      },
     ],
     meta: {
       layout: 'auth-layout',

@@ -12,7 +12,6 @@ class ApiService {
           page: 0,
           count: 500,
         },
-        name: 'Рус',
       }
 
       const countriesResponse = await API.post(
@@ -40,7 +39,6 @@ class ApiService {
           page: 0,
           count: 500,
         },
-        name: 'Рус',
         country: countryId,
       }
 
@@ -69,7 +67,6 @@ class ApiService {
           page: 0,
           count: 500,
         },
-        name: 'Рус',
       }
 
       const languagesResponse = await API.post(
@@ -97,7 +94,6 @@ class ApiService {
           page: 0,
           count: 500,
         },
-        name: 'Рус',
       }
 
       const nationalitiesResponse = await API.post(
@@ -125,7 +121,6 @@ class ApiService {
           page: 0,
           count: 500,
         },
-        name: 'Рус',
       }
 
       const hobbiesResponse = await API.post(

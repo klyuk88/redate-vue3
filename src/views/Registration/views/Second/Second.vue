@@ -505,14 +505,6 @@ const stopAnimateByTimeout = () => {
       margin-top: 48px;
       margin-bottom: 140px;
     }
-
-    &__auth {
-      margin: 24px 0 88px 0;
-    }
-
-    &__terms {
-      margin-bottom: 61px;
-    }
   }
 }
 </style>
