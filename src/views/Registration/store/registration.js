@@ -22,5 +22,7 @@ export const useRegistrationStore = defineStore('registration', {
       data: JSON.parse(localStorage.getItem('secondStage')) || null,
       isLoading: false,
     },
+    hobbies: ['Спорт', 'Вино', 'Путешествие', 'Ужасы'],
+    languages: ['Английский', 'Испанский', 'Татарский'],
   }),
 })

@@ -47,11 +47,28 @@ const errorMessage = ref('')
 
 const sex = computed(() => Number(registrationStore.sex))
 
-const countries = computed(() => databaseStore.countries.data)
+const countries = computed(() =>
+  databaseStore.countries.data.map((country) => country.name)
+)
+const countryIndex = computed(() => {
+  const countries = databaseStore.countries.data
+
+  let index = null
+
+  countries.forEach((el, idx) => {
+    if (el.name === country.value) {
+      index = idx
+    }
+  })
+
+  return index
+})
 const countriesError = computed(() => databaseStore.countries.error)
 
-const cities = computed(() =>
-  databaseStore.cities.data.map((city) => city.name)
+const cities = computed(
+  () =>
+    databaseStore.cities.data[countryIndex.value]?.map((city) => city.name) ||
+    []
 )
 const citiesError = computed(() => databaseStore.cities.error)
 
@@ -67,9 +84,9 @@ const buttonDisabled = computed(
     countriesError.value?.status ||
     citiesError.value?.status ||
     nationalitiesError.value?.status ||
-    !countries.value.length ||
-    !cities.value.length ||
-    !nationalities.value.length
+    !countries.value?.length ||
+    !cities.value?.length ||
+    !nationalities.value?.length
 )
 
 watch(isAnimate, () => {

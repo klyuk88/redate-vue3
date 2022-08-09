@@ -1,8 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRegistrationStore } from '../../store/registration'
 import StartForm from '@/components/StartForm'
 import Tabs from '../../components/Tabs'
+import Elements from '../../components/Elements'
 import UiButton from '@/ui/UiButton'
+
+const registrationStore = useRegistrationStore()
 
 const attitudeToAlcohol = ref([
   {
@@ -39,6 +43,10 @@ const attitudeTowardsSmoking = ref([
     active: false,
   },
 ])
+
+const hobbies = computed(() => registrationStore.hobbies)
+
+const languages = computed(() => registrationStore.languages)
 
 const changeAttitudeToAlcoholTabsHandler = (tab) => {
   attitudeToAlcohol.value.forEach((value) => {
@@ -83,9 +91,11 @@ const clickHandler = () => {}
         </div>
         <div class="third__block">
           <span class="third__title">Увлечения:</span>
+          <Elements to="/registration/hobbies" :elements="hobbies" />
         </div>
         <div class="third__block">
           <span class="third__title">Знание языков:</span>
+          <Elements to="/registration/languages" :elements="languages" />
         </div>
       </StartForm>
     </div>
@@ -106,10 +116,11 @@ const clickHandler = () => {}
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
   width: 100%;
-  height: 100%;
-  min-height: 939px;
+
+  &__form {
+    margin-top: 171px;
+  }
 
   &__block {
     display: flex;
@@ -121,6 +132,10 @@ const clickHandler = () => {}
 
     &:first-child {
       margin-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
@@ -155,9 +170,6 @@ const clickHandler = () => {}
 
 @media only screen and (max-width: 991px) {
   .third {
-    justify-content: flex-start;
-    min-height: auto;
-
     &__form {
       width: 100%;
       margin-top: 140px;
