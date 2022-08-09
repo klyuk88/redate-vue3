@@ -23,6 +23,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  center: {
+    type: Boolean,
+    default: false,
+  },
+  max: {
+    type: Number,
+    default: null,
+  },
 })
 
 const emits = defineEmits(['focus', 'update:value', 'changeType'])
@@ -37,6 +45,7 @@ const eyeType = ref('close')
 const cssClasses = computed(() => {
   return {
     ['ui-input--error']: props.error,
+    ['ui-input--center']: props.center,
   }
 })
 
@@ -63,6 +72,10 @@ const focusOutHandler = () => {
 }
 
 const inputHandler = (event) => {
+  if (props.max) {
+    event.target.value = event.target.value.slice(0, props.max)
+  }
+
   emits('update:value', event.target.value)
 }
 
@@ -106,6 +119,12 @@ const clickHandler = () => {
   &--error {
     .ui-input__input {
       border-color: #2965ff;
+    }
+  }
+
+  &--center {
+    .ui-input__input {
+      text-align: center;
     }
   }
 

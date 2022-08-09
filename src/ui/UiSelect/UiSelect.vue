@@ -1,0 +1,154 @@
+<script setup>
+import { ref, computed } from 'vue'
+import VueSelect from 'vue-select'
+
+const props = defineProps({
+  values: {
+    type: Array,
+    default: () => {},
+  },
+  placeholder: {
+    type: String,
+    default: '',
+  },
+  value: {
+    type: String,
+    required: true,
+  },
+  error: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const emits = defineEmits(['update:value'])
+
+const isOpen = ref(false)
+
+const cssClasses = computed(() => {
+  return {
+    ['ui-input--error']: props.error,
+    ['ui-select__select--is-open']: isOpen.value,
+  }
+})
+
+const inputHandler = (event) => {
+  emits('update:value', event.target.value)
+}
+</script>
+
+<template>
+  <div class="ui-select">
+    <VueSelect
+      class="ui-select__select"
+      :class="cssClasses"
+      :placeholder="placeholder"
+      :value="value"
+      :options="values"
+      @input="inputHandler($event)"
+      @open="isOpen = true"
+      @close="isOpen = false"
+    >
+      <template #open-indicator="{ attributes }">
+        <span v-bind="attributes">
+          <svg
+            width="17"
+            height="10"
+            viewBox="0 0 17 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M1.39492 0.494094L8.14492 7.24409L14.8949 0.494093L16.0263 1.62546L8.14492 9.50684L0.263549 1.62546L1.39492 0.494094Z"
+              fill="#6C6D70"
+            />
+          </svg>
+        </span>
+      </template>
+      <template #no-options="{}">Совпадений не найдено</template>
+    </VueSelect>
+  </div>
+</template>
+
+<style lang="scss">
+.ui-select {
+  &__select {
+    position: relative;
+
+    &--is-open {
+      .vs__dropdown-toggle {
+        border: 1px solid #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+        background: #242529 !important;
+        border-radius: 11px 11px 0 0 !important;
+      }
+    }
+
+    .vs__dropdown-toggle {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 60px;
+      padding: 0 5.5px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 11px;
+      background: transparent;
+      outline: 0;
+      font-family: 'Mulish';
+      color: #ffffff;
+      font-size: 15px;
+      line-height: 153.5%;
+      font-weight: 600;
+    }
+
+    .vs__selected {
+      color: #fff;
+      font-size: 16px;
+      position: static !important;
+    }
+
+    .vs__search::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 16px;
+      font-family: 'Mulish';
+    }
+
+    .vs__clear {
+      display: none;
+    }
+
+    .vs__dropdown-menu {
+      background: #242529;
+      padding: 0;
+      margin: 0;
+      border: 1px solid #fff;
+      border-top: none;
+      border-radius: 0 0 11px 11px;
+      top: 60px;
+    }
+
+    .vs__dropdown-menu::-webkit-scrollbar {
+      width: 5px;
+    }
+    .vs__dropdown-menu::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+    .vs__dropdown-menu::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.33);
+    }
+
+    .vs__dropdown-option {
+      color: #fff;
+      padding: 20px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    :root {
+      --vs-dropdown-max-height: 250px;
+    }
+  }
+}
+</style>

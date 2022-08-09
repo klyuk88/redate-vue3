@@ -72,7 +72,7 @@ const focusHandler = () => {
       :key="index"
       v-model="code[index]"
       class="ui-input-code__item"
-      type="text"
+      type="number"
       maxlength="1"
       @input="inputHandler($event)"
       @keydown.delete="deleteHandler($event)"
@@ -112,6 +112,18 @@ const focusHandler = () => {
     &:focus {
       border-color: #ffffff;
     }
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
   }
 }
 

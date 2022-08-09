@@ -27,7 +27,8 @@ const props = defineProps({
 
 const cssClasses = computed(() => {
   return {
-    'start-form--without-text': !props.title && !props.description,
+    'start-form--without-text':
+      !props.title && !props.description && !props.icon,
     'start-form--animate': props.animate,
   }
 })
@@ -65,6 +66,12 @@ const cssClasses = computed(() => {
     animation-name: border;
     animation-duration: 0.7s;
     animation-fill-mode: forwards;
+  }
+
+  &--without-text {
+    .start-form__slot {
+      margin-top: 0;
+    }
   }
 
   &__container {
