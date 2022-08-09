@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import VueSelect from 'vue-select'
 
 const props = defineProps({
@@ -12,7 +12,7 @@ const props = defineProps({
     default: '',
   },
   value: {
-    type: String,
+    type: [String, null],
     required: true,
   },
   error: {
@@ -21,33 +21,41 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:value'])
+const emits = defineEmits(['update:value', 'focus'])
 
 const isOpen = ref(false)
 
+const privateValue = ref(props.value)
+
 const cssClasses = computed(() => {
   return {
-    ['ui-input--error']: props.error,
+    ['ui-select__select--error']: props.error,
     ['ui-select__select--is-open']: isOpen.value,
   }
 })
 
-const inputHandler = (event) => {
-  emits('update:value', event.target.value)
+watch(privateValue, () => {
+  emits('update:value', privateValue?.value || '')
+})
+
+const openHandler = () => {
+  isOpen.value = true
+
+  emits('focus')
 }
 </script>
 
 <template>
   <div class="ui-select">
     <VueSelect
+      v-model="privateValue"
+      :placeholder="placeholder"
       class="ui-select__select"
       :class="cssClasses"
-      :placeholder="placeholder"
-      :value="value"
       :options="values"
-      @input="inputHandler($event)"
-      @open="isOpen = true"
+      @open="openHandler()"
       @close="isOpen = false"
+      @focus="emits('focus')"
     >
       <template #open-indicator="{ attributes }">
         <span v-bind="attributes">
@@ -83,6 +91,16 @@ const inputHandler = (event) => {
         border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
         background: #242529 !important;
         border-radius: 11px 11px 0 0 !important;
+      }
+    }
+
+    &--error {
+      .vs__dropdown-toggle {
+        border-color: #2965ff !important;
+      }
+
+      .vs__dropdown-menu {
+        border-color: #2965ff !important;
       }
     }
 
@@ -149,6 +167,12 @@ const inputHandler = (event) => {
     :root {
       --vs-dropdown-max-height: 250px;
     }
+  }
+}
+
+.ui-select__select--is-open.ui-select__select--error {
+  .vs__dropdown-toggle {
+    border-bottom-color: rgba(255, 255, 255, 0.3) !important;
   }
 }
 </style>

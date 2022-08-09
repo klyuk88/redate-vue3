@@ -180,6 +180,19 @@ const clickHandler = () => {
       max-width: 335px;
       height: 60px;
     }
+
+    &--disabled {
+      background: #434447;
+
+      &:hover,
+      &:active {
+        background: #434447;
+      }
+
+      .ui-button__title {
+        color: rgba(255, 255, 255, 0.33);
+      }
+    }
   }
 }
 </style>

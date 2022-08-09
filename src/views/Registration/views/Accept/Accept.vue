@@ -74,9 +74,9 @@ const stopAnimateByTimeout = () => {
           @focus="startAnimate()"
         />
 
-        <p v-if="codeError || acceptError?.status" class="accept__error">
+        <div v-if="codeError || acceptError?.status" class="accept__error">
           <UiErrorMessage :message="errorMessage || acceptError?.message" />
-        </p>
+        </div>
       </StartForm>
     </div>
 

@@ -50,6 +50,8 @@ class Service {
 
     this.registrationStore.registration.data = data
 
+    this.userStore.setTokens(data)
+
     this.registrationStore.registration.isLoading = false
 
     this.router.push({ name: 'Registration accept' })
@@ -77,6 +79,18 @@ class Service {
     this.registrationStore.acceptEmail.isLoading = false
 
     this.router.push({ name: 'Registration second' })
+  }
+
+  saveSecondStage(info) {
+    this.registrationStore.secondStage.isLoading = true
+
+    localStorage.setItem('secondStage', JSON.stringify(info))
+
+    this.registrationStore.secondStage.data = info
+
+    this.registrationStore.secondStage.isLoading = false
+
+    this.router.push({ name: 'Registration third' })
   }
 }
 

@@ -20,7 +20,12 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:breast', 'update:waist', 'update:tips'])
+const emits = defineEmits([
+  'update:breast',
+  'update:waist',
+  'update:tips',
+  'focus',
+])
 
 const breastRef = ref(null)
 const waistRef = ref(null)
@@ -71,6 +76,8 @@ const inputTipsHandler = (event) => {
 
 const focusHandler = () => {
   focus.value = true
+
+  emits('focus')
 }
 
 const focusOutHandler = () => {

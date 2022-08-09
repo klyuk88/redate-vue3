@@ -59,7 +59,7 @@ const routes = [
         },
         meta: {
           backUrl: '/registration/confitm',
-          steps: [true, false, false, false, false],
+          steps: [true, false, false, false],
         },
       },
       {
@@ -81,7 +81,7 @@ const routes = [
         },
         meta: {
           backUrl: '/registration/accept',
-          steps: [true, true, false, false, false],
+          steps: [true, true, false, false],
         },
       },
     ],

@@ -20,7 +20,12 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['update:day', 'update:month', 'update:year'])
+const emits = defineEmits([
+  'update:day-value',
+  'update:month-value',
+  'update:year-value',
+  'focus',
+])
 
 const dayRef = ref(null)
 const monthRef = ref(null)
@@ -42,7 +47,7 @@ const inputDayHandler = (event) => {
     monthRef.value.focus()
   }
 
-  emits('update:day', event.target.value)
+  emits('update:day-value', event.target.value)
 }
 
 const inputMonthHandler = (event) => {
@@ -56,7 +61,7 @@ const inputMonthHandler = (event) => {
     dayRef.value.focus()
   }
 
-  emits('update:month', event.target.value)
+  emits('update:month-value', event.target.value)
 }
 
 const inputYearHandler = (event) => {
@@ -66,11 +71,13 @@ const inputYearHandler = (event) => {
     monthRef.value.focus()
   }
 
-  emits('update:year', event.target.value)
+  emits('update:year-value', event.target.value)
 }
 
 const focusHandler = () => {
   focus.value = true
+
+  emits('focus')
 }
 
 const focusOutHandler = () => {
@@ -110,7 +117,7 @@ const focusOutHandler = () => {
       class="ui-input-birthday__year"
       min="0"
       max="4"
-      placeholder="2000"
+      placeholder="1980"
       :value="yearValue"
       @input="inputYearHandler($event)"
       @focus="focusHandler()"

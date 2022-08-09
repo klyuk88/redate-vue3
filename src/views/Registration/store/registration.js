@@ -18,5 +18,9 @@ export const useRegistrationStore = defineStore('registration', {
       data: null,
       isLoading: false,
     },
+    secondStage: {
+      data: JSON.parse(localStorage.getItem('secondStage')) || null,
+      isLoading: false,
+    },
   }),
 })

@@ -153,7 +153,7 @@ const stopAnimateByTimeout = () => {
             />
           </div>
 
-          <p
+          <div
             v-if="
               emailError ||
               passwordError ||
@@ -165,7 +165,7 @@ const stopAnimateByTimeout = () => {
             <UiErrorMessage
               :message="errorMessage || registrationError?.message"
             />
-          </p>
+          </div>
         </div>
       </StartForm>
     </div>
