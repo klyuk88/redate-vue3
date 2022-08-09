@@ -79,12 +79,35 @@ const onPaste = (event) => {
           <span v-if="error" class="error__message">{{ errorMessage }}</span>
         </div>
         <slot name="thirdPhase" :code="code"></slot>
+        <div class="footer__title__code">
+          <p>Нет учетной записи?</p>
+          <router-link to="/">
+            <span>Регистрация</span>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.footer__title__code {
+  display: flex;
+  margin-top: 25px;
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 153.5%;
+    color: rgba(255, 255, 255, 0.4);
+  }
+    span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 153.5%;
+      color: #ffffff;
+      margin-left: 4px;
+    }
+}
 .backgound__codeconfirm {
   .container__codeconfirm {
     display: flex;
@@ -126,12 +149,12 @@ const onPaste = (event) => {
         width: 320px;
       }
       .input__box {
-        width: 400px;
+        width: 338px;
         display: flex;
         justify-content: space-between;
         input {
           outline: none;
-          width: 60px;
+          width: 43px;
           height: 60px;
           border: 1px solid rgba(255, 255, 255, 0.14);
           border-radius: 11px;
@@ -159,9 +182,12 @@ const onPaste = (event) => {
         box-shadow: none;
         margin: 166px 0 48px 0;
         padding: 0;
+        p {
+          margin-bottom: 72px;
+        }
 
         .input__box {
-          width: 375px;
+          width: 335px;
         }
       }
     }

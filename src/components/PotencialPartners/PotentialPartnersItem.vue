@@ -14,7 +14,7 @@ const store = useStore()
     <div class="name-wrap">
       <div class="name-adress">
         <h2 class="name">Олег, <span class="age">33</span></h2>
-        <p class="adress">Москва, Россия</p>
+        <p class="adress">Москва</p>
       </div>
       <a
         href="#"
@@ -73,4 +73,5 @@ const store = useStore()
             border: 1px solid rgba(255,255,255,0.14)
         .dialog-icon
             padding: 10px 20px
+            display: flex
 </style>

@@ -289,14 +289,14 @@ import MobileMessageItem from '@/components/Chat/MobileMessageItem.vue'
     }
     .s-ch-name {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 10px;
       h6 {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
       }
       p {
-        font-style: 15px;
+        font-size: 15px;
         color: #3e74ff;
       }
     }
