@@ -50,7 +50,9 @@ const sex = computed(() => Number(registrationStore.sex))
 const countries = computed(() => databaseStore.countries.data)
 const countriesError = computed(() => databaseStore.countries.error)
 
-const cities = computed(() => databaseStore.cities.data)
+const cities = computed(() =>
+  databaseStore.cities.data.map((city) => city.name)
+)
 const citiesError = computed(() => databaseStore.cities.error)
 
 const nationalities = computed(() =>

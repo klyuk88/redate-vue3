@@ -37,7 +37,27 @@ class Service {
 
     const result = await Promise.all(promises)
 
-    console.log(result)
+    const errors = result.map((el) => el.error)
+
+    let error = null
+
+    errors.forEach((el) => {
+      if (el.status) {
+        error = el
+      }
+    })
+
+    if (error?.status) {
+      this.databaseStore.cities.error = error
+
+      this.databaseStore.cities.isLoading = false
+
+      return
+    }
+
+    const data = result.map((el) => el.data.list)
+
+    this.databaseStore.cities.data = data
 
     this.databaseStore.cities.isLoading = false
   }
