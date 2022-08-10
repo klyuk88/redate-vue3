@@ -5,12 +5,18 @@ const routes = [
     components: {
       default: () => import('@/views/Main.vue'),
     },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: '/search',
     name: 'Search',
     components: {
       default: () => import('@/views/Search.vue'),
+    },
+    meta: {
+      auth: true,
     },
   },
   {
@@ -48,7 +54,7 @@ const routes = [
           default: () => import('@/views/Registration/views/First'),
         },
         meta: {
-          backUrl: '/registration/confitm',
+          backUrl: '/registration/confirm',
           steps: [true, false, false, false],
         },
       },
@@ -121,6 +127,7 @@ const routes = [
     ],
     meta: {
       layout: 'auth-layout',
+      auth: false,
     },
   },
   {
@@ -129,11 +136,17 @@ const routes = [
     components: {
       default: () => import('@/views/Profile.vue'),
     },
+    meta: {
+      auth: true,
+    },
     children: [
       {
         path: '',
         components: {
           default: () => import('@/components/Profile/MyProfilePage.vue'),
+        },
+        meta: {
+          auth: true,
         },
       },
       {
@@ -143,6 +156,7 @@ const routes = [
         },
         meta: {
           layout: 'auth-layout',
+          auth: true,
         },
       },
       {
@@ -152,6 +166,7 @@ const routes = [
         },
         meta: {
           layout: 'auth-layout',
+          auth: true,
         },
       },
     ],
@@ -162,12 +177,18 @@ const routes = [
     components: {
       default: () => import('@/views/Chat.vue'),
     },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: '/sends',
     name: 'Sends',
     components: {
       default: () => import('@/views/Sends.vue'),
+    },
+    meta: {
+      auth: true,
     },
   },
   {
@@ -176,6 +197,9 @@ const routes = [
     components: {
       default: () => import('@/views/Notifications.vue'),
     },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: '/favorites',
@@ -183,12 +207,18 @@ const routes = [
     components: {
       default: () => import('@/views/Favorites.vue'),
     },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: '/chat/:user',
     name: 'SingleChat',
     components: {
       default: () => import('@/views/SingleChat.vue'),
+    },
+    meta: {
+      auth: true,
     },
   },
   {
@@ -199,6 +229,7 @@ const routes = [
     },
     meta: {
       layout: 'auth-layout',
+      auth: false,
     },
   },
   {
@@ -209,6 +240,7 @@ const routes = [
     },
     meta: {
       layout: 'auth-layout',
+      auth: false,
     },
   },
   {
@@ -219,6 +251,7 @@ const routes = [
     },
     meta: {
       layout: 'auth-layout',
+      auth: false,
     },
   },
 
@@ -228,6 +261,9 @@ const routes = [
     components: {
       default: () => import('@/views/UserProfile.vue'),
     },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: '/500',
@@ -236,6 +272,7 @@ const routes = [
     },
     meta: {
       layout: 'auth-layout',
+      auth: false,
     },
   },
   {
@@ -245,6 +282,7 @@ const routes = [
     },
     meta: {
       layout: 'auth-layout',
+      auth: false,
     },
   },
 ]
