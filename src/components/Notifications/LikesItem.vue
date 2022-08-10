@@ -21,9 +21,9 @@ export default {}
       </div>
       <button class="btn">Написать</button>
     </div>
-    <div class="hide-block">
+    <!-- <div class="hide-block">
       <img src="@/assets/images/hide_likes.svg" alt="" class="hide" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -104,15 +104,16 @@ export default {}
       color: #fff;
       font-weight: 700;
       font-size: 14px;
+      cursor: pointer;
     }
   }
 }
-.likes-item:hover {
-  .hide-block {
-    transform: translateX(100%);
-    opacity: 1;
-  }
-}
+// .likes-item:hover {
+//   .hide-block {
+//     transform: translateX(100%);
+//     opacity: 1;
+//   }
+// }
 .likes-item.new {
   background: rgba($color: #fff, $alpha: 0.05);
   border-color: transparent;

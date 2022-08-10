@@ -46,6 +46,9 @@
       line-height: 1.5;
     }
   }
+  span {
+    font-size: 14px;
+  }
   .avatar {
     position: relative;
     width: 40px;

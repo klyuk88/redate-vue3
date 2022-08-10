@@ -72,7 +72,7 @@ const selectOpen = ref(false)
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 11px;
-  background: #242529;
+  // background: #242529;
   max-width: 100%;
   width: 100%;
   min-height: 60px;

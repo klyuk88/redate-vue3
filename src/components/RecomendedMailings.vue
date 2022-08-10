@@ -32,7 +32,12 @@ const clickHandler = () => {
   <div class="recommended-mailings">
     <div class="title-wrap">
       <h2 class="page-subtitle">Рекомендованные рассылки</h2>
-      <router-link to="/sends" class="link">Открыть все</router-link>
+      <router-link
+        v-if="mailings.length && !mailingsLoading"
+        to="/sends"
+        class="link"
+        >Открыть все</router-link
+      >
       <div class="mob-link" @click="clickHandler()">
         <img src="@/assets/images/main/recomend-plus.svg" alt="" />
       </div>
