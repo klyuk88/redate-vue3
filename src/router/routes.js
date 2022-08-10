@@ -15,16 +15,6 @@ const routes = [
   },
   {
     path: '/registration',
-    name: 'Registration2',
-    components: {
-      default: () => import('@/views/Registration.vue'),
-    },
-    meta: {
-      layout: 'auth-layout',
-    },
-  },
-  {
-    path: '/registration2',
     name: 'Registration',
     components: {
       default: () => import('@/views/Registration'),
@@ -93,6 +83,28 @@ const routes = [
         meta: {
           backUrl: '/registration/second',
           steps: [true, true, true, false],
+        },
+      },
+      {
+        path: 'hobbies',
+        name: 'Registration hobbies',
+        components: {
+          default: () => import('@/views/Registration/views/Hobbies'),
+        },
+        meta: {
+          backUrl: null,
+          steps: [],
+        },
+      },
+      {
+        path: 'languages',
+        name: 'Registration languages',
+        components: {
+          default: () => import('@/views/Registration/views/Languages'),
+        },
+        meta: {
+          backUrl: null,
+          steps: [],
         },
       },
     ],

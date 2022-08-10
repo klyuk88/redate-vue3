@@ -124,7 +124,7 @@ class ApiService {
       }
 
       const hobbiesResponse = await API.post(
-        '/database/nationalities',
+        '/database/hobbies',
         hobbiesRequestData
       )
 

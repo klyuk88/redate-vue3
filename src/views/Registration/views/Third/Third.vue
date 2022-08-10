@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRegistrationStore } from '../../store/registration'
+import { RegistrationService } from '../../services'
 import StartForm from '@/components/StartForm'
 import Tabs from '../../components/Tabs'
 import Elements from '../../components/Elements'
@@ -8,45 +9,53 @@ import UiButton from '@/ui/UiButton'
 
 const registrationStore = useRegistrationStore()
 
-const attitudeToAlcohol = ref([
-  {
-    id: 1,
-    title: 'Негавтиное',
-    active: false,
-  },
-  {
-    id: 2,
-    title: 'Нейтральное',
-    active: true,
-  },
-  {
-    id: 3,
-    title: 'Хорошее',
-    active: false,
-  },
-])
+const attitudeToAlcohol = ref(
+  registrationStore.thirdStage.data?.attitudeToAlcohol || [
+    {
+      id: 1,
+      title: 'Негавтиное',
+      active: false,
+    },
+    {
+      id: 2,
+      title: 'Нейтральное',
+      active: true,
+    },
+    {
+      id: 3,
+      title: 'Хорошее',
+      active: false,
+    },
+  ]
+)
 
-const attitudeTowardsSmoking = ref([
-  {
-    id: 1,
-    title: 'Негавтиное',
-    active: false,
-  },
-  {
-    id: 2,
-    title: 'Нейтральное',
-    active: true,
-  },
-  {
-    id: 3,
-    title: 'Хорошее',
-    active: false,
-  },
-])
+const attitudeTowardsSmoking = ref(
+  registrationStore.thirdStage.data?.attitudeTowardsSmoking || [
+    {
+      id: 1,
+      title: 'Негавтиное',
+      active: false,
+    },
+    {
+      id: 2,
+      title: 'Нейтральное',
+      active: true,
+    },
+    {
+      id: 3,
+      title: 'Хорошее',
+      active: false,
+    },
+  ]
+)
 
-const hobbies = computed(() => registrationStore.hobbies)
+const hobbies = computed(() =>
+  registrationStore.hobbies.data.filter((hobby) => hobby.active)
+)
 
-const languages = computed(() => registrationStore.languages)
+const languages = computed(() =>
+  registrationStore.languages.data.filter((language) => language.active)
+)
 
 const changeAttitudeToAlcoholTabsHandler = (tab) => {
   attitudeToAlcohol.value.forEach((value) => {
@@ -68,7 +77,22 @@ const changeAttitudeTowardsSmokingTabsHandler = (tab) => {
   })
 }
 
-const clickHandler = () => {}
+const clickHandler = () => {
+  RegistrationService.saveThirdStage({
+    hobbies: registrationStore.hobbies.data,
+    languages: registrationStore.languages.data,
+    attitudeToAlcohol: attitudeToAlcohol.value,
+    attitudeTowardsSmoking: attitudeTowardsSmoking.value,
+  })
+}
+
+const removeHobbyHandler = (hobby) => {
+  RegistrationService.setActiveHobby(hobby)
+}
+
+const removeLanguageHandler = (language) => {
+  RegistrationService.setActiveLanguage(language)
+}
 </script>
 
 <template>
@@ -91,11 +115,19 @@ const clickHandler = () => {}
         </div>
         <div class="third__block">
           <span class="third__title">Увлечения:</span>
-          <Elements to="/registration/hobbies" :elements="hobbies" />
+          <Elements
+            to="/registration/hobbies"
+            :elements="hobbies"
+            @remove="removeHobbyHandler($event)"
+          />
         </div>
         <div class="third__block">
           <span class="third__title">Знание языков:</span>
-          <Elements to="/registration/languages" :elements="languages" />
+          <Elements
+            to="/registration/languages"
+            :elements="languages"
+            @remove="removeLanguageHandler($event)"
+          />
         </div>
       </StartForm>
     </div>
@@ -172,7 +204,12 @@ const clickHandler = () => {}
   .third {
     &__form {
       width: 100%;
-      margin-top: 140px;
+      margin-top: 130px;
+    }
+
+    &__block {
+      padding-bottom: 16px;
+      margin-top: 16px;
     }
 
     &__button {
@@ -180,7 +217,11 @@ const clickHandler = () => {}
       justify-content: center;
       width: 100%;
       margin-top: 48px;
-      margin-bottom: 140px;
+      margin-bottom: 24px;
+    }
+
+    &__skip {
+      margin-bottom: 88px;
     }
   }
 }

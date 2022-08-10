@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const props = defineProps({
@@ -12,18 +13,26 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['delete'])
+const emits = defineEmits(['remove'])
 
 const router = useRouter()
 
+const removeLast = ref(false)
+
 const clickHandler = () => {
-  if (!props.elements.length) {
+  if (!props.elements.length && !removeLast.value) {
     router.push(props.to)
+  } else {
+    removeLast.value = false
   }
 }
 
-const deleteHandler = (element) => {
-  emits('delete', element)
+const removeHandler = (element) => {
+  if (props.elements.length === 1) {
+    removeLast.value = true
+  }
+
+  emits('remove', element)
 }
 
 const addHandler = () => {
@@ -38,10 +47,10 @@ const addHandler = () => {
       :key="idx"
       class="registration-elements__item"
     >
-      <div class="registration-elements__title">{{ element }}</div>
+      <div class="registration-elements__title">{{ element?.title }}</div>
       <div
         class="registration-elements__icon"
-        @click="deleteHandler(element)"
+        @click="removeHandler(element)"
       ></div>
     </div>
     <div
