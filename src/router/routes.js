@@ -107,6 +107,17 @@ const routes = [
           steps: [],
         },
       },
+      {
+        path: 'fourth',
+        name: 'Registration fourth',
+        components: {
+          default: () => import('@/views/Registration/views/Fourth'),
+        },
+        meta: {
+          backUrl: '/registration/third',
+          steps: [true, true, true, true],
+        },
+      },
     ],
     meta: {
       layout: 'auth-layout',

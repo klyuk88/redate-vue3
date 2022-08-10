@@ -1,3 +1,4 @@
+<!-- eslint-disable indent -->
 <script setup>
 import { ref, computed } from 'vue'
 import { useRegistrationStore } from '../../store/registration'
@@ -10,43 +11,45 @@ import UiButton from '@/ui/UiButton'
 const registrationStore = useRegistrationStore()
 
 const attitudeToAlcohol = ref(
-  registrationStore.thirdStage.data?.attitudeToAlcohol || [
-    {
-      id: 1,
-      title: 'Негавтиное',
-      active: false,
-    },
-    {
-      id: 2,
-      title: 'Нейтральное',
-      active: true,
-    },
-    {
-      id: 3,
-      title: 'Хорошее',
-      active: false,
-    },
-  ]
+  registrationStore.thirdStage.data?.attitudeToAlcohol ||
+    JSON.parse(localStorage.getItem('attitudeToAlcohol')) || [
+      {
+        id: 1,
+        title: 'Негавтиное',
+        active: false,
+      },
+      {
+        id: 2,
+        title: 'Нейтральное',
+        active: true,
+      },
+      {
+        id: 3,
+        title: 'Хорошее',
+        active: false,
+      },
+    ]
 )
 
 const attitudeTowardsSmoking = ref(
-  registrationStore.thirdStage.data?.attitudeTowardsSmoking || [
-    {
-      id: 1,
-      title: 'Негавтиное',
-      active: false,
-    },
-    {
-      id: 2,
-      title: 'Нейтральное',
-      active: true,
-    },
-    {
-      id: 3,
-      title: 'Хорошее',
-      active: false,
-    },
-  ]
+  registrationStore.thirdStage.data?.attitudeTowardsSmoking ||
+    JSON.parse(localStorage.getItem('attitudeTowardsSmoking')) || [
+      {
+        id: 1,
+        title: 'Негавтиное',
+        active: false,
+      },
+      {
+        id: 2,
+        title: 'Нейтральное',
+        active: true,
+      },
+      {
+        id: 3,
+        title: 'Хорошее',
+        active: false,
+      },
+    ]
 )
 
 const hobbies = computed(() =>
@@ -65,6 +68,11 @@ const changeAttitudeToAlcoholTabsHandler = (tab) => {
       value.active = false
     }
   })
+
+  localStorage.setItem(
+    'attitudeToAlcohol',
+    JSON.stringify(attitudeToAlcohol.value)
+  )
 }
 
 const changeAttitudeTowardsSmokingTabsHandler = (tab) => {
@@ -75,6 +83,11 @@ const changeAttitudeTowardsSmokingTabsHandler = (tab) => {
       value.active = false
     }
   })
+
+  localStorage.setItem(
+    'attitudeTowardsSmoking',
+    JSON.stringify(attitudeTowardsSmoking.value)
+  )
 }
 
 const clickHandler = () => {
