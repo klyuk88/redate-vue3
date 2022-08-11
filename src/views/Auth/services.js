@@ -30,6 +30,8 @@ class Service {
 
     this.userStore.setTokens(data)
 
+    localStorage.setItem('email', email)
+
     this.authStore.auth.isLoading = false
 
     this.router.push({ name: 'Main' })
