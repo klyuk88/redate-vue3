@@ -62,11 +62,20 @@ router.beforeEach(async (to) => {
     //   return
     // }
 
-    // if (!registrationStatus.inSearch) {
-    //   console.log('Redirect to profile and check user info')
+    if (!registrationStatus.inSearch) {
+      if (
+        to.path === '/registration/second' ||
+        to.path === '/registration/third' ||
+        to.path === '/registration/fourth' ||
+        to.path === '/registration/fifth' ||
+        to.path === '/registration/hobbies' ||
+        to.path === '/registration/languages'
+      ) {
+        return
+      }
 
-    //   return
-    // }
+      return { name: 'Registration second' }
+    }
 
     if (!to.meta.auth) {
       return { name: 'Main' }

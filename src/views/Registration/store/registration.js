@@ -36,5 +36,10 @@ export const useRegistrationStore = defineStore('registration', {
       data: JSON.parse(localStorage.getItem('thirdStage')) || null,
       isLoading: false,
     },
+    userInfo: {
+      data: null,
+      error: null,
+      isLoading: false,
+    },
   }),
 })

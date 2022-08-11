@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useRegistrationStore } from '../../store/registration'
+import { RegistrationService } from '../../services'
 import StartForm from '@/components/StartForm'
 import UiButton from '@/ui/UiButton'
 import UiInputIntervalRange from '@/ui/UiInputIntervalRange'
@@ -79,6 +80,10 @@ const intervalTitle = computed(() => {
   return `${resultValue} 000 ₽`
 })
 
+const isLoading = computed(() => registrationStore.userInfo.isLoading)
+
+const registrationError = computed(() => registrationStore.userInfo.error)
+
 watch(isAnimate, () => {
   if (isAnimate.value) {
     stopAnimateByTimeout()
@@ -105,7 +110,7 @@ const clickFormatHandler = (format) => {
   )
 }
 
-const clickHandler = () => {
+const clickHandler = async () => {
   if (!selectedDatingFormat.value.length) {
     datingFormatError.value = true
     errorMessage.value = 'Выберите формат общения'
@@ -120,7 +125,19 @@ const clickHandler = () => {
     return
   }
 
-  console.log('send')
+  datingFormat.value.forEach((format) => {
+    selectedDatingFormat.value.forEach((selectedFormat) => {
+      if (format.title === selectedFormat) {
+        format.active = true
+      }
+    })
+  })
+
+  await RegistrationService.setUserInfo({
+    datingFormats: datingFormat.value,
+    money: intervalValue.value,
+    about: about.value,
+  })
 }
 
 const startAnimate = () => {
@@ -191,15 +208,25 @@ const stopAnimateByTimeout = () => {
             />
           </div>
 
-          <div v-if="datingFormatError || aboutError" class="fourth__error">
-            <UiErrorMessage :message="errorMessage" />
+          <div
+            v-if="datingFormatError || aboutError || registrationError?.status"
+            class="fourth__error"
+          >
+            <UiErrorMessage
+              :message="errorMessage || registrationError?.message"
+            />
           </div>
         </div>
       </StartForm>
     </div>
 
     <div class="fourth__button">
-      <UiButton size="big" title="Продолжить" @click="clickHandler()" />
+      <UiButton
+        size="big"
+        title="Продолжить"
+        :is-loading="isLoading"
+        @click="clickHandler()"
+      />
     </div>
   </div>
 </template>

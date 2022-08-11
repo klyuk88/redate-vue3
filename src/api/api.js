@@ -140,6 +140,28 @@ class ApiService {
       return { data: null, error: { status: true, message: error.message } }
     }
   }
+
+  async setUserInfo(info) {
+    try {
+      const setUserInfoRequestData = info
+
+      const setUserInfoResponse = await API.post(
+        '/user/set/info',
+        setUserInfoRequestData
+      )
+
+      if (!setUserInfoResponse.status) {
+        throw new Error(setUserInfoResponse.message)
+      }
+
+      return {
+        data: setUserInfoResponse.data,
+        error: { status: false, message: '' },
+      }
+    } catch (error) {
+      return { data: null, error: { status: true, message: error.message } }
+    }
+  }
 }
 
 export const Api = new ApiService()

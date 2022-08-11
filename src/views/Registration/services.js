@@ -4,6 +4,8 @@ import { useDatabaseStore } from '@/stores/database'
 import { useRegistrationStore } from './store/registration'
 import { RegistrationApi } from './api'
 import { encryptPassword } from '@/services/encrypt'
+import { DatabaseService } from '@/services/database'
+import { Api } from '@/api/api'
 
 class Service {
   constructor() {
@@ -176,6 +178,214 @@ class Service {
     this.registrationStore.thirdStage.isLoading = false
 
     this.router.push({ name: 'Registration fourth' })
+  }
+
+  async setUserInfo(info) {
+    this.registrationStore.userInfo.isLoading = true
+
+    const secondStage = this.registrationStore.secondStage.data
+
+    const thirdStage = this.registrationStore.thirdStage.data
+
+    const fourthStage = info
+
+    let countries = this.databaseStore.countries.data
+    let cities = this.databaseStore.cities.data
+
+    if (!countries.length || !cities.length) {
+      await DatabaseService.countries()
+
+      const countriesError = this.databaseStore.countries.error
+
+      if (countriesError?.status) {
+        this.registrationStore.userInfo.error = countriesError
+
+        this.registrationStore.userInfo.isLoading = false
+
+        return
+      }
+
+      countries = this.databaseStore.countries.data
+
+      await DatabaseService.cities()
+
+      const citiesError = this.databaseStore.countries.error
+
+      if (citiesError?.status) {
+        this.registrationStore.userInfo.error = citiesError
+
+        this.registrationStore.userInfo.isLoading = false
+
+        return
+      }
+
+      cities = this.databaseStore.cities.data
+    }
+
+    const countryId = countries.filter(
+      (country) => country.name === secondStage.country
+    )[0]?.id
+
+    const formatCities = []
+
+    cities.forEach((list) => {
+      formatCities.push(...list)
+    })
+
+    const cityId = formatCities.filter(
+      (city) => city.name === secondStage.city
+    )[0]?.id
+
+    let nationalities = this.databaseStore.nationalities.data
+
+    if (!nationalities.length) {
+      await DatabaseService.nationalities()
+
+      const nationalitiesError = this.databaseStore.nationalities.error
+
+      if (nationalitiesError?.status) {
+        this.registrationStore.userInfo.error = nationalitiesError
+
+        this.registrationStore.userInfo.isLoading = false
+
+        return
+      }
+
+      nationalities = this.databaseStore.nationalities.data
+    }
+
+    const sex = this.registrationStore.sex === '1'
+
+    const nationalityId = nationalities.filter((nationality) =>
+      sex
+        ? nationality.nameMan === secondStage.nationality
+        : nationality.nameWomen === secondStage.nationality
+    )[0]?.id
+
+    const datingFormats = fourthStage.datingFormats
+      .filter((format) => format.active)
+      .map((format) => format.id.toString())
+
+    const smoke = thirdStage.attitudeTowardsSmoking
+      .filter((smoke) => smoke.active)
+      .map((smoke) => smoke.id)[0]
+
+    const alcohol = thirdStage.attitudeToAlcohol
+      .filter((alcohol) => alcohol.active)
+      .map((alcohol) => alcohol.id)[0]
+
+    let hobbies = this.databaseStore.hobbies.data
+
+    if (!hobbies.length) {
+      await DatabaseService.hobbies()
+
+      const hobbiesError = this.databaseStore.hobbies.error
+
+      if (hobbiesError?.status) {
+        this.registrationStore.userInfo.error = hobbiesError
+
+        this.registrationStore.userInfo.isLoading = false
+
+        return
+      }
+
+      hobbies = this.databaseStore.hobbies.data
+    }
+
+    const hobbiesNames = thirdStage.hobbies
+      .filter((hobby) => hobby.active)
+      .map((hobby) => hobby.title)
+
+    const hobbiesIds = hobbies
+      .filter((hobby) => {
+        let status = false
+
+        hobbiesNames.forEach((hobbyName) => {
+          if (hobby.name === hobbyName) {
+            status = true
+          }
+        })
+
+        return status
+      })
+      .map((hobby) => hobby.id)
+
+    let languages = this.databaseStore.languages.data
+
+    if (!languages.length) {
+      await DatabaseService.languages()
+
+      const languagesError = this.databaseStore.languages.error
+
+      if (languagesError?.status) {
+        this.registrationStore.userInfo.error = languagesError
+
+        this.registrationStore.userInfo.isLoading = false
+
+        return
+      }
+
+      languages = this.databaseStore.languages.data
+    }
+
+    const languagesNames = thirdStage.languages
+      .filter((language) => language.active)
+      .map((language) => language.title)
+
+    const languagesIds = languages
+      .filter((language) => {
+        let status = false
+
+        languagesNames.forEach((languageName) => {
+          if (language.name === languageName) {
+            status = true
+          }
+        })
+
+        return status
+      })
+      .map((language) => language.id)
+
+    const requestData = {
+      country: countryId,
+      city: cityId,
+      nationality: nationalityId,
+      height: Number(secondStage.growth),
+      weight: Number(secondStage.weight),
+      bdate: `${secondStage.yearValue}-${secondStage.monthValue}-${secondStage.dayValue}T00:00:00+0300`,
+      name: secondStage.name,
+      about: fourthStage.about,
+      monthMoney: fourthStage.money * 100000,
+      datingFormats,
+      smoke,
+      alcohol,
+      hobbies: hobbiesIds,
+      languages: languagesIds,
+    }
+
+    if (!sex) {
+      requestData.womenParameters = {
+        breast: Number(secondStage.breast),
+        waist: Number(secondStage.waist),
+        tips: Number(secondStage.tips),
+      }
+    }
+
+    const { data, error } = await Api.setUserInfo(requestData)
+
+    if (error.status) {
+      this.registrationStore.userInfo.error = error
+
+      this.registrationStore.userInfo.isLoading = false
+
+      return
+    }
+
+    this.registrationStore.userInfo.data = data
+
+    this.registrationStore.userInfo.isLoading = false
+
+    this.router.push({ name: 'Registration fifth' })
   }
 }
 
