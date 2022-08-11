@@ -322,7 +322,7 @@ const stopAnimateByTimeout = () => {
 
     &__form {
       width: 100%;
-      margin-top: 130px;
+      margin-top: 140px;
     }
 
     &__button {
@@ -330,7 +330,15 @@ const stopAnimateByTimeout = () => {
       justify-content: center;
       width: 100%;
       margin-top: 48px;
-      margin-bottom: 24px;
+      margin-bottom: 132px;
+    }
+
+    &__interval-range {
+      margin-top: 30px;
+    }
+
+    &__line {
+      margin-top: 40px;
     }
   }
 }
