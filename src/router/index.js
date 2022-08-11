@@ -63,18 +63,23 @@ router.beforeEach(async (to) => {
     // }
 
     if (!registrationStatus.inSearch) {
+      // const path = to.matched[1]?.path || null
+
+      // path === '/account/:user/edit'
+
       if (
         to.path === '/registration/second' ||
         to.path === '/registration/third' ||
         to.path === '/registration/fourth' ||
         to.path === '/registration/fifth' ||
         to.path === '/registration/hobbies' ||
-        to.path === '/registration/languages'
+        to.path === '/registration/languages' ||
+        to.path === '/main'
       ) {
         return
       }
 
-      return { name: 'Registration second' }
+      return { name: 'Main' }
     }
 
     if (!to.meta.auth) {

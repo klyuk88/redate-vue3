@@ -181,6 +181,7 @@ const routes = [
       },
       {
         path: 'edit',
+        name: 'Account edit',
         components: {
           default: () => import('@/components/Profile/MyProfileEdit.vue'),
         },
