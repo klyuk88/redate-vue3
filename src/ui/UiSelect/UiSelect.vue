@@ -12,10 +12,14 @@ const props = defineProps({
     default: '',
   },
   value: {
-    type: [String, null],
+    type: [String, Array, null],
     required: true,
   },
   error: {
+    type: Boolean,
+    default: false,
+  },
+  multiple: {
     type: Boolean,
     default: false,
   },
@@ -31,12 +35,24 @@ const cssClasses = computed(() => {
   return {
     ['ui-select__select--error']: props.error,
     ['ui-select__select--is-open']: isOpen.value,
+    ['ui-select__select--multiple']: props.multiple,
   }
 })
 
 watch(privateValue, () => {
-  emits('update:value', privateValue?.value || '')
+  if (props.value !== privateValue.value) {
+    emits('update:value', privateValue.value)
+  }
 })
+
+watch(
+  () => props.value,
+  (value) => {
+    if (value !== privateValue.value) {
+      privateValue.value = props.value
+    }
+  }
+)
 
 const openHandler = () => {
   isOpen.value = true
@@ -53,6 +69,7 @@ const openHandler = () => {
       class="ui-select__select"
       :class="cssClasses"
       :options="values"
+      :multiple="multiple"
       @open="openHandler()"
       @close="isOpen = false"
       @focus="emits('focus')"
@@ -77,11 +94,19 @@ const openHandler = () => {
       </template>
       <template #no-options="{}">Совпадений не найдено</template>
     </VueSelect>
+
+    <div
+      v-if="multiple && privateValue.length > 0"
+      class="ui-select__placeholder"
+      v-html="placeholder"
+    ></div>
   </div>
 </template>
 
 <style lang="scss">
 .ui-select {
+  position: relative;
+
   &__select {
     position: relative;
 
@@ -104,7 +129,16 @@ const openHandler = () => {
       }
     }
 
+    &--multiple {
+      .vs__selected-options {
+        .vs__selected {
+          display: none;
+        }
+      }
+    }
+
     .vs__dropdown-toggle {
+      overflow: hidden;
       position: relative;
       z-index: 1;
       width: 100%;
@@ -125,6 +159,9 @@ const openHandler = () => {
       color: #fff;
       font-size: 16px;
       position: static !important;
+      background: transparent;
+      border: none;
+      width: auto;
     }
 
     .vs__search::placeholder {
@@ -166,6 +203,19 @@ const openHandler = () => {
 
     :root {
       --vs-dropdown-max-height: 250px;
+    }
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 21.5px;
+    left: 15.5px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 16px;
+    font-family: 'Mulish';
+
+    span {
+      color: #2e66f5;
     }
   }
 }

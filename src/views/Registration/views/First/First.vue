@@ -2,12 +2,12 @@
 import { ref, watch, computed } from 'vue'
 import { useRegistrationStore } from '../../store/registration'
 import { RegistrationService } from '../../services'
+import StartForm from '@/components/StartForm'
 import UiButton from '@/ui/UiButton'
 import UiTextLink from '@/ui/UiTextLink'
 import UiInput from '@/ui/UiInput'
 import UiErrorMessage from '@/ui/UiErrorMessage'
 import UiTerms from '@/ui/UiTerms'
-import StartForm from '@/components/StartForm'
 
 const registrationStore = useRegistrationStore()
 

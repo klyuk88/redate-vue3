@@ -45,6 +45,7 @@ const routes = [
         meta: {
           backUrl: null,
           steps: [],
+          step: false,
         },
       },
       {
@@ -56,6 +57,7 @@ const routes = [
         meta: {
           backUrl: '/registration/confirm',
           steps: [true, false, false, false],
+          step: false,
         },
       },
       {
@@ -67,6 +69,7 @@ const routes = [
         meta: {
           backUrl: '/registration/first',
           steps: [],
+          step: false,
         },
       },
       {
@@ -78,6 +81,7 @@ const routes = [
         meta: {
           backUrl: '/registration/accept',
           steps: [true, true, false, false],
+          step: false,
         },
       },
       {
@@ -89,6 +93,7 @@ const routes = [
         meta: {
           backUrl: '/registration/second',
           steps: [true, true, true, false],
+          step: false,
         },
       },
       {
@@ -100,6 +105,7 @@ const routes = [
         meta: {
           backUrl: null,
           steps: [],
+          step: false,
         },
       },
       {
@@ -111,6 +117,7 @@ const routes = [
         meta: {
           backUrl: null,
           steps: [],
+          step: false,
         },
       },
       {
@@ -122,6 +129,19 @@ const routes = [
         meta: {
           backUrl: '/registration/third',
           steps: [true, true, true, true],
+          step: false,
+        },
+      },
+      {
+        path: 'fifth',
+        name: 'Registration fifth',
+        components: {
+          default: () => import('@/views/Registration/views/Fifth'),
+        },
+        meta: {
+          backUrl: '/registration/fourth',
+          steps: [],
+          step: true,
         },
       },
     ],
