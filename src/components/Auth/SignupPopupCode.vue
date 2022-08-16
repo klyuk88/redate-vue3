@@ -54,7 +54,9 @@ const onPaste = (event) => {
 
 <template>
   <div class="backgound__codeconfirm">
-    <slot name="backPhaseOne"></slot>
+    <div class="back__arrow">
+      <slot name="backPhaseOne"></slot>
+    </div>
     <div class="container__codeconfirm">
       <div class="form">
         <div class="content">
@@ -100,13 +102,13 @@ const onPaste = (event) => {
     line-height: 153.5%;
     color: rgba(255, 255, 255, 0.4);
   }
-    span {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 153.5%;
-      color: #ffffff;
-      margin-left: 4px;
-    }
+  span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 153.5%;
+    color: #ffffff;
+    margin-left: 4px;
+  }
 }
 .backgound__codeconfirm {
   .container__codeconfirm {
@@ -174,6 +176,9 @@ const onPaste = (event) => {
 }
 @media (max-width: 1200px) {
   .backgound__codeconfirm {
+    .back__arrow {
+      display: none;
+    }
     .container__codeconfirm {
       margin-bottom: 306px;
       .content {
