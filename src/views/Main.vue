@@ -66,6 +66,9 @@ const openModal = (params) => {
 
 <template>
   <div id="main-content">
+    <div class="mainpage__animation-ball"></div>
+    <div class="mainpage__animation-ball-right"></div>
+
     <Substrate v-if="showSubstrate" />
 
     <NewSendModal v-if="!citiesError" />
@@ -226,4 +229,42 @@ const openModal = (params) => {
   -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 50%,black 10%,transparent 50%)
   opacity: 0.3
   pointer-events: none
+
+.mainpage__animation-ball
+  width: 150px
+  height: 100px
+  background-color: rgb(43, 102, 251)
+  border-radius: 70%
+  box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57, 0 0 210px 360px #2966ff1c
+  position: fixed
+  animation-name: verticalSlideLeft
+  animation-duration: 1.5s
+  animation-iteration-count: infinite
+  animation-direction: alternate-reverse
+  bottom: 0
+  left: -150px
+.mainpage__animation-ball-right
+  width: 150px
+  height: 100px
+  background-color: rgb(43, 102, 251)
+  border-radius: 70%
+  box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57, 0 0 210px 360px #2966ff1c
+  position: fixed 
+  right: -150px
+  top: 0
+  animation-name: verticalSlideRight
+  animation-duration: 1.5s
+  animation-iteration-count: infinite
+  animation-direction: alternate-reverse
+
+@keyframes verticalSlideLeft
+  from
+    margin-bottom: 0%
+  to
+    margin-bottom: 50px
+@keyframes verticalSlideRight
+  from
+    margin-top: 0%
+  to
+    margin-top: 50px
 </style>

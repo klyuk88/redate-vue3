@@ -90,6 +90,9 @@ const stopAnimateByTimeout = () => {
 
 <template>
   <div class="auth">
+    <div class="auth__animation-ball"></div>
+    <div class="auth__animation-ball right"></div>
+
     <div class="auth__back-link">
       <UiBackLink @click="backLinkClickHandler()" />
     </div>
@@ -170,6 +173,29 @@ const stopAnimateByTimeout = () => {
   min-height: 939px;
   background: #1c1d21;
 
+  &__animation-ball {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(43, 102, 251);
+    border-radius: 70%;
+    box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57,
+      0 0 210px 360px #2966ff1c;
+    position: fixed;
+    animation-name: verticalSlideLeft;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    top: 0;
+    left: -150px;
+    &.right {
+      top: unset;
+      left: unset;
+      right: -150px;
+      bottom: 0;
+      animation-name: verticalSlideRight;
+    }
+  }
+
   &__back-link {
     position: fixed;
     top: 70px;
@@ -204,6 +230,23 @@ const stopAnimateByTimeout = () => {
 
   &__error {
     margin-top: 10px;
+  }
+}
+
+@keyframes verticalSlideLeft {
+  from {
+    margin-top: 0%;
+  }
+  to {
+    margin-top: 50%;
+  }
+}
+@keyframes verticalSlideRight {
+  from {
+    margin-bottom: 0%;
+  }
+  to {
+    margin-bottom: 50%;
   }
 }
 
