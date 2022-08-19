@@ -41,5 +41,30 @@ export const useRegistrationStore = defineStore('registration', {
       error: null,
       isLoading: false,
     },
+    randomPhoto: {
+      data: null,
+      error: null,
+      isLoading: false,
+    },
+    photoList: {
+      data: [],
+      error: null,
+      isLoading: false,
+    },
+    addPhoto: {
+      data: null,
+      error: null,
+      isLoading: false,
+    },
+    setAvatar: {
+      data: null,
+      error: null,
+      isLoading: false,
+    },
+    deletePhoto: {
+      data: null,
+      error: null,
+      isLoading: false,
+    },
   }),
 })

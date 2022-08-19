@@ -387,6 +387,156 @@ class Service {
 
     this.router.push({ name: 'Registration fifth' })
   }
+
+  async photoList() {
+    this.registrationStore.photoList.isLoading = true
+
+    const { data, error } = await RegistrationApi.photoList()
+
+    if (error.status) {
+      this.registrationStore.photoList.error = error
+
+      this.registrationStore.photoList.isLoading = false
+
+      return
+    }
+
+    const photos = data.list
+
+    const promises = []
+
+    photos.forEach((photo) => {
+      promises.push(RegistrationApi.photoById(photo.id))
+    })
+
+    const result = await Promise.all(promises)
+
+    photos.forEach((photo, idx) => {
+      photo.arraybuffer = result[idx]?.data
+      photo.error = result[idx]?.error
+    })
+
+    this.registrationStore.photoList.data = photos
+      .filter((photo) => !photo.error.status)
+      .map((photo) => {
+        return {
+          ...photo,
+          src: `data:image;base64,${btoa(
+            String.fromCharCode.apply(null, new Uint8Array(photo.arraybuffer))
+          )}`,
+        }
+      })
+
+    this.registrationStore.photoList.isLoading = false
+  }
+
+  async randomPhoto() {
+    this.registrationStore.randomPhoto.isLoading = true
+
+    const { data, error } = await RegistrationApi.randomPhoto()
+
+    if (error.status) {
+      const photoListResponse = await RegistrationApi.photoList()
+
+      if (photoListResponse.error.status) {
+        this.registrationStore.randomPhoto.error = photoListResponse.error
+
+        this.registrationStore.randomPhoto.isLoading = false
+
+        return
+      }
+
+      const photo = photoListResponse.data.list.filter((item) => item.avatar)[0]
+
+      const photoByIdResponse = await RegistrationApi.photoById(photo.id)
+
+      if (photoByIdResponse.error.status) {
+        this.registrationStore.randomPhoto.error = error
+
+        this.registrationStore.randomPhoto.isLoading = false
+
+        return
+      }
+
+      this.registrationStore.randomPhoto.data = `data:image;base64,${btoa(
+        String.fromCharCode.apply(null, new Uint8Array(photoByIdResponse.data))
+      )}`
+
+      this.registrationStore.randomPhoto.isLoading = false
+
+      return
+    }
+
+    const photoByIdResponse = await RegistrationApi.photoById(data.id)
+
+    if (photoByIdResponse.error.status) {
+      this.registrationStore.randomPhoto.error = error
+
+      this.registrationStore.randomPhoto.isLoading = false
+
+      return
+    }
+
+    this.registrationStore.randomPhoto.data = `data:image;base64,${btoa(
+      String.fromCharCode.apply(null, new Uint8Array(photoByIdResponse.data))
+    )}`
+
+    this.registrationStore.randomPhoto.isLoading = false
+  }
+
+  async addPhoto(file) {
+    this.registrationStore.addPhoto.isLoading = true
+
+    const { data, error } = await RegistrationApi.addPhoto(file)
+
+    if (error.status) {
+      this.registrationStore.addPhoto.error = error
+
+      this.registrationStore.addPhoto.isLoading = false
+
+      return
+    }
+
+    this.registrationStore.addPhoto.data = data
+
+    this.registrationStore.addPhoto.isLoading = false
+  }
+
+  async setAvatar(id) {
+    this.registrationStore.setAvatar.isLoading = true
+
+    const { data, error } = await RegistrationApi.setAvatar(id)
+
+    if (error.status) {
+      this.registrationStore.setAvatar.error = error
+
+      this.registrationStore.setAvatar.isLoading = false
+
+      return
+    }
+
+    this.registrationStore.setAvatar.data = data
+
+    this.registrationStore.setAvatar.isLoading = false
+  }
+
+  async deletePhoto(id) {
+    this.registrationStore.deletePhoto.isLoading = true
+
+    const { data, error } = await RegistrationApi.deletePhoto(id)
+
+    if (error.status) {
+      this.registrationStore.deletePhoto.error = error
+
+      this.registrationStore.deletePhoto.isLoading = false
+
+      return
+    }
+
+    this.registrationStore.deletePhoto.data = data
+
+    this.registrationStore.deletePhoto.isLoading = false
+  }
 }
 
 export const RegistrationService = new Service()

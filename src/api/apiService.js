@@ -27,23 +27,27 @@ class ApiService {
     return tokens?.access?.token
   }
 
-  async get(url) {
+  async get(url, responseType = null) {
     const config = { url, method: 'GET' }
 
-    const response = await this.request(config)
+    const response = await this.request(config, responseType)
 
     return response
   }
 
-  async post(url, data) {
+  async post(url, data, headers = null) {
     const config = { url, method: 'POST', data }
 
+    if (headers !== null) {
+      config.headers = headers
+    }
+
     const response = await this.request(config)
 
     return response
   }
 
-  async request(requestConfig) {
+  async request(requestConfig, responseType = null) {
     try {
       const token = this.getToken()
 
@@ -60,9 +64,13 @@ class ApiService {
         }
       )
 
+      if (responseType !== null) {
+        requestConfig.responseType = responseType
+      }
+
       const response = await this.client(requestConfig)
 
-      return { status: true, data: response.data }
+      return { status: true, data: response.data, headers: response.headers }
     } catch (error) {
       return this.handleError(error)
     }

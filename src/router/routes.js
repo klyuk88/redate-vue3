@@ -144,6 +144,18 @@ const routes = [
           step: true,
         },
       },
+      {
+        path: 'success',
+        name: 'Registration success',
+        components: {
+          default: () => import('@/views/Registration/views/Success'),
+        },
+        meta: {
+          backUrl: null,
+          steps: [],
+          step: false,
+        },
+      },
     ],
     meta: {
       layout: 'auth-layout',

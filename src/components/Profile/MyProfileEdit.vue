@@ -8,8 +8,6 @@ import IntervalRange from '../Form/IntervalRange.vue'
 
 const userStore = useUserStore()
 
-
-
 const modalDeleteAcc = ref(false)
 const passConfirm = ref(true)
 const femaleVersion = ref(true)

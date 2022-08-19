@@ -53,7 +53,7 @@ export const useUserStore = defineStore('user', {
       try {
         this.information.isLoading = true
 
-        const informationResponse = await API.get('/users/me')
+        const informationResponse = await API.get('/user/info')
 
         if (!informationResponse.status) {
           throw new Error(informationResponse.message)
@@ -62,11 +62,15 @@ export const useUserStore = defineStore('user', {
         this.information.data = informationResponse.data
 
         this.information.isLoading = false
+
+        return this.information.data
       } catch (error) {
         this.information.error.status = true
         this.information.error.message = error.message
 
         this.information.isLoading = false
+
+        return this.information.error
       }
     },
 
