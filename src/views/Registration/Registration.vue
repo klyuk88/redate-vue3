@@ -25,6 +25,9 @@ const backLinkClickHandler = () => {
 
 <template>
   <div class="registration">
+    <div class="registration__animation-ball"></div>
+    <div class="registration__animation-ball right"></div>
+
     <div v-if="isBackLink" class="registration__back-link">
       <UiBackLink @click="backLinkClickHandler()" />
     </div>
@@ -45,6 +48,30 @@ const backLinkClickHandler = () => {
 .registration {
   position: relative;
   z-index: 1;
+
+  &__animation-ball {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(43, 102, 251);
+    border-radius: 70%;
+    box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57,
+      0 0 210px 360px #2966ff1c;
+    position: fixed;
+    animation-name: verticalSlideLeft;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    left: -150px;
+    &.right {
+      left: unset;
+      right: -150px;
+      bottom: 0;
+      animation-name: verticalSlideRight;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+    }
+  }
 
   &__back-link {
     position: fixed;
@@ -71,6 +98,23 @@ const backLinkClickHandler = () => {
     height: 4px;
     background: #2b66fb;
     border-radius: 1px;
+  }
+}
+
+@keyframes verticalSlideLeft {
+  from {
+    margin-top: 0%;
+  }
+  to {
+    margin-top: 50%;
+  }
+}
+@keyframes verticalSlideRight {
+  from {
+    margin-bottom: 5%;
+  }
+  to {
+    margin-bottom: 50%;
   }
 }
 
