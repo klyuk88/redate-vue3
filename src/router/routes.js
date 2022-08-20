@@ -156,6 +156,18 @@ const routes = [
           step: false,
         },
       },
+      {
+        path: 'verification',
+        name: 'Registration verification',
+        components: {
+          default: () => import('@/views/Registration/views/Verification'),
+        },
+        meta: {
+          backUrl: null,
+          steps: [],
+          step: false,
+        },
+      },
     ],
     meta: {
       layout: 'auth-layout',

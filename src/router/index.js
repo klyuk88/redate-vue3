@@ -78,12 +78,21 @@ router.beforeEach(async (to) => {
         to.path === '/registration/hobbies' ||
         to.path === '/registration/languages' ||
         to.path === '/registration/success' ||
+        to.path === '/registration/verification' ||
         to.path === '/main'
       ) {
         return
       }
 
       return { name: 'Main' }
+    }
+
+    if (!registrationStatus.verification && sex === '2') {
+      if (to.path === '/registration/verification') {
+        return
+      }
+
+      return { name: 'Registration verification' }
     }
 
     if (to.path === '/registration/success') {

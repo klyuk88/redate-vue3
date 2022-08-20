@@ -273,7 +273,7 @@ const deletePhotoHandler = async (id) => {
       />
     </div>
     <div
-      v-if="sex === 2 && image === null && image === ''"
+      v-if="sex === '2' && image !== null && image !== ''"
       class="fifth__button"
     >
       <UiButton

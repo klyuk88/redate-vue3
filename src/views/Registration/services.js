@@ -276,7 +276,7 @@ class Service {
         .map((format) => format.id.toString())
     }
 
-    let smoke = []
+    let smoke = 2
 
     if (thirdStage?.attitudeTowardsSmoking) {
       smoke = thirdStage.attitudeTowardsSmoking
@@ -284,7 +284,7 @@ class Service {
         .map((smoke) => smoke.id)[0]
     }
 
-    let alcohol = []
+    let alcohol = 2
 
     if (thirdStage?.attitudeToAlcohol) {
       alcohol = thirdStage.attitudeToAlcohol
@@ -383,22 +383,10 @@ class Service {
       about: fourthStage.about,
       monthMoney: fourthStage.money * 100000,
       datingFormats,
-    }
-
-    if (smoke.length > 0) {
-      requestData.smoke = smoke
-    }
-
-    if (smoke.length > 0) {
-      requestData.alcohol = alcohol
-    }
-
-    if (hobbiesIds.length > 0) {
-      requestData.hobbies = hobbiesIds
-    }
-
-    if (languagesIds.length > 0) {
-      requestData.languages = languagesIds
+      smoke,
+      alcohol,
+      hobbies: hobbiesIds,
+      languages: languagesIds,
     }
 
     if (!sex) {
