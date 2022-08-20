@@ -21,9 +21,9 @@ const props = defineProps({
 })
 
 const emits = defineEmits([
-  'update:breast',
-  'update:waist',
-  'update:tips',
+  'update:breast-value',
+  'update:waist-value',
+  'update:tips-value',
   'focus',
 ])
 
@@ -47,7 +47,7 @@ const inputBreastHandler = (event) => {
     waistRef.value.focus()
   }
 
-  emits('update:breast', event.target.value)
+  emits('update:breast-value', event.target.value)
 }
 
 const inputWaistHandler = (event) => {
@@ -61,7 +61,7 @@ const inputWaistHandler = (event) => {
     breastRef.value.focus()
   }
 
-  emits('update:waist', event.target.value)
+  emits('update:waist-value', event.target.value)
 }
 
 const inputTipsHandler = (event) => {
@@ -71,7 +71,7 @@ const inputTipsHandler = (event) => {
     waistRef.value.focus()
   }
 
-  emits('update:tips', event.target.value)
+  emits('update:tips-value', event.target.value)
 }
 
 const focusHandler = () => {

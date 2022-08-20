@@ -46,6 +46,7 @@ export const useUserStore = defineStore('user', {
       data: localStorage.getItem('forbidden') || null,
       isLoading: false,
     },
+    email: localStorage.getItem('email') || null,
   }),
 
   actions: {

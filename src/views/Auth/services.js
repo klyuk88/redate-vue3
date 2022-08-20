@@ -32,6 +32,8 @@ class Service {
 
     localStorage.setItem('email', email)
 
+    this.userStore.email = email
+
     this.authStore.auth.isLoading = false
 
     this.router.push({ name: 'Main' })

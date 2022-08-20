@@ -15,7 +15,9 @@ class ApiService {
 
       const registrationResponse = await API.post(
         '/auth/registration',
-        registrationRequestData
+        registrationRequestData,
+        null,
+        true
       )
 
       if (!registrationResponse.status) {

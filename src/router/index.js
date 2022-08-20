@@ -59,7 +59,10 @@ router.beforeEach(async (to) => {
     const registrationStatus = await userStore.getRegistrationStatus()
 
     if (!registrationStatus.acceptEmail) {
-      if (to.path === '/registration/accept') {
+      if (
+        to.path === '/registration/accept' ||
+        to.path === '/registration/first'
+      ) {
         return
       }
 

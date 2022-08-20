@@ -52,6 +52,8 @@ class Service {
 
     localStorage.setItem('email', email)
 
+    this.userStore.email = email
+
     this.registrationStore.registration.data = data
 
     this.userStore.setTokens(data)
@@ -64,7 +66,7 @@ class Service {
   async acceptEmail(code) {
     this.registrationStore.acceptEmail.isLoading = true
 
-    let { email } = this.registrationStore
+    let { email } = this.userStore
 
     if (!email === null) {
       email = localStorage.getItem('email')
@@ -266,17 +268,29 @@ class Service {
         : nationality.nameWomen === secondStage.nationality
     )[0]?.id
 
-    const datingFormats = fourthStage.datingFormats
-      .filter((format) => format.active)
-      .map((format) => format.id.toString())
+    let datingFormats = []
 
-    const smoke = thirdStage.attitudeTowardsSmoking
-      .filter((smoke) => smoke.active)
-      .map((smoke) => smoke.id)[0]
+    if (fourthStage?.datingFormats) {
+      datingFormats = fourthStage.datingFormats
+        .filter((format) => format.active)
+        .map((format) => format.id.toString())
+    }
 
-    const alcohol = thirdStage.attitudeToAlcohol
-      .filter((alcohol) => alcohol.active)
-      .map((alcohol) => alcohol.id)[0]
+    let smoke = []
+
+    if (thirdStage?.attitudeTowardsSmoking) {
+      smoke = thirdStage.attitudeTowardsSmoking
+        .filter((smoke) => smoke.active)
+        .map((smoke) => smoke.id)[0]
+    }
+
+    let alcohol = []
+
+    if (thirdStage?.attitudeToAlcohol) {
+      alcohol = thirdStage.attitudeToAlcohol
+        .filter((alcohol) => alcohol.active)
+        .map((alcohol) => alcohol.id)[0]
+    }
 
     let hobbies = this.databaseStore.hobbies.data
 
@@ -296,9 +310,13 @@ class Service {
       hobbies = this.databaseStore.hobbies.data
     }
 
-    const hobbiesNames = thirdStage.hobbies
-      .filter((hobby) => hobby.active)
-      .map((hobby) => hobby.title)
+    let hobbiesNames = []
+
+    if (thirdStage?.hobbies) {
+      hobbiesNames = thirdStage.hobbies
+        .filter((hobby) => hobby.active)
+        .map((hobby) => hobby.title)
+    }
 
     const hobbiesIds = hobbies
       .filter((hobby) => {
@@ -332,9 +350,13 @@ class Service {
       languages = this.databaseStore.languages.data
     }
 
-    const languagesNames = thirdStage.languages
-      .filter((language) => language.active)
-      .map((language) => language.title)
+    let languagesNames = []
+
+    if (thirdStage?.languages) {
+      languagesNames = thirdStage.languages
+        .filter((language) => language.active)
+        .map((language) => language.title)
+    }
 
     const languagesIds = languages
       .filter((language) => {
@@ -361,10 +383,22 @@ class Service {
       about: fourthStage.about,
       monthMoney: fourthStage.money * 100000,
       datingFormats,
-      smoke,
-      alcohol,
-      hobbies: hobbiesIds,
-      languages: languagesIds,
+    }
+
+    if (smoke.length > 0) {
+      requestData.smoke = smoke
+    }
+
+    if (smoke.length > 0) {
+      requestData.alcohol = alcohol
+    }
+
+    if (hobbiesIds.length > 0) {
+      requestData.hobbies = hobbiesIds
+    }
+
+    if (languagesIds.length > 0) {
+      requestData.languages = languagesIds
     }
 
     if (!sex) {
