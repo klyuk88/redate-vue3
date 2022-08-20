@@ -5,6 +5,7 @@ const maleActive = ref(false)
 const femaleActive = ref(false)
 const maleMobileActive = ref(false)
 const femaleMobileActive = ref(false)
+const sex = ref(localStorage.getItem('sex') || null)
 
 // const changeBackMale = () => {
 //   return (maleActive.value = !maleActive.value)
@@ -80,7 +81,7 @@ const setSex = (sex) => {
           />
         </div>
         <div class="signin__btn__block">
-          <router-link to="/auth">
+          <router-link v-if="sex !== null" to="/auth">
             <div class="btn">Войти</div>
           </router-link>
           <div class="mobile__btn__block">
@@ -140,7 +141,7 @@ const setSex = (sex) => {
           src="../../assets/images/main/main__page__mobile__logo.svg"
           alt=""
         />
-        <router-link to="/auth">
+        <router-link v-if="sex !== null" to="/auth">
           <div class="btn">Войти</div>
         </router-link>
       </div>
