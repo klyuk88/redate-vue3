@@ -9,9 +9,16 @@ const route = useRoute()
 
 const locations = useLocationsStore()
 
-const layout = computed(() =>
-  route.meta.layout === 'auth-layout' ? AuthLayout : DefaultLayout
-)
+const layout = computed(() => {
+  switch (route.meta.layout) {
+    case 'auth-layout':
+      return AuthLayout
+    case 'default-layout':
+      return DefaultLayout
+    default:
+      return null
+  }
+})
 
 onMounted(async () => {
   await locations.getLocations()

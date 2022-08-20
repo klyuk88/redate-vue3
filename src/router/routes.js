@@ -6,6 +6,7 @@ const routes = [
       default: () => import('@/views/Main.vue'),
     },
     meta: {
+      layout: 'default-layout',
       auth: true,
     },
   },
@@ -16,6 +17,7 @@ const routes = [
       default: () => import('@/views/Search.vue'),
     },
     meta: {
+      layout: 'default-layout',
       auth: true,
     },
   },
@@ -182,6 +184,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
     children: [
       {
@@ -224,6 +227,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -234,6 +238,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -244,6 +249,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -254,6 +260,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -264,6 +271,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -308,6 +316,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {

@@ -474,6 +474,14 @@ class Service {
 
       const photo = photoListResponse.data.list.filter((item) => item.avatar)[0]
 
+      if (!photo.id) {
+        this.registrationStore.randomPhoto.error = photoListResponse.error
+
+        this.registrationStore.randomPhoto.isLoading = false
+
+        return
+      }
+
       const photoByIdResponse = await RegistrationApi.photoById(photo.id)
 
       if (photoByIdResponse.error.status) {
