@@ -12,7 +12,7 @@ class ApiService {
         password: encryptedPassword,
       }
 
-      const authResponse = await API.post('/auth', authRequestData)
+      const authResponse = await API.post('/auth', authRequestData, null, true)
 
       if (!authResponse.status) {
         throw new Error(authResponse.message)
