@@ -232,17 +232,16 @@ h1 {
   //   animation-duration: 3s;
   //   animation-fill-mode: forwards;
   // }
-    &.femaleStyle {
+  &.femaleStyle {
     animation-name: changebackgroundfemale;
     animation-duration: 2s;
     animation-fill-mode: forwards;
   }
-    &.maleStyle {
-      animation-name: changebackgroundmale;
-      animation-duration: 3s;
-      animation-fill-mode: forwards;
-    }
-
+  &.maleStyle {
+    animation-name: changebackgroundmale;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
 }
 .background {
   width: 100%;
@@ -466,7 +465,6 @@ h1 {
   0% {
     opacity: 0.8;
     transform: translate(0, 0px);
-
   }
   50% {
     transform: translate(0, 50px);
@@ -515,7 +513,7 @@ h1 {
 }
 @keyframes transGlowWebMale {
   0% {
-    }
+  }
   100% {
     transform: translate(0, -300px);
     opacity: 0.8;

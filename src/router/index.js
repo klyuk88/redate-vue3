@@ -58,19 +58,13 @@ router.beforeEach(async (to) => {
 
     const registrationStatus = await userStore.getRegistrationStatus()
 
-    // if (!registrationStatus.acceptEmail) {
-    //   if (to.path === '/registration/accept') {
-    //     return
-    //   }
+    if (!registrationStatus.acceptEmail) {
+      if (to.path === '/registration/accept') {
+        return
+      }
 
-    //   return { name: 'Registration accept' }
-    // }
-
-    // if (!registrationStatus.verification) {
-    //   console.log('Check verification status')
-
-    //   return
-    // }
+      return { name: 'Registration accept' }
+    }
 
     if (!registrationStatus.inSearch) {
       if (
@@ -87,6 +81,10 @@ router.beforeEach(async (to) => {
       }
 
       return { name: 'Main' }
+    }
+
+    if (to.path === '/registration/success') {
+      return
     }
 
     if (!to.meta.auth) {

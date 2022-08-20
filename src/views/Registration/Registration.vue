@@ -62,6 +62,7 @@ const backLinkClickHandler = () => {
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
     left: -150px;
+
     &.right {
       left: unset;
       right: -150px;

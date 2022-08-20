@@ -80,7 +80,7 @@ const getPhotoList = async () => {
   await RegistrationService.photoList()
 
   image.value =
-    registrationStore.photoList.data.filter((photo) => photo.avatar)[0].src ||
+    registrationStore.photoList.data.filter((photo) => photo.avatar)[0]?.src ||
     null
 
   if (

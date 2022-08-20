@@ -64,7 +64,11 @@ class Service {
   async acceptEmail(code) {
     this.registrationStore.acceptEmail.isLoading = true
 
-    const { email } = this.registrationStore
+    let { email } = this.registrationStore
+
+    if (!email === null) {
+      email = localStorage.getItem('email')
+    }
 
     const codeStr = code.join('')
 
