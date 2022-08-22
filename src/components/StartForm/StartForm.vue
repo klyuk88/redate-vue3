@@ -17,7 +17,7 @@ const props = defineProps({
   type: {
     type: String,
     default: 'first',
-    validator: (prop) => ['first', 'second', 'third'].includes(prop),
+    validator: (prop) => ['first', 'second', 'third', 'fourth'].includes(prop),
   },
   icon: {
     type: String,
@@ -114,6 +114,11 @@ const cssClasses = computed(() => {
         width: 100%;
         max-width: 320px;
       }
+    }
+
+    &--fourth {
+      width: 461px;
+      padding: 48px;
     }
   }
 

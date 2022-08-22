@@ -27,23 +27,27 @@ class ApiService {
     return tokens?.access?.token
   }
 
-  async get(url) {
+  async get(url, responseType = null) {
     const config = { url, method: 'GET' }
 
-    const response = await this.request(config)
+    const response = await this.request(config, responseType)
 
     return response
   }
 
-  async post(url, data) {
+  async post(url, data, headers = null, withoutToken = false) {
     const config = { url, method: 'POST', data }
 
-    const response = await this.request(config)
+    if (headers !== null) {
+      config.headers = headers
+    }
+
+    const response = await this.request(config, null, withoutToken)
 
     return response
   }
 
-  async request(requestConfig) {
+  async request(requestConfig, responseType = null, withoutToken = false) {
     try {
       const token = this.getToken()
 
@@ -60,9 +64,21 @@ class ApiService {
         }
       )
 
+      if (responseType !== null) {
+        requestConfig.responseType = responseType
+      }
+
+      if (withoutToken) {
+        this.client.defaults.headers['Authorization'] = ''
+      } else {
+        this.client.defaults.headers[
+          'Authorization'
+        ] = `Bearer ${this.getToken()}`
+      }
+
       const response = await this.client(requestConfig)
 
-      return { status: true, data: response.data }
+      return { status: true, data: response.data, headers: response.headers }
     } catch (error) {
       return this.handleError(error)
     }

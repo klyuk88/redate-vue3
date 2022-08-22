@@ -1,5 +1,6 @@
 <script setup>
-import BigButton from '../Form/BigButton.vue';</script>
+import BigButton from '../Form/BigButton.vue'
+</script>
 
 <template>
   <div class="backgound__reg__done">

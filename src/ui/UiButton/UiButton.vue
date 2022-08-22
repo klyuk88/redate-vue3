@@ -16,7 +16,14 @@ const props = defineProps({
   size: {
     type: String,
     default: 'normal',
-    validator: (prop) => ['normal', 'normal-auto', 'big'].includes(prop),
+    validator: (prop) =>
+      [
+        'normal',
+        'normal-auto',
+        'normal-second',
+        'normal-third',
+        'big',
+      ].includes(prop),
   },
   disabled: {
     type: Boolean,
@@ -87,6 +94,30 @@ const clickHandler = () => {
   &--normal {
     width: 165px;
     height: 47px;
+  }
+
+  &--normal-second {
+    width: 228px;
+    height: 35px;
+
+    .ui-button__title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 132.5%;
+      color: #ffffff;
+    }
+  }
+
+  &--normal-third {
+    width: 197px;
+    height: 35px;
+
+    .ui-button__title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 132.5%;
+      color: #ffffff;
+    }
   }
 
   &--big {

@@ -16,6 +16,8 @@ const isBackLink = computed(
 
 const steps = computed(() => router.currentRoute?.value?.meta?.steps || [])
 
+const step = computed(() => router.currentRoute?.value?.meta?.step || false)
+
 const backLinkClickHandler = () => {
   router.push(router.currentRoute?.value?.meta?.backUrl || '/')
 }
@@ -33,6 +35,8 @@ const backLinkClickHandler = () => {
     <div class="registration__steps">
       <Steps :steps="steps" />
     </div>
+
+    <div v-if="step" class="registration__step"></div>
 
     <div class="registration__view">
       <router-view />
@@ -59,6 +63,7 @@ const backLinkClickHandler = () => {
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
     left: -150px;
+
     &.right {
       left: unset;
       right: -150px;
@@ -83,6 +88,18 @@ const backLinkClickHandler = () => {
     left: 50%;
     transform: translate(-50%, 0);
     z-index: 5;
+  }
+
+  &__step {
+    position: absolute;
+    top: 64px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 5;
+    width: 128px;
+    height: 4px;
+    background: #2b66fb;
+    border-radius: 1px;
   }
 }
 

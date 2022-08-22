@@ -28,10 +28,10 @@
       position: fixed;
       bottom: 0;
       right: 50px;
-        animation-name: symbolQuest;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
+      animation-name: symbolQuest;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
     }
     .notfound {
       &__animation-ball {
@@ -83,11 +83,11 @@
   }
 }
 @keyframes symbolQuest {
-0% {
-  transform: translate(0, 0);
-}
-100% {
-  transform: translate(70px, 30px);
-}
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(70px, 30px);
+  }
 }
 </style>

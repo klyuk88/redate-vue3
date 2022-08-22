@@ -19,6 +19,16 @@ router.beforeEach(async (to) => {
 
   const tokens = userStore.tokens.data || null
 
+  const sex = localStorage.getItem('sex') || null
+
+  if (sex === null) {
+    if (to.path === '/') {
+      return
+    }
+
+    return { name: 'StartPage' }
+  }
+
   if (tokens === null && to.meta.auth) {
     return { name: 'StartPage' }
   }
@@ -49,24 +59,17 @@ router.beforeEach(async (to) => {
     const registrationStatus = await userStore.getRegistrationStatus()
 
     if (!registrationStatus.acceptEmail) {
-      if (to.path === '/registration/accept') {
+      if (
+        to.path === '/registration/accept' ||
+        to.path === '/registration/first'
+      ) {
         return
       }
 
       return { name: 'Registration accept' }
     }
 
-    // if (!registrationStatus.verification) {
-    //   console.log('Check verification status')
-
-    //   return
-    // }
-
     if (!registrationStatus.inSearch) {
-      // const path = to.matched[1]?.path || null
-
-      // path === '/account/:user/edit'
-
       if (
         to.path === '/registration/second' ||
         to.path === '/registration/third' ||
@@ -74,12 +77,26 @@ router.beforeEach(async (to) => {
         to.path === '/registration/fifth' ||
         to.path === '/registration/hobbies' ||
         to.path === '/registration/languages' ||
+        to.path === '/registration/success' ||
+        to.path === '/registration/verification' ||
         to.path === '/main'
       ) {
         return
       }
 
       return { name: 'Main' }
+    }
+
+    if (!registrationStatus.verification && sex === '2') {
+      if (to.path === '/registration/verification') {
+        return
+      }
+
+      return { name: 'Registration verification' }
+    }
+
+    if (to.path === '/registration/success') {
+      return
     }
 
     if (!to.meta.auth) {

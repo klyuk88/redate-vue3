@@ -6,6 +6,7 @@ const routes = [
       default: () => import('@/views/Main.vue'),
     },
     meta: {
+      layout: 'default-layout',
       auth: true,
     },
   },
@@ -16,6 +17,7 @@ const routes = [
       default: () => import('@/views/Search.vue'),
     },
     meta: {
+      layout: 'default-layout',
       auth: true,
     },
   },
@@ -144,6 +146,30 @@ const routes = [
           step: true,
         },
       },
+      {
+        path: 'success',
+        name: 'Registration success',
+        components: {
+          default: () => import('@/views/Registration/views/Success'),
+        },
+        meta: {
+          backUrl: null,
+          steps: [],
+          step: false,
+        },
+      },
+      {
+        path: 'verification',
+        name: 'Registration verification',
+        components: {
+          default: () => import('@/views/Registration/views/Verification'),
+        },
+        meta: {
+          backUrl: null,
+          steps: [],
+          step: false,
+        },
+      },
     ],
     meta: {
       layout: 'auth-layout',
@@ -158,6 +184,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
     children: [
       {
@@ -200,6 +227,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -210,6 +238,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -220,6 +249,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -230,6 +260,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -240,6 +271,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {
@@ -284,6 +316,7 @@ const routes = [
     },
     meta: {
       auth: true,
+      layout: 'default-layout',
     },
   },
   {

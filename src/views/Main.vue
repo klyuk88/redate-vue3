@@ -254,7 +254,6 @@ const openModal = (params) => {
   box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57, 0 0 210px 360px #2966ff1c
   position: fixed 
   opacity: 0.35
-
   right: -150px
   top: 0
   animation-name: verticalSlideRight

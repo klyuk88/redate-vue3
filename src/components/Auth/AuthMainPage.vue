@@ -5,6 +5,7 @@ const maleActive = ref(false)
 const femaleActive = ref(false)
 const maleMobileActive = ref(false)
 const femaleMobileActive = ref(false)
+const sex = ref(localStorage.getItem('sex') || null)
 
 // const changeBackMale = () => {
 //   return (maleActive.value = !maleActive.value)
@@ -82,7 +83,7 @@ const setSex = (sex) => {
           />
         </div>
         <div class="signin__btn__block">
-          <router-link to="/auth">
+          <router-link v-if="sex !== null" to="/auth">
             <div class="btn">Войти</div>
           </router-link>
           <div class="mobile__btn__block">
@@ -113,7 +114,9 @@ const setSex = (sex) => {
           src="../../assets/images/main/mobileStartLogo.svg"
           alt=""
         />
-        <h1>Абсолютно новый формат знакомств</h1>
+        <router-link v-if="sex !== null" to="/auth">
+          <div class="btn">Войти</div>
+        </router-link>
       </div>
       <div class="mobile__main__screen">
         <div class="header">
@@ -287,16 +290,18 @@ h1 {
   animation-duration: 3s;
   animation-fill-mode: forwards;
 
-  &.maleStyle {
-    animation-name: changebackgroundmale;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-  }
   &.femaleStyle {
     animation-name: changebackgroundfemale;
     animation-duration: 3s;
     animation-fill-mode: forwards;
   }
+
+  &.maleStyle {
+    animation-name: changebackgroundmale;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+
 }
 .background {
   width: 100%;
@@ -416,6 +421,7 @@ h1 {
     background: url(../../assets/images/main/shadowStage.png);
     background-size: cover;
     background-position: center;
+
   }
   50% {
     background: url(../../assets/images/main/1stage.png);
@@ -437,6 +443,37 @@ h1 {
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes transGlowWebMale {
+  0% {
+  }
+  100% {
+    transform: translate(0, -300px);
+    opacity: 0.8;
+    // height: 250px;
+    border-radius: 40%;
+  }
+}
+@keyframes fadeFemaleGlow {
+  0% {
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+    transform: translate(0, 200px);
+  }
+}
+@keyframes transGlowWebFemale {
+  0% {
+  }
+  100% {
+    opacity: 0.7;
+    border-radius: 40%;
+    width: 180px;
+    height: 200px;
+    transform: translate(0, 200px);
+
   }
 }
 @keyframes startingAnim {

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, computed } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import { useRegistrationStore } from '../../store/registration'
 import { RegistrationService } from '../../services'
 import StartForm from '@/components/StartForm'
@@ -54,6 +54,10 @@ watch(passwordRepeat, () => {
     passwordRepeatError.value = false
     errorMessage.value = ''
   }
+})
+
+onMounted(() => {
+  localStorage.removeItem('tokens')
 })
 
 const buttonClickHandler = async () => {

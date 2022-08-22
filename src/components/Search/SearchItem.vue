@@ -33,8 +33,8 @@ const statusDiamond = ref(true)
         </div>
         <button
           class="dialog"
-          @click.stop="newMessage()"
           :class="{ diamond: statusDiamond }"
+          @click.stop="newMessage()"
         >
           <div v-if="!statusDiamond" class="send__img"></div>
           <!-- <img
