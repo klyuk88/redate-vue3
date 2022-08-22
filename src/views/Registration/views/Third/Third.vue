@@ -25,7 +25,7 @@ const attitudeToAlcohol = ref(
       },
       {
         id: 3,
-        title: 'Хорошее',
+        title: 'Положительное',
         active: false,
       },
     ]
@@ -46,7 +46,7 @@ const attitudeTowardsSmoking = ref(
       },
       {
         id: 3,
-        title: 'Хорошее',
+        title: 'Положительное',
         active: false,
       },
     ]

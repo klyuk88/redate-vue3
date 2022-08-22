@@ -180,6 +180,7 @@ const stopAnimateByTimeout = () => {
     border-radius: 70%;
     box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57,
       0 0 210px 360px #2966ff1c;
+      filter: blur(300px);
     position: fixed;
     animation-name: verticalSlideLeft;
     animation-duration: 7s;
@@ -256,6 +257,10 @@ const stopAnimateByTimeout = () => {
     min-height: auto;
     padding: 0 20px;
 
+    &__animation-ball {
+      display: none;
+    }
+
     &__back-link {
       display: none;
     }
@@ -285,5 +290,22 @@ const stopAnimateByTimeout = () => {
       margin: 180px 0 56px 0;
     }
   }
+@keyframes verticalSlideLeft {
+  from {
+    margin-top: 0%;
+  }
+  to {
+    margin-top: 200%;
+  }
 }
+@keyframes verticalSlideRight {
+  from {
+    margin-bottom: 0%;
+  }
+  to {
+    margin-bottom: 200%;
+  }
+}
+}
+
 </style>

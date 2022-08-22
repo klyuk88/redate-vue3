@@ -42,7 +42,7 @@ const clickHandler = (tab) => {
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 153.5%;
     color: rgba(255, 255, 255, 0.33);
     cursor: pointer;

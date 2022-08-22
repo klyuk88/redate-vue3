@@ -238,33 +238,39 @@ const openModal = (params) => {
   box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57, 0 0 210px 360px #2966ff1c
   position: fixed
   animation-name: verticalSlideLeft
-  animation-duration: 1.5s
+  animation-duration: 2s
   animation-iteration-count: infinite
   animation-direction: alternate-reverse
+  opacity: 0.35
   bottom: 0
   left: -150px
+  @media (max-width: 1200px) 
+    display: none
 .mainpage__animation-ball-right
   width: 150px
   height: 100px
   background-color: rgb(43, 102, 251)
   border-radius: 70%
   box-shadow: 0 0 90px 180px rgba(41, 102, 255), 0 0 150px 310px #2966ff57, 0 0 210px 360px #2966ff1c
-  position: fixed
+  position: fixed 
+  opacity: 0.35
   right: -150px
   top: 0
   animation-name: verticalSlideRight
-  animation-duration: 1.5s
+  animation-duration: 2s
   animation-iteration-count: infinite
   animation-direction: alternate-reverse
+  @media (max-width: 1200px) 
+    display: none
 
 @keyframes verticalSlideLeft
   from
     margin-bottom: 0%
   to
-    margin-bottom: 50px
+    margin-bottom: 90px
 @keyframes verticalSlideRight
   from
     margin-top: 0%
   to
-    margin-top: 50px
+    margin-top: 90px
 </style>
